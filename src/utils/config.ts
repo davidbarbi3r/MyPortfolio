@@ -80,12 +80,12 @@ const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   analytics?: unknown;
 };
 
-const DEFAULT_SITE_NAME = 'Website';
+const DEFAULT_SITE_NAME = 'test';
 
 const getSite = () => {
   const _default = {
     name: DEFAULT_SITE_NAME,
-    site: undefined,
+    site: "test",
     base: '/',
     trailingSlash: false,
 
@@ -121,7 +121,9 @@ const getI18N = () => {
     isEnabled: false,
     defaultLocale: 'en',
     locales: {
-      en: 'en-US',  // the `defaultLocale` value must present in `locales` keys
+      en: 'en-US',
+      fr: 'fr-FR',
+      it: 'it-IT'// the `defaultLocale` value must present in `locales` keys
     },
     textDirection: 'ltr',
   };

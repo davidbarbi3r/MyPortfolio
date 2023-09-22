@@ -31,12 +31,12 @@ export const get: APIRoute = async function get({ params, redirect }) {
 
   const posts = await fetchPosts(locale);
 
-  if (posts.length === 0) {
-    return new Response(null, {
-      status: 404,
-      statusText: 'Not Found',
-    });
-  }
+  // if (posts.length === 0) {
+  //   return new Response(null, {
+  //     status: 404,
+  //     statusText: 'Not Found',
+  //   });
+  // }
 
   const { body } = await rss({
     title: `${SITE.name}’s Blog`,

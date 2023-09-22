@@ -1,16 +1,15 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind-i18n.vercel.app'
+  name: David Barbier
+  site: 'https://www.davidbarbier.com'
   base: '/'
-  trailingSlash: true
+  trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
-
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
+    default: Freelance developer - David Barbier
+    template: '%s | Freelance developer - David Barbier'
   description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
     index: false
@@ -32,7 +31,7 @@ i18n:
   defaultLocale: en
   locales:
     en: en-US
-    it: it-IT
+    it: fr-FR
   textDirection: ltr
 
 apps:

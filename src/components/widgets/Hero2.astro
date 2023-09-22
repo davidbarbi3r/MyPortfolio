@@ -32,7 +32,7 @@ const {
       <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
         {tagline && (
           <p
-            class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
+            class="text-base text-emerald-900 dark:text-emerald-200 font-bold tracking-wide uppercase"
             set:html={tagline}
           />
         )}
@@ -55,7 +55,7 @@ const {
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
+                    <a class="btn btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 border-none hover:from-emerald-700 hover:to-emerald-500 sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
                       {callToAction?.icon && (
                         <>
                           <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5 rtl:-mr-1.5 rtl:ml-1" />{' '}
@@ -102,7 +102,7 @@ const {
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"
                   width={600}
-                  height={600}
+                  height={800}
                   {...image}
                 />
               )}

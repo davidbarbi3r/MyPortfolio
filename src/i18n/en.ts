@@ -1,5 +1,9 @@
 export const en = {
   header: {
+    home: 'Home',
+    services: 'Services',
+    about: 'About',
+    blog: 'Blog',
     homes: {
       title: 'Homes',
       saas: 'Saas',
@@ -26,63 +30,74 @@ export const en = {
       product: 'Product Details (or Services)',
       comingSoon: 'Coming Soon or Pre-Launch',
     },
-    blog: {
-      title: 'Blog',
-      blogList: 'Blog List',
-      article: 'Article',
-      articleMdx: 'Article (with MDX)',
-      category: 'Category Page',
-      tag: 'Tag Page',
-    },
+    // blog: {
+    //   title: 'Blog',
+    //   blogList: 'Blog List',
+    //   article: 'Article',
+    //   articleMdx: 'Article (with MDX)',
+    //   category: 'Category Page',
+    //   tag: 'Tag Page',
+    // },
     widgets: 'Widgets',
     contact: 'Contact',
     download: 'Download',
   },
   footer: {
-    product: {
-      title: 'Product',
-      features: 'Features',
-      security: 'Security',
-      team: 'Team',
-      enterprise: 'Enterprise',
-      customerStories: 'Customer Stories',
-      pricing: 'Pricing',
-      resources: 'Resources',
-    },
-    platform: {
-      title: 'Platform',
-      developerAPIs: 'Developer API',
-      partners: 'Partners',
-      atom: 'Atom',
-      electron: 'Electron',
-      astrowindDesktop: 'AstroWind Desktop',
-    },
-    support: {
-      title: 'Support',
-      docs: 'Docs',
-      communityForum: 'Community Forum',
-      professionalServices: 'Professional Services',
-      skills: 'Skills',
-      status: 'Status',
-    },
-    company: {
-      title: 'Company',
-      about: 'About',
-      blog: 'Blog',
-      careers: 'Careers',
-      press: 'Press',
-      inclusion: 'Inclusion',
-      socialImpact: 'Social Impact',
-      shop: 'Shop',
-    },
-    legal: {
-      terms: 'Terms',
-      privacy: 'Privacy',
-    },
+    // product: {
+    //   title: 'Product',
+    //   features: 'Features',
+    //   security: 'Security',
+    //   team: 'Team',
+    //   enterprise: 'Enterprise',
+    //   customerStories: 'Customer Stories',
+    //   pricing: 'Pricing',
+    //   resources: 'Resources',
+    // },
+    // platform: {
+    //   title: 'Platform',
+    //   developerAPIs: 'Developer API',
+    //   partners: 'Partners',
+    //   atom: 'Atom',
+    //   electron: 'Electron',
+    //   astrowindDesktop: 'AstroWind Desktop',
+    // },
+    // support: {
+    //   title: 'Support',
+    //   docs: 'Docs',
+    //   communityForum: 'Community Forum',
+    //   professionalServices: 'Professional Services',
+    //   skills: 'Skills',
+    //   status: 'Status',
+    // },
+    // company: {
+    //   title: 'Company',
+    //   about: 'About',
+    //   blog: 'Blog',
+    //   careers: 'Careers',
+    //   press: 'Press',
+    //   inclusion: 'Inclusion',
+    //   socialImpact: 'Social Impact',
+    //   shop: 'Shop',
+    // },
+    home: "Home",
+    services: "Services",
+    about: "About",
+    contact: "Contact",
+    blog: "Blog",
+    legal: "Terms",
+    // legal: {
+    //   terms: 'Terms',
+    //   privacy: 'Privacy',
+    // },
   },
   index: {
     metadata: {
       title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+    },
+    heroSide: {
+      accent: 'Passionate',
+      title: 'Full Stack Developer',
+      subtitle: 'My goal is to design tailor-made IT solutions to meet your most demanding requirements.'
     },
     hero: {
       cta: 'Get template',
@@ -363,5 +378,81 @@ export const en = {
     title: 'The Blog',
     subtitle:
       'A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind',
+  },
+  portfolio: {
+    metadata: {
+      title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+    },
+    heroSide: {
+      accent: 'Passionate',
+      title: 'Full Stack Developer',
+      subtitle: 'My goal is to design tailor-made IT solutions to meet your most demanding requirements.'
+    },
+    services: {
+      title: 'IT Services',
+      subtitle: 'Bespoke Solutions for Your Online Success.',
+      servicesItems: [
+        {
+          title: 'Website Development',
+          description: 'Through meticulous expertise, I create custom websites that cater to your specific needs. Whether it\'s a showcase, an e-commerce platform, or a blog, I deliver high-quality web solutions.'
+        },
+        {
+          title: 'Custom Development',
+          description: 'With a focus on customization, I create specific applications that meet your unique needs. Whether it\'s developing an MVP for your startup or enhancing your current project, I\'m here for you.'
+        }
+        ,
+        {
+          title: 'Ongoing Support',
+          description: 'Continuous technical management of your website or application is crucial. I provide meticulous monitoring, timely updates, and rapid bug correction, ensuring a smooth user experience.'
+        }
+      ]
+    },
+    caseStudies1: {
+      tagline: 'Case Studies',
+      title: 'Explore Our Success Stories',
+      subtitle: 'Delve into our achievements and see how we achieved success through customized solutions.',
+      additionalTitle: "Construire sur des fondations modernes",
+      additionalDescription: "Gain a competitive advantage by incorporating industry leading practices",
+      imageAlt: 'Colorful Image',
+      items: [
+        {
+          title: "Built on top of Astro 3.0",
+          description:
+            'Bénéficier des performances et des fonctionnalités conviviales pour les développeurs de ce générateur de site statique moderne',
+        },
+        {
+          title: "Styled using Tailwind CSS",
+          description:
+            "Faciliter une conception rapide et un style cohérent grâce à ce cadre CSS très populaire et axé sur l'utilité",
+        },
+        {
+          title: "Cross-browser compatibility",
+          description:
+            "Veillez à ce que votre site web ait une apparence et un fonctionnement cohérents sur différents navigateurs web, afin d'offrir une expérience transparente à tous les utilisateurs",
+        },
+      ],
+    },
+    caseStudies2: {
+      additionalTitle: "Matchings",
+      additionalDescription: "",
+      imageAlt: 'Colorful Image',
+      items: [
+        {
+          title: "Built on top of Astro 3.0",
+          description:
+            'Bénéficier des performances et des fonctionnalités conviviales pour les développeurs de ce générateur de site statique moderne',
+        },
+        {
+          title: "Styled using Tailwind CSS",
+          description:
+            "Faciliter une conception rapide et un style cohérent grâce à ce cadre CSS très populaire et axé sur l'utilité",
+        },
+        {
+          title: "Cross-browser compatibility",
+          description:
+            "Veillez à ce que votre site web ait une apparence et un fonctionnement cohérents sur différents navigateurs web, afin d'offrir une expérience transparente à tous les utilisateurs",
+        },
+      ],
+    },
   },
 };

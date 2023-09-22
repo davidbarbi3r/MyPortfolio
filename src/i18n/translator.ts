@@ -3,8 +3,9 @@ import { getLocale } from 'astro-i18n-aut';
 
 import { en } from './en';
 import { it } from './it';
+import { fr } from './fr';
 
-type Translations = typeof en;
+type Translations = any;
 
 const { defaultLocale, locales } = I18N;
 
@@ -60,6 +61,9 @@ export function useTranslations(lang: keyof typeof locales) {
       break;
     case 'it':
       translations = it;
+      break;
+    case 'fr':
+      translations = fr;
       break;
     default:
       translations = en;

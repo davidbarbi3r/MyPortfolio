@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 import { twMerge } from "tailwind-merge";
 import type { ItemGrid } from "~/types";
 import CTA from "./CTA.astro";
+import {divide} from "lodash.merge";
 
 const {
   items = [],
@@ -43,22 +44,35 @@ const {
           description,
           icon,
           callToAction,
+          image,
           classes: itemClasses = {},
         }) => (
           <div
             class={twMerge(
               "relative flex flex-col",
               panelClass,
-              itemClasses?.panel
+              itemClasses?.panel,
+              "p-0"
             )}
           >
+            {image && (
+              <div class="">
+                <img
+                  class="object-cover w-full h-64 mb-4 rounded-t-lg"
+                  src={image.src}
+                  alt={image.alt}
+                />
+              </div>
+            )}
+            <div class="p-4">
             {(icon || defaultIcon) && (
               <Icon
                 name={icon || defaultIcon}
                 class={twMerge(
-                  "mb-2 w-10 h-10",
+                  "mb-2 w-10 h-10 text-emerald-800",
                   defaultIconClass,
-                  itemClasses?.icon
+                  itemClasses?.icon,
+                  "text-emerald-800"
                 )}
               />
             )}
@@ -86,6 +100,7 @@ const {
                 <CTA callToAction={callToAction} />
               </div>
             )}
+            </div>
           </div>
         )
       )}

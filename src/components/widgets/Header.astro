@@ -48,7 +48,7 @@ const {
   isSticky = false,
   isDark = false,
   isFullWidth = false,
-  showToggleTheme = false,
+  showToggleTheme = true,
   showRssFeed = false,
   showLanguagePicker = false,
   position = "center",
@@ -78,7 +78,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
-        {/* <ToggleTheme /> */}
+        <!--<ToggleTheme />-->
         <ToggleMenu />
       </div>
     </div>
