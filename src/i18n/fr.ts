@@ -394,15 +394,27 @@ export const fr = {
       servicesItems: [
         {
           title: 'Conception de Sites Web',
-          description: 'Mon expertise en développement web se traduit par la création de sites internet de haute qualité. Je m\'engage à harmoniser design et fonctionnalités pour offrir une expérience utilisateur exceptionnelle, que ce soit pour une vitrine, un e-commerce ou un blog.'
+          description: 'Des sites 100% responsives et optimisés pour les moteurs de recherche, avec une attention particulière portée à l\'expérience utilisateur.',
+          items: [{
+            title: 'Sites Vitrine',
+            description: 'Des sites vitrine pour présenter votre activité et vos services.',
+          }, {
+            title: 'Blogs / Gestions de Contenu',
+            description: 'Un site professionnel avec une gestion de contenu facile et intuitive.',
+          }, {
+            title: 'Sites E-commerce',
+            description: 'Une boutique en ligne pour vendre vos produits et services.',
+          }],
+          price: 'A partir de 900€',
+          callToAction: 'En savoir plus',
         },
         {
           title: 'Développement spécifique',
-          description: 'Avec une approche axée sur la personnalisation, je crée des applications spécifiques répondant à vos besoins uniques. Que ce soit pour le développement d\'un MVP pour votre startup ou l\'enrichissement de votre projet actuel, je suis là pour vous.'
+          description: 'Avec une approche axée sur la personnalisation, je crée des applications spécifiques répondant à vos besoins uniques. Que ce soit pour le développement d\'un MVP pour votre startup ou l\'enrichissement de votre projet actuel, je suis là pour vous.',
         },
         {
           title: 'Suivi et Maintenance',
-          description: 'La gestion technique de votre site ou de votre application est essentielle. Je vous assure un suivi méticuleux, des mises à jour opportunes et une correction rapide des bugs, garantissant une expérience utilisateur fluide.'
+          description: 'La gestion technique de votre site ou de votre application est essentielle. Je vous assure un suivi méticuleux, des mises à jour opportunes et une correction rapide des bugs, garantissant une expérience utilisateur fluide.',
         }
       ]
     },

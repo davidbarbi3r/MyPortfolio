@@ -55,11 +55,18 @@ const metadata = {
       {
         title: tList('portfolio.services.servicesItems')[0].title,
         description: tList('portfolio.services.servicesItems')[0].description,
+        servicesItems: tList('portfolio.services.servicesItems')[0].items,
+        price: tList('portfolio.services.servicesItems')[0].price,
         image: {
           src: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3164&q=80',
           alt: 'Image 1',
         },
         icon: 'tabler:devices',
+        callToAction: {
+          text: tList('portfolio.services.servicesItems')[0].callToAction,
+          href: '',
+          icon: 'tabler:chevron-right',
+        },
       },
       {
         title: tList('portfolio.services.servicesItems')[1].title,
@@ -69,6 +76,11 @@ const metadata = {
           alt: 'Image 2',
         },
         icon: 'tabler:wand',
+        callToAction: {
+          text: tList('portfolio.services.servicesItems')[0].callToAction,
+          href: '',
+          icon: 'tabler:chevron-right',
+        },
       },
       {
         title: tList('portfolio.services.servicesItems')[2].title,
@@ -78,6 +90,11 @@ const metadata = {
           alt: 'Image 3',
         },
         icon: 'tabler:tool',
+        callToAction: {
+          text: tList('portfolio.services.servicesItems')[0].callToAction,
+          href: '',
+          icon: 'tabler:chevron-right',
+        },
       }
     ]}
   />

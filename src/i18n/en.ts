@@ -394,7 +394,21 @@ export const en = {
       servicesItems: [
         {
           title: 'Website Development',
-          description: 'Through meticulous expertise, I create custom websites that cater to your specific needs. Whether it\'s a showcase, an e-commerce platform, or a blog, I deliver high-quality web solutions.'
+          description: 'Through meticulous expertise, I create custom websites that cater to your specific needs.',
+          items: [{
+            title: 'Showcase Websites',
+            description: 'Showcase websites for presenting your business and services.'
+          },
+          {
+            title: 'Blogs / Content Management',
+            description: 'A professional website with easy and intuitive content management.'
+          },
+          {
+            title: 'E-commerce Websites',
+            description: 'An online store for selling your products and services.'
+          }],
+          callToAction: 'Learn more',
+          price: 'Starting at 900€',
         },
         {
           title: 'Custom Development',
@@ -410,47 +424,41 @@ export const en = {
     caseStudies1: {
       tagline: 'Case Studies',
       title: 'Explore Our Success Stories',
-      subtitle: 'Delve into our achievements and see how we achieved success through customized solutions.',
-      additionalTitle: "Construire sur des fondations modernes",
-      additionalDescription: "Gain a competitive advantage by incorporating industry leading practices",
-      imageAlt: 'Colorful Image',
+      subtitle: 'Dive into our achievements and discover how we achieved success through customized solutions.',
+      additionalTitle: "Maker Teleport UI",
+      additionalDescription: "Developing a UI MVP to facilitate secure cryptocurrency transfers between different blockchains, using Maker's new Teleport SDK.",
+      imageAlt: 'Maker teleport mockup',
       items: [
         {
-          title: "Built on top of Astro 3.0",
-          description:
-            'Bénéficier des performances et des fonctionnalités conviviales pour les développeurs de ce générateur de site statique moderne',
+          title: "Token Swapping",
+          description: "Allowing users to easily exchange cryptocurrencies between different blockchains."
         },
         {
-          title: "Styled using Tailwind CSS",
-          description:
-            "Faciliter une conception rapide et un style cohérent grâce à ce cadre CSS très populaire et axé sur l'utilité",
+          title: "DAI Transfer Between Blockchains",
+          description: "Facilitating the secure transfer of DAI (a stable cryptocurrency) between different blockchains."
         },
         {
-          title: "Cross-browser compatibility",
-          description:
-            "Veillez à ce que votre site web ait une apparence et un fonctionnement cohérents sur différents navigateurs web, afin d'offrir une expérience transparente à tous les utilisateurs",
+          title: "Transaction History Retrieval via a Subgraph",
+          description: "Providing users with an overview of their previous transactions through a subgraph."
         },
       ],
     },
     caseStudies2: {
       additionalTitle: "Matchings",
-      additionalDescription: "",
-      imageAlt: 'Colorful Image',
+      additionalDescription: "Web application for tire inventory and order management",
+      imageAlt: 'Matchings-screenshot',
       items: [
         {
-          title: "Built on top of Astro 3.0",
-          description:
-            'Bénéficier des performances et des fonctionnalités conviviales pour les développeurs de ce générateur de site statique moderne',
+          title: "FullStack Application",
+          description: 'Development of a complete web application for tire inventory and order management, featuring an intuitive user interface and a persistent database.',
         },
         {
-          title: "Styled using Tailwind CSS",
-          description:
-            "Faciliter une conception rapide et un style cohérent grâce à ce cadre CSS très populaire et axé sur l'utilité",
+          title: "Intuitive User Interface",
+          description: "Creation of an intuitive and ergonomic user interface to enhance team productivity, following UX best practices.",
         },
         {
-          title: "Cross-browser compatibility",
-          description:
-            "Veillez à ce que votre site web ait une apparence et un fonctionnement cohérents sur différents navigateurs web, afin d'offrir une expérience transparente à tous les utilisateurs",
+          title: "Scalability and Maintainability",
+          description: "The application is designed to be easily maintainable and scalable, using the latest technologies and best practices.",
         },
       ],
     },
