@@ -31,7 +31,7 @@ i18n:
   defaultLocale: en
   locales:
     en: en-US
-    it: fr-FR
+    fr: fr-FR
   textDirection: ltr
 
 apps:

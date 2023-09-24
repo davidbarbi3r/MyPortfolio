@@ -13,6 +13,7 @@ import FAQs from '../components/widgets/FAQs.astro';
 import Stats from '../components/widgets/Stats.astro';
 import Features2 from "../components/widgets/Features2.astro";
 import Features3 from "../components/widgets/Features3.astro";
+import BlogLatestPosts from "../components/widgets/BlogLatestPosts.astro";
 
 const { t, tList } = useTranslations(getLocaleFromUrl(Astro.url));
 const metadata = {
@@ -71,6 +72,8 @@ const metadata = {
       {
         title: tList('portfolio.services.servicesItems')[1].title,
         description: tList('portfolio.services.servicesItems')[1].description,
+        servicesItems: tList('portfolio.services.servicesItems')[1].items,
+        price: tList('portfolio.services.servicesItems')[1].price,
         image: {
           src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80',
           alt: 'Image 2',
@@ -85,6 +88,8 @@ const metadata = {
       {
         title: tList('portfolio.services.servicesItems')[2].title,
         description: tList('portfolio.services.servicesItems')[2].description,
+        servicesItems: tList('portfolio.services.servicesItems')[2].items,
+        price: tList('portfolio.services.servicesItems')[2].price,
         image: {
           src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80',
           alt: 'Image 3',
@@ -141,96 +146,13 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-transparent"></div>
     </Fragment>
-    
   </Content>
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    title="Statistics of our app"
-    stats={[
-      { amount: '20K', icon: 'tabler:download' },
-      { amount: '18.5K', icon: 'tabler:users' },
-      { amount: '4.7', icon: 'tabler:user-star' },
-    ]}
+  
+  <BlogLatestPosts
+    title={t('index.blogLatestPosts.title')}
+    information={t('index.blogLatestPosts.information')}
   />
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="What our users say?"
-    testimonials={[
-      {
-        testimonial: `It's made exploring and downloading website templates a breeze. The interface is intuitive, and I had no trouble finding the perfect template for my project. It's an app that truly empowers users.`,
-        name: 'Cary Kennedy',
-        job: 'Film director',
-        image: {
-          src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          alt: 'Cary Kennedy Image',
-        },
-      },
-      {
-        testimonial: `The app's seamless download process and intuitive layout have made selecting templates an enjoyable experience. Being able to preview and experiment with different designs before committing has saved me time and ensured I get the perfect look for my website.`,
-        name: 'Josh Wilkinson',
-        job: 'Product Manager',
-        image: {
-          src: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          alt: 'Josh Wilkinson Image',
-        },
-      },
-      {
-        testimonial:
-          'I was able to download and use a professional website template within minutes. The step-by-step process and user-friendly interface made it easy for me to create a website that looks as if it was designed by a pro.',
-        name: 'Sidney Hansen',
-        job: 'Decorator',
-        image: {
-          src: 'https://images.unsplash.com/photo-1512361436605-a484bdb34b5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          alt: 'Sidney Hansen Image',
-        },
-      },
-    ]}
-    callToAction={{
-      targetBlank: true,
-      text: 'Read more testimonials',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:chevron-right',
-    }}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Still have some doubts?"
-    items={[
-      {
-        title: 'What does this app do?',
-        description:
-          'This app provides a platform for you to easily browse, purchase, download, and use a wide range of website templates for your projects.',
-      },
-      {
-        title: 'How can this app solve my problem?',
-        description:
-          'This app streamlines the process of finding and implementing professional website designs, saving you time and effort in creating visually appealing and functional websites.',
-      },
-      {
-        title: 'Is it available for my device?',
-        description: `Our app is designed for compatibility across various devices and platforms, ensuring accessibility whether you're using a smartphone, tablet, or computer.`,
-      },
-      {
-        title: 'What makes this app different from others?',
-        description:
-          'Our app stands out for its user-friendly interface, extensive template collection, and seamless integration of the purchasing and downloading process, making it highly efficient.',
-      },
-      {
-        title: 'Are there any costs involved?',
-        description:
-          'While the app itself may be free to download, there may be costs associated with purchasing specific templates based on your preferences and project requirements.',
-      },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
+  
   <CallToAction
     title="Instant access to beautiful templates"
     subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."

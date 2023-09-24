@@ -412,18 +412,46 @@ export const en = {
         },
         {
           title: 'Custom Development',
-          description: 'With a focus on customization, I create specific applications that meet your unique needs. Whether it\'s developing an MVP for your startup or enhancing your current project, I\'m here for you.'
-        }
-        ,
-        {
+          description: 'With a focus on customization, I create specific applications that meet your unique needs. ',
+          items: [
+            {
+              title: 'Team Integration',
+              description: 'Accustomed to working in teams, I can easily integrate to ensure the development of your project.'
+            },
+            {
+              title: 'SaaS and MVP Development',
+              description: 'I help turn your ideas into reality by creating a functional and scalable MVP.'
+            },
+            {
+              title: 'Debugging and Upgrades',
+              description: 'Adding new features, bug fixing, performance optimization, and more.'
+            }
+          ],
+          price: '€350/day',
+        }, {
           title: 'Ongoing Support',
-          description: 'Continuous technical management of your website or application is crucial. I provide meticulous monitoring, timely updates, and rapid bug correction, ensuring a smooth user experience.'
+          description: 'Continuous technical management of your website or application is crucial.',
+          items: [
+            {
+              title: 'Updates',
+              description: 'Regular updates to ensure the security and stability of your website or application.'
+            },
+            {
+              title: 'Hosting',
+              description: 'Hosting your website or application on a secure and high-performance server.'
+            },
+            {
+              title: 'Maintenance',
+              description: 'Technical maintenance to ensure the smooth operation of your website or application.'
+            }
+          ],
+          price: 'Starting from €30/month',
         }
       ]
     },
     caseStudies1: {
-      tagline: 'Case Studies',
-      title: 'Explore Our Success Stories',
+      tagline: 'Works',
+      title: 'Explore the latest projects I’ve worked on.',
       subtitle: 'Dive into our achievements and discover how we achieved success through customized solutions.',
       additionalTitle: "Maker Teleport UI",
       additionalDescription: "Developing a UI MVP to facilitate secure cryptocurrency transfers between different blockchains, using Maker's new Teleport SDK.",

@@ -2,7 +2,6 @@ import { I18N } from '~/utils/config';
 import { getLocale } from 'astro-i18n-aut';
 
 import { en } from './en';
-import { it } from './it';
 import { fr } from './fr';
 
 type Translations = any;
@@ -58,9 +57,6 @@ export function useTranslations(lang: keyof typeof locales) {
   switch (lang) {
     case 'en':
       translations = en;
-      break;
-    case 'it':
-      translations = it;
       break;
     case 'fr':
       translations = fr;

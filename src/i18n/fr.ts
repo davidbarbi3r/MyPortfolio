@@ -410,17 +410,39 @@ export const fr = {
         },
         {
           title: 'Développement spécifique',
-          description: 'Avec une approche axée sur la personnalisation, je crée des applications spécifiques répondant à vos besoins uniques. Que ce soit pour le développement d\'un MVP pour votre startup ou l\'enrichissement de votre projet actuel, je suis là pour vous.',
+          description: 'Avec une approche axée sur la personnalisation, je crée des applications spécifiques répondant à vos besoins uniques. ',
+          items: [{
+            title: 'Intégration en équipe',
+            description: 'Habitué à travailler en équipe, je peux facilement m\'intégrer pour assurer le développement de votre projet.',
+          }, {
+            title: 'Création de SaaS, MVP',
+            description: 'J\'aide à ce que vos idées deviennent réalité en créant un MVP fonctionnel et évolutif.',
+          }, {
+            title: 'Débogage et Upgrade',
+            description: 'Ajout de nouvelles fonctionnalités, correction de bugs, optimisation des performances, etc.',
+          }],
+          price: '350€/jour',
         },
         {
           title: 'Suivi et Maintenance',
-          description: 'La gestion technique de votre site ou de votre application est essentielle. Je vous assure un suivi méticuleux, des mises à jour opportunes et une correction rapide des bugs, garantissant une expérience utilisateur fluide.',
+          description: 'La gestion technique de votre site ou de votre application est essentielle.',
+          items: [{
+            title: 'Mises à jour',
+            description: 'Mises à jour régulières pour assurer la sécurité et la stabilité de votre site ou de votre application.',
+          }, {
+            title: 'Hébergement',
+            description: 'Hébergement de votre site ou de votre application sur un serveur sécurisé et performant.',
+          }, {
+            title: 'Maintenance',
+            description: 'Maintenance technique pour assurer le bon fonctionnement de votre site ou de votre application.',
+          }],
+          price: 'A partir de 30€/mois',
         }
       ]
     },
     caseStudies1: {
-      tagline: 'Études de Cas',
-      title: 'Découvrez Nos Réussites',
+      tagline: 'Projets',
+      title: 'Découvre les derniers projets auxquels j\'ai contribué.',
       subtitle: 'Plongez dans nos réalisations et découvrez comment nous avons atteint le succès grâce à des solutions personnalisées.',
       additionalTitle : "Maker Teleport UI",
       additionalDescription : "Développer un MVP UI pour faciliter les transferts de cryptomonnaies sécurisés entre différentes blockchains, en utilisant le nouveau SDK Teleport de Maker.",
