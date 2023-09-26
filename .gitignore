@@ -24,3 +24,5 @@ pnpm-lock.yaml
 
 .astro
 astro_tmp_pages_*
+
+/.idea
