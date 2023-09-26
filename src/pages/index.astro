@@ -1,83 +1,130 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
+import {getLocaleFromUrl, useTranslations} from "../i18n/translator";
+import Layout from '../layouts/PageLayout.astro';
+import HeroImage from '../assets/images/gnark._a_nature_tech_illustration_for_a_web_developer_b17d5bd9-734b-48e5-8475-8b7705bbb90e.png'
+import MakerTeleport from '../assets/images/maker-teleport.png'
+import Matchings from '../assets/images/robert-laursoo-WHPOFFzY9gU-unsplash.jpg'
+import Hero2 from '../components/widgets/Hero2.astro';
+import CallToAction from '../components/widgets/CallToAction.astro';
+import Content from '../components/widgets/Content.astro';
+import Features2 from "../components/widgets/Features2.astro";
+import BlogLatestPosts from "../components/widgets/BlogLatestPosts.astro";
+import Logos from "../components/widgets/Logos.astro";
 
 const { t, tList } = useTranslations(getLocaleFromUrl(Astro.url));
-
 const metadata = {
-  title: t('index.metadata.title'),
-  ignoreTitleTemplate: true,
+  title: 'Mobile App Homepage',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero2 Widget ******************* -->
 
-  <Hero
-    callToAction={{ text: t('index.hero.cta'), href: 'https://github.com/onwidget/astrowind', icon: 'tabler:download' }}
-    callToAction2={{ text: t('index.hero.cta2'), href: '#features' }}
-    image={{ src: '~/assets/images/hero.png', alt: 'AstroWind Hero Image' }}
+  <!--hero-->
+  <Hero2
+    tagline="David Barbier"
+    callToAction={{ text: 'Book a call', href: 'https://github.com/onwidget/astrowind', icon: 'tabler:phone' }}
+    callToAction2={{ text: 'Contact', href: '#features' }}
+    image={{
+      src: HeroImage,
+      alt: 'Hero Image',
+    }}
   >
     <Fragment slot="title">
-      {t('index.hero.title.part1')} <span class="hidden xl:inline">{t('index.hero.title.part2')}</span>
-      <span class="text-accent dark:text-white highlight"> Astro 3.0</span> + Tailwind CSS
+      <span class="text-transparent bg-gradient-to-r from-emerald-800 to-emerald-600 bg-clip-text dark:text-white highlight">{t("portfolio.heroSide.accent")}</span><br />
+      {t('portfolio.heroSide.title')}
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind </span>{t('index.hero.subtitle')}</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      {t('index.hero.description')}
+      </span>
+      {t('portfolio.heroSide.subtitle')}
     </Fragment>
-  </Hero>
+  </Hero2>
 
-  <!-- Note Widget ******************* -->
-
-  <Note />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline={t('index.features.tagline')}
-    title={t('index.features.title')}
-    subtitle={t('index.features.subtitle')}
-    items={tList('index.features.items')}
+  <!--services-->
+  
+  <Features2
+    title={t('portfolio.services.title')}
+    subtitle={t('portfolio.services.subtitle')}
+    columns={3}
+    items={[
+      {
+        title: tList('portfolio.services.servicesItems')[0].title,
+        description: tList('portfolio.services.servicesItems')[0].description,
+        servicesItems: tList('portfolio.services.servicesItems')[0].items,
+        price: tList('portfolio.services.servicesItems')[0].price,
+        image: {
+          src: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3164&q=80',
+          alt: 'Image 1',
+        },
+        icon: 'tabler:devices',
+        // callToAction: {
+        //   text: tList('portfolio.services.servicesItems')[0].callToAction,
+        //   href: '',
+        //   icon: 'tabler:chevron-right',
+        // },
+      },
+      {
+        title: tList('portfolio.services.servicesItems')[1].title,
+        description: tList('portfolio.services.servicesItems')[1].description,
+        servicesItems: tList('portfolio.services.servicesItems')[1].items,
+        price: tList('portfolio.services.servicesItems')[1].price,
+        image: {
+          src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80',
+          alt: 'Image 2',
+        },
+        icon: 'tabler:wand',
+        // callToAction: {
+        //   text: tList('portfolio.services.servicesItems')[0].callToAction,
+        //   href: '',
+        //   icon: 'tabler:chevron-right',
+        // },
+      },
+      {
+        title: tList('portfolio.services.servicesItems')[2].title,
+        description: tList('portfolio.services.servicesItems')[2].description,
+        servicesItems: tList('portfolio.services.servicesItems')[2].items,
+        price: tList('portfolio.services.servicesItems')[2].price,
+        image: {
+          src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80',
+          alt: 'Image 3',
+        },
+        icon: 'tabler:tool',
+        // callToAction: {
+        //   text: tList('portfolio.services.servicesItems')[0].callToAction,
+        //   href: '',
+        //   icon: 'tabler:chevron-right',
+        // },
+      }
+    ]}
   />
-
-  <!-- Content Widget **************** -->
-
+  
+  <!-- case study -->
   <Content
     isReversed
-    tagline={t('index.content.tagline')}
-    title={t('index.content.title')}
-    items={tList('index.content.items')}
+    tagline={t('portfolio.caseStudies1.tagline')}
+    title={t('portfolio.caseStudies1.title')}
+    items={tList('portfolio.caseStudies1.items')}
+    cta={{
+      text: t('portfolio.caseStudies2.callToAction'),
+      href: "",
+      icon: "tabler:chevron-right",
+    }}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: MakerTeleport,
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        {t('index.content.additionalTitle')}
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-0">
+        {t('portfolio.caseStudies1.additionalTitle')}
       </h3>
-      {t('index.content.additionalDescription')}
+      {t('portfolio.caseStudies1.additionalDescription')}
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
@@ -85,99 +132,70 @@ const metadata = {
 
   <Content
     isAfterContent
-    items={tList('index.content2.items')}
+    items={tList('portfolio.caseStudies2.items')}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: Matchings,
+      alt: 'Matchings screenshot',
+    }}
+    cta={{
+      text: t('portfolio.caseStudies2.callToAction'),
+      href: "",
+      icon: "tabler:chevron-right",
+    }}
+    endCTA={{
+      text: t('portfolio.caseStudies2.endCallToAction'),
+      href: "",
+      icon: "tabler:chevron-right",
     }}
   >
-    <Fragment slot="content">{t('index.content2.additionalDescription')}</Fragment>
-
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        {t('portfolio.caseStudies2.additionalTitle')}
+      </h3>
+      {t('portfolio.caseStudies2.additionalDescription')}
+    </Fragment>
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={tList('index.content3.items')}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">{t('index.content3.additionalDescription')}</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-  title={t('index.steps.title')}
-  items={tList('index.steps.items')}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
+  <!--Tech stack-->
+  <Logos
+    title={t('portfolio.logos.title')}
+    items={[{
+      icon: 'tabler:brand-react',
+      title: 'React',
+    }, {
+      icon: 'tabler:brand-typescript',
+      title: 'TypeScript',
+    }, {
+      icon: 'tabler:brand-nodejs',
+      title: 'NodeJS',
+    }, {
+      icon: 'tabler:brand-golang',
+      title: 'Golang',
+    }, {
+      icon: 'tabler:brand-docker',
+      title: 'Docker',
+    }, {
+      icon: 'tabler:brand-nextjs',
+      title: 'Next.js',
+    }]}
   />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title={t('index.features2.title')}
-    subtitle={t('index.features2.subtitle')}
-    tagline={t('index.features2.tagline')}
-    items={tList('index.features2.items')}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
+  
   <BlogLatestPosts
     title={t('index.blogLatestPosts.title')}
     information={t('index.blogLatestPosts.information')}
+    linkText={t('index.blogLatestPosts.linkText')}
   />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title={t('index.faqs.title')}
-    subtitle={t('index.faqs.subtitle')}
-    tagline={t('index.faqs.tagline')}
-    items={tList('index.faqs.items')}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={tList('index.stats.stats')}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
+  
   <CallToAction
+    title={t('portfolio.callToAction.title')}
+    subtitle={t('portfolio.callToAction.subtitle')}
     callToAction={{
-      text: t('index.callToAction.cta.text'),
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:download',
+      text: t('portfolio.callToAction.cta'),
+      href: '/contact',
+      icon: 'tabler:phone',
     }}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      {t('index.callToAction.subtitle.part1')} <br class="hidden md:inline" />
-      {t('index.callToAction.subtitle.part2')}
-    </Fragment>
-  </CallToAction>
+  />
 </Layout>

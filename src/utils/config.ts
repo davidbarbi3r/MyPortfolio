@@ -123,7 +123,6 @@ const getI18N = () => {
     locales: {
       en: 'en-US',
       fr: 'fr-FR',
-      it: 'it-IT'// the `defaultLocale` value must present in `locales` keys
     },
     textDirection: 'ltr',
   };

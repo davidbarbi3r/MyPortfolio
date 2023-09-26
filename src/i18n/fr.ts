@@ -315,10 +315,9 @@ export const fr = {
       ],
     },
     blogLatestPosts : {
-      title : 'Find out more content in our Blog',
-      information : `Le blog est utilisé pour afficher la documentation AstroWind.
-              Chaque nouvel article sera une étape importante que vous devrez connaître pour devenir un expert dans la création d'un site web en utilisant Astro + Tailwind CSS.
-              Astro est une technologie très intéressante. Merci.`,
+      title : 'Derniers articles',
+      information : `Je partage ici mes découvertes, mes expériences et mes réflexions sur le développement web.`,
+      linkText : 'Voir tous les articles',
     },
     faqs : {
       title : 'Frequently Asked Questions',
@@ -447,6 +446,7 @@ export const fr = {
       additionalTitle : "Maker Teleport UI",
       additionalDescription : "Développer un MVP UI pour faciliter les transferts de cryptomonnaies sécurisés entre différentes blockchains, en utilisant le nouveau SDK Teleport de Maker.",
       imageAlt : 'Maker teleport mockup',
+      callToAction: 'En savoir plus',
       items : [
         {
           title: "Swap de Tokens",
@@ -466,6 +466,8 @@ export const fr = {
       additionalTitle: "Matchings",
       additionalDescription: "Webapp de gestion de stocks et de commandes de pneus",
       imageAlt : 'Matchings-screenshot',
+      callToAction: 'En savoir plus',
+      endCallToAction: 'Voir plus de projets',
       items : [
         {
           title : "Application FullStack",
@@ -484,5 +486,18 @@ export const fr = {
         },
       ],
     },
-  }
+    logos: {
+      title: 'Les technologies que j\'utilise',
+    },
+    callToAction: {
+      title: 'Prêt à démarrer ?',
+      subtitle: 'Contactez-moi pour discuter de votre projet.',
+      cta: 'Contactez-moi',
+    }
+  },
+  404 : {
+    sorry: 'Il semble que la page que vous recherchez n\'existe pas.',
+    noWorry: 'Pas de soucis, vous pouvez toujours',
+    backHome: 'retourner à la page d\'accueil',
+  },
 } ;

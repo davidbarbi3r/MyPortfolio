@@ -7,16 +7,16 @@ export const getHeaderData = (locale) => {
     links: [
       {
         text: t('header.home'),
-        href: getLocalizedPermalink(locale, '/portfolio'),
+        href: getLocalizedPermalink(locale, '/'),
       },
-      {
-        text: t('header.about'),
-        href: getLocalizedPermalink(locale, '/about'),
-      },
-      {
-        text: t('header.services'),
-        href: getLocalizedPermalink(locale, '/services'),
-      },
+      // {
+      //   text: t('header.about'),
+      //   href: getLocalizedPermalink(locale, '/about'),
+      // },
+      // {
+      //   text: t('header.services'),
+      //   href: getLocalizedPermalink(locale, '/services'),
+      // },
       {
         text: t('header.blog'),
         href: getLocalizedBlogPermalink(locale),

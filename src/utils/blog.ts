@@ -63,12 +63,11 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
   const permalink = await generatePermalink({ id, slug, publishDate, category });
-
+ 
   return {
     id: id,
     slug: slug,
     permalink: locale === I18N.defaultLocale ? permalink.split('/')[1] : permalink,
-
     publishDate: publishDate,
     updateDate: updateDate,
 

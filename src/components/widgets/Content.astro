@@ -4,6 +4,7 @@ import type { Content } from '~/types';
 import Headline from '../ui/Headline.astro';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import Image from '~/components/common/Image.astro';
+import CTA from "../ui/CTA.astro";
 
 const {
   title = await Astro.slots.render('title'),
@@ -14,7 +15,8 @@ const {
   image = await Astro.slots.render('image'),
   isReversed = false,
   isAfterContent = false,
-
+  cta = await Astro.slots.render('cta'),
+  endCTA = await Astro.slots.render('endCTA'),
   id,
   isDark = false,
   classes = {},
@@ -59,6 +61,9 @@ const {
                   </div>
                 </div>
               ))}
+              {cta && (
+                <CTA callToAction={cta}/>
+              )}
             </div>
           )
         }
@@ -85,5 +90,18 @@ const {
         }
       </div>
     </div>
+    <!--btn-->
+    {endCTA && (
+      <div class="w-full flex items-center justify-center pt-12 md:pt-16">
+      <a class="btn btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 border-none hover:from-emerald-700 hover:to-emerald-500 sm:mb-0" href={endCTA?.href} target="_blank" rel="noopener">
+        {endCTA?.icon && (
+          <>
+            <Icon name={endCTA.icon} class="w-5 h-5 mr-1 -ml-1.5 rtl:-mr-1.5 rtl:ml-1" />{' '}
+          </>
+        )}
+        {endCTA?.text}
+      </a>
+      </div>
+    )}
   </div>
 </WidgetWrapper>

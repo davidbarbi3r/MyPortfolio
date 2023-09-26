@@ -1,6 +1,10 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
+import {getLocaleFromUrl, useTranslations} from "../i18n/translator";
+
+
+const { t } = useTranslations(getLocaleFromUrl(Astro.url));
 
 const title = `Error 404`;
 ---
@@ -11,13 +15,17 @@ const title = `Error 404`;
       <div class="max-w-md text-center">
         <h2 class="mb-8 font-bold text-9xl">
           <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
+          <span class="text-transparent bg-gradient-to-r from-emerald-900 to-emerald-600 bg-clip-text">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
+        <p class="text-3xl font-semibold md:text-3xl">{t('404.sorry')}</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
+          {t('404.noWorry')}
         </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+        <a 
+        rel="noopener noreferrer" href={getHomePermalink()} 
+        class="btn ml-4 btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 border-none">
+          {t('404.backHome')}
+        </a>
       </div>
     </div>
   </section>

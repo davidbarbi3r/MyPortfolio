@@ -137,7 +137,14 @@ export interface Item {
   icon?: string;
   classes?: Record<string, string>;
   callToAction?: CallToAction;
+  servicesItems?: ServicesItems[];
+  price?: string;
   image?: Image;
+}
+
+export interface ServicesItems {
+  title?: string;
+  description?: string;
 }
 
 export interface Price {
@@ -280,6 +287,8 @@ export interface Content extends Headline, Widget {
   columns?: number;
   isReversed?: boolean;
   isAfterContent?: boolean;
+  cta?: string | CallToAction;
+  endCTA?: string | CallToAction; 
 }
 
 export interface Contact extends Headline, Form, Widget {}

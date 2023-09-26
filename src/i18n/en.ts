@@ -313,10 +313,9 @@ export const en = {
       ],
     },
     blogLatestPosts: {
-      title: 'Find out more content in our Blog',
-      information: `The blog is used to display AstroWind documentation.
-              Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-              Astro is a very interesting technology. Thanks.`,
+      title: 'Latest posts',
+      information: `I share my thoughts on web development, programming, and other topics that interest me.`,
+      linkText : 'See all articles',
     },
     faqs: {
       title: 'Frequently Asked Questions',
@@ -475,6 +474,8 @@ export const en = {
       additionalTitle: "Matchings",
       additionalDescription: "Web application for tire inventory and order management",
       imageAlt: 'Matchings-screenshot',
+      callToAction: 'Learn more',
+      endCallToAction: 'See more projects',
       items: [
         {
           title: "FullStack Application",
@@ -490,5 +491,18 @@ export const en = {
         },
       ],
     },
+    logos: {
+      title: 'Technologies I use',
+    },
+    callToAction: {
+      title: 'Ready to start your project?',
+      subtitle: 'Let’s work together to build something great.',
+      cta: 'Contact me',
+    }
+  },
+  404: {
+    sorry: 'It looks like you are lost...',
+    noWorry: 'No worries, I can help you!',
+    backHome: 'Back to home',
   },
 };
