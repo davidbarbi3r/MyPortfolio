@@ -505,4 +505,16 @@ export const en = {
     noWorry: 'No worries, I can help you!',
     backHome: 'Back to home',
   },
+  call: {
+    title: 'Book a call',
+    subtitle: 'Let’s talk about your project.',
+  },
+  contact: {
+    titleMain: 'Contact',
+    title: 'Get in touch',
+    name: 'Name',
+    subtitle: 'Let’s work together to build something great.',
+    disclaimer: 'By submitting this form, you agree to the processing of your personal data in accordance with our privacy policy.',
+    description: 'I am available for freelance work. If you have a project that you want to get started, think you need my help with something or just fancy saying hey, then get in touch.',
+  },
 };

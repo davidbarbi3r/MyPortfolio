@@ -46,9 +46,9 @@ const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }, locale) : []
             />
             {APP_BLOG.list.isEnabled && linkText && linkUrl && (
               <a
-                class="text-muted dark:text-slate-400 hover:text-primary transition ease-in duration-200 block mb-6 lg:mb-0"
+                class="text-muted dark:text-slate-400 hover:text-emerald-800 transition ease-in duration-200 block mb-6 lg:mb-0"
                 href={linkUrl}
-              >
+              >   
                 {linkText} »
               </a>
             )}

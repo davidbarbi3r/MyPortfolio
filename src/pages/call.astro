@@ -1,0 +1,26 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import { getLocaleFromUrl, useTranslations } from '../i18n/translator';
+
+const metadata = {
+  title: 'Call',
+};
+const locale = getLocaleFromUrl(Astro.url)
+const {t} = useTranslations(getLocaleFromUrl(Astro.url));
+
+const path = locale === 'en' ? 'davidbarbier/introduction' : 'davidbarbier/fr-introduction'
+---
+
+<Layout metadata={metadata}>
+    <!-- HeroText Widget ******************* -->
+
+    <HeroText
+    tagline="Call"
+    title={t('call.title')}
+  />
+
+  <div class="tidycal-embed" data-path={path}></div>
+  <script src="https://assets.tidycal.com/js/embed.js" async></script>
+
+</Layout>

@@ -500,4 +500,16 @@ export const fr = {
     noWorry: 'Pas de soucis, vous pouvez toujours',
     backHome: 'retourner à la page d\'accueil',
   },
+  call: {
+    title: 'Reservez un call',
+    subtitle: 'Ce sera un plaisir de discuter avec vous de votre projet.',
+  },
+  contact: {
+    titleMain: 'Contactez-moi',
+    title: 'Expliquez-moi votre projet',
+    name: 'Nom',
+    subtitle: 'Ce sera un plaisir de discuter avec vous de votre projet.',
+    disclaimer: 'En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.',
+    description: 'Vous pouvez également me contacter par e-mail à l\'adresse suivante :',
+  },
 } ;
