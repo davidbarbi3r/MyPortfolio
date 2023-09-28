@@ -60,6 +60,44 @@ export interface AppBlogConfig {
     };
   };
 }
+
+export interface AppProjectsConfig {
+  isEnabled: boolean;
+  projectsPerPage: number;
+  project: {
+    isEnabled: boolean;
+    permalink: string;
+    robots: {
+      index: boolean;
+      follow: boolean;
+    };
+  };
+  list: {
+    isEnabled: boolean;
+    pathname: string;
+    robots: {
+      index: boolean;
+      follow: boolean;
+    };
+  };
+  category: {
+    isEnabled: boolean;
+    pathname: string;
+    robots: {
+      index: boolean;
+      follow: boolean;
+    };
+  };
+  tag: {
+    isEnabled: boolean;
+    pathname: string;
+    robots: {
+      index: boolean;
+      follow: boolean;
+    };
+  };
+}
+
 export interface AnalyticsConfig {
   vendors: {
     googleAnalytics: {
@@ -75,6 +113,7 @@ const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   i18n?: I18NConfig;
   apps?: {
     blog?: AppBlogConfig;
+    project?: AppProjectsConfig;
   };
   ui?: unknown;
   analytics?: unknown;
@@ -180,6 +219,47 @@ const getAppBlog = () => {
   return merge({}, _default, config?.apps?.blog ?? {}) as AppBlogConfig;
 };
 
+const getAppProjects = () => {
+  const _default = {
+    isEnabled: false,
+    projectsPerPage: 4,
+    project: {
+      isEnabled: true,
+      permalink: '/projects/%slug%',
+      robots: {
+        index: true,
+        follow: true,
+      },
+    },
+    list: {
+      isEnabled: true,
+      pathname: 'projects',
+      robots: {
+        index: true,
+        follow: true,
+      },
+    },
+    category: {
+      isEnabled: false,
+      pathname: 'projects/category',
+      robots: {
+        index: true,
+        follow: true,
+      },
+    },
+    tag: {
+      isEnabled: false,
+      pathname: 'projects/tag',
+      robots: {
+        index: false,
+        follow: true,
+      },
+    },
+  };
+
+  return merge({}, _default, config?.apps?.project ?? {}) as AppProjectsConfig;
+};
+
 const getUI = () => {
   const _default = {
     theme: 'system',
@@ -207,5 +287,6 @@ export const SITE = getSite();
 export const I18N = getI18N();
 export const METADATA = getMetadata();
 export const APP_BLOG = getAppBlog();
+export const APP_PROJECTS = getAppProjects();
 export const UI = getUI();
 export const ANALYTICS = getAnalytics();

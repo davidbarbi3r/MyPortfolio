@@ -21,6 +21,10 @@ export const getHeaderData = (locale) => {
         text: t('header.blog'),
         href: getLocalizedBlogPermalink(locale),
       },
+      {
+        text: "Projects",
+        href: getLocalizedPermalink(locale, '/projects'),
+      }
     ],
     actions: [{ type: 'button', text: t('header.contact'), href: getLocalizedPermalink(locale, '/contact') }],
   };
