@@ -30,7 +30,7 @@ const metadata = {
     type: 'blog',
   },
 };
-console.log(page)
+
 ---
 
 <Layout metadata={metadata}>
@@ -40,7 +40,7 @@ console.log(page)
     >
       {t('blog.title')}
     </Headline>
-    <BlogList posts={page.data.map(p => p.locales[locale])} />
+    <BlogList posts={page.data.map(p => p.locales[locale]).filter(p => p.category != 'portfolio')} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--
       <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />

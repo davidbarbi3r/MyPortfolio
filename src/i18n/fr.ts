@@ -4,6 +4,7 @@ export const fr = {
     services : 'Services',
     about : 'A propos',
     blog : 'Blog',
+    portfolio: 'Projets',
     homes : {
       title : 'Maisons',
       saas : 'Saas',
@@ -512,4 +513,8 @@ export const fr = {
     disclaimer: 'En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.',
     description: 'Vous pouvez également me contacter par e-mail à l\'adresse suivante :',
   },
+  projects: {
+    title: "Projets",
+    subtitle: "Découvrez les derniers projets auxquels j'ai contribué.",
+  }
 } ;
