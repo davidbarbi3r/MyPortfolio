@@ -388,6 +388,7 @@ export const fr = {
       title: 'Full Stack Passionné',
       subtitle: 'Je suis déterminé à créer des solutions informatiques personnalisées pour satisfaire vos besoins les plus complexes.'
     },
+    bookCall: 'Réserver un appel',
     services: {
       title: 'Mes services',
       subtitle: 'Des solutions sur mesure pour votre succès en ligne.',

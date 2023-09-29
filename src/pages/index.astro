@@ -1,5 +1,6 @@
 ---
 import {getLocaleFromUrl, useTranslations} from "../i18n/translator";
+import { getLocalizedPermalink } from "~/utils/permalinks";
 import Layout from '../layouts/PageLayout.astro';
 import HeroImage from '../assets/images/gnark._a_nature_tech_illustration_for_a_web_developer_b17d5bd9-734b-48e5-8475-8b7705bbb90e.png'
 import MakerTeleport from '../assets/images/maker-teleport.png'
@@ -11,7 +12,8 @@ import Features2 from "../components/widgets/Features2.astro";
 import BlogLatestPosts from "../components/widgets/BlogLatestPosts.astro";
 import Logos from "../components/widgets/Logos.astro";
 
-const { t, tList } = useTranslations(getLocaleFromUrl(Astro.url));
+const locale = getLocaleFromUrl(Astro.url);
+const { t, tList } = useTranslations(locale);
 const metadata = {
   title: 'Mobile App Homepage',
 };
@@ -23,8 +25,8 @@ const metadata = {
   <!--hero-->
   <Hero2
     tagline="David Barbier"
-    callToAction={{ text: 'Book a call', href: '/call/', icon: 'tabler:phone' }}
-    callToAction2={{ text: 'Contact', href: '/contact/' }}
+    callToAction={{ text: t('portfolio.bookCall'), href: getLocalizedPermalink(locale, '/call/'), icon: 'tabler:phone' }}
+    callToAction2={{ text: 'Contact', href: getLocalizedPermalink(locale, '/contact/')}}
     image={{
       src: HeroImage,
       alt: 'Hero Image',
@@ -144,7 +146,7 @@ const metadata = {
     }}
     endCTA={{
       text: t('portfolio.caseStudies2.endCallToAction'),
-      href: "",
+      href: "/category/portfolio/",
       icon: "tabler:chevron-right",
     }}
   >

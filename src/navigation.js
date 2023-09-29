@@ -35,7 +35,6 @@ export const getFooterData = (locale) => {
   
   return {
     secondaryLinks: [
-      // { text: t('footer.home'), href: getLocalizedPermalink(locale, '/homes/portfolio') },
       { text: t('footer.about'), href: getLocalizedPermalink(locale, '/about') },
       { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },
       { text: t('footer.contact'), href: getLocalizedPermalink(locale, '/contact') },
@@ -50,6 +49,6 @@ export const getFooterData = (locale) => {
       { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/davidbarbi3r' },
     ],
     footNote: `
-    🌱 Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://www.davidbarbier.com"> David</a> · All rights reserved.`,
+    🌱 Made by <a class="text-emerald-600 hover:underline dark:text-emerald-200" href="https://www.davidbarbier.com"> David</a> · All rights reserved.`,
   };
 };

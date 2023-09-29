@@ -383,6 +383,7 @@ export const en = {
     metadata: {
       title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
     },
+    bookCall: 'Book a call',
     heroSide: {
       accent: 'Passionate',
       title: 'Full Stack Developer',
