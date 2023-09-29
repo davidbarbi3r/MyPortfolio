@@ -146,7 +146,7 @@ const metadata = {
     }}
     endCTA={{
       text: t('portfolio.caseStudies2.endCallToAction'),
-      href: "/category/portfolio/",
+      href: getLocalizedPermalink(locale, "/category/portfolio/"),
       icon: "tabler:chevron-right",
     }}
   >
@@ -196,7 +196,7 @@ const metadata = {
     subtitle={t('portfolio.callToAction.subtitle')}
     callToAction={{
       text: t('portfolio.callToAction.cta'),
-      href: '/call/',
+      href: getLocalizedPermalink(locale, '/call/'),
       icon: 'tabler:phone',
     }}
   />
