@@ -2,7 +2,7 @@
 publishDate: 2023-06-06T00:00:00Z
 title: Matchings
 excerpt: A custom web app made for a leasing company to help them manage their tyres. 
-image: '~/assets/images/matchings.png'
+image: '~/assets/images/robert-laursoo-WHPOFFzY9gU-unsplash.jpg'
 category: Portfolio
 tags:
   - react
