@@ -39,7 +39,7 @@ export const getFooterData = (locale) => {
       { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },
       { text: t('footer.contact'), href: getLocalizedPermalink(locale, '/contact') },
       { text: t('footer.blog'), href: getLocalizedBlogPermalink(locale)},
-      { text: t('footer.legal'), href: getLocalizedPermalink(locale, '/terms') },
+      { text: t('footer.legal'), href: getLocalizedPermalink(locale, '/terms')},
     ],
     socialLinks: [
       { ariaLabel: 'Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/gnark_eth' },

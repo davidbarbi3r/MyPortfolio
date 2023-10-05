@@ -522,5 +522,23 @@ export const en = {
   projects: {
     title: "Projects",
     subtitle: "Discover the latest projects I've worked on.",
-  }
+  },
+  terms: {
+    title: 'Terms and Conditions',
+    info: {
+      title: 'Informations',
+      created: 'Website created by David Barbier',
+      company: 'David Barbier is a company registered in France, 13 BD SAMPIERO, 20000 AJACCIO.',
+      publication: 'Publication Director',
+    },
+    host: {
+      title: 'Hosting',
+      company: 'Website hosted by Vercel Inc. domiciled at :',
+      address: '340 S Lemon Ave #4133 Walnut, CA 91789, USA',
+    },
+    data: {
+      title: "Personal data",
+      info: "The David Barbier website only collects your email address if you provide it in the contact form. Your email address will only be used to respond to your message and will never be broadcast or sold.",
+    },
+  },
 };

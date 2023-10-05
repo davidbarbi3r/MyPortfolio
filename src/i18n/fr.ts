@@ -406,7 +406,7 @@ export const fr = {
             title: 'Sites E-commerce',
             description: 'Une boutique en ligne pour vendre vos produits et services.',
           }],
-          price: 'A partir de 900€',
+          price: 'À partir de 900€',
           callToAction: 'En savoir plus',
         },
         {
@@ -437,7 +437,7 @@ export const fr = {
             title: 'Maintenance',
             description: 'Maintenance technique pour assurer le bon fonctionnement de votre site ou de votre application.',
           }],
-          price: 'A partir de 30€/mois',
+          price: 'À partir de 30€/mois',
         }
       ]
     },
@@ -517,5 +517,23 @@ export const fr = {
   projects: {
     title: "Projets",
     subtitle: "Découvrez les derniers projets auxquels j'ai contribué.",
-  }
+  },
+  terms: {
+    title: "Mentions légales",
+    info: {
+      title: "Informations légales",
+      created: "Site créé par David Barbier.",
+      company: "David Barbier est une microentreprise domiciliée au 13 BD SAMPIERO, 20000 AJACCIO.",
+      publication: "Directeur de la publication",
+    },
+    host: {
+      title: "Hébergement",
+      company: "Site hébergé par Vercel Inc. domiciliée à l'adresse :      ",
+      address: "340 S Lemon Ave #4133 Walnut, CA 91789, USA",
+    },
+    data: {
+      title: "Données personnelles",
+      info: "Le site Internet David Barbier ne collecte que votre adresse e-mail si vous la renseignez dans le formulaire de contact. Votre adresse e-mail ne sera utilisée que pour répondre à votre message et ne sera jamais diffusée ou vendue."
+    },
+  },
 } ;

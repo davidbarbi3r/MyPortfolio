@@ -1,0 +1,32 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getLocaleFromUrl, useTranslations } from '../i18n/translator';
+import WidgetWrapper from '../components/ui/WidgetWrapper.astro';
+
+const metadata = {
+  title: 'Terms and Conditions',
+};
+const locale = getLocaleFromUrl(Astro.url)
+const {t} = useTranslations(locale)
+
+---
+
+<Layout metadata={metadata}>
+    <WidgetWrapper    
+        containerClass={`max-w-7xl mx-auto`}
+    >
+        <h1 class="font-bold font-heading leading-tighter tracking-tighter my-4 dark:text-gray-200 md:text-4xl text-3xl">{t('terms.title')}</h1>
+        <h2 class="font-bold font-heading leading-tighter tracking-tighter my-3 text-heading md:text-2xl text-xl">{t('terms.info.title')}</h2>
+        <p>{t('terms.info.created')}</p>
+        <p>{t('terms.info.company')}</p>
+        <p><strong>SIRET</strong> : 851 216 143 00020</p>
+        <p><strong>{t('terms.info.publication')}</strong> : David Barbier</p>
+
+        <h2 class="font-bold font-heading leading-tighter tracking-tighter text-heading my-3 md:text-2xl text-xl">{t('terms.host.title')}</h2>
+        <p>{t('terms.host.company')}</p>
+        <p>{t('terms.host.address')}</p>
+
+        <h2 class="font-bold font-heading leading-tighter tracking-tighter text-heading my-3 md:text-2xl text-xl">{t('terms.data.title')}</h2>
+        <p>{t('terms.data.info')}</p>
+    </WidgetWrapper>
+</Layout>

@@ -15,7 +15,8 @@ import Logos from "../components/widgets/Logos.astro";
 const locale = getLocaleFromUrl(Astro.url);
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: 'Mobile App Homepage',
+  title: 'David Barbier - Fullstack Developer',
+  description: 'Création de sites internet, d\'applications web et mobiles, de logiciels et d\'applications métiers. A Ajaccio, en Corse et partout en France.',
 };
 ---
 
@@ -110,7 +111,7 @@ const metadata = {
     items={tList('portfolio.caseStudies1.items')}
     cta={{
       text: t('portfolio.caseStudies2.callToAction'),
-      href: "",
+      href: getLocalizedPermalink(locale, "/maker-teleport-ui"),
       icon: "tabler:chevron-right",
     }}
     image={{
@@ -126,7 +127,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-slate-900"></div>
     </Fragment>
   </Content>
 
@@ -141,7 +142,7 @@ const metadata = {
     }}
     cta={{
       text: t('portfolio.caseStudies2.callToAction'),
-      href: "",
+      href: getLocalizedPermalink(locale, "/matchings"),
       icon: "tabler:chevron-right",
     }}
     endCTA={{
@@ -157,7 +158,7 @@ const metadata = {
       {t('portfolio.caseStudies2.additionalDescription')}
     </Fragment>
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-slate-900"></div>
     </Fragment>
   </Content>
 
