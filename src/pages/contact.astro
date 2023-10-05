@@ -1,8 +1,10 @@
 ---
+export const prerender = false;
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import { getLocaleFromUrl, useTranslations } from '../i18n/translator';
+import { Resend } from 'resend'
 
 const metadata = {
   title: 'Contact',
@@ -10,6 +12,37 @@ const metadata = {
 const locale = getLocaleFromUrl(Astro.url)
 const {t} = useTranslations(locale)
 
+const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
+
+const resend = new Resend(RESEND_API_KEY);
+
+if (Astro.request.method === 'POST') {
+  try{
+    const data = await Astro.request.formData();
+    const name = data.get('name');
+    const email = data.get('email');
+    const message = data.get('textarea');
+
+    const emailSent = await resend.emails.send({
+      from: 'David Freelance <onboarding@resend.dev>',
+      to: ['davidbarbi3r@gmail.com'],
+      subject: 'A new message from your website',
+      html: `
+        <strong>Hello David,</strong>
+        <p>You have a new message from your website.</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> 
+          <p>${message}</p>
+        </p>
+      `,
+    });
+
+    console.log(emailSent);
+  } catch (error) {
+    console.error(error);
+  }
+}
 ---
 
 <Layout metadata={metadata}>
