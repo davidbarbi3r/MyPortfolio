@@ -24,7 +24,9 @@ export default defineConfig({
     format: SITE.trailingSlash ? "directory" : "file"
   },
   output: 'hybrid',
-  adapter: vercel(),
+  adapter: vercel({
+    edgeMiddleware: true,
+  }),
   integrations: [tailwind({
     applyBaseStyles: false
   }),
