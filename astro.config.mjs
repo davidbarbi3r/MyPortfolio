@@ -11,7 +11,6 @@ import icon from 'astro-icon';
 import tasks from "./src/utils/tasks";
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { ANALYTICS, SITE, I18N } from './src/utils/config.ts';
-import vercel from "@astrojs/vercel/serverless";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
@@ -23,8 +22,6 @@ export default defineConfig({
   build: {
     format: SITE.trailingSlash ? "directory" : "file"
   },
-  output: 'server',
-  adapter: vercel(),
   integrations: [tailwind({
     applyBaseStyles: false
   }),
@@ -68,5 +65,5 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src')
       }
     }
-  },
+  }
 });

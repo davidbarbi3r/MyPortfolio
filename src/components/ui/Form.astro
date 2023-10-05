@@ -4,7 +4,10 @@ import { Form } from '~/types';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
 ---
 
-<form method="POST">
+<form 
+  method="POST" 
+  action="https://formspree.io/f/xayglvyo"
+  >
   {
     inputs &&
       inputs.map(
