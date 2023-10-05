@@ -3,14 +3,11 @@ export const prerender = false;
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import { getLocaleFromUrl, useTranslations } from '../i18n/translator';
 import { Resend } from 'resend'
 
 const metadata = {
   title: 'Contact',
 };
-const locale = getLocaleFromUrl(Astro.url)
-const {t} = useTranslations(locale)
 
 const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
 
@@ -50,17 +47,17 @@ if (Astro.request.method === 'POST') {
 
     <HeroText
     tagline="Contact"
-    title={t('contact.titleMain')}
+    title="Contact"
   />
 
   <ContactUs
     title={t('contact.title')}
-    subtitle={t('contact.subtitle')}
+    subtitle="Let's talk about your project"
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: t('contact.name'),
+        label: "What's your name?",
       },
       {
         type: 'email',
@@ -72,7 +69,7 @@ if (Astro.request.method === 'POST') {
       label: 'Message',
     }}
     disclaimer={{
-      label: t('contact.disclaimer'),
+      label: "I'll get back to you within 24 hours.",
     }}
   />
 
