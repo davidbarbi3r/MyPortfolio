@@ -23,8 +23,8 @@ export default defineConfig({
   build: {
     format: SITE.trailingSlash ? "directory" : "file"
   },
-  output: 'hybrid',
   adapter: vercel(),
+  output: 'server',
   integrations: [tailwind({
     applyBaseStyles: false
   }),
