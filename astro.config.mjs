@@ -23,10 +23,8 @@ export default defineConfig({
   build: {
     format: SITE.trailingSlash ? "directory" : "file"
   },
-  output: 'serverless',
-  adapter: vercel({
-    edgeMiddleware: true,
-  }),
+  output: 'server',
+  adapter: vercel(),
   integrations: [tailwind({
     applyBaseStyles: false
   }),
