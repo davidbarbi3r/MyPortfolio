@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 import type { ItemGrid } from '~/types';
 import CTA from './CTA.astro';
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro';
 
 const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props as ItemGrid;
 
@@ -37,7 +39,11 @@ const {
           <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0')}>
             {image && (
               <div class="">
-                <img class="object-cover w-full h-64 mb-4 rounded-t-lg" src={image.src} alt={image.alt} />
+                <Image
+                src={image as ImageMetadata}
+                class="object-cover w-full h-64 mb-4 rounded-t-lg"
+                alt={image.alt || ''}
+                />
               </div>
             )}
             <div class="p-4 flex flex-col justify-between grow">
