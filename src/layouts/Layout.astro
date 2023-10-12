@@ -11,6 +11,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification  from "~/components/common/SiteVerification.astro"
 import Analytics  from "~/components/common/Analytics.astro"
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import { getLocaleFromUrl } from '~/i18n/translator';
 
 import { MetaData as MetaDataType } from '~/types';
 
@@ -19,11 +20,12 @@ export interface Props {
 }
 
 const { metadata = {} } = Astro.props;
-const { language, textDirection } = I18N;
+const { textDirection } = I18N;
+const locale = getLocaleFromUrl(Astro.url);
 ---
 
 <!DOCTYPE html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={locale} dir={textDirection} class="2xl:text-[20px]">
 
   <head>
     <CommonMeta />

@@ -20,6 +20,7 @@ const { t, tList } = useTranslations(locale);
 const metadata = {
   title: 'David Barbier - Fullstack Developer',
   description: 'Création de sites internet, d\'applications web et mobiles, de logiciels et d\'applications métiers. A Ajaccio, en Corse et partout en France.',
+  lang: locale,
 };
 ---
 
@@ -104,7 +105,7 @@ const metadata = {
     title={t('portfolio.caseStudies1.title')}
     items={tList('portfolio.caseStudies1.items')}
     cta={{
-      text: t('portfolio.caseStudies2.callToAction'),
+      text: t('portfolio.caseStudies1.callToAction'),
       href: getLocalizedPermalink(locale, "/maker-teleport-ui"),
       icon: "tabler:chevron-right",
     }}

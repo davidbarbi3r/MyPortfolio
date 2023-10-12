@@ -49,6 +49,6 @@ export const getFooterData = (locale) => {
       { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/davidbarbi3r' },
     ],
     footNote: `
-    🌱 Made by <a class="text-emerald-600 hover:underline dark:text-emerald-200" href="https://www.davidbarbier.com"> David</a> · All rights reserved.`,
+    🌱 Made by <a class="text-emerald-700 hover:underline dark:text-emerald-200" href="https://www.davidbarbier.com"> David</a> · All rights reserved.`,
   };
 };

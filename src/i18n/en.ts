@@ -456,6 +456,7 @@ export const en = {
       subtitle: 'Dive into our achievements and discover how we achieved success through customized solutions.',
       additionalTitle: "Maker Teleport UI",
       additionalDescription: "Developing a UI MVP to facilitate secure cryptocurrency transfers between different blockchains, using Maker's new Teleport SDK.",
+      callToAction: 'Learn more about Teleport',
       imageAlt: 'Maker teleport mockup',
       items: [
         {
@@ -476,7 +477,7 @@ export const en = {
       additionalTitle: "Matchings",
       additionalDescription: "Web application for tire inventory and order management",
       imageAlt: 'Matchings-screenshot',
-      callToAction: 'Learn more',
+      callToAction: 'Learn more about Matchings',
       endCallToAction: 'See more projects',
       items: [
         {
