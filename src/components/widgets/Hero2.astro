@@ -23,7 +23,34 @@ const {
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
+<script>
+  const heroImg = document.getElementById('heroImg');
 
+  function scrollPosition(){
+    return window.scrollY;
+  }
+
+  function percentageScrolled(){
+    return scrollPosition() / (document.body.scrollHeight - window.innerHeight);
+  }
+
+  function screenWidth(){
+    return window.innerWidth;
+  }
+
+  function parallax(){
+    if (heroImg && screenWidth() > 1024 && percentageScrolled() < 0.20) {
+      heroImg.style.transform = `translateY(${scrollPosition() * 0.4}px)`;
+    }
+    if (heroImg && screenWidth() <= 1024 && percentageScrolled() < 0.15) {
+      heroImg.style.transform = `translateY(${scrollPosition() * 0.25}px) scale(1.1)`;
+    }
+  }
+
+  window.addEventListener('scroll', function(){
+    parallax();
+  });
+</script>
 <section class="relative md:-mt-[76px] not-prose">
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
@@ -92,21 +119,23 @@ const {
       <div class="basis-1/2">
         {
           image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={600}
-                  height={800}
-                  {...image}
-                />
-              )}
-            </div>
+            <div class="relative m-auto max-w-5xl overflow-hidden rounded-md">
+              <div id='heroImg' class="relative m-auto max-w-5xl">
+                {typeof image === 'string' ? (
+                  <Fragment set:html={image} />
+                ) : (
+                  <Image
+                    class="mx-auto rounded-md w-full object-bottom object-fill"
+                    widths={[400, 768, 1024, 2040]}
+                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                    loading="eager"
+                    width={600}
+                    height={800}
+                    {...image}
+                  />
+                )}
+              </div>
+          </div>
           )
         }
       </div>
