@@ -529,7 +529,7 @@ export const en = {
     info: {
       title: 'Informations',
       created: 'Website created by David Barbier',
-      company: 'David Barbier is a company registered in France, 13 BD SAMPIERO, 20000 AJACCIO.',
+      company: 'David Barbier is a company registered in France, BD SAMPIERO, 20000 AJACCIO.',
       publication: 'Publication Director',
     },
     host: {
