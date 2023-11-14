@@ -8,16 +8,16 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Freelance developer - David Barbier
+    default: Développeur Freelance - David Barbier
     template: '%s | Freelance developer - David Barbier'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "\U0001F680 Je réalise des sites web et des applications web sur mesure pour les entreprises et les particuliers."
   robots:
-    index: false
-    follow: false
+    index: true
+    follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Développeur Freelance - David Barbier
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/db-site-freelance.png'
         width: 1200
         height: 628
     type: website
@@ -28,7 +28,7 @@ metadata:
 
 i18n:
   isEnabled: true
-  defaultLocale: en
+  defaultLocale: fr
   locales:
     en: en-US
     fr: fr-FR
