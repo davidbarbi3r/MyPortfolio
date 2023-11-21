@@ -12,8 +12,9 @@ import SiteVerification  from "~/components/common/SiteVerification.astro"
 import Analytics  from "~/components/common/Analytics.astro"
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import { getLocaleFromUrl } from '~/i18n/translator';
+import { ViewTransitions } from 'astro:transitions';
 
-import { MetaData as MetaDataType } from '~/types';
+import type { MetaData as MetaDataType } from '~/types';
 
 export interface Props {
   metadata?: MetaDataType;
@@ -35,6 +36,7 @@ const locale = getLocaleFromUrl(Astro.url);
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <ViewTransitions />
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">

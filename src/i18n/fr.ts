@@ -513,6 +513,7 @@ export const fr = {
     subtitle: 'Ce sera un plaisir de discuter avec vous de votre projet.',
     disclaimer: 'En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.',
     description: 'Vous pouvez également me contacter par e-mail à l\'adresse suivante :',
+    button: 'Envoyer',
   },
   projects: {
     title: "Projets",

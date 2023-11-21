@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
+import type { ImageMetadata } from 'astro';
 
 import { getPermalink } from '~/utils/permalinks';
 import { getFormattedDate } from '~/utils/utils';
@@ -12,7 +13,7 @@ import type { Post } from '~/types';
 
 export interface Props {
   post: Post;
-  url: string | URL;
+  url: string | URL | ImageMetadata;
 }
 
 const { post, url } = Astro.props;
@@ -64,6 +65,7 @@ const Content = post?.Content || null;
             height={506}
             loading="eager"
             decoding="async"
+            transition:persist
           />
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
