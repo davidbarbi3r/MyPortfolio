@@ -3,7 +3,32 @@ import { Form } from '~/types';
 
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
 ---
-
+<script>
+  const form = document.querySelector('form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+      .then(response => {
+        if (response.ok) {
+          form.reset();
+        } else {
+          return response.json().then(json => Promise.reject(json));
+        }
+      })
+      .then(() => {
+        alert('Thanks for your submission!');
+      })
+      .catch(error => {
+        alert('Oops! There was a problem submitting your form');
+        console.error(error);
+      });
+  });
+</script>
 <form 
   method="POST" 
   action="https://formspree.io/f/xayglvyo"
