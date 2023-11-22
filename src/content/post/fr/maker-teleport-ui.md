@@ -33,10 +33,10 @@ Voici les fonctionnalités actuellement mises en œuvre dans ce projet d'interfa
 ## Améliorations futures
 
 Prochaines étapes pour ce projet :
-   - [ ] Afficher l'étape à laquelle se trouve l'utilisateur lorsque le pontage se produit (initialisation du téléport, attente de l'attestation, appel aux oracles).
+   - [ ] Afficher l'étape à laquelle se trouve l'utilisateur lorsque le transfert se produit (initialisation du téléport, attente de l'attestation, appel aux oracles).
    - [ ] Ajouter des explications textuelles dans la fenêtre contextuelle du portefeuille pour l'utilisateur.
-   - [ ] Ajouter des options avancées (to & data) pour les utilisateurs utilisant le relais.
-   - [ ] Comprendre comment le téléport est censé fonctionner lorsque l'utilisateur n'a pas suffisamment de DAI pour payer les frais de relais.
+   - [ ] Ajouter des options avancées (to & data) pour les utilisateurs utilisant la fonction de relais.
+   - [ ] Implémenter le fonctionnement lorsque l'utilisateur n'a pas suffisamment de DAI pour payer les frais de relais.
 
 ## Déploiement
 
