@@ -2,7 +2,7 @@
 ublishDate: 2023-06-06T00:00:00Z
 title: Matchings
 excerpt: Une application fullstack sur mesure pour permettre à un groupement de sociétés de gérer leurs stocks de pneus 
-image: '~/assets/images/robert-laursoo-WHPOFFzY9gU-unsplash.jpg'
+image: '~/assets/images/agilytic.jpeg'
 category: Portfolio
 tags:
   - react
@@ -14,7 +14,7 @@ metadata:
   canonical: https://www.davidbarbier.com/matchings
 ---
 
-** Développement spécifique **
+**Développement spécifique** 
 
 Ce projet a été un véritable challenge technique lors de sa réalisation, j'ai pu travailler en équipe avec un autre développeur expérimenté qui validait mon travail ce qui m'a permit de bien progresser et surtout d'être sur de livrer un travail fonctionnel et de qualité au client. 
 

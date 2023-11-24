@@ -2,7 +2,7 @@
 publishDate: 2023-06-06T00:00:00Z
 title: Matchings
 excerpt: A tailored fullstack web app made for a leasing company to help them manage their tyres. 
-image: '~/assets/images/robert-laursoo-WHPOFFzY9gU-unsplash.jpg'
+image: '~/assets/images/agilytic.jpeg'
 category: Portfolio
 tags:
   - react
@@ -14,7 +14,7 @@ metadata:
   canonical: https://www.davidbarbier.com/matchings
 ---
 
-** Custom Development **
+**Custom Development**
 
 This project has been a significant technical challenge during its implementation. I had the opportunity to work in a team with another experienced developer who validated my work, allowing me to make substantial progress and ensure the delivery of functional and high-quality work to the client.
 
