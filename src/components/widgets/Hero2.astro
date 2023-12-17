@@ -42,9 +42,6 @@ const {
     if (heroImg && screenWidth() > 1024 && percentageScrolled() < 0.20) {
       heroImg.style.transform = `translateY(${scrollPosition() * 0.4}px)`;
     }
-    if (heroImg && screenWidth() <= 1024 && percentageScrolled() < 0.15) {
-      heroImg.style.transform = `translateY(${scrollPosition() * 0.25}px) scale(1.1)`;
-    }
   }
 
   window.addEventListener('scroll', function(){

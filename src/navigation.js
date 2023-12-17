@@ -1,4 +1,4 @@
-import { getLocalizedPermalink, getLocalizedBlogPermalink, getAsset } from './utils/permalinks';
+import { getLocalizedPermalink, getAsset } from './utils/permalinks';
 import { useTranslations } from '~/i18n/translator';
 
 export const getHeaderData = (locale) => {

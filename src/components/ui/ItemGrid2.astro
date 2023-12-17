@@ -22,7 +22,7 @@ const {
   items && (
     <div
       class={twMerge(
-        `grid gap-8 gap-x-12 sm:gap-y-8 ${
+        `flex flex-auto md:grid overflow-x-scroll gap-8 gap-x-12 sm:gap-y-8 ${
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
@@ -36,7 +36,7 @@ const {
     >
       {items.map(
         ({ title, description, icon, callToAction, image, servicesItems, price, classes: itemClasses = {} }) => (
-          <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0')}>
+          <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0 min-w-full')}>
             {image && (
               <div class="">
                 <Image
