@@ -6,7 +6,7 @@ import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
-import compress from 'astro-compress';
+// import compress from 'astro-compress';
 import icon from 'astro-icon';
 import tasks from "./src/utils/tasks";
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
@@ -46,16 +46,19 @@ export default defineConfig({
     config: {
       forward: ['dataLayer.push']
     }
-  })), tasks(), compress({
-    CSS: true,
-    HTML: {
-      removeAttributeQuotes: false
-    },
-    Image: false,
-    JavaScript: true,
-    SVG: true,
-    Logger: 1
-  })],
+  })), 
+  tasks(), 
+  // compress({
+  //   CSS: true,
+  //   HTML: {
+  //     removeAttributeQuotes: false
+  //   },
+  //   Image: false,
+  //   JavaScript: true,
+  //   SVG: true,
+  //   Logger: 1
+  // })
+  ],
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
   },
