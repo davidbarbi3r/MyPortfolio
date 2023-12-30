@@ -36,12 +36,12 @@ const {
     >
       {items.map(
         ({ title, description, icon, callToAction, image, servicesItems, price, classes: itemClasses = {} }) => (
-          <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0 min-w-full')}>
+          <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0 min-w-[93%]')}>
             {image && (
               <div class="">
                 <Image
                 src={image as ImageMetadata}
-                class="object-cover w-full h-64 mb-4 rounded-t-lg"
+                class="object-cover w-full h-24 md:h-48 mb-4 rounded-t-lg"
                 alt={image.alt || ''}
                 height={350}
                 width={450}
@@ -54,7 +54,7 @@ const {
                   <Icon
                     name={icon || defaultIcon}
                     class={twMerge(
-                      'mb-2 w-10 h-10 text-emerald-800',
+                      'hidden mb-2 w-10 h-10 text-emerald-800',
                       defaultIconClass,
                       itemClasses?.icon,
                       'text-emerald-800'
