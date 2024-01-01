@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
 title: Practical Guide for Effective DNS Configuration
-excerpt: Properly configuring your DNS records is crucial for ensuring that your clients can find your website and that emails sent from your mail server don't end up in your clients' spam folders. A guide to effective DNS record configuration.
+excerpt: Have you ever discovered that your professional emails are ending up in your clients' spam folders? Or that potential clients are getting lost trying to access your website due to incorrect redirects? These common issues can often be symptoms of poor DNS configuration.
 image: '~/assets/images/dns-config.jpg'
 category: Blog
 tags:
@@ -13,10 +13,6 @@ metadata:
 ---
 
 While setting up the DNS records for Laetitia's website - lbg-expertise.com, I thought it would be useful to create a guide to ensure you have an optimal configuration.
-
-# Practical Guide for Effective DNS Configuration
-Have you ever discovered that your professional emails are ending up in your clients' spam folders? Or that potential clients are getting lost trying to access your website due to incorrect redirects?
-These common issues can often be symptoms of poor DNS configuration.
 
 ## Why Should You Care About DNS?
 Think of DNS as the Internet's GPS. It guides clients to your digital business by translating technical IP addresses (like 133.143.3.12) into user-friendly domain names (like www.facebook.com), and vice versa. Poor DNS configuration can lead to navigation issues to your site or problems in email delivery.
