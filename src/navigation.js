@@ -17,10 +17,10 @@ export const getHeaderData = (locale) => {
       //   text: t('header.services'),
       //   href: getLocalizedPermalink(locale, '/services'),
       // },
-      // {
-      //   text: t('header.blog'),
-      //   href: getLocalizedBlogPermalink(locale),
-      // },
+      {
+        text: t('header.blog'),
+        href: getLocalizedPermalink(locale, '/category/blog'),
+      },
       {
         text: t('header.portfolio'),
         href: getLocalizedPermalink(locale, '/category/portfolio'),
@@ -38,7 +38,7 @@ export const getFooterData = (locale) => {
       // { text: t('footer.about'), href: getLocalizedPermalink(locale, '/about') },
       // { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },
       { text: t('footer.contact'), href: getLocalizedPermalink(locale, '/contact') },
-      // { text: t('footer.blog'), href: getLocalizedBlogPermalink(locale)},
+      { text: t('footer.blog'), href: getLocalizedPermalink(locale, '/category/blog')},
       { text: t('footer.legal'), href: getLocalizedPermalink(locale, '/terms')},
     ],
     socialLinks: [
