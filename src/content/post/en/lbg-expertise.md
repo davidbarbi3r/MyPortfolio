@@ -34,7 +34,8 @@ Creation of a professional showcase website for the launch of an accountant's of
 For this project, I decided to use the Javascript framework [Astro.js](https://astro.build/), which allows for pleasant development, effective routing, and comfortable rendering options (either static, SSR, or CSR).
 
 It notably enables excellent site performance in terms of display speed.
-image.png Astro also allows for the development of APIs or e-commerce sites, which will enable me to adapt to any future evolution in my client's site requirements.
+![astro-perf.png](~/assets/images/astro-perf.png)
+Astro also allows for the development of APIs or e-commerce sites, which will enable me to adapt to any future evolution in my client's site requirements.
 
 #### Typescript
 Even for a showcase site with little logic, I appreciate having my code typed; the comfort provided by autocompletion and upfront error detection allows for smoother development.
@@ -56,7 +57,7 @@ The site is live and can be accessed here [LBG-Expertise](https://lbg-expertise.
 
 The analysis with PagesSpeedInsight shows very good site performance, both on desktop and mobile [Performance report](https://pagespeed.web.dev/analysis/https-www-lbg-expertise-com/bzpbpd8z16?form_factor=mobile)
 
-![image.png](../assets/image_1704182707390_0.png){:height 438, :width 778}
+![lbg-perf.png](~/assets/images/lbg-perf.png){:height 438, :width 778}
 
 This will allow my client not to worry about the site's performance for SEO, focusing instead on creating useful and relevant content for her clients.
 

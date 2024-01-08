@@ -34,7 +34,7 @@ Création d'un site vitrine professionnel pour le lancement du cabinet d'une exp
 Pour ce projet j'ai décidé d'utiliser le framework Javascript [Astro.js](https://astro.build/), ce framework permet un développement agréable, un routing efficace et des options confortables coté rendu (soit statique, SSR ou CSR). 
   
   Il permet notamment d'obtenir de très bonnes performances des sites en terme de vitesse d'affichage.  
-![image.png](../assets/image_1704179527714_0.png) Astro permet également le développement d'API ou de sites e-commerce, ça me permettra de m'adapter à toute demande d'évolution future des besoins du site de ma cliente.
+![astro-perf.png](~/assets/images/astro-perf.png) Astro permet également le développement d'API ou de sites e-commerce, ça me permettra de m'adapter à toute demande d'évolution future des besoins du site de ma cliente.
 
 #### Typescript
 Même pour un site vitrine avec peu de logique j'apprécie que mon code soit typé, le confort apporté par l'autocomplétion et la détection des erreurs en amont permet un développement plus fluide.
@@ -57,7 +57,7 @@ Le site est en ligne et est disponible ici [LBG-Expertise](https://lbg-expertise
 
 L'analyse avec PagesSpeedInsight montre de très bonnes performances du site, tant en desktop qu'en mobile [Rapport de performance](https://pagespeed.web.dev/analysis/https-www-lbg-expertise-com/bzpbpd8z16?form_factor=mobile)
 
-![image.png](../assets/image_1704182707390_0.png){:height 438, :width 778}
+![lbg-perf.png](~/assets/images/lbg-perf.png){:height 438, :width 778}
 
 Ça permettra à ma cliente de ne pas avoir à se soucier des performances du site pour son référencement SEO, elle aura juste à se concentrer sur la création de contenu utile et pertinent pour ses clients.
 
