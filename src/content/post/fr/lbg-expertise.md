@@ -57,7 +57,7 @@ Le site est en ligne et est disponible ici [LBG-Expertise](https://lbg-expertise
 
 L'analyse avec PagesSpeedInsight montre de très bonnes performances du site, tant en desktop qu'en mobile [Rapport de performance](https://pagespeed.web.dev/analysis/https-www-lbg-expertise-com/bzpbpd8z16?form_factor=mobile)
 
-![lbg-perf.png](~/assets/images/lbg-perf.png){:height 438, :width 778}
+![lbg-perf.png](~/assets/images/lbg-perf.png)
 
 Ça permettra à ma cliente de ne pas avoir à se soucier des performances du site pour son référencement SEO, elle aura juste à se concentrer sur la création de contenu utile et pertinent pour ses clients.
 

@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-01-06T00:00:00Z
 title: Lbg-expertise
-excerpt: Création d'un site vitrine pour une expert-comptable qui lance son cabinet indépendant.
+excerpt: Landing page creation for a chartered accountant.
 image: '~/assets/images/lbg-expertise.png'
 category: Portfolio
 tags:
@@ -57,7 +57,7 @@ The site is live and can be accessed here [LBG-Expertise](https://lbg-expertise.
 
 The analysis with PagesSpeedInsight shows very good site performance, both on desktop and mobile [Performance report](https://pagespeed.web.dev/analysis/https-www-lbg-expertise-com/bzpbpd8z16?form_factor=mobile)
 
-![lbg-perf.png](~/assets/images/lbg-perf.png){:height 438, :width 778}
+![lbg-perf.png](~/assets/images/lbg-perf.png)
 
 This will allow my client not to worry about the site's performance for SEO, focusing instead on creating useful and relevant content for her clients.
 
