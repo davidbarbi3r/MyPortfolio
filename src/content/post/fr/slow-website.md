@@ -43,3 +43,8 @@ Un excès de bibliothèques et de packages peut alourdir inutilement votre site.
 En complément, ne négligez pas la minification des fichiers CSS et JavaScript, l'adoption de réseaux de distribution de contenu (CDN) et les audits réguliers des performances à l'aide d'outils spécialisés. Chaque action compte dans la quête d'un site réactif.
 
 Votre site web est le miroir de votre engagement envers vos utilisateurs. Chaque optimisation, chaque milliseconde gagnée, enrichit l'expérience offerte et témoigne de votre attention au détail.
+
+**Vous voulez régler un problème de lenteur su votre site ?**
+
+N'hésitez pas à me contacter pour qu'on analyse et corrige le problème
+[Me Contacter](https://www.davidbarbier.com/contact)

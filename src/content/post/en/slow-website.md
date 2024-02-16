@@ -43,3 +43,8 @@ An excess of libraries and packages can unnecessarily weigh down your site. Take
 As a complement, don't neglect the minification of CSS and JavaScript files, the adoption of content distribution networks (CDNs) and regular performance audits using specialized tools. Every action counts in the quest for a responsive site.
 
 Your website is the mirror of your commitment to your users. Every optimization, every millisecond saved, enriches the experience you offer and testifies to your attention to detail.
+
+**Do you have a slow site?**
+
+Do not hesitate to contact me so that we can analyze and correct the problem.
+[Contact me](https://www.davidbarbier.com/contact)

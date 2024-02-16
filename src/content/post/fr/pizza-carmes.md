@@ -27,12 +27,20 @@ Pizza Carmes [Pizza Carmes](https://pizza-limoges.fr)
 Développeur et désigner du projet
 
 ### Commande / Objectifs
-Refonte du site de Pizza Carmes avec ajout de fonctionnalités facilitant la gestion de la pizzeria. 
+Pizza Carmes, c'est avant tout l'histoire de deux anciens salariés qui ont repris le fonds d'une célèbre enseigne de pizza. Ils ont fondés leur propre restaurant afin d'être totalement indépendants et de s'affranchir des contraintes d'un restaurant franchisé.
+
+Afin d'améliorer leurs ventes et le parcours clients, ils m'ont contacté pour effectuer la refonte du site, tant au niveau design que des fonctionnalités :
+
 - Possibilité de choisir des suppléments lors de la commande de pizza,
 - Possibilité de choix de l'épaisseur de la pate dans les menus, 
 - Création d'une interface administrateur intuitive pour modifier, ajouter, supprimer pizzas, menus, ingrédients etc...
 - Gestion des ruptures de stocks par l'interface admin,
+- Ajout de suggestions de vente avant paiement,
 - Gestion dynamique des temps de livraison / retrait sur place ... 
+
+Ces améliorations vont permettre de mieux gérer les services notamment en période de rush et également d'augmenter le panier moyen de commandes. 
+
+Le site est entièrement conçu selon les bonnes pratiques de référencement naturel, de responsive design et d’optimisation des performances. 
 
 ### Technologies utilisées
 
@@ -65,6 +73,8 @@ L'analyse avec PagesSpeedInsight montre de bonnes performances du site, tant en 
 
 Le site a également été pensé pour avoir le plus faible impact écologique possible, tant pour la conception du site (requêtes limitées et cachées, utilisation du SSR, taille du DOM faible) que pour le choix d'hébergement, le site est hébergé avec CloudFlare qui sont engagés dans une démarche écoresponsable, leurs datacenters sont alimentés en énergies renouvelables ce qui limite d'autant plus l'impact environnemental du site.
 <!-- [Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/lbg-expertise-com/) -->
+
+## Et si c'était vous ?
 
 N'hésitez pas à me contacter pour assurer la création de votre site vitrine éco-conçu et performant 
 [Me Contacter](https://www.davidbarbier.com/contact)
