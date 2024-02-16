@@ -44,7 +44,7 @@ En complément, ne négligez pas la minification des fichiers CSS et JavaScript,
 
 Votre site web est le miroir de votre engagement envers vos utilisateurs. Chaque optimisation, chaque milliseconde gagnée, enrichit l'expérience offerte et témoigne de votre attention au détail.
 
-**Vous voulez régler un problème de lenteur su votre site ?**
+**Vous voulez régler un problème de lenteur sur votre site ?**
 
 N'hésitez pas à me contacter pour qu'on analyse et corrige le problème
 [Me Contacter](https://www.davidbarbier.com/contact)
