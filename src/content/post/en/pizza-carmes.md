@@ -65,14 +65,12 @@ Emails can be developed in React, ensuring consistency with the overall applicat
 
 The site is online and available here [Pizza Carmes](https://pizza-limoges.fr)
 
-Analysis with PagesSpeedInsight shows good site performance on both desktop and mobile [Performance report](https://pagespeed.web.dev/analysis/https-pizza-carmes-vercel-app/tfyby9fjdw?form_factor=mobile)
-
-<!-- ![lbg-perf.png](~/assets/images/lbg-perf.png) -->
+Analysis with PagesSpeedInsight shows good site performance on both desktop and mobile [Performance report](https://pagespeed.web.dev/analysis/https-pizza-limoges-fr/5qw2b2l7bt?form_factor=mobile)
 
 This means my customer won't have to worry about the site's SEO performance.
 
 The site has also been designed to have as little ecological impact as possible, both in terms of site design (limited and hidden queries, use of SSR, small DOM size) and choice of hosting. The site is hosted with CloudFlare, who are committed to an eco-responsible approach, and their datacenters are powered by renewable energy, which further limits the site's environmental impact.
-<!-- [Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/lbg-expertise-com/) -->
+[Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/pizza-limoges-fr/)
 
 ## What if it were you?
 
