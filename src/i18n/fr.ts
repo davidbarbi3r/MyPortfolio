@@ -524,7 +524,7 @@ export const fr = {
     info: {
       title: "Informations légales",
       created: "Site créé par David Barbier.",
-      company: "David Barbier est une microentreprise domiciliée au BD SAMPIERO, 20000 AJACCIO.",
+      company: "David Barbier est une microentreprise domiciliée au 13 BOULEVARD SAMPIERO, 20000 AJACCIO.",
       publication: "Directeur de la publication",
     },
     host: {
