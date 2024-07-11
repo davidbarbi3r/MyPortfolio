@@ -5,15 +5,14 @@ excerpt: Creation of a website with client access and meal ordering system
 image: '~/assets/images/restodom-hero.png'
 category: Portfolio
 tags:
-
-next.js
-tailwind
-typescript
-amazon SES
-SQLite (Turso DB)
-cloudflare
+  - next.js
+  - tailwind
+  - typescript
+  - amazon SES
+  - SQLite (Turso DB)
+  - cloudflare
 metadata:
-canonical: https://www.davidbarbier.com/restodom
+  canonical: https://www.davidbarbier.com/restodom
 ---
 
 **Website Creation with Specific Development**
