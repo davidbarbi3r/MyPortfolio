@@ -1,77 +1,69 @@
 ---
 publishDate: 2024-07-07T00:00:00Z
 title: Rest-o-dom
-excerpt: Création d'un site internet avec accès client et systeme de commande de repas
+excerpt: Creation of a website with client access and meal ordering system
 image: '~/assets/images/restodom-hero.png'
 category: Portfolio
 tags:
-  - next.js
-  - tailwind
-  - typescript
-  - amazon SES
-  - SQLite (Turso DB)
-  - cloudflare
+
+next.js
+tailwind
+typescript
+amazon SES
+SQLite (Turso DB)
+cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/restodom
+canonical: https://www.davidbarbier.com/restodom
 ---
 
-**Création de site avec développement spécifique** 
+**Website Creation with Specific Development**
 
-### Nom du projet
+### Project Name
 Restodom [Restodom](https://restodom.fr)
 
-### Date de réalisation
+### Completion Date
 05/2024
 
-### Rôle
-Développeur et désigner du projet
+### Role
+Developer and Designer of the Project
 
-### Commande / Objectifs
-Restodom, c'est la création d'une nouvelle solution de portage de repas pour personnes agées à Bordeaux. L'objectif est de se différencier des concurrents par une approche centrée sur l'humain avant tout avec des prix doux pour le client. 
+### Order / Objectives
+Restodom is the creation of a new meal delivery solution for elderly people in Bordeaux. The goal is to differentiate from competitors with a human-centered approach and affordable prices for the client.
 
-Après analyse des solutions concurrentes et afin d'avoir une expérience utilisateur la plus fluide possible j'ai développé les fonctionnalités suivantes :
+After analyzing competing solutions and to ensure the smoothest user experience possible, I developed the following features:
 
-- Création d'un site professionnel, épuré et axé sur la facilité et la clarté des informations,
-- Création d'une interface administrateur intuitive mettre à jour les menus et les textes de certaines parties du site,
-- Possibilité pour l'administrateur d'importer directement les excels fournis par la société partenaire de cuisine collective afin de mettre à jour les menus.
-Tout le processus se passe sans aucun retraitement de la part de l'administrateur afin d'assurer un gain de temps maximal et éviter le risque d'erreurs de saisie. 
-- Système de commande client intuitif et dynamique, les prix se mettent à jour de façon automatique en fonction des éléments du menu choisi. De plus il a été apporté un soin particulier à l'expérience utilisateur étant donné la population visée, les boutons ont été adaptés ainsi qu'un feedback par couleurs afin de visualiser facilement les choix effectués. 
+Creation of a professional, clean website focused on ease of use and clarity of information,
+Creation of an intuitive admin interface to update menus and certain site sections,
+Ability for the admin to directly import Excel files provided by the partner collective kitchen to update the menus.
+The entire process occurs without any reprocessing by the admin, ensuring maximum time savings and avoiding input errors.
+Intuitive and dynamic client ordering system, with prices updating automatically based on the selected menu items. Special attention was given to the user experience considering the target population, with adapted buttons and color feedback to easily visualize choices.
+These improvements will allow better service management and a smoother user experience than competitors in the Bordeaux area.
 
-Ces améliorations vont permettre de mieux gérer les services et d'avoir une expérience utilisateur plus fluide que celle des concurrents du secteur sur Bordeaux. 
+The site is entirely designed according to best practices for SEO, responsive design, and performance optimization.
 
-Le site est entièrement conçu selon les bonnes pratiques de référencement naturel, de responsive design et d’optimisation des performances. 
-
-### Technologies utilisées
-
+### Technologies Used
 #### Nextjs
-Pour ce projet j'ai décidé d'utiliser le framework Javascript [Next.js](https://nextjs.org/), ce framework permet un développement agréable, un routing efficace et des options confortables coté rendu (soit statique, SSR ou CSR). 
-  
-  Il permet notamment d'obtenir de très bonnes performances des sites en terme de vitesse d'affichage.  
-  Ce framework utilise la librairie React pour permettre le développement facile d'interfaces interactives et modernes pour l'utilisateur. 
-  De plus Next permet d'avoir une application qui comprends le backend et le frontend, cela réduit des coûts de d'hébergement et facilite le développement avec un partage des types entre le frontend et le backend dans la même application.
+For this project, I decided to use the Javascript framework [Next.js](https://nextjs.org/). This framework offers a pleasant development experience, efficient routing, and comfortable rendering options (static, SSR, or CSR).
+
+It enables very good site performance in terms of loading speed.
+This framework uses the React library to facilitate the development of interactive and modern user interfaces.
+Moreover, Next allows for a full-stack application, reducing hosting costs and simplifying development with shared types between the frontend and backend in the same application.
 
 #### Typescript
-Lorsque un site que je développe comprends beaucoup de logique, de modèles de données comme Pizza Carmes j'apprécie que mon code soit typé, le confort apporté par l'autocomplétion et la détection des erreurs en amont permet un développement plus fluide et un code plus maintenable dans le temps.
+When a site I develop involves a lot of logic and data models like Pizza Carmes, I appreciate having typed code. The comfort provided by autocompletion and early error detection ensures smoother development and more maintainable code over time.
 
 #### Tailwind
-Je trouve que tailwind permet de faire du CSS de façon rapide et efficace une fois accoutumé à la syntaxe. [TailwindCSS](https://tailwindcss.com/)
+I find that Tailwind allows for quick and efficient CSS development once accustomed to the syntax. TailwindCSS
 
-#### Resend
-Un outil simple pour gérer les envois d'email aux clients et au gérant à chaque commande. 
-Les mails peuvent être développés en React ce qui assure la cohérence avec la stack globale de l'application. 
+### Results and Performance
+The site is live and available here [Restodom](https://restodom.fr)
 
-# Résultat et performances
+Analysis with PagesSpeedInsight shows good site performance on both desktop and mobile! [Restodom performance report](~/assets/images/restodom-perf.png)
 
-Le site est en ligne et est disponible ici [Restodom](https://restodom.fr)
+This will allow my client not to worry about the site's performance for SEO.
 
-L'analyse avec PagesSpeedInsight montre de bonnes performances du site, tant en desktop qu'en mobile ![Restodom performance report](~/assets/images/restodom-perf.png)
+The site was also designed to have the lowest possible environmental impact, both in terms of site design (limited and cached requests, use of SSR, low DOM size) and hosting choice. The site is hosted with CloudFlare, which is committed to eco-friendly practices, with data centers powered by renewable energy, further reducing the site's environmental impact. Environmental [impact report of the site](https://www.websitecarbon.com/website/restodom-fr/)
 
-Ça permettra à mon client de ne pas avoir à se soucier des performances du site pour son référencement SEO.
-
-Le site a également été pensé pour avoir le plus faible impact écologique possible, tant pour la conception du site (requêtes limitées et cachées, utilisation du SSR, taille du DOM faible) que pour le choix d'hébergement, le site est hébergé avec CloudFlare qui sont engagés dans une démarche écoresponsable, leurs datacenters sont alimentés en énergies renouvelables ce qui limite d'autant plus l'impact environnemental du site.
-[Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/restodom-fr/)
-
-## Et si c'était vous ?
-
-N'hésitez pas à me contacter pour assurer la création de votre projet 
-[Me Contacter](https://www.davidbarbier.com/contact)
+### What About You?
+Feel free to contact me to ensure the creation of your project
+[Contact Me](https://www.davidbarbier.com/contact)
