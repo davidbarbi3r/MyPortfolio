@@ -69,7 +69,7 @@ L'analyse avec PagesSpeedInsight montre de bonnes performances du site, tant en 
 Ça permettra à mon client de ne pas avoir à se soucier des performances du site pour son référencement SEO.
 
 Le site a également été pensé pour avoir le plus faible impact écologique possible, tant pour la conception du site (requêtes limitées et cachées, utilisation du SSR, taille du DOM faible) que pour le choix d'hébergement, le site est hébergé avec CloudFlare qui sont engagés dans une démarche écoresponsable, leurs datacenters sont alimentés en énergies renouvelables ce qui limite d'autant plus l'impact environnemental du site.
-[Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/)
+[Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/restodom-fr/)
 
 ## Et si c'était vous ?
 
