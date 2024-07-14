@@ -4,13 +4,14 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
 
-const metadata = {
-  title: 'Contact',
-};
 
 const locale = getLocaleFromUrl(Astro.url)
 const {t} = useTranslations(locale)
 
+const metadata = {
+  title: 'Contact',
+  description: locale === 'en' ? "Contact me for your web project (website, mobile app, software)" : "Contactez-moi pour votre création de site web à Ajaccio, Limoges ou à distance.",
+};
 ---
 
 <Layout metadata={metadata}>
