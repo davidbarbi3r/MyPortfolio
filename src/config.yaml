@@ -17,7 +17,7 @@ metadata:
   openGraph:
     site_name: Développeur Freelance - David Barbier
     images:
-      - url: '~/assets/images/db-site-freelance.png'
+      - url: '~/assets/images/db-site-freelance.webp'
         width: 1200
         height: 628
     type: website
