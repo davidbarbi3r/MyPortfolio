@@ -454,22 +454,22 @@ export const en = {
       tagline: 'Works',
       title: 'Explore the latest projects I’ve worked on.',
       subtitle: 'Dive into our achievements and discover how we achieved success through customized solutions.',
-      additionalTitle: "Maker Teleport UI",
-      additionalDescription: "Developing a UI MVP to facilitate secure cryptocurrency transfers between different blockchains, using Maker's new Teleport SDK.",
-      callToAction: 'Learn more about Teleport',
-      imageAlt: 'Maker teleport mockup',
+      additionalTitle: "Restodom",
+      additionalDescription: "Website creation for a catering company",
+      callToAction: 'Learn more about Restodom',
+      imageAlt: 'Restodom mockup',
       items: [
         {
-          title: "Token Swapping",
-          description: "Allowing users to easily exchange cryptocurrencies between different blockchains."
+          title: "Online menu booking",
+          description: "Enable users to book their menus easily via an intuitive user interface."
         },
         {
-          title: "DAI Transfer Between Blockchains",
-          description: "Facilitating the secure transfer of DAI (a stable cryptocurrency) between different blockchains."
+          title: "Simplified menu upload workflow",
+          description: "Facilitate and secure menu uploading by the platform manager."
         },
         {
-          title: "Transaction History Retrieval via a Subgraph",
-          description: "Providing users with an overview of their previous transactions through a subgraph."
+          title: "Streamlined, intuitive design",
+          description: "Particular attention has been paid to the user experience to ensure smooth, pleasant browsing."
         },
       ],
     },

@@ -6,13 +6,12 @@ import HeroImage from '../assets/images/DSCF7551-3.jpg'
 import Fidenza2 from '../assets/images/000002fidenzaPP.png'
 import Fidenza117 from '../assets/images/000117fidenzaPP.png'
 import Fidenza262 from '../assets/images/000262fidenzaPP.png'
-import MakerTeleport from '../assets/images/maker-teleport-mock.png'
+import RestodomMock from '../assets/images/restodommock.jpg'
 import Matchings from '../assets/images/agilytic.jpeg'
 import Hero2 from '../components/widgets/Hero2.astro';
 import CallToAction from '../components/widgets/CallToAction.astro';
 import Content from '../components/widgets/Content.astro';
 import Features2 from "../components/widgets/Features2.astro";
-import BlogLatestPosts from "../components/widgets/BlogLatestPosts.astro";
 import Logos from "../components/widgets/Logos.astro";
 
 const locale = getLocaleFromUrl(Astro.url);
@@ -108,12 +107,12 @@ const metadata = {
     items={tList('portfolio.caseStudies1.items')}
     cta={{
       text: t('portfolio.caseStudies1.callToAction'),
-      href: getLocalizedPermalink(locale, "/maker-teleport-ui"),
+      href: getLocalizedPermalink(locale, "/restodom"),
       icon: "tabler:chevron-right",
     }}
     image={{
-      src: MakerTeleport,
-      alt: 'Colorful Image',
+      src: RestodomMock,
+      alt: 'Mockup of Restodom website',
     }}
   >
     <Fragment slot="content">
