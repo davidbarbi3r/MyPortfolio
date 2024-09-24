@@ -21,10 +21,10 @@ const image = (await findImage(post.image)) as ImageMetadata | undefined;
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
 ---
 
-<article class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 ${image ? 'md:grid-cols-2' : ''}`}>
+<article class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 ${image ? 'md:flex' : ''}`}>
   {
     image && (
-      <a class="relative block group" href={link ?? 'javascript:void(0)'}>
+      <a class="relative block group md:w-[60%]" href={link ?? 'javascript:void(0)'}>
         <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
           {image && (
             <Image
@@ -43,7 +43,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
       </a>
     )
   }
-  <div class="mt-2">
+  <div class="mt-2 md:w-[40%]">
     <header>
       <div class="mb-1">
         <span class="text-sm">

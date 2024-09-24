@@ -378,7 +378,11 @@ export const en = {
   blog: {
     title: 'The Blog',
     subtitle:
-      'A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind',
+      'I share my thoughts on web development, programming, and other topics that interest me.',
+    next: 'Next',
+    prev: 'Previous',
+    searchCategories: 'Search by categories',
+    searchTags: 'Search by tags',
   },
   portfolio: {
     metadata: {

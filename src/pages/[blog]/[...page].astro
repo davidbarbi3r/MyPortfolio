@@ -3,7 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
+import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
 import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
@@ -17,8 +17,15 @@ const currentPage = page.currentPage ?? 1;
 const locale = getLocaleFromUrl(Astro.url);
 const { t } = useTranslations(locale);
 
-// const allCategories = await findCategories();
-// const allTags = await findTags();
+const allCategories = ["blog", "portfolio"];
+const allTags = await page.data.reduce((acc, post) => {
+  post.locales[locale].tags.forEach(tag => {
+    if (!acc.includes(tag)) {
+      acc.push(tag);
+    }
+  });
+  return acc;
+}, []);
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
@@ -41,10 +48,10 @@ const metadata = {
       {t('blog.title')}
     </Headline>
     <BlogList posts={page.data.map(p => p.locales[locale]).filter(p => p.category != 'portfolio')} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText={t('blog.prev')} nextText={t('blog.next')} />
+    
+    <PostTags tags={allCategories} class="mb-2" title={t('blog.searchCategories')} isCategory />
+    <PostTags tags={allTags}  title={t('blog.searchTags')} />
+   
   </section>
 </Layout>

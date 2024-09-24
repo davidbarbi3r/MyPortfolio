@@ -19,7 +19,7 @@ export const getHeaderData = (locale) => {
       // },
       {
         text: t('header.blog'),
-        href: getLocalizedPermalink(locale, '/category/blog'),
+        href: getLocalizedPermalink(locale, '/blog'),
       },
       {
         text: t('header.portfolio'),
@@ -39,7 +39,7 @@ export const getFooterData = (locale) => {
       // { text: t('footer.about'), href: getLocalizedPermalink(locale, '/about') },
       // { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },
       { text: t('footer.contact'), href: getLocalizedPermalink(locale, '/contact') },
-      { text: t('footer.blog'), href: getLocalizedPermalink(locale, '/category/blog')},
+      { text: t('footer.blog'), href: getLocalizedPermalink(locale, '/blog')},
       { text: t('footer.legal'), href: getLocalizedPermalink(locale, '/terms')},
     ],
     socialLinks: [
@@ -50,6 +50,6 @@ export const getFooterData = (locale) => {
       { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/davidbarbi3r' },
     ],
     footNote: `
-    🌱 Made by <a class="text-emerald-700 hover:underline dark:text-emerald-200" href="https://www.davidbarbier.com"> David</a> · All rights reserved.`,
+    🌱 Fait avec amour par <a class="text-emerald-700 hover:underline dark:text-emerald-200" href="https://www.davidbarbier.com"> David</a> · All rights reserved.`,
   };
 };

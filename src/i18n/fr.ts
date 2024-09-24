@@ -378,7 +378,11 @@ export const fr = {
   },
 	blog : {
 		title : "Le blog",
-		subtitle : "Un exemple de blog généré statiquement avec des nouvelles, des tutoriels, des ressources et d'autres contenus intéressants liés à AstroWind",
+		subtitle : "Je partage ici mes découvertes, mes expériences et mes réflexions sur le développement web.",
+    searchCategories : "Rechercher par catégories",
+    searchTags : "Rechercher par tags",
+    next: "Précédent articles",
+    prev: "Articles suivants",
   },
   portfolio : {
     metadata : {

@@ -13,6 +13,7 @@ import CallToAction from '../components/widgets/CallToAction.astro';
 import Content from '../components/widgets/Content.astro';
 import Features2 from "../components/widgets/Features2.astro";
 import Logos from "../components/widgets/Logos.astro";
+import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
 
 const locale = getLocaleFromUrl(Astro.url);
 const { t, tList } = useTranslations(locale);
@@ -184,11 +185,11 @@ const metadata = {
     }]}
   />
   
-  <!-- <BlogLatestPosts
+  <BlogLatestPosts
     title={t('index.blogLatestPosts.title')}
     information={t('index.blogLatestPosts.information')}
     linkText={t('index.blogLatestPosts.linkText')}
-  /> -->
+  />
   
   <CallToAction
     title={t('portfolio.callToAction.title')}
