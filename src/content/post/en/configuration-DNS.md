@@ -1,15 +1,15 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
 title: Practical Guide for Effective DNS Configuration
-excerpt: Have you ever discovered that your professional emails are ending up in your clients' spam folders? Or that potential clients are getting lost trying to access your website due to incorrect redirects? These common issues can often be symptoms of poor DNS configuration.
+excerpt: How to make a efficient DNS configuration ? I'll answer quickly here.
 image: '~/assets/images/dns-config.jpg'
 category: Blog
 tags:
+  - configuration dns
   - dns
-  - configuration hébergeur
   - mails
 metadata:
-  canonical: https://davidbarbier.com/dns-configuration
+  canonical: https://davidbarbier.com/configuration-dns
 ---
 
 While setting up the DNS records for Laetitia's website - lbg-expertise.com, I thought it would be useful to create a guide to ensure you have an optimal configuration.

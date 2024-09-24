@@ -1,15 +1,15 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
 title: Guide Pratique pour une bonne configuration DNS
-excerpt: Vous est-il déjà arrivé de découvrir que vos e-mails professionnels finissent dans le dossier spam de vos clients ? Ou que des clients potentiels se perdent en essayant d'accéder à votre site à cause de redirections incorrectes ? Ces problèmes fréquents peuvent être le symptôme d'une configuration DNS mal faite.
+excerpt: Comment faire une bonne configuration DNS ? On vous répond rapidement ici. Vos e-mails finissent en spam? Des clients potentiels se perdent en essayant d'accéder à votre site? Ces problèmes sont symptômatiques d'une configuration DNS mal faite.
 image: '~/assets/images/dns-config.jpg'
 category: Blog
 tags:
+  - configuration dns
   - dns
-  - configuration hébergeur
   - mails
 metadata:
-  canonical: https://davidbarbier.com/dns-configuration
+  canonical: https://davidbarbier.com/configuration-dns
 ---
 
 Lors de la configuration des enregistrements DNS du site de Laetitia - [lbg-expertise.com](https://www.lbg-expertise.com) je me suis dit que ça serait intéressant de faire un petit guide afin de vous assurer d'avoir une configuration optimale.
