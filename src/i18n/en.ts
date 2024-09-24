@@ -497,6 +497,7 @@ export const en = {
     },
     logos: {
       title: 'Technologies I use',
+      subtitle: "As a freelance web developer, I use the latest technologies to create tailor-made websites and applications.",
     },
     callToAction: {
       title: 'Ready to start your project?',
