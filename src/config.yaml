@@ -8,14 +8,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Développeur Freelance - David Barbier
-    template: '%s | Freelance developer - David Barbier'
-  description: "\U0001F680 Je réalise des sites web et des applications web sur mesure pour les entreprises et les particuliers."
+    default: Développeur web Freelance - David Barbier
+    template: '%s | Développeur web freelance - David Barbier'
+  description: "\U0001F680 Développeur web freelance à Limoges et Ajaccio, je réalise des sites web sur mesure pour les entreprises et les particuliers."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Développeur Freelance - David Barbier
+    site_name: Développeur web Freelance - David Barbier
     images:
       - url: '~/assets/images/db-site-freelance.webp'
         width: 1200

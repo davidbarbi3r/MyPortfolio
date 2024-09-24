@@ -34,6 +34,7 @@ export const getFooterData = (locale) => {
   const { t } = useTranslations(locale);
   
   return {
+    text: t('footer.text'),
     secondaryLinks: [
       // { text: t('footer.about'), href: getLocalizedPermalink(locale, '/about') },
       // { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },

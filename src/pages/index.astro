@@ -17,10 +17,10 @@ import Logos from "../components/widgets/Logos.astro";
 const locale = getLocaleFromUrl(Astro.url);
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: locale === "en" ? 'David Barbier - Fullstack Developer' : 'David Barbier - Développeur Fullstack',
+  title: locale === "en" ? 'David Barbier: Freelance web developer' : 'David Barbier: Développeur web freelance',
   description: locale === "en" ? 
-  'David Barbier, developer specialized in creating websites, web and mobile applications and business applications. Based In Ajaccio, Corsica, France.' : 
-  'David Barbier, développeur spécialisé en création de sites internet, d\'applications web et mobiles et d\'applications métiers. A Ajaccio, en Corse, à Limoges et partout en France.',
+  'Freelance web developer specialized in eco-friendly website creation, website redesign and local SEO in Limoges, Ajaccio and remotely.' : 
+  'Développeur web freelance spécialisé en création de sites internet eco responsable, refonte de site web et référencement local à Limoges, Ajaccio et à distance.',
   lang: locale,
 };
 ---
@@ -104,6 +104,7 @@ const metadata = {
     isReversed
     tagline={t('portfolio.caseStudies1.tagline')}
     title={t('portfolio.caseStudies1.title')}
+    subtitle={t('portfolio.caseStudies1.subtitle')}
     items={tList('portfolio.caseStudies1.items')}
     cta={{
       text: t('portfolio.caseStudies1.callToAction'),
@@ -161,6 +162,7 @@ const metadata = {
   <!--Tech stack-->
   <Logos
     title={t('portfolio.logos.title')}
+    subtitle={t('portfolio.logos.subtitle')}
     items={[{
       icon: 'tabler:brand-react',
       title: 'React',
@@ -171,8 +173,8 @@ const metadata = {
       icon: 'tabler:brand-nodejs',
       title: 'NodeJS',
     }, {
-      icon: 'tabler:brand-golang',
-      title: 'Golang',
+      icon: 'tabler:brand-wordpress',
+      title: 'Wordpress',
     }, {
       icon: 'tabler:brand-docker',
       title: 'Docker',

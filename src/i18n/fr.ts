@@ -90,6 +90,7 @@ export const fr = {
     contact: "Contact",
     blog: "Blog",
     legal: "Mentions légales",
+    text: "Développeur web freelance à Limoges et Ajaccio, je vous accompagne dans la création de votre site internet performant et sur-mesure.",
   },
   index : {
     metadata : {
@@ -97,8 +98,8 @@ export const fr = {
     },
     heroSide : {
       accent: 'Développeur',
-      title: 'Full Stack Passionné',
-      subtitle: 'Je suis déterminé à créer des solutions informatiques personnalisées pour satisfaire vos besoins les plus complexes.'
+      title: 'Web Freelance',
+      subtitle: 'J&apos;accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Limoges, Ajaccio et à distance.',
     },
     hero : {
       cta : "Obtenir le modèle",
@@ -385,17 +386,17 @@ export const fr = {
     },
     heroSide : {
       accent: 'Développeur',
-      title: 'Full Stack Passionné',
-      subtitle: 'Je suis déterminé à créer des solutions informatiques personnalisées pour satisfaire vos besoins les plus complexes.'
+      title: 'Web Freelance',
+      subtitle: "J'accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Limoges, Ajaccio et à distance."
     },
-    bookCall: 'Réserver un appel',
+    bookCall: 'Réservez votre appel gratuit',
     services: {
       title: 'Mes services',
-      subtitle: 'Des solutions sur mesure pour votre succès en ligne.',
+      subtitle: "Développeur web expérimenté, je propose vous propose un accompagnement global avec pour objectif de vous rendre visible en ligne. De la création de site internet, de sa refonte, à la maintenance, je suis là pour vous apporter le meilleur de mes connaissances.",
       servicesItems: [
         {
-          title: 'Conception de Sites Web',
-          description: 'Des sites 100% responsives et optimisés pour les moteurs de recherche, avec une attention particulière portée à l\'expérience utilisateur.',
+          title: 'Création de Sites Internet',
+          description: 'Je développe des sites 100% responsives, optimisés pour les moteurs de recherche et surtout écologiques. Une attention particulière est portée à l\'expérience utilisateur.',
           items: [{
             title: 'Sites Vitrine',
             description: 'Des sites vitrine pour présenter votre activité et vos services.',
@@ -441,12 +442,30 @@ export const fr = {
         }
       ]
     },
+    avis: {
+      title: 'Ce que disent mes clients',
+      subtitle: 'Découvrez les témoignages de mes clients satisfaits.',
+      items: [
+        {
+          name: 'Jeanne',
+          description: 'David a su répondre à mes attentes en créant un site internet qui correspondait parfaitement à mes besoins. Je recommande !',
+        },
+        {
+          name: 'Paul',
+          description: 'Très professionnel et à l\'écoute, David a su me conseiller et m\'accompagner tout au long de la création de mon site internet.',
+        },
+        {
+          name: 'Marie',
+          description: 'Un grand merci à David pour son travail de qualité et son professionnalisme. Je suis ravie du résultat !',
+        },
+      ],
+    },
     caseStudies1: {
-      tagline: 'Projets',
-      title: 'Découvre les derniers projets auxquels j\'ai contribué.',
-      subtitle: 'Plongez dans nos réalisations et découvrez comment nous avons atteint le succès grâce à des solutions personnalisées.',
+      tagline: 'Mes Projets',
+      title: 'Les derniers projets auxquels j\'ai contribué',
+      subtitle: 'Découvrez mes dernières réalisations clients, mon processus de travail, les technologies utilisées et les défis relevés.',
       additionalTitle : "Restodom",
-      additionalDescription : "Creation of a website for a meal delivery company for the elderly", 
+      additionalDescription : "Création d'un site internet intuitif pour la réservation de menus en ligne", 
       imageAlt : 'Restodom mockup du site internet',
       callToAction: 'En savoir plus',
       items : [
@@ -490,6 +509,7 @@ export const fr = {
     },
     logos: {
       title: 'Les technologies que j\'utilise',
+      subtitle: 'En tant que développeur web freelance, je travaille avec les dernières technologies pour garantir des sites web performants et sécurisés.',
     },
     callToAction: {
       title: 'Prêt à démarrer ?',
