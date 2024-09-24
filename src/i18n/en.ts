@@ -90,6 +90,7 @@ export const en = {
     //   terms: 'Terms',
     //   privacy: 'Privacy',
     // },
+    text: "Freelance web developer, I create tailor-made websites and applications to meet your most demanding requirements.",
   },
   index: {
     metadata: {
