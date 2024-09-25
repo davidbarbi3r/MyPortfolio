@@ -85,3 +85,17 @@
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
+
+@keyframes hey {
+  0%, 100% {
+      rotate: -20deg;
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+      rotate: 0deg;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+#leaf {
+  animation: hey 2s infinite;
+}

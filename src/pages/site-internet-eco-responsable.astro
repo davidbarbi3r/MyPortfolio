@@ -1,0 +1,191 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
+import davidFougere from '~/assets/images/david-fougere.jpg';
+import Image from 'astro/components/Image.astro';
+import { Icon } from 'astro-icon/components';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getLocalizedPermalink } from '~/utils/permalinks';
+
+const locale = getLocaleFromUrl(Astro.url);
+const { t } = useTranslations(locale);
+
+const metadata = {
+  title: 'Contact',
+  description:
+    locale === 'en'
+      ? 'Contact me for your web project (website, mobile app, software)'
+      : 'Contactez-moi pour votre création ou refonte de site web à Ajaccio, Limoges ou à distance.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="relative md:-mt-[76px] not-prose">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+      <div class="py-12 md:py-20 pb-8 md:pb-8">
+        <div class="text-center max-w-screen-lg mx-auto">
+          <p
+            class="text-base text-emerald-900 dark:text-emerald-200 font-bold tracking-wide uppercase relative w-fit text-center mx-auto"
+          >
+            Pour un développement web plus durable
+            <Icon
+              name="tabler:leaf"
+              class="w-8 h-8 mx-auto mt-4 absolute md:-top-10 -top-12 -right-4 md:-right-8"
+              id={'leaf'}
+            />
+          </p>
+          <h1
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+          >
+            Site internet éco-responsable
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="importance" class="max-w-7xl mx-auto px-4 sm:px-6">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">
+      Pourquoi un site internet éco-responsable est important ?
+    </h2>
+    <p>
+      Saviez-vous que le secteur du numérique en France représente 2,5% de l'empreinte carbone totale du pays,
+      surpassant même le secteur des déchets selon un rapport de l'ADEME en 2022<sup id="retour1"
+        ><a href="#note1">1</a></sup
+      > ? Ces chiffres sont un signal d'alarme, nous invitant à repenser notre approche du développement web.
+    </p>
+    <p class="my-3 font-semibold">En tant que développeur web freelance je m'engage dans un web plus vert en développant des sites internet éco-responsable. </p>
+    <p>Cela permet non seulement de réduire l'empreinte carbone de mes clients, mais aussi d'améliorer l'expérience utilisateur tout en optimisant votre image de marque.</p>
+    <Image
+      src={davidFougere}
+      alt="Photo de David Barbier heureux dans les fougères à Sintra au Portugal"
+      class="my-6 max-w-5xl w-full h-[60vh] md:h-96 mx-auto rounded-md object-cover"
+    />
+    <ul>
+      <li>
+        <strong>Impact environnemental :</strong> La pollution numérique est un enjeu majeur, chaque site contribuant à l'empreinte
+        carbone globale.
+      </li>
+      <li><strong>Avantages SEO :</strong> Les sites rapides et performants sont mieux classés par Google.</li>
+      <li>
+        <strong>Image de marque :</strong> Un engagement environnemental fort est un atout pour vos clients et prospects.
+      </li>
+    </ul>
+  </section>
+  <section class="max-w-7xl bg-[#6CAB7E] text-white py-12 text-lg px-4 sm:px-6 my-6 mx-4 sm:mx-6 rounded-md">
+    <p class="max-w-3xl mx-auto animate-pulse text-xl">"Soyez le changement que vous voulez voir dans le monde."</p>
+    <p class="max-w-2xl mx-auto text-right font-bold">Gandhi</p>
+  </section>
+
+  <section id="caracteristiques" class="max-w-7xl mx-auto px-4 sm:px-6">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">
+      Les caractéristiques d’un site éco-responsable
+    </h2>
+    <article class="mb-4">
+      <h3 class="text-xl font-heading font-semibold mb-4">Design minimaliste et optimisé</h3>
+      <p>
+        Un site léger consomme moins de ressources. En optimisant le design et en évitant les éléments superflus, nous
+        pouvons réduire le poids des pages et ainsi diminuer leur impact environnemental.
+      </p>
+    </article>
+    <article class="mb-4">
+      <h3 class="text-xl font-heading font-semibold mb-4">Optimisation des images et du code</h3>
+      <p>
+        Réduire la taille des fichiers et compresser les images sont des étapes essentielles pour un site plus
+        respectueux de l'environnement.
+      </p>
+    </article>
+    <article class="mb-4">
+      <h3 class="text-xl font-heading font-semibold mb-4">Hébergement vert</h3>
+      <p>
+        Opter pour un hébergement utilisant des énergies renouvelables est une autre manière de limiter l'empreinte
+        écologique d'un site internet.
+      </p>
+    </article>
+    <article class="my-8 bg-[#6CAB7E] text-white py-12 px-4 sm:px-6 relative rounded-md">
+      <Icon name="tabler:bulb" class="w-12 h-12 mx-auto mb-4 absolute top-2 right-2 rotate-12" />
+      <h3 class="text-2xl font-heading font-bold mb-4 max-w-3xl mx-auto">Comment savoir si un site est éco conçu ?</h3>
+      <p class="max-w-3xl mx-auto">
+        Pour vérifier si un site respecte les bonnes pratiques environnementales, vous pouvez utiliser des outils
+        comme <a href="https://www.websitecarbon.com/" class="underline">Website Carbon</a> ou <a
+          href="https://www.ecograder.com/" class="underline">EcoGrader</a>.
+      </p>
+      <p class="max-w-3xl mx-auto">Par exemple ce site obtient le <strong>grade A</strong> sur chacun des outils, c'est donc un site eco responsable, il émet moins de CO<sup>2</sup> que 80% des sites déployés sur internet.<sup id="retour1"
+        ><a href="#note2">2</a></sup
+      ></p>
+    </article>
+  </section>
+
+  <section id="approche" class="max-w-7xl mx-auto px-4 sm:px-6">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">Mon approche de la création de sites éco-responsables</h2>
+    <p class="mb-2">
+      Je me consacre à la conception de sites web durables, en intégrant des pratiques qui réduisent la consommation de
+      ressources numériques et optimisent les performances. Mon processus inclut :
+    </p>
+    <ol class="pl-4 mb-2 flex flex-col gap-2">
+      <li>
+        <strong>Veille technologique :</strong> Je me tiens informé des dernières tendances pour proposer les solutions les plus adaptées.
+        <br/><Icon name='tabler:corner-down-right' class="inline mb-2"/> En ce moment, les technologies qui me donnent le plus de satisfaction sont <strong>Astro</strong> et <strong>Next</strong>.
+      </li>
+      <li>
+        <strong>Analyse des besoins :</strong> Comprendre les objectifs du projet et identifier les solutions les plus éco-responsables.
+        <br/><Icon name='tabler:corner-down-right' class="inline mb-2"/> Un site vitrine n'aura pas les mêmes besoins qu'une web app.
+        <br/><strong class="text-xl text-center mx-auto block my-4">Un site éco responsable n'est pas un site avec des fonctionnalités au rabais</strong>
+      </li>
+      <li>
+        <strong>Conception minimaliste :</strong> Un design centré sur l'essentiel pour limiter les ressources nécessaires.
+        <br/><Icon name='tabler:corner-down-right' class="inline mb-2"/>Cela se traduit par le fait de ne pas importer de librairies lourdes pour une ou deux fonctionnalités qui peuvent être codées simplement.
+        <br/><Icon name='tabler:corner-down-right' class="inline mb-2"/>Compresser les images, les fichiers CSS et JS.
+        <br/><Icon name='tabler:corner-down-right' class="inline mb-2"/>Utiliser du cache pour éviter de recharger les mêmes ressources.
+      </li>
+      <li>
+        <strong>Choix d’un hébergement écologique :</strong> Je recommande des hébergeurs verts pour limiter l'impact carbone.
+        <br/><Icon name='tabler:corner-down-right' class="inline mb-2"/>Cloudflare et Google Cloud par exemple ont des datacenters alimentés par des énergies renouvelables.
+      </li>
+    </ol>
+  </section>
+
+  <section id="benefices" class="max-w-7xl mx-auto px-4 sm:px-6">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl my-6">Les avantages de cette approche</h2>
+    <p class="">La création de site internets plus respectueux de l'environnement a de nombreux intérêts, mais le principal pour moi est un alignement total avec mes valeurs</p>
+    <p><strong class="text-xl text-center mx-auto block my-4">Je peux m'épanouir dans ma passion du développement web tout en apportant ma pierre à l'édifice.</strong></p>
+    <p>Parmis les autres bénéfices de cette approche on compte :</p>
+    <ul class="pl-4">
+      <li>
+        <strong>Optimisation des performances :</strong> Un site éco-responsable est de fait optimisé, il se charge plus rapidement et améliore votre
+        SEO.
+      </li>
+      <li>
+        <strong>Image de marque renforcée :</strong> Votre entreprise renforce son engagement pour un avenir durable.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Section Contact -->
+  <CallToAction
+    tagline='Contactez-moi'
+    title="Vous souhaitez un site internet éco-responsable ?"
+    subtitle="Contactez-moi pour discuter de votre projet et obtenir un devis personnalisé."
+    callToAction={{
+      text: t('portfolio.callToAction.cta'),
+      href: getLocalizedPermalink(locale, '/call/'),
+      icon: 'tabler:phone',
+    }}
+/>
+
+  <section id="sources" class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">Sources</h2>
+    <ul>
+      <li id="note1">
+        <a href="https://infos.ademe.fr/magazine-avril-2022/faits-et-chiffres/numerique-quel-impact-environnemental/"
+          class="underline text-green-700 hover:text-green-800">ADEME - Rapport sur l'impact environnemental du numérique</a>
+      </li>
+      <li id="note2">
+        <a href="https://www.websitecarbon.com/website/davidbarbier-com/"
+        class="underline text-green-700 hover:text-green-800">Website Carbon Generator - Rapport du site internet de David Barbier</a>
+      </li>
+    </ul>
+  </section>
+</Layout>
