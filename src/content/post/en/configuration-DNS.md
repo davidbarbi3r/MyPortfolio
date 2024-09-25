@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
-title: Practical Guide for Effective DNS Configuration
+title: Guide for Effective DNS Configuration
 excerpt: How to make a efficient DNS configuration ? I'll answer quickly here.
 image: '~/assets/images/dns-config.jpg'
 category: Blog

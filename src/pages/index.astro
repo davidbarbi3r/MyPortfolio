@@ -18,7 +18,6 @@ import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
 const locale = getLocaleFromUrl(Astro.url);
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: locale === "en" ? 'David Barbier: Freelance web developer' : 'David Barbier: Développeur web freelance',
   description: locale === "en" ? 
   'Freelance web developer specialized in eco-friendly website creation, website redesign and local SEO in Limoges, Ajaccio and remotely.' : 
   'Développeur web freelance spécialisé en création de sites internet eco responsable, refonte de site web et référencement local à Limoges, Ajaccio et à distance.',

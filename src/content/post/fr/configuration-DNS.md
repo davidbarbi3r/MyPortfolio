@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
-title: Guide Pratique pour une bonne configuration DNS
+title: Guide pour une bonne configuration DNS
 excerpt: Comment faire une bonne configuration DNS ? On vous répond rapidement ici. Vos e-mails finissent en spam? Des clients potentiels se perdent en essayant d'accéder à votre site? Ces problèmes sont symptômatiques d'une configuration DNS mal faite.
 image: '~/assets/images/dns-config.jpg'
 category: Blog
