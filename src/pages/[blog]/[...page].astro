@@ -29,6 +29,7 @@ const allTags = await page.data.reduce((acc, post) => {
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  description: locale === "en" ? `Discover the latest articles from David Barbier's blog.` : `Découvrez les derniers articles du blog de David Barbier.`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,

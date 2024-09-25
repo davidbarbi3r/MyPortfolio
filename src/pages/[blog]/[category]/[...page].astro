@@ -16,16 +16,18 @@ const { page, category } = Astro.props;
 
 const currentPage = page.currentPage ?? 1;
 
+
+const locale = getLocaleFromUrl(Astro.url)
+const { t } = useTranslations(locale)
+
 const metadata = {
   title: `Category '${category}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  description: locale === "en" ? `Discover the latest projects and articles from David Barbier's ${category}.` : `Découvrez les derniers projets et articles du ${category} de David Barbier.`,
   robots: {
     index: blogCategoryRobots?.index,
     follow: blogCategoryRobots?.follow,
   },
 };
-
-const locale = getLocaleFromUrl(Astro.url)
-const { t } = useTranslations(locale)
 ---
 
 <Layout metadata={metadata}>
