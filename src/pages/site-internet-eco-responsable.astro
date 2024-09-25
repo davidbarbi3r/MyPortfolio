@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
 import davidFougere from '../assets/images/david-fougere.jpg';
-import Image from 'astro/components/Image.astro';
+import {Image} from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getLocalizedPermalink } from '~/utils/permalinks';
