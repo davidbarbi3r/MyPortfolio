@@ -24,7 +24,12 @@ export const getHeaderData = (locale) => {
       {
         text: t('header.portfolio'),
         href: getLocalizedPermalink(locale, '/category/portfolio'),
-      }
+      },
+      {
+        text: t('header.green'),
+        href: getLocalizedPermalink(locale, '/site-internet-eco-responsable'),
+      },
+
     ],
     actions: [{ type: 'button', text: t('header.contact'), href: getLocalizedPermalink(locale, '/contact') }],
   };
@@ -40,6 +45,7 @@ export const getFooterData = (locale) => {
       // { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },
       { text: t('footer.contact'), href: getLocalizedPermalink(locale, '/contact') },
       { text: t('footer.blog'), href: getLocalizedPermalink(locale, '/blog')},
+      { text: t('footer.green'), href: getLocalizedPermalink(locale, '/site-internet-eco-responsable')},
       { text: t('footer.legal'), href: getLocalizedPermalink(locale, '/terms')},
     ],
     socialLinks: [

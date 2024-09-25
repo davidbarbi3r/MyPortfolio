@@ -5,6 +5,7 @@ export const en = {
     about: 'About',
     blog: 'Blog',
     portfolio: 'Projects',
+    green: 'Eco-websites',
     homes: {
       title: 'Homes',
       saas: 'Saas',
@@ -85,6 +86,7 @@ export const en = {
     // about: "About",
     contact: "Contact",
     blog: "Blog",
+    green: "Eco-websites",
     legal: "Terms",
     // legal: {
     //   terms: 'Terms',
