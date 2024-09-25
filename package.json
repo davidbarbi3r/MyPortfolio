@@ -25,6 +25,7 @@
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "react": "^18.2.0",
+    "sharp": "^0.33.5",
     "unpic": "^3.10.0"
   },
   "devDependencies": {
