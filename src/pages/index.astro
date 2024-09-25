@@ -35,7 +35,7 @@ const metadata = {
     callToAction2={{ text: 'Contact', href: getLocalizedPermalink(locale, '/contact/')}}
     image={{
       src: HeroImage,
-      alt: 'Hero Image',
+      alt: locale === 'en' ? "David Barbier's freelance web developer portrait sitting on a chair and smiling" : "Portrait de David Barbier développeur web freelance assis sur une chaise et souriant",
     }}
   >
     <Fragment slot="title">
@@ -62,7 +62,10 @@ const metadata = {
         description: tList('portfolio.services.servicesItems')[0].description,
         servicesItems: tList('portfolio.services.servicesItems')[0].items,
         price: tList('portfolio.services.servicesItems')[0].price,
-        image: Fidenza117,
+        image: {
+          ...Fidenza117,
+          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for website creation service' : 'Illustration verte d\'un NFT fidenza pour le service de création de site web',
+        },
         icon: 'tabler:devices',
         // callToAction: {
         //   text: tList('portfolio.services.servicesItems')[0].callToAction,
@@ -75,7 +78,10 @@ const metadata = {
         description: tList('portfolio.services.servicesItems')[1].description,
         servicesItems: tList('portfolio.services.servicesItems')[1].items,
         price: tList('portfolio.services.servicesItems')[1].price,
-        image: Fidenza262,
+        image: {
+          ...Fidenza262,
+          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for custom feature development service' : 'Illustration verte d\'un NFT fidenza pour le service de développement de fonctionnalités personnalisées',
+        },
         icon: 'tabler:wand',
         // callToAction: {
         //   text: tList('portfolio.services.servicesItems')[0].callToAction,
@@ -88,7 +94,10 @@ const metadata = {
         description: tList('portfolio.services.servicesItems')[2].description,
         servicesItems: tList('portfolio.services.servicesItems')[2].items,
         price: tList('portfolio.services.servicesItems')[2].price,
-        image: Fidenza2,
+        image: {
+          ...Fidenza2,
+          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for maintenance service' : 'Illustration verte d\'un NFT fidenza pour le service de maintenance de site web',
+        },
         icon: 'tabler:tool',
         // callToAction: {
         //   text: tList('portfolio.services.servicesItems')[0].callToAction,
@@ -113,7 +122,7 @@ const metadata = {
     }}
     image={{
       src: RestodomMock,
-      alt: 'Mockup of Restodom website',
+      alt: locale === 'en' ? 'Mockup of Restodom website project on a laptop' : 'Mockup du projet de site web Restodom sur un ordinateur portable',
     }}
   >
     <Fragment slot="content">
@@ -135,7 +144,7 @@ const metadata = {
     items={tList('portfolio.caseStudies2.items')}
     image={{
       src: Matchings,
-      alt: 'Matchings screenshot',
+      alt: locale === 'en' ? 'Matchings project illustration, piture of tyres on a yellow background' : 'Illustration du projet Matchings, photo de pneus sur un fond jaune',
     }}
     cta={{
       text: t('portfolio.caseStudies2.callToAction'),
