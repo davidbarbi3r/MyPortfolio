@@ -6,6 +6,7 @@ import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import vercel from '@astrojs/vercel/static';
 // import compress from 'astro-compress';
 import icon from 'astro-icon';
 import tasks from "./src/utils/tasks";
@@ -22,6 +23,12 @@ export default defineConfig({
   build: {
     format: SITE.trailingSlash ? "directory" : "file"
   },
+  output: 'static',
+  adapter: vercel({
+    imagesConfig: {
+      sizes:[320, 640, 1280],
+    },
+  }),
   integrations: [tailwind({
     applyBaseStyles: false
   }),
