@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
-import davidFougere from '../assets/images/fougere.webp';
+import nieulForet from '../assets/images/nieulforet.jpeg';
 import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -62,9 +62,9 @@ const metadata = {
       widths={[400, 768, 1024, 2040]}
       sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
       loading="eager"
-      alt="Photo de David Barbier heureux dans les fougères à Sintra au Portugal"
+      alt="Photo d'une forêt de Nieul près de Limoges, un écrin de nature que je souhaite protéger"
       class="my-6 max-w-5xl w-full h-[60vh] md:h-96 mx-auto rounded-md object-cover"
-      {...davidFougere}
+      {...nieulForet}
     />
     <ul>
       <li>
