@@ -6,6 +6,7 @@ import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getLocalizedPermalink } from '~/utils/permalinks';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
 const locale = getLocaleFromUrl(Astro.url);
 const { t } = useTranslations(locale);
@@ -76,10 +77,10 @@ const metadata = {
         <strong>Image de marque :</strong> Un engagement environnemental fort est un atout pour vos clients et prospects.
       </li>
     </ul>
-  </section>
-  <section class="max-w-7xl bg-[#6CAB7E] text-white py-12 text-lg px-4 sm:px-6 my-6 mx-4 sm:mx-6 rounded-md">
-    <p class="max-w-3xl mx-auto animate-pulse text-xl">"Soyez le changement que vous voulez voir dans le monde."</p>
-    <p class="max-w-2xl mx-auto text-right font-bold">Gandhi</p>
+    <div class="max-w-4xl bg-[#6CAB7E] text-white py-12 text-lg px-4 sm:px-6 my-6 rounded-md mx-auto">
+      <p class="max-w-3xl mx-auto animate-pulse text-xl text-center">"Soyez le changement que vous voulez voir dans le monde."</p>
+      <p class="max-w-2xl mx-auto text-right font-bold">Gandhi</p>
+    </div>
   </section>
 
   <section id="caracteristiques" class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -107,7 +108,7 @@ const metadata = {
         écologique d'un site internet.
       </p>
     </article>
-    <article class="my-8 bg-[#6CAB7E] text-white py-12 px-4 sm:px-6 relative rounded-md">
+    <article class="max-w-4xl my-8 bg-[#6CAB7E] text-white py-12 px-4 sm:px-6 relative rounded-md mx-auto">
       <Icon name="tabler:bulb" class="w-12 h-12 mx-auto mb-4 absolute top-2 right-2 rotate-12" />
       <h3 class="text-2xl font-heading font-bold mb-4 max-w-3xl mx-auto">Comment savoir si un site est éco conçu ?</h3>
       <p class="max-w-3xl mx-auto">
@@ -168,15 +169,57 @@ const metadata = {
 
   <!-- Section Contact -->
   <CallToAction
-    tagline='Contactez-moi'
-    title="Vous souhaitez un site internet éco-responsable ?"
-    subtitle="Contactez-moi pour discuter de votre projet et obtenir un devis personnalisé."
-    callToAction={{
-      text: t('portfolio.callToAction.cta'),
-      href: getLocalizedPermalink(locale, '/call/'),
-      icon: 'tabler:phone',
-    }}
-/>
+      tagline='Contactez-moi'
+      title="Vous souhaitez un site internet éco-responsable ?"
+      subtitle="Contactez-moi pour discuter de votre projet et obtenir un devis personnalisé."
+      callToAction={{
+        text: t('portfolio.callToAction.cta'),
+        href: getLocalizedPermalink(locale, '/call/'),
+        icon: 'tabler:phone',
+      }}
+  />
+
+  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">FAQ</h2>
+    <div>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Est-ce qu'un site vitrine peut être éco-responsable ?</summary>
+        <p class="pl-4">Les sites vitrines verts sont les plus simples à réaliser car ils ne nécessitent pas de backend et peuvent être mis en ligne en statique.</p>
+       <p class="pl-4">Des framework comme Astro ou Next permettent celà tout en conservant la possibilité d'avoir un système de gestion de contenu.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Comment allier site éco conçu et système de gestion de contenu ?</summary>
+       <p class="pl-4">Une des approches possible, et c'est celle que je choisi pour les sites vitrines vert, est de générer le site en statique et d'utiliser un CMS headless en ligne qui déclanchera un nouveau déploiement du site à chaque modification (via un webhook).</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Est-ce qu'un site Wordpress peut être éco-conçu ?</summary>
+       <p class="pl-4">Il est possible de rendre un site Wordpress plus respectueux de l'environnement en optimisant les images, les fichiers et en choisissant un hébergement vert.</p>
+       <p class="pl-4">Cependant, il n'est pas possible d'atteindre un niveau d'optimisation aussi élevé qu'avec des solutions statiques ou des frameworks modernes.</p>
+       <p class="pl-4">Les sites faits avec Wordpress nécessitent un backend (serveur) qui va rendre les pages en ligne.</p>
+       <p class="pl-4">De plus Wordpress n'a pas la <a href="https://docs.astro.build/fr/concepts/islands/" class="underline">technologie de rendu par ilot</a> qui permet de réduire fortement le volume de données envoyées en ligne.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Comment savoir si un site est éco-conçu ?</summary>
+        <p class="pl-4">Vous pouvez utiliser des outils comme <a href="https://www.websitecarbon.com/" class="underline">Website Carbon</a> ou <a
+          href="https://www.ecograder.com/" class="underline">EcoGrader</a> pour évaluer l'impact environnemental d'un site internet.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Un site internet peut-il être sur mesure et éco conçu ?</summary>
+        <p class="pl-4">Oui, un site internet peut être à la fois sur mesure et éco-conçu. En utilisant des technologies modernes et des pratiques de développement durable, il est possible de créer un site qui répond précisément aux besoins du client tout en minimisant son impact environnemental.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Un site internet éco responsable est il plus cher ?</summary>
+        <p class="pl-4">Le coût d'un site internet éco-responsable peut varier en fonction des technologies utilisées et des pratiques de développement adoptées.</p>
+        <p class="pl-4">Il n'existe pas de site builder comme elementor avec Wordpress pour les sites écologique, tout est fait sur mesure ce qui peut augmenter les coûts de développement.</p>
+        <p class="pl-4">Pour avoir une estimation détaillée du coût d'un site éco conçu: <a href="/contact" class="underline text-green-700 hover:text-green-800">Me contacter</a></p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">Peut on seulement faire des sites vitrines eco responsable ?</summary>
+        <p class="pl-4">Non, il est possible de créer des sites web de toutes sortes en adoptant des pratiques de développement durable. Que ce soit un site vitrine, un blog, une boutique en ligne ou une application web, il est possible de réduire l'empreinte carbone de chaque projet.</p>
+        <p class="pl-4">Par exemple une démarche soucieuse de l'environnement pour une application serait de limiter le nombre de requêtes inutiles et d'adoper une approche cloud afin que les besoins en terme d'infrastructure soient les plus proche possible de la réalité de l'application.</p>
+      </details>
+    </div>
+  </section>
 
   <section id="sources" class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
     <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">Sources</h2>
@@ -188,6 +231,10 @@ const metadata = {
       <li id="note2">
         <a href="https://www.websitecarbon.com/website/davidbarbier-com/"
         class="underline text-green-700 hover:text-green-800">Website Carbon Generator - Rapport du site internet de David Barbier</a>
+      </li>
+      <li>
+        <a href="https://sustainablewebdesign.org/guidelines/"
+          class="underline text-green-700 hover:text-green-800">Sustainablewebdesign - Guide des bonnes pratiques en développement vert (en anglais)</a>
       </li>
     </ul>
   </section>
