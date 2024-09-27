@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
 import nieulForet from '../assets/images/nieulforet.jpeg';
-import {Image} from 'astro:assets';
+import {Image, Picture} from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getLocalizedPermalink } from '~/utils/permalinks';
@@ -58,13 +58,12 @@ const metadata = {
     </p>
     <p class="my-3 font-semibold">En tant que développeur web freelance je m'engage dans un web plus vert en développant des sites internet éco-responsable. </p>
     <p>Cela permet non seulement de réduire l'empreinte carbone de mes clients, mais aussi d'améliorer l'expérience utilisateur tout en optimisant votre image de marque.</p>
-    <Image
+    <Picture
+      src={nieulForet}
+      formats={['avif', 'webp']}
       widths={[400, 768, 1024, 2040]}
-      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-      loading="eager"
       alt="Photo d'une forêt de Nieul près de Limoges, un écrin de nature que je souhaite protéger"
       class="my-6 max-w-5xl w-full h-[60vh] md:h-96 mx-auto rounded-md object-cover"
-      {...nieulForet}
     />
     <ul>
       <li>
