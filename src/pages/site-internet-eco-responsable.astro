@@ -2,11 +2,10 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
 import nieulForet from '../assets/images/nieulforet.jpeg';
-import Image from '~/components/common/Image.astro';
+import {Image} from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getLocalizedPermalink } from '~/utils/permalinks';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
 const locale = getLocaleFromUrl(Astro.url);
 const { t } = useTranslations(locale);
@@ -185,7 +184,7 @@ const metadata = {
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">Est-ce qu'un site vitrine peut être éco-responsable ?</summary>
         <p class="pl-4">Les sites vitrines verts sont les plus simples à réaliser car ils ne nécessitent pas de backend et peuvent être mis en ligne en statique.</p>
-       <p class="pl-4">Des framework comme Astro ou Next permettent celà tout en conservant la possibilité d'avoir un système de gestion de contenu.</p>
+        <p class="pl-4">Des framework comme Astro ou Next permettent celà tout en conservant la possibilité d'avoir un système de gestion de contenu.</p>
       </details>
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">Comment allier site éco conçu et système de gestion de contenu ?</summary>
