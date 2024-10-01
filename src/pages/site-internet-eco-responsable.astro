@@ -11,11 +11,12 @@ const locale = getLocaleFromUrl(Astro.url);
 const { t } = useTranslations(locale);
 
 const metadata = {
-  title: 'Contact',
+  title: 'Création de site internet eco responsable sur mesure',
   description:
     locale === 'en'
-      ? 'Contact me for your web project (website, mobile app, software)'
-      : 'Contactez-moi pour votre création ou refonte de site web à Ajaccio, Limoges ou à distance.',
+      ? 'Discover my approach to creating eco-friendly websites. Performant and environmentally friendly websites at the service of your online visibility.'
+      : 'Découvrez mon approche de la création de site internet éco-responsable. Des sites performants et respectueux de l\'environnement au service de votre visibilité en ligne.',
+  
 };
 ---
 
@@ -117,7 +118,7 @@ const metadata = {
       <p class="max-w-3xl mx-auto">Par exemple ce site obtient le <strong>grade A</strong> sur chacun des outils, c'est donc un site eco responsable, il émet moins de CO<sup>2</sup> que 80% des sites déployés sur internet.<sup id="retour1"
         ><a href="#note2">2</a></sup
       ></p>
-      <p class="max-w-3xl mx-auto font-semibold">Précision importante: Les outils d'analyse d'éco conception en ligne ne prennent pas en compte toute la partie liée aux calculs coté serveur nécessaire pour afficher la page. Tous les algorithmes complexes ou non et la partie logique se déroulent le plus souvent coté serveur et sont ocultés. Une analyse plus poussée d'éco-conception est nécessaire pour avoir une vision globale.</p>
+      <p class="max-w-3xl mx-auto font-semibold text-pretty">Précision importante: Les outils d'analyse d'éco conception en ligne ne prennent pas en compte toute la partie liée aux calculs coté serveur nécessaire pour afficher la page. Tous les algorithmes complexes ou non et la partie logique se déroulent le plus souvent coté serveur et sont ocultés. Une analyse plus poussée d'éco-conception est nécessaire pour avoir une vision globale.</p>
     </article>
   </section>
 
