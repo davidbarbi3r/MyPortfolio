@@ -5,7 +5,6 @@ export const fr = {
     about : 'A propos',
     blog : 'Blog',
     portfolio: 'Projets',
-    green: 'Sites écologiques',
     homes : {
       title : 'Maisons',
       saas : 'Saas',
@@ -90,7 +89,6 @@ export const fr = {
     // about: "A propos",
     contact: "Contact",
     blog: "Blog",
-    green: "Sites écologiques",
     legal: "Mentions légales",
     text: "Développeur web freelance à Limoges et Ajaccio, je vous accompagne dans la création de votre site internet performant et sur-mesure.",
   },

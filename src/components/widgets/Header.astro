@@ -5,7 +5,7 @@ import ToggleTheme from "~/components/common/ToggleTheme.astro";
 import ToggleMenu from "~/components/common/ToggleMenu.astro";
 import LanguagePicker from "../common/LanguagePicker.astro";
 
-import { getLocalizedHomePermalink } from "~/utils/permalinks";
+import { getLocalizedHomePermalink, getLocalizedPermalink } from "~/utils/permalinks";
 import { trimSlash, getAsset } from "~/utils/permalinks";
 
 import { getLocaleFromUrl } from '~/i18n/translator';
@@ -103,7 +103,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
                       <li>
                         <a
                           class:list={[
-                            "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
+                            "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:font-bold dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
                             { "aw-link-active" : href2 === currentPath}
                           ]}
                           href={href2}
@@ -117,7 +117,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
               ) : (
                 <a
                   class:list={[
-                    "hover:text-link dark:hover:text-white px-4 py-3 flex items-centers",
+                    "hover:text-link dark:hover:text-white px-2 py-3 flex items-centers",
                     { "aw-link-active": href === currentPath }
                   ]}
                   href={href}
@@ -128,6 +128,17 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             </li>
           ))
         }
+        
+          <a
+          class:list={[
+            "hover:text-link dark:hover:text-white px-2 py-3 flex items-centers md:hidden lg:block",
+            { "aw-link-active": currentPath }
+          ]}
+          href={getLocalizedPermalink(locale, "/site-internet-eco-responsable")}
+          >
+            Sites écologiques
+          </a>
+      
       </ul>
     </nav>
   </div>
