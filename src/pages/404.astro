@@ -1,10 +1,11 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
-import {getLocaleFromUrl, useTranslations} from "../i18n/translator";
+import {useTranslations} from "../i18n/translator";
 
+const locale = Astro.currentLocale ?? 'fr'
 
-const { t } = useTranslations(getLocaleFromUrl(Astro.url));
+const { t } = useTranslations(locale);
 
 const title = `Error 404`;
 ---

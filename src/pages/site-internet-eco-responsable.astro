@@ -1,13 +1,13 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
+import { useTranslations } from '~/i18n/translator';
 import nieulForet from '../assets/images/nieulforet.jpeg';
 import {Picture} from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getLocalizedPermalink } from '~/utils/permalinks';
 
-const locale = getLocaleFromUrl(Astro.url);
+const locale = Astro.currentLocale ?? 'fr'
 const { t } = useTranslations(locale);
 
 const metadata = {

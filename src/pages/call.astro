@@ -1,10 +1,10 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import { getLocaleFromUrl, useTranslations } from '../i18n/translator';
+import { useTranslations } from '../i18n/translator';
 
-const locale = getLocaleFromUrl(Astro.url)
-const {t} = useTranslations(getLocaleFromUrl(Astro.url));
+const locale = Astro.currentLocale ?? 'fr'
+const {t} = useTranslations(locale);
 
 const metadata = {
   title: locale === 'en' ? 'Free discovery call': 'Appel découverte gratuit',

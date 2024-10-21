@@ -42,15 +42,6 @@ function getListFromPath(obj: NestedObject, path: string): NestedObject[] | unde
   return Array.isArray(value) ? value : undefined;
 }
 
-export function getLocaleFromUrl(url: URL) {
-  const lang = getLocale(url) || defaultLocale;
-
-  if (!Object.keys(locales).includes(lang)) {
-    console.error('The identified lang' + lang + ' is not in the I18N');
-  }
-  return lang;
-}
-
 export function useTranslations(lang: keyof typeof locales) {
   let translations: Translations;
 

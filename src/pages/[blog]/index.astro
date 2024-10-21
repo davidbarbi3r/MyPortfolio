@@ -8,14 +8,14 @@ import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
 import { findImage } from '~/utils/images';
-import { getLocaleFromUrl } from '~/i18n/translator';
 
 export async function getStaticPaths () {
   return await getStaticPathsBlogPost();
 }
+const locale = Astro.currentLocale ?? 'fr'
 
 const { post } = Astro.props;
-const localizedPost = post.locales[getLocaleFromUrl(Astro.url)];
+const localizedPost = post.locales[locale];
 
 const url = getCanonical(getPermalink(localizedPost.permalink, 'post'));
 const image = (await findImage(localizedPost.image)) as ImageMetadata | undefined;

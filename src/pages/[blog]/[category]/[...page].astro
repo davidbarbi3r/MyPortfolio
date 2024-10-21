@@ -6,7 +6,7 @@ import BlogList from '~/components/blog/List.astro';
 import BlogGrid from '~/components/blog/ProjectGrid.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
+import { useTranslations } from '~/i18n/translator';
 
 export async function getStaticPaths ({ paginate }) {
   return await getStaticPathsBlogCategory({ paginate });
@@ -17,7 +17,7 @@ const { page, category } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
 
-const locale = getLocaleFromUrl(Astro.url)
+const locale = Astro.currentLocale ?? 'fr'
 const { t } = useTranslations(locale)
 
 const metadata = {

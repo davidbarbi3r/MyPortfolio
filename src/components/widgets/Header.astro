@@ -8,9 +8,7 @@ import LanguagePicker from "../common/LanguagePicker.astro";
 import { getLocalizedHomePermalink, getLocalizedPermalink } from "~/utils/permalinks";
 import { trimSlash, getAsset } from "~/utils/permalinks";
 
-import { getLocaleFromUrl } from '~/i18n/translator';
-
-const locale = getLocaleFromUrl(Astro.url);
+const locale = Astro.currentLocale;
 
 interface Link {
   text?: string;

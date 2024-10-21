@@ -5,10 +5,10 @@ import Footer from '~/components/widgets/Footer.astro';
 
 import { getHeaderData, getFooterData } from '~/navigation';
 import { MetaData } from '~/types';
-import { getLocaleFromUrl } from '~/i18n/translator';
 
-const headerData = getHeaderData(getLocaleFromUrl(Astro.url));
-const footerData = getFooterData(getLocaleFromUrl(Astro.url));
+const locale = Astro.currentLocale ?? 'fr'
+const headerData = getHeaderData(locale);
+const footerData = getFooterData(locale);
 export interface Props {
   metadata?: MetaData;
 }

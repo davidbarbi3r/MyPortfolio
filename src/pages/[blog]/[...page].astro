@@ -6,7 +6,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
-import { getLocaleFromUrl, useTranslations } from '~/i18n/translator';
+import { useTranslations } from '~/i18n/translator';
 
 export async function getStaticPaths ({ paginate }) {
   return await getStaticPathsBlogList({ paginate });
@@ -14,7 +14,7 @@ export async function getStaticPaths ({ paginate }) {
 
 const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
-const locale = getLocaleFromUrl(Astro.url);
+const locale = Astro.currentLocale ?? 'fr'
 const { t } = useTranslations(locale);
 
 const allCategories = ["blog", "portfolio"];
