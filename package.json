@@ -1,7 +1,7 @@
 {
   "name": "@onwidget/astrowind",
-  "description": "AstroWind: A free template using Astro 3.0 and Tailwind CSS. Astro starter theme.",
-  "version": "0.9.9-beta.i18n",
+  "description": "David Barbier Portfolio",
+  "version": "1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -50,6 +50,6 @@
     "typescript": "^5.6.3"
   },
   "engines": {
-    "node": ">=18.14.1"
+    "node": ">=20"
   }
 }
