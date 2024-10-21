@@ -1,7 +1,6 @@
 ---
-import { getLocale } from 'astro-i18n-aut';
 import { I18N } from '~/utils/config';
-const currentLocale = getLocale(Astro.url);
+const currentLocale = Astro.currentLocale ?? 'fr'
 ---
 
 <select

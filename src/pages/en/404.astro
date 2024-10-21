@@ -2,6 +2,8 @@
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 
+const locale = Astro.currentLocale ?? Astro.preferredLocale
+
 const title = `Error 404`;
 ---
 
@@ -10,17 +12,17 @@ const title = `Error 404`;
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">
         <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Erreur</span>
+          <span class="sr-only">Error</span>
           <span class="text-transparent bg-gradient-to-r from-emerald-900 to-emerald-600 bg-clip-text">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Il semble que la page que vous recherchez n'existe pas.</p>
+        <p class="text-3xl font-semibold md:text-3xl">It looks like you are lost...</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          Pas de soucis, vous pouvez toujours
+          No worries, I can help you!
         </p>
         <a 
         rel="noopener noreferrer" href={getHomePermalink()} 
         class="btn ml-4 btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 border-none">
-        retourner à la page d'accueil
+        Back to home
         </a>
       </div>
     </div>

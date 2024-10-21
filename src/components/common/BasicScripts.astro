@@ -64,7 +64,7 @@ import { UI, I18N, SITE } from '~/utils/config';
 
 
     attachEvent('[data-aw-select-language]', 'change', function (_, elem) {
-      const newLang = elem.value;
+      const newLang = elem.value === "fr" ? "" : `/${elem.value}`;
       const oldUrl = window.location.href;
       const supportedLangs = Object.keys(locales);
 
@@ -74,7 +74,7 @@ import { UI, I18N, SITE } from '~/utils/config';
       }, urlWithoutOrigin)
       const newUrlWithoutTrailingSlash = urlWithoutOriginLang.replace(/\/$/, '');
 
-      const newUrl = `/${newLang}${newUrlWithoutTrailingSlash}${trailingSlash ? '/' : ''}`;
+      const newUrl = `${newLang}${newUrlWithoutTrailingSlash}${trailingSlash ? '/' : ''}`;
       window.location.pathname = newUrl;
     });
 

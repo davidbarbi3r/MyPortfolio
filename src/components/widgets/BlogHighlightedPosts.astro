@@ -7,7 +7,6 @@ import { getBlogPermalink } from "~/utils/permalinks";
 import { findPostsByIds } from "~/utils/blog";
 import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
 import type { Widget } from "~/types";
-import { getLocaleFromUrl } from "~/i18n/translator";
 
 export interface Props extends Widget {
   title?: string;
@@ -30,7 +29,7 @@ const {
   bg = await Astro.slots.render("bg"),
 } = Astro.props;
 
-const locale = getLocaleFromUrl(Astro.url);
+const locale = Astro.currentLocale ?? 'fr'
 const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds, locale) : [];
 ---
 
