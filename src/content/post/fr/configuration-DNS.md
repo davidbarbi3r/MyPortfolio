@@ -23,19 +23,23 @@ On peut voir le DNS comme le GPS d'Internet. Il guide les clients vers votre ent
 ### Pour Votre Site Web :
 
 **Des Redirections Fiables avec les Enregistrements A et CNAME :**
+
 - Vérifiez vos enregistrements DNS A et AAAA. Ils doivent pointer précisément vers l'adresse IP de votre serveur.
 - Utilisez des enregistrements CNAME pour gérer efficacement les sous-domaines et faciliter les redirections vers votre domaine principal.
 
 **Prévention des Problèmes de Sécurité :**
+
 - Implementez DNSSEC pour protéger votre site contre les attaques et assurer l'intégrité de vos redirections.
 
 ### Pour Votre Système de Messagerie :
 
 **Adieu aux Spams avec des MX et PTR Correctement Configurés :**
+
 - Assurez-vous que vos enregistrements MX pointent correctement vers vos serveurs de messagerie.
 - Les enregistrements PTR sont essentiels pour la réputation de votre serveur et pour éviter que vos e-mails ne soient considérés comme du spam (cependant les particuliers et entreprises ne peuvent pas dans la majorité des cas gérer ce type d'enregistrement, il est géré directement par votre hébergeur)
 
 **Renforcement de l'Authenticité des E-mails :**
+
 - Utilisez SPF et DKIM (via des enregistrements TXT) pour authentifier vos e-mails et minimiser les risques de phishing et de rejet.
 
 ## Conclusion

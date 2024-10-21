@@ -2,7 +2,7 @@
 publishDate: 2024-02-12T00:00:00Z
 title: My website is slow?
 excerpt: In this article, we analyze the main sources of website slowness and what you can do to improve your site's performance.
-image: '~/assets/images/slow-website-en.webp'
+image: '~/assets/images/slow-website-en.jpg'
 category: Blog
 tags:
   - performance

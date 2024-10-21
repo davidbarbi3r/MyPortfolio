@@ -17,19 +17,14 @@ const image = (await findImage(post.image));
 ---
 
 <article class="mb-6 transition">
-  <div class="relative md:h-64 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-6">
+  <div class="relative md:h-56 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-6">
     {
       image && (
         <a href={getPermalink(post.permalink, 'post')}>
           <Image
             src={image}
-            class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
-            widths={[400, 900]}
-            width={400}
-            sizes="(max-width: 900px) 400px, 900px"
+            class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700 object-contain object-left"
             alt={post.title}
-            aspectRatio="16:9"
-            layout="cover"
             loading="lazy"
             decoding="async"
           />
