@@ -2,7 +2,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
@@ -19,6 +18,13 @@ export default defineConfig({
   site: SITE.site,
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
+  i18n: {
+    locales: ['fr', 'en'],
+    defaultLocale: 'fr',
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   build: {
     format: SITE.trailingSlash ? "directory" : "file"
   },
@@ -26,18 +32,12 @@ export default defineConfig({
     applyBaseStyles: false
   }),
   // Conditionally add i18n and sitemap based on I18N.isEnabled
-  ...(I18N.isEnabled ? [i18n({
-    locales: I18N.locales,
-    defaultLocale: I18N.defaultLocale
-  }), sitemap({
+  sitemap({
     i18n: {
       locales: I18N.locales,
-      defaultLocale: I18N.defaultLocale
+      defaultLocale: I18N.defaultLocale,
     },
-    filter: filterSitemapByDefaultLocale({
-      defaultLocale: I18N.defaultLocale
-    })
-  })] : [sitemap({})]), mdx(), icon({
+  }), mdx(), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']

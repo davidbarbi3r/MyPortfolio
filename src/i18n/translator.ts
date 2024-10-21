@@ -1,12 +1,11 @@
 import { I18N } from '~/utils/config';
-import { getLocale } from 'astro-i18n-aut';
 
 import { en } from './en';
 import { fr } from './fr';
 
 type Translations = any;
 
-const { defaultLocale, locales } = I18N;
+const { locales } = I18N;
 
 interface NestedObject {
   [key: string]: NestedObject | string | NestedObject[];

@@ -1,5 +1,6 @@
-import { getLocalizedPermalink, getAsset } from './utils/permalinks';
+import { getAsset } from './utils/permalinks';
 import { useTranslations } from '~/i18n/translator';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export const getHeaderData = (locale) => {
   const { t } = useTranslations(locale);
@@ -7,26 +8,26 @@ export const getHeaderData = (locale) => {
     links: [
       {
         text: t('header.home'),
-        href: getLocalizedPermalink(locale, '/'),
+        href: getRelativeLocaleUrl(locale, '/'),
       },
       // {
       //   text: t('header.about'),
-      //   href: getLocalizedPermalink(locale, '/about'),
+      //   href: getRelativeLocaleUrl(locale, '/about'),
       // },
       // {
       //   text: t('header.services'),
-      //   href: getLocalizedPermalink(locale, '/services'),
+      //   href: getRelativeLocaleUrl(locale, '/services'),
       // },
       {
         text: t('header.blog'),
-        href: getLocalizedPermalink(locale, '/blog'),
+        href: getRelativeLocaleUrl(locale, '/blog'),
       },
       {
         text: t('header.portfolio'),
-        href: getLocalizedPermalink(locale, '/category/portfolio'),
+        href: getRelativeLocaleUrl(locale, '/category/portfolio'),
       },
     ],
-    actions: [{ type: 'button', text: t('header.contact'), href: getLocalizedPermalink(locale, '/contact') }],
+    actions: [{ type: 'button', text: t('header.contact'), href: getRelativeLocaleUrl(locale, '/contact') }],
   };
 };
 
@@ -36,11 +37,11 @@ export const getFooterData = (locale) => {
   return {
     text: t('footer.text'),
     secondaryLinks: [
-      // { text: t('footer.about'), href: getLocalizedPermalink(locale, '/about') },
-      // { text: t('footer.services'), href: getLocalizedPermalink(locale, '/services') },
-      { text: t('footer.contact'), href: getLocalizedPermalink(locale, '/contact') },
-      { text: t('footer.blog'), href: getLocalizedPermalink(locale, '/blog')},
-      { text: t('footer.legal'), href: getLocalizedPermalink(locale, '/terms')},
+      // { text: t('footer.about'), href: getRelativeLocaleUrl(locale, '/about') },
+      // { text: t('footer.services'), href: getRelativeLocaleUrl(locale, '/services') },
+      { text: t('footer.contact'), href: getRelativeLocaleUrl(locale, '/contact') },
+      { text: t('footer.blog'), href: getRelativeLocaleUrl(locale, '/blog')},
+      { text: t('footer.legal'), href: getRelativeLocaleUrl(locale, '/terms')},
     ],
     socialLinks: [
       { ariaLabel: 'Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/gnark_eth' },

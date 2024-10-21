@@ -1,0 +1,48 @@
+---
+import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import BlogGrid from '~/components/blog/ProjectGrid.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import { useTranslations } from '~/i18n/translator';
+
+export async function getStaticPaths ({ paginate }) {
+  return await getStaticPathsBlogCategory({ paginate });
+}
+
+const { page, category } = Astro.props;
+
+const currentPage = page.currentPage ?? 1;
+
+
+const locale = Astro.currentLocale ?? 'fr'
+const { t } = useTranslations(locale)
+
+const metadata = {
+  title: `Category '${category}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  description: locale === "en" ? `Discover the latest projects and articles from David Barbier's ${category}.` : `Découvrez les derniers projets et articles du ${category} de David Barbier.`,
+  robots: {
+    index: blogCategoryRobots?.index,
+    follow: blogCategoryRobots?.follow,
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  {category === 'portfolio' ?
+  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
+    <Headline subtitle={t('projects.subtitle')}><span class="capitalize">{t('projects.title')}</span></Headline>
+      <BlogList posts={page.data.map(p => p.locales[locale]).slice(0,1)} />
+      <BlogGrid posts={page.data.map(p => p.locales[locale]).slice(1, )} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+  :
+  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline><span class="capitalize">{category.replaceAll('-', ' ')}</span></Headline>
+      <BlogList posts={page.data.map(p => p.locales[locale])} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+  }
+</Layout>

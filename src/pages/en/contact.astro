@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import { useTranslations } from '~/i18n/translator';
+
+
+const locale = Astro.currentLocale ?? 'fr'
+const {t} = useTranslations(locale)
+
+const metadata = {
+  title: 'Contact',
+  description: locale === 'en' ? "Contact me for your web project (website, mobile app, software)" : "Contactez-moi pour votre création ou refonte de site web à Ajaccio, Limoges ou à distance.",
+};
+---
+
+<Layout metadata={metadata}>
+   
+
+    <HeroText
+    tagline="Contact"
+    title={t('contact.titleMain')}
+  />
+
+  <ContactUs
+    title={t('contact.title')}
+    subtitle={t('contact.subtitle')}
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: t('contact.name'),
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label: t('contact.disclaimer'),
+    }}
+    button={t('contact.button')}
+  />
+</Layout>

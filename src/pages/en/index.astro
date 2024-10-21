@@ -14,6 +14,7 @@ import Content from '~/components/widgets/Content.astro';
 import Features2 from "~/components/widgets/Features2.astro";
 import Logos from "~/components/widgets/Logos.astro";
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
+import { getLocaleRelativeUrl } from "node_modules/astro/dist/i18n";
 
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);

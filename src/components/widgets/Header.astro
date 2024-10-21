@@ -5,10 +5,11 @@ import ToggleTheme from "~/components/common/ToggleTheme.astro";
 import ToggleMenu from "~/components/common/ToggleMenu.astro";
 import LanguagePicker from "../common/LanguagePicker.astro";
 
-import { getLocalizedHomePermalink, getLocalizedPermalink } from "~/utils/permalinks";
 import { trimSlash, getAsset } from "~/utils/permalinks";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
-const locale = Astro.currentLocale;
+
+const locale = Astro.currentLocale ?? "fr"
 
 interface Link {
   text?: string;
@@ -73,7 +74,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
   >
   <div class="flex justify-between">
     <div class:list={[{ "mr-auto rtl:mr-0 rtl:ml-auto": position === "right" }, "flex justify-between"]}>
-      <a class="flex items-center" href={getLocalizedHomePermalink(locale)}>
+      <a class="flex items-center" href={getRelativeLocaleUrl(locale, "/")}>
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
@@ -132,7 +133,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             "hover:text-link dark:hover:text-white px-2 py-3 flex items-centers md:hidden lg:block",
             { "aw-link-active": currentPath }
           ]}
-          href={getLocalizedPermalink(locale, "/site-internet-eco-responsable")}
+          href={getRelativeLocaleUrl(locale, "/site-internet-eco-responsable")}
           >
             Sites écologiques
           </a>
