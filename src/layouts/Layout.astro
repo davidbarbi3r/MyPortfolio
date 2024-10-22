@@ -11,7 +11,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification  from "~/components/common/SiteVerification.astro"
 import Analytics  from "~/components/common/Analytics.astro"
 import BasicScripts from '~/components/common/BasicScripts.astro';
-import { ViewTransitions } from 'astro:transitions';
+// import { ViewTransitions } from 'astro:transitions';
 
 import type { MetaData as MetaDataType } from '~/types';
 
@@ -35,7 +35,7 @@ const locale = Astro.currentLocale ?? 'fr'
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
     <script defer src="https://umami.davidbarbier.com/script.js" data-domains="davidbarbier.com, www.davidbarbier.com" data-website-id="49aa15ee-745e-47db-9312-f8114569b462"></script>
     <meta name="p:domain_verify" content="efd6b967d875e884a7fda76065da1c15"/>
   </head>
