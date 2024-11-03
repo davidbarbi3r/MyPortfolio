@@ -115,6 +115,27 @@ export const fr = {
           ],
           price: 'À partir de 30€/mois',
         },
+        {
+          title: 'Référencement Naturel',
+          description: 'Rendez votre site visible sur Google et obtenez des ventes naturellement.',
+          items: [
+            {
+              title: 'Audit SEO',
+              description:
+                'Analyse de votre site pour identifier les points à améliorer et les actions à mettre en place.',
+            },
+            {
+              title: 'Accompagnement SEO complet',
+              description:
+                'Suvi mensuel, étude de mots-clés, optimisation du contenu, netlinking, etc. pour améliorer votre positionnement sur les moteurs de recherche.',
+            },
+            {
+              title: 'Suivi et rapports',
+              description: "Suivi et reporting réguliers, selon un rythme pour suivre l'impact de la stratégie et des actions.",
+            },
+          ],
+          price: '350€/jour',
+        },
       ],
     },
     avis: {

@@ -9,8 +9,7 @@ import type { ImageMetadata } from 'astro';
 const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props as ItemGrid;
 
 const {
-  container: containerClass = '',
-  // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
@@ -24,9 +23,9 @@ const {
       class={twMerge(
         `flex flex-auto md:grid overflow-x-scroll md:overflow-hidden gap-8 gap-x-12 sm:gap-y-8 p-4 ${
           columns === 4
-            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+            ? 'lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2'
             : columns === 3
-            ? 'lg:grid-cols-3 sm:grid-cols-2'
+            ? 'lg:grid-cols-4 sm:grid-cols-2'
             : columns === 2
             ? 'sm:grid-cols-2 '
             : ''
@@ -35,13 +34,16 @@ const {
       )}
     >
       {items.map(
-        ({ title, description, icon, callToAction, image, servicesItems, price, classes: itemClasses = {} }) => (
+        ({ title, description, icon, callToAction, image, servicesItems, price, classes: itemClasses = {} }, index) => (
           <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0 min-w-[93%]')}>
             {image && (
               <div class="">
                 <Image
                 src={image as ImageMetadata}
-                class="object-cover w-full h-24 md:h-48 mb-4 rounded-t-lg"
+                class={twMerge(
+              "object-cover w-full h-24 md:h-48 mb-4 rounded-t-lg",
+              index === items.length - 1 ? "object-top rotate-180" : "object-bottom"
+            )}
                 alt={image.alt || ''}
                 height={350}
                 width={450}

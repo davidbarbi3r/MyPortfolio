@@ -14,7 +14,6 @@ import Content from '~/components/widgets/Content.astro';
 import Features2 from "~/components/widgets/Features2.astro";
 import Logos from "~/components/widgets/Logos.astro";
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
-import { getLocaleRelativeUrl } from "node_modules/astro/dist/i18n";
 
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
@@ -105,7 +104,23 @@ const metadata = {
         //   href: '',
         //   icon: 'tabler:chevron-right',
         // },
-      }
+      }, 
+      {
+        title: tList('portfolio.services.servicesItems')[3].title,
+        description: tList('portfolio.services.servicesItems')[3].description,
+        servicesItems: tList('portfolio.services.servicesItems')[3].items,
+        price: tList('portfolio.services.servicesItems')[3].price,
+        image: {
+          ...Fidenza117,
+          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for maintenance service' : 'Illustration verte d\'un NFT fidenza pour le service de maintenance de site web',
+        },
+        icon: 'tabler:tool',
+        // callToAction: {
+        //   text: tList('portfolio.services.servicesItems')[0].callToAction,
+        //   href: '',
+        //   icon: 'tabler:chevron-right',
+        // },
+      }, 
     ]}
   />
   

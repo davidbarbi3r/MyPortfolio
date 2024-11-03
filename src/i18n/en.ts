@@ -416,7 +416,7 @@ export const en = {
             description: 'An online store for selling your products and services.'
           }],
           callToAction: 'Learn more',
-          price: 'Starting at 900€',
+          price: 'Starting at $1000',
         },
         {
           title: 'Custom Development',
@@ -435,7 +435,7 @@ export const en = {
               description: 'Adding new features, bug fixing, performance optimization, and more.'
             }
           ],
-          price: '€350/day',
+          price: '$400/day',
         }, {
           title: 'Ongoing Support',
           description: 'Continuous technical management of your website or application is crucial.',
@@ -453,8 +453,29 @@ export const en = {
               description: 'Technical maintenance to ensure the smooth operation of your website or application.'
             }
           ],
-          price: 'Starting from €30/month',
-        }
+          price: 'Starting from $40/month',
+        }, 
+        {
+          title: 'SEO Optimization',
+          description: 'Make your site visible on Google and get sales naturally.',
+          items: [
+            {
+              title: 'SEO Audit',
+              description:
+                'Analysis of your site to identify areas for improvement and actions to be taken.',
+            },
+            {
+              title: 'Full SEO support',
+              description:
+                'Monthly monitoring, keyword research, content optimization, netlinking, etc. to improve your search engine positioning.',
+            },
+            {
+              title: 'Monitoring and reporting',
+              description: "Regular monitoring and reporting to track the impact of strategy and actions.",
+            },
+          ],
+          price: '$400/day',
+        },
       ]
     },
     caseStudies1: {
