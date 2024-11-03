@@ -135,7 +135,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
           ]}
           href={getRelativeLocaleUrl(locale, "/site-internet-eco-responsable")}
           >
-            Sites écologiques
+            {locale === "fr" ? "Sites écologiques" : "Eco websites"}
           </a>
       
       </ul>
