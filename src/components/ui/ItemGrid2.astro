@@ -61,7 +61,7 @@ const {
                     )}
                   />
                 )}
-                <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
+                <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>
                 {description && (
                   <p
                     class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)}
@@ -71,9 +71,9 @@ const {
                 {servicesItems && (
                   <ul class="mt-2 pl-2 list-disc">
                     {servicesItems.map((item) => (
-                      <li class="mt-1">
-                        <strong>{item.title}</strong>
-                        <br />
+                      <li class="mt-2">
+                        <h4 class="font-bold mb-1">{item.title}</h4>
+                        {/* <br /> */}
                         <p>{item.description}</p>
                       </li>
                     ))}
