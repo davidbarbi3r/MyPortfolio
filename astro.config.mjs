@@ -18,6 +18,11 @@ export default defineConfig({
   site: SITE.site,
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
+  redirects: {
+    '/call': '/reserve-ton-appel',
+    '/en/call': '/en/book-a-call',
+    '/en/site-internet-eco-responsable': '/en/eco-friendly-website-creation',
+  },
   i18n: {
     locales: ['fr', 'en'],
     defaultLocale: 'fr',
