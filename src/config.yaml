@@ -9,7 +9,7 @@ site:
 metadata:
   title:
     default: Développeur web Freelance - David Barbier
-    template: '%s | Développeur web freelance - David Barbier'
+    template: '%s'
   description: "\U0001F680 Développeur web freelance à Limoges et Ajaccio, je réalise des sites web sur mesure pour les entreprises et les particuliers."
   robots:
     index: true
