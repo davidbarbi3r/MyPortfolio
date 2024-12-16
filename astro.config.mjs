@@ -21,9 +21,7 @@ export default defineConfig({
   i18n: {
     locales: ['fr', 'en'],
     defaultLocale: 'fr',
-    routing: {
-      prefixDefaultLocale: false,
-    },
+    routing: 'manual',
   },
   build: {
     format: SITE.trailingSlash ? "directory" : "file"
