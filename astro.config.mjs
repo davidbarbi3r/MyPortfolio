@@ -22,6 +22,8 @@ export default defineConfig({
     '/call': '/reserve-ton-appel',
     '/en/call': '/en/book-a-call',
     '/en/site-internet-eco-responsable': '/en/eco-friendly-website-creation',
+    '/book-a-call': '/reserve-ton-appel',
+    '/eco-friendly-website-creation': '/site-internet-eco-responsable',
   },
   i18n: {
     locales: ['fr', 'en'],
