@@ -16,7 +16,7 @@ export interface Props extends MetaData {
 
 const {
   title,
-  ignoreTitleTemplate = false,
+  ignoreTitleTemplate = true,
   canonical = String(getCanonical(String(Astro.url.pathname))),
   robots = {
     index: true,
@@ -30,7 +30,7 @@ const {
 const seoProps: AstroSeoProps = merge(
   {
     title: '',
-    titleTemplate: '%s',
+    titleTemplate: '',
     canonical: canonical,
     noindex: false,
     nofollow: false,
