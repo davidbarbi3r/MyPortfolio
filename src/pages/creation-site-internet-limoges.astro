@@ -1,0 +1,816 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+import CTA from '../components/ui/CTA.astro';
+import CallToAction from '../components/widgets/CallToAction.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import HeroImage from '../assets/images/DSCF7551-3.jpg';
+import Image from '~/components/common/Image.astro';
+
+
+const metadata = {
+  title: 'Création site internet Limoges à 1800€ HT | David Barbier',
+  description:
+    "Une offre claire pour votre Création de site internet vitrine à Limoges. 1800€, adpaté à toutes les tailles d'écran, sans frais cachés, 100% administrable en 1 mois.",
+};
+---
+
+<script>
+  const form = document.querySelector('form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          form.reset();
+        } else {
+          return response.json().then((json) => Promise.reject(json));
+        }
+      })
+      .then(() => {
+        alert('Merci pour votre message! Je vous recontacte au plus vite.');
+      })
+      .catch((error) => {
+        alert("Oups! Il y a eu un problème lors de l'envoi de votre message");
+        console.error(error);
+      });
+  });
+</script>
+<Layout metadata={metadata}>
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <div class="fixed bottom-0 bg-green-50 dark:bg-green-950 w-full z-[9999]">
+      <div class="max-w-7xl mx-auto px-6 py-4 sm:px-8">
+        <div class="flex items-center justify-center gap-4">
+          Une question ? Vous souhaitez en savoir plus ? <a
+            href="tel:0623565299"
+            class="text-green-800 dark:text-green-300 font-semibold">06 23 56 52 99</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:px-8 lg:py-16">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <!-- Badge localisation -->
+        <div class="mt-8 sm:mt-16 lg:mt-8">
+          <span class="inline-flex items-center">
+            <span
+              class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8"
+            >
+              Site internet professionnel
+            </span>
+          </span>
+        </div>
+
+        <!-- Titre principal -->
+        <h1
+          class="mt-10 text-pretty font-bauhaus text-3xl font-semibold tracking-tight text-green-950 sm:text-4xl inline dark:text-white"
+        >
+          Création site internet Limoges
+        </h1>
+        <span
+          class="text-pretty text-3xl font-semibold tracking-tight text-green-950 sm:text-4xl inline dark:text-gray-300"
+        >
+          : Votre site vitrine à partir de 1800€ HT
+        </span>
+
+        <!-- Paragraphes -->
+        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Et si je vous disais qu'en 1 mois seulement, vous pouviez avoir un site internet professionnel dont vous
+          seriez l'unique propriétaire, sans aucun abonnement ni frais cachés ?
+        </p>
+
+        <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          En tant que développeur web expert WordPress, je crée des sites vitrines sur-mesure qui allient design moderne
+          et performances techniques pour représenter efficacement votre entreprise en ligne.
+        </p>
+
+        <ul class="pl-4">
+          <li class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
+            <Icon name="tabler:check" class="inline mr-2" />
+            <strong>Adapté à toutes les tailles d'écran</strong>
+          </li>
+          <li class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
+            <Icon name="tabler:check" class="inline mr-2" />
+            <strong>100% administrable</strong>
+          </li>
+          <li class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
+            <Icon name="tabler:check" class="inline mr-2" />
+            <strong>Optimisé pour le référencement</strong>
+          </li>
+        </ul>
+
+        <!-- Call-to-action -->
+        <div class="mt-10 flex items-center gap-x-6">
+          <a
+            href="/src/pages/reserve-ton-appel"
+            class="rounded-md bg-green-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
+          >
+            Expliquez-moi votre projet
+          </a>
+          <a href="#services" class="text-sm font-semibold text-gray-900 dark:text-gray-300">
+            Découvrir mes services <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Image ou graphique à droite -->
+      <div class="mx-auto mt-16 flex max-w-2xl lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none xl:ml-32">
+        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+          <div
+            class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
+          >
+            <img
+              src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/ebbf1ab9-288e-4b05-f45c-834e4fdfd400/public"
+              alt="Photo de la rue de la boucherie à Limoges, célèbre pour la frairie des petits ventres - Crédits Unsplash"
+              class="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10 max-h-[80vh] object-contain object-left"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl sm:text-center">
+          <p class="text-base/7 font-semibold text-green-600">Une offre tout compris</p>
+          <h2 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-balance sm:text-5xl">
+            La création de votre site vitrine en détail
+          </h2>
+          <p class="mt-6 text-lg/8 text-gray-600">
+            Un site web professionnel, optimisé et sécurisé dont vous serez l'unique propriétaire. Un investissement
+            unique, sans frais cachés ni engagement.
+          </p>
+        </div>
+      </div>
+      <!--<div class="overflow-hidden pt-16">-->
+      <!--  <div class="mx-auto max-w-7xl px-6 lg:px-8">-->
+      <!--    <img src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/a7f20547-80ae-48db-29fa-3f4c8a699d00/public" alt="App screenshot" class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 h-[80vh] object-cover object-top" width="2432" height="1400">-->
+      <!--    <div class="relative z-10" aria-hidden="true">-->
+      <!--      <div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%] z-10"></div>-->
+      <!--    </div>-->
+      <!--  </div>-->
+      <!--</div>-->
+      <div class="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
+        <dl
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16"
+        >
+          <div class="pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <svg class="size-5 text-green-600 mb-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Z"
+                ></path>
+              </svg>
+              Installation complète
+            </dt>
+            <dd class="inline">
+              Configuration de l'hébergement, du nom de domaine et installation sécurisée de WordPress. Tout est prêt
+              pour démarrer votre projet.
+            </dd>
+          </div>
+          <div class="pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <svg class="size-5 text-green-600 mb-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path>
+                <path
+                  fill-rule="evenodd"
+                  d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41z"
+                ></path>
+              </svg>
+              Création sur mesure
+            </dt>
+            <dd class="inline">
+              Design personnalisé reflétant votre identité, intégration de vos contenus, optimisation pour tous les
+              appareils.
+            </dd>
+          </div>
+          <div class="pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <svg class="size-5 text-green-600 mb-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"
+                ></path>
+                <path
+                  d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"
+                ></path>
+              </svg>
+              Optimisation SEO
+            </dt>
+            <dd class="inline">
+              Structure optimisée pour le référencement, balises techniques, contenus organisés pour une meilleure
+              visibilité sur Google.
+            </dd>
+          </div>
+          <div class="pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <svg class="size-5 text-green-600 mb-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
+                ></path>
+              </svg>
+              Suivi des statistiques
+            </dt>
+            <dd class="inline">
+              Installation et configuration de Google Analytics. Accès à vos statistiques pour suivre l'évolution de
+              votre audience.
+            </dd>
+          </div>
+          <div class="pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <svg class="size-5 text-green-600 mb-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Sécurisation complète
+            </dt>
+            <dd class="inline">
+              Protection contre les attaques, certificat SSL, sauvegardes automatiques et mises à jour de sécurité
+              régulières.
+            </dd>
+          </div>
+          <div class="pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <svg class="size-5 text-green-600 mb-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M10 1a6 6 0 00-3.815 10.631C7.237 12.5 8.51 13 10 13c1.49 0 2.763-.5 3.815-1.369A6 6 0 0010 1zm0 8a2 2 0 100-4 2 2 0 000 4z"
+                ></path>
+                <path d="M14 7a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1V8a1 1 0 011-1z"></path>
+              </svg>
+              Démarche éco-responsable
+            </dt>
+            <dd class="inline">
+              Optimisation des images, hébergement vert, bonnes pratiques d'éco-conception pour minimiser l'impact
+              environnemental.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="overflow-hidden">
+    <div class="px-8 pt-24 pb-6 mx-auto md:px-12 lg:px-24 max-w-7xl">
+      <div class="text-center max-w-xl mx-auto">
+        <h2 class="text-sm leading-normal font-bold text-green-600">Avis création site internet Limoges</h2>
+        <h3
+          class="text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold text-base-900 lg:text-balance"
+        >
+          Ce que mes clients disent de mon travail
+        </h3>
+        <p class="text-base leading-normal mt-4 text-base-500 font-medium">
+          Découvrez les retours d'entrepreneurs de Limoges qui ont fait le choix d'un site web professionnel.
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-center gap-5 sm:gap-4 py-4 overflow-scroll md:overflow-hidden">
+      <div class="w-full flex flex-none sm:w-96">
+        <figure class="h-full bg-base-50 p-6 rounded-2xl flex flex-col justify-between shadow">
+          <div>
+            <blockquote class="text-base leading-normal text-base-900 italic font-medium">
+              "David est d'une incroyable patience, d'une oreille attentive, il est pleinement acteur de la mise en
+              lumière de mon travail. D'un grand professionnalisme, je recommande vivement son accompagnement."
+            </blockquote>
+          </div>
+          <figcaption class="flex items-center mt-12 justify-between">
+            <div class="flex items-center gap-4">
+              <div
+                class="flex items-center justify-center rounded-full size-10 bg-green-100 text-green-600 font-semibold"
+              >
+                M
+              </div>
+              <div>
+                <h3 class="text-base leading-normal text-base-900 font-medium">Marion</h3>
+                <p class="text-xs leading-normal text-base-400 font-medium">Fondatrice Gaomata Limoges</p>
+              </div>
+              <div id="stars" class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="w-full flex flex-none sm:w-96">
+        <figure class="h-full bg-base-50 p-6 rounded-2xl flex flex-col justify-between shadow">
+          <div>
+            <blockquote class="text-base leading-normal text-base-900 italic font-medium">
+              "Parfait, je recommande a 100%. Ayant une pizzeria sur Limoges avec un site internet vieillissant, nous
+              avons choisi David Barbier, pour effectuer une refonte complète de notre site. Nous en sommes pleinement
+              satisfaits, il a su se montrer à l'écoute, réactif et entreprenant."
+            </blockquote>
+          </div>
+          <figcaption class="flex items-center mt-12 justify-between">
+            <div class="flex items-center gap-4">
+              <div
+                class="flex items-center justify-center rounded-full size-10 bg-green-100 text-green-600 font-semibold"
+              >
+                S
+              </div>
+              <div>
+                <h3 class="text-base leading-normal text-base-900 font-medium">Sebastien</h3>
+                <p class="text-xs leading-normal text-base-400 font-medium">Associé Pizza Carmes Limoges</p>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="w-full flex flex-none sm:w-96">
+        <figure class="h-full bg-base-50 p-6 rounded-2xl flex flex-col justify-between shadow">
+          <div>
+            <blockquote class="text-base leading-normal text-base-900 italic font-medium">
+              "Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet
+              REST'Ô DOM. Son écoute, et son professionnalisme ont permis la bonne exécution du site."
+            </blockquote>
+          </div>
+          <figcaption class="flex items-center mt-12 justify-between">
+            <div class="flex items-center gap-4">
+              <div
+                class="flex items-center justify-center rounded-full size-10 bg-green-100 text-green-600 font-semibold"
+              >
+                C
+              </div>
+              <div>
+                <h3 class="text-base leading-normal text-base-900 font-medium">Cedric</h3>
+                <p class="text-xs leading-normal text-base-400 font-medium">Fondateur Rest'ô Dom</p>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10 1l2.45 5.5H19l-4 4.09 1.5 6.51L10 14.5 4.5 17.1 6 10 2 5.5h6.55L10 1z"></path>
+                </svg>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="">
+    <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+      <div class="relative isolate overflow-hidden bg-green-700 px-6 py-16 shadow-2xl rounded-3xl sm:px-24">
+        <h2 class="mx-auto max-w-2xl text-center text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Créez votre site internet professionnel
+        </h2>
+
+        <div class="mx-auto mt-10 max-w-xl text-center">
+          <p class="text-2xl font-semibold leading-8 text-white">1800€ HT</p>
+          <p class="mt-4 text-lg leading-8 text-green-100">
+            Acompte de 500€ à la signature, suivi personnalisé tout au long du projet via WhatsApp et un espace dédié en
+            ligne.
+          </p>
+          <p class="text-lg leading-8 text-green-100">
+            Site livré clé en main en 1 mois, 100% administrable et sans engagement.
+          </p>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+          <a
+            href="/call"
+            class="rounded-md bg-white px-8 py-4 text-lg font-semibold text-green-700 shadow-sm hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-200"
+          >
+            Je débute mon site internet
+          </a>
+        </div>
+
+        <svg
+          viewBox="0 0 1024 1024"
+          class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+          aria-hidden="true"
+        >
+          <circle cx="512" cy="512" r="512" fill="url(#gradient)" fill-opacity="0.15"></circle>
+          <defs>
+            <radialGradient id="gradient">
+              <stop stop-color="white"></stop>
+              <stop offset="1" stop-color="white"></stop>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="px-8 py-16 mx-auto md:px-12 lg:px-24 max-w-7xl">
+      <div class="lg:text-balance max-w-3xl">
+        <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Un processus clair et transparent</p>
+        <h2 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-5xl">
+          Les étapes de création de votre site internet à Limoges
+        </h2>
+        <p class="text-base leading-normal mt-4 text-base-500 font-medium">
+          Je crée votre site web pendant que vous vous concentrez sur votre cœur de métier. Un suivi personnalisé via
+          WhatsApp et un espace d'échange dédié pour un projet fluide et transparent.
+        </p>
+        <p class="text-base leading-normal mt-4 text-base-500 font-medium">
+          En 1 mois, votre site est en ligne. Voici le détail de notre collaboration.
+        </p>
+      </div>
+      <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3">
+        <div>
+          <div class="flex items-baseline gap-2">
+            <span
+              class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 font-medium"
+            >
+              01
+            </span>
+            <dt>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-base-900 font-medium">
+                Signature & Préparation
+              </h3>
+            </dt>
+          </div>
+          <dd class="mt-4">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Versement de l'acompte de 500€. Je vous envoie un questionnaire détaillé pour préparer notre entretien et
+              crée notre espace d'échange en ligne.
+            </p>
+          </dd>
+        </div>
+
+        <div class="lg:row-start-2 lg:col-start-2">
+          <div class="flex items-baseline gap-2">
+            <span
+              class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 font-medium"
+            >
+              02
+            </span>
+            <dt>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-base-900 font-medium">
+                Entretien Découverte
+              </h3>
+            </dt>
+          </div>
+          <dd class="mt-4">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Échange téléphonique approfondi pour comprendre votre activité, vos objectifs et votre vision. Je note vos
+              besoins spécifiques pour un site vraiment personnalisé.
+            </p>
+          </dd>
+        </div>
+
+        <div class="lg:row-start-3 lg:col-start-3">
+          <div class="flex items-baseline gap-2">
+            <span
+              class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 font-medium"
+            >
+              03
+            </span>
+            <dt>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-base-900 font-medium">
+                Infrastructure Technique
+              </h3>
+            </dt>
+          </div>
+          <dd class="mt-4">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Réservation de votre nom de domaine et mise en place de l'hébergement. Installation et configuration de
+              WordPress avec les extensions nécessaires.
+            </p>
+          </dd>
+        </div>
+
+        <div class="lg:row-start-4 lg:col-start-2">
+          <div class="flex items-baseline gap-2">
+            <span
+              class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 font-medium"
+            >
+              04
+            </span>
+            <dt>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-base-900 font-medium">
+                Design & Développement
+              </h3>
+            </dt>
+          </div>
+          <dd class="mt-4">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Création des pages et intégration de votre charte graphique. Suivi régulier via WhatsApp avec captures
+              d'écran pour vous tenir informé de l'avancement.
+            </p>
+          </dd>
+        </div>
+
+        <div class="lg:row-start-5 lg:col-start-1">
+          <div class="flex items-baseline gap-2">
+            <span
+              class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 font-medium"
+            >
+              05
+            </span>
+            <dt>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-base-900 font-medium">
+                Ajustements & Validation
+              </h3>
+            </dt>
+          </div>
+          <dd class="mt-4">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Présentation du site, recueil de vos retours et application des modifications nécessaires jusqu'à votre
+              satisfaction totale.
+            </p>
+          </dd>
+        </div>
+
+        <div class="lg:row-start-6 lg:col-start-2">
+          <div class="flex items-baseline gap-2">
+            <span
+              class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 font-medium"
+            >
+              06
+            </span>
+            <dt>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-base-900 font-medium">
+                Formation & Mise en ligne
+              </h3>
+            </dt>
+          </div>
+          <dd class="mt-4">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Formation à l'administration de votre site, mise en ligne et transfert des droits d'accès. Votre site est
+              prêt à générer des résultats !
+            </p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="md:flex md:gap-12 md:items-center">
+        {/* Colonne gauche avec photo et formulaire */}
+        <div class="md:w-1/3 space-y-8">
+          <div class="flex flex-col items-center">
+            <Image
+              src={HeroImage}
+              height={192}
+              width={192}
+              alt="David Barbier - Développeur web à Limoges"
+              class="size-48 rounded-full object-cover shadow-lg"
+            />
+            <h3 class="mt-4 text-xl font-semibold text-gray-900">David Barbier</h3>
+            <p class="text-gray-600">Développeur web à Limoges</p>
+          </div>
+
+          <form method="post" action="https://formspree.io/f/xayglvyo" class="mt-8 space-y-4 bg-gray-50 p-6 rounded-lg">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Votre nom</label>
+              <input type="text" class="mt-1 w-full rounded-md border border-gray-300 p-2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Votre email</label>
+              <input type="email" class="mt-1 w-full rounded-md border border-gray-300 p-2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Votre message</label>
+              <textarea rows="4" class="mt-1 w-full rounded-md border border-gray-300 p-2"></textarea>
+            </div>
+            <div class="mt-3 flex items-start">
+              <div class="flex mt-0.5">
+                <input
+                  id="disclaimer"
+                  name="disclaimer"
+                  type="checkbox"
+                  required
+                  class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                />
+              </div>
+              <div class="ml-3">
+                <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+                  En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+                </label>
+              </div>
+            </div>
+            <button class="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition">
+              Discutons de votre projet
+            </button>
+          </form>
+        </div>
+
+        {/* Colonne droite avec le texte */}
+        <div class="mt-12 md:mt-0 md:w-2/3">
+          <p class="text-base font-semibold text-green-700">Approche personnalisée</p>
+          <h2 class="mt-2 text-3xl font-semibold text-gray-900 sm:text-4xl">Créateur de Sites Web à Limoges</h2>
+
+          <p class="mt-6 text-xl text-gray-600">
+            Je ne suis pas une agence, mais un développeur web indépendant passionné. Mon engagement : vous livrer un
+            site dont vous serez l'unique propriétaire, sans frais cachés ni engagement.
+          </p>
+
+          <ul role="list" class="mt-8 space-y-6 text-gray-600">
+            <li class="flex gap-x-3">
+              <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                ></path>
+              </svg>
+              <span>
+                <strong class="font-semibold text-gray-900">Site prêt en 1 mois</strong> vous m'expliquez votre vision, logo,
+                texte et images et c'est parti.
+              </span>
+            </li>
+            <li class="flex gap-x-3">
+              <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                ></path>
+              </svg>
+              <span>
+                <strong class="font-semibold text-gray-900">Support rapide</strong> des problèmes ? une question ? je suis
+                là pour vous répondre 48h max.
+              </span>
+            </li>
+            <li class="flex gap-x-3">
+              <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                ></path>
+              </svg>
+              <span>
+                <strong class="font-semibold text-gray-900">Formation incluse</strong> pour une gérer en toute autonomie
+                de votre site au quotidien.
+              </span>
+            </li>
+          </ul>
+
+          <blockquote class="mt-10 border-l-4 border-green-700 pl-8 text-gray-900">
+            <p class="font-semibold">
+              "En tant que développeur web freelance, je comprends les enjeux des entreprises locales. Que vous soyez
+              restaurateur place des Carmes, artisan à Aix-sur-Vienne ou médecin à Panazol, je sais comment créer un
+              site qui parle à vos clients."
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">
+      Création site internet Limoges: La FAQ
+    </h2>
+    <div>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"
+          >En quoi consiste le référencement naturel (SEO) ?
+        </summary>
+        <p class="pl-4">
+          Le référencement naturel, ou SEO (Search Engine Optimization), est l'ensemble des techniques permettant
+          d'améliorer la visibilité de votre site sur Google et autres moteurs de recherche, sans payer pour de la
+          publicité.
+        </p>
+        <p class="pl-4">
+          En tant qu'expert référencement à Limoges, j'optimise les 3 piliers essentiels : technique, contenu et
+          popularité (backlinks) pour faire grimper durablement votre site dans les résultats de recherche.
+        </p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"
+          >Combien de temps faut-il pour voir des résultats en SEO ?
+        </summary>
+        <p class="pl-4">
+          Le SEO est un travail de fond qui nécessite du temps et de la régularité. Les premiers résultats sont
+          généralement visibles après 3-4 mois de travail.
+        </p>
+        <p class="pl-4">
+          C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel, afin d'avoir le
+          temps de mettre en place une stratégie efficace et d'en mesurer les résultats.
+        </p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Pourquoi choisir un expert référencement à Limoges plutôt qu'une agence nationale ?
+        </summary>
+        <p class="pl-4">
+          En tant qu'expert SEO local à Limoges, je connais parfaitement le tissu économique de la région et ses
+          spécificités. Cette proximité me permet d'être plus réactif et disponible pour mes clients.
+        </p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Quel est le tarif d'un expert référencement à Limoges ?
+        </summary>
+        <p class="pl-4">
+          Les tarifs d'un expert SEO varient selon vos besoins. Je propose trois formules adaptées à différents budgets
+          : un accompagnement mensuel à partir de 350€/mois, un audit technique ponctuel à 150€, et une optimisation
+          Google Business à 350€.
+        </p>
+        <p class="pl-4">
+          Ces tarifs sont transparents et sans surprise, incluant tous les services nécessaires pour améliorer votre
+          référencement : analyse technique, optimisation du contenu, stratégie de liens et reporting mensuel.
+        </p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Les prestations SEO sont-elles rentables pour mon entreprise ?
+        </summary>
+        <p class="pl-4">
+          Le SEO est un investissement rentable sur le long terme. Contrairement à la publicité payante qui s'arrête dès
+          que vous cessez de payer, le référencement naturel continue de générer du trafic qualifié.
+        </p>
+        <p class="pl-4">
+          Mon principal objectif est de maximiser le retour sur investissement de mes clients. Lorsque je détecte qu'il
+          est plus rentable de travailler sur un autre levier que le SEO, je vous le dis clairement.
+        </p>
+      </details>
+    </div>
+  </section>
+</Layout>

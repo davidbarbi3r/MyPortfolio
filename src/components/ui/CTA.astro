@@ -5,7 +5,7 @@ import type { CallToAction } from "~/types";
 const { callToAction } = Astro.props;
 
 const {
-  targetBlank,
+  targetBlank=false,
   text = "",
   icon = "",
   href = "",
