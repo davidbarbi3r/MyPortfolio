@@ -1,12 +1,8 @@
 ---
 import Layout from '../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
-import CTA from '../components/ui/CTA.astro';
-import CallToAction from '../components/widgets/CallToAction.astro';
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
-
 
 const metadata = {
   title: 'Création site internet Limoges à 1800€ HT | David Barbier',
@@ -107,13 +103,13 @@ const metadata = {
         <!-- Call-to-action -->
         <div class="mt-10 flex items-center gap-x-6">
           <a
-            href="/src/pages/reserve-ton-appel"
+            href="/reserve-ton-appel"
             class="rounded-md bg-green-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
           >
             Expliquez-moi votre projet
           </a>
-          <a href="#services" class="text-sm font-semibold text-gray-900 dark:text-gray-300">
-            Découvrir mes services <span aria-hidden="true">→</span>
+          <a href="#offre" class="text-sm font-semibold text-gray-900 dark:text-gray-300">
+            Découvrir l'offre <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -139,7 +135,7 @@ const metadata = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl sm:text-center">
-          <p class="text-base/7 font-semibold text-green-600">Une offre tout compris</p>
+          <p id="offre" class="text-base/7 font-semibold text-green-600">Une offre tout compris</p>
           <h2 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-balance sm:text-5xl">
             La création de votre site vitrine en détail
           </h2>
@@ -149,14 +145,6 @@ const metadata = {
           </p>
         </div>
       </div>
-      <!--<div class="overflow-hidden pt-16">-->
-      <!--  <div class="mx-auto max-w-7xl px-6 lg:px-8">-->
-      <!--    <img src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/a7f20547-80ae-48db-29fa-3f4c8a699d00/public" alt="App screenshot" class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 h-[80vh] object-cover object-top" width="2432" height="1400">-->
-      <!--    <div class="relative z-10" aria-hidden="true">-->
-      <!--      <div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%] z-10"></div>-->
-      <!--    </div>-->
-      <!--  </div>-->
-      <!--</div>-->
       <div class="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
         <dl
           class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16"
@@ -218,8 +206,17 @@ const metadata = {
               Suivi des statistiques
             </dt>
             <dd class="inline">
-              Installation et configuration de Google Analytics. Accès à vos statistiques pour suivre l'évolution de
-              votre audience.
+              Installation et configuration de <a
+                href="https://developers.google.com/analytics?hl=fr"
+                class="text-green-700 underline hover:text-green-700/90"
+              >
+                Google Analytics</a
+              > et de la <a
+                href="https://developers.google.com/search/blog/2018/01/introducing-new-search-console?hl=fr"
+                class="text-green-700 underline hover:text-green-700/90"
+              >
+                Google search console</a
+              >. Accès à vos statistiques pour suivre l'évolution de votre audience.
             </dd>
           </div>
           <div class="pl-9">
@@ -251,6 +248,11 @@ const metadata = {
               Optimisation des images, hébergement vert, bonnes pratiques d'éco-conception pour minimiser l'impact
               environnemental.
             </dd>
+            <p>
+              Vous voulez en savoir plus sur ma <a
+                href="/site-internet-eco-responsable"
+                class="text-green-700 underline hover:text-green-700/90">démarche éco-responsable ?</a>
+            </p>
           </div>
         </dl>
       </div>
@@ -650,16 +652,16 @@ const metadata = {
 
           <form method="post" action="https://formspree.io/f/xayglvyo" class="mt-8 space-y-4 bg-gray-50 p-6 rounded-lg">
             <div>
-              <label class="block text-sm font-medium text-gray-700">Votre nom</label>
-              <input type="text" class="mt-1 w-full rounded-md border border-gray-300 p-2" />
+              <label for="name" class="block text-sm font-medium text-gray-700">Votre nom</label>
+              <input id="name" name="name" type="text" class="mt-1 w-full rounded-md border border-gray-300 p-2" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700">Votre email</label>
-              <input type="email" class="mt-1 w-full rounded-md border border-gray-300 p-2" />
+              <label for="email" class="block text-sm font-medium text-gray-700">Votre email</label>
+              <input id="email" name="email" type="email" class="mt-1 w-full rounded-md border border-gray-300 p-2" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700">Votre message</label>
-              <textarea rows="4" class="mt-1 w-full rounded-md border border-gray-300 p-2"></textarea>
+              <label for="textarea" class="block text-sm font-medium text-gray-700">Votre message</label>
+              <textarea id="textarea" name="textarea" rows="4" class="mt-1 w-full rounded-md border border-gray-300 p-2"></textarea>
             </div>
             <div class="mt-3 flex items-start">
               <div class="flex mt-0.5">
@@ -673,7 +675,8 @@ const metadata = {
               </div>
               <div class="ml-3">
                 <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
-                  En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+                  En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre
+                  politique de confidentialité.
                 </label>
               </div>
             </div>
@@ -749,66 +752,169 @@ const metadata = {
     </h2>
     <div>
       <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer"
-          >En quoi consiste le référencement naturel (SEO) ?
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Y a-t-il des frais cachés pour la création de mon site ?
         </summary>
-        <p class="pl-4">
-          Le référencement naturel, ou SEO (Search Engine Optimization), est l'ensemble des techniques permettant
-          d'améliorer la visibilité de votre site sur Google et autres moteurs de recherche, sans payer pour de la
-          publicité.
+        <p class="pl-4 mt-2">
+          Non, le prix annoncé comprend: la création, l'installation du site sur l'hébergement, la sécurisation, la mise
+          en ligne et la formation à l'utilisation.
         </p>
-        <p class="pl-4">
-          En tant qu'expert référencement à Limoges, j'optimise les 3 piliers essentiels : technique, contenu et
-          popularité (backlinks) pour faire grimper durablement votre site dans les résultats de recherche.
+        <p class="pl-4 mt-2">
+          Les seuls frais récurrents seront l'hébergement (à partir de 5 euros / mois)
+          <!--TODO: Lien vers hebergement-->
+          Et le nom de domaine (à partir de 10 euros / an) Soit un total minimum à prévoir de 70 euros.
         </p>
       </details>
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer"
-          >Combien de temps faut-il pour voir des résultats en SEO ?
-        </summary>
-        <p class="pl-4">
-          Le SEO est un travail de fond qui nécessite du temps et de la régularité. Les premiers résultats sont
-          généralement visibles après 3-4 mois de travail.
-        </p>
-        <p class="pl-4">
-          C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel, afin d'avoir le
-          temps de mettre en place une stratégie efficace et d'en mesurer les résultats.
-        </p>
-      </details>
+
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          Pourquoi choisir un expert référencement à Limoges plutôt qu'une agence nationale ?
+          Quelles sont les modalités de paiement pour mon site internet ?
         </summary>
-        <p class="pl-4">
-          En tant qu'expert SEO local à Limoges, je connais parfaitement le tissu économique de la région et ses
-          spécificités. Cette proximité me permet d'être plus réactif et disponible pour mes clients.
+        <p class="pl-4 mt-2">
+          Le paiement se fait en deux fois : un acompte de 500€ à la signature du devis, puis le solde à la livraison du
+          site. Je peux également proposer un paiement en trois fois pour faciliter votre investissement.
         </p>
       </details>
+
+      {/* Questions sur les délais et le processus */}
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          Quel est le tarif d'un expert référencement à Limoges ?
+          En combien de temps mon site internet sera-t-il créé ?
         </summary>
-        <p class="pl-4">
-          Les tarifs d'un expert SEO varient selon vos besoins. Je propose trois formules adaptées à différents budgets
-          : un accompagnement mensuel à partir de 350€/mois, un audit technique ponctuel à 150€, et une optimisation
-          Google Business à 350€.
-        </p>
-        <p class="pl-4">
-          Ces tarifs sont transparents et sans surprise, incluant tous les services nécessaires pour améliorer votre
-          référencement : analyse technique, optimisation du contenu, stratégie de liens et reporting mensuel.
+        <p class="pl-4 mt-2">
+          Je m'engage à livrer votre site internet à Limoges en 1 mois. Ce délai inclut toutes les étapes : conception,
+          création, ajustements et mise en ligne. Je vous tiens informé de l'avancement via WhatsApp tout au long du
+          projet.
         </p>
       </details>
+
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          Les prestations SEO sont-elles rentables pour mon entreprise ?
+          Comment se déroule le processus de création ?
         </summary>
-        <p class="pl-4">
-          Le SEO est un investissement rentable sur le long terme. Contrairement à la publicité payante qui s'arrête dès
-          que vous cessez de payer, le référencement naturel continue de générer du trafic qualifié.
+        <ul class="pl-4 mt-2">
+          <li>1. Signature et acompte, envoi des documents préparatoires</li>
+          <li>2. Entretien approfondi pour comprendre vos besoins</li>
+          <li>3. Réservation du nom de domaine et hébergement</li>
+          <li>4. Création du design et des pages</li>
+          <li>5. Vos retours et ajustements</li>
+          <li>6. Formation et mise en ligne</li>
+        </ul>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          De quoi avez-vous besoin de ma part pour créer le site ?
+        </summary>
+        <p class="pl-4 mt-2">
+          J'ai besoin de votre logo, des textes décrivant votre activité, et des photos ou illustration.
         </p>
-        <p class="pl-4">
-          Mon principal objectif est de maximiser le retour sur investissement de mes clients. Lorsque je détecte qu'il
-          est plus rentable de travailler sur un autre levier que le SEO, je vous le dis clairement.
+        <p class="pl-4 mt-2">
+          Si vous n'avez pas tous ces éléments, je peux vous conseiller et vous orienter vers des professionnels locaux
+          pour les créer.
+        </p>
+      </details>
+
+      {/* Questions sur la propriété et l'autonomie */}
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Serai-je propriétaire de mon site internet ?
+        </summary>
+        <p class="pl-4 mt-2">
+          Oui, vous êtes propriétaire à 100% de votre site et pouvez en disposer comme vous le souhaitez.
+        </p>
+        <strong class="pl-4 mt-2"> Aucun engagement ni dépendance envers moi. </strong>
+        <p class="pl-4 mt-2">
+          La mise en place d'un <a
+            href="/maintenance-site-internet-limoges"
+            class="text-green-700 underline hover:text-green-700/90">forfait de maintenance à Limoges</a
+          > est tout de même conseillée. J'ai deux options de maintenance possible pour votre site vitrine wordpress à 30
+          ou 50euros mensuel.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"> Pourrai-je modifier mon site moi-même ? </summary>
+        <p class="pl-4 mt-2">
+          Absolument ! Je crée votre site avec WordPress, une interface intuitive, et je vous forme à son utilisation.
+          Vous pourrez modifier textes, images et pages en toute autonomie. Des tutoriels vidéo sont également fournis.
+        </p>
+        <p class="pl-4 mt-2">
+          Si vous avez tout de même une galère et pas souscrit de maintenance mensuelle, pas de problème je peux
+          également intervenir pour 50 euros de l'heure sur votre site
+        </p>
+      </details>
+
+      {/* Questions techniques */}
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"> Mon site sera-t-il adapté aux mobiles ? </summary>
+        <p class="pl-4 mt-2">
+          Oui, votre site sera 100% responsive, c'est-à-dire parfaitement adapté à tous les écrans : ordinateurs,
+          tablettes et smartphones. C'est indispensable aujourd'hui car plus de 60% des visites se font sur mobile.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Comment gérez-vous le référencement local ?
+        </summary>
+        <p class="pl-4 mt-2">
+          En tant que créateur de sites à Limoges, j'optimise votre site pour le référencement local : structure
+          technique SEO, balises optimisées, configuration de Google My Business, et création de contenus pertinents
+          pour votre zone géographique.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"> Comment le site est-il sécurisé ? </summary>
+        <p class="pl-4 mt-2">
+          Votre site bénéficie d'une sécurisation complète : certificat SSL pour les connexions sécurisées, protection
+          contre les attaques, sauvegardes automatiques, et mises à jour de sécurité régulières.
+        </p>
+      </details>
+
+      {/* Questions sur l'expertise */}
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Avez-vous déjà créé des sites similaires ?
+        </summary>
+        <p class="pl-4 mt-2">
+          Oui, j'ai créé de nombreux sites pour des entreprises de Limoges dans divers secteurs : restauration,
+          artisanat, services... Je vous invite à consulter mes réalisations et les témoignages de mes clients sur mon
+          site.
+        </p>
+      </details>
+
+      {/* Questions sur les fonctionnalités */}
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Quelles fonctionnalités sont incluses dans mon site ?
+        </summary>
+        <p class="pl-4 mt-2">
+          Votre site inclut : formulaire de contact, intégration des réseaux sociaux, optimisation SEO, statistiques de
+          visites, galerie photos, map Google, adaptation mobile, et toutes les pages nécessaires à votre activité. Des
+          fonctionnalités supplémentaires peuvent être ajoutées selon vos besoins.
+        </p>
+      </details>
+
+      {/* Questions sur l'après-livraison */}
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          Que se passe-t-il après la mise en ligne ?
+        </summary>
+        <p class="pl-4 mt-2">
+          Après la mise en ligne, vous recevez une formation complète pour gérer votre site. Je reste disponible pour
+          répondre à vos questions et vous accompagner dans les premiers temps. Des tutoriels vidéo sont également
+          fournis pour vous aider au quotidien.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"> Qui s'occupe des mises à jour ? </summary>
+        <p class="pl-4 mt-2">
+          Les mises à jour techniques et de sécurité sont automatisées. Pour le contenu, vous pouvez le gérer vous-même
+          grâce à la formation reçue. Si vous préférez, je peux proposer un forfait maintenance optionnel pour gérer
+          tous les aspects techniques.
         </p>
       </details>
     </div>
