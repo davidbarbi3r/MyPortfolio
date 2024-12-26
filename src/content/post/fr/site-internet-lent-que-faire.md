@@ -22,6 +22,7 @@ A l'inverse un site fluide et rapide améliorera votre image de marque, vos vent
 
 Les images sont souvent la première cause de la lenteur de certains sites web. 
 Les images de haute qualité ne doivent pas ralentir votre performance. Compressez-les en utilisant des formats efficaces tels que WebP, qui combinent qualité visuelle et faible poids.
+Pour un site wordpress, l'utilisation de plugins comme [Smush](https://fr.wordpress.org/plugins/wp-smushit/) ou Imagify permettent de compresser automatiquement les images.
 
 ### Localisation de l'hébergement :
 
@@ -36,15 +37,25 @@ Il ne faut pas hésiter à utiliser des solutions de caching pour également all
 
 Adoptez une stratégie de chargement intelligent. Le lazy loading retarde le chargement des ressources non essentielles jusqu'à leur nécessité réelle, optimisant ainsi la vitesse de chargement initiale et l'expérience utilisateur.
 
-### Rationalisation des dépendances / packages utilisés :
+### Rationalisation des dépendances / packages ou plugins utilisés :
 
 Un excès de bibliothèques et de packages peut alourdir inutilement votre site. Faites l'inventaire de vos outils et éliminez l'accessoire. Privilégiez une approche minimaliste pour une performance maximale.
+
+N'hésitez pas à supprimer les plugins inutiles, à les mettre à jour régulièrement et à les remplacer par des solutions plus légères si possible.
 
 En complément, ne négligez pas la minification des fichiers CSS et JavaScript, l'adoption de réseaux de distribution de contenu (CDN) et les audits réguliers des performances à l'aide d'outils spécialisés. Chaque action compte dans la quête d'un site réactif.
 
 Votre site web est le miroir de votre engagement envers vos utilisateurs. Chaque optimisation, chaque milliseconde gagnée, enrichit l'expérience offerte et témoigne de votre attention au détail.
 
+### Cachez les pages de votre site
+
+Si vous utilisez un CMS comme WordPress, vous pouvez utiliser des plugins de cache pour accélérer le chargement de vos pages. Ces plugins génèrent des versions statiques de vos pages, ce qui permet de les afficher plus rapidement aux visiteurs.
+Le cache permet de stocker temporairement des données pour les rendre plus rapidement accessibles. Cela permet de réduire le temps de chargement des pages et d'améliorer l'expérience utilisateur.
+Vous pouvez également utiliser des services de cache comme Cloudflare pour accélérer le chargement de vos pages.
+
 **Vous voulez régler un problème de lenteur sur votre site ?**
 
 N'hésitez pas à me contacter pour qu'on analyse et corrige le problème
 [Me Contacter](https://www.davidbarbier.com/contact)
+
+Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet](https://www.davidbarbier.com/creation-site-internet-limoges) et offrez à vos visiteurs une expérience optimale.

@@ -114,6 +114,10 @@ export const fr = {
             },
           ],
           price: 'À partir de 30€/mois',
+          callToAction: {
+            text: 'En savoir plus',
+            href: '/services',
+          }
         },
         {
           title: 'Référencement Naturel',
