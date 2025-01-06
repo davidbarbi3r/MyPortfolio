@@ -14,7 +14,7 @@ metadata:
 
 # Quelle extension de domaine choisir pour votre site web ? (.fr, .com, .corsica)
 
-Vous vous lancez dans la création de votre [site web](www.davidbarbier.com/creation-site-internet-limoges) et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
+Vous vous lancez dans la création de votre [site web](https://davidbarbier.com/creation-site-internet-limoges) et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
 
 ## En bref
 - Le **.fr** est idéal pour cibler le marché français et inspire confiance
@@ -144,4 +144,4 @@ Le choix de votre extension de domaine dépend avant tout de votre stratégie et
 
 N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne.
 
-Besoin de conseils pour choisir votre extension de domaine ? [Contactez-moi](www.davidbarbier.com/reserve-ton-appel) pour échanger.
+Besoin de conseils pour choisir votre extension de domaine ? [Contactez-moi](https://davidbarbier.com/reserve-ton-appel) pour échanger.
