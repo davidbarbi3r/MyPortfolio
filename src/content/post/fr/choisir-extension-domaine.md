@@ -9,7 +9,7 @@ tags:
   - site vitrine
   - SEO
 metadata:
-  canonical: https://davidbarbier.com/chosir-extension-domaine
+  canonical: https://davidbarbier.com/choisir-extension-domaine
 ---
 
 # Quelle extension de domaine choisir pour votre site web ? (.fr, .com, .corsica)
