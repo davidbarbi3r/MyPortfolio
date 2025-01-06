@@ -14,12 +14,12 @@ metadata:
 
 # Quelle extension de domaine choisir pour votre site web ? (.fr, .com, .corsica)
 
-Vous vous lancez dans la création de votre site web et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
+Vous vous lancez dans la création de votre [site web](www.davidbarbier.com/creation-site-internet-limoges) et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
 
 ## En bref
-- Le **.fr** est idéal pour cibler le marché français (6-15€/an) et inspire confiance
-- Le **.com** est parfait pour l'international ou une future expansion (10-20€/an)
-- Les **extensions régionales** (.corsica, .bzh...) renforcent l'ancrage local (25-50€/an)
+- Le **.fr** est idéal pour cibler le marché français et inspire confiance
+- Le **.com** est parfait pour l'international ou une future expansion
+- Les **extensions régionales** (.corsica, .bzh...) renforcent l'ancrage local
 - Mon conseil : privilégiez le .fr pour débuter en France, le .com pour l'international
 - Pensez à protéger votre marque en achetant les autres extensions, si vous prenez le .fr, achetez le .com en protection.
 
@@ -105,8 +105,8 @@ Pour choisir la meilleure extension, posez-vous ces questions :
 ### 1. Restaurant à Ajaccio
 **Contexte** : Restaurant traditionnel corse "Chez Maria"
 **Options possibles** :
-- `chezmariaajaccio.corsica` → Excellent pour l'identité locale et le tourisme
-- `chezmaria-ajaccio.fr` → Bonne option pour la clientèle française
+- `chezmaria.corsica` → Excellent pour l'identité locale et le tourisme
+- `chezmaria.fr` → Bonne option pour la clientèle française
 - `chezmaria.com` → Moins pertinent sauf projet d'expansion
 
 **Meilleur choix** : `.corsica`
@@ -143,3 +143,5 @@ Pour choisir la meilleure extension, posez-vous ces questions :
 Le choix de votre extension de domaine dépend avant tout de votre stratégie et de votre cible. En France, le .fr reste un excellent choix pour créer une relation de confiance avec vos visiteurs. Le .com est parfait si vous visez l'international, tandis que les extensions régionales peuvent être un atout pour renforcer votre ancrage local.
 
 N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne.
+
+Besoin de conseils pour choisir votre extension de domaine ? [Contactez-moi](www.davidbarbier.com/reserve-ton-appel) pour échanger.
