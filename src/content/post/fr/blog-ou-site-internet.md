@@ -88,7 +88,7 @@ En tant que développeur web, j'ai choisi de créer mon propre blog en utilisant
 3. **Absence de commentaires** : J'ai délibérément choisi de ne pas inclure de section commentaires sur mon blog. Cette décision a été motivée par deux facteurs principaux :
     - **Raisons environnementales** : Moins de requêtes serveur signifie une empreinte carbone réduite.
     - **Facilité de modération** : Ayant déjà eu des expériences avec des bots publicitaires sur WordPress, j'ai préféré éviter ce problème en redirigeant les discussions vers les réseaux sociaux.
-4. **Focalisation sur le contenu** : Cette approche me permet de me concentrer entièrement sur la création de contenu de qualité sans me soucier de la gestion des commentaires ou de la maintenance d'un système complexe.
+4. **Focalisation sur le contenu** : Cette approche me permet de me concentrer entièrement sur la création de contenu de qualité sans me soucier de la gestion des commentaires ou de la [maintenance](https://www.davidbarbier.com/maintenance-site-web-limoges) d'un système complexe.
 
 ### Vous aussi, optez pour un blog sur mesure !
 

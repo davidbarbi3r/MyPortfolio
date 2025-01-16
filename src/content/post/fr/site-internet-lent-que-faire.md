@@ -55,7 +55,6 @@ Vous pouvez également utiliser des services de cache comme Cloudflare pour acc�
 
 **Vous voulez régler un problème de lenteur sur votre site ?**
 
-N'hésitez pas à me contacter pour qu'on analyse et corrige le problème
-[Me Contacter](https://www.davidbarbier.com/contact)
+N'hésitez pas à me contacter pour qu'on analyse et corrige le problème, [entretenir son site internet](https://www.davidbarbier.com/maintenance-site-web-limoges) est essentiel pour garantir une expérience utilisateur optimale.
 
 Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet](https://www.davidbarbier.com/creation-site-internet-limoges) et offrez à vos visiteurs une expérience optimale.
