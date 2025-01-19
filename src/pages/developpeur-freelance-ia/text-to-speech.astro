@@ -1,0 +1,15 @@
+---
+import KokoroTTS from '../../components/Experiments/KokoroTTS';
+import PageLayout from '../../layouts/PageLayout.astro';
+import HeroText from '../../components/widgets/HeroText.astro';
+---
+
+<PageLayout>
+  <HeroText
+    tagline="Solutions IA"
+    title={"Text-to-Speech - du texte à la parole"}
+  />
+  
+  <p>Entrez du texte et l'IA génère une voix réaliste en retour sous format audio</p>
+  <KokoroTTS client:load/>
+</PageLayout>

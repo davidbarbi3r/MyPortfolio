@@ -10,6 +10,7 @@ import icon from 'astro-icon';
 import tasks from "./src/utils/tasks";
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { ANALYTICS, SITE, I18N } from './src/utils/config.ts';
+import react from '@astrojs/react';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
@@ -35,8 +36,7 @@ export default defineConfig({
   },
   integrations: [tailwind({
     applyBaseStyles: false
-  }),
-  // Conditionally add i18n and sitemap based on I18N.isEnabled
+  }), // Conditionally add i18n and sitemap based on I18N.isEnabled
   sitemap({
     i18n: {
       locales: I18N.locales,
@@ -51,9 +51,7 @@ export default defineConfig({
     config: {
       forward: ['dataLayer.push']
     }
-  })), 
-  tasks(), 
-  // compress({
+  })), // compress({
   //   CSS: true,
   //   HTML: {
   //     removeAttributeQuotes: false
@@ -63,11 +61,15 @@ export default defineConfig({
   //   SVG: true,
   //   Logger: 1
   // })
-  ],
+  tasks(), react()],
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
   },
   vite: {
+    worker: {
+      format: 'es',
+      plugins: [],
+    },
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src')
