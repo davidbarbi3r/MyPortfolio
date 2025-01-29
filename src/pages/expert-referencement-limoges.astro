@@ -2,6 +2,7 @@
 import Layout from '../layouts/PageLayout.astro';
 import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
+import Activateur from "../assets/images/activateur.png"
 const metadata = {
   title: 'Expert referencement Limoges : Soyez Visible en Ligne',
   description:
@@ -546,6 +547,20 @@ const metadata = {
               rendre votre site plus visible en ligne."
             </p>
           </blockquote>
+          <div class="mt-8 flex flex-col md:flex-row gap-4 items-center">
+            <Image
+              src={Activateur.src}
+              alt="David Barbier - Activateur France Num"
+              width={150}
+              height={150}
+            />
+            <p>
+              Inscrit en tant qu'activateur France Numérique, je m'engage pour la visibilité des TPE Limougeaudes.
+            </p>
+            <a class="underline hover:text-green-700" href="https://www.francenum.gouv.fr/activateurs/david-barbier">
+              Se rendre sur France Num
+            </a>
+          </div>
         </div>
       </div>
     </div>
