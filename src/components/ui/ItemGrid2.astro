@@ -34,7 +34,7 @@ const {
       )}
     >
       {items.map(
-        ({ title, description, icon, callToAction, image, servicesItems, price, classes: itemClasses = {} }, index) => (
+        ({ title, description, icon, callToAction, callToAction2, image, servicesItems, price, classes: itemClasses = {} }, index) => (
           <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0 min-w-[93%]')}>
             {image && (
               <div class="">
@@ -91,6 +91,11 @@ const {
                 {callToAction && (
                   <div class="mt-2 text-emerald-900 cursor-pointer">
                     <CTA callToAction={callToAction} />
+                  </div>
+                )}
+                {callToAction2 && (
+                  <div class="mt-2 text-emerald-900 cursor-pointer">
+                    <CTA callToAction={callToAction2} />
                   </div>
                 )}
               </div>
