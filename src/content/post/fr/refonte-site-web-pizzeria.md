@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-02-16T00:00:00Z
-title: Pizza Carmes
+title: Refonte site internet Pizzeria
 excerpt: Refonte d'un site internet permettant la commande en ligne et le paiement des pizzas
 image: '~/assets/images/pizza-carmes.png'
 category: Portfolio
@@ -12,21 +12,13 @@ tags:
   - postgresql
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/pizza-carmes
+  canonical: https://www.davidbarbier.com/refonte-site-web-pizzeria
 ---
 
-**Création de site e-commerce custom** 
+## Explication de la refonte et des besoins du client
+Le site internet de la pizzeria était fonctionnel mais avec un design vieillissant et des fonctionnalités limitées.
+Le client souhaitait une refonte complète du site pour améliorer l'expérience utilisateur et augmenter les ventes en ligne.
 
-### Nom du projet
-Pizza Carmes [Pizza Carmes](https://pizza-limoges.fr)
-
-### Date de réalisation
-01/2024
-
-### Rôle
-Développeur et désigner du projet
-
-### Commande / Objectifs
 Pizza Carmes, c'est avant tout l'histoire de deux anciens salariés qui ont repris le fonds d'une célèbre enseigne de pizza. Ils ont fondés leur propre restaurant afin d'être totalement indépendants et de s'affranchir des contraintes d'un restaurant franchisé.
 
 Afin d'améliorer leurs ventes et le parcours clients, ils m'ont contacté pour effectuer la refonte du site, tant au niveau design que des fonctionnalités :
@@ -40,28 +32,30 @@ Afin d'améliorer leurs ventes et le parcours clients, ils m'ont contacté pour 
 
 Ces améliorations vont permettre de mieux gérer les services notamment en période de rush et également d'augmenter le panier moyen de commandes. 
 
-Le site est entièrement conçu selon les bonnes pratiques de référencement naturel, de responsive design et d’optimisation des performances. 
+## Les principaux défis sur cette refonte
 
-### Technologies utilisées
+### L'expérience utilisateur: UX/UI
+Le passage au nouveau site doit être intuitif pour les clients habitués à l'ancien site, il est donc important de conserver les fonctionnalités existantes et de les améliorer.
 
-#### Nextjs
-Pour ce projet j'ai décidé d'utiliser le framework Javascript [Next.js](https://nextjs.org/), ce framework permet un développement agréable, un routing efficace et des options confortables coté rendu (soit statique, SSR ou CSR). 
-  
+### La cohérence du design
+Le design doit aussi être dans la continuité de l'ancien site pour ne pas dérouter les clients et conserver l'identité visuelle de la pizzeria et l'image de marque.
+
+### La gestion des commandes
+Le client souhaitant conserver le système de notification des commandes passées par email, le principal défi des email est le fait d'avoir un système réactif et être sur que les emails arrivent à la pizzeria.
+
+### Le SEO existant
+Le site existant avait un bon référencement naturel, il est donc important de conserver les bonnes pratiques SEO pour ne pas perdre en visibilité sur les moteurs de recherche.
+
+## Technologies utilisées pour le nouveau site
+L'ancien site internet était développé en PHP, j'ai décidé de refaire le site en utilisant les technologies suivantes (que je maitrise mieux) :
+- J'ai décidé d'utiliser le framework Javascript [Next.js](https://nextjs.org/), ce framework permet un développement agréable, un routing efficace et des options confortables coté rendu (soit statique, SSR ou CSR).
   Il permet notamment d'obtenir de très bonnes performances des sites en terme de vitesse d'affichage.  
-  Ce framework utilise la librairie React pour permettre le développement facile d'interfaces interactives et modernes pour l'utilisateur. 
+  Ce framework utilise la librairie React pour permettre le développement facile d'interfaces interactives et modernes pour l'utilisateur.
   De plus Next permet d'avoir une application qui comprends le backend et le frontend, cela réduit des coûts de d'hébergement et facilite le développement avec un partage des types entre le frontend et le backend dans la même application.
+- Amazon pour les emails et notifications,
+- Aiven pour la base de données PostgreSQL cloud,
 
-#### Typescript
-Lorsque un site que je développe comprends beaucoup de logique, de modèles de données comme Pizza Carmes j'apprécie que mon code soit typé, le confort apporté par l'autocomplétion et la détection des erreurs en amont permet un développement plus fluide et un code plus maintenable dans le temps.
-
-#### Tailwind
-Je trouve que tailwind permet de faire du CSS de façon rapide et efficace une fois accoutumé à la syntaxe. [TailwindCSS](https://tailwindcss.com/)
-
-#### Resend
-Un outil simple pour gérer les envois d'email aux clients et au gérant de la pizzeria à chaque commande. 
-Les mails peuvent être développés en React ce qui assure la cohérence avec la stack globale de l'application. 
-
-# Résultat et performances
+## Résultat et performances
 
 Le site est en ligne et est disponible ici [Pizza Carmes](https://pizza-limoges.fr)
 

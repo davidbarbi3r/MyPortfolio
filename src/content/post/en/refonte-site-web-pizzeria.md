@@ -12,7 +12,7 @@ tags:
   - postgresql
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/pizza-carmes
+  canonical: https://www.davidbarbier.com/refonte-site-web-pizzeria
 ---
 
 **Custom e-commerce site design** 

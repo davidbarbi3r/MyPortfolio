@@ -11,7 +11,7 @@ tags:
   - contentful
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/lbg-expertise
+  canonical: https://www.davidbarbier.com/creation-site-vitrine-expert-comptable
 ---
 
 **Showcase Website Creation**

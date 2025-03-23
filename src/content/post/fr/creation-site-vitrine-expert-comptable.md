@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-01-06T00:00:00Z
-title: Lbg-expertise
+title: Création site internet vitrine Expert-Comptable
 excerpt: Création d'un site vitrine pour une expert-comptable qui lance son cabinet indépendant.
 image: '~/assets/images/lbg-expertise.png'
 category: Portfolio
@@ -11,7 +11,7 @@ tags:
   - contentful
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/lbg-expertise
+  canonical: https://www.davidbarbier.com/creation-site-vitrine-expert-comptable
 ---
 
 **Création de site vitrine** 
