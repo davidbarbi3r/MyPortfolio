@@ -8,9 +8,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Développeur web Freelance - David Barbier
+    default: Développeur web Ajaccio - David Barbier
     template: '%s'
-  description: "\U0001F680 Développeur web freelance à Limoges et Ajaccio, je réalise des sites web sur mesure pour les entreprises et les particuliers."
+  description: "Développeur web freelance à Ajaccio et Limoges, je réalise des sites web sur-mesure pour les entreprises et les particuliers."
   robots:
     index: true
     follow: true
