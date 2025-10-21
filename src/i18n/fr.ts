@@ -47,7 +47,7 @@ export const fr = {
     },
     bookCall: 'Réservez votre appel gratuit',
     services: {
-      title: 'Mes services',
+      title: 'Mes services de développement web sur-mesure',
       subtitle:
         'Développeur web expérimenté, je propose vous propose un accompagnement global avec pour objectif de vous rendre visible en ligne. De la création de site internet, de sa refonte, à la maintenance, je suis là pour vous apporter le meilleur de mes connaissances.',
       servicesItems: [
