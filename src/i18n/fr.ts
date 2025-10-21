@@ -12,7 +12,7 @@ export const fr = {
     contact: 'Contact',
     blog: 'Blog',
     legal: 'Mentions légales',
-    text: 'Développeur web freelance à Limoges et Ajaccio, je vous accompagne dans la création de votre site internet performant et sur-mesure.',
+    text: 'Développeur web freelance à Ajaccio et Limoges, je vous accompagne dans la création de votre site internet performant et sur-mesure.',
   },
   index: {
     heroSide: {
@@ -37,13 +37,13 @@ export const fr = {
   },
   portfolio: {
     metadata: {
-      title: 'AstroWind - Portfolio',
+      title: 'Portfolio',
     },
     heroSide: {
       accent: 'Développeur',
       title: 'Web Freelance',
       subtitle:
-        "J'accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Limoges, Ajaccio et à distance.",
+        "J'accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Ajaccio, Limoges et à distance.",
     },
     bookCall: 'Réservez votre appel gratuit',
     services: {
@@ -69,13 +69,13 @@ export const fr = {
               description: 'Une boutique en ligne pour vendre vos produits et services. Je travaille avec WooCommerce et Shopify.',
             },
           ],
-          price: 'À partir de 900€',
+          price: 'À partir de 1200€',
           callToAction: 'En savoir plus',
         },
         {
-          title: 'Développement spécifique',
+          title: 'Développement web sur-mesure',
           description:
-            'Avec une approche axée sur la personnalisation, je crée des applications spécifiques répondant à vos besoins uniques. ',
+            "J'accompagne et développe votre projet de l'idée à la réalisation technique, applications web, logiciels métiers et sites internet complexes.",
           items: [
             {
               title: 'Intégration en équipe',
@@ -92,7 +92,7 @@ export const fr = {
                 'Ajout de nouvelles fonctionnalités, correction de bugs, optimisation des performances, etc.',
             },
           ],
-          price: '350€/jour',
+          price: '400€/jour',
         },
         {
           title: 'Suivi et Maintenance',
@@ -138,7 +138,7 @@ export const fr = {
               description: "Création et optimisation de fiche Google My Business, optimisation de votre site pour le SEO local.",
             },
           ],
-          price: '350€/jour',
+          price: '400€/jour',
         },
       ],
     },
