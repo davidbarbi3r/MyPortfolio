@@ -10,14 +10,10 @@ export const getHeaderData = (locale) => {
         text: t('header.home'),
         href: getRelativeLocaleUrl(locale, '/'),
       },
-      // {
-      //   text: t('header.about'),
-      //   href: getRelativeLocaleUrl(locale, '/about'),
-      // },
-      // {
-      //   text: t('header.services'),
-      //   href: getRelativeLocaleUrl(locale, '/services'),
-      // },
+      {
+        text: t('header.about'),
+        href: getRelativeLocaleUrl(locale, '/a-propos'),
+      },
       {
         text: t('header.blog'),
         href: getRelativeLocaleUrl(locale, '/blog'),
@@ -37,8 +33,7 @@ export const getFooterData = (locale) => {
   return {
     text: t('footer.text'),
     secondaryLinks: [
-      // { text: t('footer.about'), href: getRelativeLocaleUrl(locale, '/about') },
-      // { text: t('footer.services'), href: getRelativeLocaleUrl(locale, '/services') },
+      { text: t('footer.about'), href: getRelativeLocaleUrl(locale, '/a-propos') },
       { text: t('footer.contact'), href: getRelativeLocaleUrl(locale, '/contact') },
       { text: t('footer.blog'), href: getRelativeLocaleUrl(locale, '/blog')},
       { text: t('footer.legal'), href: getRelativeLocaleUrl(locale, '/terms')},

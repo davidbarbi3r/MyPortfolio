@@ -1,0 +1,339 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Image from '../components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
+import HeroImage from '../assets/images/DSCF7551-3.jpg';
+import Activateur from "../assets/images/activateur.png"
+
+const metadata = {
+  title: 'À propos - David Barbier, Développeur Web Freelance à Ajaccio',
+  description:
+    'Découvrez mon parcours : de passionné du web depuis 2006 à développeur freelance. Spécialisé en création de sites sur-mesure et SEO, basé en Corse.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:py-16">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <!-- Badge -->
+        <div class="mt-8 sm:mt-16 lg:mt-8">
+          <span class="inline-flex items-center">
+            <span
+              class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8"
+            >
+              Ajaccio, Corse
+            </span>
+          </span>
+        </div>
+
+        <!-- Titre principal -->
+        <h1
+          class="mt-10 text-pretty font-bauhaus text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-white"
+        >
+          David Barbier
+        </h1>
+        <span class="text-pretty text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-gray-300">
+          , développeur web freelance
+        </span>
+
+        <!-- Introduction -->
+        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Passionné par le web depuis 2006, je crée des <strong>sites internet sur-mesure</strong> et j'accompagne les entrepreneurs dans leur visibilité en ligne. Mon credo : apprendre chaque jour et créer avec passion.
+        </p>
+
+        <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Basé à Ajaccio, je travaille avec des clients en Corse, à Limoges et partout en France. Mon double regard de développeur et d'ancien auditeur financier me permet d'apporter des solutions pragmatiques et efficaces.
+        </p>
+
+        <!-- Call-to-action -->
+        <div class="mt-10 flex items-center gap-x-6">
+          <a
+            href="/reserve-ton-appel"
+            class="rounded-md bg-green-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
+          >
+            Réserver un appel
+          </a>
+          <a href="#parcours" class="text-sm font-semibold text-gray-900 dark:text-gray-300">
+            Découvrir mon parcours <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="mx-auto mt-16 flex max-w-2xl lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none xl:ml-32">
+        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+          <div
+            class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
+          >
+            <Image
+              src={HeroImage}
+              alt="David Barbier - Développeur web freelance à Ajaccio"
+              class="w-[30rem] rounded-md shadow-2xl ring-1 ring-gray-900/10 object-cover"
+              width={480}
+              height={600}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcours Section -->
+  <section class="px-4 sm:px-6 py-16" id="parcours">
+    <div class="mx-auto max-w-3xl text-base/7">
+      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Mon histoire</p>
+      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
+        De LeImCr à développeur freelance
+      </h2>
+
+      <p class="mt-6 text-xl/8">
+        Tout a commencé en <strong>2006</strong>. À l'époque, j'ai créé mon premier site web grâce à WordPress et au Site du Zéro. Il s'appelait <strong>LeImCr</strong> — pour "Learn, Improve and Create" — et j'y partageais des tutoriels de montage photo.
+      </p>
+
+      <div class="mt-10 max-w-2xl">
+        <p>
+          Cette curiosité et cette envie d'apprendre ne m'ont jamais quitté. Pourtant, la vie m'a d'abord emmené ailleurs : j'ai suivi un cursus comptable complet — DCG, DSCG, puis stage d'expertise comptable. J'ai validé tous les écrits, mais le mémoire final n'est jamais venu.
+        </p>
+
+        <blockquote class="mt-10 border-l-4 border-green-800 pl-8 font-semibold text-gray-900 dark:text-gray-100">
+          <p>
+            "En 2022, le diagnostic d'une maladie auto-immune (lupus) a tout changé. Cette épreuve m'a fait réaliser qu'il était temps de faire ce qui me passionne vraiment."
+          </p>
+        </blockquote>
+
+        <p class="mt-8">
+          Depuis, je code quasiment tous les jours. Mon GitHub en témoigne : plus de <strong>3 ans et demi</strong> d'engagement quotidien. Le développement web me comble car il nourrit mon appétit pour l'apprentissage permanent et la création.
+        </p>
+
+        <p class="mt-6">
+          Aujourd'hui, je ne regrette pas mon parcours comptable. Cette expérience d'auditeur financier me donne un regard unique sur les besoins des professionnels du chiffre — et c'est justement vers eux que je souhaite orienter mon expertise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valeurs Section -->
+  <section class="mt-16 mx-auto max-w-6xl px-4 sm:px-6">
+    <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">Mes valeurs</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="size-6 text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Disponibilité</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+          Mes applications sont disponibles, et moi aussi. Je suis réactif et accessible pour mes clients.
+        </p>
+      </div>
+
+      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="size-6 text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Pédagogie</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+          J'explique clairement chaque décision technique. Pas de jargon inutile, juste des solutions compréhensibles.
+        </p>
+      </div>
+
+      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="size-6 text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Respect</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+          Respect de l'environnement avec des sites éco-conçus, et respect humain dans chaque collaboration.
+        </p>
+      </div>
+
+      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="size-6 text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Passion</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+          J'aime les gens passionnés. Travailler avec des entrepreneurs qui croient en leur projet me motive.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack Technique -->
+  <section class="mt-16 px-4 sm:px-6 py-16 bg-gray-50 dark:bg-slate-900">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-base font-semibold text-green-700 dark:text-green-300">Compétences techniques</p>
+      <h2 class="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 sm:text-4xl">Ma stack technologique</h2>
+
+      <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
+        Je travaille principalement avec l'écosystème <strong>TypeScript</strong> et je m'adapte aux besoins de chaque projet.
+      </p>
+
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <Icon name="tabler:brand-react" class="text-3xl lg:text-5xl mb-2" />
+          <span class="font-semibold text-gray-900 dark:text-gray-100">React</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <Icon name="tabler:brand-astro" class="text-3xl lg:text-5xl mb-2" />
+          <span class="font-semibold text-gray-900 dark:text-gray-100">Astro</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <Icon name="tabler:brand-nextjs" class="text-3xl lg:text-5xl mb-2" />
+          <span class="font-semibold text-gray-900 dark:text-gray-100">Next.js</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <Icon name="tabler:brand-nodejs" class="text-3xl lg:text-5xl mb-2" />
+          <span class="font-semibold text-gray-900 dark:text-gray-100">Node.js</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <Icon name="tabler:brand-typescript" class="text-3xl lg:text-5xl mb-2" />
+          <span class="font-semibold text-gray-900 dark:text-gray-100">TypeScript</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <Icon name="tabler:brand-wordpress" class="text-3xl lg:text-5xl mb-2" />
+          <span class="font-semibold text-gray-900 dark:text-gray-100">WordPress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets et Vision 2026 -->
+   <section class="px-4 sm:px-6 py-16">
+     <div class="mt-16 mx-auto max-w-6xl ">
+       <h2 class="mx-auto text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">Ma vision pour 2026</h2>
+   
+       <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl">
+         Je construis des solutions sur-mesure pour chaque client, avec deux axes de développement principaux :
+       </p>
+   
+       <div class="grid md:grid-cols-2 gap-8">
+         <div class="bg-cream dark:bg-gray-800 p-8 rounded-xl">
+           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions pour les professionnels du chiffre</h3>
+           <p class="text-gray-600 dark:text-gray-300 mb-4">
+             Mon expérience passée d'auditeur financier me permet de comprendre les besoins spécifiques des experts-comptables et professionnels de la finance.
+           </p>
+           <p class="text-gray-600 dark:text-gray-300 mb-4">
+             Exemple : <a href="https://winvias.com" target="_blank" rel="noopener" class="text-green-700 underline hover:text-green-800">Winvias.com</a> — un gestionnaire de patrimoine pour lequel j'ai développé un chat IA vocal sur-mesure.
+           </p>
+           <p class="text-gray-600 dark:text-gray-300 italic">
+             J'aime connecter les points entre mes différentes expériences pour créer des solutions uniques.
+           </p>
+         </div>
+   
+         <div class="bg-cream dark:bg-gray-800 p-8 rounded-xl">
+           <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Création de SaaS</h3>
+           <p class="text-gray-600 dark:text-gray-300 mb-4">
+             Je développe actuellement <a href="https://aurarios.fr" target="_blank" rel="noopener" class="text-green-700 underline hover:text-green-800">Aurarios</a>, une plateforme de réservation destinée aux professionnels du bien-être.
+           </p>
+           <p class="text-gray-600 dark:text-gray-300 mb-4">
+             Construit avec React Router v7, ce projet personnel représente ma vision du freelance : créer quelque chose qui m'appartient et le voir grandir.
+           </p>
+           <p class="text-sm text-green-700 dark:text-green-300 font-semibold">
+             Lancement prévu : Q1 2026
+           </p>
+         </div>
+       </div>
+      </div>
+   </section>
+
+  <!-- Section personnelle -->
+  <section class="mt-16 px-4 sm:px-6 py-16">
+    <div class="mx-auto max-w-6xl">
+      <div class="md:flex md:gap-12 md:items-start">
+        <!-- Colonne gauche -->
+        <div class="md:w-1/2">
+          <p class="text-base font-semibold text-green-700 dark:text-green-300">En dehors du code</p>
+          <h2 class="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 sm:text-4xl">Un amoureux de la nature</h2>
+
+          <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
+            Quand je ne suis pas devant mon écran, vous me trouverez probablement sur les sentiers corses. La course à pied minimaliste (oui, en sandales !), le trail, le VTT et la randonnée sont mes échappatoires.
+          </p>
+
+          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            Le dessin est une autre de mes passions — peut-être le côté créatif qui se retrouve aussi dans le code.
+          </p>
+
+          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            J'ai découvert récemment l'écosystème entrepreneurial local. Depuis, je participe régulièrement aux réseaux d'entrepreneurs de la région d'Ajaccio, convaincu que les échanges entre passionnés font avancer tout le monde.
+          </p>
+
+          <div class="mt-8 flex flex-col md:flex-row gap-4 items-center">
+            <Image
+              src={Activateur.src}
+              alt="David Barbier - Activateur France Num"
+              width={150}
+              height={150}
+            />
+            <div>
+              <p class="text-gray-600 dark:text-gray-300">
+                Inscrit en tant qu'activateur France Numérique, je m'engage pour la visibilité des TPE en Corse.
+              </p>
+              <a class="underline hover:text-green-700 text-gray-900 dark:text-gray-100" href="https://www.francenum.gouv.fr/activateurs/david-barbier" target="_blank" rel="noopener">
+                Se rendre sur France Num
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne droite -->
+        <div class="mt-12 md:mt-0 md:w-1/2">
+          <div class="bg-green-800/10 dark:bg-gray-700 p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-gray-100">Pourquoi le freelance ?</h3>
+
+            <blockquote class="border-l-4 border-green-700 pl-6 text-gray-900 dark:text-gray-100">
+              <p class="font-semibold text-lg">
+                "J'aime créer. Et ça fait sens pour moi de construire quelque chose qui m'appartient et de le voir grandir au fil des années."
+              </p>
+            </blockquote>
+
+            <p class="mt-6 text-gray-600 dark:text-gray-300">
+              Le statut de freelance me permet d'être au plus proche de mes clients, de choisir les projets qui me passionnent, et de cultiver cette curiosité qui m'anime depuis 2006.
+            </p>
+          </div>
+
+          <div class="mt-8 bg-cream dark:bg-gray-800 p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Vivre avec une maladie auto-immune</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Le lupus fait partie de mon quotidien. Cette réalité m'a poussé à explorer de nombreuses approches de santé et à repenser mes priorités. Si vous traversez une épreuve similaire, n'hésitez pas à me contacter — parfois, échanger avec quelqu'un qui comprend fait du bien.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="mt-16 mb-16 mx-auto max-w-3xl px-4 sm:px-6">
+    <div class="bg-green-800 dark:bg-green-900 p-8 md:p-12 rounded-2xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Envie de travailler ensemble ?</h2>
+      <p class="text-green-100 mb-8 max-w-xl mx-auto">
+        Que vous ayez un projet de site web, une application sur-mesure ou besoin d'améliorer votre visibilité en ligne, je serais ravi d'en discuter.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/reserve-ton-appel"
+          class="rounded-md bg-white px-6 py-3 text-sm font-semibold text-green-800 shadow-sm hover:bg-gray-100 transition"
+        >
+          Réserver un appel découverte
+        </a>
+        <a
+          href="/contact"
+          class="rounded-md border-2 border-white px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
+        >
+          M'envoyer un message
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

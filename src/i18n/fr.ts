@@ -9,6 +9,7 @@ export const fr = {
   },
   footer: {
     home: 'Accueil',
+    about: 'À propos',
     contact: 'Contact',
     blog: 'Blog',
     legal: 'Mentions légales',
