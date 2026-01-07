@@ -6,7 +6,7 @@ import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Activateur from "../assets/images/activateur.png"
 
 const metadata = {
-  title: 'À propos - David Barbier, Développeur Web Freelance à Ajaccio',
+  title: 'De l\'audit financier au développement web',
   description:
     'Découvrez mon parcours : de passionné du web depuis 2006 à développeur freelance. Spécialisé en création de sites sur-mesure et SEO, basé en Corse.',
 };
@@ -15,8 +15,8 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Section -->
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:py-16">
-      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:items-center lg:py-16">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0">
         <!-- Badge -->
         <div class="mt-8 sm:mt-16 lg:mt-8">
           <span class="inline-flex items-center">
@@ -30,21 +30,21 @@ const metadata = {
 
         <!-- Titre principal -->
         <h1
-          class="mt-10 text-pretty font-bauhaus text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-white"
+          class="mt-10 text-pretty font-bauhaus text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-white"
         >
-          David Barbier
+          Mon parcours
         </h1>
-        <span class="text-pretty text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-gray-300">
-          , développeur web freelance
+        <span class="text-pretty text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-gray-300">
+        , de l'audit financier au développement web
         </span>
 
         <!-- Introduction -->
         <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Passionné par le web depuis 2006, je crée des <strong>sites internet sur-mesure</strong> et j'accompagne les entrepreneurs dans leur visibilité en ligne. Mon credo : apprendre chaque jour et créer avec passion.
+          Passionné par la création en ligne depuis 2006, je crée des <strong>sites internet sur-mesure</strong> et j'accompagne les entrepreneurs dans leur visibilité en ligne. Mon nindo : apprendre chaque jour et créer avec passion.
         </p>
 
         <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Basé à Ajaccio, je travaille avec des clients en Corse, à Limoges et partout en France. Mon double regard de développeur et d'ancien auditeur financier me permet d'apporter des solutions pragmatiques et efficaces.
+          Basé à Ajaccio, je travaille avec des clients en Corse, à Limoges et partout en France. Mon double regard de développeur et d'ancien auditeur financier me permet d'apporter des solutions pragmatiques et efficaces avec une approche business.
         </p>
 
         <!-- Call-to-action -->
@@ -63,18 +63,14 @@ const metadata = {
 
       <!-- Photo -->
       <div class="mx-auto mt-16 flex max-w-2xl lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none xl:ml-32">
-        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-          <div
-            class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
-          >
-            <Image
-              src={HeroImage}
-              alt="David Barbier - Développeur web freelance à Ajaccio"
-              class="w-[30rem] rounded-md shadow-2xl ring-1 ring-gray-900/10 object-cover"
-              width={480}
-              height={600}
-            />
-          </div>
+        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none relative">
+          <Image
+            src={HeroImage}
+            alt="David Barbier - Développeur web freelance à Ajaccio"
+            class="w-[30rem] rounded-md object-cover"
+            width={480}
+            height={600}
+          />
         </div>
       </div>
     </div>
@@ -89,17 +85,17 @@ const metadata = {
       </h2>
 
       <p class="mt-6 text-xl/8">
-        Tout a commencé en <strong>2006</strong>. À l'époque, j'ai créé mon premier site web grâce à WordPress et au Site du Zéro. Il s'appelait <strong>LeImCr</strong> — pour "Learn, Improve and Create" — et j'y partageais des tutoriels de montage photo.
+        Tout a commencé en <strong>2006</strong>. À l'époque, j'ai créé mon premier site web avec l'aide de WordPress et du Site du Zéro. Il s'appelait <strong>LeImCr</strong> — pour "Learn, Improve and Create" — et j'y partageais des tutoriels de montage photo.
       </p>
 
       <div class="mt-10 max-w-2xl">
         <p>
-          Cette curiosité et cette envie d'apprendre ne m'ont jamais quitté. Pourtant, la vie m'a d'abord emmené ailleurs : j'ai suivi un cursus comptable complet — DCG, DSCG, puis stage d'expertise comptable. J'ai validé tous les écrits, mais le mémoire final n'est jamais venu.
+          Cette curiosité et cette envie de créer ne m'ont jamais quitté. Pourtant, la vie m'a d'abord emmené ailleurs : j'ai suivi un cursus d'expertise comptable complet — DCG, DSCG, puis stage d'expertise comptable. J'ai validé tous les écrits, mais le mémoire final n'est jamais venu.
         </p>
 
         <blockquote class="mt-10 border-l-4 border-green-800 pl-8 font-semibold text-gray-900 dark:text-gray-100">
           <p>
-            "En 2022, le diagnostic d'une maladie auto-immune (lupus) a tout changé. Cette épreuve m'a fait réaliser qu'il était temps de faire ce qui me passionne vraiment."
+            "En 2022, une rechute de ma maladie auto-immune a tout changé. Cette épreuve m'a fait réaliser qu'il était temps de faire ce qui me passionne vraiment."
           </p>
         </blockquote>
 
@@ -108,7 +104,7 @@ const metadata = {
         </p>
 
         <p class="mt-6">
-          Aujourd'hui, je ne regrette pas mon parcours comptable. Cette expérience d'auditeur financier me donne un regard unique sur les besoins des professionnels du chiffre — et c'est justement vers eux que je souhaite orienter mon expertise.
+          Aujourd'hui, je suis fier de mon parcours comptable. Ces expériences en cabinet régionaux et cette expérience d'auditeur financier me donnent un regard unique sur les besoins des entrepreneurs.
         </p>
       </div>
     </div>
@@ -214,7 +210,7 @@ const metadata = {
        <h2 class="mx-auto text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">Ma vision pour 2026</h2>
    
        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl">
-         Je construis des solutions sur-mesure pour chaque client, avec deux axes de développement principaux :
+         Je construis des solutions sur-mesure adaptées aux besoins de chaque client, avec deux axes de développement principaux :
        </p>
    
        <div class="grid md:grid-cols-2 gap-8">
@@ -257,11 +253,7 @@ const metadata = {
           <h2 class="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 sm:text-4xl">Un amoureux de la nature</h2>
 
           <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
-            Quand je ne suis pas devant mon écran, vous me trouverez probablement sur les sentiers corses. La course à pied minimaliste (oui, en sandales !), le trail, le VTT et la randonnée sont mes échappatoires.
-          </p>
-
-          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Le dessin est une autre de mes passions — peut-être le côté créatif qui se retrouve aussi dans le code.
+            Quand je ne suis pas devant mon écran, vous me trouverez probablement sur les sentiers corses. La course à pied minimaliste (en sandales !), le trail, le VTT et la randonnée sont ma façon de me ressourcer.
           </p>
 
           <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
@@ -303,9 +295,9 @@ const metadata = {
           </div>
 
           <div class="mt-8 bg-cream dark:bg-gray-800 p-8 rounded-xl">
-            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Vivre avec une maladie auto-immune</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Entreprendre avec une maladie auto-immune</h3>
             <p class="text-gray-600 dark:text-gray-300">
-              Le lupus fait partie de mon quotidien. Cette réalité m'a poussé à explorer de nombreuses approches de santé et à repenser mes priorités. Si vous traversez une épreuve similaire, n'hésitez pas à me contacter — parfois, échanger avec quelqu'un qui comprend fait du bien.
+              Une maladie auto-immune fait partie de mon quotidien. Cette réalité m'a poussé à explorer de nombreuses approches de santé et à repenser mes priorités. </br> Être à l'écoute de son corps et des gens ça me parle.
             </p>
           </div>
         </div>
