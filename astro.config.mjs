@@ -9,7 +9,7 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import tasks from "./src/utils/tasks";
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
-import { ANALYTICS, SITE, I18N } from './src/utils/config.ts';
+import { ANALYTICS, SITE } from './src/utils/config.ts';
 import react from '@astrojs/react';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
@@ -37,12 +37,7 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
   }), // Conditionally add i18n and sitemap based on I18N.isEnabled
-  sitemap({
-    i18n: {
-      locales: I18N.locales,
-      defaultLocale: I18N.defaultLocale,
-    },
-  }), mdx(), icon({
+  sitemap(), mdx(), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']

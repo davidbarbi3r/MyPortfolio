@@ -15,7 +15,8 @@ metadata:
     index: true
     follow: true
   openGraph:
-    site_name: Développeur web Freelance - David Barbier
+    site_name: Développeur web Freelance - David Développe
+    title: "David Développe, développeur web freelance à Ajaccio"
     images:
       - url: '~/assets/images/db-site-freelance.webp'
         width: 1200
