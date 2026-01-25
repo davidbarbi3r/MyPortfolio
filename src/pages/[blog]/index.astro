@@ -12,18 +12,16 @@ import { findImage } from '~/utils/images';
 export async function getStaticPaths () {
   return await getStaticPathsBlogPost();
 }
-const locale = Astro.currentLocale ?? 'fr'
 
 const { post } = Astro.props;
-const localizedPost = post.locales[locale];
 
-const url = getCanonical(getPermalink(localizedPost.permalink, 'post'));
-const image = (await findImage(localizedPost.image)) as ImageMetadata | undefined;
+const url = getCanonical(getPermalink(post.permalink, 'post'));
+const image = (await findImage(post.image)) as ImageMetadata | undefined;
 
 const metadata = merge(
   {
-    title: localizedPost.title,
-    description: localizedPost.excerpt,
+    title: post.title,
+    description: post.excerpt,
     robots: {
       index: blogPostRobots?.index,
       follow: blogPostRobots?.follow,
@@ -33,11 +31,11 @@ const metadata = merge(
       ...(image ? { images: [{ url: image, width: image?.width, height: image?.height }] } : {}),
     },
   },
-  { ...(localizedPost?.metadata ? { ...localizedPost.metadata, canonical: post.metadata?.canonical || url } : {}) }
+  { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
 );
 ---
 
 <Layout metadata={metadata}>
-  <SinglePost post={{ ...localizedPost, image: image }} url={url} />
+  <SinglePost post={{ ...post, image: image }} url={url} />
   <ToBlogLink />
 </Layout>

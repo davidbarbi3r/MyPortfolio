@@ -13,11 +13,10 @@ export async function getStaticPaths ({ paginate }) {
 const { page, tag } = Astro.props;
 
 const currentPage = page.currentPage ?? 1;
-const locale = Astro.currentLocale ?? 'fr'
 
 const metadata = {
   title: `Posts by tag '${tag}'${currentPage > 1 ? ` — Page ${currentPage} ` : ''}`,
-  description: locale === "en" ? `Discover the latest articles tagged with '${tag}'.` : `Découvrez les derniers articles tagués avec '${tag}'.`,
+  description: `Découvrez les derniers articles tagués avec '${tag}'.`,
   robots: {
     index: blogTagRobots?.index,
     follow: blogTagRobots?.follow,
@@ -28,7 +27,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline>Tag: {tag}</Headline>
-    <BlogList posts={page.data.map(p => p.locales[locale])} />
+    <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
 </Layout>

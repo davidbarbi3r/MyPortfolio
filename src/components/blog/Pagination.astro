@@ -3,8 +3,8 @@ import { Icon } from 'astro-icon/components';
 import { getPermalink } from '~/utils/permalinks';
 
 export interface Props {
-  prevUrl: string;
-  nextUrl: string;
+  prevUrl?: string;
+  nextUrl?: string;
   prevText?: string;
   nextText?: string;
 }

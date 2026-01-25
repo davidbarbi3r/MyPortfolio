@@ -1,9 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { SITE } from '~/utils/config';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-
-const locale = Astro.currentLocale ?? 'fr'
 
 interface Link {
   text?: string;
@@ -15,13 +12,13 @@ interface Link {
 interface Links {
   title?: string;
   links: Array<Link>;
-} 
+}
 
 export interface Props {
   text?: string;
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
+  links?: Array<Links>;
+  secondaryLinks?: Array<Link>;
+  socialLinks?: Array<Link>;
   footNote?: string;
   theme?: string;
 }
@@ -36,7 +33,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getRelativeLocaleUrl(locale)}>{SITE?.name}</a>
+          <a class="inline-block font-bold text-xl" href="/">{SITE?.name}</a>
         </div>
         <p class="text-muted text-balance mb-4">{text}</p>
         <div class="text-sm text-muted">

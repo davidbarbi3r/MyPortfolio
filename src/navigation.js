@@ -1,42 +1,36 @@
 import { getAsset } from './utils/permalinks';
-import { useTranslations } from '~/i18n/translator';
-import { getRelativeLocaleUrl } from 'astro:i18n';
 
-export const getHeaderData = (locale) => {
-  const { t } = useTranslations(locale);
+export const getHeaderData = () => {
   return {
     links: [
       {
-        text: t('header.home'),
-        href: getRelativeLocaleUrl(locale, '/'),
+        text: 'Accueil',
+        href: '/',
       },
       {
-        text: t('header.about'),
-        href: getRelativeLocaleUrl(locale, '/a-propos'),
+        text: 'A propos',
+        href: '/a-propos',
       },
       {
-        text: t('header.blog'),
-        href: getRelativeLocaleUrl(locale, '/blog'),
+        text: 'Blog',
+        href: '/blog',
       },
       {
-        text: t('header.portfolio'),
-        href: getRelativeLocaleUrl(locale, '/category/portfolio'),
+        text: 'Portfolio',
+        href: '/category/portfolio',
       },
     ],
-    actions: [{ type: 'button', text: t('header.contact'), href: getRelativeLocaleUrl(locale, '/contact') }],
+    actions: [{ type: 'button', text: 'Contact', href: '/contact' }],
   };
 };
 
-export const getFooterData = (locale) => {
-  const { t } = useTranslations(locale);
-  
+export const getFooterData = () => {
   return {
-    text: t('footer.text'),
     secondaryLinks: [
-      { text: t('footer.about'), href: getRelativeLocaleUrl(locale, '/a-propos') },
-      { text: t('footer.contact'), href: getRelativeLocaleUrl(locale, '/contact') },
-      { text: t('footer.blog'), href: getRelativeLocaleUrl(locale, '/blog')},
-      { text: t('footer.legal'), href: getRelativeLocaleUrl(locale, '/terms')},
+      { text: 'A propos', href: '/a-propos' },
+      { text: 'Contact', href: '/contact' },
+      { text: 'Blog', href: '/blog' },
+      { text: 'Mentions légales', href: '/terms' },
     ],
     socialLinks: [
       { ariaLabel: 'Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/gnark_eth' },

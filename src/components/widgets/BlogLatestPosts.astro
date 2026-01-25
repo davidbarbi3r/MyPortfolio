@@ -29,9 +29,7 @@ const {
   bg = await Astro.slots.render("bg"),
 } = Astro.props;
 
-const locale = Astro.currentLocale ?? 'fr'
-
-const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }, locale) : [];
+const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
 const filteredPosts = posts.filter((post) => post.category !== "portfolio");
 ---
 

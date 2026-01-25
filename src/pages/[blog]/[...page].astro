@@ -1,4 +1,6 @@
 ---
+import type { GetStaticPaths } from 'astro';
+import type { Post } from '~/types';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
@@ -7,27 +9,27 @@ import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
 
-export async function getStaticPaths ({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
   return await getStaticPathsBlogList({ paginate });
-}
+}) satisfies GetStaticPaths;
 
-const { page } = Astro.props;
+type Props = { page: { data: Post[]; currentPage: number; url: { prev?: string; next?: string } } };
+const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
-const locale = Astro.currentLocale ?? 'fr'
 
 const allCategories = ["blog", "portfolio"];
-const allTags = await page.data.reduce((acc, post) => {
-  post.locales[locale].tags.forEach(tag => {
+const allTags = page.data.reduce((acc: string[], post) => {
+  post.tags?.forEach((tag: string) => {
     if (!acc.includes(tag)) {
       acc.push(tag);
     }
   });
   return acc;
-}, []);
+}, [] as string[]);
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
-  description: locale === "en" ? `Discover the latest articles from David Barbier's blog.` : `Découvrez les derniers articles du blog de David Barbier.`,
+  description: `Découvrez les derniers articles du blog de David Barbier.`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -46,11 +48,11 @@ const metadata = {
     >
       Le Blog
     </Headline>
-    <BlogList posts={page.data.map(p => p.locales[locale]).filter(p => p.category != 'portfolio')} />
+    <BlogList posts={page.data.filter(p => p.category != 'portfolio')} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText={"Précédent articles"} nextText={"Articles suivants"} />
-    
+
     <PostTags tags={allCategories} class="mb-2" title={"Rechercher par catégories"} isCategory />
     <PostTags tags={allTags}  title={"Rechercher par tags"} />
-   
+
   </section>
 </Layout>
