@@ -12,12 +12,13 @@ export const getHeaderData = () => {
         href: '/a-propos',
       },
       {
-        text: 'Blog',
-        href: '/blog',
-      },
-      {
-        text: 'Portfolio',
-        href: '/category/portfolio',
+        text: 'Experts-comptables',
+        links: [
+          { text: 'Agence Web EC', href: '/agence-web-expert-comptable/' },
+          { text: 'Création site EC', href: '/agence-web-expert-comptable/#offres' },
+          { text: 'Refonte site EC', href: '/agence-web-expert-comptable/refonte-site-internet/' },
+          { text: 'SEO Expert-Comptable', href: '/agence-web-expert-comptable/#offres' },
+        ],
       },
     ],
     actions: [{ type: 'button', text: 'Contact', href: '/contact' }],
