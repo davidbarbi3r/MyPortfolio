@@ -60,7 +60,7 @@ Je trouve que tailwind permet de faire du CSS de façon rapide et efficace une f
 Un outil simple pour gérer les envois d'email aux clients et au gérant à chaque commande. 
 Les mails peuvent être développés en React ce qui assure la cohérence avec la stack globale de l'application. 
 
-# Résultat et performances
+## Résultat et performances
 
 Le site est en ligne et est disponible ici <a href="https://restodom.fr" rel="nofollow" target="_blank">Restodom</a>
 

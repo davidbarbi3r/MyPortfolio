@@ -12,4 +12,4 @@ metadata:
   canonical: https://davidbarbier.com/choisir-extension-domaine
 ---
 
-# Article not translated yet
+## Article not translated yet

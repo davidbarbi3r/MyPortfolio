@@ -9,7 +9,7 @@ tags:
   - lighthouse
   - expérience utilisateur
 metadata:
-  canonical: https://davidbarbier.com/site-internet-lent
+  canonical: https://www.davidbarbier.com/site-internet-lent-que-faire/
 ---
 
 Un point clé de l'expérience utilisateur d'un site ou d'une application web est le temps de chargement. La patience des visiteurs ne cesse de diminuer. La plupart d'entre eux abandonneront un site s'il ne se charge pas dans les 3 secondes. Pour une entreprise l'image de marque en prend un coup, cela signifie des ventes, des prospects et des opportunités perdues. 

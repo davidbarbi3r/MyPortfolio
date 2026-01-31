@@ -9,7 +9,7 @@ tags:
   - lighthouse
   - user experience
 metadata:
-  canonical: https://davidbarbier.com/my-website-is-slow-what-can-i-do
+  canonical: https://www.davidbarbier.com/site-internet-lent-que-faire/
 ---
 
 A key point in the user experience of a website or web application is loading time. Visitors are becoming increasingly impatient. Most of them will abandon a site if it doesn't load within 3 seconds. For a company, this means lost sales, leads and opportunities. 

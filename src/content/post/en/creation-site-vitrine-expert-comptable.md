@@ -52,7 +52,7 @@ This technological stack allows me to achieve the best balance between:
 - Desired functionalities,
 - Ecological impact
 
-# Result and Performance
+## Result and Performance
 The site is live and can be accessed here [LBG-Expertise](https://lbg-expertise.com)
 
 The analysis with PagesSpeedInsight shows very good site performance, both on desktop and mobile [Performance report](https://pagespeed.web.dev/analysis/https-www-lbg-expertise-com/bzpbpd8z16?form_factor=mobile)

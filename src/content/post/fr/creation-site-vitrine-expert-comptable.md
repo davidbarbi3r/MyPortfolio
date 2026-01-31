@@ -51,7 +51,7 @@ Cette stack technologique me permet d'avoir le meilleur rapport entre
 - Fonctionnalités voulues,
 - Impact écologique
 
-# Résultat et performances
+## Résultat et performances
 
 Le site est en ligne et est disponible ici <a href="https://lbg-expertise.com" rel="nofollow" target="_blank">LBG-Expertise</a>
 

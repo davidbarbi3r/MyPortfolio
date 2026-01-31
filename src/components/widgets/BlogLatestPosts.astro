@@ -29,8 +29,8 @@ const {
   bg = await Astro.slots.render("bg"),
 } = Astro.props;
 
-const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
-const filteredPosts = posts.filter((post) => post.category !== "portfolio");
+const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count: 100 }) : [];
+const filteredPosts = posts.filter((post) => post.category !== "portfolio").slice(0, count);
 ---
 
 {

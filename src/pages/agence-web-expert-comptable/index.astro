@@ -8,9 +8,158 @@ const metadata = {
   description:
     'Ancien expert-comptable mémorialiste devenu développeur web. Agence web spécialisée expert-comptable : création site sur-mesure, SEO, maintenance pour cabinets EC.',
 };
+
+// JSON-LD Service schema
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/#service",
+  "name": "Agence web pour experts-comptables",
+  "description": "Agence web spécialisée pour cabinets d'expertise comptable. Création de site sur mesure, refonte, SEO et maintenance par un ancien expert-comptable mémorialiste.",
+  "url": "https://www.davidbarbier.com/agence-web-expert-comptable/",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://www.davidbarbier.com/#person",
+    "name": "David Barbier",
+    "jobTitle": "Développeur web & ancien expert-comptable mémorialiste",
+    "url": "https://www.davidbarbier.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "France"
+  },
+  "serviceType": ["Création de site internet", "Refonte de site", "SEO", "Maintenance web"],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Experts-comptables, Cabinets comptables, Commissaires aux comptes"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Offres agence web expert-comptable",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Création site expert-comptable",
+        "description": "Site vitrine sur mesure optimisé SEO pour cabinets d'expertise comptable",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "1500",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Refonte site expert-comptable",
+        "description": "Modernisation et optimisation de site existant avec migration SEO",
+        "url": "https://www.davidbarbier.com/agence-web-expert-comptable/refonte-site-internet/",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "2000",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "SEO Expert-Comptable",
+        "description": "Référencement naturel pour cabinets EC : visibilité locale et nationale",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": "400",
+          "priceCurrency": "EUR",
+          "unitCode": "MON",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ]
+  }
+};
+
+// JSON-LD FAQ schema
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pourquoi un expert-comptable a-t-il besoin d'un site internet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aujourd'hui, 80% des clients recherchent leur expert-comptable en ligne. Un site professionnel est votre vitrine digitale : il rassure les prospects, présente vos services et vous différencie. C'est aussi un outil de SEO local pour apparaître sur \"expert-comptable + votre ville\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien coûte la création d'un site pour un cabinet EC ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un site vitrine simple démarre à 1 500€. Un site complet avec blog et fonctionnalités avancées : 3 000€ à 5 000€. Je propose toujours un devis personnalisé après avoir compris vos besoins. Pas de mauvaise surprise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que le SEO peut apporter à mon cabinet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le SEO permet d'apparaître dans les premiers résultats Google quand des prospects recherchent un expert-comptable. C'est un flux de clients qualifiés sans payer de publicité. Requêtes stratégiques : \"expert-comptable [ville]\", \"création entreprise comptable\", \"bilan annuel\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi travailler avec un ancien EC mémorialiste plutôt qu'une agence ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je connais votre métier de l'intérieur : contraintes (périodes fiscales, déontologie), vocabulaire, attentes de vos clients. Cette compréhension permet de créer des contenus et un site qui parlent vraiment à vos prospects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pouvez-vous refondre mon site existant ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument. Je réalise des audits pour identifier les points d'amélioration : design, performance, SEO, contenu. Je propose soit une refonte complète, soit des optimisations ciblées selon votre budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proposez-vous un accompagnement après la mise en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, je propose des contrats de maintenance pour garder votre site à jour, sécurisé et performant. Je peux aussi vous accompagner avec un suivi SEO mensuel pour améliorer continuellement votre visibilité."
+      }
+    }
+  ]
+};
+
+// JSON-LD Breadcrumb schema
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.davidbarbier.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Agence Web Expert-Comptable",
+      "item": "https://www.davidbarbier.com/agence-web-expert-comptable/"
+    }
+  ]
+};
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
+  </Fragment>
+
   <style>
     /* Utilisation des polices du site (Inter) */
     .font-editorial { font-family: var(--aw-font-heading), system-ui, sans-serif; }

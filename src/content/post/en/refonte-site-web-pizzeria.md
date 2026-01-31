@@ -61,7 +61,7 @@ I find that tailwind makes CSS quick and efficient once you're used to the synta
 A simple tool to manage the sending of emails to customers and the pizzeria manager every time an order is placed. 
 Emails can be developed in React, ensuring consistency with the overall application stack. 
 
-# Result and Performance
+## Result and Performance
 
 The site is online and available here [Pizza Carmes](https://pizza-limoges.fr)
 

@@ -12,7 +12,7 @@ metadata:
   canonical: https://davidbarbier.com/choisir-extension-domaine
 ---
 
-# Quelle extension de domaine choisir pour votre site web ? (.fr, .com, .corsica)
+## Quelle extension de domaine choisir pour votre site web ? (.fr, .com, .corsica)
 
 Vous vous lancez dans la création de votre [site web](https://davidbarbier.com/creation-site-internet-limoges) et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
 
