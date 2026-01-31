@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-01-06T00:00:00Z
-title: Création site internet vitrine Expert-Comptable
-excerpt: Création d'un site vitrine pour une expert-comptable qui lance son cabinet indépendant.
+title: "Projet LBG Expertise : site web cabinet comptable Marseille"
+excerpt: "Étude de cas : réalisation du site web LBG Expertise pour un cabinet comptable indépendant à Marseille."
 image: '~/assets/images/lbg-expertise.png'
 category: Portfolio
 tags:
@@ -14,10 +14,10 @@ metadata:
   canonical: https://www.davidbarbier.com/creation-site-vitrine-expert-comptable
 ---
 
-**Création de site vitrine** 
+**Étude de cas : site vitrine cabinet comptable** 
 
 ### Nom du projet
-LBG-Expertise [LBG-Expertise](https://lbg-expertise.com)
+LBG-Expertise <a href="https://lbg-expertise.com" rel="nofollow" target="_blank">LBG-Expertise</a>
 
 ### Date de réalisation
 12/2023
@@ -53,7 +53,7 @@ Cette stack technologique me permet d'avoir le meilleur rapport entre
 
 # Résultat et performances
 
-Le site est en ligne et est disponible ici [LBG-Expertise](https://lbg-expertise.com)
+Le site est en ligne et est disponible ici <a href="https://lbg-expertise.com" rel="nofollow" target="_blank">LBG-Expertise</a>
 
 L'analyse avec PagesSpeedInsight montre de très bonnes performances du site, tant en desktop qu'en mobile [Rapport de performance](https://pagespeed.web.dev/analysis/https-www-lbg-expertise-com/bzpbpd8z16?form_factor=mobile)
 

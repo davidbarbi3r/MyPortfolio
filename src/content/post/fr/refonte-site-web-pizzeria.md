@@ -57,7 +57,7 @@ L'ancien site internet était développé en PHP, j'ai décidé de refaire le si
 
 ## Résultat et performances
 
-Le site est en ligne et est disponible ici [Pizza Carmes](https://pizza-limoges.fr)
+Le site est en ligne et est disponible ici <a href="https://pizza-limoges.fr" rel="nofollow" target="_blank">Pizza Carmes</a>
 
 L'analyse avec PagesSpeedInsight montre de bonnes performances du site, tant en desktop qu'en mobile [Performance report](https://pagespeed.web.dev/analysis/https-pizza-limoges-fr/5qw2b2l7bt?form_factor=mobile)
 

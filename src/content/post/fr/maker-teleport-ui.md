@@ -44,6 +44,6 @@ Ce projet a été déployé de manière décentralisée. Nous avons utilisé Fle
 
 ## Liens
 
-- [Projet Déployé décentralisé](http://teleportdai.eth.link)
+- <a href="http://teleportdai.eth.link" rel="nofollow" target="_blank">Projet Déployé décentralisé</a>
 - [Référentiel GitHub](https://github.com/davidbarbi3r/maker-teleport)
 - [Documentation du SDK Teleport](https://makergrowth.github.io/teleport-sdk-docs/)

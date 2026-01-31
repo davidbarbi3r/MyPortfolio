@@ -18,7 +18,7 @@ metadata:
 **Création de site avec développement spécifique** 
 
 ### Nom du projet
-Restodom [Restodom](https://restodom.fr)
+Restodom <a href="https://restodom.fr" rel="nofollow" target="_blank">Restodom</a>
 
 ### Date de réalisation
 05/2024
@@ -62,7 +62,7 @@ Les mails peuvent être développés en React ce qui assure la cohérence avec l
 
 # Résultat et performances
 
-Le site est en ligne et est disponible ici [Restodom](https://restodom.fr)
+Le site est en ligne et est disponible ici <a href="https://restodom.fr" rel="nofollow" target="_blank">Restodom</a>
 
 L'analyse avec PagesSpeedInsight montre de bonnes performances du site, tant en desktop qu'en mobile ![Restodom performance report](~/assets/images/restodom-perf.png)
 

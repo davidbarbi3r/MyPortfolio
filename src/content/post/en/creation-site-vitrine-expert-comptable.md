@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-01-06T00:00:00Z
-title: Lbg-expertise
-excerpt: Landing page creation for a chartered accountant.
+title: "LBG Expertise Project: Accountant Website Marseille"
+excerpt: "Case study: building the LBG Expertise website for an independent accounting firm in Marseille."
 image: '~/assets/images/lbg-expertise.png'
 category: Portfolio
 tags:
@@ -14,7 +14,7 @@ metadata:
   canonical: https://www.davidbarbier.com/creation-site-vitrine-expert-comptable
 ---
 
-**Showcase Website Creation**
+**Case study: Accountant showcase website**
 
 ### Project Name
 LBG-Expertise [LBG-Expertise](https://lbg-expertise.com)
