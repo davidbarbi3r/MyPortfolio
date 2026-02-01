@@ -144,4 +144,4 @@ Le choix de votre extension de domaine dépend avant tout de votre stratégie et
 
 N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne.
 
-Besoin de conseils pour choisir votre extension de domaine ? [Contactez-moi](https://davidbarbier.com/reserve-ton-appel) pour échanger.
+Besoin de conseils pour choisir votre extension de domaine ? [Contactez-moi](/contact) pour échanger.
