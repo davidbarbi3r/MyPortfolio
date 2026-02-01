@@ -3,6 +3,23 @@
   command = "npm run build"
 [build.processing.html]
   pretty_urls = true
+
+[[redirects]]
+  from = "/call"
+  to = "/reserve-ton-appel/"
+  status = 301
+[[redirects]]
+  from = "/call/"
+  to = "/reserve-ton-appel/"
+  status = 301
+[[redirects]]
+  from = "/book-a-call"
+  to = "/reserve-ton-appel/"
+  status = 301
+[[redirects]]
+  from = "/book-a-call/"
+  to = "/reserve-ton-appel/"
+  status = 301
 [[headers]]
   for = "/assets/*"
   [headers.values]

@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/call", "destination": "/reserve-ton-appel/", "permanent": true },
+    { "source": "/call/", "destination": "/reserve-ton-appel/", "permanent": true },
+        { "source": "/book-a-call", "destination": "/reserve-ton-appel/", "permanent": true },
+    { "source": "/book-a-call/", "destination": "/reserve-ton-appel/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/_astro/(.*)",
