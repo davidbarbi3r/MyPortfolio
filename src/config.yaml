@@ -58,10 +58,10 @@ apps:
         index: true
 
     tag:
-      isEnabled: true
+      isEnabled: false
       pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
       robots:
-        index: true
+        index: false
 
 analytics:
   vendors:
