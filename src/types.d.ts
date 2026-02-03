@@ -141,6 +141,7 @@ export interface Item {
   servicesItems?: ServicesItems[];
   price?: string;
   image?: Image;
+  ecLink?: { text: string; href: string };
 }
 
 export interface ServicesItems {
