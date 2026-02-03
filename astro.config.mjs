@@ -25,6 +25,7 @@ export default defineConfig({
     '/en/site-internet-eco-responsable': '/en/eco-friendly-website-creation',
     '/book-a-call': '/reserve-ton-appel',
     '/eco-friendly-website-creation': '/site-internet-eco-responsable',
+    '/creation-site-vitrine-expert-comptable': '/lbg-expertise-ec-marseille',
   },
   i18n: {
     locales: ['fr', 'en'],
@@ -37,7 +38,9 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
   }), // Conditionally add i18n and sitemap based on I18N.isEnabled
-  sitemap(), mdx(), icon({
+  sitemap({
+    filter: (page) => !page.includes('/tag/') && !page.includes('/en/'),
+  }), mdx(), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']

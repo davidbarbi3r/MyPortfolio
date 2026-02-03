@@ -18,6 +18,7 @@ export interface Props {
 
 const { post, url } = Astro.props;
 const Content = post?.Content || null;
+const postId = post.id;
 ---
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
@@ -43,6 +44,7 @@ const Content = post?.Content || null;
       </div>
       <h1
         class="px-4 sm:px-6 max-w-4xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        transition:name={`blog-title-${postId}`}
       >
         {post.title}
       </h1>
@@ -65,7 +67,7 @@ const Content = post?.Content || null;
             height={506}
             loading="eager"
             decoding="async"
-            transition:persist
+            transition:name={`blog-image-${postId}`}
           />
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">

@@ -9,7 +9,7 @@ tags:
   - dns
   - mails
 metadata:
-  canonical: https://davidbarbier.com/configuration-dns
+  canonical: https://www.davidbarbier.com/configuration-dns/
 ---
 
 Lors de la configuration des enregistrements DNS du site de Laetitia - [lbg-expertise.com](https://www.lbg-expertise.com) je me suis dit que ça serait intéressant de faire un petit guide afin de vous assurer d'avoir une configuration optimale.
@@ -45,3 +45,5 @@ On peut voir le DNS comme le GPS d'Internet. Il guide les clients vers votre ent
 ## Conclusion
 
 Ne laissez pas une mauvaise configuration DNS gâcher vos efforts de communication et de marketing. Un peu de temps et d'attention portée à votre configuration DNS peut faire une grande différence dans la manière dont vos clients interagissent avec votre entreprise en ligne. Optimisez votre DNS et ouvrez la voie à une communication claire et efficace, tant pour votre site web que pour vos e-mails.
+
+Vous ne voulez pas vous embêter avec la technique ? Je peux m'occuper de la configuration DNS et de la [maintenance de votre site internet](https://www.davidbarbier.com/maintenance-site-web-limoges/) pour que vous puissiez vous concentrer sur votre activité.

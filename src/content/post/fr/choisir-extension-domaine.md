@@ -9,12 +9,12 @@ tags:
   - site vitrine
   - SEO
 metadata:
-  canonical: https://davidbarbier.com/choisir-extension-domaine
+  canonical: https://www.davidbarbier.com/choisir-extension-domaine/
 ---
 
 ## Quelle extension de domaine choisir pour votre site web ? (.fr, .com, .corsica)
 
-Vous vous lancez dans la création de votre [site web](https://davidbarbier.com/creation-site-internet-limoges) et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
+Vous vous lancez dans la création de votre [site web](https://www.davidbarbier.com/creation-site-internet-limoges/) et vous vous posez la question : faut-il choisir un .fr, un .com ou peut-être une extension régionale comme .corsica ? Dans cet article, je vais vous apporter mon point de vue pour ce choix important.
 
 ## En bref
 - Le **.fr** est idéal pour cibler le marché français et inspire confiance
@@ -144,4 +144,4 @@ Le choix de votre extension de domaine dépend avant tout de votre stratégie et
 
 N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne.
 
-Besoin de conseils pour choisir votre extension de domaine ? [Contactez-moi](/contact) pour échanger.
+Besoin d'aide pour choisir votre extension de domaine et [créer votre site internet](https://www.davidbarbier.com/creation-site-internet-ajaccio/) ? Je vous accompagne de A à Z.

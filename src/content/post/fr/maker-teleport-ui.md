@@ -10,7 +10,7 @@ tags:
   - typescript
   - blockchain
 metadata:
-  canonical: https://davidbarbier.com/maker-teleport-ui
+  canonical: https://www.davidbarbier.com/maker-teleport-ui/
 ---
 
 ## Objectifs du projet

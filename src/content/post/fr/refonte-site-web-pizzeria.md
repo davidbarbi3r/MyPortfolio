@@ -12,7 +12,7 @@ tags:
   - postgresql
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/refonte-site-web-pizzeria
+  canonical: https://www.davidbarbier.com/refonte-site-web-pizzeria/
 ---
 
 ## Explication de la refonte et des besoins du client
@@ -70,5 +70,4 @@ Le site a également été pensé pour avoir le plus faible impact écologique p
 
 ## Et si c'était vous ?
 
-N'hésitez pas à me contacter pour assurer la création de votre site vitrine éco-conçu et performant 
-[Me Contacter](https://www.davidbarbier.com/contact)
+Vous souhaitez refondre votre site internet ou en créer un nouveau ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/creation-site-internet-limoges/).

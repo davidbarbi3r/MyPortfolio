@@ -4,18 +4,18 @@ import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 
 const metadata = {
-  title: "Refonte site internet expert-comptable | Modernisation + SEO",
+  title: "Création de site vitrine pour expert-comptable | David Barbier",
   description:
-    'Refonte de site expert-comptable par un ancien EC mémorialiste. Modernisez votre site avec un design professionnel, SEO optimisé et performances maximales.',
+    'Création de site vitrine expert-comptable par un ancien EC mémorialiste. Site sur mesure avec Astro, optimisé SEO, performant et éco-responsable.',
 };
 
 // JSON-LD Service schema
 const serviceStructuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/refonte-site-internet/#service",
-  "name": "Refonte site internet expert-comptable",
-  "description": "Refonte complète de site internet pour cabinets d'expertise comptable. Modernisation du design, optimisation SEO, performances techniques maximales avec Astro.",
+  "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/creation-site-vitrine-ec/#service",
+  "name": "Création de site vitrine expert-comptable",
+  "description": "Création de site vitrine sur mesure pour cabinets d'expertise comptable. Design professionnel, optimisation SEO, performances maximales avec Astro.",
   "provider": {
     "@type": "ProfessionalService",
     "@id": "https://www.davidbarbier.com/#organization",
@@ -26,24 +26,24 @@ const serviceStructuredData = {
     "@type": "Country",
     "name": "France"
   },
-  "serviceType": "Refonte de site internet",
+  "serviceType": "Création de site vitrine",
   "audience": {
     "@type": "Audience",
     "audienceType": "Experts-comptables, Cabinets comptables"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Offres refonte site expert-comptable",
+    "name": "Offres création site expert-comptable",
     "itemListElement": [
       {
         "@type": "Offer",
-        "name": "Forfait refonte site expert-comptable",
-        "description": "Refonte complète incluant audit, stratégie, développement sur mesure, migration SEO et formation",
-        "price": "2000",
+        "name": "Forfait création site vitrine expert-comptable",
+        "description": "Création sur mesure incluant design, développement Astro, SEO et formation. One page dès 1200€ HT, site multi-pages dès 2000€ HT.",
+        "price": "1200",
         "priceCurrency": "EUR",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "2000",
+          "price": "1200",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false
         }
@@ -73,50 +73,50 @@ const faqStructuredData = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Combien coûte une refonte de site expert-comptable ?",
+      "name": "Pourquoi un site vitrine Astro et pas WordPress ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Une refonte de site expert-comptable démarre à 2 000€ HT. Le tarif final dépend de l'ampleur du projet : un simple portage sur Astro en conservant design et textes coûtera moins cher qu'une refonte complète avec nouvelle identité et réécriture des contenus. Je vous propose toujours un devis détaillé et transparent après avoir analysé votre site actuel et compris vos objectifs."
+        "text": "WordPress est parfait pour les blogs et sites nécessitant des mises à jour fréquentes par des non-techniciens. Mais pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs : des performances 10x supérieures (score PageSpeed >80), une sécurité renforcée (pas de base de données à pirater, pas de plugins vulnérables), zéro maintenance technique (pas de mises à jour WordPress/plugins à gérer), et des coûts d'hébergement réduits."
       }
     },
     {
       "@type": "Question",
-      "name": "Quel est le délai pour refondre un site ?",
+      "name": "Puis-je modifier le contenu moi-même ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Comptez en moyenne 6 à 8 semaines pour une refonte complète. Ce délai inclut l'audit, la stratégie, le développement et les tests. Votre site actuel reste en ligne pendant toute la durée du projet. La bascule se fait en quelques heures, sans interruption de service pour vos visiteurs."
+        "text": "Oui. PagesCMS, un CMS git-based léger, est intégré à votre site. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos informations depuis une interface simple, sans toucher au code. Pas de base de données supplémentaire, tout reste dans votre dépôt Git : c'est frugal et transparent. Une formation est incluse dans la prestation."
       }
     },
     {
       "@type": "Question",
-      "name": "Mon site sera-t-il optimisé pour Google ?",
+      "name": "Le site sera-t-il optimisé pour le référencement Google ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolument. L'optimisation SEO est au cœur de chaque refonte. Je mets en place une structure sémantique optimisée (balises H1-H6, meta descriptions), des redirections 301 pour préserver votre référencement existant, un sitemap XML et des données structurées, ainsi que des performances techniques excellentes (facteur de ranking Google)."
+        "text": "Absolument. L'optimisation SEO est intégrée dès la conception : structure sémantique optimisée (balises H1-H6, meta descriptions), sitemap XML et données structurées, performances techniques excellentes (facteur de ranking Google), et contenus optimisés pour vos mots-clés cibles (expert-comptable + ville, création entreprise...)."
       }
     },
     {
       "@type": "Question",
-      "name": "Que devient mon ancien site ?",
+      "name": "Quel hébergement recommandez-vous ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Votre ancien site reste en ligne pendant toute la phase de développement. Une fois le nouveau site validé et testé, la bascule se fait en remplaçant les fichiers sur votre hébergement. Je conserve une sauvegarde de votre ancien site pendant 3 mois au cas où vous auriez besoin de récupérer des éléments."
+        "text": "Je recommande Cloudflare Pages pour sa rapidité, sa fiabilité et son coût (gratuit pour la majorité des sites vitrines). L'hébergement est éco-responsable avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers générés par Astro."
       }
     },
     {
       "@type": "Question",
-      "name": "Puis-je garder mon nom de domaine ?",
+      "name": "Proposez-vous la maintenance du site ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui, bien sûr ! Votre nom de domaine vous appartient et reste inchangé. C'est d'ailleurs essentiel pour préserver votre référencement et votre notoriété. Si vous souhaitez changer de nom de domaine (rebranding), je peux également vous accompagner dans cette transition avec les redirections appropriées."
+        "text": "Oui, je propose un forfait maintenance mensuel à partir de 30€/mois HT. Au-delà de la surveillance et des sauvegardes, la maintenance vous permet de bénéficier des avancées techniques d'Astro (View Transitions, optimisations d'images, nouvelles fonctionnalités) au fil des mises à jour du framework."
       }
     },
     {
       "@type": "Question",
-      "name": "Pourquoi Astro et pas WordPress ?",
+      "name": "Combien de pages sont incluses dans le forfait ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "WordPress est parfait pour les blogs et sites nécessitant des mises à jour fréquentes par des non-techniciens. Mais pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs : des performances 10x supérieures (score PageSpeed >90), une sécurité renforcée (pas de base de données à pirater, pas de plugins vulnérables), zéro maintenance technique (pas de mises à jour WordPress/plugins à gérer), et des coûts d'hébergement réduits. Votre site charge instantanément et vous n'avez plus à vous soucier des failles de sécurité."
+        "text": "Le forfait de base inclut les pages essentielles d'un cabinet : accueil, à propos / équipe, missions et expertises, actualités / blog, et contact. Des pages supplémentaires (recrutement, simulateurs, espace client...) peuvent être ajoutées sur devis."
       }
     }
   ]
@@ -142,8 +142,8 @@ const breadcrumbStructuredData = {
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Refonte site internet",
-      "item": "https://www.davidbarbier.com/agence-web-expert-comptable/refonte-site-internet/"
+      "name": "Création site vitrine",
+      "item": "https://www.davidbarbier.com/agence-web-expert-comptable/creation-site-vitrine-ec/"
     }
   ]
 };
@@ -312,7 +312,7 @@ const breadcrumbStructuredData = {
   </style>
 
   <!-- Hero Section -->
-  <section class="relative min-h-[85vh] flex items-center overflow-hidden texture-bg">
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden texture-bg">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-green-100/50 to-emerald-100/30 dark:from-green-900/20 dark:to-emerald-900/10 rounded-full blur-3xl animate-float"></div>
       <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-gradient-to-tr from-teal-100/40 to-green-100/20 dark:from-teal-900/10 dark:to-green-900/5 rounded-full blur-3xl" style="animation: float 8s ease-in-out infinite reverse;"></div>
@@ -325,37 +325,37 @@ const breadcrumbStructuredData = {
           <div class="animate-fade-up delay-100">
             <span class="badge-premium inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium font-body">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/>
               </svg>
-              Refonte complète par un ancien EC mémorialiste
+              EC Mémorialiste reconverti
             </span>
           </div>
 
           <h1 class="mt-8 animate-fade-up delay-200">
             <span class="block font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight">
-              Refonte site internet expert-comptable
+              Création de site vitrine
             </span>
             <span class="block font-editorial text-3xl sm:text-4xl lg:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-green-600 to-emerald-500 dark:from-green-400 dark:via-green-300 dark:to-emerald-300 mt-2">
-              Modernisation + SEO
+              pour expert-comptable
             </span>
           </h1>
 
           <p class="mt-8 font-body text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-up delay-300">
-            Votre site actuel ne reflète plus l'image de votre cabinet ? Je le transforme en une <strong class="text-gray-900 dark:text-white">vitrine moderne et performante</strong>, optimisée pour Google et vos futurs clients.
+            Ancien expert-comptable mémorialiste, je crée des <strong class="text-gray-900 dark:text-white">sites vitrines sur mesure</strong> pour les cabinets qui veulent se démarquer et attirer de nouveaux clients.
           </p>
 
           <div class="mt-10 flex flex-wrap gap-8 animate-fade-up delay-400">
             <div class="text-center">
-              <div class="stat-value text-4xl font-bold">8</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Semaines max</div>
+              <div class="stat-value text-4xl font-bold">6</div>
+              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Semaines</div>
             </div>
             <div class="text-center">
               <div class="stat-value text-4xl font-bold">>80</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Score PageSpeed</div>
+              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">PageSpeed</div>
             </div>
             <div class="text-center">
-              <div class="stat-value text-4xl font-bold">SEO</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Optimisé Google</div>
+              <div class="stat-value text-4xl font-bold">100%</div>
+              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Sur mesure</div>
             </div>
           </div>
 
@@ -364,7 +364,7 @@ const breadcrumbStructuredData = {
               href="/contact/"
               class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 glow-on-hover"
             >
-              Demander un audit gratuit
+              Demander un devis gratuit
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
@@ -386,7 +386,7 @@ const breadcrumbStructuredData = {
             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src={HeroImage}
-                alt="David Barbier - Refonte site expert-comptable"
+                alt="David Barbier - Création site expert-comptable"
                 class="w-full aspect-[4/5] object-cover"
                 width={600}
                 height={750}
@@ -397,11 +397,11 @@ const breadcrumbStructuredData = {
                 <div class="flex items-center gap-4">
                   <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
                     </svg>
                   </div>
                   <div>
-                    <div class="font-editorial font-semibold text-gray-900 dark:text-white">Refonte sur mesure</div>
+                    <div class="font-editorial font-semibold text-gray-900 dark:text-white">Site vitrine sur mesure</div>
                     <div class="font-body text-sm text-gray-500 dark:text-gray-400">Par un ancien expert-comptable</div>
                   </div>
                 </div>
@@ -416,7 +416,7 @@ const breadcrumbStructuredData = {
     <div class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-green-800 to-green-700 dark:from-green-900 dark:to-green-800 z-[9999] shadow-lg shadow-green-900/30">
       <div class="max-w-7xl mx-auto px-6 py-3">
         <div class="flex items-center justify-center gap-3 sm:gap-6 text-sm md:text-base">
-          <span class="hidden lg:inline text-green-100 font-body">Audit gratuit de votre site actuel</span>
+          <span class="hidden lg:inline text-green-100 font-body">Devis gratuit pour votre site vitrine</span>
           <a
             href="tel:0623565299"
             class="inline-flex items-center gap-2 text-white font-body font-semibold text-sm hover:text-green-200 transition-colors"
@@ -431,7 +431,7 @@ const breadcrumbStructuredData = {
             href="#formulaire"
             class="inline-flex items-center gap-2 bg-white text-green-800 px-5 py-2 rounded-full font-body font-semibold text-sm hover:bg-green-50 transition-colors shadow-md"
           >
-            <span>Audit gratuit</span>
+            <span>Devis gratuit</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -441,7 +441,7 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
-  <!-- Section Introduction -->
+  <!-- Section 01 : Pourquoi créer un site vitrine -->
   <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
@@ -449,9 +449,9 @@ const breadcrumbStructuredData = {
         <div class="lg:col-span-4">
           <div class="lg:sticky lg:top-32">
             <span class="styled-number">01</span>
-            <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Introduction</p>
+            <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Pourquoi ?</p>
             <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
-              Pourquoi refondre votre site ?
+              Pourquoi créer un site vitrine pour votre cabinet ?
             </h2>
           </div>
         </div>
@@ -459,18 +459,18 @@ const breadcrumbStructuredData = {
         <div class="lg:col-span-8">
           <div class="prose prose-lg dark:prose-invert max-w-none font-body">
             <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Rapprochement entre cabinets, nouvelle direction à affirmer, besoin de vous démarquer de la concurrence... Les raisons de refondre votre site sont nombreuses. C'est l'occasion d'<strong class="text-gray-900 dark:text-white">acter un nouveau chapitre</strong> dans l'histoire de votre cabinet.
+              Après un premier échange ou une recommandation, <strong class="text-gray-900 dark:text-white">vos prospects vont systématiquement consulter votre site avant de vous confier leur comptabilité</strong>. C'est l'étape de validation : un site professionnel rassure et conforte la décision, un site absent ou daté sème le doute.
             </p>
 
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-6">
-              Au-delà de l'image, c'est aussi le moment de corriger les problèmes techniques : un site lent qui fait fuir les visiteurs, un design dépassé qui ne reflète plus votre professionnalisme, ou une <strong class="text-gray-900 dark:text-white">absence de visibilité sur Google</strong> qui vous prive de prospects qualifiés.
+              Au-delà de la visibilité, c'est aussi une question de <strong class="text-gray-900 dark:text-white">crédibilité et de confiance</strong>. Un site soigné rassure vos prospects et reflète le sérieux de votre cabinet. C'est votre vitrine 24h/24, accessible depuis n'importe quel appareil.
             </p>
           </div>
 
           <div class="relative mt-12 pl-8 py-6">
             <span class="quote-mark">"</span>
             <blockquote class="relative font-editorial text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white italic leading-relaxed">
-              Une refonte, c'est l'opportunité de repartir sur des bases solides et d'affirmer votre positionnement.
+              Un site web, c'est votre premier collaborateur commercial : il travaille pour vous 24h/24, 7j/7.
             </blockquote>
           </div>
 
@@ -478,41 +478,41 @@ const breadcrumbStructuredData = {
             <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
               <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Rapprochement de cabinets</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Fusion ou association ? Un nouveau site pour une nouvelle identité commune</p>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Visibilité locale</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Apparaissez sur "expert-comptable + ville" quand vos prospects cherchent un cabinet</p>
             </div>
 
             <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
               <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Nouvelle direction</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Acter une rupture, affirmer un repositionnement ou marquer un tournant</p>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Crédibilité</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Un site professionnel inspire confiance et reflète le sérieux de votre cabinet</p>
             </div>
 
             <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
               <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-400 mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Site lent ou obsolète</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Design dépassé, performances médiocres : il est temps de moderniser</p>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Acquisition clients</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Convertissez vos visiteurs en prospects avec un parcours pensé pour la prise de contact</p>
             </div>
 
             <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
               <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Stratégie de visibilité</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Améliorer votre référencement pour attirer des prospects qualifiés</p>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Respect déontologie</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Un site conforme aux règles de l'Ordre, sans publicité agressive ni démarchage</p>
             </div>
           </div>
         </div>
@@ -520,17 +520,17 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
-  <!-- Section Processus -->
+  <!-- Section 02 : Processus en 4 étapes -->
   <section id="processus" class="py-24 lg:py-32 scroll-mt-32 texture-bg">
     <div class="px-8 mx-auto md:px-12 lg:px-24 max-w-7xl">
       <div class="lg:text-balance max-w-3xl">
         <span class="styled-number">02</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Processus complet</p>
+        <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Mon processus</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Les étapes de ma méthodologie de refonte
+          Création de votre site en 4 étapes
         </h2>
         <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-          Une méthodologie éprouvée en 4 étapes pour transformer votre site sans perdre votre référencement existant.
+          Une méthodologie claire et collaborative pour créer un site qui vous ressemble et qui convertit.
         </p>
       </div>
 
@@ -543,13 +543,13 @@ const breadcrumbStructuredData = {
             </span>
             <dt>
               <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
-                Audit de votre site
+                Échange & cahier des charges
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
             <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
-              J'analyse votre site : design, performances techniques, SEO, contenu. Cet audit permet d'identifier ce qui fonctionne et ce qui freine votre visibilité.
+              Je prends le temps de comprendre votre cabinet, vos missions, votre positionnement et vos objectifs. Ensemble, nous définissons le cahier des charges de votre site.
             </p>
           </dd>
         </div>
@@ -562,13 +562,13 @@ const breadcrumbStructuredData = {
             </span>
             <dt>
               <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
-                Stratégie de refonte
+                Identité visuelle <span class="text-sm font-normal text-gray-500 dark:text-gray-400">(si besoin)</span>
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
             <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
-              Je définis une stratégie complète : nouvelle arborescence, mots-clés cibles, direction artistique. Vous validez chaque élément avant le développement.
+              La plupart des cabinets ont déjà leur identité visuelle — on s'en sert directement. Si ce n'est pas le cas, je fais appel à un graphiste partenaire pour créer votre charte. Cette étape est facultative.
             </p>
           </dd>
         </div>
@@ -581,13 +581,13 @@ const breadcrumbStructuredData = {
             </span>
             <dt>
               <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
-                Développement
+                Développement & itérations
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
             <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
-              Je développe votre nouveau site en parallèle de l'ancien. Code sur mesure avec Astro pour des performances maximales. Migration des contenus optimisés.
+              Je développe votre site avec Astro et Tailwind CSS, et vous donne accès à une version provisoire en ligne. Vous naviguez, vous suivez l'avancée, et on itère ensemble — allers-retours illimités. Mon objectif : que le site vous convienne à 100%. Intégration de PagesCMS pour gérer votre blog en autonomie.
             </p>
           </dd>
         </div>
@@ -600,13 +600,13 @@ const breadcrumbStructuredData = {
             </span>
             <dt>
               <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
-                Tests et mise en ligne
+                Tests, SEO & mise en ligne
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
             <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
-              Tests approfondis sur tous les appareils, vérification des redirections SEO, puis bascule. Votre ancien site est remplacé sans interruption de service.
+              Tests approfondis sur tous les appareils, optimisation SEO complète (balises, sitemap, données structurées), puis mise en ligne et formation à la gestion du contenu.
             </p>
           </dd>
         </div>
@@ -614,7 +614,38 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
-  <!-- Section Livrables -->
+  <!-- Bandeau argument commercial -->
+  <section class="py-16 lg:py-20 texture-bg">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-8 lg:p-12 border border-green-200 dark:border-green-800">
+        <div class="flex flex-col lg:flex-row lg:items-center gap-8">
+          <div class="flex-1">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-300 text-sm font-body font-semibold mb-4">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              Allers-retours illimités
+            </div>
+            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+              Mon objectif : que le site vous convienne à 100%
+            </h3>
+            <p class="font-body text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
+              Pas de limite sur les retours. Vous accédez à une version provisoire tout au long du développement, vous naviguez, vous commentez, et on ajuste ensemble. Le projet avance à votre rythme, et je ne livre que quand vous êtes pleinement satisfait.
+            </p>
+          </div>
+          <div class="flex-shrink-0 hidden lg:block">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg">
+              <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03 : Ce qui est inclus -->
   <section class="py-24 lg:py-32 bg-gradient-to-br from-green-900 via-green-800 to-green-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -630,7 +661,7 @@ const breadcrumbStructuredData = {
         <span class="font-editorial text-6xl font-bold text-white/10">03</span>
         <p class="font-body text-sm font-semibold tracking-widest text-yellow-400 uppercase mt-4">Livrables</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-white mt-3">
-          Ce que vous recevez
+          Ce qui est inclus
         </h2>
       </div>
 
@@ -642,9 +673,21 @@ const breadcrumbStructuredData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Design moderne et responsive</h3>
+          <h3 class="font-editorial text-xl font-semibold text-white">Design sur mesure responsive</h3>
           <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Un site qui s'adapte parfaitement à tous les écrans (mobile, tablette, desktop) avec un design professionnel et actuel.
+            Un design unique, adapté à l'identité de votre cabinet, parfait sur mobile, tablette et desktop.
+          </p>
+        </div>
+
+        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
+          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+            </svg>
+          </div>
+          <h3 class="font-editorial text-xl font-semibold text-white">Blog intégré avec PagesCMS</h3>
+          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
+            Un blog pour publier vos articles et actualités, gérable en autonomie depuis PagesCMS, un CMS git-based léger et frugal.
           </p>
         </div>
 
@@ -654,9 +697,9 @@ const breadcrumbStructuredData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Optimisation SEO complète</h3>
+          <h3 class="font-editorial text-xl font-semibold text-white">Optimisation SEO de base</h3>
           <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Balises optimisées, structure sémantique, redirections 301, sitemap XML. Votre référencement est préservé et amélioré.
+            Balises optimisées, structure sémantique, sitemap XML et données structurées pour un bon référencement dès le lancement.
           </p>
         </div>
 
@@ -666,213 +709,192 @@ const breadcrumbStructuredData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
             </svg>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Amélioration conversion et performance</h3>
+          <h3 class="font-editorial text-xl font-semibold text-white">Performance &gt;80 PageSpeed</h3>
           <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Score PageSpeed &gt;80, temps de chargement optimisé, parcours utilisateur pensé pour convertir vos visiteurs.
+            Un site ultra-rapide grâce à Astro. Score PageSpeed &gt;80 garanti, un vrai avantage pour le SEO et l'expérience utilisateur.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-8">
+        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
+          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-editorial text-xl font-semibold text-white">Hébergement éco-responsable</h3>
+          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
+            Hébergement sur Cloudflare Pages, avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers.
           </p>
         </div>
 
         <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
           <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
             <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
             </svg>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Support et maintenance</h3>
+          <h3 class="font-editorial text-xl font-semibold text-white">Formation gestion du contenu</h3>
           <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            30 jours de support inclus après la mise en ligne. Options de maintenance mensuelle disponibles.
+            Une formation complète pour que vous puissiez modifier vos contenus et publier des articles en toute autonomie.
           </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 04 : Pourquoi Astro + Tailwind -->
+  <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+
+        <div class="lg:col-span-4">
+          <div class="lg:sticky lg:top-32">
+            <span class="styled-number">04</span>
+            <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Technologie</p>
+            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+              Pourquoi Astro + Tailwind ?
+            </h2>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8">
+          <div class="prose prose-lg dark:prose-invert max-w-none font-body">
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              Je développe vos sites avec <strong class="text-gray-900 dark:text-white">Astro</strong>, un framework moderne qui génère des sites statiques ultra-rapides. Combiné à <strong class="text-gray-900 dark:text-white">Tailwind CSS</strong>, c'est la stack idéale pour un site vitrine performant et maintenable.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6 mt-12">
+            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Performance</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Sites statiques ultra-rapides. Pas de JavaScript inutile envoyé au navigateur. Chargement quasi instantané.</p>
+            </div>
+
+            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">SEO natif</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">HTML statique pur, parfaitement indexable par Google. Pas de rendu côté client qui complexifie le crawl.</p>
+            </div>
+
+            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Éco-conception</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Empreinte carbone minimale. Des pages légères qui consomment peu de bande passante et d'énergie.</p>
+            </div>
+
+            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              </div>
+              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Sécurité</h3>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Pas de base de données exposée, pas de plugins vulnérables. Un site statique est quasiment inattaquable.</p>
+            </div>
+          </div>
+
+          <a href="/site-internet-eco-responsable/" class="inline-flex items-center gap-2 mt-8 font-body font-semibold text-green-700 dark:text-green-400 hover-underline">
+            En savoir plus sur l'éco-conception web
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 04: Fonctionnalités / Idées -->
-  <section class="py-24 lg:py-32 bg-white dark:bg-gray-950 overflow-hidden">
+  <!-- Section 05 : Étude de cas - LBG Expertise -->
+  <section class="py-24 lg:py-32 texture-bg">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="styled-number">04</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Fonctionnalités</p>
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="styled-number">05</span>
+        <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Étude de cas</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Des idées pour aller plus loin
+          LBG Expertise — Cabinet comptable à Marseille
         </h2>
         <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-          Votre site peut devenir bien plus qu'une simple vitrine. Voici quelques possibilités selon vos besoins.
+          Création d'un site vitrine professionnel pour le lancement d'un cabinet d'expertise comptable indépendant à Marseille.
         </p>
       </div>
 
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-
-        <!-- Card 1: Recrutement - Featured large card -->
-        <div class="lg:col-span-2 group relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 lg:p-10 overflow-hidden">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.15),transparent_50%)]"></div>
-          <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
-          <div class="relative">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/25 mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
+      <div class="mt-16 max-w-4xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 lg:p-12 border border-gray-100 dark:border-gray-700 shadow-xl">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white mb-4">Le projet</h3>
+              <p class="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
+                LBG Expertise avait besoin d'un site vitrine sobre et professionnel pour le lancement de son cabinet. Le site devait mettre en avant les compétences de l'expert-comptable, permettre un contact facile et offrir une gestion autonome du contenu.
+              </p>
+              <ul class="mt-6 space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Développé avec Astro + Tailwind CSS</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="font-body text-gray-600 dark:text-gray-300">PagesCMS (git-based) pour la gestion du blog</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Hébergé sur Cloudflare Pages</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="font-body text-gray-600 dark:text-gray-300">SEO optimisé dès le lancement</span>
+                </li>
+              </ul>
             </div>
-            <h3 class="font-editorial text-2xl lg:text-3xl font-bold text-white mb-4">Page recrutement / Marque employeur</h3>
-            <p class="font-body text-gray-300 text-lg leading-relaxed max-w-xl">
-              Attirez les talents avec une page dédiée. Le site est souvent la première chose qu'un candidat consulte avant l'entretien.
-            </p>
+            <div>
+              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white mb-4">Les résultats</h3>
+              <div class="space-y-6">
+                <div>
+                  <div class="stat-value text-3xl font-bold">&gt;80</div>
+                  <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Score PageSpeed sur toutes les pages</div>
+                </div>
+                <div>
+                  <div class="stat-value text-3xl font-bold">Top 10</div>
+                  <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Sur "expert-comptable Marseille" en quelques mois</div>
+                </div>
+                <div>
+                  <div class="stat-value text-3xl font-bold">Autonomie</div>
+                  <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Gestion complète du blog par la cliente</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Card 2: Devis interactif -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Système de devis interactif</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Formulaire multi-étapes pour qualifier les prospects et automatiser la prise de contact.
-          </p>
-        </div>
-
-        <!-- Card 3: Lead magnets -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Lead magnets & ressources</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Guides téléchargeables, process, contenus à valeur ajoutée pour capter des leads qualifiés.
-          </p>
-        </div>
-
-        <!-- Card 4: Espace client -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Lien espace client</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Accès direct à Pennylane, Cegid, ou tout autre outil utilisé par vos clients.
-          </p>
-        </div>
-
-        <!-- Card 5: Simulateurs -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Boîte à outils / Simulateurs</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Simulateurs (charges, TVA...), chiffres clés, outils pratiques pour vos visiteurs.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Partenaire digital -->
-  <section class="py-16 lg:py-20 texture-bg">
-    <div class="mx-auto max-w-5xl px-6 lg:px-8">
-      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-8 lg:p-12 border border-green-200 dark:border-green-800">
-        <div class="flex flex-col lg:flex-row lg:items-center gap-8">
-          <div class="flex-1">
-            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-              Un partenaire qui parle votre langage
-            </h3>
-            <p class="font-body text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-              Ancien <strong class="text-gray-900 dark:text-white">expert-comptable mémorialiste et auditeur financier</strong>, je comprends vos enjeux métier. Cette double casquette fait de moi un vrai partenaire pour l'évolution digitale de votre cabinet : simulateurs, modules IA, onboarding client... Votre site peut devenir bien plus qu'une vitrine.
-            </p>
-            <a href="/developpement-site-web-sur-mesure-astro/" class="inline-flex items-center gap-2 mt-6 font-body font-semibold text-green-700 dark:text-green-400 hover-underline">
-              Découvrir les possibilités
+          <div class="mt-10 pt-8 border-t border-gray-100 dark:border-gray-700">
+            <a href="/lbg-expertise-ec-marseille/" class="inline-flex items-center gap-2 font-body font-semibold text-green-700 dark:text-green-400 hover-underline">
+              Voir l'étude de cas complète
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </a>
           </div>
-          <div class="flex-shrink-0 hidden lg:block">
-            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg">
-              <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section Timeline -->
-  <section class="py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="styled-number">05</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Planning</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Refondre votre site en 8 semaines
-        </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-          Un planning réaliste et transparent pour une refonte sereine.
-        </p>
-      </div>
-
-      <div class="mt-16 max-w-4xl mx-auto">
-        <dl class="grid gap-8 md:grid-cols-3">
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-            <div class="flex gap-3 items-center text-green-700 dark:text-green-400">
-              <span class="font-editorial text-2xl font-bold">1.</span>
-              <dt class="tracking-tight">
-                <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white">Semaine 1-2 : audit et stratégie</h3>
-              </dt>
-            </div>
-            <dd class="mt-3">
-              <p class="font-body text-gray-600 dark:text-gray-300">
-                Analyse complète de votre site actuel, définition de la stratégie, validation des maquettes et de l'arborescence.
-              </p>
-            </dd>
-          </div>
-
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-            <div class="flex gap-3 items-center text-green-700 dark:text-green-400">
-              <span class="font-editorial text-2xl font-bold">2.</span>
-              <dt class="tracking-tight">
-                <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white">Semaine 3-6 : développement</h3>
-              </dt>
-            </div>
-            <dd class="mt-3">
-              <p class="font-body text-gray-600 dark:text-gray-300">
-                Développement du nouveau site, migration et optimisation des contenus, implémentation SEO. Points d'avancement hebdomadaires.
-              </p>
-            </dd>
-          </div>
-
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-            <div class="flex gap-3 items-center text-green-700 dark:text-green-400">
-              <span class="font-editorial text-2xl font-bold">3.</span>
-              <dt class="tracking-tight">
-                <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white">Semaine 7-8 : tests et mise en ligne</h3>
-              </dt>
-            </div>
-            <dd class="mt-3">
-              <p class="font-body text-gray-600 dark:text-gray-300">
-                Tests complets multi-appareils, mise en place des redirections 301, formation et bascule vers le nouveau site.
-              </p>
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Tarif -->
+  <!-- Section 06 : Tarifs -->
   <section class="py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -880,7 +902,7 @@ const breadcrumbStructuredData = {
         <span class="styled-number">06</span>
         <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Investissement</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-         Quel est le prix d'une refonte de site pour un cabinet ?
+          Combien coûte un site vitrine pour un cabinet ?
         </h2>
       </div>
 
@@ -890,16 +912,23 @@ const breadcrumbStructuredData = {
           <div class="p-8 lg:p-12">
 
             <div class="text-center">
-              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white">Forfait refonte site expert-comptable</h3>
+              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white">Forfait création site vitrine EC</h3>
               <div class="mt-6">
                 <span class="font-editorial text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white">À partir de 2 000€</span>
                 <span class="font-body text-gray-500 dark:text-gray-400 block mt-2">HT - Devis personnalisé selon les besoins du cabinet</span>
               </div>
             </div>
 
-            <div class="mt-8 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+            <div class="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-300 dark:border-yellow-700 flex items-center gap-3">
+              <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+              </svg>
+              <p class="font-body text-sm font-semibold text-yellow-800 dark:text-yellow-300">Réduction pour les adhérents au CJEC — me contacter pour en bénéficier.</p>
+            </div>
+
+            <div class="mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
               <p class="font-body text-sm text-gray-700 dark:text-gray-300">
-                <strong class="text-gray-900 dark:text-white">Chaque cabinet a des besoins spécifiques.</strong> Certains projets consistent simplement à porter un site existant sur Astro pour corriger les problèmes techniques et garantir l'évolutivité en conservant le design et les textes (ce qui peut être moins coûteux que les 2000euros). D'autres nécessitent une refonte complète : nouvelle identité visuelle, réécriture des contenus, restructuration de l'arborescence. Le devis s'adapte à votre situation.
+                <strong class="text-gray-900 dark:text-white">Chaque cabinet a des besoins spécifiques.</strong> Un site one page (+ page mentions légales obligatoire) démarre à 1 200€ HT. Un site multi-pages avec blog, simulateurs ou espace client sera naturellement plus conséquent. Le devis s'adapte à votre situation et à vos ambitions. Délai moyen : 6 semaines.
               </p>
             </div>
 
@@ -908,11 +937,7 @@ const breadcrumbStructuredData = {
               <ul class="space-y-3">
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Audit complet de votre site actuel</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Design moderne 100% sur mesure</span>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Design sur mesure 100% responsive</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
@@ -920,23 +945,19 @@ const breadcrumbStructuredData = {
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Migration et optimisation des contenus</span>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Blog intégré avec PagesCMS (git-based)</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Optimisation SEO complète + redirections 301</span>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Optimisation SEO complète</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Responsive (mobile, tablette, desktop)</span>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Hébergement éco-responsable (Cloudflare)</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Formation à l'utilisation</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">30 jours de support post-lancement</span>
+                  <span class="font-body text-gray-600 dark:text-gray-300">Formation à la gestion du contenu</span>
                 </li>
               </ul>
             </div>
@@ -988,7 +1009,7 @@ const breadcrumbStructuredData = {
         <span class="styled-number">07</span>
         <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">FAQ</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Questions sur la refonte de site EC
+          Questions sur la création de site EC
         </h2>
       </div>
 
@@ -996,90 +1017,95 @@ const breadcrumbStructuredData = {
 
         <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
           <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Combien coûte une refonte de site ?</span>
+            <span>Pourquoi un site vitrine et pas WordPress ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
           <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Une refonte de site expert-comptable démarre à 2 000€ HT. Le tarif final dépend de l'ampleur du projet : un simple portage sur Astro en conservant design et textes coûtera moins cher qu'une refonte complète avec nouvelle identité et réécriture des contenus.</p>
-            <p>Je vous propose toujours un devis détaillé et transparent après avoir analysé votre site actuel et compris vos objectifs.</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Quel est le délai pour refondre un site ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Comptez en moyenne 6 à 8 semaines pour une refonte complète. Ce délai inclut l'audit, la stratégie, le développement et les tests.</p>
-            <p>Votre site actuel reste en ligne pendant toute la durée du projet. La bascule se fait en quelques heures, sans interruption de service pour vos visiteurs.</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Mon site sera-t-il optimisé pour Google ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Absolument. L'optimisation SEO est au cœur de chaque refonte. Je mets en place :</p>
-            <ul class="list-disc list-inside space-y-1 ml-2">
-              <li>Une structure sémantique optimisée (balises H1-H6, meta descriptions...)</li>
-              <li>Des redirections 301 pour préserver votre référencement existant</li>
-              <li>Un sitemap XML et des données structurées</li>
-              <li>Des performances techniques excellentes (facteur de ranking Google)</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Que devient mon ancien site ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Votre ancien site reste en ligne pendant toute la phase de développement. Une fois le nouveau site validé et testé, la bascule se fait en remplaçant les fichiers sur votre hébergement.</p>
-            <p>Je conserve une sauvegarde de votre ancien site pendant 3 mois au cas où vous auriez besoin de récupérer des éléments.</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Puis-je garder mon domaine ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Oui, bien sûr ! Votre nom de domaine vous appartient et reste inchangé. C'est d'ailleurs essentiel pour préserver votre référencement et votre notoriété.</p>
-            <p>Si vous souhaitez changer de nom de domaine (rebranding), je peux également vous accompagner dans cette transition avec les redirections appropriées.</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Pourquoi Astro et pas WordPress ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>WordPress est parfait pour les blogs et sites nécessitant des mises à jour fréquentes par des non-techniciens. Mais pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs :</p>
+            <p>WordPress est une solution généraliste qui nécessite des mises à jour constantes, des plugins pour chaque fonctionnalité et une vigilance permanente sur la sécurité. Pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs :</p>
             <ul class="list-disc list-inside space-y-1 ml-2">
               <li>Des performances 10x supérieures (score PageSpeed &gt;90)</li>
-              <li>Une sécurité renforcée (pas de base de données à pirater, pas de plugins vulnérables)</li>
-              <li>Zéro maintenance technique (pas de mises à jour WordPress/plugins à gérer)</li>
+              <li>Une sécurité renforcée (pas de base de données à pirater)</li>
+              <li>Zéro maintenance technique (pas de mises à jour WordPress/plugins)</li>
               <li>Des coûts d'hébergement réduits</li>
             </ul>
-            <p>Votre site charge instantanément et vous n'avez plus à vous soucier des failles de sécurité.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+            <span>Puis-je modifier le contenu moi-même ?</span>
+            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+            <p>Oui. PagesCMS, un CMS git-based léger, est intégré à votre site. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos informations depuis une interface simple et intuitive, sans toucher au code. Pas de base de données supplémentaire : tout reste dans votre dépôt Git, dans une logique de frugalité.</p>
+            <p>Une formation est incluse dans la prestation pour vous rendre totalement autonome.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+            <span>Le site sera-t-il optimisé SEO ?</span>
+            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+            <p>Absolument. L'optimisation SEO est intégrée dès la conception. Je mets en place :</p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Une structure sémantique optimisée (balises H1-H6, meta descriptions...)</li>
+              <li>Un sitemap XML et des données structurées (JSON-LD)</li>
+              <li>Des performances techniques excellentes (facteur de ranking Google)</li>
+              <li>Des contenus optimisés pour vos mots-clés cibles</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+            <span>Quel hébergement recommandez-vous ?</span>
+            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+            <p>Je recommande Cloudflare Pages pour sa rapidité, sa fiabilité et son coût (gratuit pour la majorité des sites vitrines). L'hébergement est éco-responsable avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers générés par Astro.</p>
+            <p>Vos pages sont servies depuis le CDN le plus proche de vos visiteurs, garantissant des temps de chargement optimaux partout en France.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+            <span>Proposez-vous la maintenance ?</span>
+            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+            <p>Oui, je propose un forfait maintenance mensuel à partir de 30€/mois HT. Au-delà de la surveillance et des sauvegardes, la maintenance vous permet de bénéficier des avancées techniques d'Astro au fil des mises à jour du framework : View Transitions, optimisations d'images, nouvelles fonctionnalités de performance...</p>
+          </div>
+        </details>
+
+        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+            <span>Combien de pages sont incluses ?</span>
+            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+            <p>Le forfait de base inclut les pages essentielles d'un cabinet comptable :</p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Accueil</li>
+              <li>À propos / Équipe</li>
+              <li>Missions et expertises</li>
+              <li>Actualités / Blog</li>
+              <li>Contact</li>
+            </ul>
+            <p>Des pages supplémentaires (recrutement, simulateurs, espace client...) peuvent être ajoutées sur devis.</p>
           </div>
         </details>
 
@@ -1097,11 +1123,11 @@ const breadcrumbStructuredData = {
           <span class="styled-number">08</span>
           <p class="font-body text-sm font-semibold tracking-widest text-yellow-600 dark:text-yellow-500 uppercase mt-4">Prêt ?</p>
           <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
-            Prêt à refondre votre site ?
+            Prêt à créer votre site vitrine ?
           </h2>
 
           <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-8 leading-relaxed">
-            Votre site actuel mérite une seconde vie. Discutons de votre projet et voyons ensemble comment moderniser votre présence en ligne.
+            Votre cabinet mérite une présence en ligne à la hauteur de votre expertise. Discutons de votre projet et construisons ensemble votre site vitrine.
           </p>
 
           <ul class="mt-10 space-y-6">
@@ -1112,19 +1138,19 @@ const breadcrumbStructuredData = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Audit gratuit de votre site</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Je vous envoie un rapport détaillé des points à améliorer.</p>
+                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Devis gratuit et détaillé</h3>
+                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Je vous envoie un devis personnalisé avec planning et livrables clairement définis.</p>
               </div>
             </li>
             <li class="flex gap-4">
               <div class="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/50 flex items-center justify-center">
                 <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Devis détaillé sous 48h</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Planning et livrables clairement définis. Pas de surprise.</p>
+                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Réponse sous 48h</h3>
+                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Je reviens vers vous rapidement pour discuter de votre projet.</p>
               </div>
             </li>
             <li class="flex gap-4">
@@ -1184,25 +1210,25 @@ const breadcrumbStructuredData = {
             </div>
 
             <div>
-              <label for="website" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">URL de votre site actuel</label>
+              <label for="cabinet" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nom de votre cabinet</label>
               <input
-                id="website"
-                name="website"
-                type="url"
+                id="cabinet"
+                name="cabinet"
+                type="text"
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-                placeholder="https://www.votre-cabinet.fr"
+                placeholder="Cabinet Dupont & Associés"
               />
             </div>
 
             <div>
-              <label for="textarea" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Qu'est-ce qui ne vous convient plus ?</label>
+              <label for="textarea" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Décrivez votre projet</label>
               <textarea
                 id="textarea"
                 name="textarea"
                 rows="4"
                 required
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
-                placeholder="Design obsolète, site lent, pas visible sur Google..."
+                placeholder="Nouveau cabinet, besoin d'un site professionnel..."
               ></textarea>
             </div>
 
@@ -1219,13 +1245,13 @@ const breadcrumbStructuredData = {
               </label>
             </div>
 
-            <input type="hidden" name="source" value="refonte-site-expert-comptable" />
+            <input type="hidden" name="source" value="creation-site-vitrine-expert-comptable" />
 
             <button
               type="submit"
               class="w-full btn-shimmer py-4 px-6 rounded-xl text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 flex items-center justify-center gap-2"
             >
-              Demander mon audit gratuit
+              Demander mon devis gratuit
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>

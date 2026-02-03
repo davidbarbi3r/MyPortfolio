@@ -207,11 +207,11 @@ const getAppBlog = () => {
       },
     },
     tag: {
-      isEnabled: true,
+      isEnabled: false,
       pathname: 'tag',
       robots: {
         index: false,
-        follow: true,
+        follow: false,
       },
     },
   };

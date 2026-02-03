@@ -11,7 +11,7 @@ tags:
   - contentful
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/creation-site-vitrine-expert-comptable
+  canonical: https://www.davidbarbier.com/lbg-expertise-ec-marseille/
 ---
 
 **Étude de cas : site vitrine cabinet comptable** 
@@ -64,5 +64,4 @@ L'analyse avec PagesSpeedInsight montre de très bonnes performances du site, ta
 Le site a également été pensé pour avoir le plus faible impact écologique possible, tant pour la conception du site (peu de requêtes, build statique, taille du DOM faible) que pour le choix d'hébergement, le site est hébergé avec CloudFlare qui sont engagés dans une démarche écoresponsable, leurs datacenters sont alimentés en énergies renouvelables ce qui limite d'autant plus l'impact environnemental du site.
 [Rapport sur l'impact environnemental du site](https://www.websitecarbon.com/website/lbg-expertise-com/)
 
-N'hésitez pas à me contacter pour assurer la création de votre site vitrine éco-conçu et performant 
-[Me Contacter](https://www.davidbarbier.com/contact)
+Vous êtes expert-comptable et vous souhaitez un site vitrine performant et éco-conçu pour votre cabinet ? Découvrez mon [offre dédiée aux experts-comptables](https://www.davidbarbier.com/agence-web-expert-comptable/).

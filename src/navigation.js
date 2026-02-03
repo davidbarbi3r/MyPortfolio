@@ -9,29 +9,29 @@ export const getHeaderData = () => {
       },
       {
         text: 'A propos',
-        href: '/a-propos',
+        href: '/a-propos/',
       },
       {
         text: 'Experts-comptables',
         links: [
           { text: 'Agence Web EC', href: '/agence-web-expert-comptable/' },
-          { text: 'Création site EC', href: '/agence-web-expert-comptable/#offres' },
+          { text: 'Création site EC', href: '/agence-web-expert-comptable/creation-site-vitrine-ec/' },
           { text: 'Refonte site EC', href: '/agence-web-expert-comptable/refonte-site-internet/' },
           { text: 'SEO Expert-Comptable', href: '/agence-web-expert-comptable/consultant-seo-ec/' },
         ],
       },
     ],
-    actions: [{ type: 'button', text: 'Contact', href: '/contact' }],
+    actions: [{ type: 'button', text: 'Contact', href: '/contact/' }],
   };
 };
 
 export const getFooterData = () => {
   return {
     secondaryLinks: [
-      { text: 'A propos', href: '/a-propos' },
-      { text: 'Contact', href: '/contact' },
-      { text: 'Blog', href: '/blog' },
-      { text: 'Mentions légales', href: '/terms' },
+      { text: 'A propos', href: '/a-propos/' },
+      { text: 'Contact', href: '/contact/' },
+      { text: 'Blog', href: '/blog/' },
+      { text: 'Mentions légales', href: '/terms/' },
     ],
     socialLinks: [
       { ariaLabel: 'Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/daviddeveloppe' },

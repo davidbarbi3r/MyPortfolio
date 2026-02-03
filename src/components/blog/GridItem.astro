@@ -27,12 +27,13 @@ const image = (await findImage(post.image));
             alt={post.title}
             loading="lazy"
             decoding="async"
+            transition:name={`blog-image-${post.id}`}
           />
         </a>
       )
     }
   </div>
-  <h3 class="mb-2 text-xl font-bold leading-tight sm:text-2xl font-heading">
+  <h3 class="mb-2 text-xl font-bold leading-tight sm:text-2xl font-heading" transition:name={`blog-title-${post.id}`}>
     {
       !APP_BLOG?.post?.isEnabled ? (
         post.title

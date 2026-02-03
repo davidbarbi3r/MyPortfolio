@@ -12,7 +12,7 @@ tags:
   - SQLite (Turso DB)
   - cloudflare
 metadata:
-  canonical: https://www.davidbarbier.com/restodom
+  canonical: https://www.davidbarbier.com/restodom/
 ---
 
 **Création de site avec développement spécifique** 
@@ -73,5 +73,4 @@ Le site a également été pensé pour avoir le plus faible impact écologique p
 
 ## Et si c'était vous ?
 
-N'hésitez pas à me contacter pour assurer la création de votre projet 
-[Me Contacter](https://www.davidbarbier.com/contact)
+Vous avez un projet de site internet sur mesure ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/creation-site-internet-ajaccio/).

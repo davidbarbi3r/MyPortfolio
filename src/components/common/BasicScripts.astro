@@ -22,127 +22,127 @@ import { UI, I18N, SITE } from '~/utils/config';
     applyTheme('light');
   }
 
-  function attachEvent(selector, event, fn) {
-    const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
-    if (matches && matches.length) {
-      matches.forEach((elem) => {
-        elem.addEventListener(event, (e) => fn(e, elem), false);
+  function initScripts() {
+    // Nettoyer l'état du menu mobile
+    document.body.classList.remove("overflow-hidden");
+    document.getElementById("header")?.classList.remove("h-screen", "expanded", "bg-page");
+    document.querySelector("#header nav")?.classList.add("hidden");
+    document.querySelector("#header > div > div:last-child")?.classList.add("hidden");
+    var toggleMenuBtn = document.querySelector('[data-aw-toggle-menu]');
+    if (toggleMenuBtn) { toggleMenuBtn.classList.remove('expanded'); }
+
+    document.documentElement.classList.add('motion-safe:scroll-smooth');
+
+    // Cloner et remplacer les éléments pour supprimer les anciens listeners
+    document.querySelectorAll('[data-aw-toggle-menu]').forEach(function(el) {
+      var clone = el.cloneNode(true);
+      el.parentNode.replaceChild(clone, el);
+    });
+
+    document.querySelectorAll('#header nav').forEach(function(el) {
+      var clone = el.cloneNode(true);
+      el.parentNode.replaceChild(clone, el);
+    });
+
+    // Toggle menu mobile
+    document.querySelectorAll('[data-aw-toggle-menu]').forEach(function(elem) {
+      elem.addEventListener('click', function () {
+        document.body.classList.toggle("overflow-hidden");
+        document.getElementById("header")?.classList.toggle("h-screen");
+        document.getElementById("header")?.classList.toggle("expanded");
+        document.getElementById("header")?.classList.toggle("bg-page");
+        document.querySelector("#header nav")?.classList.toggle("hidden");
+        document.querySelector("#header > div > div:last-child")?.classList.toggle("hidden");
       });
-    }
-  }
-
-  window.onload = function () {
-    let lastKnownScrollPosition = window.scrollY;
-    let ticking = true;
-
-    attachEvent('#header nav', 'click', function () {
-      document.querySelector("[data-aw-toggle-menu]")?.classList.remove("expanded");
-      document.body.classList.remove("overflow-hidden");
-      document.getElementById("header")?.classList.remove("h-screen");
-      document.getElementById("header")?.classList.remove("expanded");
-      document.getElementById("header")?.classList.remove("bg-page");
-      document.querySelector("#header nav")?.classList.add("hidden");
-      document.querySelector("#header > div > div:last-child")?.classList.add("hidden");
     });
 
-    attachEvent('[data-aw-toggle-menu]', 'click', function () {
-      document.body.classList.toggle("overflow-hidden");
-      document.getElementById("header")?.classList.toggle("h-screen");
-      document.getElementById("header")?.classList.toggle("expanded");
-      document.getElementById("header")?.classList.toggle("bg-page");
-      document.querySelector("#header nav")?.classList.toggle("hidden");
-      document.querySelector("#header > div > div:last-child")?.classList.toggle("hidden");
+    // Fermer menu au clic sur un lien de navigation
+    document.querySelectorAll('#header nav').forEach(function(elem) {
+      elem.addEventListener('click', function () {
+        document.querySelector("[data-aw-toggle-menu]")?.classList.remove("expanded");
+        document.body.classList.remove("overflow-hidden");
+        document.getElementById("header")?.classList.remove("h-screen", "expanded", "bg-page");
+        document.querySelector("#header nav")?.classList.add("hidden");
+        document.querySelector("#header > div > div:last-child")?.classList.add("hidden");
+      });
     });
 
-    attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-      if (defaultTheme.endsWith(':only')) {
-        return;
-      }
-      document.documentElement.classList.toggle('dark');
-      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    // Toggle dark mode
+    document.querySelectorAll('[data-aw-toggle-color-scheme]').forEach(function(elem) {
+      elem.addEventListener('click', function () {
+        if (defaultTheme.endsWith(':only')) { return; }
+        document.documentElement.classList.toggle('dark');
+        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      });
     });
 
+    // Social share
+    document.querySelectorAll('[data-aw-social-share]').forEach(function(elem) {
+      elem.addEventListener('click', function () {
+        var network = elem.getAttribute('data-aw-social-share');
+        var url = encodeURIComponent(elem.getAttribute('data-aw-url'));
+        var text = encodeURIComponent(elem.getAttribute('data-aw-text'));
 
-    // attachEvent('[data-aw-select-language]', 'change', function (_, elem) {
-    //   const newLang = elem.value === "fr" ? "" : `/${elem.value}`;
-    //   const oldUrl = window.location.href;
-    //   const supportedLangs = Object.keys(locales);
+        var href;
+        switch (network) {
+          case 'facebook':
+            href = 'https://www.facebook.com/sharer.php?u=' + url;
+            break;
+          case 'twitter':
+            href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
+            break;
+          case 'linkedin':
+            href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + text;
+            break;
+          case 'whatsapp':
+            href = 'https://wa.me/?text=' + text + '%20' + url;
+            break;
+          case 'mail':
+            href = 'mailto:?subject=%22' + text + '%22&body=' + text + '%20' + url;
+            break;
+          default:
+            return;
+        }
 
-    //   const urlWithoutOrigin = oldUrl.replace(window.location.origin, '');
-    //   const urlWithoutOriginLang = supportedLangs.reduce((acc, lang) => {
-    //     return acc.replace(`/${lang}`, '');
-    //   }, urlWithoutOrigin)
-    //   const newUrlWithoutTrailingSlash = urlWithoutOriginLang.replace(/\/$/, '');
-
-    //   const newUrl = `${newLang}${newUrlWithoutTrailingSlash}${trailingSlash ? '/' : ''}`;
-    //   window.location.pathname = newUrl;
-    // });
-
-    attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
-      const network = elem.getAttribute('data-aw-social-share');
-      const url = encodeURIComponent(elem.getAttribute('data-aw-url'));
-      const text = encodeURIComponent(elem.getAttribute('data-aw-text'));
-
-      let href;
-      switch (network) {
-        case 'facebook':
-          href = `https://www.facebook.com/sharer.php?u=${url}`;
-          break;
-        case 'twitter':
-          href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-          break;
-        case 'linkedin':
-          href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`;
-          break;
-        case 'whatsapp':
-          href = `https://wa.me/?text=${text}%20${url}`;
-          break;
-        case 'mail':
-          href = `mailto:?subject=%22${text}%22&body=${text}%20${url}`;
-          break;
-
-        default:
-          return;
-      }
-
-      const newlink = document.createElement('a');
-      newlink.target = '_blank';
-      newlink.href = href;
-      newlink.click();
+        var newlink = document.createElement('a');
+        newlink.target = '_blank';
+        newlink.href = href;
+        newlink.click();
+      });
     });
+
+    // Scroll header style
+    var lastKnownScrollPosition = window.scrollY;
+    var ticking = true;
 
     function appyHeaderStylesOnScroll() {
-      const header = document.getElementById('header');
+      var header = document.getElementById('header');
+      if (!header) return;
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
-        document.getElementById('header').classList.add('scroll');
+        header.classList.add('scroll');
       } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
-        document.getElementById('header').classList.remove('scroll');
+        header.classList.remove('scroll');
       }
       ticking = false;
     }
     appyHeaderStylesOnScroll();
 
-    attachEvent([document], 'scroll', function () {
+    // Éviter d'empiler les scroll listeners
+    if (window._awScrollHandler) {
+      document.removeEventListener('scroll', window._awScrollHandler);
+    }
+    window._awScrollHandler = function () {
       lastKnownScrollPosition = window.scrollY;
-
       if (!ticking) {
-        window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(function () {
           appyHeaderStylesOnScroll();
         });
         ticking = true;
       }
-    });
-  };
+    };
+    document.addEventListener('scroll', window._awScrollHandler);
+  }
 
-  window.onpageshow = function () {
-    document.documentElement.classList.add('motion-safe:scroll-smooth');
-    const elem = document.querySelector('[data-aw-toggle-menu]');
-    if (elem) {
-      elem.classList.remove('expanded');
-    }
-    document.body.classList.remove("overflow-hidden");
-    document.getElementById("header")?.classList.remove("h-screen");
-    document.getElementById("header")?.classList.remove("expanded");
-    document.querySelector("#header nav")?.classList.add("hidden");
-  };
+  // Écouter astro:page-load (se déclenche aussi au premier chargement)
+  document.addEventListener('astro:page-load', initScripts);
 </script>

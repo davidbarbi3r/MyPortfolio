@@ -11,7 +11,7 @@ tags:
   - firebase
   - open-api
 metadata:
-  canonical: https://www.davidbarbier.com/matchings
+  canonical: https://www.davidbarbier.com/matchings/
 ---
 
 **Développement spécifique** 
