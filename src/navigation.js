@@ -18,6 +18,7 @@ export const getHeaderData = () => {
           { text: 'Création site EC', href: '/agence-web-expert-comptable/creation-site-vitrine-ec/' },
           { text: 'Refonte site EC', href: '/agence-web-expert-comptable/refonte-site-internet/' },
           { text: 'SEO Expert-Comptable', href: '/agence-web-expert-comptable/consultant-seo-ec/' },
+          { text: 'Développeur EC', href: '/agence-web-expert-comptable/developpeur-specialise/' },
         ],
       },
     ],
