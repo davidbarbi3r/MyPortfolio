@@ -1,7 +1,7 @@
 ---
 publishDate: 2025-02-10T00:00:00Z
 title: "Augmenter la visibilité du site internet de son cabinet d'expertise comptable : la base du netlinking"
-excerpt: "Découvrez comment obtenir gratuitement des backlinks puissants pour votre cabinet d'expertise comptable. Les annuaires institutionnels sont une mine d'or SEO que la plupart des cabinets négligent."
+excerpt: "Découvrez comment obtenir gratuitement des backlinks puissants pour votre cabinet d'expertise comptable. Les annuaires institutionnels sont une mine d'or SEO négligée"
 image: '~/assets/images/liens-site-expert-comptable.png'
 category: Blog
 tags:
@@ -15,7 +15,7 @@ metadata:
 ---
 
 À l'époque, quand je préparais mon DSCG et que je cherchais une alternance, j'ai épluché l'annuaire des experts-comptables de ma région (limousin). Il y avais que des fiches sans photo de profil (ou avec des photos très datées) et pas de lien vers le site du cabinet. 
-À l'époque, je ne mesurais pas les implications. Aujourd'hui, quand un expert-comptable me demande conseil pour sa visibilité en ligne, la première chose que je regarde c'est son site. La deuxième, c'est la présence de liens vers ce site sur les annuaires professionnels.
+A ce moment, je ne mesurais pas les implications en terme de référencement. Aujourd'hui, quand un expert-comptable me demande conseil pour sa visibilité en ligne, la première chose que je regarde c'est son site. La deuxième, c'est la présence de liens vers ce site sur les annuaires professionnels.
 
 Et le constat n'a pas beaucoup changé : la majorité des cabinets passent à côté de backlinks gratuits, légitimes, et puissants pour leur référencement.
 
