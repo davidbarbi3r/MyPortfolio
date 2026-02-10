@@ -10,10 +10,11 @@ tags:
   - expert-comptable
   - backlinks
 metadata:
+  title: "Visibilité site cabinet comptable : netlinking gratuit"
   canonical: https://www.davidbarbier.com/netlinking-cabinet-expertise-comptable/
 ---
 
-À l'époque, quand je préparais mon DSCG et que je cherchais une alternance, j'ai épluché l'annuaire des experts-comptables de ma région (limousin). Des fiches sans photo de profil (ou avec des photos très datées), sans lien vers le site du cabinet. 
+À l'époque, quand je préparais mon DSCG et que je cherchais une alternance, j'ai épluché l'annuaire des experts-comptables de ma région (limousin). Il y avais que des fiches sans photo de profil (ou avec des photos très datées) et pas de lien vers le site du cabinet. 
 À l'époque, je ne mesurais pas les implications. Aujourd'hui, quand un expert-comptable me demande conseil pour sa visibilité en ligne, la première chose que je regarde c'est son site. La deuxième, c'est la présence de liens vers ce site sur les annuaires professionnels.
 
 Et le constat n'a pas beaucoup changé : la majorité des cabinets passent à côté de backlinks gratuits, légitimes, et puissants pour leur référencement.
@@ -23,10 +24,9 @@ Et le constat n'a pas beaucoup changé : la majorité des cabinets passent à c�
 | Backlink à obtenir | Difficulté | Impact SEO | Action |
 |-------------------|------------|------------|--------|
 | Annuaire national de l'Ordre | Très facile | Fort | Compléter sa fiche sur Comptexpert |
-| Annuaire régional de l'Ordre | Facile | Moyen-Fort | Vérifier sa fiche auprès du Conseil régional |
 | Annuaire CNCC (si CAC) | Facile | Fort | Compléter sa fiche commissaire aux comptes |
 
-Ces 3 backlinks sont gratuits, légitimes et ultra-pertinents pour Google. La plupart des cabinets ne les exploitent pas.
+Ces backlinks sont gratuits, légitimes et ultra-pertinents pour Google. La plupart des cabinets ne les exploitent pas.
 
 ---
 
@@ -46,33 +46,27 @@ Les experts-comptables ont un avantage énorme : ils ont accès à des liens à 
 
 ---
 
-## Les 3 backlinks institutionnels à verrouiller
+## Les backlinks institutionnels à verrouiller
 
 Ces liens ne sont pas spectaculaires, mais ils font partie des plus puissants pour un cabinet.
 
 ### 1. L'annuaire officiel de l'Ordre des experts-comptables
 
-L'annuaire national de l'Ordre est le registre officiel des cabinets. Pour Google et pour les internautes, c'est une source très fiable (site institutionnel), très pertinente (100% expertise comptable) et parfaitement cohérente avec votre activité.
+L'[annuaire national de l'Ordre](https://annuaire.experts-comptables.org/) est le registre officiel des cabinets. Pour Google et pour les internautes, c'est une source très fiable (site institutionnel), très pertinente (100% expertise comptable) et parfaitement cohérente avec votre activité.
 
 C'est comme si la maison mère de votre profession affichait une plaque "Cabinet recommandé" avec un lien direct vers votre site.
 
-### 2. Les annuaires régionaux de l'Ordre
+### 2. L'annuaire de la CNCC (si vous êtes commissaire aux comptes)
 
-En plus de l'annuaire national, plusieurs Conseils régionaux maintiennent leur propre annuaire. Chaque fiche cabinet y apparaît avec nom, adresse, contact, et parfois un lien vers votre site.
-
-Ce backlink renforce votre ancrage local aux yeux de Google. Un cabinet réel, dans une région précise, avec une présence cohérente sur les annuaires officiels.
-
-### 3. L'annuaire de la CNCC (si vous êtes commissaire aux comptes)
-
-Si votre cabinet exerce des missions de commissariat aux comptes, vous pouvez apparaître dans l'annuaire de la Compagnie Nationale des Commissaires aux Comptes.
+Si votre cabinet exerce des missions de commissariat aux comptes, vous pouvez apparaître dans l'[annuaire de la CNCC](https://annuaire.cncc.fr/).
 
 C'est une couche supplémentaire d'autorité : autre organisme officiel, autre annuaire reconnu, autre backlink de qualité.
 
 ### Ce qu'il faut faire sur chaque fiche
 
-La démarche est la même pour les trois annuaires :
+La démarche est la même pour les deux annuaires :
 
-1. Connectez-vous à votre espace (Comptexpert pour l'Ordre national, site du Conseil régional, portail CNCC)
+1. Connectez-vous à votre espace (Comptexpert pour l'Ordre, portail CNCC pour les CAC)
 2. Vérifiez que l'URL de votre site est bien renseignée
 3. Mettez à jour vos coordonnées (adresse, téléphone, email)
 4. Ajoutez une photo de profil professionnelle et votre logo
@@ -104,7 +98,7 @@ Dans d'autres secteurs, des entreprises paient plusieurs centaines d'euros pour 
 
 ## En conclusion
 
-Avant de penser à acheter des liens ou à négocier des articles sponsorisés, un cabinet d'expertise comptable devrait verrouiller ses backlinks institutionnels : Ordre national, Ordre régional, CNCC.
+Avant de penser à acheter des liens ou à négocier des articles sponsorisés, un cabinet d'expertise comptable devrait verrouiller ses backlinks institutionnels : Ordre national et CNCC si vous êtes commissaire aux comptes.
 
 C'est rapide à mettre en place, parfaitement légitime, et c'est exactement le type de signal que Google attend d'un cabinet sérieux.
 
