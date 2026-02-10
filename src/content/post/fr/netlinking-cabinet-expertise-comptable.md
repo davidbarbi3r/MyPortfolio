@@ -56,6 +56,8 @@ L'[annuaire national de l'Ordre](https://annuaire.experts-comptables.org/) est l
 
 C'est comme si la maison mère de votre profession affichait une plaque "Cabinet recommandé" avec un lien direct vers votre site.
 
+Exemple d'une [fiche oec bien complétée](https://annuaire.experts-comptables.org/expert-comptable/39131-odacio-conseils-allauch-13190).
+
 ### 2. L'annuaire de la CNCC (si vous êtes commissaire aux comptes)
 
 Si votre cabinet exerce des missions de commissariat aux comptes, vous pouvez apparaître dans l'[annuaire de la CNCC](https://annuaire.cncc.fr/).
