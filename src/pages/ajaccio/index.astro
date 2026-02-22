@@ -1,0 +1,464 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import Image from '~/components/common/Image.astro';
+
+const metadata = {
+  title: 'David Barbier | Concepteur de sites web et consultant SEO à Ajaccio',
+  description:
+    'Concepteur de sites web freelance à Ajaccio. Création de site internet sur-mesure et référencement SEO en Corse. 13 Boulevard Sampiero, 20000 Ajaccio. 06.23.56.52.99',
+};
+
+// JSON-LD LocalBusiness schema
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.davidbarbier.com/ajaccio/#localbusiness",
+  "name": "David Barbier | Concepteur de sites web à Ajaccio",
+  "image": "https://www.davidbarbier.com/_astro/DSCF7551-3.webp",
+  "url": "https://www.davidbarbier.com/ajaccio/",
+  "telephone": "+33623565299",
+  "email": "contact@davidbarbier.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "13 Boulevard Sampiero",
+    "addressLocality": "Ajaccio",
+    "postalCode": "20000",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9192043,
+    "longitude": 8.7386439
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.9192043,
+      "longitude": 8.7386439
+    },
+    "geoRadius": "50000"
+  },
+  "sameAs": [
+    "https://twitter.com/daviddeveloppe",
+    "https://www.linkedin.com/in/dbarbier/",
+    "https://www.instagram.com/daviddeveloppe/",
+    "https://www.facebook.com/daviddeveloppe",
+    "https://www.malt.fr/profile/davidbarbier",
+    "https://github.com/davidbarbi3r"
+  ],
+  "priceRange": "€€"
+};
+
+// JSON-LD Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.davidbarbier.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ajaccio",
+      "item": "https://www.davidbarbier.com/ajaccio/"
+    }
+  ]
+};
+
+const services = [
+  {
+    title: "Création site internet",
+    description: "Site vitrine sur-mesure, responsive et optimisé SEO pour votre activité en Corse.",
+    href: "/creation-site-internet-ajaccio/",
+    icon: "tabler:device-desktop"
+  },
+  {
+    title: "Consultant SEO",
+    description: "Référencement naturel pour améliorer votre visibilité sur Google en Corse.",
+    href: "/consultant-seo-ajaccio/",
+    icon: "tabler:chart-line"
+  }
+];
+
+// Featured testimonial (center, large)
+const featuredTestimonial = {
+  quote: "J'ai rencontré David Barbier par hasard (par mon expert comptable), malgré mes doutes initiaux à confier mon projet à un inconnu, le courant est passé immédiatement. Travailler avec lui a été très vite une évidence. Il est très professionnel, à l'écoute, et prend le temps de s'intégrer parfaitement au projet, ce qui est extrêmement rassurant. J'ai bénéficié d'excellents conseils tout au long du projet, même le tarif est raisonnable. Du début à la mise en ligne du site, je suis totalement satisfait de la qualité de son travail, un rendu final exceptionnel au delà de mes attentes.",
+  name: "William",
+  role: "Winvias",
+  initial: "W"
+};
+
+// Left column testimonials
+const leftTestimonials = [
+  {
+    quote: "David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet. Il a su comprendre mes attentes et proposer des solutions adaptées. Le suivi est sérieux et il reste disponible quand on a besoin. Vous pouvez lui faire confiance les yeux fermés !",
+    name: "Matthias",
+    role: "Odacio Conseils",
+    initial: "M"
+  },
+  {
+    quote: "Très à l'écoute, très professionnel. Service parfait.",
+    name: "Antoine",
+    role: "Endoajaccio",
+    initial: "A"
+  }
+];
+
+// Right column testimonials
+const rightTestimonials = [
+  {
+    quote: "David a réalisé un audit de mon site internet dont j'ai fait la réalisation en autonomie de façon un peu bancale. David m'a apporté un état des lieux très clair et précis quant à la façon d'améliorer le référencement et la performance. David a apporté aussi du calme, de la douceur et une bonne compréhension globale de mes besoins pour le site. C'est un vrai plus pour moi que de travailler avec un professionnel serein.",
+    name: "Véronique",
+    role: "La voie des sens",
+    initial: "V"
+  },
+  {
+    quote: "Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet REST'Ô DOM. Son écoute, et son professionnalisme ont permis la bonne exécution du site. La collaboration se poursuit à l'heure actuelle, car il est SEO également me permettant ainsi de gagner grandement en visibilité grâce à ses compétences.",
+    name: "Cédric",
+    role: "Rest'ô Dom",
+    initial: "C"
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- 1. Hero Section -->
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <!-- Badge localisation -->
+        <div class="mt-8 sm:mt-16 lg:mt-8">
+          <span class="inline-flex items-center">
+            <span class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8">
+              <Icon name="tabler:map-pin" class="inline mr-1 w-4 h-4" />
+              Ajaccio, Corse-du-Sud
+            </span>
+          </span>
+        </div>
+
+        <!-- Titre principal H1 -->
+        <h1 class="mt-4 text-pretty font-bauhaus text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl dark:text-white">
+          David Barbier | Concepteur de sites web à Ajaccio
+        </h1>
+
+        <!-- Description -->
+        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Développeur web freelance basé à Ajaccio, je vous accompagne dans la création de votre site internet professionnel et l'amélioration de votre visibilité sur Google en Corse.
+        </p>
+
+        <!-- NAP visible -->
+        <address class="mt-8 not-italic bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
+          <p class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
+            <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
+            13 Boulevard Sampiero, 20000 Ajaccio
+          </p>
+          <p class="text-lg text-green-800 dark:text-green-200">
+            <Icon name="tabler:phone" class="inline mr-2 w-5 h-5" />
+            <a href="tel:+33623565299" class="hover:underline">06 23 56 52 99</a>
+          </p>
+        </address>
+
+        <!-- Boutons CTA -->
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="/contact/"
+            class="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+          >
+            Me contacter
+          </a>
+          <a
+            href="https://share.google/MONr27mpnyXKZltBo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 flex items-center gap-2"
+          >
+            <Icon name="tabler:brand-google" class="w-5 h-5" />
+            Voir sur Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+          <Image
+            src={HeroImage}
+            alt="David Barbier - Développeur web à Ajaccio"
+            class="w-[28rem] rounded-xl shadow-xl ring-1 ring-gray-400/10"
+            widths={[400, 768]}
+            sizes="(max-width: 768px) 100vw, 400px"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Services Section -->
+  <section class="relative overflow-hidden bg-white pt-16 pb-32 dark:bg-gray-900">
+    <!-- Création de site internet -->
+    <div class="relative">
+      <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
+        <div class="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:px-0 lg:py-16">
+          <div>
+            <div>
+              <span class="flex size-12 items-center justify-center rounded-xl bg-green-600">
+                <Icon name="tabler:code" class="size-8 text-white" />
+              </span>
+            </div>
+            <div class="mt-6">
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Création de site internet à Ajaccio</h2>
+              <p class="mt-4 text-lg text-gray-500 dark:text-gray-300">
+                Développeur web freelance basé à Ajaccio, je conçois des sites internet sur-mesure pour les entreprises corses. WordPress, Astro, ou développement custom : chaque projet est adapté à vos besoins et à votre budget.
+              </p>
+              <p class="mt-4 text-lg text-gray-500 dark:text-gray-300">
+                Site vitrine, e-commerce, ou application web : je vous accompagne de la conception à la mise en ligne. Design responsive, performances optimisées, et un site pensé pour convertir vos visiteurs en clients.
+              </p>
+              <div class="mt-6">
+                <a href="/creation-site-internet-ajaccio/" class="inline-flex rounded-lg bg-green-600 px-4 py-1.5 text-base/7 font-semibold text-white shadow-xs ring-1 ring-green-600 hover:bg-green-700 hover:ring-green-700">
+                  Découvrir mes offres
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 border-t border-gray-200 pt-6 dark:border-gray-700">
+            <blockquote>
+              <div>
+                <p class="text-base text-gray-500 dark:text-gray-400">&ldquo;David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet.&rdquo;</p>
+              </div>
+              <footer class="mt-3">
+                <div class="flex items-center space-x-3">
+                  <div class="flex size-6 items-center justify-center rounded-full bg-green-100 text-xs font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">M</div>
+                  <div class="text-base font-medium text-gray-700 dark:text-gray-300">Matthias, Odacio Conseils</div>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-12 sm:mt-16 lg:mt-0">
+          <div class="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
+            <Image
+              src={HeroImage}
+              alt="Création de site internet à Ajaccio"
+              class="w-full rounded-xl shadow-xl ring-1 ring-black/5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consultant SEO -->
+    <div class="mt-24">
+      <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
+        <div class="mx-auto max-w-xl px-6 lg:col-start-2 lg:mx-0 lg:max-w-none lg:px-0 lg:py-32">
+          <div>
+            <div>
+              <span class="flex size-12 items-center justify-center rounded-xl bg-green-600">
+                <Icon name="tabler:chart-line" class="size-8 text-white" />
+              </span>
+            </div>
+            <div class="mt-6">
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Consultant SEO à Ajaccio</h2>
+              <p class="mt-4 text-lg text-gray-500 dark:text-gray-300">
+                Être visible sur Google en Corse, c'est essentiel pour attirer des clients locaux. En tant que consultant SEO à Ajaccio, j'optimise votre site pour apparaître dans les premiers résultats de recherche sur vos mots-clés stratégiques.
+              </p>
+              <p class="mt-4 text-lg text-gray-500 dark:text-gray-300">
+                Audit technique, optimisation on-page, stratégie de contenu et netlinking : je mets en place une stratégie SEO complète pour développer votre visibilité et générer du trafic qualifié vers votre site.
+              </p>
+              <div class="mt-6">
+                <a href="/consultant-seo-ajaccio/" class="inline-flex rounded-lg bg-green-600 px-4 py-1.5 text-base/7 font-semibold text-white shadow-xs ring-1 ring-green-600 hover:bg-green-700 hover:ring-green-700">
+                  Booster ma visibilité
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 border-t border-gray-200 pt-6 dark:border-gray-700">
+            <blockquote>
+              <div>
+                <p class="text-base text-gray-500 dark:text-gray-400">&ldquo;David m'a apporté un état des lieux très clair et précis quant à la façon d'améliorer le référencement et la performance de mon site.&rdquo;</p>
+              </div>
+              <footer class="mt-3">
+                <div class="flex items-center space-x-3">
+                  <div class="flex size-6 items-center justify-center rounded-full bg-green-100 text-xs font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">V</div>
+                  <div class="text-base font-medium text-gray-700 dark:text-gray-300">Véronique, La voie des sens</div>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-12 sm:mt-16 lg:col-start-1 lg:mt-0">
+          <div class="-ml-48 pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
+            <Image
+              src={HeroImage}
+              alt="Consultant SEO à Ajaccio - Référencement Google"
+              class="w-full rounded-xl shadow-xl ring-1 ring-black/5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Avis Section -->
+  <section class="relative isolate bg-white pb-32 pt-24 sm:pt-32 dark:bg-gray-900">
+    <div class="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl" aria-hidden="true">
+      <div class="ml-[max(50%,38rem)] aspect-[1313/771] w-[82.0625rem] bg-gradient-to-tr from-green-300 to-green-600" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+    <div class="absolute inset-x-0 top-0 -z-10 flex transform-gpu overflow-hidden pt-32 opacity-25 blur-3xl sm:pt-40 xl:justify-end" aria-hidden="true">
+      <div class="ml-[-22rem] aspect-[1313/771] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] bg-gradient-to-tr from-green-300 to-green-600 xl:mr-[calc(50%-12rem)] xl:ml-0" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-base/7 font-semibold text-green-600 dark:text-green-400">Avis clients</h2>
+        <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Ce que mes clients en Corse disent</p>
+      </div>
+
+      <!-- Avis principal (featured) - pleine largeur en haut -->
+      <figure class="mx-auto mt-16 max-w-4xl rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800 dark:ring-white/10 sm:mt-20">
+        <blockquote class="p-6 text-sm font-semibold tracking-tight text-gray-900 sm:p-8 sm:text-base/6 dark:text-white">
+          <p>"{featuredTestimonial.quote}"</p>
+        </blockquote>
+        <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-8 py-6 sm:flex-nowrap dark:border-white/10">
+          <div class="flex size-12 items-center justify-center rounded-full bg-green-100 text-lg font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+            {featuredTestimonial.initial}
+          </div>
+          <div class="flex-auto">
+            <div class="text-base font-semibold dark:text-white">{featuredTestimonial.name}</div>
+            <div class="text-gray-600 dark:text-gray-400">{featuredTestimonial.role}</div>
+          </div>
+          <div class="flex gap-0.5 text-green-600 dark:text-green-400">
+            {[1, 2, 3, 4, 5].map(() => (
+              <svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+              </svg>
+            ))}
+          </div>
+        </figcaption>
+      </figure>
+
+      <!-- Grille des autres avis -->
+      <div class="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-6 text-sm/6 text-gray-900 sm:grid-cols-2 lg:grid-cols-4 dark:text-gray-100">
+        {[...leftTestimonials, ...rightTestimonials].map((testimonial) => (
+          <figure class="flex flex-col justify-between rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800 dark:ring-white/10">
+            <blockquote class="text-gray-900 dark:text-white">
+              <p>"{testimonial.quote}"</p>
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-x-4">
+              <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+                {testimonial.initial}
+              </div>
+              <div>
+                <div class="font-semibold dark:text-white">{testimonial.name}</div>
+                <div class="text-gray-600 dark:text-gray-400">{testimonial.role}</div>
+              </div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <!-- Boutons avis Google -->
+      <div class="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-4">
+        <a
+          href="https://share.google/MONr27mpnyXKZltBo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-x-2 rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+        >
+          <Icon name="tabler:star" class="size-5" />
+          Voir tous les avis Google
+        </a>
+        <a
+          href="https://share.google/MONr27mpnyXKZltBo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-x-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-white dark:ring-gray-700"
+        >
+          <Icon name="tabler:pencil" class="size-5" />
+          Laisser un avis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA Section -->
+  <section class="py-16 sm:py-24 bg-green-600">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Un projet web en Corse ?
+        </h2>
+        <p class="mt-4 text-lg text-green-100">
+          Discutons de votre projet et trouvons la solution adaptée à vos besoins.
+        </p>
+        <div class="mt-8">
+          <a
+            href="/contact/"
+            class="rounded-md bg-white px-8 py-4 text-sm font-semibold text-green-600 shadow-sm hover:bg-green-50 transition-colors"
+          >
+            Prendre rendez-vous
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Google Maps Section -->
+  <section class="w-full">
+    <div class="bg-gray-900 py-6">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-center sm:text-left">
+            <h2 class="text-xl font-semibold text-white">
+              <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
+              13 Boulevard Sampiero, 20000 Ajaccio
+            </h2>
+            <p class="text-gray-400 mt-1">
+              <Icon name="tabler:calendar" class="inline mr-1 w-4 h-4" />
+              Sur rendez-vous uniquement
+            </p>
+          </div>
+          <a
+            href="tel:+33623565299"
+            class="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 flex items-center gap-2"
+          >
+            <Icon name="tabler:phone" class="w-5 h-5" />
+            06 23 56 52 99
+          </a>
+        </div>
+      </div>
+    </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.8!2d8.7386439!3d41.9192043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da899c0bae7e07%3A0x0!2s13%20Boulevard%20Sampiero%2C%2020000%20Ajaccio!5e0!3m2!1sfr!2sfr!4v1699999999999!5m2!1sfr!2sfr"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Localisation David Barbier - Développeur web à Ajaccio"
+      class="w-full"
+    ></iframe>
+  </section>
+</Layout>

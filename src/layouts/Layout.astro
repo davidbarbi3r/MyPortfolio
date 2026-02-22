@@ -41,41 +41,6 @@ const reviewStructuredData = {
   }
 };
 
-const professionalServiceStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "David Barbier | Consultant SEO et site internet sur-mesure",
-  "image": "https://www.davidbarbier.com/_astro/DSCF7551-3.be5ZkdMv_13q9M0.webp",
-  "@id": "https://www.davidbarbier.com/_astro/DB.bKxHqj6M_1y9u5E.avif",
-  "url": "https://www.davidbarbier.com",
-  "telephone": "0623565299",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "13 boulevard Sampiero",
-    "addressLocality": "Ajaccio",
-    "postalCode": "20000",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.8352862,
-    "longitude": 1.2524095
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Saturday",
-      "Friday",
-      "Thursday",
-      "Wednesday",
-      "Tuesday",
-      "Monday",
-      "Sunday"
-    ],
-    "opens": "00:00",
-    "closes": "23:59"
-  } 
-}
 ---
 
 <!DOCTYPE html>
@@ -93,7 +58,6 @@ const professionalServiceStructuredData = {
     <script defer src="https://umami.davidbarbier.com/script.js" data-domains="davidbarbier.com, www.davidbarbier.com" data-website-id="49aa15ee-745e-47db-9312-f8114569b462"></script>
     <script type="application/ld+json" set:html={JSON.stringify(websiteStructuredData)} />
     <script type="application/ld+json" set:html={JSON.stringify(reviewStructuredData)} />
-    <script type="application/ld+json" set:html={JSON.stringify(professionalServiceStructuredData)} />
 
     <meta name="p:domain_verify" content="efd6b967d875e884a7fda76065da1c15"/>
   </head>
