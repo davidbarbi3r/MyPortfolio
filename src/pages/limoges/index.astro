@@ -1,0 +1,391 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import Image from '~/components/common/Image.astro';
+
+const metadata = {
+  title: 'David Barbier | Concepteur de sites web et consultant SEO à Limoges',
+  description:
+    'Concepteur de sites web freelance à Limoges. Création de site internet sur-mesure, référencement SEO et maintenance. 23 Rue de la Fonderie, 87000 Limoges. 06.23.56.52.99',
+};
+
+// JSON-LD LocalBusiness schema
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.davidbarbier.com/limoges/#localbusiness",
+  "name": "David Barbier | Concepteur de sites web à Limoges",
+  "image": "https://www.davidbarbier.com/_astro/DSCF7551-3.webp",
+  "url": "https://www.davidbarbier.com/limoges/",
+  "telephone": "+33623565299",
+  "email": "contact@davidbarbier.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "23 Rue de la Fonderie",
+    "addressLocality": "Limoges",
+    "postalCode": "87000",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.8352862,
+    "longitude": 1.2524095
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.8352862,
+      "longitude": 1.2524095
+    },
+    "geoRadius": "50000"
+  },
+  "sameAs": [
+    "https://twitter.com/daviddeveloppe",
+    "https://www.linkedin.com/in/dbarbier/",
+    "https://www.instagram.com/daviddeveloppe/",
+    "https://www.facebook.com/daviddeveloppe",
+    "https://www.malt.fr/profile/davidbarbier",
+    "https://github.com/davidbarbi3r"
+  ],
+  "priceRange": "€€"
+};
+
+// JSON-LD Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.davidbarbier.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Limoges",
+      "item": "https://www.davidbarbier.com/limoges/"
+    }
+  ]
+};
+
+const services = [
+  {
+    title: "Création site internet",
+    description: "Site vitrine sur-mesure, responsive et optimisé SEO. À partir de 1800€ HT.",
+    href: "/creation-site-internet-limoges/",
+    icon: "tabler:device-desktop"
+  },
+  {
+    title: "Consultant SEO",
+    description: "Référencement naturel pour améliorer votre visibilité sur Google.",
+    href: "/expert-referencement-limoges/",
+    icon: "tabler:chart-line"
+  }
+];
+
+const testimonials = [
+  {
+    quote: "David est d'une incroyable patience, d'une oreille attentive, il est pleinement acteur de la mise en lumière de mon travail. D'un grand professionnalisme, je recommande vivement son accompagnement.",
+    name: "Marion",
+    role: "Fondatrice Gaomata Limoges",
+    initial: "M",
+    featured: true
+  },
+  {
+    quote: "Parfait, je recommande a 100%. Ayant une pizzeria sur Limoges avec un site internet vieillissant, nous avons choisi David Barbier, pour effectuer une refonte complète de notre site. Nous en sommes pleinement satisfaits, il a su se montrer à l'écoute, réactif et entreprenant.",
+    name: "Sebastien",
+    role: "Associé Pizza Carmes Limoges",
+    initial: "S",
+    featured: false
+  },
+  {
+    quote: "Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet REST'Ô DOM. Son écoute, et son professionnalisme ont permis la bonne exécution du site.",
+    name: "Cedric",
+    role: "Fondateur Rest'ô Dom",
+    initial: "C",
+    featured: false
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- 1. Hero Section -->
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <!-- Badge localisation -->
+        <div class="mt-8 sm:mt-16 lg:mt-8">
+          <span class="inline-flex items-center">
+            <span class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8">
+              <Icon name="tabler:map-pin" class="inline mr-1 w-4 h-4" />
+              Limoges, Haute-Vienne
+            </span>
+          </span>
+        </div>
+
+        <!-- Titre principal H1 -->
+        <h1 class="mt-4 text-pretty font-bauhaus text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl dark:text-white">
+          David Barbier | Concepteur de sites web à Limoges
+        </h1>
+
+        <!-- Description -->
+        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Développeur web freelance basé à Limoges, je vous accompagne dans la création de votre site internet professionnel et l'amélioration de votre visibilité sur Google.
+        </p>
+
+        <!-- NAP visible -->
+        <address class="mt-8 not-italic bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
+          <p class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
+            <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
+            23 Rue de la Fonderie, 87000 Limoges
+          </p>
+          <p class="text-lg text-green-800 dark:text-green-200">
+            <Icon name="tabler:phone" class="inline mr-2 w-5 h-5" />
+            <a href="tel:+33623565299" class="hover:underline">06 23 56 52 99</a>
+          </p>
+        </address>
+
+        <!-- Boutons CTA -->
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="/contact/"
+            class="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+          >
+            Me contacter
+          </a>
+          <a
+            href="https://share.google/CUauO1GJF2z65yr3f"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 flex items-center gap-2"
+          >
+            <Icon name="tabler:brand-google" class="w-5 h-5" />
+            Voir sur Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+          <Image
+            src={HeroImage}
+            alt="David Barbier - Développeur web à Limoges"
+            class="w-[28rem] rounded-xl shadow-xl ring-1 ring-gray-400/10"
+            widths={[400, 768]}
+            sizes="(max-width: 768px) 100vw, 400px"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Services Section -->
+  <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          Mes services à Limoges
+        </h2>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          Des solutions web sur-mesure pour développer votre activité en ligne.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          {services.map((service) => (
+            <a
+              href={service.href}
+              class="group relative flex flex-col rounded-2xl bg-white dark:bg-gray-800 p-8 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 hover:shadow-lg hover:ring-green-500 transition-all duration-200"
+            >
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 text-white mb-6">
+                <Icon name={service.icon} class="w-6 h-6" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-green-600">
+                {service.title}
+              </h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-300">
+                {service.description}
+              </p>
+              <span class="mt-4 text-green-600 font-medium flex items-center gap-1">
+                En savoir plus
+                <Icon name="tabler:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Avis Section -->
+  <section class="relative isolate bg-white pb-32 pt-24 sm:pt-32 dark:bg-gray-900">
+    <div class="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl" aria-hidden="true">
+      <div class="ml-[max(50%,38rem)] aspect-[1313/771] w-[82.0625rem] bg-gradient-to-tr from-green-300 to-green-600" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+    <div class="absolute inset-x-0 top-0 -z-10 flex transform-gpu overflow-hidden pt-32 opacity-25 blur-3xl sm:pt-40 xl:justify-end" aria-hidden="true">
+      <div class="ml-[-22rem] aspect-[1313/771] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] bg-gradient-to-tr from-green-300 to-green-600 xl:mr-[calc(50%-12rem)] xl:ml-0" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-base/7 font-semibold text-green-600 dark:text-green-400">Avis clients</h2>
+        <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Ce que mes clients de Limoges disent</p>
+      </div>
+      <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 dark:text-gray-100">
+        <!-- Colonne 1 - Premier avis -->
+        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-span-1 xl:row-span-2 dark:bg-gray-800 dark:ring-white/10">
+          <blockquote class="text-gray-900 dark:text-white">
+            <p>"{testimonials[1].quote}"</p>
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-x-4">
+            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+              {testimonials[1].initial}
+            </div>
+            <div>
+              <div class="font-semibold dark:text-white">{testimonials[1].name}</div>
+              <div class="text-gray-600 dark:text-gray-400">{testimonials[1].role}</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <!-- Avis principal (featured) - au centre -->
+        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 dark:bg-gray-800 dark:ring-white/10">
+          <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12 sm:text-xl/8 dark:text-white">
+            <p>"{testimonials[0].quote}"</p>
+          </blockquote>
+          <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap dark:border-white/10">
+            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+              {testimonials[0].initial}
+            </div>
+            <div class="flex-auto">
+              <div class="font-semibold dark:text-white">{testimonials[0].name}</div>
+              <div class="text-gray-600 dark:text-gray-400">{testimonials[0].role}</div>
+            </div>
+            <div class="flex gap-0.5 text-green-600 dark:text-green-400">
+              {[1, 2, 3, 4, 5].map(() => (
+                <svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                </svg>
+              ))}
+            </div>
+          </figcaption>
+        </figure>
+
+        <!-- Colonne 3 - Dernier avis -->
+        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-span-1 xl:row-span-2 dark:bg-gray-800 dark:ring-white/10">
+          <blockquote class="text-gray-900 dark:text-white">
+            <p>"{testimonials[2].quote}"</p>
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-x-4">
+            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+              {testimonials[2].initial}
+            </div>
+            <div>
+              <div class="font-semibold dark:text-white">{testimonials[2].name}</div>
+              <div class="text-gray-600 dark:text-gray-400">{testimonials[2].role}</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Boutons avis Google -->
+      <div class="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-4">
+        <a
+          href="https://share.google/CUauO1GJF2z65yr3f"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-x-2 rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+        >
+          <Icon name="tabler:star" class="size-5" />
+          Voir tous les avis Google
+        </a>
+        <a
+          href="https://share.google/CUauO1GJF2z65yr3f"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-x-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-white dark:ring-gray-700"
+        >
+          <Icon name="tabler:pencil" class="size-5" />
+          Laisser un avis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA Section -->
+  <section class="py-16 sm:py-24 bg-green-600">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Un projet web à Limoges ?
+        </h2>
+        <p class="mt-4 text-lg text-green-100">
+          Discutons de votre projet et trouvons la solution adaptée à vos besoins.
+        </p>
+        <div class="mt-8">
+          <a
+            href="/contact/"
+            class="rounded-md bg-white px-8 py-4 text-sm font-semibold text-green-600 shadow-sm hover:bg-green-50 transition-colors"
+          >
+            Prendre rendez-vous
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Google Maps Section -->
+  <section class="w-full">
+    <div class="bg-gray-900 py-6">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-center sm:text-left">
+            <h2 class="text-xl font-semibold text-white">
+              <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
+              23 Rue de la Fonderie, 87000 Limoges
+            </h2>
+            <p class="text-gray-400 mt-1">
+              <Icon name="tabler:calendar" class="inline mr-1 w-4 h-4" />
+              Sur rendez-vous uniquement
+            </p>
+          </div>
+          <a
+            href="tel:+33623565299"
+            class="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 flex items-center gap-2"
+          >
+            <Icon name="tabler:phone" class="w-5 h-5" />
+            06 23 56 52 99
+          </a>
+        </div>
+      </div>
+    </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.5687!2d1.2524095!3d45.8352862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fec1c0d80e2d5f%3A0x0!2s23%20Rue%20de%20la%20Fonderie%2C%2087000%20Limoges!5e0!3m2!1sfr!2sfr!4v1699999999999!5m2!1sfr!2sfr"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Localisation David Barbier - Développeur web à Limoges"
+      class="w-full"
+    ></iframe>
+  </section>
+</Layout>
