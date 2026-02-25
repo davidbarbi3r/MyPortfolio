@@ -43,6 +43,6 @@ export const getFooterData = () => {
             { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/davidbarbi3r' },
     ],
     footNote: `
-    🌱 Fait avec amour par David · All rights reserved.`,
+    🌱 Fait par moi-même avec amour · Tous droits réservés.`,
   };
 };

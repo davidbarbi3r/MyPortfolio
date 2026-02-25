@@ -8,15 +8,15 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: "David Développe, développeur web freelance à Ajaccio"
+    default: "David Barbier | Création site web et consultant SEO à Ajaccio"
     template: '%s'
   description: "Consultant SEO & Création de site web. La rigueur d'un ex-auditeur financier au service de votre digital. Des solutions techniques fiables et performantes."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Développeur web Freelance - David Développe
-    title: "David Développe, développeur web freelance à Ajaccio"
+    site_name: Création site web et consultant SEO à Ajaccio - David Barbier
+    title: "David Barbier | Création site web et consultant SEO à Ajaccio"
     images:
       - url: '~/assets/images/db-site-freelance.webp'
         width: 1200

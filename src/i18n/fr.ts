@@ -13,12 +13,12 @@ export const fr = {
     contact: 'Contact',
     blog: 'Blog',
     legal: 'Mentions légales',
-    text: 'Développeur web freelance à Ajaccio et Limoges, je vous accompagne dans la création de votre site internet performant et sur-mesure.',
+    text: 'Développeur consultant SEO et sites internet à Ajaccio, je vous accompagne dans la création de votre site internet performant et sur-mesure.',
   },
   index: {
     heroSide: {
-      accent: 'Développeur',
-      title: 'Web Freelance',
+      accent: 'Consultant SEO &',
+      title: 'Sites Internet sur-mesure à Ajaccio',
       subtitle:
         'J&apos;accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Limoges, Ajaccio et à distance.',
     },
@@ -41,25 +41,25 @@ export const fr = {
       title: 'Portfolio',
     },
     heroSide: {
-      accent: 'Développeur',
-      title: 'Web Freelance',
+      accent: 'Consultant SEO &',
+      title: 'Sites Internet sur-mesure à Ajaccio',
       subtitle:
         "J'accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Ajaccio, Limoges et à distance.",
     },
     bookCall: 'Réservez votre appel gratuit',
     services: {
-      title: 'Mes services de développement web sur-mesure',
+      title: 'Rayonnez en ligne',
       subtitle:
-        'Développeur web expérimenté, je propose vous propose un accompagnement global avec pour objectif de vous rendre visible en ligne. De la création de site internet, de sa refonte, à la maintenance, je suis là pour vous apporter le meilleur de mes connaissances.',
+        "De la création de site au référencement Google, je vous aide à attirer plus de clients.",
       servicesItems: [
         {
-          title: 'Création de Sites Internet',
+          title: 'Création de Sites Internet à Ajaccio',
           description:
             "Je développe des sites 100% responsives, sur-mesure, optimisés pour les moteurs de recherche et surtout écologiques. Une attention particulière est portée à l'expérience utilisateur.",
           items: [
             {
               title: 'Sites Vitrine',
-              description: 'Des sites vitrine sur-mesure pour présenter votre activité et vos services.',
+              description: 'Des sites vitrine sur-mesure clairs, crédibles et structurés pour valoriser votre activité.',
             },
             {
               title: 'Blogs / Gestions de Contenu',
@@ -74,7 +74,7 @@ export const fr = {
           callToAction: 'En savoir plus',
         },
         {
-          title: 'Développement web sur-mesure',
+          title: 'Développeur web freelance Ajaccio / Corse',
           description:
             "J'accompagne et développe votre projet de l'idée à la réalisation technique, applications web, logiciels métiers et sites internet complexes.",
           items: [
@@ -93,7 +93,7 @@ export const fr = {
                 'Ajout de nouvelles fonctionnalités, correction de bugs, optimisation des performances, etc.',
             },
           ],
-          price: '400€/jour',
+          price: '400€/jour sur devis',
         },
         {
           title: 'Suivi et Maintenance',
@@ -121,7 +121,7 @@ export const fr = {
           }
         },
         {
-          title: 'Référencement Naturel',
+          title: 'Référencement site internet à Ajaccio et en Corse',
           description: 'Rendez votre site visible sur Google et obtenez des ventes naturellement.',
           items: [
             {
@@ -135,8 +135,8 @@ export const fr = {
                 'Suvi mensuel, étude de mots-clés, optimisation du contenu, netlinking, etc. pour améliorer votre positionnement sur les moteurs de recherche.',
             },
             {
-              title: 'SEO Local',
-              description: "Création et optimisation de fiche Google My Business, optimisation de votre site pour le SEO local.",
+              title: 'Optimisation du référencement local',
+              description: "Création et optimisation de fiche Google My Business, optimisation de votre site pour rayonner en Corse.",
             },
           ],
           price: '400€/jour',

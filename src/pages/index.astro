@@ -1,40 +1,231 @@
 ---
 import {useTranslations} from "~/i18n/translator";
 import Layout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
 import HeroImage from '~/assets/images/DSCF7551-3.jpg'
 import Fidenza2 from '~/assets/images/000002fidenzaPP.png'
 import Fidenza117 from '~/assets/images/000117fidenzaPP.png'
 import Fidenza262 from '~/assets/images/000262fidenzaPP.png'
-import RestodomMock from '~/assets/images/restodommock.jpg'
-import Matchings from '~/assets/images/agilytic.jpeg'
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
 import Features2 from "~/components/widgets/Features2.astro";
-import Logos from "~/components/widgets/Logos.astro";
+import LogoMarquee from "~/components/widgets/LogoMarquee.astro";
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
+
+// Imports logos clients
+import LogoEndoajaccio from '~/assets/images/clients/endoajaccio.png';
+import LogoRestodom from '~/assets/images/clients/restodom.svg';
+import LogoMobincub from '~/assets/images/clients/mobincub.png';
+import LogoJeuxOriginaux from '~/assets/images/clients/jeux-originaux.webp';
+import LogoAltarys from '~/assets/images/clients/altarys.svg';
+import LogoOdacio from '~/assets/images/clients/conseils.svg';
+import LogoEchinard from '~/assets/images/clients/echinard.png';
+import LogoPizzaCarmes from '~/assets/images/clients/pizza-carmes.webp';
+import LogoAurarios from '~/assets/images/clients/aurarios.png';
+import LogoLeadauco from '~/assets/images/clients/leadauco.png';
 
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  description: locale === "en" ? 
-  'Freelance web developer specialized in eco-friendly website creation, website redesign and local SEO in Limoges, Ajaccio and remotely.' : 
-  "Consultant SEO & Création de site web. La rigueur d'un ex-auditeur financier au service de votre digital. Des solutions techniques fiables et performantes.",
+  title: 'David Barbier | Création site web et consultant SEO à Ajaccio',
+  description: "Création de site internet et consultant SEO à Ajaccio, Corse. La rigueur d'un ex-auditeur financier au service de votre digital. Sites web sur-mesure, référencement naturel.",
   lang: locale,
+};
+
+// JSON-LD LocalBusiness schema - Ajaccio (localisation principale)
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.davidbarbier.com/#localbusiness",
+  "name": "David Barbier | Création site web et SEO à Ajaccio",
+  "image": "https://www.davidbarbier.com/_astro/DSCF7551-3.webp",
+  "url": "https://www.davidbarbier.com/",
+  "telephone": "+33623565299",
+  "email": "contact@davidbarbier.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "13 Boulevard Sampiero",
+    "addressLocality": "Ajaccio",
+    "postalCode": "20000",
+    "addressRegion": "Corse",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9192043,
+    "longitude": 8.7386439
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "08:00",
+    "closes": "20:00"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Ajaccio" },
+    { "@type": "City", "name": "Mezzavia" },
+    { "@type": "City", "name": "Afa" },
+    { "@type": "City", "name": "Cauro" },
+    { "@type": "City", "name": "Alata" },
+    { "@type": "City", "name": "Bastelicaccia" },
+    { "@type": "City", "name": "Cannelle" },
+    { "@type": "City", "name": "Appietto" },
+    { "@type": "City", "name": "Villanova" },
+    { "@type": "City", "name": "Casaglione" },
+    { "@type": "City", "name": "Calcatoggio" },
+    { "@type": "City", "name": "Valle-di-Mezzana" },
+    { "@type": "City", "name": "Sarrola-Carcopino" },
+    { "@type": "City", "name": "Cuttoli-Corticchiato" },
+    { "@type": "City", "name": "Porticcio, Grosseto-Prugna" },
+    { "@type": "AdministrativeArea", "name": "Corse" }
+  ],
+  "sameAs": [
+    "https://twitter.com/daviddeveloppe",
+    "https://www.linkedin.com/in/dbarbier/",
+    "https://www.instagram.com/daviddeveloppe/",
+    "https://www.facebook.com/daviddeveloppe",
+    "https://www.malt.fr/profile/davidbarbier",
+    "https://github.com/davidbarbi3r"
+  ],
+  "priceRange": "€€"
+};
+
+// Avis clients pour le carousel et le schema SEO
+const reviews = [
+  {
+    author: "Matthias",
+    company: "Odacio Conseils",
+    rating: 5,
+    text: "David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet. Il a su comprendre mes attentes et proposer des solutions adaptées. Le suivi est sérieux et il reste disponible quand on a besoin. Vous pouvez lui faire confiance les yeux fermés !"
+  },
+  {
+    author: "Véronique",
+    company: "La voie des sens",
+    rating: 5,
+    text: "David a réalisé un audit de mon site internet dont j'ai fait la réalisation en autonomie de façon un peu « bancale ». David m'a apporté un état des lieux très clair et précis quant à la façon d'améliorer le référencement et la performance. David a apporté aussi du calme, de la douceur et une bonne compréhension globale de mes besoins pour le site. C'est un vrai plus pour moi que de travailler avec un professionnel serein."
+  },
+  {
+    author: "Marta",
+    company: "Ekia Advisory",
+    rating: 5,
+    text: "David m'a accompagné dans la création de mon site internet pour mon cabinet d'expertise-comptable Ekia Advisory. Il est très professionnel, à l'écoute et s'adapte aux attentes du client ! Je recommande vivement !"
+  },
+  {
+    author: "Cédric",
+    company: "Restodom",
+    rating: 5,
+    text: "Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet REST'Ô DOM. Son écoute, et son professionnalisme ont permis la bonne exécution du site. La collaboration se poursuit à l'heure actuelle, car il est SEO également me permettant ainsi de gagner grandement en visibilité grâce à ses compétences."
+  },
+  {
+    author: "Aaron",
+    company: "Action Conseils",
+    rating: 5,
+    text: "Véritable professionnel, réactif, compétent et sympathique ! Je recommande fortement."
+  }
+];
+
+// Projets récents
+const projects = [
+  {
+    client: "Restodom",
+    sector: "Portage de repas",
+    offer: "Développement sur mesure + SEO",
+    result: "1er sur Google à Bordeaux",
+    tech: ["NextJS", "Cloudflare"],
+    logo: LogoRestodom,
+    url: "https://www.restodom.fr"
+  },
+  {
+    client: "Odacio Conseils",
+    sector: "Expert-comptable",
+    offer: "Site vitrine performant",
+    result: "5 prises de RDV / semaine",
+    tech: ["Astro", "Cloudflare"],
+    logo: LogoOdacio,
+    url: "https://www.odacio-conseils.fr"
+  },
+  {
+    client: "Ekia Advisory",
+    sector: "Expert-comptable",
+    offer: "Site vitrine performant",
+    result: "Site multilingue FR/EN",
+    tech: ["Astro", "Cloudflare"],
+    logo: LogoAltarys,
+    url: "https://www.ekia-advisory.com"
+  },
+  {
+    client: "Endoajaccio",
+    sector: "Endodontiste",
+    offer: "Développement sur mesure",
+    result: "5 nouveaux patients / jour",
+    tech: ["NextJS", "AWS"],
+    logo: LogoEndoajaccio,
+    url: "https://www.endoajaccio.fr"
+  },
+  {
+    client: "Winvias",
+    sector: "Gestion de patrimoine",
+    offer: "Développement sur mesure",
+    result: "IA cadrage prospect 24h/24",
+    tech: ["React Router v7", "Google Cloud"],
+    logo: null,
+    url: "https://www.winvias.com"
+  },
+  {
+    client: "Cabinet Altarys",
+    sector: "Expert-comptable",
+    offer: "Site vitrine performant",
+    result: "Site professionnel moderne",
+    tech: ["Astro", "Cloudflare"],
+    logo: LogoAltarys,
+    url: "https://www.cabinet-altarys.fr"
+  }
+];
+
+// Schema AggregateRating + Reviews pour SEO
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.davidbarbier.com/#localbusiness",
+  "name": "David Barbier | Création site web et SEO à Ajaccio",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "9",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": reviews.map(r => ({
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": r.author
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": r.rating.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "reviewBody": r.text
+  }))
 };
 ---
 
 <Layout metadata={metadata}>
+  <!-- JSON-LD LocalBusiness Schema -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
   <!-- Hero2 Widget ******************* -->
 
   <!--hero-->
   <Hero2
-    tagline="David Barbier | David Développe"
+    tagline="David Barbier | Ajaccio"
     callToAction={{ text: t('portfolio.bookCall'), href: '/call/', icon: 'tabler:phone' }}
     callToAction2={{ text: 'Contact', href: '/contact/' }}
     image={{
       src: HeroImage,
-      alt: locale === 'en' ? "David Barbier's freelance web developer portrait sitting on a chair and smiling" : "Portrait de David Barbier développeur web freelance assis sur une chaise et souriant",
+      alt: locale === 'en' ? "David Barbier's freelance web developer portrait sitting on a chair and smiling" : "Portrait de David Barbier consultant SEO et sites internet assis sur une chaise et souriant",
     }}
   >
     <Fragment slot="title">
@@ -47,7 +238,46 @@ const metadata = {
       </span>
       {t('portfolio.heroSide.subtitle')}
     </Fragment>
+
+    <Fragment slot="content">
+      <div class="grid grid-cols-3 gap-4 md:gap-8 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+        <div class="text-center">
+          <p class="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-400">+30</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">clients accompagnés</p>
+        </div>
+        <div class="text-center">
+          <p class="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-400">+5 ans</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">d'expérience</p>
+        </div>
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-1">
+            <p class="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-400">5/5</p>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">sur Google</p>
+        </div>
+      </div>
+    </Fragment>
   </Hero2>
+
+  <!-- Logo Marquee -->
+  <LogoMarquee
+    logos={[
+      { src: LogoEndoajaccio, alt: "Endoajaccio", scale: 1.3 },
+      { src: LogoRestodom, alt: "Restodom" },
+      { src: LogoMobincub, alt: "Mobincub" },
+      { src: LogoJeuxOriginaux, alt: "Jeux Originaux" },
+      { src: LogoAltarys, alt: "Cabinet Altarys", scale: 0.75 },
+      { src: LogoOdacio, alt: "Odacio Conseils" },
+      { src: LogoEchinard, alt: "Cabinet Echinard", scale: 0.75 },
+      { src: LogoPizzaCarmes, alt: "Pizza Carmes", scale: 0.75 },
+      { src: LogoAurarios, alt: "Aurarios", scale: 1.3 },
+      { src: LogoLeadauco, alt: "Leadauco", scale: 1.3 },
+    ]}
+    speed={30}
+  />
 
   <!--services-->
   
@@ -71,11 +301,6 @@ const metadata = {
            href: '/creation-site-internet-ajaccio/',
            icon: 'tabler:chevron-right',
          },
-        callToAction2: {
-          text: "Site web Wordpress Limoges",
-          href: '/creation-site-internet-limoges/',
-          icon: 'tabler:chevron-right',
-        },
         ecLink: {
           text: "Expert-comptable ? Site vitrine dédié EC",
           href: '/agence-web-expert-comptable/creation-site-vitrine-ec/',
@@ -109,7 +334,7 @@ const metadata = {
         icon: 'tabler:tool',
         callToAction: {
           text: "Entretenez votre site",
-          href: '/maintenance-site-web-limoges/',
+          href: '/#',
           icon: 'tabler:chevron-right',
         },
         ecLink: {
@@ -130,11 +355,6 @@ const metadata = {
         callToAction2: {
           text: "Référencement en Corse",
           href: '/consultant-seo-ajaccio/',
-          icon: 'tabler:chevron-right',
-        },
-        callToAction: {
-          text: "SEO à Limoges",
-          href: '/expert-referencement-limoges/',
           icon: 'tabler:chevron-right',
         },
         ecLink: {
@@ -173,91 +393,243 @@ const metadata = {
     </div>
   </section>
 
-  <!-- case study -->
-  <Content
-    isReversed
-    tagline={t('portfolio.caseStudies1.tagline')}
-    title={t('portfolio.caseStudies1.title')}
-    subtitle={t('portfolio.caseStudies1.subtitle')}
-    items={tList('portfolio.caseStudies1.items')}
-    cta={{
-      text: t('portfolio.caseStudies1.callToAction'),
-      href: "/restodom/",
-      icon: "tabler:chevron-right",
-    }}
-    image={{
-      src: RestodomMock,
-      alt: locale === 'en' ? 'Mockup of Restodom website project on a laptop' : 'Mockup du projet de site web Restodom sur un ordinateur portable',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-0">
-        {t('portfolio.caseStudies1.additionalTitle')}
-      </h3>
-      {t('portfolio.caseStudies1.additionalDescription')}
-    </Fragment>
+  <!-- Section Avis Google - Schema SEO -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(reviewsSchema)} />
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-slate-900"></div>
-    </Fragment>
-  </Content>
+  <section class="py-12 md:py-16 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl mb-2">
+          Ce que disent mes clients
+        </h2>
+        <div class="flex items-center justify-center gap-1 mb-2">
+          {[1,2,3,4,5].map(() => (
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          ))}
+          <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5/5 basé sur 9 avis Google</span>
+        </div>
+      </div>
 
-  <!-- Content Widget **************** -->
+      <!-- Carousel Container -->
+      <div class="relative" id="reviews-carousel">
+        <!-- Review Cards -->
+        <div class="overflow-hidden">
+          <div class="reviews-track flex transition-transform duration-500 ease-in-out">
+            {reviews.map((review, index) => (
+              <div class="review-slide w-full flex-shrink-0 px-4" data-index={index}>
+                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
+                  <div class="flex items-center gap-1 mb-4">
+                    {[1,2,3,4,5].map(() => (
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    ))}
+                  </div>
+                  <blockquote class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                    "{review.text}"
+                  </blockquote>
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-green-700 flex items-center justify-center text-white font-semibold">
+                      {review.author.charAt(0)}
+                    </div>
+                    <div>
+                      <p class="font-semibold text-gray-900 dark:text-white">{review.author}</p>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">{review.company}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-  <Content
-    isAfterContent
-    items={tList('portfolio.caseStudies2.items')}
-    image={{
-      src: Matchings,
-      alt: locale === 'en' ? 'Matchings project illustration, piture of tyres on a yellow background' : 'Illustration du projet Matchings, photo de pneus sur un fond jaune',
-    }}
-    cta={{
-      text: t('portfolio.caseStudies2.callToAction'),
-      href: "/matchings/",
-      icon: "tabler:chevron-right",
-    }}
-    endCTA={{
-      text: t('portfolio.caseStudies2.endCallToAction'),
-      href: "/category/portfolio/",
-      icon: "tabler:chevron-right",
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        {t('portfolio.caseStudies2.additionalTitle')}
-      </h3>
-      {t('portfolio.caseStudies2.additionalDescription')}
-    </Fragment>
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-[#f6fcf7] dark:bg-slate-900"></div>
-    </Fragment>
-  </Content>
+        <!-- Navigation Arrows -->
+        <button
+          type="button"
+          class="review-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-slate-700 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 transition-colors z-10"
+          aria-label="Avis précédent"
+        >
+          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="review-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-slate-700 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 transition-colors z-10"
+          aria-label="Avis suivant"
+        >
+          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
 
-  <!--Tech stack-->
-  <Logos
-    title={t('portfolio.logos.title')}
-    subtitle={t('portfolio.logos.subtitle')}
-    items={[{
-      icon: 'tabler:brand-react',
-      title: 'React',
-    }, {
-      icon: 'tabler:brand-typescript',
-      title: 'TypeScript',
-    }, {
-      icon: 'tabler:brand-nodejs',
-      title: 'NodeJS',
-    }, {
-      icon: 'tabler:brand-wordpress',
-      title: 'Wordpress',
-    }, {
-      icon: 'tabler:brand-docker',
-      title: 'Docker',
-    }, {
-      icon: 'tabler:brand-nextjs',
-      title: 'Next.js',
-    }]}
-  />
-  
+        <!-- Dots Indicator -->
+        <div class="flex justify-center gap-2 mt-6">
+          {reviews.map((_, index) => (
+            <button
+              type="button"
+              class="review-dot w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors"
+              data-index={index}
+              aria-label={`Aller à l'avis ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <p class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        <a
+          href="https://share.google/xsSWlxgBTnkZFTHgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-green-700 hover:text-green-800 dark:text-green-400 font-medium inline-flex items-center gap-1"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+          Laisser un avis sur Google
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.getElementById('reviews-carousel');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.reviews-track') as HTMLElement;
+      const slides = carousel.querySelectorAll('.review-slide');
+      const dots = carousel.querySelectorAll('.review-dot');
+      const prevBtn = carousel.querySelector('.review-prev');
+      const nextBtn = carousel.querySelector('.review-next');
+
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-green-700', i === currentIndex);
+          dot.classList.toggle('bg-gray-300', i !== currentIndex);
+          dot.classList.toggle('dark:bg-green-600', i === currentIndex);
+          dot.classList.toggle('dark:bg-gray-600', i !== currentIndex);
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateCarousel();
+        });
+      });
+
+      // Auto-play (optionnel)
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }, 8000);
+
+      updateCarousel();
+    });
+  </script>
+
+  <!-- Section Projets -->
+  <section class="py-12 md:py-16 bg-white dark:bg-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider mb-2">Réalisations</p>
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          Projets récents
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <article class="group bg-gray-50 dark:bg-slate-800 rounded-xl p-6 hover:shadow-lg transition-shadow border border-gray-100 dark:border-slate-700">
+            <!-- Header: Logo + Client -->
+            <div class="flex items-center gap-3 mb-4">
+              {project.logo ? (
+                <div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center p-1.5 shadow-sm">
+                  <Image src={project.logo} alt={project.client} class="w-full h-full object-contain" />
+                </div>
+              ) : (
+                <div class="w-10 h-10 rounded-lg bg-green-700 flex items-center justify-center text-white font-bold text-sm">
+                  {project.client.charAt(0)}
+                </div>
+              )}
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">{project.client}</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400">{project.sector}</p>
+              </div>
+            </div>
+
+            <!-- Offer -->
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              {project.offer}
+            </p>
+
+            <!-- Result highlight -->
+            <div class="flex items-center gap-2 mb-4 text-green-700 dark:text-green-400">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-sm font-medium">{project.result}</span>
+            </div>
+
+            <!-- Tech stack -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              {project.tech.map((t) => (
+                <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-md">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <!-- Lien vers le site -->
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline"
+            >
+              Voir le site
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 text-green-700 dark:text-green-400 font-medium hover:underline"
+        >
+          Discutons de votre projet
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <BlogLatestPosts
     title={t('index.blogLatestPosts.title')}
     information={t('index.blogLatestPosts.information')}
