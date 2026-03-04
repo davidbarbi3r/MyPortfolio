@@ -11,6 +11,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from "~/components/widgets/Features2.astro";
 import LogoMarquee from "~/components/widgets/LogoMarquee.astro";
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
+import { Icon } from 'astro-icon/components';
 
 // Imports logos clients
 import LogoEndoajaccio from '~/assets/images/clients/endoajaccio.png';
@@ -191,7 +192,7 @@ const reviewsSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
-    "reviewCount": "9",
+    "reviewCount": "11",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -213,6 +214,26 @@ const reviewsSchema = {
 ---
 
 <Layout metadata={metadata}>
+  <!-- Sticky CTA Desktop -->
+  <div class="hidden md:block fixed bottom-0 bg-green-50 dark:bg-green-950 w-full z-[9999]">
+    <div class="max-w-7xl mx-auto px-6 py-4 sm:px-8">
+      <div class="flex items-center justify-center gap-4">
+        Une question ? Vous souhaitez en savoir plus ? <a
+        href="tel:0623565299"
+        class="text-green-800 dark:text-green-300 font-semibold">06 23 56 52 99</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky CTA Mobile (floating button) -->
+  <a
+    href="tel:0623565299"
+    class="md:hidden fixed bottom-6 right-6 z-[9999] bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+    aria-label="Appeler"
+  >
+    <Icon name="tabler:phone" class="w-6 h-6" />
+  </a>
+
   <!-- JSON-LD LocalBusiness Schema -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
@@ -221,8 +242,7 @@ const reviewsSchema = {
   <!--hero-->
   <Hero2
     tagline="David Barbier | Ajaccio"
-    callToAction={{ text: t('portfolio.bookCall'), href: '/call/', icon: 'tabler:phone' }}
-    callToAction2={{ text: 'Contact', href: '/contact/' }}
+    callToAction={{ text: t('portfolio.bookCall'), href: '/contact/', icon: 'tabler:phone' }}
     image={{
       src: HeroImage,
       alt: locale === 'en' ? "David Barbier's freelance web developer portrait sitting on a chair and smiling" : "Portrait de David Barbier consultant SEO et sites internet assis sur une chaise et souriant",
@@ -619,7 +639,7 @@ const reviewsSchema = {
       <div class="text-center mt-10">
         <a
           href="/contact/"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
         >
           Discutons de votre projet
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -637,13 +657,43 @@ const reviewsSchema = {
     count={3}
   />
   
-  <CallToAction
-    title={t('portfolio.callToAction.title')}
-    subtitle={t('portfolio.callToAction.subtitle')}
-    callToAction={{
-      text: t('portfolio.callToAction.cta'),
-      href: '/call/',
-      icon: 'tabler:phone',
-    }}
-  />
+  <!-- CTA Section with Google Maps -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto text-center rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600 overflow-hidden">
+        <!-- Google Maps iframe (header de la card) -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.5194609277883!2d8.7388048!3d41.9246879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da6965be4a139f%3A0x158dd64f8063e107!2sDavid%20Barbier%20%7C%20Consultant%20SEO%20et%20site%20internet!5e0!3m2!1sfr!2sfr!4v1772440776047!5m2!1sfr!2sfr"
+          width="100%"
+          height="250"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="David Barbier - Consultant SEO et site internet à Ajaccio"
+        ></iframe>
+
+        <!-- CTA Content -->
+        <div class="p-6">
+          <h2 class="text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+            {t('portfolio.callToAction.title')}
+          </h2>
+          <p class="text-xl text-muted dark:text-slate-400">
+            {t('portfolio.callToAction.subtitle')}
+          </p>
+          <div class="mt-6 max-w-xs mx-auto">
+            <a
+              class="btn btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 border-none hover:from-emerald-700 hover:to-emerald-500"
+              href="/call/"
+              target="_blank"
+              rel="noopener"
+            >
+              <Icon name="tabler:phone" class="w-5 h-5 mr-1 -ml-1.5" />
+              {t('portfolio.callToAction.cta')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

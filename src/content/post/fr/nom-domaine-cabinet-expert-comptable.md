@@ -94,4 +94,4 @@ Un nom "spammy" limite la diversification (blog, partenariats, recrutement) et p
 
 Le choix du nom de domaine est stratégique pour un cabinet qui se lance. Privilégiez une marque forte et mémorable plutôt qu'un assemblage de mots-clés. Sécurisez vos extensions, et votre domaine deviendra un atout durable pour attirer des clients et bâtir une réputation solide dans l'expertise comptable.
 
-Besoin d'aide pour créer le site de votre cabinet ? [Contactez-moi](/reserve-ton-appel/) pour en discuter.
+Besoin d'aide pour créer le site de votre cabinet ? [Contactez-moi](/contact/) pour en discuter.

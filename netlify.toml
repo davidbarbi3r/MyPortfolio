@@ -6,19 +6,19 @@
 
 [[redirects]]
   from = "/call"
-  to = "/reserve-ton-appel/"
+  to = "/contact/"
   status = 301
 [[redirects]]
   from = "/call/"
-  to = "/reserve-ton-appel/"
+  to = "/contact/"
   status = 301
 [[redirects]]
   from = "/book-a-call"
-  to = "/reserve-ton-appel/"
+  to = "/contact/"
   status = 301
 [[redirects]]
   from = "/book-a-call/"
-  to = "/reserve-ton-appel/"
+  to = "/contact/"
   status = 301
 [[headers]]
   for = "/assets/*"

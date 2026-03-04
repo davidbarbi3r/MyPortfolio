@@ -61,7 +61,7 @@ export const onRequest = defineMiddleware(async (ctx, next) => {
     if (path === 'call') {
       return new Response('', {
         status: 301,
-        headers: { Location: '/reserve-ton-appel/' }
+        headers: { Location: '/contact/' }
       });
     }
   }

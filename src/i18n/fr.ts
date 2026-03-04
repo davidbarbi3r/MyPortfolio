@@ -20,7 +20,7 @@ export const fr = {
       accent: 'Consultant SEO &',
       title: 'Sites Internet sur-mesure à Ajaccio',
       subtitle:
-        'J&apos;accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Limoges, Ajaccio et à distance.',
+        'J&apos;accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Ajaccio et à distance.',
     },
     blogLatestPosts: {
       title: 'Derniers articles',
@@ -42,9 +42,9 @@ export const fr = {
     },
     heroSide: {
       accent: 'Consultant SEO &',
-      title: 'Sites Internet sur-mesure à Ajaccio',
+      title: 'Sites internet sur-mesure à Ajaccio',
       subtitle:
-        "J'accompagne votre entreprise dans la création de sites web performants et sur-mesure afin de vous démarquer de la concurrence. Je travaille à Ajaccio, Limoges et à distance.",
+        "Votre site internet vous rapporte-t-il vraiment des clients ? Création de site internet et SEO à Ajaccio : je vous aide à transformer votre présence en ligne en véritable levier de croissance.",
     },
     bookCall: 'Réservez votre appel gratuit',
     services: {

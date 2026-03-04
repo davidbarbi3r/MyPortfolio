@@ -80,15 +80,15 @@ const breadcrumbSchema = {
 
 const services = [
   {
-    title: "Création site internet",
-    description: "Site vitrine sur-mesure, responsive et optimisé SEO. À partir de 1800€ HT.",
-    href: "/creation-site-internet-limoges/",
+    title: "Création de site internet",
+    description: "Un site qui vous ressemble et qui travaille pour vous 24h/24. Vos clients vous trouvent, vous contactent, vous font confiance.",
+    href: "/limoges/wordpress/",
     icon: "tabler:device-desktop"
   },
   {
-    title: "Consultant SEO",
-    description: "Référencement naturel pour améliorer votre visibilité sur Google.",
-    href: "/expert-referencement-limoges/",
+    title: "Référencement Google",
+    description: "Soyez visible quand vos clients vous cherchent. Apparaissez en première page et attirez des prospects qualifiés chaque semaine.",
+    href: "/limoges/consultant-seo/",
     icon: "tabler:chart-line"
   }
 ];
@@ -118,6 +118,32 @@ const testimonials = [
 ];
 ---
 
+<script>
+  const heroImg = document.getElementById('heroImg');
+
+  function scrollPosition(){
+    return window.scrollY;
+  }
+
+  function percentageScrolled(){
+    return scrollPosition() / (document.body.scrollHeight - window.innerHeight);
+  }
+
+  function screenWidth(){
+    return window.innerWidth;
+  }
+
+  function parallax(){
+    if (heroImg && screenWidth() > 1024 && percentageScrolled() < 0.20) {
+      heroImg.style.transform = `translateY(${scrollPosition() * 0.4}px)`;
+    }
+  }
+
+  window.addEventListener('scroll', function(){
+    parallax();
+  });
+</script>
+
 <Layout metadata={metadata}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
@@ -126,8 +152,9 @@ const testimonials = [
 
   <!-- 1. Hero Section -->
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
-    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-20">
-      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8">
+      <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
         <!-- Badge localisation -->
         <div class="mt-8 sm:mt-16 lg:mt-8">
           <span class="inline-flex items-center">
@@ -145,7 +172,7 @@ const testimonials = [
 
         <!-- Description -->
         <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Développeur web freelance basé à Limoges, je vous accompagne dans la création de votre site internet professionnel et l'amélioration de votre visibilité sur Google.
+          Vous cherchez à attirer plus de clients à Limoges ? Création de site internet sur-mesure et référencement SEO : je vous aide à transformer votre présence en ligne en véritable levier de croissance.
         </p>
 
         <!-- NAP visible -->
@@ -160,77 +187,98 @@ const testimonials = [
           </p>
         </address>
 
-        <!-- Boutons CTA -->
-        <div class="mt-8 flex flex-wrap gap-4">
+        <!-- Bouton CTA -->
+        <div class="mt-8">
           <a
             href="/contact/"
-            class="rounded-md bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+            class="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
           >
             Me contacter
-          </a>
-          <a
-            href="https://share.google/CUauO1GJF2z65yr3f"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 flex items-center gap-2"
-          >
-            <Icon name="tabler:brand-google" class="w-5 h-5" />
-            Voir sur Google Maps
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Image -->
-      <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
-        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-          <Image
-            src={HeroImage}
-            alt="David Barbier - Développeur web à Limoges"
-            class="w-[28rem] rounded-xl shadow-xl ring-1 ring-gray-400/10"
-            widths={[400, 768]}
-            sizes="(max-width: 768px) 100vw, 400px"
-            loading="eager"
-          />
+      <!-- Image avec parallax -->
+      <div class="basis-1/2">
+        <div class="relative m-auto max-w-5xl overflow-hidden rounded-md">
+          <div id="heroImg" class="relative m-auto max-w-5xl">
+            <Image
+              src={HeroImage}
+              alt="David Barbier - Création site internet et SEO à Limoges"
+              class="mx-auto rounded-md w-full object-bottom object-fill"
+              widths={[400, 768, 1024, 2040]}
+              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+              width={600}
+              height={800}
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
   <!-- 2. Services Section -->
-  <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+  <section class="py-20 sm:py-28 bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-          Mes services à Limoges
+      <!-- Titre avec mise en avant -->
+      <div class="mx-auto max-w-2xl text-center mb-16">
+        <h2 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+          Comment je peux vous <span class="text-transparent bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text">aider</span>
         </h2>
-        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-          Des solutions web sur-mesure pour développer votre activité en ligne.
+        <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
+          Vous méritez une présence en ligne qui vous apporte de vrais résultats. Pas juste un site, mais un outil qui génère des clients.
         </p>
       </div>
 
-      <div class="mx-auto mt-16 max-w-4xl">
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          {services.map((service) => (
-            <a
-              href={service.href}
-              class="group relative flex flex-col rounded-2xl bg-white dark:bg-gray-800 p-8 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 hover:shadow-lg hover:ring-green-500 transition-all duration-200"
-            >
-              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 text-white mb-6">
-                <Icon name={service.icon} class="w-6 h-6" />
+      <!-- Cards services -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto pt-8">
+        {services.map((service) => (
+          <a
+            href={service.href}
+            class="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 pt-12 shadow-sm hover:shadow-xl transition-all duration-300"
+          >
+            <!-- Icon détouré en haut à gauche avec effet de découpe -->
+            <div class="absolute -top-5 left-8 w-14 h-14 rounded-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md">
+                <Icon name={service.icon} class="w-5 h-5 text-white" />
               </div>
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-green-600">
-                {service.title}
-              </h3>
-              <p class="mt-2 text-gray-600 dark:text-gray-300">
-                {service.description}
-              </p>
-              <span class="mt-4 text-green-600 font-medium flex items-center gap-1">
-                En savoir plus
-                <Icon name="tabler:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
-          ))}
-        </div>
+            </div>
+
+            <!-- Titre -->
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              {service.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              {service.description}
+            </p>
+
+            <!-- Lien -->
+            <span class="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold group-hover:gap-3 transition-all">
+              En savoir plus
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA button -->
+      <div class="text-center mt-12">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-500 text-white font-semibold rounded-full shadow-lg shadow-green-500/25 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300"
+        >
+          Discutons de votre projet
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -377,14 +425,14 @@ const testimonials = [
       </div>
     </div>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.5687!2d1.2524095!3d45.8352862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fec1c0d80e2d5f%3A0x0!2s23%20Rue%20de%20la%20Fonderie%2C%2087000%20Limoges!5e0!3m2!1sfr!2sfr!4v1699999999999!5m2!1sfr!2sfr"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5559.946396226938!2d1.2518848490137657!3d45.83181883432936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f935030d1c91bd%3A0x953c6b4fa1134291!2sDavid%20Barbier!5e0!3m2!1sfr!2sfr!4v1772616699589!5m2!1sfr!2sfr"
       width="100%"
       height="400"
       style="border:0;"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-      title="Localisation David Barbier - Développeur web à Limoges"
+      title="David Barbier - Création site internet et SEO à Limoges"
       class="w-full"
     ></iframe>
   </section>

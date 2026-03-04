@@ -2,10 +2,10 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/call", "destination": "/reserve-ton-appel/", "permanent": true },
-    { "source": "/call/", "destination": "/reserve-ton-appel/", "permanent": true },
-        { "source": "/book-a-call", "destination": "/reserve-ton-appel/", "permanent": true },
-    { "source": "/book-a-call/", "destination": "/reserve-ton-appel/", "permanent": true }
+    { "source": "/call", "destination": "/contact/", "permanent": true },
+    { "source": "/call/", "destination": "/contact/", "permanent": true },
+        { "source": "/book-a-call", "destination": "/contact/", "permanent": true },
+    { "source": "/book-a-call/", "destination": "/contact/", "permanent": true }
   ],
   "headers": [
     {
