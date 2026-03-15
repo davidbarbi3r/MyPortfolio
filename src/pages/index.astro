@@ -3,10 +3,17 @@ import {useTranslations} from "~/i18n/translator";
 import Layout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
 import HeroImage from '~/assets/images/DSCF7551-3.jpg'
-import Fidenza2 from '~/assets/images/000002fidenzaPP.png'
-import Fidenza117 from '~/assets/images/000117fidenzaPP.png'
-import Fidenza262 from '~/assets/images/000262fidenzaPP.png'
+import ServiceCreation from '~/assets/images/service-creation.jpg'
+import ServiceDev from '~/assets/images/service-dev.jpg'
+import ServiceMaintenance from '~/assets/images/service-maintenance.jpg'
+import ServiceSeo from '~/assets/images/service-seo.jpg'
+import RestodomScreen from '~/assets/images/restodom-screen.png';
+import OdacioScreen from '~/assets/images/odacio-screen.png';
+import EkiaScreen from '~/assets/images/ekia-screen.png';
 import Hero2 from '~/components/widgets/Hero2.astro';
+import HeroAnimations from '~/components/animations/HeroAnimations.astro';
+import FilmGrain from '~/components/animations/FilmGrain.astro';
+import ProjectsFlip from '~/components/animations/ProjectsFlip.astro';
 import Features2 from "~/components/widgets/Features2.astro";
 import LogoMarquee from "~/components/widgets/LogoMarquee.astro";
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
@@ -102,7 +109,7 @@ const reviews = [
     author: "Véronique",
     company: "La voie des sens",
     rating: 5,
-    text: "David a réalisé un audit de mon site internet dont j'ai fait la réalisation en autonomie de façon un peu « bancale ». David m'a apporté un état des lieux très clair et précis quant à la façon d'améliorer le référencement et la performance. David a apporté aussi du calme, de la douceur et une bonne compréhension globale de mes besoins pour le site. C'est un vrai plus pour moi que de travailler avec un professionnel serein."
+    text: "David m'a apporté un état des lieux très clair et précis quant à la façon d'améliorer le référencement et la performance. David a apporté aussi du calme, de la douceur et une bonne compréhension globale de mes besoins pour le site. C'est un vrai plus pour moi que de travailler avec un professionnel serein."
   },
   {
     author: "Marta",
@@ -248,38 +255,37 @@ const reviewsSchema = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-transparent bg-gradient-to-r from-emerald-800 to-emerald-600 bg-clip-text dark:text-white highlight">{t("portfolio.heroSide.accent")}</span><br />
-      {t('portfolio.heroSide.title')}
+      <span class="text-transparent bg-gradient-to-r from-emerald-800 to-emerald-600 bg-clip-text dark:text-white">{t("portfolio.heroSide.accent")}</span><br />
+      <span class="text-slate-800 dark:text-gray-200">{t('portfolio.heroSide.title')}</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-      </span>
       {t('portfolio.heroSide.subtitle')}
     </Fragment>
 
     <Fragment slot="content">
-      <div class="grid grid-cols-3 gap-4 md:gap-8 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-        <div class="text-center">
-          <p class="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-400">+30</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">clients accompagnés</p>
+      <div class="flex flex-row lg:flex-col gap-8 lg:gap-10">
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-400 leading-none" data-hero-stat="30">+30</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">clients accompagnés</p>
         </div>
-        <div class="text-center">
-          <p class="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-400">+5 ans</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">d'expérience</p>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-400 leading-none" data-hero-stat="5">+5</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">ans d'expérience</p>
         </div>
-        <div class="text-center">
-          <div class="flex items-center justify-center gap-1">
-            <p class="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-400">5/5</p>
+        <div>
+          <div class="flex items-center gap-2">
+            <p class="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-400 leading-none" data-hero-stat="5/5">5/5</p>
             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
             </svg>
           </div>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">sur Google</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">étoiles sur Google</p>
         </div>
       </div>
     </Fragment>
   </Hero2>
+  <HeroAnimations />
 
   <!-- Logo Marquee -->
   <LogoMarquee
@@ -311,8 +317,8 @@ const reviewsSchema = {
         servicesItems: tList('portfolio.services.servicesItems')[0].items,
         price: tList('portfolio.services.servicesItems')[0].price,
         image: {
-          ...Fidenza117,
-          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for website creation service' : 'Illustration verte d\'un NFT fidenza pour le service de création de site web',
+          ...ServiceCreation,
+          alt: locale === 'en' ? 'Abstract water ripple texture for website creation service' : 'Texture abstraite d\'ondulations pour le service de création de site web',
         },
         icon: 'tabler:devices',
                  callToAction: {
@@ -332,8 +338,8 @@ const reviewsSchema = {
         servicesItems: tList('portfolio.services.servicesItems')[1].items,
         price: tList('portfolio.services.servicesItems')[1].price,
         image: {
-          ...Fidenza262,
-          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for custom feature development service' : 'Illustration verte d\'un NFT fidenza pour le service de développement de fonctionnalités personnalisées',
+          ...ServiceDev,
+          alt: locale === 'en' ? 'Weathered wood grain texture for custom development service' : 'Texture de bois pour le service de développement sur-mesure',
         },
         icon: 'tabler:wand',
         ecLink: {
@@ -347,8 +353,8 @@ const reviewsSchema = {
         servicesItems: tList('portfolio.services.servicesItems')[2].items,
         price: tList('portfolio.services.servicesItems')[2].price,
         image: {
-          ...Fidenza2,
-          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for maintenance service' : 'Illustration verte d\'un NFT fidenza pour le service de maintenance de site web',
+          ...ServiceMaintenance,
+          alt: locale === 'en' ? 'Dark rock and moss texture for maintenance service' : 'Texture de roche et mousse pour le service de maintenance',
         },
         icon: 'tabler:tool',
         callToAction: {
@@ -367,8 +373,8 @@ const reviewsSchema = {
         servicesItems: tList('portfolio.services.servicesItems')[3].items,
         price: tList('portfolio.services.servicesItems')[3].price,
         image: {
-          ...Fidenza117,
-          alt: locale === 'en' ? 'Green illustration of a fidenza NFT for maintenance service' : 'Illustration verte d\'un NFT fidenza pour le service de maintenance de site web',
+          ...ServiceSeo,
+          alt: locale === 'en' ? 'Sunlight through leaves texture for SEO service' : 'Texture de lumière à travers le feuillage pour le service SEO',
         },
         icon: 'tabler:tool',
         callToAction2: {
@@ -415,48 +421,30 @@ const reviewsSchema = {
   <!-- Section Avis Google - Schema SEO -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(reviewsSchema)} />
 
-  <section class="py-12 md:py-16 bg-gray-50 dark:bg-slate-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-8">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl mb-2">
-          Ce que disent mes clients
-        </h2>
-        <div class="flex items-center justify-center gap-1 mb-2">
-          {[1,2,3,4,5].map(() => (
-            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-          ))}
-          <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5/5 basé sur 9 avis Google</span>
-        </div>
-      </div>
+  <section class="py-20 md:py-28 bg-gray-50 dark:bg-slate-800" data-testimonials>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      {/* Label */}
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-12 flex items-center justify-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+        Témoignages
+      </p>
 
-      <!-- Carousel Container -->
+      {/* Carousel */}
       <div class="relative" id="reviews-carousel">
-        <!-- Review Cards -->
         <div class="overflow-hidden">
           <div class="reviews-track flex transition-transform duration-500 ease-in-out">
             {reviews.map((review, index) => (
               <div class="review-slide w-full flex-shrink-0 px-4" data-index={index}>
-                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-                  <div class="flex items-center gap-1 mb-4">
-                    {[1,2,3,4,5].map(() => (
-                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                      </svg>
-                    ))}
+                <blockquote class="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug tracking-tight text-slate-900 dark:text-white mb-10">
+                  "{review.text}"
+                </blockquote>
+                <div class="flex items-center justify-center gap-3">
+                  <div class="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-700 to-emerald-500 flex items-center justify-center text-white font-semibold text-sm">
+                    {review.author.charAt(0)}
                   </div>
-                  <blockquote class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                    "{review.text}"
-                  </blockquote>
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-green-700 flex items-center justify-center text-white font-semibold">
-                      {review.author.charAt(0)}
-                    </div>
-                    <div>
-                      <p class="font-semibold text-gray-900 dark:text-white">{review.author}</p>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">{review.company}</p>
-                    </div>
+                  <div class="text-left">
+                    <p class="font-semibold text-slate-900 dark:text-white text-sm">{review.author}</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">{review.company}</p>
                   </div>
                 </div>
               </div>
@@ -464,53 +452,39 @@ const reviewsSchema = {
           </div>
         </div>
 
-        <!-- Navigation Arrows -->
-        <button
-          type="button"
-          class="review-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-slate-700 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 transition-colors z-10"
-          aria-label="Avis précédent"
-        >
-          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="review-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-slate-700 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 transition-colors z-10"
-          aria-label="Avis suivant"
-        >
-          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </button>
-
-        <!-- Dots Indicator -->
-        <div class="flex justify-center gap-2 mt-6">
-          {reviews.map((_, index) => (
-            <button
-              type="button"
-              class="review-dot w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors"
-              data-index={index}
-              aria-label={`Aller à l'avis ${index + 1}`}
-            />
-          ))}
+        {/* Navigation arrows — centered below */}
+        <div class="flex items-center justify-center gap-3 mt-10">
+          <button
+            type="button"
+            class="review-prev w-10 h-10 rounded-lg bg-emerald-800 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 flex items-center justify-center text-white transition-colors"
+            aria-label="Avis précédent"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="review-next w-10 h-10 rounded-lg bg-emerald-800 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 flex items-center justify-center text-white transition-colors"
+            aria-label="Avis suivant"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
         </div>
       </div>
 
-      <p class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p class="mt-10 text-sm text-slate-400 dark:text-slate-500">
+        5/5 sur
         <a
           href="https://share.google/xsSWlxgBTnkZFTHgU"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-green-700 hover:text-green-800 dark:text-green-400 font-medium inline-flex items-center gap-1"
+          class="text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 font-medium inline-flex items-center gap-1"
         >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-          </svg>
-          Laisser un avis sur Google
+          Google
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </p>
     </div>
@@ -523,7 +497,6 @@ const reviewsSchema = {
 
       const track = carousel.querySelector('.reviews-track') as HTMLElement;
       const slides = carousel.querySelectorAll('.review-slide');
-      const dots = carousel.querySelectorAll('.review-dot');
       const prevBtn = carousel.querySelector('.review-prev');
       const nextBtn = carousel.querySelector('.review-next');
 
@@ -532,12 +505,6 @@ const reviewsSchema = {
 
       function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('bg-green-700', i === currentIndex);
-          dot.classList.toggle('bg-gray-300', i !== currentIndex);
-          dot.classList.toggle('dark:bg-green-600', i === currentIndex);
-          dot.classList.toggle('dark:bg-gray-600', i !== currentIndex);
-        });
       }
 
       prevBtn?.addEventListener('click', () => {
@@ -550,14 +517,7 @@ const reviewsSchema = {
         updateCarousel();
       });
 
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-          currentIndex = i;
-          updateCarousel();
-        });
-      });
-
-      // Auto-play (optionnel)
+      // Auto-play
       setInterval(() => {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateCarousel();
@@ -567,78 +527,134 @@ const reviewsSchema = {
     });
   </script>
 
-  <!-- Section Projets -->
-  <section class="py-12 md:py-16 bg-white dark:bg-slate-900">
+  <!-- Section Projets — Asymmetric editorial layout -->
+  <section class="py-16 md:py-24 bg-white dark:bg-slate-900" data-projects>
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <p class="text-sm font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider mb-2">Réalisations</p>
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-          Projets récents
+      <!-- Header editorial -->
+      <div class="mb-14">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-heading">
+          <span class="text-slate-900 dark:text-white">Impact</span><br />
+          <span class="text-transparent bg-gradient-to-r from-emerald-800 to-emerald-600 bg-clip-text">Mesurable.</span>
         </h2>
+        <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-md text-base">
+          Solutions web haute performance aux résultats concrets.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <article class="group bg-gray-50 dark:bg-slate-800 rounded-xl p-6 hover:shadow-lg transition-shadow border border-gray-100 dark:border-slate-700">
-            <!-- Header: Logo + Client -->
-            <div class="flex items-center gap-3 mb-4">
-              {project.logo ? (
-                <div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center p-1.5 shadow-sm">
-                  <Image src={project.logo} alt={project.client} class="w-full h-full object-contain" />
+      {/* Featured projects — asymmetric grid with Flip swap */}
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8" data-project-grid>
+        {/* Featured slot (3/5) */}
+        <div class="lg:col-span-3 lg:self-start" data-featured-slot>
+          {[{ project: projects[0], screen: RestodomScreen }].map(({ project, screen }) => (
+            <article class="group relative bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-xl transition-shadow duration-300" data-project-card data-flip-id={`project-${project.client}`}>
+              <div class="browser-frame bg-gray-100 dark:bg-slate-700 px-4 py-2.5 flex items-center gap-2 border-b border-gray-200 dark:border-slate-600">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
                 </div>
-              ) : (
-                <div class="w-10 h-10 rounded-lg bg-green-700 flex items-center justify-center text-white font-bold text-sm">
-                  {project.client.charAt(0)}
+                <div class="browser-url flex-1 bg-white dark:bg-slate-600 rounded-md px-3 py-1 text-xs text-gray-400 dark:text-slate-400 truncate ml-2">
+                  {project.url.replace('https://', '')}
                 </div>
-              )}
-              <div>
-                <h3 class="font-semibold text-gray-900 dark:text-white">{project.client}</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400">{project.sector}</p>
+              </div>
+              <div class="screenshot-wrap h-64 md:h-80 overflow-hidden">
+                <Image src={screen} alt={`Screenshot du site ${project.client}`} class="w-full h-full object-cover object-top" loading="lazy" />
+              </div>
+              <div class="card-body p-6">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="featured-badge text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 rounded-full">Featured</span>
+                  {project.tech.map((t) => (
+                    <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-md">{t}</span>
+                  ))}
+                </div>
+                <h3 class="card-title text-xl font-bold text-slate-900 dark:text-white mb-1">{project.client}</h3>
+                <p class="card-sector text-sm text-slate-500 dark:text-slate-400 mb-2">Secteur : {project.sector}</p>
+                <p class="card-offer text-sm text-slate-600 dark:text-slate-300 mb-4">{project.offer}</p>
+                <p class="card-metric text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400 leading-tight mb-4" data-project-metric>{project.result}</p>
+                <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline">
+                  Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Stack slot (2/5) */}
+        <div class="lg:col-span-2 flex flex-col gap-6" data-stack-slot>
+          {[{ project: projects[1], screen: OdacioScreen }, { project: projects[2], screen: EkiaScreen }].map(({ project, screen }) => (
+            <article class="group cursor-pointer bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-xl transition-shadow duration-300" data-project-card data-flip-id={`project-${project.client}`}>
+              <div class="browser-frame hidden bg-gray-100 dark:bg-slate-700 px-4 py-2.5 flex items-center gap-2 border-b border-gray-200 dark:border-slate-600">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                </div>
+                <div class="browser-url flex-1 bg-white dark:bg-slate-600 rounded-md px-3 py-1 text-xs text-gray-400 dark:text-slate-400 truncate ml-2">
+                  {project.url.replace('https://', '')}
+                </div>
+              </div>
+              <div class="screenshot-wrap h-40 md:h-48 overflow-hidden relative">
+                <Image src={screen} alt={`Screenshot du site ${project.client}`} class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                {/* Expand hint — desktop only */}
+                <div class="expand-hint hidden lg:flex absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 items-center justify-center">
+                  <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
+                    Voir en détail
+                  </span>
+                </div>
+              </div>
+              <div class="card-body p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="featured-badge hidden text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 rounded-full">Featured</span>
+                  {project.tech.map((t) => (
+                    <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-md">{t}</span>
+                  ))}
+                </div>
+                <h3 class="card-title text-lg font-bold text-slate-900 dark:text-white">{project.client}</h3>
+                <p class="card-sector text-xs text-slate-500 dark:text-slate-400 mb-2">{project.sector}</p>
+                <p class="card-offer hidden text-sm text-slate-600 dark:text-slate-300 mb-4">{project.offer}</p>
+                <p class="card-metric text-xl md:text-2xl font-bold text-green-700 dark:text-green-400 leading-tight mb-2" data-project-metric>{project.result}</p>
+                <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline">
+                  Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* Autres réalisations — minimal list */}
+      <div class="border-t border-gray-200 dark:border-slate-700 pt-8 mb-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-slate-500 mb-6">Autres réalisations</p>
+        <div class="space-y-4">
+          {projects.slice(3).map((project) => (
+            <div class="flex items-center justify-between py-3 border-b border-gray-100 dark:border-slate-800 group" data-project-row>
+              <div class="flex items-center gap-6">
+                <h4 class="font-bold text-slate-900 dark:text-white min-w-[120px]">{project.client}</h4>
+                <span class="text-sm text-slate-500 dark:text-slate-400 hidden md:inline">{project.sector}</span>
+                <span class="text-sm font-semibold text-green-700 dark:text-green-400">{project.result}</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="hidden md:flex gap-1.5">
+                  {project.tech.map((t) => (
+                    <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400 rounded-md">{t}</span>
+                  ))}
+                </div>
+                <a href={project.url} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-gray-200 dark:border-slate-600 flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:border-emerald-300 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
               </div>
             </div>
-
-            <!-- Offer -->
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-              {project.offer}
-            </p>
-
-            <!-- Result highlight -->
-            <div class="flex items-center gap-2 mb-4 text-green-700 dark:text-green-400">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <span class="text-sm font-medium">{project.result}</span>
-            </div>
-
-            <!-- Tech stack -->
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              {project.tech.map((t) => (
-                <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-md">
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            <!-- Lien vers le site -->
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline"
-            >
-              Voir le site
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
 
-      <div class="text-center mt-10">
+      {/* CTA */}
+      <div class="text-center">
         <a
           href="/contact/"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          data-magnetic
         >
           Discutons de votre projet
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -648,6 +664,7 @@ const reviewsSchema = {
       </div>
     </div>
   </section>
+  <ProjectsFlip />
 
   <BlogLatestPosts
     title={t('index.blogLatestPosts.title')}
@@ -695,4 +712,6 @@ const reviewsSchema = {
       </div>
     </div>
   </section>
+
+  <FilmGrain opacity={0.07} speed={50} targets="[data-hero-photo]" />
 </Layout>

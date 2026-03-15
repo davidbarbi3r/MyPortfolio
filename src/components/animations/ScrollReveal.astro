@@ -1,0 +1,80 @@
+---
+// ScrollReveal — reusable scroll-triggered reveal animation
+// Wrap any section content to animate it on scroll entry
+export interface Props {
+  direction?: 'up' | 'left' | 'right' | 'none';
+  delay?: number;
+  duration?: number;
+  stagger?: boolean;
+  class?: string;
+}
+
+const {
+  direction = 'up',
+  delay = 0,
+  duration = 0.8,
+  stagger = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<div
+  class:list={['scroll-reveal', className]}
+  data-reveal-direction={direction}
+  data-reveal-delay={delay}
+  data-reveal-duration={duration}
+  data-reveal-stagger={stagger}
+>
+  <slot />
+</div>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    const direction = htmlEl.dataset.revealDirection || 'up';
+    const delay = parseFloat(htmlEl.dataset.revealDelay || '0');
+    const duration = parseFloat(htmlEl.dataset.revealDuration || '0.8');
+    const shouldStagger = htmlEl.dataset.revealStagger === 'true';
+
+    const from: gsap.TweenVars = {
+      opacity: 0,
+      duration,
+      delay,
+      ease: 'power3.out',
+    };
+
+    if (direction === 'up') from.y = 40;
+    if (direction === 'left') from.x = -40;
+    if (direction === 'right') from.x = 40;
+
+    if (shouldStagger) {
+      gsap.from(htmlEl.children, {
+        ...from,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: htmlEl,
+          start: 'top 85%',
+        },
+      });
+    } else {
+      gsap.from(htmlEl, {
+        ...from,
+        scrollTrigger: {
+          trigger: htmlEl,
+          start: 'top 85%',
+        },
+      });
+    }
+  });
+</script>
+
+<style>
+  .scroll-reveal {
+    will-change: transform, opacity;
+  }
+</style>

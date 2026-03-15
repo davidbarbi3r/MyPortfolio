@@ -1,0 +1,150 @@
+---
+// FilmGrain — Dual grain system:
+// 1. Canvas 2D grain overlay for photo (animated noise)
+// 2. CSS/SVG grain on title text (follows letter shapes)
+// Desktop only (md+)
+export interface Props {
+  opacity?: number;
+  speed?: number;
+  targets?: string;
+}
+
+const {
+  opacity = 0.07,
+  speed = 50,
+  targets = '[data-hero-photo]',
+} = Astro.props;
+---
+
+{/* SVG filter for text grain — uses feTurbulence for organic noise */}
+<svg class="absolute w-0 h-0" aria-hidden="true">
+  <filter id="grain-filter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+    <feColorMatrix type="saturate" values="0" />
+    <feBlend in="SourceGraphic" mode="overlay" />
+  </filter>
+</svg>
+
+<style>
+  /* Animated grain texture on title text only — desktop */
+  @media (min-width: 768px) {
+    [data-hero-title] {
+      position: relative;
+    }
+    [data-hero-title]::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      filter: url(#grain-filter);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 10;
+      mix-blend-mode: overlay;
+      background: transparent;
+    }
+  }
+</style>
+
+<div
+  data-grain-config
+  data-grain-opacity={opacity}
+  data-grain-speed={speed}
+  data-grain-targets={targets}
+  class="hidden"
+></div>
+
+<script>
+  function initGrain() {
+    // Desktop only (md = 768px)
+    if (window.innerWidth < 768) return;
+
+    const config = document.querySelector('[data-grain-config]') as HTMLElement;
+    if (!config) return;
+
+    const opacity = parseFloat(config.dataset.grainOpacity || '0.07');
+    const speed = parseInt(config.dataset.grainSpeed || '50');
+    const selectors = (config.dataset.grainTargets || '').split(',').map(s => s.trim()).filter(Boolean);
+
+    // Clean up previous
+    document.querySelectorAll('.grain-canvas').forEach(c => c.remove());
+
+    const instances: { canvas: HTMLCanvasElement; ctx: CanvasRenderingContext2D; target: HTMLElement }[] = [];
+    let animFrame: number;
+    let lastTime = 0;
+
+    // Canvas grain for photo targets
+    selectors.forEach(selector => {
+      const target = document.querySelector(selector) as HTMLElement;
+      if (!target) return;
+
+      const pos = getComputedStyle(target).position;
+      if (pos === 'static') target.style.position = 'relative';
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'grain-canvas';
+      canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:10;';
+      canvas.setAttribute('aria-hidden', 'true');
+      target.appendChild(canvas);
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      instances.push({ canvas, ctx, target });
+    });
+
+    if (instances.length === 0) return;
+
+    function resize() {
+      instances.forEach(({ canvas, target }) => {
+        canvas.width = target.offsetWidth;
+        canvas.height = target.offsetHeight;
+      });
+    }
+
+    function generateNoise(time: number) {
+      if (time - lastTime < 1000 / speed) {
+        animFrame = requestAnimationFrame(generateNoise);
+        return;
+      }
+      lastTime = time;
+
+      instances.forEach(({ canvas, ctx }) => {
+        const w = canvas.width;
+        const h = canvas.height;
+        if (w === 0 || h === 0) return;
+
+        const imageData = ctx.createImageData(w, h);
+        const data = imageData.data;
+
+        for (let i = 0; i < data.length; i += 4) {
+          const v = Math.random() * 255;
+          data[i] = v;
+          data[i + 1] = v;
+          data[i + 2] = v;
+          data[i + 3] = opacity * 255;
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+      });
+
+      animFrame = requestAnimationFrame(generateNoise);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    animFrame = requestAnimationFrame(generateNoise);
+
+    document.addEventListener('astro:before-swap', () => {
+      cancelAnimationFrame(animFrame);
+      window.removeEventListener('resize', resize);
+      document.querySelectorAll('.grain-canvas').forEach(c => c.remove());
+    });
+  }
+
+  document.addEventListener('astro:page-load', initGrain);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGrain);
+  } else {
+    initGrain();
+  }
+</script>

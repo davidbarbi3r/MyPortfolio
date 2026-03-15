@@ -10,7 +10,7 @@ export interface Props {
   content?: string;
   callToAction?: string | CallToAction;
   callToAction2?: string | CallToAction;
-  image?: string | any; // TODO: find HTMLElementProps
+  image?: string | any;
 }
 
 const {
@@ -23,119 +23,102 @@ const {
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
-<script>
-  const heroImg = document.getElementById('heroImg');
 
-  function scrollPosition(){
-    return window.scrollY;
-  }
-
-  function percentageScrolled(){
-    return scrollPosition() / (document.body.scrollHeight - window.innerHeight);
-  }
-
-  function screenWidth(){
-    return window.innerWidth;
-  }
-
-  function parallax(){
-    if (heroImg && screenWidth() > 1024 && percentageScrolled() < 0.20) {
-      heroImg.style.transform = `translateY(${scrollPosition() * 0.4}px)`;
-    }
-  }
-
-  window.addEventListener('scroll', function(){
-    parallax();
-  });
-</script>
-<section class="relative md:-mt-[76px] not-prose">
+<section class="relative md:-mt-[76px] not-prose" data-hero>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8">
-      <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
-        {tagline && (
-          <p
-            class="text-base text-emerald-900 dark:text-emerald-200 font-bold tracking-wide uppercase"
-            set:html={tagline}
-          />
+
+    {/* === HEADLINE BLOCK — full width, giant typography, overlaps photo === */}
+    <div class="pt-8 md:pt-12 lg:pt-16 relative z-10">
+      {tagline && (
+        <p
+          class="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-[0.2em] uppercase mb-6"
+          data-hero-tagline
+        >
+          <span class="inline-block w-4 h-[2px] bg-emerald-600 mr-3 align-middle"></span>
+          {tagline}
+        </p>
+      )}
+      {title && (
+        <h1
+          class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-0 font-heading"
+          data-hero-title
+          set:html={title}
+        />
+      )}
+    </div>
+
+    {/* === 3-COLUMN GRID — text+CTA | photo (center, wider) | stats === */}
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 lg:-mt-16 pb-12 md:pb-20">
+
+      {/* Column 1: Description + CTA (1/4) */}
+      <div class="lg:col-span-1 flex flex-col justify-center order-2 lg:order-1">
+        {subtitle && (
+          <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8" data-hero-subtitle set:html={subtitle} />
         )}
-        {
-          title && (
-            <h1
-              class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto lg:max-w-none">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          <div
-            class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 lg:justify-start lg:m-0 lg:max-w-7xl"
-          >
-            {
-              callToAction && (
-                <div class="flex w-full sm:w-auto">
-                  {typeof callToAction === 'string' ? (
-                    <Fragment set:html={callToAction} />
-                  ) : (
-                    <a class="btn btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 border-none hover:from-emerald-700 hover:to-emerald-500 sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
-                      {callToAction?.icon && (
-                        <>
-                          <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5 rtl:-mr-1.5 rtl:ml-1" />{' '}
-                        </>
-                      )}
-                      {callToAction?.text}
-                    </a>
-                  )}
-                </div>
-              )
-            }
-            {
-              callToAction2 && (
-                <div class="flex w-full sm:w-auto">
-                  {typeof callToAction2 === 'string' ? (
-                    <Fragment set:html={callToAction2} />
-                  ) : (
-                    <a class="btn w-full" href={callToAction2?.href}>
-                      {callToAction2?.icon && (
-                        <>
-                          <Icon name={callToAction2.icon} class="w-5 h-5 mr-1 -ml-1.5" />{' '}
-                        </>
-                      )}
-                      {callToAction2.text}
-                    </a>
-                  )}
-                </div>
-              )
-            }
+        {callToAction && (
+          <div class="flex">
+            {typeof callToAction === 'string' ? (
+              <Fragment set:html={callToAction} />
+            ) : (
+              <a
+                class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 text-white font-semibold tracking-wide uppercase text-xs px-5 py-3 rounded-lg transition-all duration-300 whitespace-nowrap"
+                href={callToAction?.href}
+                data-hero-cta
+                data-magnetic
+              >
+                {callToAction?.icon && (
+                  <Icon name={callToAction.icon} class="w-4 h-4" />
+                )}
+                {callToAction?.text}
+              </a>
+            )}
           </div>
-        </div>
+        )}
+        {callToAction2 && (
+          <div class="flex mt-3">
+            {typeof callToAction2 === 'string' ? (
+              <Fragment set:html={callToAction2} />
+            ) : (
+              <a class="btn" href={callToAction2?.href}>
+                {callToAction2?.icon && (
+                  <Icon name={callToAction2.icon} class="w-5 h-5 mr-1" />
+                )}
+                {callToAction2.text}
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Column 2: Portrait photo — center, imposing (2/4) */}
+      <div class="lg:col-span-2 relative z-0 order-1 lg:order-2">
+        {image && (
+          <div class="relative overflow-hidden rounded-lg" data-hero-photo>
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="w-full h-auto object-contain rounded-lg"
+                  widths={[400, 768, 1024]}
+                  sizes="(max-width: 1023px) 100vw, 50vw"
+                  loading="eager"
+                  width={800}
+                  height={1000}
+                  {...image}
+                />
+              )}
+          </div>
+        )}
+      </div>
+
+      {/* Column 3: Stats / Metrics (1/4) */}
+      <div class="lg:col-span-1 flex flex-col justify-center order-3">
         {content && <Fragment set:html={content} />}
       </div>
-      <div class="basis-1/2">
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl overflow-hidden rounded-md">
-              <div id='heroImg' class="relative m-auto max-w-5xl">
-                {typeof image === 'string' ? (
-                  <Fragment set:html={image} />
-                ) : (
-                  <Image
-                    class="mx-auto rounded-md w-full object-bottom object-fill"
-                    widths={[400, 768, 1024, 2040]}
-                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                    loading="eager"
-                    width={600}
-                    height={800}
-                    {...image}
-                  />
-                )}
-              </div>
-          </div>
-          )
-        }
-      </div>
+
     </div>
   </div>
 </section>
+

@@ -1,0 +1,139 @@
+---
+// ProjectsFlip — GSAP Flip animation for swapping featured/stack project cards
+// Desktop only — disabled on mobile where cards stack vertically
+---
+
+<script>
+  import gsap from 'gsap';
+  import { Flip } from 'gsap/Flip';
+
+  gsap.registerPlugin(Flip);
+
+  function initProjectsFlip() {
+    const grid = document.querySelector('[data-project-grid]');
+    if (!grid) return;
+
+    // Desktop only (matches lg: breakpoint = 1024px)
+    const mql = window.matchMedia('(min-width: 1024px)');
+    if (!mql.matches) return;
+
+    const featuredSlot = grid.querySelector('[data-featured-slot]') as HTMLElement;
+    const stackSlot = grid.querySelector('[data-stack-slot]') as HTMLElement;
+    if (!featuredSlot || !stackSlot) return;
+
+    let isAnimating = false;
+
+    function applyFeaturedStyles(card: HTMLElement) {
+      const frame = card.querySelector('.browser-frame') as HTMLElement;
+      const badge = card.querySelector('.featured-badge') as HTMLElement;
+      const screenshot = card.querySelector('.screenshot-wrap') as HTMLElement;
+      const body = card.querySelector('.card-body') as HTMLElement;
+      const title = card.querySelector('.card-title') as HTMLElement;
+      const sector = card.querySelector('.card-sector') as HTMLElement;
+      const offer = card.querySelector('.card-offer') as HTMLElement;
+      const metric = card.querySelector('.card-metric') as HTMLElement;
+      const hint = card.querySelector('.expand-hint') as HTMLElement;
+
+      if (frame) { frame.classList.remove('hidden'); frame.classList.add('flex'); }
+      if (badge) badge.classList.remove('hidden');
+      if (screenshot) { screenshot.className = 'screenshot-wrap h-64 md:h-80 overflow-hidden'; }
+      if (body) body.className = 'card-body p-6';
+      if (title) { title.classList.remove('text-lg'); title.classList.add('text-xl', 'mb-1'); }
+      if (sector) { sector.className = 'card-sector text-sm text-slate-500 dark:text-slate-400 mb-2'; }
+      if (offer) { offer.classList.remove('hidden'); }
+      if (metric) { metric.className = 'card-metric text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400 leading-tight mb-4'; metric.setAttribute('data-project-metric', ''); }
+      if (hint) hint.classList.add('!hidden');
+      card.classList.remove('cursor-pointer');
+    }
+
+    function applyStackStyles(card: HTMLElement) {
+      const frame = card.querySelector('.browser-frame') as HTMLElement;
+      const badge = card.querySelector('.featured-badge') as HTMLElement;
+      const screenshot = card.querySelector('.screenshot-wrap') as HTMLElement;
+      const body = card.querySelector('.card-body') as HTMLElement;
+      const title = card.querySelector('.card-title') as HTMLElement;
+      const sector = card.querySelector('.card-sector') as HTMLElement;
+      const offer = card.querySelector('.card-offer') as HTMLElement;
+      const metric = card.querySelector('.card-metric') as HTMLElement;
+      const hint = card.querySelector('.expand-hint') as HTMLElement;
+
+      if (frame) { frame.classList.add('hidden'); frame.classList.remove('flex'); }
+      if (badge) badge.classList.add('hidden');
+      if (screenshot) { screenshot.className = 'screenshot-wrap h-40 md:h-48 overflow-hidden relative'; }
+      if (body) body.className = 'card-body p-5';
+      if (title) { title.classList.remove('text-xl', 'mb-1'); title.classList.add('text-lg'); }
+      if (sector) { sector.className = 'card-sector text-xs text-slate-500 dark:text-slate-400 mb-2'; }
+      if (offer) { offer.classList.add('hidden'); }
+      if (metric) { metric.className = 'card-metric text-xl md:text-2xl font-bold text-green-700 dark:text-green-400 leading-tight mb-2'; metric.setAttribute('data-project-metric', ''); }
+      if (hint) hint.classList.remove('!hidden');
+      card.classList.add('cursor-pointer');
+    }
+
+    function swapCards(clickedCard: HTMLElement) {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const featuredCard = featuredSlot.querySelector('[data-project-card]') as HTMLElement;
+      if (!featuredCard || clickedCard === featuredCard) {
+        isAnimating = false;
+        return;
+      }
+
+      // Remember clicked card position in stack
+      const stackCards = Array.from(stackSlot.querySelectorAll('[data-project-card]'));
+      const clickedIndex = stackCards.indexOf(clickedCard);
+
+      // Lock grid height to prevent content jump
+      const gridEl = grid as HTMLElement;
+      const gridRect = gridEl.getBoundingClientRect();
+      gridEl.style.minHeight = gridRect.height + 'px';
+
+      // Capture state before DOM change
+      const allCards = grid.querySelectorAll('[data-project-card]');
+      const state = Flip.getState(allCards);
+
+      // DOM swap
+      featuredSlot.appendChild(clickedCard);
+      if (clickedIndex === 0) {
+        stackSlot.prepend(featuredCard);
+      } else {
+        stackSlot.appendChild(featuredCard);
+      }
+
+      // Apply styles after swap
+      applyFeaturedStyles(clickedCard);
+      applyStackStyles(featuredCard);
+
+      // Animate
+      Flip.from(state, {
+        duration: 0.6,
+        ease: 'power2.inOut',
+        absolute: true,
+        onComplete: () => {
+          gridEl.style.minHeight = '';
+          isAnimating = false;
+        }
+      });
+    }
+
+    // Prevent link clicks from triggering swap
+    stackSlot.addEventListener('click', (e: Event) => {
+      const target = e.target as HTMLElement;
+      // Don't swap if clicking a link
+      if (target.closest('a')) return;
+
+      const card = target.closest('[data-project-card]') as HTMLElement;
+      if (card && stackSlot.contains(card)) {
+        swapCards(card);
+      }
+    });
+  }
+
+  // Support View Transitions + standard load
+  document.addEventListener('astro:page-load', initProjectsFlip);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectsFlip);
+  } else {
+    initProjectsFlip();
+  }
+</script>

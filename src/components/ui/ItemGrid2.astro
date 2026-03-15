@@ -27,13 +27,10 @@ const {
         ({ title, description, icon, callToAction, callToAction2, image, servicesItems, price, ecLink, classes: itemClasses = {} }, index) => (
           <div class={twMerge('relative flex flex-col', panelClass, itemClasses?.panel, 'p-0 min-w-[85%]')}>
             {image && (
-              <div>
+              <div class="service-image-wrapper relative overflow-hidden rounded-t-lg">
                 <Image
                   src={image as ImageMetadata}
-                  class={twMerge(
-                    "object-cover w-full h-24 mb-4 rounded-t-lg",
-                    "object-bottom"
-                  )}
+                  class="service-image object-cover w-full h-24 mb-0"
                   alt={image.alt || ''}
                   height={350}
                   width={450}
@@ -97,13 +94,10 @@ const {
             data-index={index}
           >
             {image && (
-              <div class="overflow-hidden">
+              <div class="service-image-wrapper relative overflow-hidden rounded-t-lg">
                 <Image
                   src={image as ImageMetadata}
-                  class={twMerge(
-                    "object-cover w-full h-48 rounded-t-lg",
-                    "object-bottom"
-                  )}
+                  class="service-image object-cover w-full h-48"
                   alt={image.alt || ''}
                   height={350}
                   width={450}
@@ -155,6 +149,21 @@ const {
 }
 
 <style is:global>
+  /* Duotone emerald overlay */
+  .service-image-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #065f46, #34d399);
+    mix-blend-mode: color;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .service-image {
+    filter: grayscale(10%) contrast(1.05) brightness(0.95);
+  }
+
   /* Desktop horizontal accordion */
   [data-haccordion] {
     align-items: stretch;
@@ -219,7 +228,12 @@ const {
   }
 </style>
 
-<script is:inline>
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
   function initHAccordion() {
     document.querySelectorAll('[data-haccordion]').forEach(function(grid) {
       var items = grid.querySelectorAll('[data-haccordion-item]');
@@ -231,26 +245,94 @@ const {
         items[0].classList.add('haccordion-open');
       }
 
+      // Clone first (removes old listeners), then animate the clones
       items.forEach(function(item) {
-        // Clone to remove old listeners
-        var clone = item.cloneNode(true);
-        item.parentNode.replaceChild(clone, item);
+        var clone = item.cloneNode(true) as HTMLElement;
+        item.parentNode!.replaceChild(clone, item);
 
-        clone.addEventListener('click', function(e) {
-          // Don't toggle if clicking a link inside the open card
-          if (clone.classList.contains('haccordion-open') && (e.target.closest('a') || e.target.closest('button'))) {
+        clone.addEventListener('click', function(e: Event) {
+          var target = e.target as HTMLElement;
+          if (clone.classList.contains('haccordion-open') && (target.closest('a') || target.closest('button'))) {
             return;
           }
 
-          // Close all, open clicked
           grid.querySelectorAll('[data-haccordion-item]').forEach(function(i) {
             i.classList.remove('haccordion-open');
           });
           clone.classList.add('haccordion-open');
+
+          // --- C. Content fade-in on open ---
+          var bodies = clone.querySelectorAll('.haccordion-body');
+          bodies.forEach(function(body: Element) {
+            gsap.fromTo(body,
+              { opacity: 0, y: 10 },
+              { opacity: 1, y: 0, duration: 0.4, delay: 0.35, ease: 'power2.out' }
+            );
+          });
+
+          // Title horizontal slide
+          var title = clone.querySelector('h3');
+          if (title) {
+            gsap.fromTo(title,
+              { opacity: 0, x: -15 },
+              { opacity: 1, x: 0, duration: 0.3, delay: 0.1, ease: 'power2.out' }
+            );
+          }
         });
       });
+
+      // --- A. Scroll reveal stagger (on the NEW cloned items) ---
+      var freshItems = grid.querySelectorAll('[data-haccordion-item]');
+      gsap.fromTo(
+        Array.from(freshItems),
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: grid,
+            start: 'top 85%',
+            once: true,
+          },
+          onComplete: function() {
+            freshItems.forEach(function(item) {
+              // Let CSS handle opacity after reveal
+              (item as HTMLElement).style.removeProperty('opacity');
+            });
+          },
+        }
+      );
     });
+
+    // --- A. Mobile cards scroll reveal ---
+    var mobileCards = document.querySelectorAll('.flex.overflow-x-scroll > div');
+    if (mobileCards.length) {
+      gsap.fromTo(
+        Array.from(mobileCards),
+        { opacity: 0, x: 30 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: mobileCards[0].parentElement,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    }
   }
 
   document.addEventListener('astro:page-load', initHAccordion);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHAccordion);
+  } else {
+    initHAccordion();
+  }
 </script>
