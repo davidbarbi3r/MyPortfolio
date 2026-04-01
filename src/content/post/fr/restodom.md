@@ -73,4 +73,4 @@ Le site a également été pensé pour avoir le plus faible impact écologique p
 
 ## Et si c'était vous ?
 
-Vous avez un projet de site internet sur mesure ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/creation-site-internet-ajaccio/).
+Vous avez un projet de site internet sur mesure ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/).

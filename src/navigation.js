@@ -22,7 +22,7 @@ export const getHeaderData = () => {
         ],
       },
     ],
-    actions: [{ type: 'button', text: 'Contact', href: '/contact/' }],
+    actions: [{ type: 'button', text: 'Experts-comptables', href: '/agence-web-expert-comptable/' }],
   };
 };
 
@@ -30,7 +30,6 @@ export const getFooterData = () => {
   return {
     secondaryLinks: [
       { text: 'A propos', href: '/a-propos/' },
-      { text: 'Contact', href: '/contact/' },
       { text: 'Blog', href: '/blog/' },
       { text: 'Mentions légales', href: '/terms/' },
     ],

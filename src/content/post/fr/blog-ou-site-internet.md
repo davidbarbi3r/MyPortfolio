@@ -88,7 +88,7 @@ En tant que développeur web, j'ai choisi de créer mon propre blog en utilisant
 3. **Absence de commentaires** : J'ai délibérément choisi de ne pas inclure de section commentaires sur mon blog. Cette décision a été motivée par deux facteurs principaux :
     - **Raisons environnementales** : Moins de requêtes serveur signifie une empreinte carbone réduite.
     - **Facilité de modération** : Ayant déjà eu des expériences avec des bots publicitaires sur WordPress, j'ai préféré éviter ce problème en redirigeant les discussions vers les réseaux sociaux.
-4. **Focalisation sur le contenu** : Cette approche me permet de me concentrer entièrement sur la création de contenu de qualité sans me soucier de la gestion des commentaires ou de la [maintenance](https://www.davidbarbier.com/maintenance-site-web-limoges/) d'un système complexe.
+4. **Focalisation sur le contenu** : Cette approche me permet de me concentrer entièrement sur la création de contenu de qualité sans me soucier de la gestion des commentaires ou de la [maintenance](https://www.davidbarbier.com/limoges/maintenance-site-internet/) d'un système complexe.
 
 ### Vous aussi, optez pour un blog sur mesure !
 
@@ -96,5 +96,5 @@ En tant que développeur web, j'ai choisi de créer mon propre blog en utilisant
 
 Je peux vous aider à concevoir et développer un blog parfaitement adapté à vos besoins, qui allie performance, sécurité et facilité d'utilisation. Que vous souhaitiez un blog statique comme le mien ou une solution plus dynamique, je peux créer une solution qui correspond exactement à vos attentes et à celles de votre audience.
 
-N'hésitez pas à me contacter pour discuter de votre [projet de blog ou de site vitrine](https://www.davidbarbier.com/creation-site-internet-limoges/) si vous n'avez pas du tout de temps à consacrer à la création de contenu.
+N'hésitez pas à me contacter pour discuter de votre [projet de blog ou de site vitrine](https://www.davidbarbier.com/creation-site-internet-ajaccio/) si vous n'avez pas du tout de temps à consacrer à la création de contenu.
 Si vous avez déjà un site ou blog et que vous voulez améliorer son référencement, je peux également vous aider à [optimiser votre SEO](https://www.davidbarbier.com/consultant-seo-ajaccio/) pour attirer plus de visiteurs et augmenter votre chiffre d'affaires.

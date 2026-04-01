@@ -70,4 +70,4 @@ Le site a également été pensé pour avoir le plus faible impact écologique p
 
 ## Et si c'était vous ?
 
-Vous souhaitez refondre votre site internet ou en créer un nouveau ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/creation-site-internet-limoges/).
+Vous souhaitez refondre votre site internet ou en créer un nouveau ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/).
