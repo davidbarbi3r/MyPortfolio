@@ -52,9 +52,17 @@
     --aw-color-bg-page-dark: rgb(3 6 32);
   }
 
-  /* Clash Display maxes out at 500 — override bold to medium */
+  /* Clash Display for all headings — cap at weight 500 */
+  h1, h2, h3, h4, h5, h6,
   .font-heading {
+    font-family: var(--aw-font-heading), system-ui, sans-serif !important;
     font-weight: 500 !important;
+  }
+
+  /* Spans/strongs inside headings inherit the heading font */
+  h1 *, h2 *, h3 *, h4 * {
+    font-family: inherit !important;
+    font-weight: inherit !important;
   }
 
   .dark {
