@@ -11,7 +11,7 @@ const title = `Error 404`;
       <div class="max-w-md text-center">
         <h2 class="mb-8 font-bold text-9xl">
           <span class="sr-only">Erreur</span>
-          <span class="text-transparent bg-gradient-to-r from-emerald-900 to-emerald-600 bg-clip-text">404</span>
+          <span class="text-emerald-700 dark:text-emerald-400">404</span>
         </h2>
         <p class="text-3xl font-semibold md:text-3xl">Il semble que la page que vous recherchez n'existe pas.</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
@@ -19,7 +19,7 @@ const title = `Error 404`;
         </p>
         <a 
         rel="noopener noreferrer" href={getHomePermalink()} 
-        class="btn ml-4 btn-primary bg-gradient-to-r from-emerald-800 to-emerald-600 hover:from-emerald-700 hover:to-emerald-500 border-none">
+        class="btn ml-4 btn-primary bg-emerald-700 hover:bg-emerald-600 border-none">
         retourner à la page d'accueil
         </a>
       </div>
