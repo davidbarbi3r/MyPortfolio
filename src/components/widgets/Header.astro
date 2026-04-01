@@ -125,17 +125,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             </li>
           ))
         }
-        
-          <a
-          class:list={[
-            "hover:text-link dark:hover:text-white px-2 py-3 flex items-centers md:hidden lg:block",
-            { "aw-link-active": currentPath }
-          ]}
-          href={getRelativeLocaleUrl(locale, "/site-internet-eco-responsable")}
-          >
-            {locale === "fr" ? "Sites écologiques" : "Eco websites"}
-          </a>
-      
+
+
       </ul>
     </nav>
   </div>

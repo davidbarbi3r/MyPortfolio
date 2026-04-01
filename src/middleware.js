@@ -4,7 +4,6 @@ import { defineMiddleware } from "astro:middleware";
 // Map des URLs français vers anglais
 const urlMappings = {
   'reserve-ton-appel': 'book-a-call',
-  'site-internet-eco-responsable': 'eco-friendly-website-creation',
   'call': 'book-a-call',     // Pour gérer l'ancienne URL
 };
 
