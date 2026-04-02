@@ -11,7 +11,19 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
-    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:px-8 lg:py-16">
+    <!-- Fil d'Ariane -->
+    <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm">
+        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li><a href="/limoges/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Limoges</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-gray-900 dark:text-white font-medium">Maintenance</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-4 sm:pb-12 lg:flex lg:px-8 lg:py-16">
       <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
         <!-- Badge localisation -->
         <div class="mt-8 sm:mt-16 lg:mt-8">

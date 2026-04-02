@@ -5,9 +5,9 @@ import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
 
 const metadata = {
-  title: 'Création site internet Limoges à 1800€ HT | David Barbier',
+  title: 'Création site WordPress à Limoges | Site vitrine professionnel',
   description:
-    "Une offre claire pour votre Création de site internet vitrine à Limoges. 1800€, adpaté à toutes les tailles d'écran, sans frais cachés, 100% administrable en 1 mois.",
+    "Développeur WordPress à Limoges. Site vitrine professionnel, adapté à toutes les tailles d'écran, optimisé SEO, 100% administrable. Livré en 1 mois.",
 };
 ---
 
@@ -39,7 +39,19 @@ const metadata = {
 </script>
 <Layout metadata={metadata}>
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
-    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:px-8 lg:py-16">
+    <!-- Fil d'Ariane -->
+    <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm">
+        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li><a href="/limoges/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Limoges</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-gray-900 dark:text-white font-medium">Création site WordPress</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-4 sm:pb-12 lg:flex lg:px-8 lg:py-16">
       <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
         <!-- Badge localisation -->
         <div class="mt-8 sm:mt-16 lg:mt-8">
@@ -47,7 +59,7 @@ const metadata = {
             <span
               class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8"
             >
-              Site internet professionnel
+              Site internet <strong>WordPress</strong> professionnel
             </span>
           </span>
         </div>
@@ -56,12 +68,12 @@ const metadata = {
         <h1
           class="mt-10 text-pretty font-heading text-3xl font-semibold tracking-tight text-green-950 sm:text-4xl inline dark:text-white"
         >
-          Création site internet Limoges
+          Création site WordPress à Limoges
         </h1>
         <span
           class="text-pretty text-3xl font-semibold tracking-tight text-green-950 sm:text-4xl inline dark:text-gray-300"
         >
-          : Votre site vitrine à partir de 1800€ HT
+          : Votre site vitrine professionnel clé en main
         </span>
 
         <!-- Paragraphes -->
@@ -441,14 +453,12 @@ const metadata = {
     <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
       <div class="relative isolate overflow-hidden bg-green-700 px-6 py-16 shadow-2xl rounded-3xl sm:px-24">
         <h2 class="mx-auto max-w-2xl text-center text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Créez votre site internet professionnel
+          Créez votre site WordPress à Limoges
         </h2>
 
         <div class="mx-auto mt-10 max-w-xl text-center">
-          <p class="text-2xl font-semibold leading-8 text-white">1800€ HT</p>
           <p class="mt-4 text-lg leading-8 text-green-100">
-            Acompte de 500€ à la signature, suivi personnalisé tout au long du projet via WhatsApp et un espace dédié en
-            ligne.
+            Suivi personnalisé tout au long du projet via WhatsApp et un espace dédié en ligne.
           </p>
           <p class="text-lg leading-8 text-green-100">
             Site livré clé en main en 1 mois, 100% administrable et sans engagement.
@@ -512,7 +522,7 @@ const metadata = {
           </div>
           <dd class="mt-4">
             <p class="text-base leading-normal text-base-500 font-medium">
-              Versement de l'acompte de 500€. Je vous envoie un questionnaire détaillé pour préparer notre entretien et
+              Versement de l'acompte. Je vous envoie un questionnaire détaillé pour préparer notre entretien et
               crée notre espace d'échange en ligne.
             </p>
           </dd>
@@ -749,13 +759,12 @@ const metadata = {
           <h3 class="inline">Y a-t-il des frais cachés pour la création de mon site Wordpress ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          Non, le prix annoncé comprend: la création, l'installation du site sur l'hébergement, la sécurisation, la mise
+          Non, le devis comprend la création, l'installation du site sur l'hébergement, la sécurisation, la mise
           en ligne et la formation à l'utilisation.
         </p>
         <p class="pl-4 mt-2">
           Les seuls frais récurrents seront l'hébergement (à partir de 5 euros / mois)
-          <!--TODO: Lien vers hebergement-->
-          Et le nom de domaine (à partir de 10 euros / an) Soit un total minimum à prévoir de 70 euros.
+          et le nom de domaine (à partir de 10 euros / an).
         </p>
       </details>
 
@@ -764,7 +773,7 @@ const metadata = {
           <h3 class="inline">Quelles sont les modalités de paiement pour mon site internet ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          Le paiement se fait en deux fois : un acompte de 500€ à la signature du devis, puis le solde à la livraison du
+          Le paiement se fait en deux fois : un acompte à la signature du devis, puis le solde à la livraison du
           site.
         </p>
       </details>
@@ -938,6 +947,28 @@ const metadata = {
           Si vous n'en voulez pas, pas de soucis, je peux le retirer.
         </p>
       </details>
+    </div>
+  </section>
+
+  <!-- Pont vers l'offre custom -->
+  <section class="py-12 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-green-600 dark:text-green-400">Besoin de plus de performances ?</p>
+      <h2 class="mt-3 text-2xl font-semibold text-gray-900 dark:text-white sm:text-3xl">
+        Découvrez mes sites custom Astro + IA
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+        Pour des performances supérieures, un design sur-mesure et une approche moderne, je propose aussi des sites statiques ultra-rapides construits avec Astro et l'intelligence artificielle.
+      </p>
+      <a
+        href="/limoges/"
+        class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-emerald-700 text-white font-semibold rounded-full hover:bg-emerald-600 transition-colors"
+      >
+        Voir mes services à Limoges
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
     </div>
   </section>
 </Layout>
