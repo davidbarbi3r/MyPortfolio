@@ -4,9 +4,9 @@ import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 
 const metadata = {
-  title: 'Consultant SEO Expert-Comptable : visibilité et déontologie',
+  title: 'Consultant SEO Expert Comptable | Référencement Naturel pour Cabinet Comptable',
   description:
-    'Référencement naturel pour cabinets d\'expertise comptable. Une stratégie SEO conforme à la déontologie pour attirer des clients qualifiés. Par un ancien EC mémorialiste.',
+    'Vous êtes expert-comptable et votre site n\'attire pas de clients ? Je référence les sites de cabinets comptables sur Google. Résultats mesurables.',
 };
 
 // JSON-LD Service schema
@@ -15,7 +15,7 @@ const serviceStructuredData = {
   "@type": "Service",
   "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/consultant-seo-ec/#service",
   "name": "Consultant SEO pour Expert-Comptable",
-  "description": "Référencement naturel pour cabinets d'expertise comptable. Stratégie SEO conforme à la déontologie pour améliorer la visibilité sur Google.",
+  "description": "Référencement naturel pour cabinets d'expertise comptable. Audit SEO, optimisation, contenu ciblé et suivi mensuel des positions.",
   "provider": {
     "@type": "Person",
     "@id": "https://www.davidbarbier.com/#person",
@@ -65,42 +65,34 @@ const faqStructuredData = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Le SEO est-il conforme à la déontologie des experts-comptables ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, absolument. Le référencement naturel consiste à optimiser votre site pour qu'il réponde aux questions que se posent vos prospects. Contrairement à la publicité agressive, le SEO attire naturellement les personnes qui recherchent activement un expert-comptable. C'est une démarche informative et non intrusive, parfaitement conforme aux règles déontologiques de la profession."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien de temps pour voir des résultats en SEO ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le SEO est un travail de fond. Les premiers résultats sont généralement visibles après 3-4 mois de travail régulier. C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel. L'avantage : contrairement à la publicité, les résultats perdurent dans le temps."
+        "text": "Les premiers résultats sont généralement visibles après 3 à 4 mois de travail régulier. C'est pourquoi je recommande un engagement minimum de 6 mois. L'avantage : contrairement à la publicité, les résultats perdurent dans le temps."
       }
     },
     {
       "@type": "Question",
-      "name": "Quel budget prévoir pour le SEO d'un cabinet comptable ?",
+      "name": "Quel budget prévoir pour le référencement d'un cabinet comptable ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Je propose un accompagnement SEO mensuel à partir de 400€/mois, incluant stratégie, optimisations et reporting. Pour un démarrage plus léger, l'audit SEO à 250€ vous donne une feuille de route à suivre en autonomie. Ces investissements sont rentabilisés dès l'acquisition de quelques nouveaux clients."
+        "text": "L'accompagnement SEO mensuel démarre à 400€/mois HT, incluant stratégie, optimisations et reporting. L'audit SEO à 250€ HT vous donne une feuille de route complète. Ces investissements sont rentabilisés dès l'acquisition de quelques nouveaux clients."
       }
     },
     {
       "@type": "Question",
-      "name": "Pourquoi faire appel à un ancien expert-comptable pour mon SEO ?",
+      "name": "Sur quel type de site intervenez-vous ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Je connais votre métier de l'intérieur : le vocabulaire technique, les attentes de vos clients, les contraintes réglementaires. Cette expertise me permet de créer des contenus pertinents qui parlent vraiment à vos prospects, tout en respectant les règles de la profession. Pas besoin de m'expliquer ce qu'est un bilan ou une liasse fiscale."
+        "text": "J'interviens sur tous les types de sites : WordPress, Wix, Squarespace, sites sur-mesure. L'audit initial permet d'identifier les leviers disponibles selon votre plateforme."
       }
     },
     {
       "@type": "Question",
-      "name": "Sur quels mots-clés un cabinet EC peut-il se positionner ?",
+      "name": "Quelle différence avec une agence SEO généraliste ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Les opportunités sont nombreuses : 'expert-comptable + ville', 'création entreprise comptable', 'comptable TPE', 'expert-comptable freelance', etc. Je réalise une étude de mots-clés adaptée à votre positionnement et votre zone géographique pour identifier les requêtes les plus stratégiques pour votre cabinet."
+        "text": "Une agence généraliste doit apprendre votre métier avant de pouvoir travailler efficacement. Ancien expert-comptable mémorialiste, je connais déjà le vocabulaire (liasse fiscale, bilan, commissariat aux comptes), les requêtes de vos clients et les contraintes de la profession. Pas de courbe d'apprentissage = résultats plus rapides."
       }
     }
   ]
@@ -140,6 +132,7 @@ const breadcrumbStructuredData = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
   </Fragment>
 
+  <!-- Bloc 1 : Le problème (above the fold) -->
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
     <!-- Fil d'Ariane -->
     <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
@@ -149,7 +142,7 @@ const breadcrumbStructuredData = {
           <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
           <li><a href="/agence-web-expert-comptable/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Agence Web EC</a></li>
           <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li class="text-gray-900 dark:text-white font-medium">Consultant SEO</li>
+          <li class="text-gray-900 dark:text-white font-medium">SEO Expert-Comptable</li>
         </ol>
       </nav>
     </div>
@@ -169,24 +162,19 @@ const breadcrumbStructuredData = {
 
         <!-- Titre principal -->
         <h1
-          class="mt-10 text-pretty font-heading text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-white"
+          class="mt-10 text-pretty font-heading text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl dark:text-white"
         >
-          Consultant SEO pour Expert-Comptable
+          Référencement naturel pour experts comptables
         </h1>
-        <span class="text-pretty text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-gray-300">
-          : Visibilité conforme à la déontologie
-        </span>
 
-        <!-- Paragraphes -->
-        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Le <strong>référencement naturel</strong> est le moyen le plus sain d'attirer des clients qualifiés vers votre cabinet.
-          Contrairement à la publicité, le SEO respecte naturellement les principes de <strong>confraternité</strong> :
-          ce sont vos prospects qui viennent à vous, pas l'inverse.
-        </p>
-
-        <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Ancien expert-comptable mémorialiste, je comprends vos enjeux et vos contraintes déontologiques.
-          Je construis une stratégie SEO sur-mesure qui valorise votre expertise tout en respectant les règles de la profession.
+        <!-- Bloc problème -->
+        <h2 class="mt-6 text-pretty text-xl font-semibold text-gray-700 dark:text-gray-300">
+          Pourquoi le site de votre cabinet n'apparaît pas sur Google
+        </h2>
+        <p class="mt-4 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          La plupart des cabinets ont un site. Presque aucun ne reçoit de clients grâce à lui.
+          Votre site existe, mais il n'est pas trouvé — ni par vos prospects, ni par Google.
+          Je m'occupe de ça pour vous.
         </p>
 
         <!-- Call-to-action -->
@@ -220,247 +208,198 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
-  <!-- Section Déontologie -->
-  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900">
+  <!-- Bloc 2 : Ce que comprend le référencement -->
+  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900" id="services">
     <div class="mx-auto max-w-3xl text-base/7">
-      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Respect de la profession</p>
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
-        SEO et déontologie : une approche vertueuse
+      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">La prestation concrète</p>
+      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl scroll-mt-32">
+        Ce que comprend le référencement du site de votre cabinet comptable
       </h2>
 
-      <p class="mt-6 text-xl/8">
-        La déontologie des experts-comptables encadre strictement la communication commerciale. Le SEO s'inscrit parfaitement dans ce cadre :
-        <strong>vous n'allez pas chercher les clients, ce sont eux qui vous trouvent</strong> lorsqu'ils recherchent activement un professionnel.
+      <p class="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
+        Je prends en charge l'ensemble du référencement de votre cabinet pendant que vous vous concentrez sur vos missions.
       </p>
 
-      <div class="mt-10 max-w-2xl">
-        <p>
-          Le référencement naturel consiste à rendre votre site visible et utile pour ceux qui ont besoin de vos services.
-          C'est une démarche <strong>informative</strong>, pas intrusive. Vous partagez votre expertise, vous répondez aux questions
-          que se posent vos futurs clients. Cette approche est en totale conformité avec les règles de confraternité.
-        </p>
-
-        <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-600 dark:text-gray-300">
-          <li class="flex gap-x-3">
-            <svg
-              class="mt-1 size-5 flex-none text-green-800 dark:text-green-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <span>
-              <span class="font-semibold text-gray-900 dark:text-gray-100">Pas de démarchage</span> : vos prospects viennent à vous naturellement
-              via leurs recherches Google.
-            </span>
-          </li>
-          <li class="flex gap-x-3">
-            <svg
-              class="mt-1 size-5 flex-none text-green-800 dark:text-green-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <span>
-              <span class="font-semibold text-gray-900 dark:text-gray-100">Confraternité respectée</span> : vous ne ciblez pas les clients d'autres
-              cabinets, vous attirez ceux qui cherchent un expert-comptable.
-            </span>
-          </li>
-          <li class="flex gap-x-3">
-            <svg
-              class="mt-1 size-5 flex-none text-green-800 dark:text-green-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <span>
-              <span class="font-semibold text-gray-900 dark:text-gray-100">Communication valorisante</span> : vous mettez en avant votre expertise,
-              vos spécificités et votre valeur ajoutée.
-            </span>
-          </li>
-        </ul>
-
-        <blockquote class="mt-10 border-l-4 border-green-800 pl-8 font-semibold text-gray-900 dark:text-gray-100">
-          <p>
-            "Le SEO permet de mettre en avant les services de votre cabinet en ligne, de manière saine et conforme aux règles de la profession."
-          </p>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Expertise -->
-  <section class="px-6 py-16 lg:px-8">
-    <div class="mx-auto max-w-3xl text-base/7">
-      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Expertise unique</p>
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
-        Un ancien EC mémorialiste pour votre SEO
-      </h2>
-
-      <p class="mt-6 text-xl/8">
-        Je ne suis pas une agence SEO classique. Ancien expert-comptable mémorialiste et auditeur financier,
-        je connais votre métier de l'intérieur. Cette expérience couplée à mes compétences en SEO et en développement web me
-        permet de créer des stratégies de référencement naturel parfaitement adaptées.
-      </p>
-
-      <div class="mt-10 max-w-2xl">
-        <p>
-          Quand je crée du contenu pour votre site, je sais ce que recherche un créateur d'entreprise, un dirigeant de TPE
-          ou un freelance. Je connais les questions qu'ils se posent avant de choisir leur expert-comptable.
-          Cette compréhension fait toute la différence pour attirer des prospects qualifiés.
-        </p>
-
-        <div class="mt-16">
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Pourquoi me faire confiance ?
-          </h3>
-          <ul role="list" class="mt-6 max-w-xl space-y-4 text-gray-600 dark:text-gray-300">
-            <li class="flex gap-x-3">
-              <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
-              <span>Je connais le vocabulaire technique (bilan, liasse fiscale, IS/IR, etc.)</span>
-            </li>
-            <li class="flex gap-x-3">
-              <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
-              <span>Je comprends les contraintes réglementaires et déontologiques</span>
-            </li>
-            <li class="flex gap-x-3">
-              <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
-              <span>Je sais ce que recherchent vos clients potentiels</span>
-            </li>
-            <li class="flex gap-x-3">
-              <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
-              <span>Je peux créer du contenu expert qui vous positionne comme référence</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Services -->
-  <section class="mt-16" id="services">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl scroll-mt-32">
-        Mes services SEO pour experts-comptables
-      </h2>
-      <p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-100">
-        Je propose 3 solutions adaptées aux besoins des cabinets d'expertise comptable :
-      </p>
-
-      <ul class="mt-4 space-y-3 text-lg text-gray-800 dark:text-gray-100">
-        <li class="flex gap-x-3 text-gray-950 dark:text-gray-100">
-          <span class="font-bold text-black dark:text-gray-100">→ <strong>Accompagnement SEO mensuel :</strong></span> Je deviens votre partenaire (à partir de 400€/mois)
+      <ul role="list" class="mt-8 max-w-xl space-y-6 text-gray-600 dark:text-gray-300">
+        <li class="flex gap-x-3">
+          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <span>
+            <span class="font-semibold text-gray-900 dark:text-gray-100">Audit SEO du site existant</span> — état des lieux complet de votre visibilité actuelle
+          </span>
         </li>
         <li class="flex gap-x-3">
-          <span class="font-semibold">→ Audit SEO complet :</span> Une analyse profonde de l'existant pour guider vos actions en autonomie (250€)
+          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <span>
+            <span class="font-semibold text-gray-900 dark:text-gray-100">Optimisation des pages</span> — vitesse, structure, balisage et mots-clés de votre cabinet
+          </span>
         </li>
         <li class="flex gap-x-3">
-          <span class="font-semibold">→ Optimisation Google Business Profile :</span> Pour optimiser votre visibilité dans les recherches locales (350€)
+          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <span>
+            <span class="font-semibold text-gray-900 dark:text-gray-100">Création de contenu ciblé</span> — pages et articles sur les requêtes de vos prospects (liasse fiscale, bilan, création société…)
+          </span>
+        </li>
+        <li class="flex gap-x-3">
+          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+          </svg>
+          <span>
+            <span class="font-semibold text-gray-900 dark:text-gray-100">Suivi mensuel des positions</span> — reporting clair, vous voyez vos progrès sans jargon
+          </span>
         </li>
       </ul>
     </div>
 
-    <article class="p-8 rounded-xl mt-6 md:mt-12">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:text-center">
-          <h3 class="text-3xl font-semibold text-dark">L'Accompagnement SEO pour cabinets EC</h3>
-          <p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-            Je m'occupe de tous les aspects de votre <strong>référencement</strong> pendant que vous vous concentrez sur vos missions comptables.
-          </p>
-          <p class="text-lg/8 text-gray-600 dark:text-gray-300">
-            Point mensuel, reporting clair, et vous voyez votre cabinet grimper dans les résultats Google.
-          </p>
-          <p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-            Une action commune sur les 3 piliers suivants est la clé d'un site bien référencé :
-          </p>
+    <div class="mx-auto max-w-3xl mt-12">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <p class="text-lg/8 text-gray-600 dark:text-gray-300">
+          Une action commune sur les 3 piliers suivants est la clé d'un site bien référencé :
+        </p>
+      </div>
+      <div class="mx-auto mt-6 max-w-2xl sm:mt-12 lg:mt-16 lg:max-w-none">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <div class="flex flex-col">
+            <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
+              <svg class="size-5 flex-none text-green-800" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Z" clip-rule="evenodd"></path>
+              </svg>
+              Technique
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
+              <p class="flex-auto">
+                Vitesse, structure, mobile, balisage sémantique. Une base technique solide pour que Google comprenne et valorise votre contenu.
+              </p>
+            </dd>
+          </div>
+          <div class="flex flex-col">
+            <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
+              <svg class="size-5 flex-none text-green-800" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Z"></path>
+              </svg>
+              Contenu
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
+              <p class="flex-auto">
+                Fini les articles génériques. On cible les requêtes exactes que tapent vos prospects : par besoin, par statut, par ville.
+              </p>
+            </dd>
+          </div>
+          <div class="flex flex-col">
+            <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
+              <svg class="size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Z"></path>
+              </svg>
+              Autorité
+            </dt>
+            <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
+              <p class="flex-auto">
+                Maillage interne optimisé et acquisition de liens de qualité pour renforcer la crédibilité de votre site aux yeux de Google.
+              </p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloc 3 : Pourquoi un spécialiste secteur -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl text-base/7">
+      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Expertise unique</p>
+      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
+        Pourquoi choisir un consultant SEO spécialisé en expertise comptable
+      </h2>
+
+      <p class="mt-6 text-xl/8">
+        Une agence généraliste doit apprendre votre métier avant de commencer à travailler.
+        Ancien expert-comptable mémorialiste et auditeur financier, je connais déjà votre secteur de l'intérieur.
+      </p>
+
+      <div class="mt-10 max-w-2xl">
+        <ul role="list" class="mt-6 max-w-xl space-y-4 text-gray-600 dark:text-gray-300">
+          <li class="flex gap-x-3">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span>Je connais le vocabulaire métier : bilan, liasse fiscale, IS/IR, commissariat aux comptes…</span>
+          </li>
+          <li class="flex gap-x-3">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span>Je sais ce que tapent vos clients sur Google avant de choisir un expert-comptable</span>
+          </li>
+          <li class="flex gap-x-3">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span>Je peux créer du contenu expert qui vous positionne comme référence dans votre zone</span>
+          </li>
+          <li class="flex gap-x-3">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span><strong>Pas de courbe d'apprentissage = résultats plus rapides</strong></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloc 4 : Résultats obtenus -->
+  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-3xl text-base/7">
+      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Preuve concrète</p>
+      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
+        Résultats obtenus pour des cabinets comptables
+      </h2>
+
+      <p class="mt-6 text-xl/8">
+        Ce site (davidbarbier.com) est lui-même la démonstration de la méthode. Positionné sur des requêtes compétitives
+        dans le secteur de l'expertise comptable, il génère des contacts entrants chaque semaine — sans publicité.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
+          <p class="text-4xl font-bold text-green-800 dark:text-green-400">+150</p>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">mots-clés positionnés sur le secteur EC</p>
         </div>
-        <div class="mx-auto mt-6 max-w-2xl sm:mt-12 lg:mt-16 lg:max-w-none">
-          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            <div class="flex flex-col">
-              <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
-                <svg
-                  class="size-5 flex-none text-green-800"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Z"
-                    clip-rule="evenodd"></path>
-                </svg>
-                Technique
-              </dt>
-              <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
-                <p class="flex-auto">
-                  Optimisation de votre site : vitesse, structure, mobile, balisage sémantique.
-                  Une base technique solide pour que Google comprenne et valorise votre contenu.
-                </p>
-              </dd>
-            </div>
-            <div class="flex flex-col">
-              <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
-                <svg class="size-5 flex-none text-green-800" viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Z"
-                  ></path>
-                </svg>
-                Contenu
-              </dt>
-              <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
-                <p class="flex-auto">
-                  Fini les articles génériques que tous les cabinets publient et que personne ne lit.
-                  On définit ensemble les contenus pertinents qui génèrent du trafic et des conversions.
-                </p>
-              </dd>
-            </div>
-            <div class="flex flex-col">
-              <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
-                <svg class="size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Z"
-                  ></path>
-                </svg>
-                Autorité
-              </dt>
-              <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
-                <p class="flex-auto">
-                  Stratégie de liens pour renforcer votre crédibilité aux yeux de Google.
-                  Maillage interne optimisé et acquisition de backlinks de qualité.
-                </p>
-              </dd>
-            </div>
-          </dl>
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
+          <p class="text-4xl font-bold text-green-800 dark:text-green-400">100%</p>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">acquisition organique, sans budget pub</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
+          <p class="text-4xl font-bold text-green-800 dark:text-green-400">0€</p>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">dépensé en publicité Google ou Meta</p>
         </div>
       </div>
 
-      <div class="px-8 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
-        <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-300 mb-12">Le déroulé de l'accompagnement</h4>
+      <blockquote class="mt-10 border-l-4 border-green-800 pl-8 font-semibold text-gray-900 dark:text-gray-100">
+        <p>
+          "Quelques nouveaux clients par an suffisent à rentabiliser un accompagnement SEO. Le reste, c'est du bonus pour votre cabinet."
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Bloc 5 : Process -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Simple et sans friction</p>
+      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
+        Comment se passe une mission SEO pour votre cabinet
+      </h2>
+
+      <div class="px-4 py-12 mx-auto md:px-12 lg:px-0 max-w-7xl mt-6">
         <dl class="grid grid-cols-1 gap-x-4 gap-y-12 lg:grid-cols-3 lg:divide-x lg:border-x">
           <div class="lg:px-8">
             <div class="text-brown flex gap-3 items-center">
               <span>1.</span>
               <dt class="tracking-tight text-lg font-medium">
-                <h5 class="text-xl font-medium">Audit et stratégie</h5>
+                <h3 class="text-xl font-medium">Audit gratuit de votre site</h3>
               </dt>
             </div>
             <dd class="mt-2">
               <p class="text-base text-gray-600 dark:text-gray-300">
-                Analyse de votre site actuel, étude de vos concurrents locaux, définition des mots-clés stratégiques pour votre cabinet.
+                Vous renseignez votre site dans le formulaire ci-dessous. Je vous envoie une analyse de votre visibilité actuelle, sans engagement.
               </p>
             </dd>
           </div>
@@ -469,12 +408,12 @@ const breadcrumbStructuredData = {
             <div class="text-brown flex gap-3 items-center">
               <span>2.</span>
               <dt class="tracking-tight text-lg font-medium">
-                <h5 class="text-xl font-medium">Plan d'action personnalisé</h5>
+                <h3 class="text-xl font-medium">Stratégie personnalisée</h3>
               </dt>
             </div>
             <dd class="mt-2">
               <p class="text-base text-gray-600 dark:text-gray-300">
-                Calendrier éditorial adapté à votre activité (hors périodes fiscales), optimisations techniques, stratégie de contenus.
+                Étude de vos concurrents locaux, sélection des mots-clés prioritaires, calendrier adapté à votre activité.
               </p>
             </dd>
           </div>
@@ -483,143 +422,22 @@ const breadcrumbStructuredData = {
             <div class="text-brown flex gap-3 items-center">
               <span>3.</span>
               <dt class="tracking-tight text-lg font-medium">
-                <h5 class="text-xl font-medium">Mise en œuvre et suivi</h5>
+                <h3 class="text-xl font-medium">Mise en œuvre + suivi</h3>
               </dt>
             </div>
             <dd class="mt-2">
               <p class="text-base text-gray-600 dark:text-gray-300">
-                Actions mensuelles sur les 3 piliers SEO, la data guide les actions, reporting mensuel clair et accessible.
+                Actions mensuelles sur les 3 piliers SEO. Reporting clair chaque mois, vous voyez les positions progresser.
               </p>
             </dd>
           </div>
         </dl>
       </div>
-
-      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-lg max-w-3xl mx-auto px-4 sm:px-6">
-        <p class="font-bold">Tarif : à partir de 400€/mois HT</p>
-        <p>
-          Comprend le rendez-vous de suivi mensuel, les optimisations continues, la création de contenus et le reporting détaillé.
-        </p>
-        <p>Engagement minimum de 6 mois recommandé pour des résultats optimaux.</p>
-      </div>
-    </article>
-
-    <article class="bg-cream p-8 rounded-xl mx-auto max-w-7xl px-6 lg:px-8 mt-12">
-      <h3 class="text-3xl font-bold mb-6">Audit SEO pour cabinet comptable</h3>
-      <p class="text-balance mb-8">
-        Une analyse complète de votre présence en ligne pour comprendre où vous en êtes et identifier les opportunités de croissance.
-        Votre feuille de route pour gagner en visibilité.
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-8 mb-8">
-        <div>
-          <h4 class="font-bold text-xl mb-4">Le rapport comprend :</h4>
-          <ul class="space-y-3">
-            <li>✓ Analyse de votre visibilité actuelle sur Google</li>
-            <li>✓ Audit technique complet de votre site</li>
-            <li>✓ Positionnement sur vos mots-clés stratégiques</li>
-            <li>✓ Analyse de vos concurrents locaux</li>
-            <li>✓ Étude de votre profil de liens</li>
-            <li>✓ Plan d'actions prioritaires</li>
-          </ul>
-        </div>
-        <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-lg">
-          <h4 class="font-bold text-xl mb-4">Les + de l'audit</h4>
-          <ul class="space-y-3">
-            <li>✓ Rapport visuel et compréhensible</li>
-            <li>✓ Actions concrètes et priorisées</li>
-            <li>✓ Adapté au secteur de l'expertise comptable</li>
-            <li>✓ Vision claire de votre potentiel SEO</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-lg">
-        <p class="font-bold">Tarif fixe : 250€ HT</p>
-        <p class="mt-2">
-          Livraison sous 5 jours ouvrés. Idéal pour démarrer votre stratégie SEO ou évaluer vos besoins.
-        </p>
-      </div>
-    </article>
-
-    <article class="bg-cream p-8 rounded-xl mx-auto max-w-7xl px-6 lg:px-8 mt-12">
-      <h3 class="text-3xl font-bold mb-6">Référencement local pour cabinet EC</h3>
-      <p class="text-balance mb-8">
-        80% des recherches d'expert-comptable incluent une ville. Être visible dans le "pack local" Google
-        est essentiel pour capter ces prospects qualifiés qui cherchent un professionnel proche de chez eux.
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-8 mb-8">
-        <div>
-          <h4 class="font-bold text-xl mb-4">Pourquoi c'est important :</h4>
-          <ul class="space-y-3">
-            <li>✓ Apparaître dans les recherches "expert-comptable + ville"</li>
-            <li>✓ Être visible sur Google Maps</li>
-            <li>✓ Afficher vos avis clients</li>
-            <li>✓ Faciliter la prise de contact</li>
-          </ul>
-        </div>
-        <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-lg">
-          <h4 class="font-bold text-xl mb-4">L'optimisation comprend :</h4>
-          <ul class="space-y-3">
-            <li>✓ Configuration Google Business Profile</li>
-            <li>✓ Optimisation des photos et descriptions</li>
-            <li>✓ Cohérence des informations (NAP)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-lg">
-        <p class="font-bold">Tarif : 350€ HT</p>
-        <p class="mt-2">
-          Résultats visibles sous 30 à 60 jours. La meilleure solution pour attirer des clients locaux rapidement.
-        </p>
-      </div>
-    </article>
-  </section>
-
-  <!-- Section Mots-clés -->
-  <section class="mt-16 mx-auto max-w-7xl px-6 lg:px-8">
-    <h2 class="text-3xl font-bold mb-8">Sur quels mots-clés se positionner ?</h2>
-
-    <p class="text-balance mb-6">
-      Le choix des mots-clés est stratégique. Il ne s'agit pas de viser les termes les plus recherchés,
-      mais ceux qui correspondent à vos clients idéaux. Voici quelques exemples d'opportunités pour un cabinet EC :
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      <div class="bg-cream p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-4">Recherches locales</h3>
-        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-          <li>• Expert-comptable [région] ou [ville] ou [quartier/zone] en fonction</li>
-          <li>• Cabinet comptable [région] ou [ville] ou [quartier/zone] en fonction</li>
-        </ul>
-      </div>
-
-      <div class="bg-cream p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-4">Par type de client</h3>
-        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-          <li>• Expert-comptable pour auto-entrepreneur (status spécifique)</li>
-          <li>• Expert-comptable scierie (activités spécifiques)</li>
-          <li>• Expert-comptable crédit d'impôt innovation (problématiques spécifiques)</li>
-          <li>• Comptable anesthésiste (activités spécifiques)</li>
-        </ul>
-      </div>
-
-      <div class="bg-cream p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-4">Par besoin</h3>
-        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-          <li>• Guide création juridique d'un Saas</li>
-          <li>• Transmission de restaurant organisation</li>
-          <li>• Optimisation fiscale LMNP</li>
-          <li>• Conseil gestion TPE</li>
-        </ul>
-      </div>
     </div>
   </section>
 
-  <!-- Section Contact -->
-  <section class="px-6 py-16 lg:px-8">
+  <!-- CTA final -->
+  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900">
     <div class="mx-auto max-w-7xl">
       <div class="md:flex md:gap-12 md:items-center">
         <div class="md:w-1/3 space-y-8">
@@ -635,22 +453,18 @@ const breadcrumbStructuredData = {
             <p class="text-gray-600 dark:text-gray-300">Ancien EC mémorialiste & développeur web</p>
           </div>
 
-          <form method="post" action="https://formspree.io/f/xayglvyo" class="mt-8 space-y-4 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+          <form method="post" action="https://formspree.io/f/xayglvyo" class="mt-8 space-y-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre nom</label>
               <input id="name" name="name" type="text" required class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre email</label>
-              <input id="email" name="email" type="email" required class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" />
             </div>
             <div>
               <label for="website" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL de votre site</label>
               <input id="website" name="website" type="url" class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" placeholder="https://www.votre-cabinet.fr" />
             </div>
             <div>
-              <label for="textarea" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Vos objectifs SEO</label>
-              <textarea id="textarea" name="textarea" rows="4" class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" placeholder="Quels sont vos objectifs de visibilité ?"></textarea>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre email</label>
+              <input id="email" name="email" type="email" required class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" />
             </div>
             <div class="mt-3 flex items-start">
               <div class="flex mt-0.5">
@@ -676,99 +490,70 @@ const breadcrumbStructuredData = {
         </div>
 
         <div class="mt-12 md:mt-0 md:w-2/3">
-          <p class="text-base font-semibold text-green-700 dark:text-green-400">Approche personnalisée</p>
-          <h2 class="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 sm:text-4xl">Prêt à être visible sur Google ?</h2>
+          <p class="text-base font-semibold text-green-700 dark:text-green-400">Sans engagement</p>
+          <h2 class="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 sm:text-4xl">
+            Audit SEO gratuit du site de votre cabinet
+          </h2>
 
           <p class="mt-6 text-xl text-gray-600 dark:text-gray-300">
-            Le SEO est un investissement rentable pour votre cabinet. Contrairement à la publicité qui s'arrête
-            dès que vous cessez de payer, le référencement naturel continue de générer des prospects qualifiés sur le long terme.
+            Renseignez votre site, je vous envoie une analyse de votre visibilité actuelle.
+            Vous saurez exactement où vous en êtes et ce qui bloque votre référencement.
           </p>
 
           <ul role="list" class="mt-8 space-y-6 text-gray-600 dark:text-gray-300">
             <li class="flex gap-x-3">
               <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                ></path>
+                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
               </svg>
               <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Audit gratuit</strong> : je vous envoie une analyse de votre visibilité actuelle
+                <strong class="font-semibold text-gray-900 dark:text-gray-100">Gratuit et sans engagement</strong> — analyse envoyée sous 48h
               </span>
             </li>
             <li class="flex gap-x-3">
               <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                ></path>
+                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
               </svg>
               <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Sans engagement</strong> : échangeons d'abord pour voir si le SEO est pertinent pour vous
+                <strong class="font-semibold text-gray-900 dark:text-gray-100">Résultats mesurables</strong> — positions Google, trafic, leads générés
               </span>
             </li>
             <li class="flex gap-x-3">
               <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
-                ></path>
+                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
               </svg>
               <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Tarifs transparents</strong> : pas de surprise, tout est clair dès le départ
+                <strong class="font-semibold text-gray-900 dark:text-gray-100">Tarifs transparents</strong> — accompagnement mensuel à partir de 400€/mois HT
               </span>
             </li>
           </ul>
-
-          <blockquote class="mt-10 border-l-4 border-green-700 pl-8 text-gray-900 dark:text-gray-100">
-            <p class="font-semibold">
-              "Quelques nouveaux clients par an suffisent à rentabiliser un accompagnement SEO.
-              Le reste, c'est du bonus pour votre cabinet."
-            </p>
-          </blockquote>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section FAQ -->
-  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 mb-20">
-    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">Foire aux questions</h2>
+  <!-- Bloc 6 : FAQ -->
+  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">Questions fréquentes</h2>
     <div>
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Le SEO est-il conforme à la déontologie des experts-comptables ?</h3>
+          <h3 class="inline">Combien de temps pour voir des résultats ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          Oui, absolument. Le référencement naturel consiste à optimiser votre site pour qu'il réponde aux questions
-          que se posent vos prospects. Contrairement à la publicité agressive, le SEO attire naturellement les personnes
-          qui recherchent activement un expert-comptable. C'est une démarche informative et non intrusive, parfaitement
-          conforme aux règles déontologiques de la profession.
+          Les premiers résultats sont généralement visibles après 3 à 4 mois de travail régulier.
+          C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel.
+          L'avantage du référencement naturel : contrairement à la publicité, les positions gagnées perdurent dans le temps.
         </p>
       </details>
 
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Combien de temps pour voir des résultats en SEO ?</h3>
+          <h3 class="inline">Quel budget prévoir ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          Le SEO est un travail de fond qui nécessite du temps et de la régularité. Les premiers résultats sont généralement
-          visibles après 3-4 mois de travail. C'est pourquoi je recommande un engagement minimum de 6 mois pour mon
-          accompagnement mensuel, afin d'avoir le temps de mettre en place une stratégie efficace et d'en mesurer les résultats.
-        </p>
-        <p class="pl-4 mt-2">
-          L'avantage du SEO : contrairement à la publicité, les résultats perdurent dans le temps même après l'arrêt de l'accompagnement.
-        </p>
-      </details>
-
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Quel budget prévoir pour le SEO d'un cabinet comptable ?</h3>
-        </summary>
-        <p class="pl-4 mt-2">
-          Je propose un accompagnement SEO mensuel à partir de 400€/mois HT, incluant la stratégie, les optimisations techniques,
-          la création de contenus et le reporting mensuel. Pour un démarrage plus léger, l'audit SEO à 250€ HT vous donne
-          une feuille de route à suivre en autonomie.
+          L'accompagnement SEO mensuel démarre à 400€/mois HT, incluant stratégie, optimisations techniques,
+          création de contenu et reporting mensuel. Pour commencer plus léger, l'audit SEO à 250€ HT vous donne
+          une feuille de route complète à suivre en autonomie.
         </p>
         <p class="pl-4 mt-2">
           Ces investissements sont généralement rentabilisés dès l'acquisition de quelques nouveaux clients.
@@ -777,41 +562,25 @@ const breadcrumbStructuredData = {
 
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Pourquoi faire appel à un ancien expert-comptable pour mon SEO ?</h3>
+          <h3 class="inline">Vous intervenez sur quel type de site ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          Je connais votre métier de l'intérieur : le vocabulaire technique, les attentes de vos clients, les contraintes
-          réglementaires et déontologiques. Cette expertise me permet de créer des contenus pertinents qui parlent vraiment
-          à vos prospects, tout en respectant les règles de la profession.
-        </p>
-        <p class="pl-4 mt-2">
-          Pas besoin de m'expliquer ce qu'est un bilan, une liasse fiscale ou un commissariat aux comptes. On gagne du temps
-          et on va à l'essentiel.
+          J'interviens sur tous les types de sites : WordPress, Wix, Squarespace, Webflow, ou site développé sur mesure.
+          L'audit initial permet d'identifier les leviers disponibles selon votre plateforme et de prioriser les actions à fort impact.
         </p>
       </details>
 
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Sur quels mots-clés un cabinet EC peut-il se positionner ?</h3>
+          <h3 class="inline">Quelle différence avec une agence SEO généraliste ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          Les opportunités sont nombreuses : "expert-comptable + ville", "création entreprise comptable", "comptable TPE",
-          "expert-comptable freelance", etc. Je réalise une étude de mots-clés adaptée à votre positionnement et votre
-          zone géographique pour identifier les requêtes les plus stratégiques pour votre cabinet.
-        </p>
-      </details>
-
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Le SEO est-il rentable pour un cabinet comptable ?</h3>
-        </summary>
-        <p class="pl-4 mt-2">
-          Oui, c'est même l'un des meilleurs investissements marketing pour un cabinet. Le coût d'acquisition d'un client
-          via le SEO est généralement bien inférieur à la publicité payante. Et surtout, les résultats perdurent :
-          un article bien positionné continue de générer des contacts pendant des années.
+          Une agence généraliste doit apprendre votre métier avant de commencer. Ancien expert-comptable mémorialiste,
+          je connais déjà le vocabulaire (liasse fiscale, bilan, commissariat aux comptes), les requêtes de vos clients
+          et les spécificités de la profession.
         </p>
         <p class="pl-4 mt-2">
-          Quelques nouveaux clients par an suffisent généralement à rentabiliser un accompagnement SEO.
+          Pas de courbe d'apprentissage = résultats plus rapides, contenus plus pertinents, et aucune explication à fournir sur votre métier.
         </p>
       </details>
     </div>
