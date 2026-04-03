@@ -9,6 +9,118 @@ const metadata = {
   description:
     "Développeur WordPress à Limoges. Site vitrine professionnel, adapté à toutes les tailles d'écran, optimisé SEO, 100% administrable. Livré en 1 mois.",
 };
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.davidbarbier.com/limoges/wordpress/#service",
+  "name": "Création site WordPress à Limoges",
+  "description": "Développeur WordPress à Limoges. Site vitrine professionnel, optimisé SEO, 100% administrable. Livré en 1 mois.",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://www.davidbarbier.com/#person",
+    "name": "David Barbier",
+    "jobTitle": "Développeur web & Consultant SEO"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Limoges" }
+  ],
+  "serviceType": "Création de site internet",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "13",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Y a-t-il des frais cachés pour la création de mon site WordPress ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, le devis comprend la création, l'installation du site sur l'hébergement, la sécurisation, la mise en ligne et la formation à l'utilisation. Les seuls frais récurrents seront l'hébergement (à partir de 5 euros/mois) et le nom de domaine (à partir de 10 euros/an)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles sont les modalités de paiement pour mon site internet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le paiement se fait en deux fois : un acompte à la signature du devis, puis le solde à la livraison du site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En combien de temps mon site internet sera-t-il créé ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je m'engage à livrer votre site internet à Limoges en 1 mois. Ce délai inclut toutes les étapes : conception, création, ajustements et mise en ligne. Ce délai peut varier en fonction de la complexité du site et de la rapidité de vos retours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment se déroule le processus de création ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1. Signature et acompte, envoi des documents préparatoires. 2. Entretien approfondi pour comprendre vos besoins. 3. Réservation du nom de domaine et hébergement. 4. Création du design et des pages. 5. Vos retours et ajustements. 6. Formation et mise en ligne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Serai-je propriétaire de mon site internet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, vous êtes propriétaire à 100% de votre site et pouvez en disposer comme vous le souhaitez. Aucun engagement ni dépendance envers moi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourrai-je modifier mon site moi-même ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Je crée votre site avec WordPress, une interface intuitive, et je vous forme à son utilisation. Vous pourrez modifier textes, images et pages en toute autonomie. Des tutoriels vidéo sont également fournis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon site sera-t-il adapté aux mobiles ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, votre site sera 100% responsive, c'est-à-dire parfaitement adapté à tous les écrans : ordinateurs, tablettes et smartphones. C'est indispensable aujourd'hui car plus de 60% des visites se font sur mobile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment gérez-vous le référencement local ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En tant que créateur de sites à Limoges, j'optimise votre site pour le référencement local : structure technique SEO, balises optimisées et conseils sur les pages à créer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles fonctionnalités sont incluses dans mon site ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Votre site inclut : formulaire de contact, intégration des réseaux sociaux, optimisation SEO, statistiques de visites, galerie photos, map Google, adaptation mobile, et toutes les pages nécessaires à votre activité. Une page de blog est également incluse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il après la mise en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Après la mise en ligne, vous recevez une formation complète pour gérer votre site. Je reste disponible pour répondre à vos questions et vous accompagner dans les premiers temps. Des tutoriels vidéo sont également fournis."
+      }
+    }
+  ]
+};
 ---
 
 <script>
@@ -38,6 +150,11 @@ const metadata = {
   });
 </script>
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+  </Fragment>
+
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
     <!-- Fil d'Ariane -->
     <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">

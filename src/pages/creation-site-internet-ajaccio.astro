@@ -9,6 +9,127 @@ const metadata = {
   description:
     "Développeur WordPress à Ajaccio. Site vitrine professionnel, adapté à toutes les tailles d'écran, optimisé SEO, 100% administrable. Livré en 1 mois.",
 };
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.davidbarbier.com/creation-site-internet-ajaccio/#service",
+  "name": "Création site WordPress à Ajaccio",
+  "description": "Développeur WordPress à Ajaccio. Site vitrine professionnel, optimisé SEO, 100% administrable. Livré en 1 mois.",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://www.davidbarbier.com/#person",
+    "name": "David Barbier",
+    "jobTitle": "Développeur web & Consultant SEO"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Ajaccio" },
+    { "@type": "AdministrativeArea", "name": "Corse" }
+  ],
+  "serviceType": "Création de site internet",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "13",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Y a-t-il des frais cachés pour mon WordPress ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, le devis comprend la création, l'installation du site sur l'hébergement, la sécurisation, la mise en ligne et la formation à l'utilisation. Les seuls frais récurrents seront l'hébergement (à partir de 5 euros/mois) et le nom de domaine (à partir de 10 euros/an)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles sont les modalités de paiement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le paiement se fait en deux fois : un acompte à la signature du devis, puis le solde à la livraison du site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En combien de temps mon projet sera-t-il créé ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je livre mes projets en 1 mois environ. Ce délai inclut toutes les étapes : conception, création, ajustements et mise en ligne. Ce délai peut varier en fonction de la complexité du site et de la rapidité de vos retours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment se déroule le processus de création ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1. Signature et acompte, envoi des documents préparatoires. 2. Audit de validation pour affiner vos besoins. 3. Réservation du nom de domaine et hébergement. 4. Création du design et des pages. 5. Vos retours et ajustements. 6. Formation et mise en ligne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Serai-je propriétaire de mon site internet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, vous êtes propriétaire à 100% de votre site et pouvez en disposer comme vous le souhaitez. Aucun engagement ni dépendance envers moi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourrai-je modifier mon site moi-même ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument ! Je crée votre site avec WordPress, un outil intuitif, et je vous forme à son utilisation. Vous pourrez modifier textes, images et pages en toute autonomie. Des tutoriels vidéo sont également fournis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon site sera-t-il adapté aux mobiles ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, votre site sera 100% responsive, c'est-à-dire parfaitement adapté à tous les écrans : ordinateurs, tablettes et smartphones. C'est indispensable aujourd'hui car plus de 60% des visites se font sur mobile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment gérez-vous le référencement naturel local ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En tant que créateur de sites à Ajaccio, j'optimise votre site pour le référencement local : structure technique SEO, balises optimisées et conseils sur les pages à créer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment le site est-il sécurisé ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Votre site bénéficie d'une sécurisation complète : certificat SSL pour les connexions sécurisées, protection contre les attaques, sauvegardes automatiques, et mises à jour de sécurité régulières."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles fonctionnalités sont incluses dans mon site ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Votre site inclut : formulaire de contact, intégration des réseaux sociaux, optimisation SEO, statistiques de visites, galerie photos, map Google, adaptation mobile, et toutes les pages nécessaires à votre activité. Une page de blog est également incluse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il après la mise en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous recevez une formation complète pour gérer votre site. Je reste disponible pour répondre à vos questions et vous accompagner dans les premiers temps. Des tutoriels vidéo sont également fournis."
+      }
+    }
+  ]
+};
 ---
 
 <script>
@@ -38,6 +159,11 @@ const metadata = {
   });
 </script>
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+  </Fragment>
+
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
     <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-12 lg:flex lg:px-8 lg:py-16">
       <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">

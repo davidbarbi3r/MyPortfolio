@@ -8,9 +8,86 @@ const metadata = {
   description:
     'Réservez votre audit SEO gratuit pour votre site web à Limoges. Développeur web spécialisé en référencement naturel, je vous aide à remonter sur Google.',
 };
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.davidbarbier.com/limoges/consultant-seo/#service",
+  "name": "Consultant SEO à Limoges",
+  "description": "Référencement naturel à Limoges. Accompagnement SEO, audit technique et optimisation Google Business pour améliorer votre visibilité sur Google.",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://www.davidbarbier.com/#person",
+    "name": "David Barbier",
+    "jobTitle": "Consultant SEO & Développeur web"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Limoges" }
+  ],
+  "serviceType": "Consultant SEO",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "13",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "En quoi consiste le référencement naturel (SEO) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le référencement naturel, ou SEO, est l'ensemble des techniques permettant d'améliorer la visibilité de votre site sur Google et autres moteurs de recherche, sans payer pour de la publicité. En tant qu'expert référencement à Limoges, j'optimise les 3 piliers essentiels : technique, contenu et popularité (backlinks) pour faire grimper durablement votre site dans les résultats de recherche."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour voir des résultats en SEO ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le SEO est un travail de fond qui nécessite du temps et de la régularité. Les premiers résultats sont généralement visibles après 3-4 mois de travail. C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi choisir un expert référencement à Limoges plutôt qu'une agence nationale ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En tant qu'expert SEO local à Limoges, je connais parfaitement le tissu économique de la région et ses spécificités. Cette proximité me permet d'être plus réactif et disponible pour mes clients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le tarif d'un expert référencement à Limoges ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je propose trois formules adaptées à différents budgets : un accompagnement mensuel à partir de 400€/mois, un audit technique ponctuel à 250€, et une optimisation Google Business à 350€. Ces tarifs sont transparents et sans surprise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les prestations SEO sont-elles rentables pour mon entreprise ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le SEO est un investissement rentable sur le long terme. Contrairement à la publicité payante qui s'arrête dès que vous cessez de payer, le référencement naturel continue de générer du trafic qualifié."
+      }
+    }
+  ]
+};
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+  </Fragment>
+
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
     <!-- Fil d'Ariane -->
     <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">

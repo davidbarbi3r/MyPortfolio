@@ -46,6 +46,7 @@ export default defineConfig({
   }), // Conditionally add i18n and sitemap based on I18N.isEnabled
   sitemap({
     filter: (page) => !page.includes('/tag/') && !page.includes('/en/'),
+    lastmod: new Date(),
   }), mdx(), icon({
     include: {
       tabler: ['*'],

@@ -1,7 +1,7 @@
 ---
 publishDate: 2022-11-16T05:35:07.322Z
 title: Maker teleport UI
-excerpt: Interface utilisateur (UI) pour le Maker Teleport Bridge, l'objectif était de fournir une expérience utilisateur fluide pour faire passer les actifs d'une chain layer 2 (L2) au layer 1 (L1) en utilisant le TeleportSDK et des smart contracts. 
+excerpt: "Interface utilisateur pour le Maker Teleport Bridge. Transfert d'actifs du layer 2 au layer 1 via le TeleportSDK et des smart contracts."
 image: '~/assets/images/maker-teleport.jpg'
 category: Portfolio
 tags:

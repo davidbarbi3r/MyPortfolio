@@ -1,7 +1,7 @@
 ---
 publishDate: 2025-01-06T00:00:00Z
 title: "Choisir son extension de domaine en 2025 : .fr, .com ou régionale ? Guide complet"
-excerpt: Hésitez entre .fr, .com ou une extension régionale pour votre site web ? Découvrez mon guide pratique 2025 avec des exemples concrets et un tableau comparatif pour faire le meilleur choix !
+excerpt: ".fr, .com ou extension régionale ? Guide pratique 2025 avec exemples concrets et tableau comparatif pour choisir la bonne extension de domaine."
 image: '~/assets/images/choisir-extension-domaine.jpg'
 category: Blog
 tags:

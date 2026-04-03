@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-03-15T00:00:00Z
 title: "Site internet éco-responsable : pourquoi et comment créer un site web durable"
-excerpt: "Le numérique représente 2,5% de l'empreinte carbone en France. Découvrez comment créer un site performant et respectueux de l'environnement avec des technologies modernes comme Astro."
+excerpt: "Le numérique représente 2,5% de l'empreinte carbone en France. Comment créer un site performant et éco-responsable avec Astro."
 image: '~/assets/images/nieulforet.jpeg'
 category: Blog
 tags:
