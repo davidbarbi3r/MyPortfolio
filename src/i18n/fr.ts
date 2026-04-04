@@ -70,7 +70,7 @@ export const fr = {
               description: 'Une boutique en ligne pour vendre vos produits et services. Je travaille avec WooCommerce et Shopify.',
             },
           ],
-          price: 'À partir de 1200€',
+          price: 'Sur devis',
           callToAction: 'En savoir plus',
         },
         {
@@ -93,7 +93,7 @@ export const fr = {
                 'Ajout de nouvelles fonctionnalités, correction de bugs, optimisation des performances, etc.',
             },
           ],
-          price: '400€/jour sur devis',
+          price: 'Sur devis',
         },
         {
           title: 'Suivi et Maintenance',
@@ -114,7 +114,7 @@ export const fr = {
                 'Maintenance technique pour assurer le bon fonctionnement de votre site ou de votre application.',
             },
           ],
-          price: 'À partir de 30€/mois',
+          price: 'Sur devis',
           callToAction: {
             text: 'En savoir plus',
             href: '/services/',
@@ -139,7 +139,7 @@ export const fr = {
               description: "Création et optimisation de fiche Google My Business, optimisation de votre site pour rayonner en Corse.",
             },
           ],
-          price: '400€/jour',
+          price: 'Sur devis',
         },
       ],
     },

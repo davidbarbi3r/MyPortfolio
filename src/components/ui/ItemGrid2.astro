@@ -42,7 +42,7 @@ const {
                     class={twMerge('hidden mb-2 w-10 h-10 text-emerald-800', defaultIconClass, itemClasses?.icon, 'text-emerald-800')}
                   />
                 )}
-                <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>
+                <h3 class={twMerge('text-2xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>
                 {description && (
                   <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
                 )}
@@ -58,7 +58,7 @@ const {
                 )}
               </div>
               <div>
-                {price && <div class="mt-2 text-xl"><strong>{price}</strong></div>}
+                {price && <div class="mt-2 text-lg">{price}</div>}
                 {callToAction && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction} /></div>}
                 {callToAction2 && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction2} /></div>}
                 {ecLink && (
@@ -112,7 +112,7 @@ const {
                     class={twMerge('hidden mb-2 w-10 h-10 text-emerald-800', defaultIconClass, itemClasses?.icon, 'text-emerald-800')}
                   />
                 )}
-                <h3 class={twMerge('text-xl font-bold whitespace-nowrap', titleClass, itemClasses?.title)}>{title}</h3>
+                <h3 class={twMerge('text-2xl font-bold whitespace-nowrap')}>{title}</h3>
                 <div class="haccordion-body" style="overflow:hidden;">
                   {description && (
                     <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
@@ -130,7 +130,7 @@ const {
                 </div>
               </div>
               <div class="haccordion-body" style="overflow:hidden;">
-                {price && <div class="mt-2 text-xl"><strong>{price}</strong></div>}
+                {price && <div class="mt-2 text-lg">{price}</div>}
                 {callToAction && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction} /></div>}
                 {callToAction2 && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction2} /></div>}
                 {ecLink && (
@@ -203,7 +203,8 @@ const {
 
   [data-haccordion-item]:first-child h3 {
     writing-mode: horizontal-tb;
-    font-size: revert;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
     letter-spacing: normal;
   }
 
@@ -243,7 +244,7 @@ const {
           gsap.set(bodies, { height: 'auto', opacity: 1 });
           if (h3) {
             h3.style.writingMode = 'horizontal-tb';
-            h3.style.fontSize = '';
+            h3.style.fontSize = '1.875rem';
             h3.style.letterSpacing = '';
           }
         } else {
@@ -310,7 +311,7 @@ const {
           onStart: () => {
             if (newH3) {
               newH3.style.writingMode = 'horizontal-tb';
-              newH3.style.fontSize = '';
+              newH3.style.fontSize = '1.875rem';
               newH3.style.letterSpacing = '';
             }
           }
