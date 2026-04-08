@@ -222,4 +222,4 @@ Le référencement, c'est un marathon, pas un sprint. Les résultats prennent du
 
 **Vous voulez savoir où en est votre cabinet ?** Je propose un [accompagnement SEO dédié aux experts-comptables](/agence-web-expert-comptable/consultant-seo-ec/) : audit de votre site, plan d'action concret et suivi mensuel des résultats.
 
-Vous pouvez aussi télécharger ma [checklist gratuite des 10 erreurs SEO](/lead-magnets/checklist-seo-expert-comptable.html) qui empêchent votre cabinet d'attirer des clients sur Google.
+Vous pouvez aussi télécharger ma [checklist gratuite des 10 erreurs SEO](/lead-magnets/checklist-seo-expert-comptable.pdf) qui empêchent votre cabinet d'attirer des clients sur Google.
