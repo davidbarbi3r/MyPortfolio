@@ -10,7 +10,7 @@ tags:
   - Astro
 metadata:
   title: "Site internet éco-responsable : guide complet pour un web durable"
-  canonical: https://www.davidbarbier.com/blog/site-internet-eco-responsable/
+  canonical: https://www.davidbarbier.com/site-internet-eco-responsable/
 ---
 
 ## Pourquoi un site internet éco-responsable est important ?
