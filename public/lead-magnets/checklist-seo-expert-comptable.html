@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist SEO Expert-Comptable - David Barbier</title>
+  <style>
+    /* Clash Display — headings */
+    @font-face {
+      font-family: 'Clash Display';
+      src: url('../fonts/clash-display-400.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Clash Display';
+      src: url('../fonts/clash-display-500.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    /* Switzer — body */
+    @font-face {
+      font-family: 'Switzer';
+      src: url('../fonts/switzer-400.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Switzer';
+      src: url('../fonts/switzer-500.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green-700: #15803d;
+      --green-800: #166534;
+      --green-50: #f0fdf4;
+      --green-100: #dcfce7;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-100: #f1f5f9;
+      --amber-500: #f59e0b;
+    }
+
+    body {
+      font-family: 'Switzer', system-ui, sans-serif;
+      color: #1e293b;
+      background: white;
+      line-height: 1.5;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      padding: 14mm 18mm;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    /* ---- PAGE 1 : COVER ---- */
+    .cover {
+      background: linear-gradient(135deg, var(--green-800) 0%, #0f4a25 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28mm 24mm;
+      height: 297mm;
+      box-sizing: border-box;
+    }
+
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-logo {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .cover-badge {
+      font-size: 11px;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .cover-main {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .cover-tagline {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cover-tagline::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--amber-500);
+    }
+
+    .cover h1 {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 44px;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .cover h1 span {
+      color: var(--amber-500);
+    }
+
+    .cover-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .cover-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+
+    .cover-footer-left {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .cover-footer-right {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      text-align: right;
+    }
+
+    .cover-url {
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    /* ---- PAGE 2-3 : CONTENT ---- */
+    .content-page {
+      background: white;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--green-700);
+    }
+
+    .page-header-logo {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green-800);
+    }
+
+    .page-header-title {
+      font-size: 11px;
+      color: var(--slate-500);
+    }
+
+    .intro-box {
+      background: var(--green-50);
+      border-left: 4px solid var(--green-700);
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .intro-box p {
+      font-size: 12.5px;
+      color: var(--slate-700);
+      line-height: 1.6;
+    }
+
+    .intro-box strong {
+      color: var(--green-800);
+    }
+
+    .checklist-item {
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+    }
+
+    .checklist-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--green-700);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .checklist-title-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .checklist-title {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    .check-list {
+      margin-left: 38px;
+      list-style: none;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 11.5px;
+      color: var(--slate-700);
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .check-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--slate-300);
+      border-radius: 3px;
+      background: white;
+    }
+
+    .tip {
+      margin-left: 38px;
+      margin-top: 4px;
+      background: #fffbeb;
+      border-left: 3px solid var(--amber-500);
+      padding: 4px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 10.5px;
+      color: #92400e;
+    }
+
+    .tip strong {
+      font-weight: 600;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 4px 0;
+    }
+
+    /* ---- PAGE 4 : CTA ---- */
+    .cta-page {
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .score-section {
+      background: var(--slate-100);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .score-section h2 {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .score-card {
+      background: white;
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+
+    .score-card.red { border-color: #ef4444; }
+    .score-card.orange { border-color: var(--amber-500); }
+    .score-card.green { border-color: var(--green-700); }
+
+    .score-range {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .score-card.red .score-range { color: #ef4444; }
+    .score-card.orange .score-range { color: var(--amber-500); }
+    .score-card.green .score-range { color: var(--green-700); }
+
+    .score-label {
+      font-size: 11px;
+      color: var(--slate-500);
+      margin-top: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .score-desc {
+      font-size: 11.5px;
+      color: var(--slate-700);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--green-800) 0%, #0f4a25 100%);
+      border-radius: 16px;
+      padding: 32px;
+      color: white;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .cta-box h2 {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: var(--green-800);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+
+    .cta-subtext {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .about-section {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--green-50);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .about-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--slate-300);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 140%;
+      height: 140%;
+      object-fit: cover;
+      object-position: center 15%;
+      margin-left: -20%;
+      margin-top: -10%;
+    }
+
+    .about-text h3 {
+      font-family: 'Clash Display', system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .about-role {
+      font-size: 12px;
+      color: var(--green-700);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .about-text p {
+      font-size: 12px;
+      color: var(--slate-700);
+      line-height: 1.6;
+    }
+
+    .about-links {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .about-links a {
+      color: var(--green-700);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--slate-500);
+    }
+
+    @media print {
+      body { background: white; margin: 0; padding: 0; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+      .page:last-child {
+        page-break-after: auto;
+      }
+    }
+
+    @media screen {
+      .page {
+        box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 : COVER -->
+  <div class="page cover">
+    <div class="cover-header">
+      <div class="cover-logo">David Barbier</div>
+      <div class="cover-badge">Activateur France Num</div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-tagline">Guide pratique · Expert-comptable</div>
+      <h1>
+        Les 10 erreurs SEO<br>
+        qui empêchent votre cabinet<br>
+        <span>d'attirer des clients</span><br>
+        sur Google
+      </h1>
+      <p class="cover-subtitle">
+        Une checklist en 10 points pour auditer votre site internet et identifier les actions prioritaires pour gagner en visibilité locale.
+      </p>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-left">
+        Consultant SEO & Développeur web<br>
+        Ancien expert-comptable mémorialiste
+      </div>
+      <div class="cover-footer-right">
+        <a href="https://www.davidbarbier.com/" class="cover-url" style="text-decoration:none;">davidbarbier.com</a><br>
+        Édition 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2 : CHECKLIST 1-5 -->
+  <div class="page content-page">
+    <div class="page-header">
+      <div class="page-header-logo">David Barbier</div>
+      <div class="page-header-title">Checklist SEO Expert-Comptable</div>
+    </div>
+
+    <div class="intro-box">
+      <p>
+        <strong>Mode d'emploi :</strong> Parcourez chaque point et cochez les cases qui correspondent à votre situation actuelle. À la fin, comptez vos cases cochées pour découvrir votre score et vos priorités d'action.
+      </p>
+    </div>
+
+    <!-- 1 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">1</span>
+        <span class="checklist-title">Fiche Google Business Profile incomplète</span>
+      </div>
+      <ul class="check-list">
+        <li>Adresse, horaires et téléphone renseignés et à jour</li>
+        <li>Photos professionnelles du cabinet (pas de photos stock)</li>
+        <li>Catégorie principale : "Expert-comptable"</li>
+        <li>Description avec mots-clés locaux (ville, services)</li>
+        <li>Lien vers votre site web renseigné</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> 65% des recherches Google sont géolocalisées. Votre fiche GBP est souvent le premier contact avec un prospect.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 2 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">2</span>
+        <span class="checklist-title">Aucun avis Google (ou pas de réponse aux avis)</span>
+      </div>
+      <ul class="check-list">
+        <li>Au moins 5 avis clients publiés</li>
+        <li>Réponse à chaque avis, positif comme négatif</li>
+        <li>Processus en place pour demander des avis régulièrement</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Les avis Google sont le 1er critère de choix pour un prospect local. Envoyez un lien direct après chaque mission terminée.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 3 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">3</span>
+        <span class="checklist-title">Pas de mots-clés locaux dans les pages</span>
+      </div>
+      <ul class="check-list">
+        <li>"Expert-comptable + ville" dans le title de la page d'accueil</li>
+        <li>"Expert-comptable + ville + arrondissement" si grande ville (ex: Paris 8ème, Lyon 3ème, Marseille 6ème)</li>
+        <li>Ville et région mentionnées dans le contenu, pas juste dans le footer</li>
+        <li>Pages dédiées si multi-sites (Lyon ET Paris = 2 pages distinctes)</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Dans les grandes villes, la concurrence est rude sur "expert-comptable Paris". Ciblez l'arrondissement pour capter un trafic plus qualifié et moins concurrentiel.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 4 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">4</span>
+        <span class="checklist-title">Un site qui parle du cabinet, pas du client</span>
+      </div>
+      <ul class="check-list">
+        <li>Le texte utilise "vous" plus souvent que "nous"</li>
+        <li>Les services sont formulés comme des solutions aux problèmes clients</li>
+        <li>Chaque page répond à une question que se pose le prospect</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Remplacez "Notre expertise en comptabilité" par "Gagnez du temps sur votre comptabilité". Le prospect cherche une solution, pas un CV.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 5 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">5</span>
+        <span class="checklist-title">Pas de page dédiée par service</span>
+      </div>
+      <ul class="check-list">
+        <li>Une page par service : création d'entreprise, comptabilité TPE, audit, social/paie…</li>
+        <li>Chaque page a son propre title et sa propre meta description</li>
+        <li>Maillage interne entre les pages de services</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Une page unique "Nos services" avec tout dedans ne se positionne sur rien. Google a besoin d'une page = un sujet.</div>
+    </div>
+
+    <div class="page-footer">
+      <a href="https://www.davidbarbier.com/" style="color:inherit;text-decoration:none;">davidbarbier.com</a>
+      <span>Page 2/4</span>
+    </div>
+  </div>
+
+  <!-- PAGE 3 : CHECKLIST 6-10 -->
+  <div class="page content-page">
+    <div class="page-header">
+      <div class="page-header-logo">David Barbier</div>
+      <div class="page-header-title">Checklist SEO Expert-Comptable</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">6</span>
+        <span class="checklist-title">Nom de domaine mal configuré</span>
+      </div>
+      <ul class="check-list">
+        <li>Redirection www → non-www (ou l'inverse) en place</li>
+        <li>HTTPS actif sur toutes les pages</li>
+        <li>Domaine en .fr privilégié pour un cabinet français</li>
+        <li>DNS correctement configurés (SPF, DKIM, DMARC pour les emails)</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Un certificat SSL manquant (pas de HTTPS) affiche "Non sécurisé" dans le navigateur. Un prospect qui voit ça ne vous contactera pas.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 7 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">7</span>
+        <span class="checklist-title">Site non adapté au mobile</span>
+      </div>
+      <ul class="check-list">
+        <li>Texte lisible sans zoomer sur smartphone</li>
+        <li>Boutons suffisamment grands pour être cliqués au doigt</li>
+        <li>Numéro de téléphone cliquable (tap-to-call)</li>
+        <li>Formulaire de contact utilisable sur mobile</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Google utilise le Mobile-First Indexing : c'est la version mobile de votre site qui détermine votre classement.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 8 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">8</span>
+        <span class="checklist-title">Site lent (plus de 3 secondes de chargement)</span>
+      </div>
+      <ul class="check-list">
+        <li>Score PageSpeed Insights supérieur à 70 sur mobile</li>
+        <li>Images compressées et au format WebP</li>
+        <li>Pas de slider ou carousel lourd en page d'accueil</li>
+        <li>Hébergement de qualité (pas un mutualisé premier prix)</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Testez votre site sur pagespeed.web.dev — c'est gratuit et ça vous donne un diagnostic complet en 30 secondes.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 9 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">9</span>
+        <span class="checklist-title">Aucun backlink institutionnel</span>
+      </div>
+      <ul class="check-list">
+        <li>Inscription sur l'annuaire officiel de l'Ordre des Experts-Comptables</li>
+        <li>Fiche CNCC si commissaire aux comptes</li>
+        <li>Profils à jour sur les annuaires professionnels (CCI, France Num)</li>
+        <li>Fiche sur les annuaires locaux de votre ville/région</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Ces liens institutionnels ont une autorité très élevée et sont 100% légitimes. C'est le netlinking le plus simple et le plus efficace pour un cabinet.</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 10 -->
+    <div class="checklist-item">
+      <div class="checklist-title-row">
+        <span class="checklist-number">10</span>
+        <span class="checklist-title">Pas de contenu qui attire du trafic</span>
+      </div>
+      <ul class="check-list">
+        <li>Au moins 3 à 5 articles de blog ciblant des questions clients</li>
+        <li>Sujets concrets : "Comment choisir son expert-comptable ?", "Quand passer en société ?"</li>
+        <li>Articles mis à jour régulièrement (date de publication visible)</li>
+        <li>Chaque article contient un appel à l'action vers vos services</li>
+      </ul>
+      <div class="tip"><strong>Astuce :</strong> Un article bien positionné peut générer des contacts pendant des années. C'est un investissement, pas une dépense.</div>
+    </div>
+
+    <div class="page-footer">
+      <a href="https://www.davidbarbier.com/" style="color:inherit;text-decoration:none;">davidbarbier.com</a>
+      <span>Page 3/4</span>
+    </div>
+  </div>
+
+  <!-- PAGE 4 : SCORE + CTA -->
+  <div class="page cta-page">
+    <div class="page-header">
+      <div class="page-header-logo">David Barbier</div>
+      <div class="page-header-title">Checklist SEO Expert-Comptable</div>
+    </div>
+
+    <div class="score-section">
+      <h2>Votre score</h2>
+      <p style="font-size: 13px; color: var(--slate-700); margin-bottom: 16px;">
+        Comptez le nombre total de cases cochées sur les 10 points (31 cases au total).
+      </p>
+
+      <div class="score-grid">
+        <div class="score-card red">
+          <div class="score-range">0 – 10</div>
+          <div class="score-label">Urgent</div>
+          <p class="score-desc">Votre site est quasiment invisible sur Google. Chaque mois qui passe, vous perdez des prospects au profit de vos confrères.</p>
+        </div>
+        <div class="score-card orange">
+          <div class="score-range">11 – 20</div>
+          <div class="score-label">À améliorer</div>
+          <p class="score-desc">Les bases sont là, mais des lacunes importantes freinent votre visibilité. Quelques actions ciblées peuvent changer la donne.</p>
+        </div>
+        <div class="score-card green">
+          <div class="score-range">21 – 31</div>
+          <div class="score-label">Bon niveau</div>
+          <p class="score-desc">Votre site est bien optimisé. Concentrez-vous sur le contenu et les backlinks pour passer devant vos concurrents.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Vous avez moins de 20 cases cochées ?</h2>
+      <p>
+        Je vous propose un audit gratuit de 15 minutes pour identifier les 3 actions prioritaires qui auront le plus d'impact sur la visibilité de votre cabinet.
+      </p>
+      <a href="https://www.davidbarbier.com/contact/" class="cta-button">
+        Réserver mon audit gratuit →
+      </a>
+      <p class="cta-subtext">Sans engagement · 15 minutes · Par téléphone ou visio</p>
+    </div>
+
+    <div class="about-section">
+      <div class="about-photo">
+        <img src="david-barbier.jpg" alt="David Barbier" />
+      </div>
+      <div class="about-text">
+        <h3>David Barbier</h3>
+        <div class="about-role">Développeur web freelance · Consultant SEO · Ancien expert-comptable mémorialiste</div>
+        <p>
+          Passé par le DCG, le DSCG et l'audit financier en cabinet, je comprends les enjeux des experts-comptables de l'intérieur. Aujourd'hui, je crée des sites performants et j'accompagne les cabinets dans leur visibilité en ligne.
+        </p>
+        <div class="about-links">
+          <a href="https://www.davidbarbier.com/agence-web-expert-comptable/">Découvrir mes services pour les EC →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span><a href="https://www.davidbarbier.com/" style="color:inherit;">davidbarbier.com</a> · <a href="mailto:hello@davidbarbier.com" style="color:inherit;">hello@davidbarbier.com</a> · <a href="tel:+33623565299" style="color:inherit;">06 23 56 52 99</a></span>
+      <span>Page 4/4</span>
+    </div>
+  </div>
+
+</body>
+</html>

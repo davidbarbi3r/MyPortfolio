@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
+import LeadMagnetForm from '../../components/widgets/LeadMagnetForm.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 
 const metadata = {
@@ -591,5 +592,9 @@ const breadcrumbStructuredData = {
         </p>
       </details>
     </div>
+  </section>
+
+  <section class="px-4 sm:px-6 py-12">
+    <LeadMagnetForm />
   </section>
 </Layout>
