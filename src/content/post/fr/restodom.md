@@ -3,6 +3,7 @@ publishDate: 2024-07-07T00:00:00Z
 title: Rest-o-dom
 excerpt: Création d'un site internet avec accès client et systeme de commande de repas
 image: '~/assets/images/restodom-hero.png'
+author: David Barbier
 category: Portfolio
 tags:
   - next.js

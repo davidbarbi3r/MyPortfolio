@@ -3,6 +3,7 @@ publishDate: 2024-02-12T00:00:00Z
 title: Guide pour une bonne configuration DNS
 excerpt: Comment faire une bonne configuration DNS ? E-mails en spam, site inaccessible ? Ces problèmes viennent souvent d'une configuration DNS mal faite.
 image: '~/assets/images/dns-config.jpg'
+author: David Barbier
 category: Blog
 tags:
   - configuration dns

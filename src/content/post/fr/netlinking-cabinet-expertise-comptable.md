@@ -3,6 +3,7 @@ publishDate: 2025-02-10T00:00:00Z
 title: "Augmenter la visibilité du site internet de son cabinet d'expertise comptable : la base du netlinking"
 excerpt: "Comment obtenir des backlinks gratuits pour votre cabinet d'expertise comptable. Les annuaires institutionnels, une mine d'or SEO négligée."
 image: '~/assets/images/liens-site-expert-comptable.png'
+author: David Barbier
 category: Blog
 tags:
   - SEO

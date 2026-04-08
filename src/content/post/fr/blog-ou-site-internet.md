@@ -3,6 +3,7 @@ publishDate: 2024-10-21T00:00:00Z
 title: Blog ou site internet
 excerpt: Pourquoi un blog est essentiel pour la visibilité de votre entreprise. Conseils pour booster votre SEO, affirmer votre expertise et fidéliser votre audience.
 image: '~/assets/images/blog-or-website.jpg'
+author: David Barbier
 category: Blog
 tags:
   - blog

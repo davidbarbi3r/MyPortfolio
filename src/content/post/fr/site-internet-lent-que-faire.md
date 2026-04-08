@@ -3,6 +3,7 @@ publishDate: 2024-02-12T00:00:00Z
 title: Mon site internet est lent? 
 excerpt: Dans cet article, nous analysons les principales sources de lenteur d'un site web et comment faire pour améliorer la performance de son site.
 image: '~/assets/images/slow-website.jpg'
+author: David Barbier
 category: Blog
 tags:
   - performance

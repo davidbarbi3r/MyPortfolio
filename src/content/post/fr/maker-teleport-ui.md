@@ -3,6 +3,7 @@ publishDate: 2022-11-16T05:35:07.322Z
 title: Maker teleport UI
 excerpt: "Interface utilisateur pour le Maker Teleport Bridge. Transfert d'actifs du layer 2 au layer 1 via le TeleportSDK et des smart contracts."
 image: '~/assets/images/maker-teleport.jpg'
+author: David Barbier
 category: Portfolio
 tags:
   - next.js

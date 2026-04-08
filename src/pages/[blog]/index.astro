@@ -36,6 +36,31 @@ const metadata = merge(
 ---
 
 <Layout metadata={metadata}>
+  {post.author && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.publishDate?.toISOString(),
+      "dateModified": (post.updateDate || post.publishDate)?.toISOString(),
+      ...(image ? { "image": image.src } : {}),
+      "author": {
+        "@type": "Person",
+        "name": post.author,
+        "url": "https://www.davidbarbier.com/a-propos/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "David Barbier",
+        "url": "https://www.davidbarbier.com/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": url
+      }
+    })} />
+  )}
   <SinglePost post={{ ...post, image: image }} url={url} />
   <ToBlogLink />
 </Layout>

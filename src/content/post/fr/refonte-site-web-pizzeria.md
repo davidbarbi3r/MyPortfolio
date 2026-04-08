@@ -3,6 +3,7 @@ publishDate: 2024-02-16T00:00:00Z
 title: Refonte site internet Pizzeria
 excerpt: Refonte d'un site internet permettant la commande en ligne et le paiement des pizzas
 image: '~/assets/images/pizza-carmes.png'
+author: David Barbier
 category: Portfolio
 tags:
   - next.js

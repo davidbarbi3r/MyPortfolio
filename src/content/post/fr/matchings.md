@@ -3,6 +3,7 @@ publishDate: 2023-06-06T00:00:00Z
 title: Matchings
 excerpt: Une application fullstack sur mesure pour permettre à un groupement de sociétés de gérer leurs stocks de pneus 
 image: '~/assets/images/agilytic.jpeg'
+author: David Barbier
 category: Portfolio
 tags:
   - react
