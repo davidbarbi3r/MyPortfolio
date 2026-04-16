@@ -30,11 +30,13 @@ import LogoPizzaCarmes from '~/assets/images/clients/pizza-carmes.webp';
 import LogoAurarios from '~/assets/images/clients/aurarios.png';
 import LogoLeadauco from '~/assets/images/clients/leadauco.png';
 
+import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
+
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: 'David Barbier | Agence web & SEO à Ajaccio',
-  description: "Agence web et référencement naturel à Ajaccio. Ancien auditeur financier, je crée des sites sur-mesure performants et accompagne les entreprises dans leur visibilité en ligne.",
+  title: 'David Barbier | Concepteur de sites web à Ajaccio (Corse)',
+  description: "Concepteur de sites web à Ajaccio : création, développement sur-mesure, SEO et maintenance. Ancien auditeur financier au service des TPE et cabinets EC.",
   lang: locale,
 };
 
@@ -43,11 +45,11 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://www.davidbarbier.com/#localbusiness",
-  "name": "David Barbier | Agence web & SEO à Ajaccio",
-  "image": "https://www.davidbarbier.com/_astro/DSCF7551-3.webp",
+  "name": "David Barbier | Consultant SEO et site internet",
+  "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
   "url": "https://www.davidbarbier.com/",
   "telephone": "+33623565299",
-  "email": "contact@davidbarbier.com",
+  "email": "hello@davidbarbier.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "13 Boulevard Sampiero",
@@ -96,39 +98,7 @@ const localBusinessSchema = {
   "priceRange": "€€"
 };
 
-// Avis clients pour le carousel et le schema SEO
-const reviews = [
-  {
-    author: "Matthias",
-    company: "Odacio Conseils",
-    rating: 5,
-    text: "David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet. Il a su comprendre mes attentes et proposer des solutions adaptées. Le suivi est sérieux et il reste disponible quand on a besoin. Vous pouvez lui faire confiance les yeux fermés !"
-  },
-  {
-    author: "Véronique",
-    company: "La voie des sens",
-    rating: 5,
-    text: "David m'a apporté un état des lieux très clair et précis quant à la façon d'améliorer le référencement et la performance. David a apporté aussi du calme, de la douceur et une bonne compréhension globale de mes besoins pour le site. C'est un vrai plus pour moi que de travailler avec un professionnel serein."
-  },
-  {
-    author: "Marta",
-    company: "Ekia Advisory",
-    rating: 5,
-    text: "David m'a accompagné dans la création de mon site internet pour mon cabinet d'expertise-comptable Ekia Advisory. Il est très professionnel, à l'écoute et s'adapte aux attentes du client ! Je recommande vivement !"
-  },
-  {
-    author: "Cédric",
-    company: "Restodom",
-    rating: 5,
-    text: "Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet REST'Ô DOM. Son écoute, et son professionnalisme ont permis la bonne exécution du site. La collaboration se poursuit à l'heure actuelle, car il est SEO également me permettant ainsi de gagner grandement en visibilité grâce à ses compétences."
-  },
-  {
-    author: "Aaron",
-    company: "Action Conseils",
-    rating: 5,
-    text: "Véritable professionnel, réactif, compétent et sympathique ! Je recommande fortement."
-  }
-];
+// Avis clients : importés depuis ~/utils/reviews (source unique de vérité)
 
 // Projets récents
 const projects = [
@@ -193,14 +163,8 @@ const reviewsSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://www.davidbarbier.com/#localbusiness",
-  "name": "David Barbier | Agence web & SEO à Ajaccio",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
+  "name": "David Barbier | Consultant SEO et site internet",
+  "aggregateRating": aggregateRatingSchema,
   "review": reviews.map(r => ({
     "@type": "Review",
     "author": {
@@ -226,7 +190,7 @@ const reviewsSchema = {
 
   <!--hero-->
   <Hero2
-    tagline="Agence web & référencement naturel à Ajaccio"
+    tagline="Concepteur de sites web à Ajaccio - Corse"
     callToAction={{ text: t('portfolio.bookCall'), href: 'tel:+33623565299', icon: 'tabler:phone' }}
     image={{
       src: HeroImage,

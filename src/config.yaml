@@ -23,8 +23,8 @@ metadata:
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@daviddeveloppe'
+    site: '@daviddeveloppe'
     cardType: summary_large_image
 
 i18n:
@@ -55,7 +55,7 @@ apps:
       isEnabled: true
       pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
       robots:
-        index: true
+        index: false
 
     tag:
       isEnabled: false

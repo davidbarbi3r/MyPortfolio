@@ -17,6 +17,9 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
+  <!-- Forward per-page <head> injections to Layout -->
+  <slot name="head" slot="head" />
+
   <!--<slot name="announcement">-->
   <!--  <Announcement />-->
   <!--</slot>-->

@@ -11,15 +11,20 @@ const metadata = {
 };
 
 // JSON-LD LocalBusiness schema
+// Note: branchOf pointe vers le LocalBusiness principal d'Ajaccio
+// pour signaler à Google que c'est la même entité (solo operator)
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://www.davidbarbier.com/limoges/#localbusiness",
   "name": "David Barbier | Concepteur de sites web à Limoges",
-  "image": "https://www.davidbarbier.com/_astro/DSCF7551-3.webp",
+  "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
   "url": "https://www.davidbarbier.com/limoges/",
+  "branchOf": {
+    "@id": "https://www.davidbarbier.com/#localbusiness"
+  },
   "telephone": "+33623565299",
-  "email": "contact@davidbarbier.com",
+  "email": "hello@davidbarbier.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "23 Rue de la Fonderie",
@@ -282,6 +287,87 @@ const testimonials = [
         >
           Discutons de votre projet
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.5 Trust / E-E-A-T Section - Basé à Ajaccio -->
+  <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+      <!-- Label -->
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-6 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        En toute transparence
+      </p>
+
+      <!-- H2 -->
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
+        Pourquoi un consultant à Ajaccio pour votre site à <span class="text-emerald-700 dark:text-emerald-400">Limoges</span> ?
+      </h2>
+
+      <!-- Story -->
+      <div class="space-y-6 text-lg text-gray-600 dark:text-gray-300">
+        <p>
+          J'ai vécu <strong class="text-gray-900 dark:text-white">plus de 20 ans à Limoges</strong>. C'est la ville où j'ai grandi, où j'ai démarré mon activité, et où vit toujours une bonne partie de ma famille. Quand je dis "ville de cœur", ce n'est pas une formule : j'y retourne régulièrement — pour mes clients actifs en Haute-Vienne et pour les miens.
+        </p>
+        <p>
+          En 2020, j'ai déménagé en Corse pour des raisons personnelles. Mais <strong class="text-gray-900 dark:text-white">Limoges n'est pas un ancien marché, c'est un marché actuel</strong>.
+        </p>
+      </div>
+
+      <!-- Concrete points -->
+      <p class="mt-12 font-semibold text-gray-900 dark:text-white">
+        Concrètement, pour votre projet :
+      </p>
+      <ul class="mt-6 space-y-5 text-gray-600 dark:text-gray-300">
+        <li class="flex gap-x-3">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
+          </svg>
+          <span>
+            <strong class="font-semibold text-gray-900 dark:text-white">Je connais le terrain.</strong> Les zones, les concurrents locaux, les annuaires du Limousin, les spécificités des SERPs en Haute-Vienne. Pas d'apprentissage à vos frais.
+          </span>
+        </li>
+        <li class="flex gap-x-3">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
+          </svg>
+          <span>
+            <strong class="font-semibold text-gray-900 dark:text-white">RDV physique possible.</strong> Entre famille et clients en cours, je reviens à Limoges plusieurs fois par an. Un café en centre-ville ou un passage à votre bureau, c'est inclus.
+          </span>
+        </li>
+        <li class="flex gap-x-3">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
+          </svg>
+          <span>
+            <strong class="font-semibold text-gray-900 dark:text-white">Le reste du temps, on bosse en visio.</strong> Mêmes outils, même méthode, même réactivité que pour mes clients à Ajaccio. 90% du SEO et du dev web se fait à distance, même quand on habite à 500m.
+          </span>
+        </li>
+        <li class="flex gap-x-3">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
+          </svg>
+          <span>
+            <strong class="font-semibold text-gray-900 dark:text-white">Un interlocuteur, pas une agence.</strong> Pas de chef de projet, pas de sous-traitance, pas de "je reviens vers vous". Vous parlez directement à celui qui fait le boulot.
+          </span>
+        </li>
+      </ul>
+
+      <!-- Soft CTA -->
+      <div class="mt-12 border-l-4 border-emerald-600 pl-6">
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+          <strong class="text-gray-900 dark:text-white">Envie d'en discuter ?</strong> Premier échange de 20 min, sans engagement.
+        </p>
+        <a
+          href="tel:+33623565299"
+          class="mt-4 inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold hover:gap-3 transition-all"
+        >
+          Réserver un échange
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>

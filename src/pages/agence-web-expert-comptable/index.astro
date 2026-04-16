@@ -3,6 +3,7 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import LeadMagnetForm from '../../components/widgets/LeadMagnetForm.astro';
+import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
   title: "Agence Web Expert-Comptable | Agence Digitale pour Cabinet Comptable",
@@ -67,7 +68,7 @@ const serviceStructuredData = {
         "description": "Référencement naturel pour cabinets EC : visibilité locale et nationale",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
-          "minPrice": "400",
+          "minPrice": "490",
           "priceCurrency": "EUR",
           "unitCode": "MON",
           "valueAddedTaxIncluded": false
@@ -75,13 +76,7 @@ const serviceStructuredData = {
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "aggregateRating": aggregateRatingSchemaGlobal
 };
 
 // JSON-LD FAQ schema

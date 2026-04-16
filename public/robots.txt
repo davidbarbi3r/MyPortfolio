@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /decapcms/
+
+Sitemap: https://www.davidbarbier.com/sitemap-index.xml

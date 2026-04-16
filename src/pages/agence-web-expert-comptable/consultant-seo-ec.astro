@@ -3,6 +3,7 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import LeadMagnetForm from '../../components/widgets/LeadMagnetForm.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
   title: 'Consultant SEO Expert Comptable | Référencement Naturel pour Cabinet Comptable',
@@ -42,7 +43,7 @@ const serviceStructuredData = {
         "description": "Stratégie SEO complète avec suivi mensuel",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
-          "minPrice": "400",
+          "minPrice": "490",
           "priceCurrency": "EUR",
           "unitCode": "MON",
           "valueAddedTaxIncluded": false
@@ -52,18 +53,12 @@ const serviceStructuredData = {
         "@type": "Offer",
         "name": "Audit SEO",
         "description": "Analyse complète de votre visibilité et plan d'action",
-        "price": "250",
+        "price": "690",
         "priceCurrency": "EUR"
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "aggregateRating": aggregateRatingSchemaGlobal
 };
 
 // JSON-LD FAQ schema
@@ -84,7 +79,7 @@ const faqStructuredData = {
       "name": "Quel budget prévoir pour le référencement d'un cabinet comptable ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "L'accompagnement SEO mensuel démarre à 400€/mois HT, incluant stratégie, optimisations et reporting. L'audit SEO à 250€ HT vous donne une feuille de route complète. Ces investissements sont rentabilisés dès l'acquisition de quelques nouveaux clients."
+        "text": "L'accompagnement SEO mensuel démarre à 490€/mois HT (TJM 490€/jour, 1 à 3 jours/mois selon l'ampleur de votre cabinet). L'audit SEO complet à 690€ HT vous donne une feuille de route à suivre en autonomie. Pour commencer sans engagement : demi-journée à 245€ HT ou journée à 490€ HT. Si votre cabinet a un bureau physique visible, le suivi mensuel Google Business Profile à 100€/mois HT maintient votre visibilité locale. Ces investissements sont rentabilisés dès l'acquisition de quelques nouveaux clients."
       }
     },
     {
@@ -530,7 +525,7 @@ const breadcrumbStructuredData = {
                 <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
               </svg>
               <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Tarifs transparents</strong> — accompagnement mensuel à partir de 400€/mois HT
+                <strong class="font-semibold text-gray-900 dark:text-gray-100">Tarifs transparents</strong> — accompagnement mensuel à partir de 490€/mois HT
               </span>
             </li>
           </ul>
@@ -559,10 +554,16 @@ const breadcrumbStructuredData = {
           <h3 class="inline">Quel budget prévoir ?</h3>
         </summary>
         <p class="pl-4 mt-2">
-          L'accompagnement SEO mensuel démarre à 400€/mois HT, incluant stratégie, optimisations techniques,
-          création de contenu et reporting mensuel. Pour commencer plus léger, l'audit SEO à 250€ HT vous donne
-          une feuille de route complète à suivre en autonomie.
+          Toutes les formules sont transparentes, HT, sans frais caché :
         </p>
+        <ul class="pl-4 mt-2 list-disc ml-6 space-y-2">
+          <li>
+            <strong>Accompagnement SEO mensuel</strong> à <strong>490€/jour HT</strong> — 1 à 3 jours/mois selon l'ampleur de votre cabinet (à partir de 490€/mois, engagement 6 mois, stratégie + optimisations + contenu + reporting)
+          </li>
+          <li><strong>Audit SEO complet</strong> à <strong>690€ HT</strong> — feuille de route détaillée à suivre en autonomie</li>
+          <li><strong>Demi-journée / Journée ponctuelle</strong> : 245€ / 490€ HT — pour un besoin ciblé sans engagement</li>
+          <li><strong>Suivi mensuel Google Business Profile</strong> à <strong>100€/mois HT</strong> — animation continue de votre fiche (posts, avis, monitoring), utile si votre cabinet a un bureau physique visible</li>
+        </ul>
         <p class="pl-4 mt-2">
           Ces investissements sont généralement rentabilisés dès l'acquisition de quelques nouveaux clients.
         </p>

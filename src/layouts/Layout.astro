@@ -49,6 +49,9 @@ const websiteStructuredData = {
     <script type="application/ld+json" set:html={JSON.stringify(websiteStructuredData)} />
 
     <meta name="p:domain_verify" content="efd6b967d875e884a7fda76065da1c15"/>
+
+    <!-- Per-page <head> injections (JSON-LD schemas, etc.) -->
+    <slot name="head" />
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">

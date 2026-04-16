@@ -2,6 +2,7 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
   title: "Développeur web spécialisé expert-comptable | David Barbier",
@@ -31,13 +32,7 @@ const serviceStructuredData = {
     "@type": "Audience",
     "audienceType": "Experts-comptables, Cabinets comptables"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "aggregateRating": aggregateRatingSchemaGlobal
 };
 
 // JSON-LD Breadcrumb schema

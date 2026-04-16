@@ -2,6 +2,7 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
   title: "Refonte site internet expert-comptable | Modernisation + SEO",
@@ -64,13 +65,7 @@ const serviceStructuredData = {
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "aggregateRating": aggregateRatingSchemaGlobal
 };
 
 // JSON-LD FAQ schema
@@ -948,7 +943,7 @@ const breadcrumbStructuredData = {
                 </li>
                 <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
                   <span>Accompagnement SEO continu</span>
-                  <span class="font-semibold">À partir de 400€/mois</span>
+                  <span class="font-semibold">À partir de 490€/mois</span>
                 </li>
               </ul>
             </div>

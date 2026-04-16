@@ -3,6 +3,7 @@ import Layout from '../../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
+import { aggregateRatingSchemaLimoges } from '~/utils/reviews';
 
 const metadata = {
   title: 'Création site WordPress à Limoges | Site vitrine professionnel',
@@ -26,13 +27,7 @@ const serviceStructuredData = {
     { "@type": "City", "name": "Limoges" }
   ],
   "serviceType": "Création de site internet",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "aggregateRating": aggregateRatingSchemaLimoges
 };
 
 const faqStructuredData = {
@@ -584,7 +579,7 @@ const faqStructuredData = {
 
         <div class="mt-10 flex justify-center">
           <a
-            href="/call/"
+            href="/contact/"
             class="rounded-md bg-white px-8 py-4 text-lg font-semibold text-green-700 shadow-sm hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-200"
           >
             Je débute mon site internet
@@ -866,6 +861,22 @@ const faqStructuredData = {
       </div>
     </div>
   </section>
+  <!-- Trust bloc - Basé à Ajaccio -->
+  <section class="py-12 px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-green-800/5 dark:bg-gray-700/30 border-l-4 border-emerald-600 p-6 rounded-r-lg">
+        <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">
+          <strong class="text-gray-900 dark:text-white">Basé à Ajaccio, attaché à Limoges.</strong>
+          J'ai vécu plus de 20 ans en Haute-Vienne avant de m'installer en Corse en 2020. J'y retourne régulièrement pour mes clients et ma famille — RDV physique possible, et le reste du temps, même méthode qu'avec mes clients sur place.
+          <a href="/limoges/" class="text-emerald-700 dark:text-emerald-400 font-semibold hover:underline ml-1 inline-flex items-center gap-1">
+            En savoir plus
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
     <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">
       Création site internet Limoges: La FAQ

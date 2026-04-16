@@ -3,6 +3,7 @@ import Layout from '../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
+import { aggregateRatingSchema } from '~/utils/reviews';
 
 const metadata = {
   title: 'Création site WordPress à Ajaccio | Site vitrine professionnel',
@@ -27,13 +28,7 @@ const serviceStructuredData = {
     { "@type": "AdministrativeArea", "name": "Corse" }
   ],
   "serviceType": "Création de site internet",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "13",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "aggregateRating": aggregateRatingSchema
 };
 
 const faqStructuredData = {
@@ -579,7 +574,7 @@ const faqStructuredData = {
 
         <div class="mt-10 flex justify-center">
           <a
-            href="/call/"
+            href="/contact/"
             class="rounded-md bg-white px-8 py-4 text-lg font-semibold text-green-700 shadow-sm hover:bg-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-200"
           >
             Je débute mon site internet

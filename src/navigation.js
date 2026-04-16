@@ -8,8 +8,24 @@ export const getHeaderData = () => {
         href: '/',
       },
       {
-        text: 'A propos',
+        text: 'À propos',
         href: '/a-propos/',
+      },
+      {
+        text: 'Ajaccio',
+        links: [
+          { text: 'Consultant SEO à Ajaccio', href: '/consultant-seo-ajaccio/' },
+          { text: 'Création site WordPress à Ajaccio', href: '/creation-site-internet-ajaccio/' },
+          { text: 'Maintenance site à Ajaccio', href: '/maintenance-site-internet-ajaccio/' },
+        ],
+      },
+      {
+        text: 'Limoges',
+        links: [
+          { text: 'Consultant SEO à Limoges', href: '/limoges/consultant-seo/' },
+          { text: 'Création site WordPress à Limoges', href: '/limoges/wordpress/' },
+          { text: 'Maintenance site à Limoges', href: '/limoges/maintenance-site-internet/' },
+        ],
       },
       {
         text: 'Experts-comptables',
@@ -21,8 +37,12 @@ export const getHeaderData = () => {
           { text: 'Développeur EC', href: '/agence-web-expert-comptable/developpeur-specialise/' },
         ],
       },
+      {
+        text: 'Blog',
+        href: '/blog/',
+      },
     ],
-    actions: [{ type: 'button', text: 'Experts-comptables', href: '/agence-web-expert-comptable/' }],
+    actions: [{ type: 'button', text: 'Me contacter', href: '/contact/' }],
   };
 };
 
