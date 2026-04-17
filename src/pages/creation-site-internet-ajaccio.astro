@@ -3,7 +3,6 @@ import Layout from '../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
-import { aggregateRatingSchema } from '~/utils/reviews';
 
 const metadata = {
   title: 'Création site WordPress à Ajaccio | Site vitrine professionnel',
@@ -27,8 +26,7 @@ const serviceStructuredData = {
     { "@type": "City", "name": "Ajaccio" },
     { "@type": "AdministrativeArea", "name": "Corse" }
   ],
-  "serviceType": "Création de site internet",
-  "aggregateRating": aggregateRatingSchema
+  "serviceType": "Création de site internet"
 };
 
 const faqStructuredData = {

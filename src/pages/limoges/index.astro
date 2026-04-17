@@ -3,6 +3,7 @@ import Layout from '../../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
+import { aggregateRatingSchemaLimoges } from '~/utils/reviews';
 
 const metadata = {
   title: 'David Barbier | Concepteur de sites web et consultant SEO à Limoges',
@@ -60,7 +61,8 @@ const localBusinessSchema = {
     "https://www.malt.fr/profile/davidbarbier",
     "https://github.com/davidbarbi3r"
   ],
-  "priceRange": "€€"
+  "priceRange": "€€",
+  "aggregateRating": aggregateRatingSchemaLimoges
 };
 
 // JSON-LD Breadcrumb schema
