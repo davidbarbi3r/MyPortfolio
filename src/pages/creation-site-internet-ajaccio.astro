@@ -462,31 +462,6 @@ const breadcrumbStructuredData = {
       background-clip: text;
     }
 
-    .frein-card {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
-    }
-
-    .frein-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 25px 55px -20px rgba(21, 128, 61, 0.22);
-    }
-
-    .frein-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #ef4444 0%, #f97316 100%);
-    }
-
-    .frein-card.solved::before {
-      background: linear-gradient(180deg, #22c55e 0%, #10b981 100%);
-    }
-
     /* Green-tinted shadows — replace generic neutral shadows */
     .shadow-emerald-xl {
       box-shadow:
