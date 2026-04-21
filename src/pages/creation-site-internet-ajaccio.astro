@@ -207,6 +207,8 @@ const breadcrumbStructuredData = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
   </Fragment>
 
+  <div class="scroll-tint" aria-hidden="true"></div>
+
   <style>
     .font-editorial { font-family: var(--aw-font-heading), system-ui, sans-serif; }
     .font-body { font-family: var(--aw-font-sans), system-ui, sans-serif; }
@@ -511,6 +513,127 @@ const breadcrumbStructuredData = {
     }
     .dark .hero-mark {
       color: rgba(34, 197, 94, 0.08);
+    }
+
+    /* Scroll tint overlay — color scrubs with scroll via GSAP */
+    .scroll-tint {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      background: var(--tint, transparent);
+      mix-blend-mode: multiply;
+      transition: background-color 0.05s linear;
+    }
+    .dark .scroll-tint {
+      mix-blend-mode: screen;
+    }
+
+    /* Section 03 — editorial numbered list rows */
+    .deliverable-row {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      column-gap: 1.5rem;
+      align-items: baseline;
+      padding-block: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .deliverable-row:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    @media (min-width: 768px) {
+      .deliverable-row:nth-child(even) {
+        padding-inline-start: 1.25rem;
+      }
+    }
+    .deliverable-row .deliverable-index {
+      font-family: var(--aw-font-heading), system-ui, sans-serif;
+      font-size: 2.25rem;
+      font-weight: 600;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.35);
+      font-variant-numeric: tabular-nums;
+    }
+    .deliverable-row .deliverable-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: rgb(134, 239, 172);
+      flex-shrink: 0;
+      transform: translateY(0.25rem);
+    }
+
+    /* Section 04 — zig-zag block container */
+    .frein-block {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 2rem;
+      position: relative;
+    }
+    .frein-block .frein-objection {
+      grid-column: 1 / span 6;
+      position: relative;
+      padding-inline-start: 2.5rem;
+    }
+    .frein-block .frein-response {
+      grid-column: 8 / span 5;
+    }
+    .frein-block--mirror .frein-objection {
+      grid-column: 7 / span 6;
+      padding-inline-start: 2.5rem;
+      padding-inline-end: 0;
+    }
+    .frein-block--mirror .frein-response {
+      grid-column: 1 / span 5;
+      text-align: left;
+    }
+    @media (max-width: 1023px) {
+      .frein-block,
+      .frein-block--mirror {
+        display: block;
+      }
+      .frein-block .frein-objection,
+      .frein-block--mirror .frein-objection {
+        padding-inline-start: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Giant quote mark — used in section 04 objections and section 05 hero */
+    .quote-mark-giant {
+      position: absolute;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      line-height: 0.8;
+      pointer-events: none;
+      user-select: none;
+    }
+    .quote-mark-giant.qm-amber {
+      color: rgba(180, 83, 9, 0.22);
+      font-size: 7rem;
+      top: -1.5rem;
+      left: 0;
+    }
+    .dark .quote-mark-giant.qm-amber {
+      color: rgba(251, 191, 36, 0.22);
+    }
+    .quote-mark-giant.qm-emerald {
+      color: rgba(21, 128, 61, 0.14);
+      font-size: 10rem;
+      top: -2rem;
+      left: -1rem;
+    }
+    .dark .quote-mark-giant.qm-emerald {
+      color: rgba(34, 197, 94, 0.18);
+    }
+
+    /* Section 05 — strip-style testimonial */
+    .testimonial-strip {
+      border-inline-start: 2px solid rgba(21, 128, 61, 0.55);
+      padding-inline-start: 1.25rem;
+      padding-block: 0.5rem;
+    }
+    .dark .testimonial-strip {
+      border-inline-start-color: rgba(34, 197, 94, 0.6);
     }
   </style>
 
