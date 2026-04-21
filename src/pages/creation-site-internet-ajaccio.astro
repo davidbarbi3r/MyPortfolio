@@ -523,7 +523,6 @@ const breadcrumbStructuredData = {
       z-index: 30;
       background: var(--tint, transparent);
       mix-blend-mode: multiply;
-      transition: background-color 0.05s linear;
     }
     .dark .scroll-tint {
       mix-blend-mode: screen;
@@ -558,7 +557,6 @@ const breadcrumbStructuredData = {
       width: 1.5rem;
       height: 1.5rem;
       color: rgb(134, 239, 172);
-      flex-shrink: 0;
       transform: translateY(0.25rem);
     }
 
@@ -577,6 +575,7 @@ const breadcrumbStructuredData = {
     .frein-block .frein-response {
       grid-column: 8 / span 5;
     }
+    /* Must be applied together with .frein-block (relies on its display: grid base) */
     .frein-block--mirror .frein-objection {
       grid-column: 7 / span 6;
       padding-inline-start: 2.5rem;
