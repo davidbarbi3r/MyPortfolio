@@ -650,8 +650,8 @@ const breadcrumbStructuredData = {
   <!-- Hero -->
   <section class="relative min-h-[90dvh] flex items-center overflow-hidden texture-bg grain">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 dark:from-emerald-900/25 dark:to-green-900/10 rounded-full blur-[100px] animate-float"></div>
-      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 dark:from-amber-900/15 dark:to-emerald-900/8 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;"></div>
+      <div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 dark:from-emerald-900/25 dark:to-green-900/10 rounded-full blur-[100px] animate-float" data-parallax="hero-blob" data-parallax-speed="-80"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 dark:from-amber-900/15 dark:to-emerald-900/8 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;" data-parallax="hero-blob" data-parallax-speed="-140"></div>
     </div>
 
     <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
@@ -763,9 +763,9 @@ const breadcrumbStructuredData = {
 
         <div class="lg:col-span-4">
           <div class="lg:sticky lg:top-32">
-            <span class="styled-number">01</span>
-            <p class="eyebrow mt-4">Le contexte</p>
-            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+            <span class="styled-number" data-gsap="slide-in-left">01</span>
+            <p class="eyebrow mt-4" data-gsap="fade-up">Le contexte</p>
+            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line" data-gsap="fade-up">
               Vos prospects regardent votre site avant de vous appeler.
             </h2>
           </div>
@@ -789,7 +789,7 @@ const breadcrumbStructuredData = {
             </blockquote>
           </div>
 
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12" data-gsap="fade-up-stagger">
             <div class="card-subtle spotlight bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
               <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 mb-5 ring-1 ring-emerald-100 dark:ring-emerald-800/50">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -839,17 +839,17 @@ const breadcrumbStructuredData = {
   <section id="processus" class="py-24 lg:py-32 scroll-mt-32 texture-bg">
     <div class="px-8 mx-auto md:px-12 lg:px-24 max-w-7xl">
       <div class="lg:text-balance max-w-3xl">
-        <span class="styled-number">02</span>
-        <p class="eyebrow mt-4">Comment on travaille</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
+        <span class="styled-number" data-gsap="slide-in-left">02</span>
+        <p class="eyebrow mt-4" data-gsap="fade-up">Comment on travaille</p>
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
           De l'idée au site en ligne, en 4 étapes claires.
         </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
+        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
           Un suivi via WhatsApp, un espace partagé pour échanger sans jouer au ping-pong par mail, et une version en ligne accessible dès les premières semaines.
         </p>
       </div>
 
-      <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3">
+      <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3" data-gsap="fade-up-stagger">
         <div>
           <div class="flex items-baseline gap-2">
             <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
@@ -937,10 +937,10 @@ const breadcrumbStructuredData = {
               </svg>
               Allers-retours illimités
             </div>
-            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white" data-gsap="fade-up">
               Je livre quand c'est bon. Pas avant.
             </h3>
-            <p class="font-body text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
+            <p class="font-body text-gray-600 dark:text-gray-300 mt-4 leading-relaxed" data-gsap="fade-up">
               Pas de limite sur les retours, pas de "c'est dans le forfait" quand vous voulez changer un titre. Vous accédez au site pendant tout le développement, vous me dites ce qui cloche, on ajuste. Le projet avance à votre rythme.
             </p>
           </div>
@@ -1247,9 +1247,9 @@ const breadcrumbStructuredData = {
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto">
-        <span class="styled-number">06</span>
-        <p class="eyebrow mt-4">Combien ça coûte</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
+        <span class="styled-number" data-gsap="slide-in-left">06</span>
+        <p class="eyebrow mt-4" data-gsap="fade-up">Combien ça coûte</p>
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
           Un tarif clair, pas de surprise.
         </h2>
       </div>
@@ -1347,9 +1347,9 @@ const breadcrumbStructuredData = {
     <div class="mx-auto max-w-4xl px-6 lg:px-8">
 
       <div class="text-center mb-16">
-        <span class="styled-number">07</span>
-        <p class="eyebrow mt-4">FAQ</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
+        <span class="styled-number" data-gsap="slide-in-left">07</span>
+        <p class="eyebrow mt-4" data-gsap="fade-up">FAQ</p>
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
           Les questions qu'on me pose souvent.
         </h2>
       </div>
@@ -1481,13 +1481,13 @@ const breadcrumbStructuredData = {
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <div>
-          <span class="styled-number">08</span>
-          <p class="eyebrow mt-4">On y va ?</p>
-          <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+          <span class="styled-number" data-gsap="slide-in-left">08</span>
+          <p class="eyebrow mt-4" data-gsap="fade-up">On y va ?</p>
+          <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line" data-gsap="fade-up">
             Discutons de votre projet.
           </h2>
 
-          <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-8 leading-relaxed">
+          <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-8 leading-relaxed" data-gsap="fade-up">
             Remplissez le formulaire, ou appelez-moi directement au <a href="tel:+33623565299" class="text-green-700 dark:text-green-400 font-semibold hover-underline whitespace-nowrap">06 23 56 52 99</a>. Je reviens vers vous sous 48h avec un devis clair et un planning.
           </p>
 
