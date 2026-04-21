@@ -499,11 +499,6 @@ const breadcrumbStructuredData = {
     .deliverable-row:last-child {
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    @media (min-width: 768px) {
-      .deliverable-row:nth-child(even) {
-        padding-inline-start: 1.25rem;
-      }
-    }
     .deliverable-row .deliverable-index {
       font-family: var(--aw-font-heading), system-ui, sans-serif;
       font-size: 2.25rem;
@@ -607,13 +602,13 @@ const breadcrumbStructuredData = {
   </script>
 
   <!-- Hero -->
-  <section class="relative min-h-[90dvh] flex items-center overflow-hidden texture-bg grain">
+  <section class="relative overflow-hidden texture-bg grain pt-12 pb-16 lg:pt-16 lg:pb-20">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 dark:from-emerald-900/25 dark:to-green-900/10 rounded-full blur-[100px] animate-float" data-parallax="hero-blob" data-parallax-speed="-80"></div>
       <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 dark:from-amber-900/15 dark:to-emerald-900/10 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;" data-parallax="hero-blob" data-parallax-speed="-140"></div>
     </div>
 
-    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 w-full">
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8 w-full">
 
       <nav aria-label="Fil d'Ariane" class="mb-10 text-sm font-body animate-fade-up">
         <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
@@ -623,63 +618,62 @@ const breadcrumbStructuredData = {
         </ol>
       </nav>
 
-      <h1 class="animate-fade-up delay-100 max-w-5xl">
-        <span class="block text-xs sm:text-sm font-body font-medium tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-6">
+      <h1 class="animate-fade-up delay-100 max-w-6xl">
+        <span class="block text-xs sm:text-sm font-body font-medium tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-8">
           <span class="inline-block w-6 h-[2px] bg-amber-500 dark:bg-amber-400 mr-3 align-middle"></span>
           Création de site internet · Ajaccio
         </span>
-        <span class="block font-editorial text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-[1.05] tracking-tight text-balance">
-          Votre site internet digne d'une agence.
+        <span class="block font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[0.95] tracking-tight text-balance">
+          Votre site internet<br class="hidden sm:inline" /> digne d'une agence.
         </span>
       </h1>
 
-      <div class="mt-12 lg:mt-16 grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <p class="mt-10 font-body text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl animate-fade-up delay-200">
+        Un site sur-mesure pensé pour votre activité, livré en <strong class="text-gray-900 dark:text-white">4 à 6 semaines</strong>. Aucune agence, aucun intermédiaire : vous travaillez directement avec moi.
+      </p>
 
-        <div class="lg:col-span-5 order-2 lg:order-1 animate-scale delay-200">
-          <div class="relative overflow-hidden rounded-2xl shadow-xl shadow-green-900/15 dark:shadow-emerald-500/10">
-            <img
-              src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/f162bf49-8977-4a0b-7aa6-3504e8379a00/w=800"
-              alt="David Barbier — créateur de site internet à Ajaccio"
-              class="w-full aspect-[4/5] object-cover"
-              width="800"
-              height="1000"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
+      <div class="mt-14 lg:mt-16 h-px bg-gradient-to-r from-amber-500/60 via-amber-400/30 to-transparent animate-fade-up delay-300" aria-hidden="true"></div>
+
+      <div class="mt-10 animate-scale delay-300">
+        <div class="relative overflow-hidden rounded-3xl shadow-xl shadow-green-900/15 dark:shadow-emerald-500/10 aspect-[21/9] lg:aspect-[24/9]">
+          <img
+            src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/f162bf49-8977-4a0b-7aa6-3504e8379a00/w=1600"
+            alt="Vue d'Ajaccio et des Îles Sanguinaires — où je travaille"
+            class="w-full h-full object-cover"
+            width="1600"
+            height="600"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent pointer-events-none"></div>
         </div>
-
-        <div class="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 flex flex-col">
-          <p class="font-body text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-up delay-300">
-            Un site sur-mesure pensé pour votre activité, livré en <strong class="text-gray-900 dark:text-white">4 à 6 semaines</strong>. Aucune agence, aucun intermédiaire : vous travaillez directement avec moi.
-          </p>
-
-          <div class="mt-10 flex flex-wrap items-center gap-4 animate-fade-up delay-400">
-            <a
-              href="#formulaire"
-              class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 glow-on-hover"
-            >
-              Demander mon devis gratuit
-              <svg class="w-5 h-5" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-            <a href="#freins" class="group inline-flex items-center gap-2 px-6 py-4 font-body font-medium text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors">
-              Voir comment c'est possible
-              <svg class="w-4 h-4 transition-transform group-hover:translate-y-1" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </a>
-          </div>
-
-          <p class="mt-8 font-body text-sm text-gray-500 dark:text-gray-400 animate-fade-up delay-500">
-            <span class="inline-block">À partir de 1 200€ HT</span>
-            <span class="mx-2" aria-hidden="true">·</span>
-            <span class="inline-block">Devis sous 48h</span>
-          </p>
-        </div>
-
       </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 animate-fade-up delay-400">
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="#formulaire"
+            class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 glow-on-hover"
+          >
+            Demander mon devis gratuit
+            <svg class="w-5 h-5" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="#freins" class="group inline-flex items-center gap-2 px-4 py-4 font-body font-medium text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors">
+            Voir comment c'est possible
+            <svg class="w-4 h-4 transition-transform group-hover:translate-y-1" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </a>
+        </div>
+        <p class="font-body text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+          <span class="inline-block">À partir de 1 200€ HT</span>
+          <span class="mx-2" aria-hidden="true">·</span>
+          <span class="inline-block">Devis sous 48h</span>
+        </p>
+      </div>
+
     </div>
   </section>
 
