@@ -1622,4 +1622,200 @@ const breadcrumbStructuredData = {
       </div>
     </div>
   </section>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
+    const mm = gsap.matchMedia();
+
+    // Desktop with motion allowed — full treatment
+    mm.add('(prefers-reduced-motion: no-preference) and (min-width: 768px)', () => {
+      // --- Initial hides (JS-only, progressive enhancement) ---
+      gsap.set('[data-gsap="fade-up"]', { opacity: 0, y: 30 });
+      gsap.set('[data-gsap="slide-in-left"]', { opacity: 0, x: -40 });
+      gsap.set('[data-gsap="slide-in-right"]', { opacity: 0, x: 40 });
+      gsap.set('[data-gsap="scale-in"]', { opacity: 0, scale: 0.85 });
+      gsap.set('[data-gsap="fade-up-stagger"] > *', { opacity: 0, y: 30 });
+      gsap.set('[data-gsap="list-03-stagger"] > li', { opacity: 0, x: -30 });
+      gsap.set('[data-gsap="strip-stagger"] > *', { opacity: 0, x: 30 });
+      gsap.set('[data-gsap="verbatim-stagger"] > *', { opacity: 0, y: 20 });
+
+      // --- Individual entry triggers (fade-up, slide-in-left, slide-in-right, scale-in) ---
+      document.querySelectorAll('[data-gsap="fade-up"]').forEach((el) => {
+        gsap.to(el, {
+          opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="slide-in-left"]').forEach((el) => {
+        gsap.to(el, {
+          opacity: 1, x: 0, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="slide-in-right"]').forEach((el) => {
+        gsap.to(el, {
+          opacity: 1, x: 0, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="scale-in"]').forEach((el) => {
+        gsap.to(el, {
+          opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+        });
+      });
+
+      // --- Stagger containers ---
+      document.querySelectorAll('[data-gsap="fade-up-stagger"]').forEach((parent) => {
+        gsap.to(parent.children, {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.08,
+          scrollTrigger: { trigger: parent, start: 'top 80%', once: true },
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="list-03-stagger"]').forEach((parent) => {
+        gsap.to(parent.querySelectorAll(':scope > li'), {
+          opacity: 1, x: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1,
+          scrollTrigger: { trigger: parent, start: 'top 75%', once: true },
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="strip-stagger"]').forEach((parent) => {
+        gsap.to(parent.children, {
+          opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', stagger: 0.12,
+          scrollTrigger: { trigger: parent, start: 'top 80%', once: true },
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="verbatim-stagger"]').forEach((parent) => {
+        gsap.to(parent.children, {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.2,
+          scrollTrigger: { trigger: parent, start: 'top 85%', once: true },
+        });
+      });
+
+      // --- Parallax (hero blobs, hero-mark, section-03 glows) ---
+      document.querySelectorAll('[data-parallax="hero-blob"]').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax-speed') || '-80');
+        const heroSection = el.closest('section');
+        if (!heroSection) return;
+        gsap.to(el, {
+          y: speed,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroSection,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
+      });
+
+      document.querySelectorAll('[data-parallax="hero-mark"]').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax-speed') || '-100');
+        const heroSection = el.closest('section');
+        if (!heroSection) return;
+        gsap.to(el, {
+          y: speed,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroSection,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
+      });
+
+      document.querySelectorAll('[data-parallax="section-03-glow"]').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax-speed') || '-50');
+        const section = el.closest('section');
+        if (!section) return;
+        gsap.to(el, {
+          y: speed,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        });
+      });
+
+      // --- Scroll tint wash : ambient color morph across the page ---
+      const tintEl = document.querySelector('.scroll-tint');
+      if (tintEl) {
+        const tintTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: document.body,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+          },
+        });
+        tintTimeline
+          .fromTo(tintEl,
+            { '--tint': 'rgba(251, 240, 218, 0.10)' },
+            { '--tint': 'rgba(180, 220, 195, 0.10)', duration: 1, ease: 'none' })
+          .to(tintEl, { '--tint': 'rgba(15, 46, 31, 0.04)', duration: 0.8, ease: 'none' })
+          .to(tintEl, { '--tint': 'rgba(245, 225, 200, 0.11)', duration: 1, ease: 'none' })
+          .to(tintEl, { '--tint': 'rgba(240, 230, 215, 0.08)', duration: 0.8, ease: 'none' });
+      }
+    });
+
+    // Mobile with motion allowed — entry triggers only, no parallax, no tint scrub
+    mm.add('(prefers-reduced-motion: no-preference) and (max-width: 767px)', () => {
+      // Static tint on mobile (no scrub)
+      const tintElMobile = document.querySelector('.scroll-tint');
+      if (tintElMobile) {
+        tintElMobile.style.setProperty('--tint', 'rgba(251, 240, 218, 0.08)');
+      }
+
+      gsap.set('[data-gsap="fade-up"]', { opacity: 0, y: 20 });
+      gsap.set('[data-gsap="slide-in-left"]', { opacity: 0, x: -20 });
+      gsap.set('[data-gsap="slide-in-right"]', { opacity: 0, x: 20 });
+      gsap.set('[data-gsap="scale-in"]', { opacity: 0, scale: 0.9 });
+      gsap.set('[data-gsap="fade-up-stagger"] > *', { opacity: 0, y: 20 });
+      gsap.set('[data-gsap="list-03-stagger"] > li', { opacity: 0, y: 20 });
+      gsap.set('[data-gsap="strip-stagger"] > *', { opacity: 0, y: 20 });
+      gsap.set('[data-gsap="verbatim-stagger"] > *', { opacity: 0, y: 20 });
+
+      const selectors = [
+        { sel: '[data-gsap="fade-up"]', to: { opacity: 1, y: 0 } },
+        { sel: '[data-gsap="slide-in-left"]', to: { opacity: 1, x: 0 } },
+        { sel: '[data-gsap="slide-in-right"]', to: { opacity: 1, x: 0 } },
+        { sel: '[data-gsap="scale-in"]', to: { opacity: 1, scale: 1 } },
+      ];
+      selectors.forEach(({ sel, to }) => {
+        document.querySelectorAll(sel).forEach((el) => {
+          gsap.to(el, {
+            ...to, duration: 0.5, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+          });
+        });
+      });
+
+      ['fade-up-stagger', 'list-03-stagger', 'strip-stagger', 'verbatim-stagger'].forEach((name) => {
+        const parents = document.querySelectorAll(`[data-gsap="${name}"]`);
+        parents.forEach((parent) => {
+          const children = name === 'list-03-stagger'
+            ? parent.querySelectorAll(':scope > li')
+            : parent.children;
+          gsap.to(children, {
+            opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.07,
+            scrollTrigger: { trigger: parent, start: 'top 90%', once: true },
+          });
+        });
+      });
+    });
+  </script>
 </Layout>
