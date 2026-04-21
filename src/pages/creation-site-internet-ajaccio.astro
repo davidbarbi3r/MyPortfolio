@@ -956,8 +956,8 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
-  <!-- Section 03 : Ce qui est inclus — refined dark editorial with grain + ambient glow -->
-  <section class="py-24 lg:py-32 dark-editorial grain-dark relative overflow-hidden">
+  <!-- Section 03 : Ce qui est livré — editorial numbered list -->
+  <section class="py-24 lg:py-32 dark-editorial grain-dark relative overflow-hidden" data-gsap-section="03">
     <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
       <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
         <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
@@ -966,107 +966,104 @@ const breadcrumbStructuredData = {
         <rect width="100" height="100" fill="url(#grid)"/>
       </svg>
     </div>
-    <!-- Ambient glow accents -->
-    <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none"></div>
-    <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-emerald-400/8 blur-[100px] pointer-events-none"></div>
+    <!-- Ambient glow accents (parallax targets) -->
+    <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" data-parallax="section-03-glow" data-parallax-speed="-60"></div>
+    <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-emerald-400/8 blur-[100px] pointer-events-none" data-parallax="section-03-glow" data-parallax-speed="-40"></div>
 
-    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="font-editorial text-6xl font-bold text-white/10">03</span>
-        <p class="eyebrow eyebrow-on-dark mt-4">Ce qui est livré</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-white mt-3">
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16">
+
+      <div class="section-03-left lg:col-span-4 lg:sticky lg:top-32 self-start">
+        <span class="font-editorial text-6xl sm:text-7xl font-bold text-white/10 leading-none" data-gsap="slide-in-left">03</span>
+        <p class="eyebrow eyebrow-on-dark mt-4" data-gsap="fade-up">Ce qui est livré</p>
+        <h2 class="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           Tout ce qu'il vous faut, rien d'inutile.
         </h2>
+        <p class="font-body text-base text-green-100/70 mt-6 leading-relaxed max-w-sm" data-gsap="fade-up">
+          Sept livrables concrets, sans surcouche inutile. Chaque ligne a sa raison d'être.
+        </p>
       </div>
 
-      <div class="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto items-stretch">
+      <ol class="lg:col-span-7 lg:col-start-6 list-none m-0 p-0" data-gsap="list-03-stagger">
 
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span class="deliverable-index">01</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">Design sur-mesure</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Un site qui vous ressemble, pas un thème générique. Parfait sur mobile, tablette et ordinateur.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Design sur-mesure</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Un site qui vous ressemble, pas un thème générique. Parfait sur mobile, tablette et ordinateur.
-          </p>
-        </div>
+        </li>
 
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+          <span class="deliverable-index">02</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">Textes modifiables</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Un mini back-office pour changer vos textes, vos photos, publier un article — depuis n'importe quel navigateur.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Textes modifiables</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Un mini back-office pour changer vos textes, vos photos, publier un article — depuis n'importe quel navigateur.
-          </p>
-        </div>
+        </li>
 
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span class="deliverable-index">03</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">Rapidité d'affichage</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Vos pages se chargent en moins de 2 secondes. Ni vos visiteurs ni Google n'aiment attendre.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Rapidité d'affichage</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Vos pages se chargent en moins de 2 secondes. Ni vos visiteurs ni Google n'aiment attendre.
-          </p>
-        </div>
+        </li>
 
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="deliverable-index">04</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">SEO local optimisé</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Structure propre, balises, plan de site. La base technique pour bien ressortir sur Google quand on vous cherche.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">SEO local optimisé</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Structure propre, balises, plan de site. La base technique pour bien ressortir sur Google quand on vous cherche.
-          </p>
-        </div>
-      </div>
+        </li>
 
-      <div class="mt-8 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"/>
+          </svg>
+          <span class="deliverable-index">05</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">Nom de domaine + hébergement</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Je m'occupe de tout : choix du nom de domaine, configuration de l'hébergement, certificat de sécurité.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Nom de domaine + hébergement</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Je m'occupe de tout : choix du nom de domaine, configuration de l'hébergement, certificat de sécurité.
-          </p>
-        </div>
+        </li>
 
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <span class="deliverable-index">06</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">Formation à l'usage du site</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Une session de formation en visio + des tutos vidéo que vous pouvez regarder quand vous voulez.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Formation à l'usage du site</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Une session de formation en visio + des tutos vidéo que vous pouvez regarder quand vous voulez.
-          </p>
-        </div>
+        </li>
 
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
+        <li class="deliverable-row">
+          <svg class="deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+          <span class="deliverable-index">07</span>
+          <div>
+            <h3 class="font-editorial text-xl font-semibold text-white">Statistiques de visites</h3>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Vous voyez d'où viennent vos visiteurs, ce qu'ils cherchent, ce qui marche. Sans dashboard à 12 onglets.</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Statistiques de visites</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Vous voyez d'où viennent vos visiteurs, ce qu'ils cherchent, ce qui marche. Sans dashboard à 12 onglets.
-          </p>
-        </div>
-      </div>
+        </li>
+
+      </ol>
+
     </div>
   </section>
 
