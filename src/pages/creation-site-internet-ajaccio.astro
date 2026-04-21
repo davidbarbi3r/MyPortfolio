@@ -1067,104 +1067,75 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
-  <!-- Section 04 : Les 2 freins habituels du sur-mesure, et pourquoi ils sautent -->
+  <!-- Section 04 : Les 2 freins habituels — zig-zag conversational -->
   <section id="freins" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 scroll-mt-20">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="styled-number">04</span>
-        <p class="eyebrow mt-4">Les deux vraies questions</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
+      <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+        <span class="styled-number" data-gsap="slide-in-left">04</span>
+        <p class="eyebrow mt-4" data-gsap="fade-up">Les deux vraies questions</p>
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           "Oui, mais un site sur-mesure, ça coûte cher et c'est bloqué."
         </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
+        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
           C'était vrai il y a 5 ans. Voici pourquoi ça ne l'est plus.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-        <div class="frein-card solved spotlight bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 shadow-emerald-xl">
-          <div class="flex items-start gap-3 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-              <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-body text-xs font-semibold tracking-widest text-red-600 dark:text-red-400 uppercase">Le frein</p>
-              <h3 class="font-editorial text-2xl font-bold text-gray-900 dark:text-white mt-1">
-                "Un site sur-mesure, c'est 8 000 à 15 000€."
-              </h3>
-            </div>
-          </div>
-
-          <p class="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
-            Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et j'utilise l'intelligence artificielle comme assistant pour aller plus vite sur les tâches répétitives — écriture de code, génération de variantes de design, tests.
-          </p>
-
-          <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <div>
-                <p class="font-body text-sm font-semibold text-gray-900 dark:text-white">Résultat</p>
-                <p class="font-body text-sm text-gray-700 dark:text-gray-300 mt-1">
-                  La même qualité sur-mesure, <strong>à partir de 2 000€ HT</strong>. Vous payez un développeur, pas une structure.
-                </p>
-              </div>
-            </div>
-          </div>
+      <!-- Block 1 : objection left / response right -->
+      <div class="frein-block mb-20 lg:mb-28">
+        <div class="frein-objection">
+          <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
+            Un site sur-mesure, c'est 8 000 à 15 000€.
+          </blockquote>
+          <p class="font-body text-xs font-medium uppercase tracking-[0.18em] text-red-600/80 dark:text-red-400/80 mt-4" data-gsap="fade-up">L'objection</p>
         </div>
-
-        <div class="frein-card solved spotlight bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 shadow-emerald-xl">
-          <div class="flex items-start gap-3 mb-6">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-              <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-body text-xs font-semibold tracking-widest text-red-600 dark:text-red-400 uppercase">Le frein</p>
-              <h3 class="font-editorial text-2xl font-bold text-gray-900 dark:text-white mt-1">
-                "Je vais devoir payer à chaque virgule à changer."
-              </h3>
-            </div>
-          </div>
-
-          <p class="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
-            C'est la mauvaise surprise habituelle : un site sur-mesure livré comme un bloc figé, et dès qu'il faut changer un horaire ou une photo, il faut payer. Chez moi, non. Votre site est livré avec un mini back-office qui vous permet de modifier vos textes, vos images, vos pages, depuis un navigateur.
+        <div class="frein-response" data-gsap="slide-in-right">
+          <p class="eyebrow mt-2">Ma réponse</p>
+          <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
+            Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives — écriture de code, génération de variantes, tests.
           </p>
-
-          <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <div>
-                <p class="font-body text-sm font-semibold text-gray-900 dark:text-white">Résultat</p>
-                <p class="font-body text-sm text-gray-700 dark:text-gray-300 mt-1">
-                  Vous êtes <strong>totalement autonome sur le contenu</strong>. Formation incluse, tutos vidéo fournis. Besoin d'aide ponctuelle ? Je suis là à 60€/h.
-                </p>
-              </div>
-            </div>
-          </div>
+          <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
+            <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
+            La même qualité sur-mesure, <strong>à partir de 2 000€ HT</strong>. Vous payez un développeur, pas une structure.
+          </p>
         </div>
-
       </div>
 
-      <div class="mt-12 text-center">
+      <!-- Block 2 : mirror — response left / objection right -->
+      <div class="frein-block frein-block--mirror">
+        <div class="frein-objection">
+          <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
+            Je vais devoir payer à chaque virgule à changer.
+          </blockquote>
+          <p class="font-body text-xs font-medium uppercase tracking-[0.18em] text-red-600/80 dark:text-red-400/80 mt-4" data-gsap="fade-up">L'objection</p>
+        </div>
+        <div class="frein-response" data-gsap="slide-in-left">
+          <p class="eyebrow mt-2">Ma réponse</p>
+          <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
+            Mauvaise surprise habituelle : un site sur-mesure livré comme un bloc figé, et dès qu'il faut changer un horaire ou une photo, il faut payer. Chez moi, non — votre site est livré avec un mini back-office pour modifier textes, images et pages depuis un navigateur.
+          </p>
+          <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
+            <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
+            Vous êtes <strong>totalement autonome sur le contenu</strong>. Formation incluse, tutos vidéo fournis. Besoin d'aide ponctuelle ? Je suis là à 60€/h.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-20 text-center" data-gsap="fade-up">
         <a
           href="#formulaire"
           class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300"
         >
           Discuter de votre projet
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
       </div>
+
     </div>
   </section>
 
