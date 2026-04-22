@@ -2,7 +2,7 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
-import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
+import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
 
 const metadata = {
   title: "Développeur web spécialisé expert-comptable | David Barbier",
@@ -13,26 +13,25 @@ const metadata = {
 // JSON-LD Service schema
 const serviceStructuredData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/developpeur-specialise/#service",
-  "name": "Développeur web spécialisé expert-comptable",
-  "description": "Développement sur mesure pour cabinets d'expertise comptable. Simulateurs, modules IA, onboarding client, intégrations métier avec Astro.",
-  "provider": {
-    "@type": "ProfessionalService",
-    "@id": "https://www.davidbarbier.com/#organization",
-    "name": "David Barbier",
-    "url": "https://www.davidbarbier.com/"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "France"
-  },
-  "serviceType": "Développement web sur mesure",
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Experts-comptables, Cabinets comptables"
-  },
-  "aggregateRating": aggregateRatingSchemaGlobal
+  "@graph": [
+    professionalServiceEcNode,
+    {
+      "@type": "Service",
+      "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/developpeur-specialise/#service",
+      "name": "Développeur web spécialisé expert-comptable",
+      "description": "Développement sur mesure pour cabinets d'expertise comptable. Simulateurs, modules IA, onboarding client, intégrations métier avec Astro.",
+      "provider": { "@id": PROFESSIONAL_SERVICE_EC_ID },
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "serviceType": "Développement web sur mesure",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Experts-comptables, Cabinets comptables"
+      }
+    }
+  ]
 };
 
 // JSON-LD Breadcrumb schema

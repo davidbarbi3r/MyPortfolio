@@ -3,7 +3,7 @@ import Layout from '../layouts/PageLayout.astro';
 import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Activateur from "../assets/images/activateur.png"
-import { aggregateRatingSchema } from '~/utils/reviews';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
 const metadata = {
   title: 'Consultant SEO Ajaccio : votre site 100% visible en ligne',
   description:
@@ -13,16 +13,14 @@ const metadata = {
 // JSON-LD Service schema
 const serviceStructuredData = {
   "@context": "https://schema.org",
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
   "@type": "Service",
   "@id": "https://www.davidbarbier.com/consultant-seo-ajaccio/#service",
   "name": "Consultant SEO à Ajaccio",
   "description": "Référencement naturel à Ajaccio. Accompagnement SEO, audit technique et optimisation Google Business pour améliorer votre visibilité sur Google en Corse.",
-  "provider": {
-    "@type": "Person",
-    "@id": "https://www.davidbarbier.com/#person",
-    "name": "David Barbier",
-    "jobTitle": "Consultant SEO & Développeur web"
-  },
+  "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
   "areaServed": [
     { "@type": "City", "name": "Ajaccio" },
     { "@type": "AdministrativeArea", "name": "Corse" }
@@ -72,6 +70,8 @@ const serviceStructuredData = {
       }
     ]
   }
+    }
+  ]
 };
 
 // JSON-LD FAQ schema

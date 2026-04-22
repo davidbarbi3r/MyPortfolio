@@ -2,7 +2,7 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
-import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
+import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
 
 const metadata = {
   title: "Conception & création de site internet Expert-Comptable",
@@ -13,16 +13,14 @@ const metadata = {
 // JSON-LD Service schema
 const serviceStructuredData = {
   "@context": "https://schema.org",
+  "@graph": [
+    professionalServiceEcNode,
+    {
   "@type": "Service",
   "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/creation-site-vitrine-ec/#service",
   "name": "Création de site vitrine expert-comptable",
   "description": "Création de site vitrine sur mesure pour cabinets d'expertise comptable. Design professionnel, optimisation SEO, performances maximales avec Astro.",
-  "provider": {
-    "@type": "ProfessionalService",
-    "@id": "https://www.davidbarbier.com/#organization",
-    "name": "David Barbier",
-    "url": "https://www.davidbarbier.com/"
-  },
+  "provider": { "@id": PROFESSIONAL_SERVICE_EC_ID },
   "areaServed": {
     "@type": "Country",
     "name": "France"
@@ -65,6 +63,8 @@ const serviceStructuredData = {
       }
     ]
   },
+    }
+  ]
 };
 
 // JSON-LD FAQ schema

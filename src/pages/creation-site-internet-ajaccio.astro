@@ -2,7 +2,7 @@
 import Layout from '../layouts/PageLayout.astro';
 import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
-import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
 
 const metadata = {
   title: "Création de site internet à Ajaccio | Sur-mesure, rapide, autonome",
@@ -12,22 +12,19 @@ const metadata = {
 
 const serviceStructuredData = {
   "@context": "https://schema.org",
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
   "@type": "Service",
   "@id": "https://www.davidbarbier.com/creation-site-internet-ajaccio/#service",
   "name": "Création de site internet à Ajaccio",
   "description": "Création de sites internet sur-mesure à Ajaccio pour TPE, artisans, commerçants et indépendants. Sites rapides, optimisés SEO, avec back-office intégré pour la gestion autonome du contenu.",
-  "provider": {
-    "@type": "Person",
-    "@id": "https://www.davidbarbier.com/#person",
-    "name": "David Barbier",
-    "jobTitle": "Développeur web & Consultant SEO"
-  },
+  "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
   "areaServed": [
     { "@type": "City", "name": "Ajaccio" },
     { "@type": "AdministrativeArea", "name": "Corse" }
   ],
   "serviceType": "Création de site internet",
-  "aggregateRating": aggregateRatingSchemaAjaccio,
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Offres création de site internet Ajaccio",
@@ -74,6 +71,8 @@ const serviceStructuredData = {
       }
     ]
   }
+    }
+  ]
 };
 
 const faqStructuredData = {

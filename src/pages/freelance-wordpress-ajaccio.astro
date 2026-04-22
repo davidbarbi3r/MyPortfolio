@@ -3,32 +3,29 @@ import Layout from '../layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
-import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
 
 const metadata = {
-  title: 'Freelance WordPress à Ajaccio | Création & maintenance de sites WordPress',
+  title: 'Freelance WordPress Ajaccio : refonte, maintenance & WooCommerce',
   description:
-    "Freelance WordPress à Ajaccio. Création de sites WordPress sur-mesure, maintenance, formation. 100% administrable, optimisé SEO, livré en 1 mois.",
+    "Freelance WordPress à Ajaccio. Refonte de sites WordPress existants, maintenance, et boutiques WooCommerce pour petit catalogue. Sans engagement.",
 };
 
 const serviceStructuredData = {
   "@context": "https://schema.org",
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
   "@type": "Service",
   "@id": "https://www.davidbarbier.com/freelance-wordpress-ajaccio/#service",
   "name": "Freelance WordPress à Ajaccio",
-  "description": "Freelance WordPress à Ajaccio. Création de sites vitrines WordPress sur-mesure, maintenance et formation pour les entrepreneurs et indépendants.",
-  "provider": {
-    "@type": "Person",
-    "@id": "https://www.davidbarbier.com/#person",
-    "name": "David Barbier",
-    "jobTitle": "Développeur web & Consultant SEO"
-  },
+  "description": "Freelance WordPress à Ajaccio. Refonte de sites WordPress existants, maintenance, formation, et boutiques WooCommerce pour petit catalogue.",
+  "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
   "areaServed": [
     { "@type": "City", "name": "Ajaccio" },
     { "@type": "AdministrativeArea", "name": "Corse" }
   ],
   "serviceType": "Freelance WordPress",
-  "aggregateRating": aggregateRatingSchemaAjaccio,
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Offres freelance WordPress Ajaccio",
@@ -77,6 +74,8 @@ const serviceStructuredData = {
       }
     ]
   }
+    }
+  ]
 };
 
 const breadcrumbStructuredData = {
@@ -184,6 +183,30 @@ const faqStructuredData = {
     },
     {
       "@type": "Question",
+      "name": "Pouvez-vous créer une boutique WooCommerce ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Je gère l'installation et le paramétrage de WooCommerce : catalogue, fiches produits, paiement (Stripe, PayPal, virement), frais de port, comptes clients. Comptez en moyenne 1 à 2 semaines supplémentaires par rapport à un site éditorial selon le nombre de produits et la complexité du tunnel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne le blog WordPress ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous publiez des articles depuis l'interface d'administration : titre, texte, images, catégories, tags. Les articles s'affichent automatiquement sur une page dédiée et alimentent vos archives. Si le blog est l'objectif principal de votre projet, je recommande souvent une solution sur-mesure plus légère que WordPress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vous reprenez les WordPress créés par d'autres ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Je fais des audits de sites WordPress existants avant tout devis de refonte ou de maintenance, pour identifier les risques (sécurité, plugins abandonnés, performance) et chiffrer la reprise sans surprise. Vous gardez vos contenus, vos URLs et votre référencement."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Que se passe-t-il après la mise en ligne ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -250,35 +273,30 @@ const faqStructuredData = {
         <span
           class="text-pretty text-3xl font-semibold tracking-tight text-green-950 sm:text-4xl inline dark:text-gray-300"
         >
-          : création, maintenance et formation WordPress.
+          : refonte, maintenance et boutiques WooCommerce.
         </span>
 
         <!-- Paragraphes -->
         <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Et si je vous disais qu'en 1 mois seulement, vous pouvez avoir un site <strong>internet</strong> professionnel dont vous
-          serez l'unique propriétaire?
+          WordPress, c'est le bon choix dans deux cas : <strong>vous êtes déjà sur WordPress</strong> et vous voulez le faire évoluer (refonte, migration, maintenance, formation), ou <strong>vous lancez une boutique en ligne avec un catalogue raisonnable</strong> (WooCommerce).
         </p>
 
         <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          En tant que développeur web expert WordPress, je crée des <strong>sites vitrines</strong> sur mesure qui allient design moderne
-          et performances techniques pour assurer le bon référencement naturel.
-        </p>
-        <p>
-          Je développe des sites <strong>internet</strong> à Ajaccio, mais aussi à distance pour les entrepreneurs de toute la France.
+          Pour un site vitrine neuf ou un blog éditorial qui démarre de zéro, un site sur-mesure plus léger et plus rapide vaut souvent mieux. Je vous le dirai franchement avant de signer.
         </p>
 
         <ul class="pl-4">
           <li class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
             <Icon name="tabler:check" class="inline mr-2" />
-            100% administrable
+            Refonte ou migration de site WordPress existant
           </li>
           <li class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
             <Icon name="tabler:check" class="inline mr-2" />
-            Optimisé pour le référencement
+            Boutique WooCommerce (petit catalogue, paiement, stocks)
           </li>
           <li class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
             <Icon name="tabler:check" class="inline mr-2" />
-            Adapté à toutes les tailles d'écran
+            Maintenance, sécurité, mises à jour
           </li>
         </ul>
 
@@ -319,11 +337,10 @@ const faqStructuredData = {
         <div class="mx-auto max-w-2xl sm:text-center">
           <p id="offre" class="text-base/7 font-semibold text-green-600">Une offre tout compris</p>
           <h2 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-balance sm:text-5xl">
-            La création de votre site vitrine en détail
+            Votre site WordPress en détail
           </h2>
           <p class="mt-6 text-lg/8 text-gray-600">
-            Un site <strong>web</strong> professionnel, optimisé et sécurisé dont vous serez l'unique propriétaire. Un investissement
-            unique, sans frais cachés ni engagement.
+            Que vous fassiez évoluer un site WordPress existant ou que vous lanciez une boutique WooCommerce, l'offre couvre l'ensemble : conception, mise en ligne, formation. Sans frais cachés ni engagement.
           </p>
         </div>
       </div>
@@ -354,11 +371,11 @@ const faqStructuredData = {
                   d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41z"
                 ></path>
               </svg>
-              Création sur mesure
+              Refonte ou reprise de site existant
             </dt>
             <dd class="inline">
-              Design personnalisé reflétant votre identité, intégration de vos contenus, optimisation pour tous les
-              appareils.
+              Reprise de votre WordPress existant : audit, refonte design, migration d'hébergeur, nettoyage des
+              extensions, sécurisation. Vous restez propriétaire, vous gardez vos contenus et vos URLs.
             </dd>
           </div>
           <div class="pl-9">
@@ -424,19 +441,57 @@ const faqStructuredData = {
                 ></path>
                 <path d="M14 7a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1V8a1 1 0 011-1z"></path>
               </svg>
-              Démarche éco-responsable
+              Boutique WooCommerce <span class="font-normal text-gray-500">(option)</span>
             </dt>
             <dd class="inline">
-              Optimisation des images, hébergement vert, bonnes pratiques d'éco-conception pour minimiser l'impact
-              environnemental.
+              Catalogue produits, paiement Stripe ou virement, gestion des stocks, frais de port. Pour vendre vos
+              produits ou services depuis votre propre site, sans commission de plateforme.
             </dd>
-            <p>
-              Vous voulez en savoir plus sur ma <a
-              href="/blog/site-internet-eco-responsable/"
-              class="text-green-700 underline hover:text-green-700/90">démarche éco-responsable ?</a>
-            </p>
           </div>
         </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 dark:bg-slate-800/50">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-base/7 font-semibold text-green-600 dark:text-green-400">À qui je m'adresse</p>
+        <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          Pour quels projets choisir WordPress ?
+        </h2>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          WordPress n'est pas la meilleure réponse à tous les besoins. Voici les deux cas où je le recommande à Ajaccio.
+        </p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div class="rounded-2xl bg-white dark:bg-slate-900 p-8 shadow-sm ring-1 ring-gray-900/5">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Vous êtes déjà sur WordPress
+          </h3>
+          <p class="mt-4 text-base text-gray-600 dark:text-gray-300">
+            Refonte design, migration d'hébergeur, mise à jour majeure, nettoyage de plugins, reprise après un autre prestataire, formation de votre équipe : je prends le relais sur votre WordPress sans tout casser. Vous gardez vos contenus, vos URLs et votre référencement.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white dark:bg-slate-900 p-8 shadow-sm ring-1 ring-gray-900/5">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Vous lancez une boutique en ligne (petit catalogue)
+          </h3>
+          <p class="mt-4 text-base text-gray-600 dark:text-gray-300">
+            Producteur, artisan, créateur avec une dizaine ou quelques dizaines de produits : WooCommerce reste l'option la plus économique pour démarrer. Pas de commission par vente, pas d'abonnement plateforme, vous êtes propriétaire de votre boutique.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-6">
+        <p class="text-base text-gray-700 dark:text-gray-200">
+          <strong>Quand WordPress n'est pas le bon choix :</strong> pour un site vitrine neuf, un blog éditorial qui démarre de zéro, ou une boutique avec gros catalogue / hauts volumes, WordPress n'est pas l'option la plus pertinente. Je propose une offre sur-mesure plus rapide, plus légère et sans la maintenance lourde de WordPress.
+        </p>
+        <a href="/creation-site-internet-ajaccio/" class="inline-flex items-center gap-2 mt-3 text-green-700 dark:text-green-400 underline hover:text-green-700/90 font-medium">
+          Voir l'offre sur-mesure →
+        </a>
       </div>
     </div>
   </section>
@@ -633,10 +688,10 @@ const faqStructuredData = {
 
         <div class="mx-auto mt-10 max-w-xl text-center">
           <p class="mt-4 text-lg leading-8 text-green-100">
-            Suivi personnalisé tout au long du projet via WhatsApp et un espace dédié.
+            Refonte WordPress, maintenance ou lancement d'une boutique WooCommerce : suivi personnalisé via WhatsApp et un espace dédié.
           </p>
           <p class="text-lg leading-8 text-green-100">
-            Site livré clé en main en 1 mois, 100% administrable et sans engagement.
+            Sans engagement.
           </p>
         </div>
 
@@ -1111,12 +1166,45 @@ const faqStructuredData = {
       </details>
       <details class="mb-4">
         <summary class="font-semibold text-lg hover:cursor-pointer">
-          <p class="inline">Le site comportera t-il un blog ?</p>
+          <p class="inline">Comment fonctionne le blog WordPress ?</p>
         </summary>
         <p class="pl-4 mt-2">
-          Oui, votre site inclut une page de blog pour publier des actualités, des conseils, des promotions, etc. C'est
-          un excellent moyen d'améliorer votre référencement et de fidéliser vos visiteurs.
-          Si vous n'en voulez pas, pas de soucis, je peux le retirer.
+          Vous publiez des articles depuis l'interface d'administration : titre, texte, images, catégories, tags. Les
+          articles s'affichent automatiquement sur une page dédiée et alimentent vos archives.
+        </p>
+        <p class="pl-4 mt-2">
+          À noter : si le blog est l'objectif principal de votre projet, je recommande souvent une solution sur-mesure
+          plus légère et plus rapide que WordPress. Je vous orienterai au mieux selon votre cas.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <p class="inline">Pouvez-vous créer une boutique WooCommerce ?</p>
+        </summary>
+        <p class="pl-4 mt-2">
+          Oui, pour les boutiques avec un catalogue raisonnable (une dizaine ou quelques dizaines de produits). Je gère
+          l'installation et le paramétrage de WooCommerce : catalogue, fiches produits, paiement (Stripe, PayPal,
+          virement), frais de port, comptes clients.
+        </p>
+        <p class="pl-4 mt-2">
+          Comptez en moyenne 1 à 2 semaines supplémentaires par rapport à un site éditorial selon le nombre de produits
+          et la complexité du tunnel d'achat. Le devis WooCommerce fait l'objet d'un chiffrage dédié.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <p class="inline">Vous reprenez les WordPress créés par d'autres ?</p>
+        </summary>
+        <p class="pl-4 mt-2">
+          Oui, c'est même une grosse partie de mon activité. Je commence systématiquement par un audit du site existant
+          pour identifier les risques (sécurité, plugins abandonnés, performance, code obsolète) et chiffrer la reprise
+          sans surprise.
+        </p>
+        <p class="pl-4 mt-2">
+          Vous gardez vos contenus, vos URLs et votre référencement. Que ce soit pour reprendre la maintenance, faire
+          une refonte design ou migrer d'hébergeur, je m'adapte à votre installation actuelle.
         </p>
       </details>
     </div>
