@@ -2,6 +2,7 @@
 import Layout from '../layouts/PageLayout.astro';
 import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
 
 const metadata = {
   title: "Maintenance site internet Ajaccio : site performant et sécurisé",
@@ -11,53 +12,56 @@ const metadata = {
 
 const serviceStructuredData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://www.davidbarbier.com/maintenance-site-internet-ajaccio/#service",
-  "name": "Maintenance de site internet à Ajaccio",
-  "description":
-    "Maintenance WordPress et multi-technologies à Ajaccio. Mises à jour, sécurité, sauvegardes, monitoring et support pour garder votre site performant.",
-  "provider": {
-    "@type": "Person",
-    "@id": "https://www.davidbarbier.com/#person",
-    "name": "David Barbier",
-    "jobTitle": "Développeur web & Consultant SEO",
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Ajaccio" },
-    { "@type": "AdministrativeArea", "name": "Corse" },
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
+      "@type": "Service",
+      "@id": "https://www.davidbarbier.com/maintenance-site-internet-ajaccio/#service",
+      "name": "Maintenance de site internet à Ajaccio",
+      "description":
+        "Maintenance WordPress et multi-technologies à Ajaccio. Mises à jour, sécurité, sauvegardes, monitoring et support pour garder votre site performant.",
+      "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+      "areaServed": [
+        { "@type": "City", "name": "Ajaccio" },
+        { "@type": "AdministrativeArea", "name": "Corse" },
+      ],
+      "serviceType": "Maintenance de site internet",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Offres de maintenance",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Intervention ponctuelle",
+            "description": "Intervention à l'heure ou à la journée sur votre site",
+            "price": "60",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "60",
+              "priceCurrency": "EUR",
+              "unitCode": "HUR",
+              "valueAddedTaxIncluded": false,
+            },
+          },
+          {
+            "@type": "Offer",
+            "name": "Pack maintenance mensuel",
+            "description": "Forfait maintenance mensuel adapté à la technologie de votre site",
+            "price": "30",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "30",
+              "priceCurrency": "EUR",
+              "unitCode": "MON",
+              "valueAddedTaxIncluded": false,
+            },
+          },
+        ],
+      },
+    },
   ],
-  "serviceType": "Maintenance de site internet",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Offres de maintenance",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "Intervention ponctuelle",
-        "description": "Intervention à l'heure ou à la journée sur votre site",
-        "price": "60",
-        "priceCurrency": "EUR",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "60",
-          "priceCurrency": "EUR",
-          "unitCode": "HUR",
-        },
-      },
-      {
-        "@type": "Offer",
-        "name": "Pack maintenance mensuel",
-        "description": "Forfait maintenance mensuel adapté à la technologie de votre site",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "minPrice": "30",
-          "priceCurrency": "EUR",
-          "unitCode": "MON",
-          "valueAddedTaxIncluded": false,
-        },
-      },
-    ],
-  },
 };
 
 const faqStructuredData = {

@@ -50,96 +50,35 @@ export const fr = {
     services: {
       title: 'Rayonnez en ligne',
       subtitle:
-        "De la création de site au référencement Google, je vous aide à attirer plus de clients.",
+        "Quatre offres claires. Cliquez sur celle qui correspond à votre besoin.",
       servicesItems: [
         {
-          title: 'Création de Sites Internet à Ajaccio',
+          title: 'Création et refonte de site internet',
           description:
-            "Je développe des sites 100% responsives, sur-mesure, optimisés pour les moteurs de recherche et surtout écologiques. Une attention particulière est portée à l'expérience utilisateur.",
-          items: [
-            {
-              title: 'Sites Vitrine',
-              description: 'Des sites vitrine sur-mesure clairs, crédibles et structurés pour valoriser votre activité.',
-            },
-            {
-              title: 'Blogs / Gestions de Contenu',
-              description: 'Un site professionnel sur mesure avec une gestion de contenu facile et intuitive.',
-            },
-            {
-              title: 'Sites E-commerce',
-              description: 'Une boutique en ligne pour vendre vos produits et services. Je travaille avec WooCommerce et Shopify.',
-            },
-          ],
-          price: 'Sur devis',
-          callToAction: 'En savoir plus',
+            "Sites sur-mesure rapides, faciles à modifier, sans plugins fragiles. Pour les TPE corses qui veulent un site qui dure.",
+          items: [],
+          price: '',
         },
         {
-          title: 'Développeur web freelance Ajaccio / Corse',
+          title: 'Développement sur-mesure',
           description:
-            "J'accompagne et développe votre projet de l'idée à la réalisation technique, applications web, logiciels métiers et sites internet complexes.",
-          items: [
-            {
-              title: 'Intégration en équipe',
-              description:
-                "Habitué à travailler en équipe, je peux facilement m'intégrer pour assurer le développement de votre projet.",
-            },
-            {
-              title: 'Création de SaaS, MVP',
-              description: "J'aide à ce que vos idées deviennent réalité en créant un MVP fonctionnel et évolutif.",
-            },
-            {
-              title: 'Débogage et Upgrade',
-              description:
-                'Ajout de nouvelles fonctionnalités, correction de bugs, optimisation des performances, etc.',
-            },
-          ],
-          price: 'Sur devis',
+            "MVP, applications web, intégrations métier. Pour les projets qui sortent du cadre d'un site classique.",
+          items: [],
+          price: '',
         },
         {
-          title: 'Suivi et Maintenance',
-          description: 'La gestion technique de votre site ou de votre application est essentielle.',
-          items: [
-            {
-              title: 'Mises à jour',
-              description:
-                'Mises à jour régulières pour assurer la sécurité et la stabilité de votre site ou de votre application.',
-            },
-            {
-              title: 'Hébergement',
-              description: 'Hébergement de votre site ou de votre application sur un serveur sécurisé et performant.',
-            },
-            {
-              title: 'Maintenance',
-              description:
-                'Maintenance technique pour assurer le bon fonctionnement de votre site ou de votre application.',
-            },
-          ],
-          price: 'Sur devis',
-          callToAction: {
-            text: 'En savoir plus',
-            href: '/services/',
-          }
+          title: 'Maintenance & sécurité',
+          description:
+            'Mises à jour, sauvegardes, surveillance. Forfaits dès 30 €/mois ou intervention ponctuelle à 60 €/h.',
+          items: [],
+          price: '',
         },
         {
-          title: 'Référencement site internet à Ajaccio et en Corse',
-          description: 'Rendez votre site visible sur Google et obtenez des ventes naturellement.',
-          items: [
-            {
-              title: 'Audit SEO',
-              description:
-                'Analyse de votre site pour identifier les points à améliorer et les actions à mettre en place.',
-            },
-            {
-              title: 'Accompagnement SEO complet',
-              description:
-                'Suvi mensuel, étude de mots-clés, optimisation du contenu, netlinking, etc. pour améliorer votre positionnement sur les moteurs de recherche.',
-            },
-            {
-              title: 'Optimisation du référencement local',
-              description: "Création et optimisation de fiche Google My Business, optimisation de votre site pour rayonner en Corse.",
-            },
-          ],
-          price: 'Sur devis',
+          title: 'Consultant SEO',
+          description:
+            'Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.',
+          items: [],
+          price: '',
         },
       ],
     },

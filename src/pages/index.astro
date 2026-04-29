@@ -2,7 +2,7 @@
 import {useTranslations} from "~/i18n/translator";
 import Layout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
-import HeroImage from '~/assets/images/DSCF7551-3.jpg'
+import HeroImage from '~/assets/images/barbicaja-ajaccio-sanguinaires.jpeg'
 import ServiceCreation from '~/assets/images/service-creation.jpg'
 import ServiceDev from '~/assets/images/service-dev.jpg'
 import ServiceMaintenance from '~/assets/images/service-maintenance.jpg'
@@ -35,8 +35,8 @@ import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: 'David Barbier | Concepteur de sites web à Ajaccio (Corse)',
-  description: "Concepteur de sites web à Ajaccio : création, développement sur-mesure, SEO et maintenance. Ancien auditeur financier au service des TPE et cabinets EC.",
+  title: 'Agence web à Ajaccio · Freelance | David Barbier',
+  description: "Agence web freelance à Ajaccio. Ancien auditeur financier, j'accompagne TPE corses et cabinets d'expertise comptable sur leurs projets digitaux.",
   lang: locale,
 };
 
@@ -190,20 +190,20 @@ const reviewsSchema = {
 
   <!--hero-->
   <Hero2
-    tagline="Concepteur de sites web à Ajaccio - Corse"
+    tagline="David Barbier · Freelance · Ancien auditeur EC"
     callToAction={{ text: t('portfolio.bookCall'), href: 'tel:+33623565299', icon: 'tabler:phone' }}
     image={{
       src: HeroImage,
-      alt:"Portrait de David Barbier développeur web freelance à Ajaccio",
+      alt:"Plage de Barbicaja face aux îles Sanguinaires à Ajaccio, vue depuis le studio de David Barbier, agence web et consultant SEO en Corse",
     }}
   >
     <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">Des sites performants</span><br />
-      <span class="text-emerald-700 dark:text-emerald-400">qui vous ramènent des clients.</span>
+      <span class="text-slate-800 dark:text-gray-200">L'agence web à Ajaccio</span><br />
+      <span class="text-emerald-700 dark:text-emerald-400">qui prend le temps de comprendre votre métier.</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Sites web sur-mesure, SEO et développement custom à Ajaccio.
+      Sites sur-mesure et consultant SEO pour TPE et cabinets d'expertise comptable. Des résultats mesurables, pas des promesses.
     </Fragment>
 
     <Fragment slot="content">
@@ -264,16 +264,20 @@ const reviewsSchema = {
           alt: locale === 'en' ? 'Abstract water ripple texture for website creation service' : 'Texture abstraite d\'ondulations pour le service de création de site web',
         },
         icon: 'tabler:devices',
-                 callToAction: {
-           text: "Site web Wordpress Ajaccio",
-           href: '/creation-site-internet-ajaccio/',
-           icon: 'tabler:chevron-right',
-         },
+        callToAction: {
+          text: "Voir l'offre sur-mesure",
+          href: '/creation-site-internet-ajaccio/',
+          icon: 'tabler:chevron-right',
+        },
+        callToAction2: {
+          text: "Plutôt WordPress ?",
+          href: '/freelance-wordpress-ajaccio/',
+          icon: 'tabler:chevron-right',
+        },
         ecLink: {
           text: "Expert-comptable ? Site vitrine dédié EC",
           href: '/agence-web-expert-comptable/creation-site-vitrine-ec/',
         },
-
       },
       {
         title: tList('portfolio.services.servicesItems')[1].title,
@@ -300,6 +304,11 @@ const reviewsSchema = {
           alt: locale === 'en' ? 'Dark rock and moss texture for maintenance service' : 'Texture de roche et mousse pour le service de maintenance',
         },
         icon: 'tabler:tool',
+        callToAction: {
+          text: "Voir les forfaits",
+          href: '/maintenance-site-internet-ajaccio/',
+          icon: 'tabler:chevron-right',
+        },
         ecLink: {
           text: "Expert-comptable ? Refonte de votre site cabinet",
           href: '/agence-web-expert-comptable/refonte-site-internet/',
@@ -315,8 +324,8 @@ const reviewsSchema = {
           alt: locale === 'en' ? 'Sunlight through leaves texture for SEO service' : 'Texture de lumière à travers le feuillage pour le service SEO',
         },
         icon: 'tabler:tool',
-        callToAction2: {
-          text: "Référencement en Corse",
+        callToAction: {
+          text: "Voir l'offre SEO",
           href: '/consultant-seo-ajaccio/',
           icon: 'tabler:chevron-right',
         },

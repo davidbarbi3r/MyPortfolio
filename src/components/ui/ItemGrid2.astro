@@ -29,8 +29,10 @@ const {
                   src={image as ImageMetadata}
                   class="service-image object-cover w-full h-24 mb-0"
                   alt={image.alt || ''}
-                  height={350}
-                  width={450}
+                  widths={[400, 600, 800]}
+                  sizes="(max-width: 768px) 90vw, 400px"
+                  width={800}
+                  quality={80}
                 />
               </div>
             )}
@@ -46,7 +48,7 @@ const {
                 {description && (
                   <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
                 )}
-                {servicesItems && (
+                {servicesItems && servicesItems.length > 0 && (
                   <ul class="mt-2 pl-2 list-disc">
                     {servicesItems.map((item) => (
                       <li class="mt-2">
@@ -99,8 +101,10 @@ const {
                   src={image as ImageMetadata}
                   class="service-image object-cover w-full h-48"
                   alt={image.alt || ''}
-                  height={350}
-                  width={450}
+                  widths={[400, 800, 1200, 1600]}
+                  sizes="(min-width: 1280px) 1100px, (min-width: 768px) 60vw, 100vw"
+                  width={1600}
+                  quality={80}
                 />
               </div>
             )}

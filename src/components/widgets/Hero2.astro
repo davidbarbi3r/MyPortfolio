@@ -32,16 +32,16 @@ const {
     {/* === HEADLINE BLOCK — full width, giant typography, overlaps photo === */}
     <div class="pt-8 md:pt-12 lg:pt-16 relative z-10">
       {tagline && (
-        <h1
+        <p
           class="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-[0.2em] uppercase mb-6"
           data-hero-tagline
         >
           <span class="inline-block w-4 h-[2px] bg-amber-500 mr-3 align-middle"></span>
           {tagline}
-        </h1>
+        </p>
       )}
       {title && (
-        <p
+        <h1
           class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tight mb-0 font-heading"
           data-hero-title
           set:html={title}
@@ -101,12 +101,12 @@ const {
               ) : (
                 <Image
                   class="w-full h-auto object-contain rounded-lg"
-                  widths={[400, 768, 1024]}
+                  widths={[480, 768, 1024, 1440, 1920]}
                   sizes="(max-width: 1023px) 100vw, 50vw"
                   loading="eager"
                   fetchpriority="high"
-                  width={800}
-                  height={1000}
+                  width={1920}
+                  quality={82}
                   {...image}
                 />
               )}
