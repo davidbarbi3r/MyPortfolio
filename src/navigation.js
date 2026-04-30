@@ -14,7 +14,7 @@ export const getHeaderData = () => {
       {
         text: 'Ajaccio',
         links: [
-          { text: 'Consultant SEO à Ajaccio', href: '/consultant-seo-ajaccio/' },
+          { text: 'Agence SEO à Ajaccio', href: '/agence-seo-ajaccio/' },
           { text: 'Création de site internet à Ajaccio', href: '/creation-site-internet-ajaccio/' },
           { text: 'Freelance WordPress à Ajaccio', href: '/freelance-wordpress-ajaccio/' },
           { text: 'Maintenance site à Ajaccio', href: '/maintenance-site-internet-ajaccio/' },

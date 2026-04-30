@@ -58,7 +58,7 @@ export const REVIEWS: Review[] = [
  * pour cohérence avec la fiche GBP affichée par Google (évite l'effet déceptif
  * quand le prospect clique sur le review snippet).
  */
-export const GBP_AJACCIO_REVIEWS = 15;
+export const GBP_AJACCIO_REVIEWS = 16;
 export const GBP_LIMOGES_REVIEWS = 4;
 export const GBP_TOTAL_REVIEWS = GBP_AJACCIO_REVIEWS + GBP_LIMOGES_REVIEWS;
 

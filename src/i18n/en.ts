@@ -95,7 +95,7 @@ export const en = {
   },
   index: {
     metadata: {
-      title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+      title: 'AstroWind - Free template for creating websites with Astro + Tailwind CSS',
     },
     heroSide: {
       accent: 'Passionate',
@@ -387,7 +387,7 @@ export const en = {
   },
   portfolio: {
     metadata: {
-      title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+      title: 'AstroWind - Free template for creating websites with Astro + Tailwind CSS',
     },
     bookCall: 'Book a call',
     heroSide: {

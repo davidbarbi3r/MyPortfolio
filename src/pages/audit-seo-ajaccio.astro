@@ -1,0 +1,415 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Audit SEO complet à Ajaccio : analyse + plan d\'action - 690€',
+  description:
+    "Audit SEO complet à Ajaccio : état des lieux technique, sémantique, concurrentiel et autorité. Liste des corrections classées par priorité. 690€ HT, livré en 5 jours.",
+};
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
+      "@type": "Service",
+      "@id": "https://www.davidbarbier.com/audit-seo-ajaccio/#service",
+      "name": "Audit SEO complet à Ajaccio",
+      "description": "Audit SEO complet : état des lieux technique, sémantique, concurrentiel, autorité et présence IA de votre site. Livrable : liste des corrections classées par priorité. Livré sous 5 jours, restitution en visio.",
+      "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+      "isRelatedTo": { "@id": "https://www.davidbarbier.com/agence-seo-ajaccio/#service" },
+      "areaServed": [
+        { "@type": "City", "name": "Ajaccio" },
+        { "@type": "AdministrativeArea", "name": "Corse" }
+      ],
+      "serviceType": "Audit SEO",
+      "offers": {
+        "@type": "Offer",
+        "name": "Audit SEO complet",
+        "price": "690",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "690",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    }
+  ]
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que je reçois exactement avec l'audit complet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un rapport PDF illustré + un tableur de corrections priorisées + une restitution en visio de 45 minutes. Le rapport couvre cinq angles d'analyse de l'existant : audit technique (vitesse, code, accessibilité Google), audit sémantique (couverture topique, pertinence des contenus), audit concurrentiel (10-15 premiers sur vos mots-clés cibles), audit d'autorité (backlinks, Domain Authority), présence IA (ChatGPT, Perplexity, Gemini, Claude). Livrable central : la liste des corrections et améliorations classées par priorité, avec quick wins identifiés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En combien de temps est-il livré ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5 jours ouvrés à compter de la réception du brief et des accès. Si vous avez besoin plus vite (audit pré-investissement, due diligence), je peux passer en express sous 48h pour 290€ supplémentaires."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'audit suffit-il pour piloter mon SEO en autonomie ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, c'est même le cas pour la moitié de mes clients. La liste des corrections est priorisée et estimée en effort. Vous la faites exécuter par votre équipe interne, votre webmaster, ou un autre prestataire. Si vous voulez que je m'en occupe moi-même, c'est l'accompagnement SEO mensuel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le tarif de l'audit est-il déductible si je signe un accompagnement ensuite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Si vous prenez un accompagnement SEO mensuel dans les 30 jours suivant la livraison de l'audit, les 690€ sont déduits du premier mois de prestation. Au-delà de 30 jours, l'audit reste valable mais le tarif n'est plus déductible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pour quels types de site cet audit est pertinent ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour les sites en activité depuis plus de 6 mois, qui ont du trafic mesurable et un objectif business clair (générer des leads, vendre, prendre rendez-vous). Pour un site qui vient d'être lancé ou qui n'a pas encore de visibilité, on a peu d'existant à analyser - on parlerait plutôt directement d'un accompagnement SEO mensuel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vous avez besoin de quels accès ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lecture seule sur Google Search Console, Google Analytics et Google Business Profile. Optionnel mais utile : accès lecture à votre back-office (WordPress ou autre) pour vérifier la structure interne. Aucun accès admin nécessaire - tout reste sécurisé."
+      }
+    }
+  ]
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.davidbarbier.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Agence SEO Ajaccio", "item": "https://www.davidbarbier.com/agence-seo-ajaccio/" },
+    { "@type": "ListItem", "position": 3, "name": "Audit SEO complet Ajaccio", "item": "https://www.davidbarbier.com/audit-seo-ajaccio/" }
+  ]
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
+  </Fragment>
+
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm font-body">
+        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li><a href="/agence-seo-ajaccio/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Agence SEO Ajaccio</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-gray-900 dark:text-white font-medium">Audit SEO complet</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 pb-16 pt-8 lg:py-20">
+      <div class="mt-4">
+        <span class="inline-flex items-center rounded-full bg-emerald-600/10 px-3 py-1 text-sm font-semibold text-emerald-700 dark:text-emerald-400 ring-1 ring-inset ring-emerald-600/20">
+          690€ HT · Livré en 5 jours · Restitution en visio
+        </span>
+      </div>
+
+      <h1 class="mt-6 text-base font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+        Audit SEO complet à Ajaccio
+      </h1>
+
+      <p class="mt-3 text-pretty font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+        <span class="text-green-950 dark:text-white">Votre site SEO mis à plat,</span><br />
+        <span class="text-emerald-700 dark:text-emerald-400">les corrections classées par priorité.</span>
+      </p>
+
+      <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+        ⭐ 5/5 sur Google · 16 avis · +50 clients accompagnés · Basé à Ajaccio
+      </p>
+
+      <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        Cet audit n'est pas une stratégie en l'air - c'est un état des lieux factuel de l'existant. Cinq angles d'analyse (technique, sémantique, concurrentiel, autorité, présence IA), puis une liste claire de corrections et améliorations classées par priorité.
+      </p>
+
+      <p class="mt-4 text-base text-gray-600 dark:text-gray-300">
+        Vous l'exécutez seul, avec votre équipe ou avec moi - les axes correctifs sont les mêmes.
+      </p>
+
+      <div class="mt-10 flex items-center gap-x-6 flex-wrap">
+        <a href="tel:+33623565299" class="rounded-md bg-green-700 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90">
+          Commander mon audit complet
+        </a>
+        <a href="/audit-seo-gratuit-ajaccio/" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+          D'abord l'audit gratuit ?
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+        Pas encore prêt ? L'<a href="/audit-seo-gratuit-ajaccio/" class="underline hover:text-emerald-700 dark:hover:text-emerald-400">audit gratuit en 20 min</a> donne déjà un premier diagnostic.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenu de l'audit -->
+  <section id="contenu" class="px-6 py-16 lg:px-8 bg-gray-50 dark:bg-slate-800 scroll-mt-32">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Cinq angles d'analyse de l'existant
+      </h2>
+      <p class="text-base text-gray-600 dark:text-gray-300 mb-12 max-w-2xl">
+        Pas de stratégie hors-sol, pas de prédictions. Cinq lectures factuelles de ce qui existe déjà sur votre site et autour, pour identifier ce qui freine et ce qui peut être corrigé.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Audit technique</h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li>✓ Vitesse de chargement (PageSpeed Insights, Core Web Vitals)</li>
+            <li>✓ Santé du code (balises HTML, redirections, erreurs 404/500)</li>
+            <li>✓ Accessibilité Google (alt images, indexation, compression)</li>
+            <li>✓ Mobile, sécurité, structure</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Audit sémantique</h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li>✓ Couverture topique de l'existant vs vos mots-clés cibles</li>
+            <li>✓ Pertinence des contenus actuels</li>
+            <li>✓ Pages à renforcer, à fusionner, à créer</li>
+            <li>✓ Maillage interne et structure éditoriale</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Audit concurrentiel</h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li>✓ Analyse des 10-15 premiers concurrents sur vos mots-clés cibles</li>
+            <li>✓ Mots-clés sur lesquels ils rankent et pas vous</li>
+            <li>✓ Écarts techniques et éditoriaux</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Audit d'autorité</h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li>✓ Profil de backlinks existant (Ahrefs / Majestic)</li>
+            <li>✓ Domain Authority et qualité des liens</li>
+            <li>✓ Mentions et citations de la marque</li>
+            <li>✓ Liens toxiques à désavouer</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 md:col-span-2">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Présence IA <span class="text-xs font-normal uppercase tracking-wide text-emerald-700 dark:text-emerald-400 ml-2">Nouveau</span></h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li>✓ Part de voix sur ChatGPT, Perplexity, Gemini, Claude</li>
+            <li>✓ Visibilité sur les requêtes IA stratégiques de votre secteur</li>
+            <li>✓ Sources citées par les IA pour vos thématiques</li>
+          </ul>
+        </div>
+
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-6 border-2 border-emerald-500 md:col-span-2">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Livrable final : la liste des corrections classées par priorité</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+            La sortie centrale de l'audit. Chaque correction ou amélioration de l'existant est classée :
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <li>✓ Quick wins - 20 % d'actions pour 80 % des résultats</li>
+            <li>✓ Priorité (P0 / P1 / P2) et impact attendu</li>
+            <li>✓ Effort estimé pour l'exécution</li>
+            <li>✓ Qui peut faire quoi (vous, votre équipe, un prestataire)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-8 text-sm text-gray-500 dark:text-gray-400 italic">
+        Rapport PDF + tableur de corrections priorisées. Restitution en visio de 45 min pour passer en revue les priorités et répondre à vos questions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pour qui -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">
+        Cet audit est pertinent si...
+      </h2>
+
+      <div class="space-y-4 text-lg text-gray-600 dark:text-gray-300">
+        <p class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Votre site existe depuis plus de 6 mois et a du trafic mesurable.</p>
+        <p class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous voulez un état des lieux factuel avant d'engager du budget en SEO.</p>
+        <p class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous avez une équipe (interne ou externe) capable d'exécuter les corrections.</p>
+        <p class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous préparez une refonte de site ou un changement d'orientation business.</p>
+        <p class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous voulez challenger une prestation SEO en cours et savoir si elle a du sens.</p>
+      </div>
+
+      <div class="mt-10 p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
+        <p class="text-sm text-gray-700 dark:text-gray-300">
+          <strong>Quand cet audit n'est PAS pertinent :</strong> si votre site vient d'être lancé (moins de 6 mois) ou n'a pas encore de visibilité organique, on a peu d'existant à analyser. Dans ce cas, on parle directement d'un accompagnement SEO mensuel.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarif -->
+  <section class="px-6 py-16 lg:px-8 bg-gray-50 dark:bg-slate-800">
+    <div class="mx-auto max-w-2xl">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-800">
+        <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Audit SEO complet</p>
+        <p class="text-5xl font-bold text-gray-900 dark:text-white mb-2">690€ <span class="text-xl font-normal text-gray-500">HT</span></p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Forfait unique · livré en 5 jours ouvrés</p>
+
+        <ul class="space-y-3 text-gray-700 dark:text-gray-300 mb-8">
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Rapport PDF illustré (5 audits + livrable corrections)</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Liste des corrections classées par priorité (tableur)</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Restitution visio de 45 min</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Email de questions/réponses pendant 30 jours</li>
+        </ul>
+
+        <a href="tel:+33623565299" class="block w-full text-center rounded-md bg-green-700 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-green-700/90">
+          Commander mon audit
+        </a>
+
+        <p class="mt-5 text-xs text-gray-500 dark:text-gray-400 italic text-center">
+          Audit déductible du premier mois si vous prenez un accompagnement SEO dans les 30 jours suivants. Express sous 48h disponible pour +290€ HT.
+        </p>
+      </div>
+
+      <!-- Garantie -->
+      <!-- TODO David : valider que "0 remboursement en 4 ans" est exact avant de pousser en prod. Si false, retire la phrase ou adapte. -->
+      <div class="mt-8 rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
+        <div class="flex items-start gap-4">
+          <svg class="size-10 flex-shrink-0 text-emerald-700 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Satisfait ou remboursé</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300">
+              Si à la fin de la restitution vous n'identifiez pas au moins 5 corrections concrètes que vous pouvez mettre en œuvre dès la semaine suivante, je vous rembourse intégralement les 690€. <strong>Aucun remboursement réclamé en 4 ans</strong> - la garantie est là parce qu'elle ne sert jamais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulaire de commande -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Commander mon audit complet
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Téléphone direct ou formulaire, au choix.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 flex flex-col justify-center text-center">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Direct</p>
+          <a href="tel:+33623565299" class="block text-2xl font-bold text-gray-900 dark:text-white hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors mb-3">
+            06 23 56 52 99
+          </a>
+          <a href="mailto:hello@davidbarbier.com" class="block text-base text-gray-600 dark:text-gray-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors">
+            hello@davidbarbier.com
+          </a>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 italic">
+            Réponse sous 48h ouvrées.
+          </p>
+        </div>
+
+        <form method="post" action="https://formspree.io/f/xayglvyo" class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 space-y-4">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">Demander mon audit</p>
+          <input type="hidden" name="_subject" value="[Audit SEO complet 690€] Nouvelle demande" />
+          <input type="hidden" name="source" value="audit-seo-ajaccio" />
+          <div>
+            <label for="ac_name" class="sr-only">Votre nom</label>
+            <input id="ac_name" name="name" type="text" required placeholder="Votre nom" class="w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2.5 text-sm" />
+          </div>
+          <div>
+            <label for="ac_email" class="sr-only">Votre email</label>
+            <input id="ac_email" name="email" type="email" required placeholder="Votre email" class="w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2.5 text-sm" />
+          </div>
+          <div>
+            <label for="ac_url" class="sr-only">URL de votre site</label>
+            <input id="ac_url" name="site_url" type="url" required placeholder="https://votresite.fr" class="w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2.5 text-sm" />
+          </div>
+          <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white py-2.5 px-4 rounded-md text-sm font-semibold transition">
+            Demander mon audit (690€ HT)
+          </button>
+          <p class="text-xs text-gray-500 dark:text-gray-400">
+            Je vous recontacte pour le brief et les accès.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 my-16">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">FAQ - Audit SEO complet</h2>
+    <div>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Qu'est-ce que je reçois exactement avec l'audit complet ?</h3></summary>
+        <p class="pl-4 mt-2">Un rapport PDF illustré + un tableur de corrections priorisées + une restitution en visio de 45 minutes.</p>
+        <p class="pl-4 mt-2">Le rapport couvre cinq angles d'analyse de l'existant : technique (vitesse, code, accessibilité Google), sémantique (couverture topique, pertinence), concurrentiel (10-15 premiers sur vos mots-clés cibles), autorité (backlinks, Domain Authority), présence IA (ChatGPT, Perplexity, Gemini, Claude). Livrable central : la liste des corrections classées par priorité, avec quick wins identifiés.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">En combien de temps est-il livré ?</h3></summary>
+        <p class="pl-4 mt-2">5 jours ouvrés à compter de la réception du brief et des accès. Si vous avez besoin plus vite (audit pré-investissement, due diligence), je peux passer en express sous 48h pour 290€ supplémentaires HT.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">L'audit suffit-il pour piloter mon SEO en autonomie ?</h3></summary>
+        <p class="pl-4 mt-2">Oui, c'est même le cas pour la moitié de mes clients. La liste des corrections est priorisée et estimée en effort. Vous la faites exécuter par votre équipe interne, votre webmaster, ou un autre prestataire.</p>
+        <p class="pl-4 mt-2">Si vous voulez que je le mette en œuvre moi-même, c'est l'<a href="/agence-seo-ajaccio/#services" class="text-emerald-700 dark:text-emerald-400 hover:underline">accompagnement SEO mensuel</a>.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Le tarif est-il déductible si je signe un accompagnement ensuite ?</h3></summary>
+        <p class="pl-4 mt-2">Oui. Si vous prenez un accompagnement SEO mensuel dans les 30 jours suivant la livraison de l'audit, les 690€ sont déduits du premier mois de prestation. Au-delà de 30 jours, l'audit reste valable mais le tarif n'est plus déductible.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Pour quels types de site cet audit est pertinent ?</h3></summary>
+        <p class="pl-4 mt-2">Pour les sites en activité depuis plus de 6 mois, qui ont du trafic mesurable et un objectif business clair. Pour un site qui vient d'être lancé, on a peu d'existant à analyser - on parlerait plutôt directement d'un accompagnement SEO mensuel.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Vous avez besoin de quels accès ?</h3></summary>
+        <p class="pl-4 mt-2">Lecture seule sur Google Search Console, Google Analytics et Google Business Profile. Optionnel mais utile : accès lecture à votre back-office pour vérifier la structure interne. Aucun accès admin nécessaire - tout reste sécurisé.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Cross-link pilier -->
+  <section class="px-6 py-12 lg:px-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        L'audit s'inscrit dans une démarche plus large. Pour comprendre l'offre complète :
+      </p>
+      <a href="/agence-seo-ajaccio/" class="inline-flex items-center gap-2 font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
+        Voir tous mes services SEO à Ajaccio
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

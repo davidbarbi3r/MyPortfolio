@@ -28,7 +28,7 @@ const allTags = page.data.reduce((acc: string[], post) => {
 }, [] as string[]);
 
 const metadata = {
-  title: `Blog SEO & web — Conseils TPE et experts-comptables${currentPage > 1 ? ` — Page ${currentPage}` : ''} | David Barbier`,
+  title: `Blog SEO & web - Conseils TPE et experts-comptables${currentPage > 1 ? ` - Page ${currentPage}` : ''} | David Barbier`,
   description: `Conseils SEO et web pour TPE, artisans et cabinets d'experts-comptables. Guides pratiques par David Barbier, consultant à Ajaccio : SEO local, WordPress, Google Business.`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
@@ -44,7 +44,7 @@ const blogSchema = currentPage === 1 ? {
   "@context": "https://schema.org",
   "@type": "Blog",
   "@id": "https://www.davidbarbier.com/blog/#blog",
-  "name": "Blog David Barbier — Conseils SEO et web",
+  "name": "Blog David Barbier - Conseils SEO et web",
   "description": "Conseils pratiques SEO, WordPress, Google Business et stratégie web pour TPE en Corse et cabinets d'experts-comptables partout en France.",
   "url": "https://www.davidbarbier.com/blog/",
   "inLanguage": "fr-FR",

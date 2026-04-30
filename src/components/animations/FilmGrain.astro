@@ -1,5 +1,5 @@
 ---
-// FilmGrain — Dual grain system:
+// FilmGrain - Dual grain system:
 // 1. Canvas 2D grain overlay for photo (animated noise)
 // 2. CSS/SVG grain on title text (follows letter shapes)
 // Desktop only (md+)
@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 ---
 
-{/* SVG filter for text grain — uses feTurbulence for organic noise */}
+{/* SVG filter for text grain - uses feTurbulence for organic noise */}
 <svg class="absolute w-0 h-0" aria-hidden="true">
   <filter id="grain-filter">
     <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
@@ -26,7 +26,7 @@ const {
 </svg>
 
 <style>
-  /* Animated grain texture on title text only — desktop */
+  /* Animated grain texture on title text only - desktop */
   @media (min-width: 768px) {
     [data-hero-title] {
       position: relative;

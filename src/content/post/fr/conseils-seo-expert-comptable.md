@@ -17,7 +17,7 @@ metadata:
 
 Quand j'étais en cabinet, j'ai vu des dizaines de sites d'experts-comptables. La plupart avaient un point commun : ils existaient, mais personne ne les trouvait sur Google.
 
-Aujourd'hui, quand un chef d'entreprise cherche "expert-comptable Bordeaux" ou "cabinet comptable création d'entreprise", il ouvre Google. Si votre cabinet n'apparaît pas, le prospect contacte votre confrère. Pas parce qu'il est meilleur — parce qu'il est visible.
+Aujourd'hui, quand un chef d'entreprise cherche "expert-comptable Bordeaux" ou "cabinet comptable création d'entreprise", il ouvre Google. Si votre cabinet n'apparaît pas, le prospect contacte votre confrère. Pas parce qu'il est meilleur, parce qu'il est visible.
 
 Ce guide regroupe les actions qui ont le plus d'impact, expliquées simplement.
 
@@ -62,7 +62,7 @@ Et répondez à chaque avis, positif comme négatif. Google valorise les fiches 
 
 ## 2. Le référencement local : "expert-comptable + ville"
 
-> "Quand je tape le nom de mon cabinet, on me trouve." — Oui, heureusement. Si ce n'est pas le cas, c'est un vrai problème. Mais le référencement, ce n'est pas ça. C'est faire en sorte que **quelqu'un qui ne vous connaît pas encore** vous trouve quand il tape "expert-comptable Limoges".
+> "Quand je tape le nom de mon cabinet, on me trouve." Oui, heureusement. Si ce n'est pas le cas, c'est un vrai problème. Mais le référencement, ce n'est pas ça. C'est faire en sorte que **quelqu'un qui ne vous connaît pas encore** vous trouve quand il tape "expert-comptable Limoges".
 
 65% des recherches Google sont géolocalisées. Votre futur client ne tape pas "expert-comptable France". Il cherche "expert-comptable Lyon" ou "cabinet comptable Nantes".
 
@@ -92,7 +92,7 @@ Une page fourre-tout "Nos implantations" avec deux adresses côte à côte ne vo
 
 ## 3. Des pages ciblées par service ET par secteur client
 
-Beaucoup de cabinets ont déjà des pages par service (comptabilité, social, création d'entreprise…). C'est un bon début. Mais quasiment aucun ne va plus loin — et c'est là que se trouve le vrai avantage concurrentiel.
+Beaucoup de cabinets ont déjà des pages par service (comptabilité, social, création d'entreprise…). C'est un bon début. Mais quasiment aucun ne va plus loin et c'est là que se trouve le vrai avantage concurrentiel.
 
 ### Le problème des pages services génériques
 
@@ -212,11 +212,11 @@ Le fond est le même. C'est l'angle qui change tout. Et c'est souvent ce qui fai
 
 Si vous devez choisir trois actions à lancer cette semaine :
 
-1. **Complétez votre fiche Google Business Profile** — c'est gratuit, ça prend une heure, et c'est le levier le plus rapide
-2. **Vérifiez votre présence sur l'annuaire de l'Ordre** — 5 minutes pour un impact réel
-3. **Ajoutez votre ville dans le titre de votre page d'accueil** — un changement minime qui peut tout changer
+1. **Complétez votre fiche Google Business Profile** c'est gratuit, ça prend une heure, et c'est le levier le plus rapide
+2. **Vérifiez votre présence sur l'annuaire de l'Ordre** -> 5 minutes pour un impact réel
+3. **Ajoutez votre ville dans le titre de votre page d'accueil** -> un changement minime qui peut tout changer
 
-Le référencement, c'est un marathon, pas un sprint. Les résultats prennent du temps, mais ils durent. Un cabinet bien positionné sur Google reçoit des demandes de contact chaque semaine — sans dépenser un centime en publicité.
+Le référencement, c'est un marathon, pas un sprint. Les résultats prennent du temps, mais ils durent. Un cabinet bien positionné sur Google reçoit des demandes de contact chaque semaine sans dépenser en publicité.
 
 ---
 

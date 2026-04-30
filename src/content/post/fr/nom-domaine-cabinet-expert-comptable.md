@@ -38,7 +38,7 @@ Cette extension réservée aux cabinets inscrits à l'Ordre des experts-comptabl
 
 **Point technique important** : l'extension `.experts-comptables.fr` n'est pas un sous-domaine. C'est un TLD (Top-Level Domain) de second niveau sous .fr, traitée par Google comme un domaine indépendant à part entière.
 
-Autrement dit : `mon-cabinet.experts-comptables.fr` est un domaine complet, pas un sous-domaine de experts-comptables.fr. Cela n'embête donc pas le SEO — au contraire, elle renforce la pertinence sémantique pour les recherches liées à l'expertise comptable en France.
+Autrement dit : `mon-cabinet.experts-comptables.fr` est un domaine complet, pas un sous-domaine de experts-comptables.fr. Cela n'embête donc pas le SEO au contraire, elle renforce la pertinence sémantique pour les recherches liées à l'expertise comptable en France.
 
 **Inconvénient** : elle est longue et peu pratique à communiquer (cartes de visite, bouche-à-oreille).
 
@@ -78,7 +78,7 @@ Pensez 10 ans en avant : un nom de domaine doit évoluer avec votre cabinet (sp�
 | Synesis Expertise | synesis-expertise.fr | Élégant, brandable |
 | Ekia Advisory | ekia-advisory.com | Professionnel, internationnal |
 
-Ces domaines construisent une image premium, facilitent le bouche-à-oreille et supportent le SEO via un contenu de qualité — pas via du stuffing de mots-clés.
+Ces domaines construisent une image premium, facilitent le bouche-à-oreille et supportent le SEO via un contenu de qualité - pas via du stuffing de mots-clés.
 
 Un nom "spammy" limite la diversification (blog, partenariats, recrutement) et peut pénaliser l'image auprès des clients B2B exigeants.
 

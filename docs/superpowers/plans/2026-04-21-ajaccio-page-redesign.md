@@ -17,13 +17,13 @@
 Only one production file changes: `src/pages/creation-site-internet-ajaccio.astro`.
 
 Edits inside that file, in order:
-1. `<style>` block — add 6 new CSS rules (`.scroll-tint`, `.deliverable-row`, `.frein-block`, `.quote-mark-giant`, `.testimonial-strip`, `.testimonial-hero-mark`).
-2. First child of the `<Layout>` slot — add `<div class="scroll-tint" aria-hidden="true"></div>`.
-3. Section 03 (`dark-editorial` section with "Tout ce qu'il vous faut") — full HTML replacement.
-4. Section 04 (`#freins` section) — full HTML replacement.
-5. Section 05 (avis clients) — full HTML replacement.
+1. `<style>` block - add 6 new CSS rules (`.scroll-tint`, `.deliverable-row`, `.frein-block`, `.quote-mark-giant`, `.testimonial-strip`, `.testimonial-hero-mark`).
+2. First child of the `<Layout>` slot - add `<div class="scroll-tint" aria-hidden="true"></div>`.
+3. Section 03 (`dark-editorial` section with "Tout ce qu'il vous faut") - full HTML replacement.
+4. Section 04 (`#freins` section) - full HTML replacement.
+5. Section 05 (avis clients) - full HTML replacement.
 6. Data-attribute hooks (`data-gsap="..."`, `data-parallax="..."`) added to hero elements, section headings, and the redesigned sections.
-7. New `<script>` block at end of file — GSAP setup, matchMedia gates, entry triggers, parallax, tint-wash scrub.
+7. New `<script>` block at end of file - GSAP setup, matchMedia gates, entry triggers, parallax, tint-wash scrub.
 
 No other files change. No new npm dependencies.
 
@@ -40,7 +40,7 @@ No other files change. No new npm dependencies.
 ## Task 1: Add CSS primitives and scroll-tint markup
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — `<style>` block (currently ends around `/* Hero signature mark */` rules) and add the tint div at the start of the `<Layout>` slot.
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - `<style>` block (currently ends around `/* Hero signature mark */` rules) and add the tint div at the start of the `<Layout>` slot.
 
 **Rationale:** Introduce the new visual primitives and the tint overlay element before touching the sections that use them. The tint overlay is transparent by default so the page looks unchanged after this task.
 
@@ -49,7 +49,7 @@ No other files change. No new npm dependencies.
 In `src/pages/creation-site-internet-ajaccio.astro`, inside the existing `<style>` block, after the `.hero-mark` rules (around the end of the block, before `</style>`), append:
 
 ```css
-/* Scroll tint overlay — color scrubs with scroll via GSAP */
+/* Scroll tint overlay - color scrubs with scroll via GSAP */
 .scroll-tint {
   position: fixed;
   inset: 0;
@@ -63,7 +63,7 @@ In `src/pages/creation-site-internet-ajaccio.astro`, inside the existing `<style
   mix-blend-mode: screen;
 }
 
-/* Section 03 — editorial numbered list rows */
+/* Section 03 - editorial numbered list rows */
 .deliverable-row {
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -96,7 +96,7 @@ In `src/pages/creation-site-internet-ajaccio.astro`, inside the existing `<style
   transform: translateY(0.25rem);
 }
 
-/* Section 04 — zig-zag block container */
+/* Section 04 - zig-zag block container */
 .frein-block {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -132,7 +132,7 @@ In `src/pages/creation-site-internet-ajaccio.astro`, inside the existing `<style
   }
 }
 
-/* Giant quote mark — used in section 04 objections and section 05 hero */
+/* Giant quote mark - used in section 04 objections and section 05 hero */
 .quote-mark-giant {
   position: absolute;
   font-family: Georgia, 'Times New Roman', serif;
@@ -160,7 +160,7 @@ In `src/pages/creation-site-internet-ajaccio.astro`, inside the existing `<style
   color: rgba(34, 197, 94, 0.18);
 }
 
-/* Section 05 — strip-style testimonial */
+/* Section 05 - strip-style testimonial */
 .testimonial-strip {
   border-inline-start: 2px solid rgba(21, 128, 61, 0.55);
   padding-inline-start: 1.25rem;
@@ -220,10 +220,10 @@ git commit -m "feat(ajaccio): add CSS primitives and scroll-tint layer"
 
 ---
 
-## Task 2: Redesign section 03 — editorial numbered list
+## Task 2: Redesign section 03 - editorial numbered list
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — replace the entire `<!-- Section 03 ... -->` block (the `<section class="py-24 lg:py-32 dark-editorial grain-dark relative overflow-hidden">` with its contents).
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - replace the entire `<!-- Section 03 ... -->` block (the `<section class="py-24 lg:py-32 dark-editorial grain-dark relative overflow-hidden">` with its contents).
 
 **Rationale:** Replace the 4+3 card grid with a two-column editorial layout: sticky left column (title + section number), scrollable right column (numbered list of 7 deliverables). Each row uses `.deliverable-row` CSS class defined in Task 1.
 
@@ -234,7 +234,7 @@ Find the existing section starting with the comment `<!-- Section 03 : Ce qui es
 Replace the entire section (from `<!-- Section 03` comment through `</section>`) with:
 
 ```html
-  <!-- Section 03 : Ce qui est livré — editorial numbered list -->
+  <!-- Section 03 : Ce qui est livré - editorial numbered list -->
   <section class="py-24 lg:py-32 dark-editorial grain-dark relative overflow-hidden" data-gsap-section="03">
     <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
       <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -281,7 +281,7 @@ Replace the entire section (from `<!-- Section 03` comment through `</section>`)
           <span class="deliverable-index">02</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Textes modifiables</h3>
-            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Un mini back-office pour changer vos textes, vos photos, publier un article — depuis n'importe quel navigateur.</p>
+            <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Un mini back-office pour changer vos textes, vos photos, publier un article - depuis n'importe quel navigateur.</p>
           </div>
         </li>
 
@@ -365,10 +365,10 @@ git commit -m "feat(ajaccio): redesign section 03 as editorial numbered list"
 
 ---
 
-## Task 3: Redesign section 04 — zig-zag conversational
+## Task 3: Redesign section 04 - zig-zag conversational
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — replace the entire `<!-- Section 04 : Les 2 freins ... -->` block (the `<section id="freins" ...>`).
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - replace the entire `<!-- Section 04 : Les 2 freins ... -->` block (the `<section id="freins" ...>`).
 
 **Rationale:** Replace the twin cards with two full-width asymmetric blocks. Block 1: objection left (6 cols) / response right (5 cols, offset). Block 2: mirror. No cards. Mobile stacks single-column.
 
@@ -377,7 +377,7 @@ git commit -m "feat(ajaccio): redesign section 03 as editorial numbered list"
 Find the existing `<section id="freins" ...>` block and replace entire `<section>…</section>` with:
 
 ```html
-  <!-- Section 04 : Les 2 freins habituels — zig-zag conversational -->
+  <!-- Section 04 : Les 2 freins habituels - zig-zag conversational -->
   <section id="freins" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 scroll-mt-20">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
@@ -404,7 +404,7 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
         <div class="frein-response" data-gsap="slide-in-right">
           <p class="eyebrow mt-2">Ma réponse</p>
           <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
-            Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives — écriture de code, génération de variantes, tests.
+            Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives - écriture de code, génération de variantes, tests.
           </p>
           <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
             <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
@@ -413,7 +413,7 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
         </div>
       </div>
 
-      <!-- Block 2 : mirror — response left / objection right -->
+      <!-- Block 2 : mirror - response left / objection right -->
       <div class="frein-block frein-block--mirror">
         <div class="frein-objection">
           <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
@@ -425,7 +425,7 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
         <div class="frein-response" data-gsap="slide-in-left">
           <p class="eyebrow mt-2">Ma réponse</p>
           <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
-            Mauvaise surprise habituelle : un site sur-mesure livré comme un bloc figé, et dès qu'il faut changer un horaire ou une photo, il faut payer. Chez moi, non — votre site est livré avec un mini back-office pour modifier textes, images et pages depuis un navigateur.
+            Mauvaise surprise habituelle : un site sur-mesure livré comme un bloc figé, et dès qu'il faut changer un horaire ou une photo, il faut payer. Chez moi, non - votre site est livré avec un mini back-office pour modifier textes, images et pages depuis un navigateur.
           </p>
           <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
             <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
@@ -455,7 +455,7 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
 Reload the page and scroll to section 04.
 Expected:
 - On desktop (≥1024px): block 1 shows the italic objection on the LEFT with a large amber `"` mark, response on the RIGHT offset down and right. Block 2 is mirrored (objection right, response left).
-- No card containers — just text flowing with generous whitespace.
+- No card containers - just text flowing with generous whitespace.
 - On mobile: both blocks stack single-column, objection above response.
 - CTA button "Discuter de votre projet" still renders and the shimmer animation on hover still works.
 - No console errors.
@@ -469,10 +469,10 @@ git commit -m "feat(ajaccio): redesign section 04 with zig-zag conversational la
 
 ---
 
-## Task 4: Redesign section 05 — hero quote + strips + verbatims
+## Task 4: Redesign section 05 - hero quote + strips + verbatims
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — replace the entire `<!-- Section 05 : Avis clients -->` block.
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - replace the entire `<!-- Section 05 : Avis clients -->` block.
 
 **Rationale:** Replace the 3×2 grid of identical testimonial cards with a hierarchical wall: 1 hero testimonial (Matthias, large), 3 strip-style (Marion, Mathieu, Cédric), 2 micro-verbatims (Véronique, Aaron).
 
@@ -481,7 +481,7 @@ git commit -m "feat(ajaccio): redesign section 04 with zig-zag conversational la
 Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire `<section>…</section>` with:
 
 ```html
-  <!-- Section 05 : Avis clients — hero quote + strips + verbatims -->
+  <!-- Section 05 : Avis clients - hero quote + strips + verbatims -->
   <section class="py-24 lg:py-32 texture-bg">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -524,7 +524,7 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
               <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">M</div>
               <div class="font-body text-sm">
                 <span class="font-editorial font-semibold text-gray-900 dark:text-white">Marion</span>
-                <span class="text-gray-500 dark:text-gray-400"> — Fondatrice, Gaomata</span>
+                <span class="text-gray-500 dark:text-gray-400"> - Fondatrice, Gaomata</span>
               </div>
             </figcaption>
           </figure>
@@ -537,7 +537,7 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
               <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">M</div>
               <div class="font-body text-sm">
                 <span class="font-editorial font-semibold text-gray-900 dark:text-white">Mathieu</span>
-                <span class="text-gray-500 dark:text-gray-400"> — Accompagnateur d'entreprise</span>
+                <span class="text-gray-500 dark:text-gray-400"> - Accompagnateur d'entreprise</span>
               </div>
             </figcaption>
           </figure>
@@ -550,7 +550,7 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
               <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">C</div>
               <div class="font-body text-sm">
                 <span class="font-editorial font-semibold text-gray-900 dark:text-white">Cédric</span>
-                <span class="text-gray-500 dark:text-gray-400"> — Fondateur, Rest'ô Dom</span>
+                <span class="text-gray-500 dark:text-gray-400"> - Fondateur, Rest'ô Dom</span>
               </div>
             </figcaption>
           </figure>
@@ -566,7 +566,7 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
             "C'est un vrai plus de travailler avec un professionnel serein."
           </blockquote>
           <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
-            — Véronique, La voie des sens
+            - Véronique, La voie des sens
           </figcaption>
         </figure>
 
@@ -575,7 +575,7 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
             "Véritable professionnel, réactif, compétent et sympathique. Je recommande fortement."
           </blockquote>
           <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
-            — Aaron, Action Conseils
+            - Aaron, Action Conseils
           </figcaption>
         </figure>
 
@@ -608,7 +608,7 @@ git commit -m "feat(ajaccio): redesign section 05 with hero quote + strips + ver
 ## Task 5: Add data-gsap attributes to hero and other sections
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — add `data-gsap` / `data-parallax` attributes to existing elements in hero, section 01 (pourquoi), section 02 (processus), bandeau, tarifs, faq, formulaire, and any other below-fold section that should animate on scroll.
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - add `data-gsap` / `data-parallax` attributes to existing elements in hero, section 01 (pourquoi), section 02 (processus), bandeau, tarifs, faq, formulaire, and any other below-fold section that should animate on scroll.
 
 **Rationale:** Annotations drive the GSAP triggers set up in Task 6. Sections 03/04/05 already received annotations in Tasks 2-4.
 
@@ -680,7 +680,7 @@ git commit -m "feat(ajaccio): add data-gsap hooks for scroll animations"
 ## Task 6: GSAP setup + entry triggers
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — add a new `<script>` module block at the end of the file (after the closing `</Layout>` is NOT valid — place it immediately before `</Layout>` if the file uses Layout as wrapper, OR at the top of the file after the frontmatter if siblings work better. In this Astro file, place it immediately before the closing `</Layout>` tag).
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - add a new `<script>` module block at the end of the file (after the closing `</Layout>` is NOT valid - place it immediately before `</Layout>` if the file uses Layout as wrapper, OR at the top of the file after the frontmatter if siblings work better. In this Astro file, place it immediately before the closing `</Layout>` tag).
 
 **Rationale:** Bootstrap GSAP, register ScrollTrigger, set up matchMedia responsive gates, and implement the 4 entry trigger patterns (`fade-up`, `fade-up-stagger`, `slide-in-left`, `slide-in-right`, `scale-in`) plus the two specialized staggers (`list-03-stagger`, `strip-stagger`, `verbatim-stagger`).
 
@@ -769,7 +769,7 @@ At the end of `src/pages/creation-site-internet-ajaccio.astro`, immediately befo
       });
     });
 
-    // Mobile with motion allowed — entry triggers only, no parallax, no tint scrub
+    // Mobile with motion allowed - entry triggers only, no parallax, no tint scrub
     mm.add('(prefers-reduced-motion: no-preference) and (max-width: 767px)', () => {
       gsap.set('[data-gsap="fade-up"]', { opacity: 0, y: 20 });
       gsap.set('[data-gsap="slide-in-left"]', { opacity: 0, x: -20 });
@@ -838,7 +838,7 @@ git commit -m "feat(ajaccio): add GSAP scroll entry triggers with matchMedia gat
 ## Task 7: GSAP parallax (desktop only)
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — extend the desktop `mm.add(...)` block in the GSAP `<script>` added in Task 6.
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - extend the desktop `mm.add(...)` block in the GSAP `<script>` added in Task 6.
 
 **Rationale:** Add subtle scroll-linked Y translation to decorative elements: the two hero blobs and the two section-03 ambient glows. Each element moves at a different rate based on its `data-parallax-speed` attribute (px traveled across its parent scroll range).
 
@@ -903,7 +903,7 @@ Hard-reload (Cmd+Shift+R).
 Expected on desktop (≥768px width):
 - Scroll slowly through the hero: the two blurred blobs drift upward at different rates, creating a depth effect.
 - Scroll through section 03: the two ambient emerald glows drift slowly in opposite directions.
-- The animation feels smooth — no jitter, no layout shift, CTA button position unchanged.
+- The animation feels smooth - no jitter, no layout shift, CTA button position unchanged.
 - On reduced-motion: no parallax (desktop matchMedia block doesn't run).
 - On mobile: no parallax (handled by the separate mobile matchMedia block with no parallax code).
 
@@ -919,7 +919,7 @@ git commit -m "feat(ajaccio): add scroll-linked parallax on hero + section 03 gl
 ## Task 8: GSAP tint wash scrub
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — extend the desktop `mm.add(...)` block further to add the tint wash scrub; also add a small mobile override to set a single static tint color (no scrub).
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - extend the desktop `mm.add(...)` block further to add the tint wash scrub; also add a small mobile override to set a single static tint color (no scrub).
 
 **Rationale:** The `.scroll-tint` overlay added in Task 1 has `background: var(--tint, transparent)`. A scrubbed timeline morphs the `--tint` custom property as the user scrolls the full document, creating an ambient color shift across sections.
 
@@ -956,7 +956,7 @@ Inside the desktop `mm.add(...)` arrow function body, after the parallax code, a
 Inside the mobile `mm.add('(prefers-reduced-motion: no-preference) and (max-width: 767px)', () => { ... })` block, at the top of the function body, add:
 
 ```js
-      // On mobile, a single static tint — no scrubbing
+      // On mobile, a single static tint - no scrubbing
       const tintElMobile = document.querySelector('.scroll-tint');
       if (tintElMobile) {
         tintElMobile.style.setProperty('--tint', 'rgba(251, 240, 218, 0.08)');
@@ -973,7 +973,7 @@ Expected:
   - Through section 03 (dark): tint nearly invisible (no muddy overlay)
   - Sections 04-05: warm cream/amber bias
   - Bottom (FAQ/formulaire): neutral warm
-- The shift is subtle — the effect should be noticeable but never muddy or saturated.
+- The shift is subtle - the effect should be noticeable but never muddy or saturated.
 - On reduced-motion: no shift (tint stays at default transparent since no scrub runs; the default CSS `background: var(--tint, transparent)` keeps it invisible).
 - On mobile: single static warm tint, no shifts as you scroll.
 - No visual flicker, no layout shift.
@@ -1003,7 +1003,7 @@ Expected:
 - All content visible immediately (hero, sections 01-06, FAQ, formulaire). Nothing hidden at `opacity: 0`.
 - No animations fire on scroll.
 - The `.scroll-tint` overlay stays at `background: transparent` (CSS default, since no `--tint` variable is set).
-- The hero's CSS `animate-float` on blobs still runs (that's a CSS keyframe, independent of JS). If you want that frozen too on reduced-motion, we can add a media-query override later — not in scope for this plan.
+- The hero's CSS `animate-float` on blobs still runs (that's a CSS keyframe, independent of JS). If you want that frozen too on reduced-motion, we can add a media-query override later - not in scope for this plan.
 
 If any below-fold element is invisible, the `gsap.set` calls are running outside the matchMedia gate. Fix: verify all `gsap.set` calls are inside a matchMedia block.
 
@@ -1025,7 +1025,7 @@ DevTools → Command palette (Cmd+Shift+P) → "Disable JavaScript" → reload.
 
 Expected:
 - All content renders fully. Every section visible. No elements stuck at `opacity: 0`.
-- Form doesn't submit via fetch (the existing form `<script>` is also gated by JS). That is expected and pre-existing — not caused by this change.
+- Form doesn't submit via fetch (the existing form `<script>` is also gated by JS). That is expected and pre-existing - not caused by this change.
 - No crashes, no blank sections.
 
 Re-enable JavaScript before continuing.
@@ -1055,10 +1055,10 @@ If no defects, skip the commit.
 
 ---
 
-## Task 10: Final pass — cleanup and visual polish
+## Task 10: Final pass - cleanup and visual polish
 
 **Files:**
-- Modify: `src/pages/creation-site-internet-ajaccio.astro` — only if cleanup needed.
+- Modify: `src/pages/creation-site-internet-ajaccio.astro` - only if cleanup needed.
 
 **Rationale:** Remove any dead code left from the old section layouts. Tune values that felt off during verification.
 
@@ -1066,9 +1066,9 @@ If no defects, skip the commit.
 
 Search the `<style>` block for CSS rules that no longer match anything after the redesigns:
 
-- `.frein-card` and `.frein-card::before` / `.frein-card.solved::before` — the old card frame. **Delete these rules.** They were only used in the old section 04 twin cards.
-- `.quote-mark` (the old section 01 quote style) — keep. Still used on the section 01 blockquote.
-- `.card-subtle`, `.spotlight`, `.styled-number`, `.eyebrow`, all hero/layout classes — keep. Used elsewhere.
+- `.frein-card` and `.frein-card::before` / `.frein-card.solved::before` - the old card frame. **Delete these rules.** They were only used in the old section 04 twin cards.
+- `.quote-mark` (the old section 01 quote style) - keep. Still used on the section 01 blockquote.
+- `.card-subtle`, `.spotlight`, `.styled-number`, `.eyebrow`, all hero/layout classes - keep. Used elsewhere.
 
 Use Grep to confirm before deleting:
 

@@ -32,6 +32,7 @@ export default defineConfig({
     '/creation-site-internet-limoges': '/limoges/wordpress/',
     '/expert-referencement-limoges': '/limoges/consultant-seo/',
     '/maintenance-site-web-limoges': '/limoges/maintenance-site-internet/',
+    '/consultant-seo-ajaccio': '/agence-seo-ajaccio/',
   },
   i18n: {
     locales: ['fr', 'en'],

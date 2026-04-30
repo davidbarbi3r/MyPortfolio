@@ -1,5 +1,5 @@
 ---
-// HeroAnimations — clip-path reveal, mask wipe, counter, magnetic button
+// HeroAnimations - clip-path reveal, mask wipe, counter, magnetic button
 ---
 
 <script>
@@ -27,7 +27,7 @@
       }
     }
 
-    // --- 2. Title — clip-path reveal line by line ---
+    // --- 2. Title - clip-path reveal line by line ---
     const title = hero.querySelector('[data-hero-title]');
     if (title) {
       const split = new SplitText(title, { type: 'lines', linesClass: 'hero-line' });
@@ -51,7 +51,7 @@
       }, '-=0.2');
     }
 
-    // --- 3. Photo — mask wipe (emerald overlay slides away) ---
+    // --- 3. Photo - mask wipe (emerald overlay slides away) ---
     const photoWrapper = hero.querySelector('[data-hero-photo]');
     if (photoWrapper) {
       const overlay = document.createElement('div');
@@ -86,7 +86,7 @@
       tl.to(cta, { opacity: 1, y: 0, duration: 0.5 }, '-=0.3');
     }
 
-    // --- 5. Stats — counter animation + stagger ---
+    // --- 5. Stats - counter animation + stagger ---
     const statNumbers = hero.querySelectorAll('[data-hero-stat]');
     if (statNumbers.length) {
       statNumbers.forEach((stat) => {
@@ -106,7 +106,7 @@
         const isFloat = target.includes('/');
 
         if (isFloat) {
-          // For "5/5" type stats — just reveal, no counter
+          // For "5/5" type stats - just reveal, no counter
           return;
         }
 

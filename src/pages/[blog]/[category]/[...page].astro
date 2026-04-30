@@ -16,7 +16,7 @@ const { page, category } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `Category '${category}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Category '${category}' ${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
   description: `Découvrez les derniers projets et articles du ${category} de David Barbier.`,
   robots: {
     index: blogCategoryRobots?.index,

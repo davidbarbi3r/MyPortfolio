@@ -1,0 +1,733 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Image from '../components/common/Image.astro';
+import HeroImage from '../assets/images/DSCF7551-3.jpg';
+import Activateur from "../assets/images/activateur.png"
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Agence SEO Ajaccio : votre site visible et qui ramène des clients',
+  description:
+    "Agence SEO à Ajaccio. Audit gratuit, audit complet, optimisation fiche Google. Référencement naturel sans jargon ni promesse bidon. Devis sous 48h.",
+};
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
+      "@type": "Service",
+      "@id": "https://www.davidbarbier.com/agence-seo-ajaccio/#service",
+      "name": "Agence SEO à Ajaccio",
+      "description": "Agence SEO à Ajaccio. Accompagnement SEO mensuel, audit technique, optimisation Google Business Profile pour TPE et indépendants en Corse.",
+      "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+      "areaServed": [
+        { "@type": "City", "name": "Ajaccio" },
+        { "@type": "AdministrativeArea", "name": "Corse" }
+      ],
+      "serviceType": "Agence SEO",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Offres SEO Ajaccio",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Accompagnement SEO mensuel",
+            "description": "Stratégie SEO complète avec suivi mensuel",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "minPrice": "490",
+              "priceCurrency": "EUR",
+              "unitCode": "MON",
+              "valueAddedTaxIncluded": false
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Audit SEO complet",
+            "description": "Analyse approfondie + plan d'action stratégique",
+            "price": "690",
+            "priceCurrency": "EUR",
+            "url": "https://www.davidbarbier.com/audit-seo-ajaccio/"
+          },
+          {
+            "@type": "Offer",
+            "name": "Audit SEO gratuit",
+            "description": "Analyse rapide et factuelle de votre site",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "url": "https://www.davidbarbier.com/audit-seo-gratuit-ajaccio/"
+          },
+          {
+            "@type": "Offer",
+            "name": "Optimisation de fiche d'établissement Google",
+            "description": "Mise en conformité et optimisation complète de votre fiche Google",
+            "price": "350",
+            "priceCurrency": "EUR",
+            "url": "https://www.davidbarbier.com/optimisation-fiche-google-ajaccio/"
+          },
+          {
+            "@type": "Offer",
+            "name": "Suivi & animation Google Business Profile mensuel",
+            "description": "Animation mensuelle de votre fiche Google Business : posts, gestion des avis, monitoring",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100",
+              "priceCurrency": "EUR",
+              "unitCode": "MON",
+              "valueAddedTaxIncluded": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour voir des résultats en SEO ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les premiers mouvements sur vos mots-clés sont visibles entre 3 et 4 mois. Des résultats concrets en leads ou chiffre d'affaires arrivent entre 6 et 12 mois, selon la concurrence et l'état de départ. Je recommande un engagement minimum de 6 mois pour que la stratégie ait le temps de payer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi parler d'agence si vous travaillez seul ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce que ce qui compte ce n'est pas la structure juridique, c'est la capacité à livrer. Je travaille seul sur la stratégie et l'exécution SEO. Quand un projet demande des compétences que je n'ai pas (rédaction longue, design, dev très spécialisé), j'active un réseau de freelances seniors avec qui je collabore depuis des années. Vous parlez toujours à moi, jamais à un commercial ou un stagiaire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et si au bout de 6 mois je n'ai aucun résultat ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je ne prends que des projets viables sur le plan SEO - l'audit initial est justement là pour l'identifier avant de commencer. Si malgré ça les résultats tardent, on fait un point trimestriel où on peut arrêter sans pénalité. L'accompagnement mensuel n'est pas un abonnement piégé : pas de reconduction tacite, pas de frais de résiliation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que je garde la main sur mes comptes (Google, WordPress, hébergement) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, sans exception. Tous vos comptes (Google Business Profile, Search Console, Analytics, WordPress, hébergeur) restent à votre nom, avec vos identifiants. Je travaille sur vos accès, je ne crée rien à mon nom. Si on arrête la collaboration, vous partez avec tout - et sans que ça casse quoi que ce soit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Audit gratuit ou audit complet à 690€ ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'audit gratuit (15-20 min en visio) donne un constat rapide de l'existant, sans rapport écrit ni plan. L'audit complet à 690€ ajoute les analyses concurrence, backlinks, sémantique, présence IA, et la liste des corrections classées par priorité. Livré en 5 jours ouvrés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le tarif d'une agence SEO à Ajaccio ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quatre formules transparentes. Accompagnement SEO mensuel : 490€ HT/jour, avec 1 à 3 jours/mois selon votre projet (à partir de 490€/mois, engagement 6 mois). Audit complet : 690€ HT (état des lieux + corrections priorisées, sans suivi). Optimisation fiche d'établissement Google : 350€ HT (one shot). Suivi et animation Google Business mensuel : 100€ HT/mois (posts, avis, monitoring, sans engagement). Pour un besoin ponctuel, interventions à la demi-journée (245€ HT) ou à la journée (490€ HT) sans engagement. Tarifs HT, sans frais caché, sans reconduction tacite."
+      }
+    }
+  ]
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.davidbarbier.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Agence SEO Ajaccio",
+      "item": "https://www.davidbarbier.com/agence-seo-ajaccio/"
+    }
+  ]
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
+  </Fragment>
+
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <!-- Fil d'Ariane -->
+    <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm font-body">
+        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-gray-900 dark:text-white font-medium">Agence SEO Ajaccio</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-4 sm:pb-12 lg:flex lg:px-8 lg:py-16">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <!-- Badge localisation -->
+        <div class="mt-8 sm:mt-16 lg:mt-8">
+          <span class="inline-flex items-center">
+            <span
+              class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10"
+            >
+              Ajaccio - Corse
+            </span>
+          </span>
+        </div>
+
+        <!-- H1 SEO-focus -->
+        <h1 class="mt-6 text-base font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+          Agence SEO Ajaccio
+        </h1>
+
+        <!-- Titre visuel commercial -->
+        <p class="mt-3 text-pretty font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+          <span class="text-green-950 dark:text-white">Plus haut sur Google,</span><br />
+          <span class="text-emerald-700 dark:text-emerald-400">plus de clients trouvés.</span>
+        </p>
+
+        <!-- Trust line -->
+        <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+          ⭐ 5/5 sur Google · 16 avis · +50 clients accompagnés · Basé à Ajaccio
+        </p>
+
+        <!-- Problem statement -->
+        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Vous avez un site, vos concurrents sont devant vous sur Google, et vous ne savez pas comment changer ça. C'est exactement le problème que résout mon <strong>agence SEO à Ajaccio</strong>.
+        </p>
+
+        <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
+          Technique, contenu, liens - les 3 piliers du SEO travaillés ensemble pour vous installer durablement sur vos mots-clés stratégiques. Reporting mensuel clair, chiffres vérifiables dans votre Search Console.
+        </p>
+
+        <!-- Call-to-action -->
+        <div class="mt-10 flex items-center gap-x-6">
+          <a
+            href="/audit-seo-gratuit-ajaccio/"
+            class="rounded-md bg-green-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
+          >
+            Demander un audit gratuit
+          </a>
+          <a href="#services" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-300 whitespace-nowrap">
+            Découvrir mes services <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+        <p class="mt-3 text-xs text-gray-500 dark:text-gray-400 max-w-md">
+          Audit gratuit = analyse rapide et factuelle de votre site. <a href="/audit-seo-ajaccio/" class="underline hover:text-emerald-700 dark:hover:text-emerald-400">L'audit complet (690€)</a> va plus loin : backlinks, concurrence, stratégie.
+        </p>
+      </div>
+
+      <!-- Image / dashboard -->
+      <div class="mx-auto mt-16 flex max-w-2xl lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none xl:ml-32">
+        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+          <div
+            class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
+          >
+            <img
+              src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/af43940c-7bc0-4088-bd7a-6f7002f9b200/public"
+              alt="Visualisation des performances SEO dans la google search console"
+              class="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10 max-h-[80vh] object-contain object-left"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Résultats concrets -->
+  <section class="py-16 sm:py-20 px-6 lg:px-8 bg-gray-50 dark:bg-slate-800">
+    <div class="mx-auto max-w-5xl">
+      <div class="mb-12">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          Résultats concrets
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Des clients qui trouvent, <span class="text-emerald-700 dark:text-emerald-400">appellent, achètent.</span>
+        </h2>
+        <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl">
+          J'ai déménagé à Ajaccio il y a 4 ans. Certains de mes cases chiffrés viennent de clients continentaux - la méthode est la même partout.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <article class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Ajaccio
+            </span>
+            <span class="text-xs text-gray-500 dark:text-gray-400">Santé · Cabinet médical</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            Endoajaccio - endodontiste
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-6">
+            Site conçu from scratch + fondations SEO locales + Google Business Profile optimisé.
+          </p>
+          <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 mb-4 mt-auto">
+            <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">5 nouveaux patients / jour</p>
+            <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">depuis la mise en ligne</p>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-500 italic leading-relaxed">
+            L'endodontie est peu représentée en Corse, ce qui a accéléré le positionnement. La méthode reste la même sur des secteurs plus compétitifs.
+          </p>
+        </article>
+
+        <article class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-600/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              Bordeaux
+            </span>
+            <span class="text-xs text-gray-500 dark:text-gray-400">Service à domicile · B2C</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            Restodom - portage de repas à Bordeaux
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-6">
+            Accompagnement SEO sur 12 mois : stratégie technique + éditoriale + netlinking.
+          </p>
+          <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 mb-4 mt-auto">
+            <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">Top 1 Google</p>
+            <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">sur "portage repas bordeaux" en 12 mois</p>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-500 italic leading-relaxed">
+            Requête commerciale locale avec concurrence. Position tenue dans la durée - toujours en top 1 aujourd'hui.
+          </p>
+        </article>
+      </div>
+
+      <!-- Testimonials clients (avis Google publics) -->
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <figure class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-emerald-200 dark:border-emerald-800 relative flex flex-col">
+          <svg class="absolute top-6 left-6 w-10 h-10 text-emerald-100 dark:text-emerald-900/40" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4Zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4Z"/>
+          </svg>
+          <blockquote class="pl-12 text-base leading-relaxed text-gray-700 dark:text-gray-200 italic flex-grow">
+            « Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet REST'Ô DOM. Son écoute et son professionnalisme ont permis la bonne exécution du site. La collaboration se poursuit à l'heure actuelle, car il est SEO également - me permettant ainsi de gagner grandement en visibilité grâce à ses compétences. »
+          </blockquote>
+          <figcaption class="pl-12 mt-5 pt-4 border-t border-gray-100 dark:border-gray-800">
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">REST'Ô DOM</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Portage de repas à domicile · Bordeaux</p>
+          </figcaption>
+        </figure>
+
+        <figure class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-emerald-200 dark:border-emerald-800 relative flex flex-col">
+          <svg class="absolute top-6 left-6 w-10 h-10 text-emerald-100 dark:text-emerald-900/40" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4Zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4Z"/>
+          </svg>
+          <blockquote class="pl-12 text-base leading-relaxed text-gray-700 dark:text-gray-200 italic flex-grow">
+            « Je collabore avec David depuis près d'un an : j'apprécie son sérieux, sa réactivité et sa disponibilité. Je vois les fruits de son travail, avec une hausse du trafic intéressante et pertinente dans le cadre de son activité. Je recommande fortement. »
+          </blockquote>
+          <figcaption class="pl-12 mt-5 pt-4 border-t border-gray-100 dark:border-gray-800">
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">Mobincub</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Client SEO · 1 an de collaboration</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="tel:+33623565299"
+          class="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold hover:gap-3 transition-all"
+        >
+          Réservons 20 min pour parler de votre cas
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agence solo, mais pas seul -->
+  <section class="px-6 py-16 sm:py-20 lg:px-8 bg-gradient-to-b from-amber-50/50 to-white dark:from-slate-800 dark:to-slate-900">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-6 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        Agence vs freelance - le vrai débat
+      </p>
+
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+        Agence solo. <span class="text-emerald-700 dark:text-emerald-400">Mais pas tout seul.</span>
+      </h2>
+
+      <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        Solo sur l'opérationnel - vous parlez à celui qui fait le boulot. Quand un projet demande des compétences pointues que je n'ai pas, j'active un réseau de freelances seniors. Pas de stagiaire, pas d'offshore.
+      </p>
+
+      <!-- Comparaison -->
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <!-- Agence classique -->
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Agence classique</p>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Vous payez la structure, pas le travail</h3>
+          <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Commercial qui prend soin de vous jusqu'à la signature</li>
+            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Dossier traité ensuite par un junior payé 1500€/mois</li>
+            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Tarif gonflé pour financer locaux, salaires, marges</li>
+            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Problème ? Vous êtes un ticket traité dans 3 semaines</li>
+            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Reporting cosmétique pour justifier la facture</li>
+          </ul>
+        </div>
+
+        <!-- Agence solo -->
+        <div class="rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Agence solo + collectif</p>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Vous payez l'expertise, point</h3>
+          <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Vous parlez directement à celui qui exécute</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Senior sur la stratégie ET sur l'exécution</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Tarif 30 à 50% sous une agence équivalente</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Réponse sous 48h, suivi mensuel en visio</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Reporting clair, chiffres vérifiables dans votre Search Console</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Mes services -->
+  <section class="mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl scroll-mt-32" id="services">
+        Mes services de référencement
+      </h2>
+      <p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-100">
+        Quatre prestations articulées autour d'une logique simple : diagnostiquer → corriger → maintenir.
+      </p>
+
+      <ul class="mt-4 space-y-3 text-lg text-gray-800 dark:text-gray-100">
+        <li class="flex gap-x-3 text-gray-950 dark:text-gray-100">
+          <span class="font-bold text-black dark:text-gray-100">→ <strong>Accompagnement SEO mensuel :</strong></span> Partenaire de votre croissance en ligne sur la durée (à partir de 490€/mois).
+        </li>
+        <li class="flex gap-x-3">
+          <span class="font-semibold">→ <a href="/audit-seo-ajaccio/" class="text-emerald-700 dark:text-emerald-400 hover:underline">Audit SEO complet</a> :</span> Une analyse approfondie pour piloter votre SEO en autonomie. 690€ HT, livré sous 5 jours.
+        </li>
+        <li class="flex gap-x-3">
+          <span class="font-semibold">→ <a href="/audit-seo-gratuit-ajaccio/" class="text-emerald-700 dark:text-emerald-400 hover:underline">Audit SEO gratuit</a> :</span> Analyse rapide et factuelle de votre site, sans engagement. 15-20 min en visio.
+        </li>
+        <li class="flex gap-x-3">
+          <span class="font-semibold">→ <a href="/optimisation-fiche-google-ajaccio/" class="text-emerald-700 dark:text-emerald-400 hover:underline">Optimisation fiche d'établissement Google</a> :</span> Le levier #1 du référencement local. 350€ HT.
+        </li>
+        <li class="flex gap-x-3">
+          <span class="font-semibold">→ Suivi mensuel Google Business :</span> Animation continue de votre fiche (posts, avis, monitoring). À partir de 100€/mois.
+        </li>
+      </ul>
+    </div>
+
+    <article class="px-6 lg:px-8 mt-10 md:mt-14">
+      <div class="bg-green-800/10 dark:bg-gray-700 p-6 rounded-lg max-w-3xl mx-auto">
+        <p class="font-bold mb-3">Tarif : 490€ HT / jour</p>
+        <p class="mb-3">
+          Le volume s'adapte à votre projet - la plupart des TPE locales ont besoin d'1 jour/mois, les projets plus actifs de 2 à 3.
+        </p>
+        <ul class="space-y-2 mb-4 pl-4 list-disc">
+          <li><strong>1 jour / mois - 490€/mois HT</strong> · TPE locale, maintien de la stratégie</li>
+          <li><strong>2 jours / mois - 980€/mois HT</strong> · projet en croissance, contenu régulier</li>
+          <li><strong>3 jours / mois - 1 470€/mois HT</strong> · gros projet, action intensive</li>
+        </ul>
+        <p class="text-sm italic mb-3">
+          Engagement minimum 6 mois. Comprend le RDV mensuel pour analyser les résultats et ajuster la stratégie. Facturation adaptée au volume réel.
+        </p>
+        <p class="text-sm border-t border-gray-300 dark:border-gray-600 pt-3">
+          <strong>Besoin ponctuel, sans engagement ?</strong> Intervention à la demi-journée (<strong>245€ HT</strong>) ou à la journée (<strong>490€ HT</strong>) - pour une question stratégique, une optimisation ciblée ou un coup de main express.
+        </p>
+      </div>
+    </article>
+
+    <!-- Audits cards (résumé + lien vers pages dédiées) -->
+    <article id="audits" class="bg-cream p-8 rounded-xl mx-auto max-w-7xl px-6 lg:px-8 scroll-mt-32">
+      <h3 class="text-3xl font-bold mb-4">Deux options d'audit, selon ce dont vous avez besoin</h3>
+      <p class="text-balance mb-10 text-gray-700 dark:text-gray-300">
+        Avant d'engager du budget, savoir où vous en êtes. Deux formules d'audit : la gratuite pour dégrossir, la complète pour piloter une vraie stratégie.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Audit gratuit -->
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-6 rounded-xl">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Audit rapide</h4>
+            <span class="inline-block px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full">Gratuit</span>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-5">
+            Analyse <strong>factuelle</strong> de votre site dans sa globalité. Je regarde ce qui est fait, et je vous dis ce qui est fait - sans filtre.
+          </p>
+
+          <p class="text-sm font-semibold text-gray-900 dark:text-white mb-2">Ce que je fais :</p>
+          <ul class="text-sm space-y-1.5 text-gray-700 dark:text-gray-300 mb-5">
+            <li>✓ Audit visuel global de votre site</li>
+            <li>✓ Identification des gros problèmes techniques</li>
+            <li>✓ Constat factuel : ce qui est en place, ce qui manque</li>
+          </ul>
+
+          <p class="text-sm font-semibold text-gray-900 dark:text-white mb-2">Ce que je NE fais PAS :</p>
+          <ul class="text-sm space-y-1.5 text-gray-500 dark:text-gray-400 mb-5">
+            <li>✕ Analyse des backlinks</li>
+            <li>✕ Analyse de la concurrence</li>
+            <li>✕ Réflexion stratégique ou plan d'action</li>
+            <li>✕ Étude de mots-clés</li>
+          </ul>
+
+          <a href="/audit-seo-gratuit-ajaccio/" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
+            Tout savoir sur l'audit gratuit
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Audit complet -->
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-500 p-6 rounded-xl relative">
+          <span class="absolute -top-3 left-6 inline-block px-3 py-1 text-xs font-bold text-white bg-emerald-700 rounded-full uppercase tracking-wide">Recommandé si vous êtes sérieux</span>
+          <div class="flex items-center justify-between mb-4 mt-2">
+            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Audit complet</h4>
+            <span class="inline-block px-3 py-1 text-sm font-semibold text-white bg-emerald-700 rounded-full">690€</span>
+          </div>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-5">
+            <strong>Analyse approfondie + plan d'action stratégique</strong>. Votre boussole pour piloter une vraie démarche SEO, seul ou avec moi.
+          </p>
+
+          <p class="text-sm font-semibold text-gray-900 dark:text-white mb-2">Ce que vous obtenez :</p>
+          <ul class="text-sm space-y-1.5 text-gray-700 dark:text-gray-300 mb-5">
+            <li>✓ Audit technique complet (vitesse, structure, balisage)</li>
+            <li>✓ Analyse de vos backlinks existants</li>
+            <li>✓ Analyse concurrence (3-5 concurrents directs)</li>
+            <li>✓ Étude de vos mots-clés stratégiques</li>
+            <li>✓ Plan d'actions priorisé, chiffré et séquencé</li>
+            <li>✓ Rapport visuel + restitution en visio</li>
+          </ul>
+
+          <a href="/audit-seo-ajaccio/" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
+            Tout savoir sur l'audit complet
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          Pas sûr lequel vous convient ? <a href="tel:+33623565299" class="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">Appelez-moi</a>, on en parle 5 minutes.
+        </p>
+      </div>
+    </article>
+
+    <!-- Référencement local : carte CTA compacte -->
+    <article class="mx-auto max-w-3xl px-6 lg:px-8 mt-10">
+      <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 p-6 rounded-2xl flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Référencement local : le pack Google d'abord</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">Optimisation fiche d'établissement Google - 350€ HT one-shot. Suivi mensuel optionnel à 100€/mois.</p>
+        </div>
+        <a href="/optimisation-fiche-google-ajaccio/" class="inline-flex items-center gap-2 font-semibold text-emerald-700 dark:text-emerald-400 whitespace-nowrap hover:gap-3 transition-all">
+          Voir l'offre complète
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- Qui je suis + formulaire -->
+  <section class="px-6 py-16 sm:py-20 lg:px-8 bg-gray-50 dark:bg-slate-800">
+    <div class="mx-auto max-w-5xl">
+      <div class="md:flex md:gap-12 md:items-start">
+        <div class="md:w-2/5 space-y-6">
+          <div class="flex flex-col items-center md:items-start">
+            <Image
+              src={HeroImage}
+              height={160}
+              width={160}
+              alt="David Barbier - Agence SEO et développeur web à Ajaccio"
+              class="size-40 rounded-full object-cover shadow-lg"
+            />
+            <h2 class="mt-5 text-2xl font-bold text-gray-900 dark:text-white">Qui je suis</h2>
+          </div>
+          <div class="space-y-4 text-gray-600 dark:text-gray-300">
+            <p>
+              <strong class="text-gray-900 dark:text-white">David Barbier, agence SEO solo &amp; développeur web à Ajaccio.</strong> Ancien auditeur financier reconverti dans le digital - j'apporte une rigueur chiffrée à un métier qui en manque souvent.
+            </p>
+            <a href="/a-propos/" class="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-semibold hover:gap-2 transition-all">
+              En savoir plus sur mon parcours
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-gray-200 dark:border-gray-700 flex items-center gap-4">
+            <Image
+              src={Activateur.src}
+              alt="David Barbier - Activateur France Num"
+              width={72}
+              height={72}
+            />
+            <div>
+              <p class="text-sm font-semibold text-gray-900 dark:text-white">Activateur France Numérique</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Engagé pour la visibilité des TPE Corse</p>
+              <a class="text-xs underline hover:text-emerald-700 dark:hover:text-emerald-400 text-gray-500 dark:text-gray-400" href="https://www.francenum.gouv.fr/activateurs/david-barbier" target="_blank" rel="noopener">
+                Voir mon profil sur France Num →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 md:mt-0 md:w-3/5">
+          <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-4 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Discutons de votre projet</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Réponse sous 48h. Premier échange de 20 min gratuit.</p>
+            </div>
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre nom</label>
+              <input id="name" name="name" type="text" class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre email</label>
+              <input id="email" name="email" type="email" class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2" />
+            </div>
+            <div>
+              <label for="textarea" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre message</label>
+              <textarea id="textarea" name="textarea" rows="4" class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2" placeholder="Parlez-moi de votre site, votre activité, vos objectifs..."></textarea>
+            </div>
+            <div class="mt-3 flex items-start">
+              <div class="flex mt-0.5">
+                <input
+                  id="disclaimer"
+                  name="disclaimer"
+                  type="checkbox"
+                  required
+                  class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                />
+              </div>
+              <div class="ml-3">
+                <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+                  En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+                </label>
+              </div>
+            </div>
+            <button class="w-full bg-emerald-700 hover:bg-emerald-600 text-white py-3 px-4 rounded-md font-semibold transition">
+              Envoyer ma demande
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO en Corse - version compacte -->
+  <section class="py-12 px-6 lg:px-8 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+        Basé à Ajaccio. <span class="text-emerald-700 dark:text-emerald-400">J'accompagne toute la Corse.</span>
+      </h2>
+      <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+        Saisonnalité brutale, concurrence nationale qui monopolise la visibilité, pack local disproportionné - la Corse a ses codes SEO. Avant de vous engager, j'analyse votre niche pour vous dire ce qui est accessible et ce qui ne l'est pas. 20 min, sans engagement.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">FAQ - Agence SEO Ajaccio</h2>
+    <div>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <h3 class="inline">Combien de temps faut-il pour voir des résultats en SEO ?</h3>
+        </summary>
+        <p class="pl-4 mt-2">
+          Les premiers mouvements sur vos mots-clés sont visibles entre 3 et 4 mois. Des résultats concrets en leads ou chiffre d'affaires arrivent entre 6 et 12 mois, selon la concurrence et l'état de départ.
+        </p>
+        <p class="pl-4 mt-2">
+          Je recommande un engagement minimum de 6 mois pour que la stratégie ait le temps de payer.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <h3 class="inline">Pourquoi parler d'agence si vous travaillez seul ?</h3>
+        </summary>
+        <p class="pl-4 mt-2">
+          Parce que ce qui compte ce n'est pas la structure juridique, c'est la capacité à livrer. Je travaille seul sur la stratégie et l'exécution SEO - vous parlez à celui qui fait le boulot, jamais à un commercial ou un stagiaire.
+        </p>
+        <p class="pl-4 mt-2">
+          Quand un projet demande des compétences que je n'ai pas (rédaction longue, design, dev très spécialisé), j'active un réseau de freelances seniors avec qui je collabore depuis des années. Vous validez la composition de l'équipe avant qu'on démarre.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <h3 class="inline">Et si au bout de 6 mois je n'ai aucun résultat ?</h3>
+        </summary>
+        <p class="pl-4 mt-2">
+          Je ne prends que des projets viables sur le plan SEO - l'audit initial est justement là pour l'identifier avant de commencer. Si malgré ça les résultats tardent, on fait un point trimestriel où on peut arrêter sans pénalité.
+        </p>
+        <p class="pl-4 mt-2">
+          L'accompagnement mensuel n'est pas un abonnement piégé : pas de reconduction tacite, pas de frais de résiliation.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <h3 class="inline">Est-ce que je garde la main sur mes comptes (Google, WordPress, hébergement) ?</h3>
+        </summary>
+        <p class="pl-4 mt-2">
+          Oui, sans exception. Tous vos comptes (Google Business Profile, Search Console, Analytics, WordPress, hébergeur) restent à votre nom, avec vos identifiants. Je travaille sur vos accès, je ne crée rien à mon nom.
+        </p>
+        <p class="pl-4 mt-2">
+          Si on arrête la collaboration, vous partez avec tout - et sans que ça casse quoi que ce soit.
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <h3 class="inline">Audit gratuit ou audit complet à 690€ ?</h3>
+        </summary>
+        <p class="pl-4 mt-2">
+          L'audit gratuit (15-20 min en visio) donne un constat rapide de l'existant, sans rapport écrit ni plan. L'audit complet à 690€ ajoute les analyses concurrence, backlinks, sémantique, présence IA, et la liste des corrections priorisées.
+        </p>
+        <p class="pl-4 mt-2">
+          <a href="/audit-seo-gratuit-ajaccio/" class="text-emerald-700 dark:text-emerald-400 font-semibold hover:underline">Audit gratuit →</a> · <a href="/audit-seo-ajaccio/" class="text-emerald-700 dark:text-emerald-400 font-semibold hover:underline">Audit complet →</a>
+        </p>
+      </details>
+
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer">
+          <h3 class="inline">Quel est le tarif d'une agence SEO à Ajaccio ?</h3>
+        </summary>
+        <p class="pl-4 mt-2">
+          Quatre formules transparentes :
+        </p>
+        <ul class="pl-4 mt-2 list-disc ml-6 space-y-2">
+          <li>
+            <strong>Accompagnement SEO mensuel</strong> à <strong>490€ HT/jour</strong>, 1 à 3 jours/mois selon votre projet :
+            <ul class="list-[circle] ml-5 mt-1 space-y-0.5">
+              <li>1 jour/mois : 490€/mois HT (TPE locale)</li>
+              <li>2 jours/mois : 980€/mois HT (projet en croissance)</li>
+              <li>3 jours/mois : 1 470€/mois HT (gros projet)</li>
+            </ul>
+          </li>
+          <li><strong>Audit complet</strong> à <strong>690€ HT</strong> - état des lieux + corrections priorisées, sans suivi</li>
+          <li><strong>Optimisation fiche d'établissement Google</strong> à <strong>350€ HT</strong> - one shot, résultats en 30-60 jours</li>
+          <li><strong>Suivi &amp; animation GBP mensuel</strong> à <strong>100€/mois HT</strong> - posts, avis, monitoring, sans engagement</li>
+        </ul>
+        <p class="pl-4 mt-2">
+          <strong>Besoin ponctuel ?</strong> Intervention demi-journée (245€ HT) ou journée (490€ HT) sans engagement.
+        </p>
+        <p class="pl-4 mt-2">
+          Tarifs HT, sans frais caché, sans reconduction tacite.
+        </p>
+      </details>
+    </div>
+  </section>
+</Layout>

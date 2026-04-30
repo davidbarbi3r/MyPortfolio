@@ -1,0 +1,439 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: "Optimisation fiche d'établissement Google à Ajaccio : top 3 du pack local",
+  description:
+    "Optimisation de votre fiche Google Business Profile à Ajaccio : catégories, services, NAP, photos, avis. 350€ HT one-shot, résultats sous 30-60 jours.",
+};
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    localBusinessAjaccioNode,
+    {
+      "@type": "Service",
+      "@id": "https://www.davidbarbier.com/optimisation-fiche-google-ajaccio/#service",
+      "name": "Optimisation de fiche d'établissement Google à Ajaccio",
+      "description": "Mise en conformité et optimisation complète de votre fiche Google Business Profile : catégorie primaire, services, NAP aligné, photos, attributs, gestion des avis. Forfait one-shot 350€ HT, résultats sous 30-60 jours.",
+      "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+      "isRelatedTo": { "@id": "https://www.davidbarbier.com/agence-seo-ajaccio/#service" },
+      "areaServed": [
+        { "@type": "City", "name": "Ajaccio" },
+        { "@type": "AdministrativeArea", "name": "Corse" }
+      ],
+      "serviceType": "Référencement local",
+      "offers": {
+        "@type": "Offer",
+        "name": "Optimisation de fiche d'établissement Google",
+        "price": "350",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "350",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    }
+  ]
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Cette prestation modifie-t-elle aussi mon site internet ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le forfait 350€ porte uniquement sur la fiche Google Business. Aucune modification de votre site web, aucune intervention sur le code, le schema, la landing page ou le NAP côté site. Si je détecte des écarts NAP entre votre fiche et votre site, je vous remets une liste précise de corrections à faire - vous, votre webmaster ou un autre prestataire les exécutent. Si vous voulez que je m'en occupe, c'est en plus, dans le cadre de l'audit complet (690€) ou de l'accompagnement SEO mensuel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi optimiser ma fiche Google Business avant tout le reste ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce que pour la majorité des recherches locales (\"restaurant Ajaccio\", \"plombier Ajaccio\", \"coiffeur Bastia\"), Google affiche en haut un encart avec 3 fiches Google Business Profile - le pack local. Ces 3 fiches captent la majorité des clics, bien avant les sites web. Si votre fiche est mal configurée, votre site peut être parfait, vous restez invisible. Pour la plupart des TPE locales, c'est le levier #1 du référencement, avant le travail sur le site lui-même."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Concrètement, qu'est-ce que vous modifiez sur ma fiche ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sept points clés : (1) catégorie primaire stratégique, (2) catégories secondaires complètes, (3) liste exhaustive des services proposés, (4) NAP - nom, adresse, téléphone - strictement aligné avec votre site, (5) attributs et caractéristiques pertinents, (6) photos optimisées (couverture, intérieur, équipe, produits), (7) description longue centrée sur vos clients. Plus la mise en place d'une stratégie d'avis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps avant de voir des résultats ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "30 à 60 jours. Google a besoin de re-crawler et ré-évaluer votre fiche après les modifications. Pendant ces 4 à 6 premières semaines, je ne touche plus à rien - modifier en continu empêche Google de stabiliser. Pour les niches peu compétitives à Ajaccio, on voit souvent un mouvement dès la 3e semaine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il un risque de pénalité Google ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aucun, à condition de ne pas faire de keyword stuffing dans le nom ou les services - c'est la règle d'or, et c'est ce que je respecte. Tout reste factuel, naturel, conforme aux guidelines Google. Si votre fiche a déjà des problèmes (catégorie suspendue, avis fake, etc.), je vous le dis avant de prendre la prestation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et après l'optimisation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une fiche bien configurée, c'est la base. Pour maintenir votre position dans le pack local sur la durée, il faut animer la fiche : poster régulièrement, répondre aux avis, ajouter des photos. Je propose un suivi mensuel à 100€ HT/mois pour m'en occuper à votre place. Sans engagement. Vous pouvez aussi le faire vous-même - je vous donne les bonnes pratiques en fin de prestation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vous travaillez aussi sur les fiches multi-établissements ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Pour plusieurs établissements (chaîne, points de vente multiples), c'est 350€ pour le premier puis 200€ HT par fiche supplémentaire. Chaque fiche est optimisée individuellement avec son adresse, son téléphone, sa landing page dédiée - la pire erreur en SEO local étant d'optimiser une seule page pour plusieurs adresses."
+      }
+    }
+  ]
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.davidbarbier.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Agence SEO Ajaccio", "item": "https://www.davidbarbier.com/agence-seo-ajaccio/" },
+    { "@type": "ListItem", "position": 3, "name": "Optimisation fiche d'établissement Google Ajaccio", "item": "https://www.davidbarbier.com/optimisation-fiche-google-ajaccio/" }
+  ]
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
+  </Fragment>
+
+  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+    <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm font-body">
+        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li><a href="/agence-seo-ajaccio/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Agence SEO Ajaccio</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-gray-900 dark:text-white font-medium">Optimisation fiche d'établissement Google</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 pb-16 pt-8 lg:py-20">
+      <div class="mt-4">
+        <span class="inline-flex items-center rounded-full bg-emerald-600/10 px-3 py-1 text-sm font-semibold text-emerald-700 dark:text-emerald-400 ring-1 ring-inset ring-emerald-600/20">
+          350€ HT · One shot · Résultats en 30-60 jours
+        </span>
+      </div>
+
+      <h1 class="mt-6 text-base font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+        Optimisation fiche d'établissement Google à Ajaccio
+      </h1>
+
+      <p class="mt-3 text-pretty font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+        <span class="text-green-950 dark:text-white">Top 3 du pack local,</span><br />
+        <span class="text-emerald-700 dark:text-emerald-400">à partir de la base.</span>
+      </p>
+
+      <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+        ⭐ 5/5 sur Google · 16 avis · +50 clients accompagnés · Basé à Ajaccio
+      </p>
+
+      <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        Pour la majorité des recherches locales - "restaurant Ajaccio", "plombier Ajaccio", "coiffeur Bastia" - Google affiche en haut un encart avec 3 fiches Google Business. Le pack local. Ces 3 fiches captent la majorité des clics, bien avant les résultats organiques classiques.
+      </p>
+
+      <p class="mt-4 text-base text-gray-700 dark:text-gray-200">
+        Cette prestation est la <strong class="text-gray-900 dark:text-white">fondation du référencement local</strong> : votre fiche bien posée, optimisée, prête à être animée. Le reste (alignement site, citations sectorielles, animation mensuelle) est traité dans un cadre plus large.
+      </p>
+
+      <p class="mt-4 text-base font-semibold text-gray-900 dark:text-white">
+        Si votre fiche est mal configurée, votre site peut être parfait : vous restez invisible.
+      </p>
+
+      <!-- Scope clarification -->
+      <div class="mt-8 p-5 rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20">
+        <p class="text-sm font-semibold text-amber-900 dark:text-amber-200 mb-1">📌 Cette prestation porte uniquement sur la fiche Google Business.</p>
+        <p class="text-sm text-amber-900/90 dark:text-amber-100/90">
+          Pas de modification de votre site internet. Si votre site a besoin d'être travaillé en parallèle (alignement NAP, schema LocalBusiness, landing page dédiée), c'est un autre périmètre - vu dans l'<a href="/audit-seo-ajaccio/" class="underline font-semibold">audit complet 690€</a> ou l'<a href="/agence-seo-ajaccio/#services" class="underline font-semibold">accompagnement SEO mensuel</a>.
+        </p>
+      </div>
+
+      <div class="mt-10 flex items-center gap-x-6 flex-wrap">
+        <a href="tel:+33623565299" class="rounded-md bg-green-700 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90">
+          Optimiser ma fiche
+        </a>
+        <a href="/agence-seo-ajaccio/" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+          Plutôt l'accompagnement complet ?
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi le pack local est critique -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">
+        Pourquoi c'est le levier #1 du SEO local
+      </h2>
+
+      <div class="space-y-5 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p>
+          Quand un client tape "X à Ajaccio" sur son téléphone, voici ce qui se passe à l'écran :
+        </p>
+        <ul class="space-y-3 ml-6">
+          <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span><strong>1. Annonces Google Ads</strong> en haut</li>
+          <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span><strong>2. Le pack local : 3 fiches Google Business</strong> avec carte, étoiles, horaires, bouton appeler</li>
+          <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span><strong>3. Les résultats organiques classiques</strong> (les 10 liens bleus) - souvent invisibles sans scroll</li>
+        </ul>
+        <p>
+          Le pack local capte la majorité des clics sur mobile parce qu'il est <strong class="text-gray-900 dark:text-white">au-dessus de la ligne de flottaison</strong>, parce qu'il a un bouton "appeler" direct, et parce que les utilisateurs font confiance aux étoiles.
+        </p>
+        <p>
+          Pour une TPE locale (artisan, restaurant, professionnel de santé, boutique), être en top 3 du pack local génère plus d'appels qu'être 1ᵉʳ sur les résultats organiques.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Méthode -->
+  <section id="process" class="px-6 py-16 lg:px-8 bg-gray-50 dark:bg-slate-800 scroll-mt-32">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-12">
+        Ma méthode d'optimisation
+      </h2>
+
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">1. Audit de votre fiche actuelle</h3>
+          <p class="text-gray-600 dark:text-gray-300">Catégorie primaire, secondaires, services listés, infos NAP, photos, avis, attributs. Je documente tout avant de toucher quoi que ce soit - référence pour mesurer l'impact ensuite.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">2. Catégorie primaire stratégique</h3>
+          <p class="text-gray-600 dark:text-gray-300">C'est le facteur de ranking #1 d'une fiche. Si elle est mal choisie, tout le reste est compromis. Je vérifie aussi les catégories secondaires pour capter les requêtes connexes.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">3. Liste exhaustive des services</h3>
+          <p class="text-gray-600 dark:text-gray-300">Google permet jusqu'à plusieurs dizaines de services par fiche. La plupart des concurrents en listent 5. C'est un avantage immédiat de couvrir tous vos services individuellement, avec descriptions et tarifs quand pertinent.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">4. Vérification NAP (Nom, Adresse, Téléphone)</h3>
+          <p class="text-gray-600 dark:text-gray-300">Je vérifie la cohérence entre votre fiche, votre site et les principaux annuaires (Pages Jaunes, Apple Maps, Bing Places). <strong>Si des écarts existent côté site, je vous remets une liste exacte des corrections à faire - mais je ne touche pas au site dans ce forfait.</strong> Si vous voulez que je m'en occupe, c'est en plus.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">5. Photos optimisées</h3>
+          <p class="text-gray-600 dark:text-gray-300">Couverture, intérieur, équipe, produits, avant/après si pertinent. Photos géolocalisées et nommées correctement. Les fiches avec 30+ photos cliquent significativement plus que celles avec 5.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">6. Description et attributs</h3>
+          <p class="text-gray-600 dark:text-gray-300">Description longue centrée sur vos clients (pas sur vous), attributs pertinents activés (paiement, accessibilité, services). Aucun keyword stuffing - c'est la garantie de ne pas se faire pénaliser.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">7. Stratégie d'avis</h3>
+          <p class="text-gray-600 dark:text-gray-300">Process simple à mettre en place pour collecter régulièrement des avis (lien direct, QR code, email post-prestation). Modèles de réponse aux avis positifs et négatifs. Les avis sont le 2ᵉ facteur de ranking après la catégorie primaire.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
+        <p class="text-sm text-gray-700 dark:text-gray-300">
+          <strong>Après l'optimisation : 4 à 6 semaines de silence absolu.</strong> Google a besoin de re-crawler et stabiliser sa compréhension de la fiche. Tweaker en continu = sabotage involontaire. Premier reporting à 30 jours, deuxième à 60 jours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pour qui -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">
+        Cette prestation est faite pour vous si...
+      </h2>
+
+      <ul class="space-y-4 text-lg text-gray-600 dark:text-gray-300">
+        <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous êtes artisan, commerçant, restaurateur ou professionnel de santé à Ajaccio ou en Corse.</li>
+        <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous avez une fiche Google Business existante (créée à un moment, plus ou moins remplie).</li>
+        <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous voulez plus d'appels et de visites depuis Google, sans dépendre des Google Ads.</li>
+        <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Votre concurrent direct apparaît systématiquement avant vous dans le pack local.</li>
+        <li class="flex gap-3"><span class="text-emerald-600 flex-shrink-0 mt-1">→</span>Vous voulez une intervention propre et durable, pas un hack qui vous fera plonger dans 3 mois.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Tarif -->
+  <section class="px-6 py-16 lg:px-8 bg-gray-50 dark:bg-slate-800">
+    <div class="mx-auto max-w-2xl">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-800">
+        <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Optimisation fiche d'établissement Google</p>
+        <p class="text-5xl font-bold text-gray-900 dark:text-white mb-2">350€ <span class="text-xl font-normal text-gray-500">HT</span></p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Forfait one-shot · résultats sous 30-60 jours</p>
+
+        <p class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">Inclus</p>
+        <ul class="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Audit complet de la fiche actuelle</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Catégorie primaire et secondaires optimisées</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Liste exhaustive des services</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Vérification NAP fiche / site / annuaires + liste de corrections si nécessaire</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Optimisation photos et description</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Process avis clients clé en main</li>
+          <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Reporting à 30 et 60 jours</li>
+        </ul>
+
+        <p class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">Non inclus</p>
+        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
+          <li class="flex gap-2"><span class="text-red-400 flex-shrink-0">✕</span>Modifications du site internet (NAP, schema, landing page)</li>
+          <li class="flex gap-2"><span class="text-red-400 flex-shrink-0">✕</span>Stratégie de citations / annuaires sectoriels</li>
+          <li class="flex gap-2"><span class="text-red-400 flex-shrink-0">✕</span>Animation mensuelle (posts, réponse aux avis) - voir suivi mensuel ↓</li>
+        </ul>
+
+        <a href="tel:+33623565299" class="block w-full text-center rounded-md bg-green-700 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-green-700/90">
+          Optimiser ma fiche
+        </a>
+
+        <p class="mt-5 text-xs text-gray-500 dark:text-gray-400 italic text-center">
+          Multi-établissements : 200€ HT par fiche supplémentaire.
+        </p>
+      </div>
+
+      <!-- Upsell mensuel -->
+      <div class="mt-8 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 p-6 rounded-2xl">
+        <div class="flex items-start justify-between gap-4 mb-3 flex-wrap">
+          <h3 class="font-bold text-xl text-gray-900 dark:text-white">+ Suivi &amp; animation mensuelle</h3>
+          <span class="inline-block px-3 py-1 text-sm font-semibold text-white bg-emerald-700 rounded-full whitespace-nowrap">100€/mois HT</span>
+        </div>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+          Une fiche optimisée doit ensuite être animée pour tenir sa position. Posts mensuels, réponse aux avis sous 48h, monitoring des changements, photos saisonnières, rapport trimestriel.
+        </p>
+        <p class="text-xs italic text-gray-500 dark:text-gray-400">
+          Sans engagement, annulable à tout moment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulaire de commande -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Lancer l'optimisation de ma fiche
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Téléphone direct ou formulaire, au choix.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 flex flex-col justify-center text-center">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Direct</p>
+          <a href="tel:+33623565299" class="block text-2xl font-bold text-gray-900 dark:text-white hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors mb-3">
+            06 23 56 52 99
+          </a>
+          <a href="mailto:hello@davidbarbier.com" class="block text-base text-gray-600 dark:text-gray-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors">
+            hello@davidbarbier.com
+          </a>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 italic">
+            Réponse sous 48h ouvrées.
+          </p>
+        </div>
+
+        <form method="post" action="https://formspree.io/f/xayglvyo" class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 space-y-4">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">Optimiser ma fiche</p>
+          <input type="hidden" name="_subject" value="[Optim fiche Google 350€] Nouvelle demande" />
+          <input type="hidden" name="source" value="optimisation-fiche-google-ajaccio" />
+          <div>
+            <label for="o_name" class="sr-only">Votre nom</label>
+            <input id="o_name" name="name" type="text" required placeholder="Votre nom" class="w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2.5 text-sm" />
+          </div>
+          <div>
+            <label for="o_email" class="sr-only">Votre email</label>
+            <input id="o_email" name="email" type="email" required placeholder="Votre email" class="w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2.5 text-sm" />
+          </div>
+          <div>
+            <label for="o_url" class="sr-only">URL de votre fiche Google</label>
+            <input id="o_url" name="gbp_url" type="url" required placeholder="URL fiche Google ou nom entreprise" class="w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-slate-900 dark:text-white p-2.5 text-sm" />
+          </div>
+          <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white py-2.5 px-4 rounded-md text-sm font-semibold transition">
+            Optimiser ma fiche (350€ HT)
+          </button>
+          <p class="text-xs text-gray-500 dark:text-gray-400">
+            Je vous recontacte pour valider l'accès en gestionnaire.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 my-16">
+    <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl mb-6">FAQ - Optimisation fiche d'établissement Google</h2>
+    <div>
+      <details class="mb-4" open>
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Cette prestation modifie-t-elle aussi mon site internet ?</h3></summary>
+        <p class="pl-4 mt-2"><strong>Non.</strong> Le forfait 350€ porte uniquement sur la fiche Google Business. Aucune modification de votre site web, aucune intervention sur le code, le schema, la landing page ou le NAP côté site.</p>
+        <p class="pl-4 mt-2">Si je détecte des écarts NAP entre votre fiche et votre site, je vous remets une liste précise de corrections à faire - vous, votre webmaster ou un autre prestataire les exécutent. Si vous voulez que je m'en occupe, c'est en plus, dans le cadre de l'<a href="/audit-seo-ajaccio/" class="text-emerald-700 dark:text-emerald-400 hover:underline">audit complet (690€)</a> ou de l'<a href="/agence-seo-ajaccio/#services" class="text-emerald-700 dark:text-emerald-400 hover:underline">accompagnement SEO mensuel</a>.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Pourquoi optimiser ma fiche Google Business avant tout le reste ?</h3></summary>
+        <p class="pl-4 mt-2">Pour la majorité des recherches locales, Google affiche en haut un encart avec 3 fiches Google Business - le pack local. Ces 3 fiches captent la majorité des clics, bien avant les sites web. Si votre fiche est mal configurée, votre site peut être parfait, vous restez invisible.</p>
+        <p class="pl-4 mt-2">Pour la plupart des TPE locales, c'est le levier #1 du référencement, avant le travail sur le site lui-même.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Concrètement, qu'est-ce que vous modifiez sur ma fiche ?</h3></summary>
+        <p class="pl-4 mt-2">Sept points clés : catégorie primaire stratégique, catégories secondaires complètes, liste exhaustive des services, NAP strictement aligné avec votre site, attributs et caractéristiques pertinents, photos optimisées, description longue centrée client. Plus la mise en place d'une stratégie d'avis.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Combien de temps avant de voir des résultats ?</h3></summary>
+        <p class="pl-4 mt-2">30 à 60 jours. Google a besoin de re-crawler et ré-évaluer votre fiche. Pendant les 4-6 premières semaines, je ne touche plus à rien - modifier en continu empêche Google de stabiliser.</p>
+        <p class="pl-4 mt-2">Pour les niches peu compétitives à Ajaccio, on voit souvent un mouvement dès la 3ᵉ semaine.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Y a-t-il un risque de pénalité Google ?</h3></summary>
+        <p class="pl-4 mt-2">Aucun, à condition de ne pas faire de keyword stuffing dans le nom ou les services - c'est la règle d'or, et c'est ce que je respecte. Tout reste factuel, naturel, conforme aux guidelines Google.</p>
+        <p class="pl-4 mt-2">Si votre fiche a déjà des problèmes (catégorie suspendue, avis fake, etc.), je vous le dis avant de prendre la prestation.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Et après l'optimisation ?</h3></summary>
+        <p class="pl-4 mt-2">Une fiche bien configurée, c'est la base. Pour maintenir votre position dans le pack local sur la durée, il faut animer la fiche : poster régulièrement, répondre aux avis, ajouter des photos. Je propose un suivi mensuel à 100€ HT/mois pour m'en occuper à votre place. Vous pouvez aussi le faire vous-même - je vous donne les bonnes pratiques en fin de prestation.</p>
+      </details>
+      <details class="mb-4">
+        <summary class="font-semibold text-lg hover:cursor-pointer"><h3 class="inline">Vous travaillez aussi sur les fiches multi-établissements ?</h3></summary>
+        <p class="pl-4 mt-2">Oui. 350€ pour le premier puis 200€ HT par fiche supplémentaire. Chaque fiche est optimisée individuellement avec son adresse, son téléphone, sa landing page dédiée - la pire erreur en SEO local étant d'optimiser une seule page pour plusieurs adresses.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Cross-link pilier -->
+  <section class="px-6 py-12 lg:px-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        Vous voulez aller plus loin que le local ? L'optimisation GBP est une brique parmi d'autres.
+      </p>
+      <a href="/agence-seo-ajaccio/" class="inline-flex items-center gap-2 font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
+        Voir tous mes services SEO à Ajaccio
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

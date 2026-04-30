@@ -74,9 +74,9 @@ export const fr = {
           price: '',
         },
         {
-          title: 'Consultant SEO',
+          title: 'Agence SEO',
           description:
-            'Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.',
+            "Une agence web, mais pas que - j'ai fait du SEO ma passion. Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.",
           items: [],
           price: '',
         },
