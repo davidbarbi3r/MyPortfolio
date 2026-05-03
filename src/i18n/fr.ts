@@ -56,29 +56,87 @@ export const fr = {
           title: 'Création et refonte de site internet',
           description:
             "Sites sur-mesure rapides, faciles à modifier, sans plugins fragiles. Pour les TPE corses qui veulent un site qui dure.",
-          items: [],
-          price: '',
+          items: [
+            {
+              title: 'Sites Vitrine',
+              description: 'Des sites vitrine sur-mesure clairs, crédibles et structurés pour valoriser votre activité.',
+            },
+            {
+              title: 'Blogs / Gestion de contenu',
+              description: 'Un site professionnel sur-mesure avec une gestion de contenu facile et intuitive.',
+            },
+            {
+              title: 'Sites E-commerce',
+              description: 'Une boutique en ligne pour vendre vos produits et services. Je travaille avec WooCommerce et Shopify.',
+            },
+          ],
+          price: 'Sur devis',
+        },
+        {
+          title: 'Référencement SEO',
+          description:
+            "Une agence web, mais pas que - j'ai fait du SEO ma passion. Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.",
+          items: [
+            {
+              title: 'Audit SEO',
+              description:
+                'Analyse de votre site pour identifier les points à améliorer et les actions à mettre en place.',
+            },
+            {
+              title: 'Accompagnement SEO complet',
+              description:
+                'Suivi mensuel, étude de mots-clés, optimisation du contenu, netlinking pour améliorer votre positionnement.',
+            },
+            {
+              title: 'Référencement local',
+              description: "Création et optimisation de fiche Google Business Profile, optimisation de votre site pour rayonner en Corse.",
+            },
+          ],
+          price: 'Sur devis',
         },
         {
           title: 'Développement sur-mesure',
           description:
             "MVP, applications web, intégrations métier. Pour les projets qui sortent du cadre d'un site classique.",
-          items: [],
-          price: '',
+          items: [
+            {
+              title: 'Intégration en équipe',
+              description:
+                "Habitué à travailler en équipe, je peux facilement m'intégrer pour assurer le développement de votre projet.",
+            },
+            {
+              title: 'Création de SaaS, MVP',
+              description: "J'aide à ce que vos idées deviennent réalité en créant un MVP fonctionnel et évolutif.",
+            },
+            {
+              title: 'Débogage et upgrade',
+              description:
+                'Ajout de nouvelles fonctionnalités, correction de bugs, optimisation des performances.',
+            },
+          ],
+          price: 'Sur devis',
         },
         {
           title: 'Maintenance & sécurité',
           description:
             'Mises à jour, sauvegardes, surveillance. Forfaits dès 30 €/mois ou intervention ponctuelle à 60 €/h.',
-          items: [],
-          price: '',
-        },
-        {
-          title: 'Agence SEO',
-          description:
-            "Une agence web, mais pas que - j'ai fait du SEO ma passion. Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.",
-          items: [],
-          price: '',
+          items: [
+            {
+              title: 'Mises à jour',
+              description:
+                'Mises à jour régulières pour assurer la sécurité et la stabilité de votre site ou de votre application.',
+            },
+            {
+              title: 'Hébergement',
+              description: 'Hébergement de votre site ou de votre application sur un serveur sécurisé et performant.',
+            },
+            {
+              title: 'Maintenance',
+              description:
+                'Maintenance technique pour assurer le bon fonctionnement de votre site ou de votre application.',
+            },
+          ],
+          price: 'Dès 30 €/mois',
         },
       ],
     },

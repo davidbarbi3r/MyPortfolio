@@ -14,18 +14,19 @@ export const getHeaderData = () => {
       {
         text: 'Ajaccio',
         links: [
-          { text: 'Agence SEO à Ajaccio', href: '/agence-seo-ajaccio/' },
-          { text: 'Création de site internet à Ajaccio', href: '/creation-site-internet-ajaccio/' },
-          { text: 'Freelance WordPress à Ajaccio', href: '/freelance-wordpress-ajaccio/' },
-          { text: 'Maintenance site à Ajaccio', href: '/maintenance-site-internet-ajaccio/' },
+          { text: 'Accompagnement SEO', href: '/agence-seo-ajaccio/' },
+          { text: 'Création de site internet', href: '/creation-site-internet-ajaccio/' },
+          { text: 'Freelance WordPress', href: '/freelance-wordpress-ajaccio/' },
+          { text: 'Maintenance de site', href: '/maintenance-site-internet-ajaccio/' },
         ],
       },
       {
         text: 'Limoges',
         links: [
-          { text: 'Consultant SEO à Limoges', href: '/limoges/consultant-seo/' },
-          { text: 'Création site WordPress à Limoges', href: '/limoges/wordpress/' },
-          { text: 'Maintenance site à Limoges', href: '/limoges/maintenance-site-internet/' },
+          { text: 'Création de site internet', href: '/limoges/' },
+          { text: 'Consultant SEO', href: '/limoges/consultant-seo/' },
+          { text: 'WordPress', href: '/limoges/wordpress/' },
+          { text: 'Maintenance de site', href: '/limoges/maintenance-site-internet/' },
         ],
       },
       {

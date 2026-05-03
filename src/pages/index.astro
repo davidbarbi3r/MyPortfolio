@@ -35,7 +35,7 @@ import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: 'Agence web à Ajaccio · Freelance | David Barbier',
+  title: 'Agence web à Ajaccio, référencement et création site internet',
   description: "Agence web freelance à Ajaccio. Ancien auditeur financier, j'accompagne TPE corses et cabinets d'expertise comptable sur leurs projets digitaux.",
   lang: locale,
 };
@@ -198,12 +198,12 @@ const reviewsSchema = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">L'agence web à Ajaccio</span><br />
-      <span class="text-emerald-700 dark:text-emerald-400">qui prend le temps de comprendre votre métier.</span>
+      <span class="text-slate-800 dark:text-gray-200">L'agence web à Ajaccio,</span><br />
+      <span class="text-emerald-700 dark:text-emerald-400">création de site internet et référencement SEO</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Sites sur-mesure et consultant SEO pour TPE et cabinets d'expertise comptable. Des résultats mesurables, pas des promesses.
+      Sites internet sur-mesure pour TPE et experts-comptables. Je commence par comprendre votre métier, pas par ouvrir Figma.
     </Fragment>
 
     <Fragment slot="content">
@@ -285,6 +285,26 @@ const reviewsSchema = {
         servicesItems: tList('portfolio.services.servicesItems')[1].items,
         price: tList('portfolio.services.servicesItems')[1].price,
         image: {
+          ...ServiceSeo,
+          alt: locale === 'en' ? 'Sunlight through leaves texture for SEO service' : 'Texture de lumière à travers le feuillage pour le service SEO',
+        },
+        icon: 'tabler:tool',
+        callToAction: {
+          text: "Voir l'offre SEO",
+          href: '/agence-seo-ajaccio/',
+          icon: 'tabler:chevron-right',
+        },
+        ecLink: {
+          text: "Expert-comptable ? SEO spécialisé cabinet",
+          href: '/agence-web-expert-comptable/consultant-seo-ec/',
+        },
+      },
+      {
+        title: tList('portfolio.services.servicesItems')[2].title,
+        description: tList('portfolio.services.servicesItems')[2].description,
+        servicesItems: tList('portfolio.services.servicesItems')[2].items,
+        price: tList('portfolio.services.servicesItems')[2].price,
+        image: {
           ...ServiceDev,
           alt: locale === 'en' ? 'Weathered wood grain texture for custom development service' : 'Texture de bois pour le service de développement sur-mesure',
         },
@@ -295,10 +315,10 @@ const reviewsSchema = {
         },
       },
       {
-        title: tList('portfolio.services.servicesItems')[2].title,
-        description: tList('portfolio.services.servicesItems')[2].description,
-        servicesItems: tList('portfolio.services.servicesItems')[2].items,
-        price: tList('portfolio.services.servicesItems')[2].price,
+        title: tList('portfolio.services.servicesItems')[3].title,
+        description: tList('portfolio.services.servicesItems')[3].description,
+        servicesItems: tList('portfolio.services.servicesItems')[3].items,
+        price: tList('portfolio.services.servicesItems')[3].price,
         image: {
           ...ServiceMaintenance,
           alt: locale === 'en' ? 'Dark rock and moss texture for maintenance service' : 'Texture de roche et mousse pour le service de maintenance',
@@ -312,26 +332,6 @@ const reviewsSchema = {
         ecLink: {
           text: "Expert-comptable ? Refonte de votre site cabinet",
           href: '/agence-web-expert-comptable/refonte-site-internet/',
-        },
-      },
-      {
-        title: tList('portfolio.services.servicesItems')[3].title,
-        description: tList('portfolio.services.servicesItems')[3].description,
-        servicesItems: tList('portfolio.services.servicesItems')[3].items,
-        price: tList('portfolio.services.servicesItems')[3].price,
-        image: {
-          ...ServiceSeo,
-          alt: locale === 'en' ? 'Sunlight through leaves texture for SEO service' : 'Texture de lumière à travers le feuillage pour le service SEO',
-        },
-        icon: 'tabler:tool',
-        callToAction: {
-          text: "Voir l'offre SEO",
-          href: '/agence-seo-ajaccio/',
-          icon: 'tabler:chevron-right',
-        },
-        ecLink: {
-          text: "Expert-comptable ? SEO spécialisé cabinet",
-          href: '/agence-web-expert-comptable/consultant-seo-ec/',
         },
       },
     ]}
