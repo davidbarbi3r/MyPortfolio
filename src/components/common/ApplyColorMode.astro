@@ -20,14 +20,19 @@ import { UI } from "~/utils/config";
     }
   }
 
-  if ((defaultTheme && defaultTheme.endsWith(":only")) || (!localStorage.theme && defaultTheme !== "system")) {
-    applyTheme(defaultTheme.replace(":only", ""));
-  } else if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    applyTheme("dark");
-  } else {
-    applyTheme("light");
+  function resolveAndApplyTheme() {
+    if ((defaultTheme && defaultTheme.endsWith(":only")) || (!localStorage.theme && defaultTheme !== "system")) {
+      applyTheme(defaultTheme.replace(":only", ""));
+    } else if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      applyTheme("dark");
+    } else {
+      applyTheme("light");
+    }
   }
+
+  resolveAndApplyTheme();
+  document.addEventListener("astro:after-swap", resolveAndApplyTheme);
 </script>
