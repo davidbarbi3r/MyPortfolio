@@ -10,7 +10,7 @@ const { author } = Astro.props;
 ---
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 mt-10 mb-6">
-  <div class="flex items-center gap-4 p-6 bg-gray-50 dark:bg-slate-800 rounded-xl">
+  <div class="flex items-center gap-4 p-6 bg-gray-50 bg-slate-800 rounded-xl">
     <Image
       src={AuthorImage}
       alt={author}
@@ -19,11 +19,11 @@ const { author } = Astro.props;
       height={64}
     />
     <div>
-      <p class="text-sm text-muted dark:text-slate-400">Écrit par</p>
-      <a href="/a-propos/" class="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:underline">
+      <p class="text-sm text-muted text-slate-400">Écrit par</p>
+      <a href="/a-propos/" class="text-lg font-semibold text-gray-900 text-gray-100 hover:underline">
         {author}
       </a>
-      <p class="text-sm text-gray-600 dark:text-slate-400 mt-1">
+      <p class="text-sm text-gray-600 text-slate-400 mt-1">
         Développeur web freelance & consultant SEO à Ajaccio
       </p>
     </div>

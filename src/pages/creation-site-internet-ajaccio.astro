@@ -238,7 +238,7 @@ const breadcrumbStructuredData = {
       mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    .grain-dark::before {
+    .grain-:before {
       content: '';
       position: absolute;
       inset: 0;
@@ -276,7 +276,7 @@ const breadcrumbStructuredData = {
     .eyebrow-on-dark {
       color: rgb(252, 211, 77);
     }
-    .eyebrow-on-dark::before {
+    .eyebrow-on-:before {
       background: linear-gradient(90deg, rgb(252, 211, 77), rgba(252, 211, 77, 0));
     }
 
@@ -589,38 +589,38 @@ const breadcrumbStructuredData = {
   <!-- Hero -->
   <section class="relative overflow-hidden texture-bg grain pt-12 pb-16 lg:pt-16 lg:pb-20">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 dark:from-emerald-900/25 dark:to-green-900/10 rounded-full blur-[100px] animate-float" data-parallax="hero-blob" data-parallax-speed="-80"></div>
-      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 dark:from-amber-900/15 dark:to-emerald-900/10 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;" data-parallax="hero-blob" data-parallax-speed="-140"></div>
+      <div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 from-emerald-900/25 to-green-900/10 rounded-full blur-[100px] animate-float" data-parallax="hero-blob" data-parallax-speed="-80"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 from-amber-900/15 to-emerald-900/10 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;" data-parallax="hero-blob" data-parallax-speed="-140"></div>
     </div>
 
     <div class="relative mx-auto max-w-7xl px-6 lg:px-8 w-full">
 
       <nav aria-label="Fil d'Ariane" class="mb-10 text-sm font-body animate-fade-up">
-        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
-          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+        <ol class="flex items-center gap-2 text-gray-500 text-gray-400 flex-wrap">
+          <li><a href="/" class="hover:text-green-700 hover:text-green-400 transition-colors">Accueil</a></li>
           <li><svg class="w-3 h-3" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li class="text-gray-900 dark:text-white font-medium">Création de site internet à Ajaccio</li>
+          <li class="text-gray-900 text-white font-medium">Création de site internet à Ajaccio</li>
         </ol>
       </nav>
 
       <h1 class="animate-fade-up delay-100 max-w-6xl">
-        <span class="block text-xs sm:text-sm font-body font-medium tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-8">
-          <span class="inline-block w-6 h-[2px] bg-amber-500 dark:bg-amber-400 mr-3 align-middle"></span>
+        <span class="block text-xs sm:text-sm font-body font-medium tracking-[0.2em] uppercase text-amber-700 text-amber-400 mb-8">
+          <span class="inline-block w-6 h-[2px] bg-amber-500 bg-amber-400 mr-3 align-middle"></span>
           Création de site internet sur-mesure
         </span>
-        <span class="block font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[0.95] tracking-tight text-balance">
+        <span class="block font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 text-white leading-[0.95] tracking-tight text-balance">
           Votre site internet<br class="hidden sm:inline" /> digne d'une agence.
         </span>
       </h1>
 
-      <p class="mt-10 font-body text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl animate-fade-up delay-200">
-        Un site sur-mesure pensé pour votre activité, livré en <strong class="text-gray-900 dark:text-white">4 à 6 semaines</strong>. Aucune agence, aucun intermédiaire : vous travaillez directement avec moi.
+      <p class="mt-10 font-body text-lg sm:text-xl lg:text-2xl text-gray-600 text-gray-300 leading-relaxed max-w-3xl animate-fade-up delay-200">
+        Un site sur-mesure pensé pour votre activité, livré en <strong class="text-gray-900 text-white">4 à 6 semaines</strong>. Aucune agence, aucun intermédiaire : vous travaillez directement avec moi.
       </p>
 
       <div class="mt-14 lg:mt-16 h-px bg-gradient-to-r from-amber-500/60 via-amber-400/30 to-transparent animate-fade-up delay-300" aria-hidden="true"></div>
 
       <div class="mt-10 animate-scale delay-300">
-        <div class="relative overflow-hidden rounded-3xl shadow-xl shadow-green-900/15 dark:shadow-emerald-500/10 aspect-[21/9] lg:aspect-[24/9]">
+        <div class="relative overflow-hidden rounded-3xl shadow-xl shadow-green-900/15 shadow-emerald-500/10 aspect-[21/9] lg:aspect-[24/9]">
           <img
             src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/f162bf49-8977-4a0b-7aa6-3504e8379a00/w=1600"
             alt="Vue d'Ajaccio et des Îles Sanguinaires - où je travaille"
@@ -645,14 +645,14 @@ const breadcrumbStructuredData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a href="#freins" class="group inline-flex items-center gap-2 px-4 py-4 font-body font-medium text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors">
+          <a href="#freins" class="group inline-flex items-center gap-2 px-4 py-4 font-body font-medium text-gray-700 text-gray-300 hover:text-green-700 hover:text-green-400 transition-colors">
             Voir comment c'est possible
             <svg class="w-4 h-4 transition-transform group-hover:translate-y-1" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </a>
         </div>
-        <p class="font-body text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+        <p class="font-body text-sm text-gray-500 text-gray-400 whitespace-nowrap">
           <span class="inline-block">À partir de 1 200€ HT</span>
           <span class="mx-2" aria-hidden="true">·</span>
           <span class="inline-block">Devis sous 48h</span>
@@ -663,7 +663,7 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 01 : Pourquoi un site qui tient la route -->
-  <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
+  <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white from-gray-900 to-gray-900">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
 
@@ -671,69 +671,69 @@ const breadcrumbStructuredData = {
           <div class="lg:sticky lg:top-32">
             <span class="styled-number" data-gsap="slide-in-left">01</span>
             <p class="eyebrow mt-4" data-gsap="fade-up">Le contexte</p>
-            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line" data-gsap="fade-up">
+            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 text-white mt-3 decorative-line" data-gsap="fade-up">
               Vos prospects regardent votre site avant de vous appeler.
             </h2>
           </div>
         </div>
 
         <div class="lg:col-span-8">
-          <div class="prose prose-lg dark:prose-invert max-w-none font-body">
-            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Quand un client potentiel entend parler de vous - par un voisin, un ami, une recherche Google - son premier réflexe est le même partout : <strong class="text-gray-900 dark:text-white">il tape votre nom sur Google et clique sur votre site</strong>.
+          <div class="prose prose-lg prose-invert max-w-none font-body">
+            <p class="text-xl text-gray-600 text-gray-300 leading-relaxed">
+              Quand un client potentiel entend parler de vous - par un voisin, un ami, une recherche Google - son premier réflexe est le même partout : <strong class="text-gray-900 text-white">il tape votre nom sur Google et clique sur votre site</strong>.
             </p>
 
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-6">
+            <p class="text-gray-600 text-gray-300 leading-relaxed mt-6">
               Ce qu'il voit dans les 10 secondes qui suivent décide s'il vous appelle, ou s'il appelle le concurrent d'à côté. Pas de site, ou un site qui fait "années 2010" : doute, hésitation, il s'en va. Un site pro, clair, rapide : il décroche son téléphone.
             </p>
           </div>
 
           <div class="relative mt-12 pl-8 py-6">
             <span class="quote-mark">"</span>
-            <blockquote class="relative font-editorial text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white italic leading-relaxed">
+            <blockquote class="relative font-editorial text-2xl sm:text-3xl font-medium text-gray-900 text-white italic leading-relaxed">
               Votre site, c'est votre vitrine ouverte 24/7 - même quand vous êtes en rendez-vous ou en vacances.
             </blockquote>
           </div>
 
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12" data-gsap="fade-up-stagger">
-            <div class="card-subtle spotlight bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 mb-5 ring-1 ring-emerald-100 dark:ring-emerald-800/50">
+            <div class="card-subtle spotlight bg-white bg-gray-800 rounded-2xl p-6 border border-gray-100 border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 bg-emerald-900/40 text-emerald-700 text-emerald-400 mb-5 ring-1 ring-emerald-100 ring-emerald-800/50">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white text-lg">Vous sortez sur Google</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Quand un Ajaccien cherche votre métier, vous apparaissez - pas seulement le concurrent qui a payé Google Ads.</p>
+              <h3 class="font-editorial font-semibold text-gray-900 text-white text-lg">Vous sortez sur Google</h3>
+              <p class="font-body text-sm text-gray-600 text-gray-400 mt-2 leading-relaxed">Quand un Ajaccien cherche votre métier, vous apparaissez - pas seulement le concurrent qui a payé Google Ads.</p>
             </div>
 
-            <div class="card-subtle spotlight bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 mb-5 ring-1 ring-amber-100 dark:ring-amber-800/40">
+            <div class="card-subtle spotlight bg-white bg-gray-800 rounded-2xl p-6 border border-gray-100 border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-amber-50 bg-amber-900/30 text-amber-700 text-amber-400 mb-5 ring-1 ring-amber-100 ring-amber-800/40">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white text-lg">Vous inspirez confiance</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Un site soigné, ça rassure. C'est la différence entre "on tente" et "on prend rendez-vous".</p>
+              <h3 class="font-editorial font-semibold text-gray-900 text-white text-lg">Vous inspirez confiance</h3>
+              <p class="font-body text-sm text-gray-600 text-gray-400 mt-2 leading-relaxed">Un site soigné, ça rassure. C'est la différence entre "on tente" et "on prend rendez-vous".</p>
             </div>
 
-            <div class="card-subtle spotlight bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 mb-5 ring-1 ring-emerald-100 dark:ring-emerald-800/50">
+            <div class="card-subtle spotlight bg-white bg-gray-800 rounded-2xl p-6 border border-gray-100 border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 bg-emerald-900/40 text-emerald-700 text-emerald-400 mb-5 ring-1 ring-emerald-100 ring-emerald-800/50">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white text-lg">Vous captez des appels</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Bouton "Appeler", formulaire, itinéraire - chaque visite devient un contact direct, sans friction.</p>
+              <h3 class="font-editorial font-semibold text-gray-900 text-white text-lg">Vous captez des appels</h3>
+              <p class="font-body text-sm text-gray-600 text-gray-400 mt-2 leading-relaxed">Bouton "Appeler", formulaire, itinéraire - chaque visite devient un contact direct, sans friction.</p>
             </div>
 
-            <div class="card-subtle spotlight bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 mb-5 ring-1 ring-amber-100 dark:ring-amber-800/40">
+            <div class="card-subtle spotlight bg-white bg-gray-800 rounded-2xl p-6 border border-gray-100 border-gray-700">
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-xl bg-amber-50 bg-amber-900/30 text-amber-700 text-amber-400 mb-5 ring-1 ring-amber-100 ring-amber-800/40">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white text-lg">Vous travaillez moins cher</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Un bon site remplace une brochure, un commercial, et réduit les questions répétitives des clients.</p>
+              <h3 class="font-editorial font-semibold text-gray-900 text-white text-lg">Vous travaillez moins cher</h3>
+              <p class="font-body text-sm text-gray-600 text-gray-400 mt-2 leading-relaxed">Un bon site remplace une brochure, un commercial, et réduit les questions répétitives des clients.</p>
             </div>
           </div>
         </div>
@@ -747,10 +747,10 @@ const breadcrumbStructuredData = {
       <div class="lg:text-balance max-w-3xl">
         <span class="styled-number" data-gsap="slide-in-left">02</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">Comment on travaille</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3" data-gsap="fade-up">
           De l'idée au site en ligne, en 4 étapes claires.
         </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
+        <p class="font-body text-xl text-gray-600 text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
           Un suivi via WhatsApp, un espace partagé pour échanger sans jouer au ping-pong par mail, et une version en ligne accessible dès les premières semaines.
         </p>
       </div>
@@ -758,17 +758,17 @@ const breadcrumbStructuredData = {
       <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3" data-gsap="fade-up-stagger">
         <div>
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 text-green-400 font-medium">
               01
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 text-white font-semibold">
                 On se rencontre, on cadre
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="font-body text-base leading-normal text-gray-600 text-gray-300">
               Un premier échange - en visio, ou autour d'un café si vous êtes sur Ajaccio. On parle de votre activité, de vos clients, de ce que le site doit faire. Je reviens avec un devis clair sous 48h.
             </p>
           </dd>
@@ -776,17 +776,17 @@ const breadcrumbStructuredData = {
 
         <div class="lg:row-start-2 lg:col-start-2">
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 text-green-400 font-medium">
               02
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 text-white font-semibold">
                 Vous voyez à quoi ça ressemble
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="font-body text-base leading-normal text-gray-600 text-gray-300">
               Je vous propose une maquette du site : couleurs, typo, structure des pages. On ajuste jusqu'à ce que vous vous disiez "oui, c'est nous". Ensuite seulement, je code.
             </p>
           </dd>
@@ -794,17 +794,17 @@ const breadcrumbStructuredData = {
 
         <div class="lg:row-start-3 lg:col-start-3">
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 text-green-400 font-medium">
               03
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 text-white font-semibold">
                 Le site prend vie, vous suivez en direct
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="font-body text-base leading-normal text-gray-600 text-gray-300">
               Vous avez accès à une version en ligne dès la première semaine. Vous naviguez, vous commentez, on itère - allers-retours illimités jusqu'à ce que le rendu vous plaise à 100%.
             </p>
           </dd>
@@ -812,17 +812,17 @@ const breadcrumbStructuredData = {
 
         <div class="lg:row-start-4 lg:col-start-2">
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 text-green-400 font-medium">
               04
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 text-white font-semibold">
                 Mise en ligne et formation
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="font-body text-base leading-normal text-gray-600 text-gray-300">
               Dernières vérifications, mise en ligne, et formation pour que vous puissiez modifier vos textes et publier vous-même. Vous partez avec tout : le site, le code, le nom de domaine.
             </p>
           </dd>
@@ -834,19 +834,19 @@ const breadcrumbStructuredData = {
   <!-- Bandeau allers-retours illimités -->
   <section class="py-16 lg:py-20 texture-bg">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
-      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-8 lg:p-12 border border-green-200 dark:border-green-800">
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 from-green-900/20 to-emerald-900/20 rounded-3xl p-8 lg:p-12 border border-green-200 border-green-800">
         <div class="flex flex-col lg:flex-row lg:items-center gap-8">
           <div class="flex-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-300 text-sm font-body font-semibold mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 bg-green-800/50 text-green-800 text-green-300 text-sm font-body font-semibold mb-4">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
               </svg>
               Allers-retours illimités
             </div>
-            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white" data-gsap="fade-up">
+            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 text-white" data-gsap="fade-up">
               Je livre quand c'est bon. Pas avant.
             </h3>
-            <p class="font-body text-gray-600 dark:text-gray-300 mt-4 leading-relaxed" data-gsap="fade-up">
+            <p class="font-body text-gray-600 text-gray-300 mt-4 leading-relaxed" data-gsap="fade-up">
               Pas de limite sur les retours, pas de "c'est dans le forfait" quand vous voulez changer un titre. Vous accédez au site pendant tout le développement, vous me dites ce qui cloche, on ajuste. Le projet avance à votre rythme.
             </p>
           </div>
@@ -974,16 +974,16 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 04 : Les 2 freins habituels - zig-zag conversational -->
-  <section id="freins" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 scroll-mt-20">
+  <section id="freins" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white from-gray-900 to-gray-900 scroll-mt-20">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
         <span class="styled-number" data-gsap="slide-in-left">04</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">Les deux vraies questions</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           "Oui, mais un site sur-mesure, ça coûte cher et c'est bloqué."
         </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
+        <p class="font-body text-xl text-gray-600 text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
           C'était vrai il y a 5 ans. Voici pourquoi ça ne l'est plus.
         </p>
       </div>
@@ -992,17 +992,17 @@ const breadcrumbStructuredData = {
       <div class="frein-block mb-20 lg:mb-28">
         <div class="frein-objection">
           <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
-          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 text-white leading-[1.2]" data-gsap="fade-up">
             Un site sur-mesure, c'est 8 000 à 15 000€.
           </blockquote>
         </div>
         <div class="frein-response" data-gsap="slide-in-right">
           <p class="eyebrow mt-2">Ma réponse</p>
-          <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
+          <p class="font-body text-gray-700 text-gray-200 leading-relaxed mt-3 text-lg">
             Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives - écriture de code, génération de variantes, tests.
           </p>
-          <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
-            <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
+          <p class="font-body text-gray-900 text-white leading-relaxed mt-6 text-lg">
+            <span class="font-editorial font-semibold text-green-700 text-green-400">Résultat →</span>
             La même qualité sur-mesure, <strong>à partir de 2 000€ HT</strong>. Vous payez un développeur, pas une structure.
           </p>
         </div>
@@ -1012,17 +1012,17 @@ const breadcrumbStructuredData = {
       <div class="frein-block frein-block--mirror">
         <div class="frein-objection">
           <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
-          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 text-white leading-[1.2]" data-gsap="fade-up">
             Je vais devoir payer à chaque virgule à changer.
           </blockquote>
         </div>
         <div class="frein-response" data-gsap="slide-in-left">
           <p class="eyebrow mt-2">Ma réponse</p>
-          <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
+          <p class="font-body text-gray-700 text-gray-200 leading-relaxed mt-3 text-lg">
             Mauvaise surprise habituelle : un site sur-mesure livré comme un bloc figé, et dès qu'il faut changer un horaire ou une photo, il faut payer. Chez moi, non - votre site est livré avec un mini back-office pour modifier textes, images et pages depuis un navigateur.
           </p>
-          <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
-            <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
+          <p class="font-body text-gray-900 text-white leading-relaxed mt-6 text-lg">
+            <span class="font-editorial font-semibold text-green-700 text-green-400">Résultat →</span>
             Vous êtes <strong>totalement autonome sur le contenu</strong>. Formation incluse, tutos vidéo fournis. Besoin d'aide ponctuelle ? Je suis là à 60€/h.
           </p>
         </div>
@@ -1050,7 +1050,7 @@ const breadcrumbStructuredData = {
       <div class="max-w-3xl mb-16 lg:mb-20">
         <span class="styled-number" data-gsap="slide-in-left">05</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">Ce que disent mes clients</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           Des entrepreneurs qui m'ont fait confiance.
         </h2>
       </div>
@@ -1061,16 +1061,16 @@ const breadcrumbStructuredData = {
         <!-- Hero testimonial : Matthias -->
         <figure class="lg:col-span-8 relative" data-gsap="fade-up">
           <span class="quote-mark-giant qm-emerald" aria-hidden="true" data-gsap="scale-in">"</span>
-          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.25] text-balance pt-6">
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 text-white leading-[1.25] text-balance pt-6">
             David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet. Le suivi est sérieux et il reste disponible quand on a besoin. Vous pouvez lui faire confiance les yeux fermés.
           </blockquote>
           <figcaption class="mt-8 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial font-semibold text-lg" aria-hidden="true">
+            <div class="w-12 h-12 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial font-semibold text-lg" aria-hidden="true">
               M
             </div>
             <div>
-              <div class="font-editorial font-semibold text-gray-900 dark:text-white text-lg">Matthias</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400">Odacio Conseils</div>
+              <div class="font-editorial font-semibold text-gray-900 text-white text-lg">Matthias</div>
+              <div class="font-body text-sm text-gray-500 text-gray-400">Odacio Conseils</div>
             </div>
           </figcaption>
         </figure>
@@ -1079,40 +1079,40 @@ const breadcrumbStructuredData = {
         <div class="lg:col-span-4 space-y-8" data-gsap="strip-stagger">
 
           <figure class="testimonial-strip">
-            <blockquote class="font-body text-base text-gray-700 dark:text-gray-300 italic leading-relaxed">
+            <blockquote class="font-body text-base text-gray-700 text-gray-300 italic leading-relaxed">
               "David est d'une incroyable patience, pleinement acteur de la mise en lumière de mon travail. Grand professionnalisme, je recommande vivement."
             </blockquote>
             <figcaption class="mt-3 flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold" aria-hidden="true">M</div>
+              <div class="w-8 h-8 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial text-sm font-semibold" aria-hidden="true">M</div>
               <div class="font-body text-sm">
-                <span class="font-editorial font-semibold text-gray-900 dark:text-white">Marion</span>
-                <span class="text-gray-500 dark:text-gray-400"> - Fondatrice, Gaomata</span>
+                <span class="font-editorial font-semibold text-gray-900 text-white">Marion</span>
+                <span class="text-gray-500 text-gray-400"> - Fondatrice, Gaomata</span>
               </div>
             </figcaption>
           </figure>
 
           <figure class="testimonial-strip">
-            <blockquote class="font-body text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">
+            <blockquote class="font-body text-sm text-gray-700 text-gray-300 italic leading-relaxed">
               "Très à l'écoute dans la co-construction de mon site internet. Son professionnalisme et son expertise ont permis de créer un site personnalisé et conforme à mes attentes."
             </blockquote>
             <figcaption class="mt-3 flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold" aria-hidden="true">M</div>
+              <div class="w-8 h-8 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial text-sm font-semibold" aria-hidden="true">M</div>
               <div class="font-body text-sm">
-                <span class="font-editorial font-semibold text-gray-900 dark:text-white">Mathieu</span>
-                <span class="text-gray-500 dark:text-gray-400"> - Accompagnateur d'entreprise</span>
+                <span class="font-editorial font-semibold text-gray-900 text-white">Mathieu</span>
+                <span class="text-gray-500 text-gray-400"> - Accompagnateur d'entreprise</span>
               </div>
             </figcaption>
           </figure>
 
           <figure class="testimonial-strip">
-            <blockquote class="font-body text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">
+            <blockquote class="font-body text-sm text-gray-700 text-gray-300 italic leading-relaxed">
               "Travail de qualité dans la conception et la réalisation du site. Son écoute et son professionnalisme ont permis la bonne exécution."
             </blockquote>
             <figcaption class="mt-3 flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold" aria-hidden="true">C</div>
+              <div class="w-8 h-8 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial text-sm font-semibold" aria-hidden="true">C</div>
               <div class="font-body text-sm">
-                <span class="font-editorial font-semibold text-gray-900 dark:text-white">Cédric</span>
-                <span class="text-gray-500 dark:text-gray-400"> - Fondateur, Rest'ô Dom</span>
+                <span class="font-editorial font-semibold text-gray-900 text-white">Cédric</span>
+                <span class="text-gray-500 text-gray-400"> - Fondateur, Rest'ô Dom</span>
               </div>
             </figcaption>
           </figure>
@@ -1121,22 +1121,22 @@ const breadcrumbStructuredData = {
       </div>
 
       <!-- Region C : two micro-verbatims, bottom full-width -->
-      <div class="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-12 pt-12 border-t border-gray-200 dark:border-gray-800" data-gsap="verbatim-stagger">
+      <div class="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-12 pt-12 border-t border-gray-200 border-gray-800" data-gsap="verbatim-stagger">
 
         <figure>
-          <blockquote class="font-editorial text-xl italic text-gray-800 dark:text-gray-100 leading-snug">
+          <blockquote class="font-editorial text-xl italic text-gray-800 text-gray-100 leading-snug">
             "C'est un vrai plus de travailler avec un professionnel serein."
           </blockquote>
-          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
+          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 text-gray-400">
             - Véronique, La voie des sens
           </figcaption>
         </figure>
 
         <figure>
-          <blockquote class="font-editorial text-xl italic text-gray-800 dark:text-gray-100 leading-snug">
+          <blockquote class="font-editorial text-xl italic text-gray-800 text-gray-100 leading-snug">
             "Véritable professionnel, réactif, compétent et sympathique. Je recommande fortement."
           </blockquote>
-          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
+          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 text-gray-400">
             - Aaron, Action Conseils
           </figcaption>
         </figure>
@@ -1147,82 +1147,82 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 06 : Tarifs -->
-  <section class="py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
+  <section class="py-24 lg:py-32 bg-gray-50 bg-gray-900">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto">
         <span class="styled-number" data-gsap="slide-in-left">06</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">Combien ça coûte</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3" data-gsap="fade-up">
           Un tarif clair, pas de surprise.
         </h2>
       </div>
 
       <div class="mt-16 max-w-2xl mx-auto">
-        <div class="card-subtle bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-emerald-2xl">
+        <div class="card-subtle bg-white bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 border-gray-700 shadow-emerald-2xl">
           <div class="h-2 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500"></div>
           <div class="p-8 lg:p-12">
 
             <div class="text-center">
-              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white">Site vitrine sur-mesure</h3>
+              <h3 class="font-editorial text-2xl font-semibold text-gray-900 text-white">Site vitrine sur-mesure</h3>
               <div class="mt-6">
-                <span class="font-editorial text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white">À partir de 2 000€</span>
-                <span class="font-body text-gray-500 dark:text-gray-400 block mt-2">HT - devis personnalisé selon vos besoins</span>
+                <span class="font-editorial text-5xl sm:text-6xl font-bold text-gray-900 text-white">À partir de 2 000€</span>
+                <span class="font-body text-gray-500 text-gray-400 block mt-2">HT - devis personnalisé selon vos besoins</span>
               </div>
             </div>
 
-            <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-              <p class="font-body text-sm text-gray-700 dark:text-gray-300">
-                <strong class="text-gray-900 dark:text-white">Un site one-page démarre à 1 200€ HT.</strong> Un site vitrine complet (4-6 pages + blog + formulaire) à partir de 2 000€ HT. Des besoins plus poussés (e-commerce, espace client, multi-langue…) sont évalués sur devis. Délai moyen : 4 à 6 semaines.
+            <div class="mt-6 p-4 bg-green-50 bg-green-900/20 rounded-xl border border-green-200 border-green-800">
+              <p class="font-body text-sm text-gray-700 text-gray-300">
+                <strong class="text-gray-900 text-white">Un site one-page démarre à 1 200€ HT.</strong> Un site vitrine complet (4-6 pages + blog + formulaire) à partir de 2 000€ HT. Des besoins plus poussés (e-commerce, espace client, multi-langue…) sont évalués sur devis. Délai moyen : 4 à 6 semaines.
               </p>
             </div>
 
             <div class="mt-10">
-              <h4 class="font-editorial font-semibold text-gray-900 dark:text-white mb-4">Ce qui est compris</h4>
+              <h4 class="font-editorial font-semibold text-gray-900 text-white mb-4">Ce qui est compris</h4>
               <ul class="space-y-3">
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-700 dark:text-gray-300">Design sur-mesure, responsive mobile/tablette/desktop</span>
+                  <span class="font-body text-gray-700 text-gray-300">Design sur-mesure, responsive mobile/tablette/desktop</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-700 dark:text-gray-300">Back-office pour modifier vos contenus en autonomie</span>
+                  <span class="font-body text-gray-700 text-gray-300">Back-office pour modifier vos contenus en autonomie</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-700 dark:text-gray-300">Optimisation SEO (structure, balises, plan de site)</span>
+                  <span class="font-body text-gray-700 text-gray-300">Optimisation SEO (structure, balises, plan de site)</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-700 dark:text-gray-300">Nom de domaine + hébergement + certificat de sécurité</span>
+                  <span class="font-body text-gray-700 text-gray-300">Nom de domaine + hébergement + certificat de sécurité</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-700 dark:text-gray-300">Formation à la gestion du site + tutos vidéo</span>
+                  <span class="font-body text-gray-700 text-gray-300">Formation à la gestion du site + tutos vidéo</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-700 dark:text-gray-300">Allers-retours illimités jusqu'à la mise en ligne</span>
+                  <span class="font-body text-gray-700 text-gray-300">Allers-retours illimités jusqu'à la mise en ligne</span>
                 </li>
               </ul>
             </div>
 
-            <div class="mt-10 pt-8 border-t border-gray-100 dark:border-gray-700">
-              <h4 class="font-editorial font-semibold text-gray-900 dark:text-white mb-4">Options</h4>
+            <div class="mt-10 pt-8 border-t border-gray-100 border-gray-700">
+              <h4 class="font-editorial font-semibold text-gray-900 text-white mb-4">Options</h4>
               <ul class="space-y-2">
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between font-body text-gray-600 text-gray-300">
                   <span>Maintenance mensuelle</span>
                   <span class="font-semibold">À partir de 30€/mois</span>
                 </li>
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between font-body text-gray-600 text-gray-300">
                   <span>Intervention ponctuelle</span>
                   <span class="font-semibold">60€/h HT</span>
                 </li>
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between font-body text-gray-600 text-gray-300">
                   <span>Rédaction de contenus SEO</span>
                   <span class="font-semibold">Sur devis</span>
                 </li>
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between font-body text-gray-600 text-gray-300">
                   <span>Accompagnement SEO continu</span>
                   <span class="font-semibold">À partir de 490€/mois</span>
                 </li>
@@ -1253,123 +1253,123 @@ const breadcrumbStructuredData = {
       <div class="text-center mb-16">
         <span class="styled-number" data-gsap="slide-in-left">07</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">FAQ</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3" data-gsap="fade-up">
           Les questions qu'on me pose souvent.
         </h2>
       </div>
 
       <div class="space-y-4">
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Combien coûte la création d'un site internet ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Un site one-page démarre à <strong>1 200€ HT</strong>, un site vitrine multi-pages à partir de <strong>2 000€ HT</strong>. Le tarif final dépend du nombre de pages, des fonctionnalités et du contenu à produire (rédaction, photos). Je vous remets un devis détaillé sous 48h après notre premier échange, sans engagement.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Je pourrai vraiment modifier mon site moi-même ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Oui. Votre site est livré avec un back-office simple qui vous permet de modifier les textes, changer les photos, ajouter des pages, publier des articles - depuis n'importe quel navigateur, même sur téléphone.</p>
             <p>Une formation est incluse (1h en visio) et je vous fournis des tutos vidéo pour les gestes courants. Si un jour vous êtes bloqué, je suis joignable.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>En combien de temps le site sera-t-il en ligne ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Entre 4 et 6 semaines en moyenne, de notre premier appel à la mise en ligne. Ça dépend de la taille du site et de la rapidité avec laquelle vous me faites vos retours - plus vous êtes réactif, plus on avance vite.</p>
             <p>Vous accédez à une version en ligne du site dès les premières semaines pour suivre et commenter au fur et à mesure.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Comment ce tarif est-il possible pour du sur-mesure ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Deux raisons : je travaille seul (pas de frais de structure d'agence), et j'utilise l'intelligence artificielle comme assistant sur les tâches répétitives - génération de variantes de design, écriture de code, tests. Ce n'est pas l'IA qui crée votre site, c'est moi qui le pilote, mais elle me fait gagner beaucoup de temps.</p>
             <p>Ce temps gagné, je le répercute sur votre facture. Vous avez la même qualité sur-mesure qu'avec une agence, pour 3 à 5 fois moins cher.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Le site sera-t-il bien référencé sur Google ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Le site est construit sur des bases SEO saines : structure technique propre, balises optimisées, vitesse de chargement, plan de site, données structurées. C'est le socle qui permet à Google de bien comprendre votre site.</p>
-            <p>Pour le référencement local sur Ajaccio, j'optimise également votre <a href="/agence-seo-ajaccio/" class="text-green-700 dark:text-green-400 hover-underline whitespace-nowrap">fiche Google Business</a> si vous le souhaitez. Ensuite, c'est votre contenu (pages, articles, avis clients) qui fait la différence dans le temps.</p>
+            <p>Pour le référencement local sur Ajaccio, j'optimise également votre <a href="/agence-seo-ajaccio/" class="text-green-700 text-green-400 hover-underline whitespace-nowrap">fiche Google Business</a> si vous le souhaitez. Ensuite, c'est votre contenu (pages, articles, avis clients) qui fait la différence dans le temps.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>C'est du WordPress ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Non. J'utilise des technologies modernes plus rapides et plus sécurisées que WordPress : pas de plugins à mettre à jour toutes les semaines, pas de base de données exposée aux piratages, pas de latence liée au chargement de 15 extensions. Le choix technique exact dépend de votre projet.</p>
-            <p>Pour vous, ce qui change concrètement : votre site se charge vite, ne tombe pas en panne, ne demande pas de maintenance technique de votre part. Si vous êtes <strong>déjà sur WordPress</strong> et que vous voulez le faire évoluer (refonte, migration, maintenance), ou si vous lancez une <strong>petite boutique WooCommerce</strong>, alors WordPress reste pertinent - voir mon <a href="/freelance-wordpress-ajaccio/" class="text-green-700 dark:text-green-400 hover-underline whitespace-nowrap">offre freelance WordPress dédiée</a>.</p>
+            <p>Pour vous, ce qui change concrètement : votre site se charge vite, ne tombe pas en panne, ne demande pas de maintenance technique de votre part. Si vous êtes <strong>déjà sur WordPress</strong> et que vous voulez le faire évoluer (refonte, migration, maintenance), ou si vous lancez une <strong>petite boutique WooCommerce</strong>, alors WordPress reste pertinent - voir mon <a href="/freelance-wordpress-ajaccio/" class="text-green-700 text-green-400 hover-underline whitespace-nowrap">offre freelance WordPress dédiée</a>.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Et si j'ai besoin d'aide après la livraison ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Deux options : le forfait maintenance mensuel (à partir de 30€/mois HT) qui couvre les mises à jour, la surveillance, les sauvegardes et les petites évolutions. Ou l'intervention ponctuelle à 60€/h HT quand vous avez un besoin spécifique.</p>
             <p>Dans les deux cas, je reste joignable. Vous ne vous retrouvez pas seul avec un site en rade.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Vous êtes vraiment basé à Ajaccio ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Oui, je vis et je travaille à Ajaccio. Si vous êtes sur place, on peut se voir autour d'un café pour le premier rendez-vous. Sinon tout se passe très bien en visio - j'ai des clients en Corse et partout en France métropolitaine.</p>
           </div>
         </details>
 
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
+        <details class="group bg-white bg-gray-800 rounded-2xl border border-gray-100 border-gray-700 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 text-white hover:text-green-700 hover:text-green-400 transition-colors">
             <span>Je suis propriétaire de mon site à la fin ?</span>
             <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
+          <div class="px-6 pb-6 font-body text-gray-600 text-gray-300 space-y-3">
             <p>Oui, à 100%. Le code, le nom de domaine, le contenu : tout vous appartient. Aucun engagement, aucune dépendance à mes services. Si un jour vous voulez travailler avec quelqu'un d'autre, vous partez avec l'intégralité du site.</p>
           </div>
         </details>
@@ -1379,7 +1379,7 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 08 : CTA Final + Formulaire -->
-  <section id="formulaire" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 mb-16 scroll-mt-20">
+  <section id="formulaire" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white from-gray-900 to-gray-900 mb-16 scroll-mt-20">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
       <div class="grid lg:grid-cols-2 gap-16 items-start">
@@ -1387,52 +1387,52 @@ const breadcrumbStructuredData = {
         <div>
           <span class="styled-number" data-gsap="slide-in-left">08</span>
           <p class="eyebrow mt-4" data-gsap="fade-up">On y va ?</p>
-          <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line" data-gsap="fade-up">
+          <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3 decorative-line" data-gsap="fade-up">
             Discutons de votre projet.
           </h2>
 
-          <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-8 leading-relaxed" data-gsap="fade-up">
-            Remplissez le formulaire, ou appelez-moi directement au <a href="tel:+33623565299" class="text-green-700 dark:text-green-400 font-semibold hover-underline whitespace-nowrap">06 23 56 52 99</a>. Je reviens vers vous sous 48h avec un devis clair et un planning.
+          <p class="font-body text-xl text-gray-600 text-gray-300 mt-8 leading-relaxed" data-gsap="fade-up">
+            Remplissez le formulaire, ou appelez-moi directement au <a href="tel:+33623565299" class="text-green-700 text-green-400 font-semibold hover-underline whitespace-nowrap">06 23 56 52 99</a>. Je reviens vers vous sous 48h avec un devis clair et un planning.
           </p>
 
           <ul class="mt-10 space-y-6">
             <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 bg-green-900/50 flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-700 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                 </svg>
               </div>
               <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Devis gratuit, pas de jargon</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Un document clair, avec le détail du prix, le planning et ce qui est livré.</p>
+                <h3 class="font-editorial font-semibold text-gray-900 text-white">Devis gratuit, pas de jargon</h3>
+                <p class="font-body text-gray-600 text-gray-400 mt-1">Un document clair, avec le détail du prix, le planning et ce qui est livré.</p>
               </div>
             </li>
             <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-amber-600 dark:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 bg-amber-900/50 flex items-center justify-center">
+                <svg class="w-6 h-6 text-amber-600 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Réponse sous 48h</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Pas de ghosting. Si je ne peux pas prendre votre projet, je vous le dis tout de suite.</p>
+                <h3 class="font-editorial font-semibold text-gray-900 text-white">Réponse sous 48h</h3>
+                <p class="font-body text-gray-600 text-gray-400 mt-1">Pas de ghosting. Si je ne peux pas prendre votre projet, je vous le dis tout de suite.</p>
               </div>
             </li>
             <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 bg-green-900/50 flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-700 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Un seul interlocuteur</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Du devis à la maintenance, vous échangez toujours avec la même personne : moi.</p>
+                <h3 class="font-editorial font-semibold text-gray-900 text-white">Un seul interlocuteur</h3>
+                <p class="font-body text-gray-600 text-gray-400 mt-1">Du devis à la maintenance, vous échangez toujours avec la même personne : moi.</p>
               </div>
             </li>
           </ul>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 lg:p-10 shadow-emerald-2xl border border-gray-100 dark:border-gray-700">
+        <div class="bg-white bg-gray-800 rounded-3xl p-8 lg:p-10 shadow-emerald-2xl border border-gray-100 border-gray-700">
 
           <div class="flex items-center gap-4 mb-8">
             <Image
@@ -1440,59 +1440,59 @@ const breadcrumbStructuredData = {
               height={64}
               width={64}
               alt="David Barbier"
-              class="w-16 h-16 rounded-full object-cover ring-4 ring-green-100 dark:ring-green-900"
+              class="w-16 h-16 rounded-full object-cover ring-4 ring-green-100 ring-green-900"
             />
             <div>
-              <div class="font-editorial font-semibold text-gray-900 dark:text-white">David Barbier</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400">Développeur web à Ajaccio</div>
+              <div class="font-editorial font-semibold text-gray-900 text-white">David Barbier</div>
+              <div class="font-body text-sm text-gray-500 text-gray-400">Développeur web à Ajaccio</div>
             </div>
           </div>
 
           <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-6">
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
-                <label for="name" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre nom</label>
+                <label for="name" class="block font-body text-sm font-medium text-gray-700 text-gray-300 mb-2">Votre nom</label>
                 <input
                   id="name"
                   name="name"
                   type="text"
                   required
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 border-gray-600 bg-gray-50 bg-gray-700 text-gray-900 text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                   placeholder="Jean Dupont"
                 />
               </div>
               <div>
-                <label for="email" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre email</label>
+                <label for="email" class="block font-body text-sm font-medium text-gray-700 text-gray-300 mb-2">Votre email</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 border-gray-600 bg-gray-50 bg-gray-700 text-gray-900 text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                   placeholder="jean@monactivite.fr"
                 />
               </div>
             </div>
 
             <div>
-              <label for="activite" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre activité</label>
+              <label for="activite" class="block font-body text-sm font-medium text-gray-700 text-gray-300 mb-2">Votre activité</label>
               <input
                 id="activite"
                 name="activite"
                 type="text"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 border-gray-600 bg-gray-50 bg-gray-700 text-gray-900 text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                 placeholder="Restaurant, artisan, cabinet, boutique…"
               />
             </div>
 
             <div>
-              <label for="textarea" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre projet en quelques mots</label>
+              <label for="textarea" class="block font-body text-sm font-medium text-gray-700 text-gray-300 mb-2">Votre projet en quelques mots</label>
               <textarea
                 id="textarea"
                 name="textarea"
                 rows="4"
                 required
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 border-gray-600 bg-gray-50 bg-gray-700 text-gray-900 text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
                 placeholder="Ce que je fais, qui sont mes clients, ce que j'attends du site…"
               ></textarea>
             </div>
@@ -1505,7 +1505,7 @@ const breadcrumbStructuredData = {
                 required
                 class="mt-1 w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
               />
-              <label for="disclaimer" class="font-body text-sm text-gray-500 dark:text-gray-400 cursor-pointer">
+              <label for="disclaimer" class="font-body text-sm text-gray-500 text-gray-400 cursor-pointer">
                 En soumettant ce formulaire, vous acceptez que vos données soient traitées pour traiter votre demande.
               </label>
             </div>

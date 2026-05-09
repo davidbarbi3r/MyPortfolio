@@ -26,10 +26,10 @@ export interface Props {
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light', text} = Astro.props;
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
-  <div class="bg-white dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true">
+<footer class:list={[{  theme === 'dark' }, 'relative border-t border-gray-200 border-slate-800 not-prose']}>
+  <div class="bg-white bg-dark absolute inset-0 pointer-events-none" aria-hidden="true">
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 text-slate-300">
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
@@ -40,7 +40,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           {
             secondaryLinks.map(({ text, href }) => (
               <a
-                class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
+                class="text-muted hover:text-gray-700 text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
                 href={href}
                 set:html={text}
               />
@@ -51,25 +51,25 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       <div class="col-span-12 lg:col-span-4">
         Ajaccio
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/creation-site-internet-ajaccio/"
         >
           Création de site internet
         </a>
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/agence-seo-ajaccio/"
         >
           Accompagnement SEO
         </a>
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/freelance-wordpress-ajaccio/"
         >
           Freelance WordPress
         </a>
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/maintenance-site-internet-ajaccio/"
         >
           Maintenance de site
@@ -78,25 +78,25 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         <div class="mt-4">
           Limoges
           <a
-            class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+            class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
             href="/limoges/"
           >
             Création de site internet
           </a>
           <a
-            class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+            class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
             href="/limoges/consultant-seo/"
           >
             Consultant SEO
           </a>
           <a
-            class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+            class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
             href="/limoges/wordpress/"
           >
             WordPress
           </a>
           <a
-            class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+            class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
             href="/limoges/maintenance-site-internet/"
           >
             Maintenance de site
@@ -106,25 +106,25 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       <div class="col-span-12 lg:col-span-4">
         Experts-comptables
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/agence-web-expert-comptable/"
         >
           Agence Web EC
         </a>
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/agence-web-expert-comptable/creation-site-vitrine-ec/"
         >
           Création site EC
         </a>
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/agence-web-expert-comptable/refonte-site-internet/"
         >
           Refonte site EC
         </a>
         <a
-          class="block text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+          class="block text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
           href="/agence-web-expert-comptable/consultant-seo-ec/"
         >
           SEO Expert-Comptable
@@ -133,13 +133,13 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
+            <div class="text-gray-300 font-medium mb-2">{title}</div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm">
                 {links.map(({ text, href, ariaLabel }) => (
                   <li class="mb-2">
                     <a
-                      class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+                      class="text-muted hover:text-gray-700 hover:underline text-gray-400 transition duration-150 ease-in-out"
                       href={href}
                       aria-label={ariaLabel}
                     >
@@ -153,8 +153,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         ))
       }
     </div>
-    <div class="pt-6 text-sm text-muted dark:text-gray-400">
-      Suivez-moi sur les réseaux sous <span class="font-semibold text-gray-700 dark:text-gray-300">@daviddeveloppe</span>
+    <div class="pt-6 text-sm text-muted text-gray-400">
+      Suivez-moi sur les réseaux sous <span class="font-semibold text-gray-700 text-gray-300">@daviddeveloppe</span>
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       {
@@ -163,7 +163,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
                 <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  class="text-muted text-gray-400 hover:bg-gray-100 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                   aria-label={ariaLabel}
                   href={href}
                   target="_blank"
@@ -180,7 +180,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         )
       }
 
-      <div class="text-sm mr-4 dark:text-slate-400">
+      <div class="text-sm mr-4 text-slate-400">
         <a href="/" class="hover:underline">Ajaccio</a> : 13 Boulevard Sampiero, 20000<br/>
         Tél : <a href="tel:+33623565299" class="hover:underline">06.23.56.52.99</a><br/>
         Lundi - Samedi : 8h - 20h<br/>

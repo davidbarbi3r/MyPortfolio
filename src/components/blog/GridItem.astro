@@ -17,13 +17,13 @@ const image = (await findImage(post.image));
 ---
 
 <article class="mb-6 transition">
-  <div class="relative md:h-56 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-6">
+  <div class="relative md:h-56 bg-gray-400 bg-slate-700 rounded shadow-lg mb-6">
     {
       image && (
         <a href={getPermalink(post.permalink, 'post')}>
           <Image
             src={image}
-            class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700 object-contain object-left"
+            class="w-full md:h-full rounded shadow-lg bg-gray-400 bg-slate-700 object-contain object-left"
             alt={post.title}
             loading="lazy"
             decoding="async"
@@ -40,12 +40,12 @@ const image = (await findImage(post.image));
       ) : (
         <a
           href={getPermalink(post.permalink, 'post')}
-          class="hover:text-emerald-800 dark:hover:text-emerald-200  transition ease-in duration-200"
+          class="hover:text-emerald-800 hover:text-emerald-200  transition ease-in duration-200"
         >
           {post.title}
         </a>
       )
     }
   </h3>
-  <p class="text-muted dark:text-slate-400 text-lg line-clamp-4">{post.excerpt}</p>
+  <p class="text-muted text-slate-400 text-lg line-clamp-4">{post.excerpt}</p>
 </article>

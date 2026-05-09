@@ -37,13 +37,13 @@ const {
     classes={{
       container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
       title: 'text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
-      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
+      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted text-slate-400',
     }}
   />
   <div class="mx-auto max-w-7xl p-4 md:px-8">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <div class="md:basis-1/2 self-center">
-        {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
+        {content && <div class="mb-12 text-lg text-slate-400" set:html={content} />}
 
         {
           items && (
@@ -51,13 +51,13 @@ const {
               {items.map(({ title: title2, description, icon }) => (
                 <div class="flex">
                   <div class="flex-shrink-0">
-                    <div class="flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50">
+                    <div class="flex h-7 w-7 items-center justify-center rounded-full bg-green-600 bg-green-700 text-gray-50">
                       <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5" />
                     </div>
                   </div>
                   <div class="ml-4 rtl:ml-0 rtl:mr-4">
-                    {title2 && <h3 class="text-lg font-medium leading-6 dark:text-white">{title2}</h3>}
-                    {description && <p class="mt-2 text-muted dark:text-slate-400" set:html={description} />}
+                    {title2 && <h3 class="text-lg font-medium leading-6 text-white">{title2}</h3>}
+                    {description && <p class="mt-2 text-muted text-slate-400" set:html={description} />}
                   </div>
                 </div>
               ))}

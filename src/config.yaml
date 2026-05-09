@@ -69,7 +69,7 @@ analytics:
       id: null
 
 ui:
-  theme: 'light' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light' # Values: "system" | "light" | "dark" | "light:only" | "only"
 
   tokens:
     default:
@@ -91,7 +91,7 @@ ui:
         error: rgb(248 114 114)
         link: var(--ph-color-primary)
         linkActive: var(--ph-color-link)
-    dark:
+    
       fonts: {}
       colors:
         default: rgb(247, 248, 248)

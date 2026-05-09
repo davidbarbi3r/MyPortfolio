@@ -167,14 +167,14 @@ const testimonials = [
   </Fragment>
 
   <!-- 1. Hero Section -->
-  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+  <section class="relative isolate overflow-hidden bg-[#030620]">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8">
       <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
         <!-- Badge localisation -->
         <div class="mt-8 sm:mt-16 lg:mt-8">
           <span class="inline-flex items-center">
-            <span class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8">
+            <span class="rounded-full bg-green-800/10 bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8">
               <Icon name="tabler:map-pin" class="inline mr-1 w-4 h-4" />
               Limoges, Haute-Vienne
             </span>
@@ -182,27 +182,27 @@ const testimonials = [
         </div>
 
         <!-- Titre principal H1 -->
-        <h1 class="mt-4 text-pretty font-heading text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl dark:text-white">
+        <h1 class="mt-4 text-pretty font-heading text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl text-white">
           L'agence web à Limoges, création de site internet et référencement SEO
         </h1>
 
         <!-- Description -->
-        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
+        <p class="mt-8 text-pretty text-lg text-gray-600 text-gray-300">
           Sites sur-mesure pour TPE et indépendants en Haute-Vienne. Je commence par comprendre votre métier, pas par ouvrir Figma.
         </p>
 
         <!-- Trust line -->
-        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
+        <p class="mt-4 text-sm text-gray-500 text-gray-400">
           ⭐ 5/5 sur Google · +50 clients accompagnés · 20 ans à Limoges
         </p>
 
         <!-- NAP visible -->
-        <address class="mt-8 not-italic bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
-          <p class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
+        <address class="mt-8 not-italic bg-green-50 bg-green-950/30 rounded-lg p-6">
+          <p class="text-lg font-semibold text-green-900 text-green-100 mb-2">
             <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
             23 Rue de la Fonderie, 87000 Limoges
           </p>
-          <p class="text-lg text-green-800 dark:text-green-200">
+          <p class="text-lg text-green-800 text-green-200">
             <Icon name="tabler:phone" class="inline mr-2 w-5 h-5" />
             <a href="tel:+33623565299" class="hover:underline">06 23 56 52 99</a>
           </p>
@@ -242,14 +242,14 @@ const testimonials = [
   </section>
 
   <!-- 2. Services Section -->
-  <section class="py-20 sm:py-28 bg-gray-50 dark:bg-gray-900">
+  <section class="py-20 sm:py-28 bg-gray-50 bg-gray-900">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <!-- Titre avec mise en avant -->
       <div class="mx-auto max-w-2xl text-center mb-16">
-        <h2 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-          Comment je peux vous <span class="text-emerald-700 dark:text-emerald-400">aider</span>
+        <h2 class="text-4xl font-bold tracking-tight text-gray-900 text-white sm:text-5xl">
+          Comment je peux vous <span class="text-emerald-700 text-emerald-400">aider</span>
         </h2>
-        <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
+        <p class="mt-6 text-lg text-gray-600 text-gray-300">
           Vous méritez une présence en ligne qui vous apporte de vrais résultats. Pas juste un site, mais un outil qui génère des clients.
         </p>
       </div>
@@ -259,32 +259,32 @@ const testimonials = [
         {services.map((service) => (
           <a
             href={service.href}
-            class="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 pt-12 shadow-sm hover:shadow-xl transition-all duration-300"
+            class="group relative bg-white bg-gray-800 rounded-3xl p-8 pt-12 shadow-sm hover:shadow-xl transition-all duration-300"
           >
             <!-- Icon détouré en haut à gauche avec effet de découpe -->
-            <div class="absolute -top-5 left-8 w-14 h-14 rounded-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+            <div class="absolute -top-5 left-8 w-14 h-14 rounded-full bg-gray-50 bg-gray-900 flex items-center justify-center">
               <div class="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md">
                 <Icon name={service.icon} class="w-5 h-5 text-white" />
               </div>
             </div>
 
             <!-- Titre -->
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            <h3 class="text-xl font-bold text-gray-900 text-white mb-3">
               {service.title}
             </h3>
 
             <!-- Description -->
-            <p class="text-gray-600 dark:text-gray-400 mb-4">
+            <p class="text-gray-600 text-gray-400 mb-4">
               {service.description}
             </p>
 
             <!-- Prix d'ancrage -->
-            <p class="text-sm font-semibold text-gray-900 dark:text-white mb-6">
+            <p class="text-sm font-semibold text-gray-900 text-white mb-6">
               {service.price}
             </p>
 
             <!-- Lien -->
-            <span class="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold group-hover:gap-3 transition-all">
+            <span class="inline-flex items-center gap-2 text-green-600 text-green-400 font-semibold group-hover:gap-3 transition-all">
               En savoir plus
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -307,7 +307,7 @@ const testimonials = [
         </a>
         <a
           href="#realisations"
-          class="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold hover:gap-3 transition-all"
+          class="inline-flex items-center gap-2 text-emerald-700 text-emerald-400 font-semibold hover:gap-3 transition-all"
         >
           Voir mes réalisations
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -319,7 +319,7 @@ const testimonials = [
   </section>
 
   <!-- 3. Avis Section -->
-  <section class="relative isolate bg-white pb-32 pt-24 sm:pt-32 dark:bg-gray-900">
+  <section class="relative isolate bg-white pb-32 pt-24 sm:pt-32 bg-gray-900">
     <div class="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl" aria-hidden="true">
       <div class="ml-[max(50%,38rem)] aspect-[1313/771] w-[82.0625rem] bg-gradient-to-tr from-green-300 to-green-600" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
     </div>
@@ -328,40 +328,40 @@ const testimonials = [
     </div>
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-base/7 font-semibold text-green-600 dark:text-green-400">Avis clients</h2>
-        <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">Ce que mes clients de Limoges disent</p>
+        <h2 class="text-base/7 font-semibold text-green-600 text-green-400">Avis clients</h2>
+        <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-white">Ce que mes clients de Limoges disent</p>
       </div>
-      <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 dark:text-gray-100">
+      <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4 text-gray-100">
         <!-- Colonne 1 - Premier avis -->
-        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-span-1 xl:row-span-2 dark:bg-gray-800 dark:ring-white/10">
-          <blockquote class="text-gray-900 dark:text-white">
+        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-span-1 xl:row-span-2 bg-gray-800 ring-white/10">
+          <blockquote class="text-gray-900 text-white">
             <p>"{testimonials[1].quote}"</p>
           </blockquote>
           <figcaption class="mt-6 flex items-center gap-x-4">
-            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 bg-green-900 text-green-300">
               {testimonials[1].initial}
             </div>
             <div>
-              <div class="font-semibold dark:text-white">{testimonials[1].name}</div>
-              <div class="text-gray-600 dark:text-gray-400">{testimonials[1].role}</div>
+              <div class="font-semibold text-white">{testimonials[1].name}</div>
+              <div class="text-gray-600 text-gray-400">{testimonials[1].role}</div>
             </div>
           </figcaption>
         </figure>
 
         <!-- Avis principal (featured) - au centre -->
-        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 dark:bg-gray-800 dark:ring-white/10">
-          <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12 sm:text-xl/8 dark:text-white">
+        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1 bg-gray-800 ring-white/10">
+          <blockquote class="p-6 text-lg font-semibold tracking-tight text-gray-900 sm:p-12 sm:text-xl/8 text-white">
             <p>"{testimonials[0].quote}"</p>
           </blockquote>
-          <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap dark:border-white/10">
-            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+          <figcaption class="flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap border-white/10">
+            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 bg-green-900 text-green-300">
               {testimonials[0].initial}
             </div>
             <div class="flex-auto">
-              <div class="font-semibold dark:text-white">{testimonials[0].name}</div>
-              <div class="text-gray-600 dark:text-gray-400">{testimonials[0].role}</div>
+              <div class="font-semibold text-white">{testimonials[0].name}</div>
+              <div class="text-gray-600 text-gray-400">{testimonials[0].role}</div>
             </div>
-            <div class="flex gap-0.5 text-green-600 dark:text-green-400">
+            <div class="flex gap-0.5 text-green-600 text-green-400">
               {[1, 2, 3, 4, 5].map(() => (
                 <svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
@@ -372,17 +372,17 @@ const testimonials = [
         </figure>
 
         <!-- Colonne 3 - Dernier avis -->
-        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-span-1 xl:row-span-2 dark:bg-gray-800 dark:ring-white/10">
-          <blockquote class="text-gray-900 dark:text-white">
+        <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-span-1 xl:row-span-2 bg-gray-800 ring-white/10">
+          <blockquote class="text-gray-900 text-white">
             <p>"{testimonials[2].quote}"</p>
           </blockquote>
           <figcaption class="mt-6 flex items-center gap-x-4">
-            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 dark:bg-green-900 dark:text-green-300">
+            <div class="flex size-10 items-center justify-center rounded-full bg-green-100 font-semibold text-green-600 bg-green-900 text-green-300">
               {testimonials[2].initial}
             </div>
             <div>
-              <div class="font-semibold dark:text-white">{testimonials[2].name}</div>
-              <div class="text-gray-600 dark:text-gray-400">{testimonials[2].role}</div>
+              <div class="font-semibold text-white">{testimonials[2].name}</div>
+              <div class="text-gray-600 text-gray-400">{testimonials[2].role}</div>
             </div>
           </figcaption>
         </figure>
@@ -403,7 +403,7 @@ const testimonials = [
           href="https://share.google/CUauO1GJF2z65yr3f"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-x-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-white dark:ring-gray-700"
+          class="flex items-center gap-x-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 bg-gray-800 text-white ring-gray-700"
         >
           <Icon name="tabler:pencil" class="size-5" />
           Laisser un avis
@@ -413,17 +413,17 @@ const testimonials = [
   </section>
 
   <!-- 2.75 Réalisations Limoges -->
-  <section id="realisations" class="py-20 sm:py-28 bg-white dark:bg-gray-950 scroll-mt-32">
+  <section id="realisations" class="py-20 sm:py-28 bg-white bg-gray-950 scroll-mt-32">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
       <div class="mb-12">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-4 flex items-center gap-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 text-gray-500 mb-4 flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           Réalisations à Limoges
         </p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Des clients qui trouvent, <span class="text-emerald-700 dark:text-emerald-400">appellent, achètent.</span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-white">
+          Des clients qui trouvent, <span class="text-emerald-700 text-emerald-400">appellent, achètent.</span>
         </h2>
-        <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl">
+        <p class="mt-4 text-gray-600 text-gray-300 max-w-2xl">
           Deux exemples récents en Haute-Vienne. La même méthode partout : comprendre le métier, livrer un site qui convertit, suivre les chiffres.
         </p>
       </div>
@@ -434,26 +434,26 @@ const testimonials = [
           href="https://www.valdeviennemoto.com/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm hover:shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col transition-all duration-300"
+          class="group bg-white bg-gray-900 rounded-2xl p-8 shadow-sm hover:shadow-lg border border-gray-100 border-gray-800 flex flex-col transition-all duration-300"
         >
           <div class="flex items-center gap-2 mb-4">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 text-emerald-400">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Le Vigeant (86)
             </span>
-            <span class="text-xs text-gray-500 dark:text-gray-400">Loisir · Sport mécanique</span>
+            <span class="text-xs text-gray-500 text-gray-400">Loisir · Sport mécanique</span>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+          <h3 class="text-xl font-bold text-gray-900 text-white mb-3 group-hover:text-emerald-700 group-hover:text-emerald-400 transition-colors">
             Val de Vienne Moto
           </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-6">
+          <p class="text-sm text-gray-600 text-gray-300 mb-6">
             Site dédié à la pratique moto sur le circuit du Val de Vienne. Refonte complète, structure SEO, contenus optimisés pour les requêtes "roulage moto" en région.
           </p>
-          <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 mb-4 mt-auto">
-            <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">Visibilité régionale</p>
-            <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">sur les requêtes circuit moto Nouvelle-Aquitaine</p>
+          <div class="bg-emerald-50 bg-emerald-900/20 rounded-xl p-4 mb-4 mt-auto">
+            <p class="text-2xl font-bold text-emerald-700 text-emerald-400">Visibilité régionale</p>
+            <p class="text-xs text-gray-600 text-gray-400 mt-1">sur les requêtes circuit moto Nouvelle-Aquitaine</p>
           </div>
-          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-400 group-hover:gap-2 transition-all">
+          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 text-emerald-400 group-hover:gap-2 transition-all">
             Voir le site
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </span>
@@ -464,26 +464,26 @@ const testimonials = [
           href="https://www.pizza-limoges.fr"
           target="_blank"
           rel="noopener noreferrer"
-          class="group bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm hover:shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col transition-all duration-300"
+          class="group bg-white bg-gray-900 rounded-2xl p-8 shadow-sm hover:shadow-lg border border-gray-100 border-gray-800 flex flex-col transition-all duration-300"
         >
           <div class="flex items-center gap-2 mb-4">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 text-emerald-400">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Limoges
             </span>
-            <span class="text-xs text-gray-500 dark:text-gray-400">Restauration · Pizzeria</span>
+            <span class="text-xs text-gray-500 text-gray-400">Restauration · Pizzeria</span>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+          <h3 class="text-xl font-bold text-gray-900 text-white mb-3 group-hover:text-emerald-700 group-hover:text-emerald-400 transition-colors">
             Pizza Carmes
           </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-6">
+          <p class="text-sm text-gray-600 text-gray-300 mb-6">
             Refonte complète d'un site vieillissant pour une pizzeria du centre-ville de Limoges. Structure claire, menu en ligne, fiche Google reliée.
           </p>
-          <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 mb-4 mt-auto">
-            <p class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">Site moderne, rapide</p>
-            <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">+ visibilité pack local Limoges</p>
+          <div class="bg-emerald-50 bg-emerald-900/20 rounded-xl p-4 mb-4 mt-auto">
+            <p class="text-2xl font-bold text-emerald-700 text-emerald-400">Site moderne, rapide</p>
+            <p class="text-xs text-gray-600 text-gray-400 mt-1">+ visibilité pack local Limoges</p>
           </div>
-          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-400 group-hover:gap-2 transition-all">
+          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 text-emerald-400 group-hover:gap-2 transition-all">
             Voir le site
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </span>
@@ -493,7 +493,7 @@ const testimonials = [
       <div class="mt-12 text-center">
         <a
           href="tel:+33623565299"
-          class="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold hover:gap-3 transition-all"
+          class="inline-flex items-center gap-2 text-emerald-700 text-emerald-400 font-semibold hover:gap-3 transition-all"
         >
           Réservons 20 min pour parler de votre cas
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -503,76 +503,76 @@ const testimonials = [
   </section>
 
   <!-- 2.5 Trust / E-E-A-T Section - Basé à Ajaccio -->
-  <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
+  <section class="py-20 sm:py-28 bg-white bg-gray-950">
     <div class="mx-auto max-w-4xl px-6 lg:px-8">
       <!-- Label -->
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-6 flex items-center gap-2">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 text-gray-500 mb-6 flex items-center gap-2">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
         En toute transparence
       </p>
 
       <!-- H2 -->
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
-        Pourquoi un consultant à Ajaccio pour votre site à <span class="text-emerald-700 dark:text-emerald-400">Limoges</span> ?
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-white mb-8">
+        Pourquoi un consultant à Ajaccio pour votre site à <span class="text-emerald-700 text-emerald-400">Limoges</span> ?
       </h2>
 
       <!-- Story -->
-      <div class="space-y-6 text-lg text-gray-600 dark:text-gray-300">
+      <div class="space-y-6 text-lg text-gray-600 text-gray-300">
         <p>
-          J'ai vécu <strong class="text-gray-900 dark:text-white">plus de 20 ans à Limoges</strong>. C'est la ville où j'ai grandi, où j'ai démarré mon activité, et où vit toujours une bonne partie de ma famille. Quand je dis "ville de cœur", ce n'est pas une formule : j'y retourne régulièrement pour mes clients actifs en Haute-Vienne et pour les miens.
+          J'ai vécu <strong class="text-gray-900 text-white">plus de 20 ans à Limoges</strong>. C'est la ville où j'ai grandi, où j'ai démarré mon activité, et où vit toujours une bonne partie de ma famille. Quand je dis "ville de cœur", ce n'est pas une formule : j'y retourne régulièrement pour mes clients actifs en Haute-Vienne et pour les miens.
         </p>
         <p>
-          En 2020, j'ai déménagé en Corse pour des raisons personnelles. Mais <strong class="text-gray-900 dark:text-white">Limoges n'est pas un ancien marché, c'est un marché actuel</strong>.
+          En 2020, j'ai déménagé en Corse pour des raisons personnelles. Mais <strong class="text-gray-900 text-white">Limoges n'est pas un ancien marché, c'est un marché actuel</strong>.
         </p>
       </div>
 
       <!-- Concrete points -->
-      <p class="mt-12 font-semibold text-gray-900 dark:text-white">
+      <p class="mt-12 font-semibold text-gray-900 text-white">
         Concrètement, pour votre projet :
       </p>
-      <ul class="mt-6 space-y-5 text-gray-600 dark:text-gray-300">
+      <ul class="mt-6 space-y-5 text-gray-600 text-gray-300">
         <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
           </svg>
           <span>
-            <strong class="font-semibold text-gray-900 dark:text-white">Je connais le terrain.</strong> Les zones, les concurrents locaux, les annuaires du Limousin, les spécificités des SERPs en Haute-Vienne. Pas d'apprentissage à vos frais.
+            <strong class="font-semibold text-gray-900 text-white">Je connais le terrain.</strong> Les zones, les concurrents locaux, les annuaires du Limousin, les spécificités des SERPs en Haute-Vienne. Pas d'apprentissage à vos frais.
           </span>
         </li>
         <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
           </svg>
           <span>
-            <strong class="font-semibold text-gray-900 dark:text-white">RDV physique possible.</strong> Entre famille et clients en cours, je reviens à Limoges plusieurs fois par an. Un café en centre-ville ou un passage à votre bureau, c'est inclus.
+            <strong class="font-semibold text-gray-900 text-white">RDV physique possible.</strong> Entre famille et clients en cours, je reviens à Limoges plusieurs fois par an. Un café en centre-ville ou un passage à votre bureau, c'est inclus.
           </span>
         </li>
         <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
           </svg>
           <span>
-            <strong class="font-semibold text-gray-900 dark:text-white">Le reste du temps, on bosse en visio.</strong> Mêmes outils, même méthode, même réactivité que pour mes clients à Ajaccio. 90% du SEO et du dev web se fait à distance, même quand on habite à 500m.
+            <strong class="font-semibold text-gray-900 text-white">Le reste du temps, on bosse en visio.</strong> Mêmes outils, même méthode, même réactivité que pour mes clients à Ajaccio. 90% du SEO et du dev web se fait à distance, même quand on habite à 500m.
           </span>
         </li>
         <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <svg class="mt-1 size-5 flex-none text-emerald-600 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
           </svg>
           <span>
-            <strong class="font-semibold text-gray-900 dark:text-white">Un interlocuteur, pas une agence.</strong> Pas de chef de projet, pas de sous-traitance, pas de "je reviens vers vous". Vous parlez directement à celui qui fait le boulot.
+            <strong class="font-semibold text-gray-900 text-white">Un interlocuteur, pas une agence.</strong> Pas de chef de projet, pas de sous-traitance, pas de "je reviens vers vous". Vous parlez directement à celui qui fait le boulot.
           </span>
         </li>
       </ul>
 
       <!-- Soft CTA -->
       <div class="mt-12 border-l-4 border-emerald-600 pl-6">
-        <p class="text-lg text-gray-700 dark:text-gray-300">
-          <strong class="text-gray-900 dark:text-white">Envie d'en discuter ?</strong> Premier échange de 20 min, sans engagement.
+        <p class="text-lg text-gray-700 text-gray-300">
+          <strong class="text-gray-900 text-white">Envie d'en discuter ?</strong> Premier échange de 20 min, sans engagement.
         </p>
         <a
           href="tel:+33623565299"
-          class="mt-4 inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold hover:gap-3 transition-all"
+          class="mt-4 inline-flex items-center gap-2 text-emerald-700 text-emerald-400 font-semibold hover:gap-3 transition-all"
         >
           Réserver un échange
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
