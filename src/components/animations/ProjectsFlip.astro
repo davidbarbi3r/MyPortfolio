@@ -39,9 +39,9 @@
       if (screenshot) { screenshot.className = 'screenshot-wrap h-64 md:h-80 overflow-hidden'; }
       if (body) body.className = 'card-body p-6';
       if (title) { title.classList.remove('text-lg'); title.classList.add('text-xl', 'mb-1'); }
-      if (sector) { sector.className = 'card-sector text-sm text-slate-500 text-slate-400 mb-2'; }
+      if (sector) { sector.className = 'card-sector text-sm text-slate-500 dark:text-slate-400 mb-2'; }
       if (offer) { offer.classList.remove('hidden'); }
-      if (metric) { metric.className = 'card-metric text-3xl md:text-4xl font-bold text-green-700 text-green-400 leading-tight mb-4'; metric.setAttribute('data-project-metric', ''); }
+      if (metric) { metric.className = 'card-metric text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400 leading-tight mb-4'; metric.setAttribute('data-project-metric', ''); }
       if (hint) hint.classList.add('!hidden');
       card.classList.remove('cursor-pointer');
     }
@@ -62,9 +62,9 @@
       if (screenshot) { screenshot.className = 'screenshot-wrap h-40 md:h-48 overflow-hidden relative'; }
       if (body) body.className = 'card-body p-5';
       if (title) { title.classList.remove('text-xl', 'mb-1'); title.classList.add('text-lg'); }
-      if (sector) { sector.className = 'card-sector text-xs text-slate-500 text-slate-400 mb-2'; }
+      if (sector) { sector.className = 'card-sector text-xs text-slate-500 dark:text-slate-400 mb-2'; }
       if (offer) { offer.classList.add('hidden'); }
-      if (metric) { metric.className = 'card-metric text-xl md:text-2xl font-bold text-green-700 text-green-400 leading-tight mb-2'; metric.setAttribute('data-project-metric', ''); }
+      if (metric) { metric.className = 'card-metric text-xl md:text-2xl font-bold text-green-700 dark:text-green-400 leading-tight mb-2'; metric.setAttribute('data-project-metric', ''); }
       if (hint) hint.classList.remove('!hidden');
       card.classList.add('cursor-pointer');
     }

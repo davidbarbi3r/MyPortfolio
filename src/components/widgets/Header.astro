@@ -57,7 +57,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
 
 <header
   class:list={[
-    { sticky: isSticky, relative: !isSticky,  isDark },
+    { sticky: isSticky, relative: !isSticky, dark: isDark },
     "top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out bg-page",
   ]}
   {...id ? { id } : {}}
@@ -92,15 +92,15 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             <li class={links?.length ? "dropdown" : ""}>
               {links?.length ? (
                 <>
-                  <button class="hover:text-link hover:text-white px-4 py-3 flex items-center">
+                  <button class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
                     {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
                           class:list={[
-                            "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:font-bold hover:text-white hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
+                            "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:font-bold dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
                             { "aw-link-active" : href2 === currentPath}
                           ]}
                           href={href2}
@@ -114,7 +114,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
               ) : (
                 <a
                   class:list={[
-                    "hover:text-link hover:text-white px-2 py-3 flex items-centers",
+                    "hover:text-link dark:hover:text-white px-2 py-3 flex items-centers",
                     { "aw-link-active": href === currentPath }
                   ]}
                   href={href}

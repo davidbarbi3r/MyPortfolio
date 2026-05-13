@@ -378,16 +378,16 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
 
 ```html
   <!-- Section 04 : Les 2 freins habituels - zig-zag conversational -->
-  <section id="freins" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white from-gray-900 to-gray-900 scroll-mt-20">
+  <section id="freins" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 scroll-mt-20">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
         <span class="styled-number" data-gsap="slide-in-left">04</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">Les deux vraies questions</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3 leading-[1.1]" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           "Oui, mais un site sur-mesure, ça coûte cher et c'est bloqué."
         </h2>
-        <p class="font-body text-xl text-gray-600 text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
+        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed" data-gsap="fade-up">
           C'était vrai il y a 5 ans. Voici pourquoi ça ne l'est plus.
         </p>
       </div>
@@ -396,18 +396,18 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
       <div class="frein-block mb-20 lg:mb-28">
         <div class="frein-objection">
           <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
-          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 text-white leading-[1.2]" data-gsap="fade-up">
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
             Un site sur-mesure, c'est 8 000 à 15 000€.
           </blockquote>
-          <p class="font-body text-xs font-medium uppercase tracking-[0.18em] text-red-600/80 text-red-400/80 mt-4" data-gsap="fade-up">L'objection</p>
+          <p class="font-body text-xs font-medium uppercase tracking-[0.18em] text-red-600/80 dark:text-red-400/80 mt-4" data-gsap="fade-up">L'objection</p>
         </div>
         <div class="frein-response" data-gsap="slide-in-right">
           <p class="eyebrow mt-2">Ma réponse</p>
-          <p class="font-body text-gray-700 text-gray-200 leading-relaxed mt-3 text-lg">
+          <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
             Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives - écriture de code, génération de variantes, tests.
           </p>
-          <p class="font-body text-gray-900 text-white leading-relaxed mt-6 text-lg">
-            <span class="font-editorial font-semibold text-green-700 text-green-400">Résultat →</span>
+          <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
+            <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
             La même qualité sur-mesure, <strong>à partir de 2 000€ HT</strong>. Vous payez un développeur, pas une structure.
           </p>
         </div>
@@ -417,18 +417,18 @@ Find the existing `<section id="freins" ...>` block and replace entire `<section
       <div class="frein-block frein-block--mirror">
         <div class="frein-objection">
           <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
-          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 text-white leading-[1.2]" data-gsap="fade-up">
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
             Je vais devoir payer à chaque virgule à changer.
           </blockquote>
-          <p class="font-body text-xs font-medium uppercase tracking-[0.18em] text-red-600/80 text-red-400/80 mt-4" data-gsap="fade-up">L'objection</p>
+          <p class="font-body text-xs font-medium uppercase tracking-[0.18em] text-red-600/80 dark:text-red-400/80 mt-4" data-gsap="fade-up">L'objection</p>
         </div>
         <div class="frein-response" data-gsap="slide-in-left">
           <p class="eyebrow mt-2">Ma réponse</p>
-          <p class="font-body text-gray-700 text-gray-200 leading-relaxed mt-3 text-lg">
+          <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
             Mauvaise surprise habituelle : un site sur-mesure livré comme un bloc figé, et dès qu'il faut changer un horaire ou une photo, il faut payer. Chez moi, non - votre site est livré avec un mini back-office pour modifier textes, images et pages depuis un navigateur.
           </p>
-          <p class="font-body text-gray-900 text-white leading-relaxed mt-6 text-lg">
-            <span class="font-editorial font-semibold text-green-700 text-green-400">Résultat →</span>
+          <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
+            <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
             Vous êtes <strong>totalement autonome sur le contenu</strong>. Formation incluse, tutos vidéo fournis. Besoin d'aide ponctuelle ? Je suis là à 60€/h.
           </p>
         </div>
@@ -488,7 +488,7 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
       <div class="max-w-3xl mb-16 lg:mb-20">
         <span class="styled-number" data-gsap="slide-in-left">05</span>
         <p class="eyebrow mt-4" data-gsap="fade-up">Ce que disent mes clients</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 text-white mt-3 leading-[1.1]" data-gsap="fade-up">
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           Des entrepreneurs qui m'ont fait confiance.
         </h2>
       </div>
@@ -499,16 +499,16 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
         <!-- Hero testimonial : Matthias -->
         <figure class="lg:col-span-8 relative" data-gsap="fade-up">
           <span class="quote-mark-giant qm-emerald" aria-hidden="true" data-gsap="scale-in">"</span>
-          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 text-white leading-[1.25] text-balance pt-6">
+          <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.25] text-balance pt-6">
             David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet. Le suivi est sérieux et il reste disponible quand on a besoin. Vous pouvez lui faire confiance les yeux fermés.
           </blockquote>
           <figcaption class="mt-8 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial font-semibold text-lg">
+            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial font-semibold text-lg">
               M
             </div>
             <div>
-              <div class="font-editorial font-semibold text-gray-900 text-white text-lg">Matthias</div>
-              <div class="font-body text-sm text-gray-500 text-gray-400">Odacio Conseils</div>
+              <div class="font-editorial font-semibold text-gray-900 dark:text-white text-lg">Matthias</div>
+              <div class="font-body text-sm text-gray-500 dark:text-gray-400">Odacio Conseils</div>
             </div>
           </figcaption>
         </figure>
@@ -517,40 +517,40 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
         <div class="lg:col-span-4 space-y-8" data-gsap="strip-stagger">
 
           <figure class="testimonial-strip">
-            <blockquote class="font-body text-base text-gray-700 text-gray-300 italic leading-relaxed">
+            <blockquote class="font-body text-base text-gray-700 dark:text-gray-300 italic leading-relaxed">
               "David est d'une incroyable patience, pleinement acteur de la mise en lumière de mon travail. Grand professionnalisme, je recommande vivement."
             </blockquote>
             <figcaption class="mt-3 flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">M</div>
+              <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">M</div>
               <div class="font-body text-sm">
-                <span class="font-editorial font-semibold text-gray-900 text-white">Marion</span>
-                <span class="text-gray-500 text-gray-400"> - Fondatrice, Gaomata</span>
+                <span class="font-editorial font-semibold text-gray-900 dark:text-white">Marion</span>
+                <span class="text-gray-500 dark:text-gray-400"> - Fondatrice, Gaomata</span>
               </div>
             </figcaption>
           </figure>
 
           <figure class="testimonial-strip">
-            <blockquote class="font-body text-sm text-gray-700 text-gray-300 italic leading-relaxed">
+            <blockquote class="font-body text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">
               "Très à l'écoute dans la co-construction de mon site internet. Son professionnalisme et son expertise ont permis de créer un site personnalisé et conforme à mes attentes."
             </blockquote>
             <figcaption class="mt-3 flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">M</div>
+              <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">M</div>
               <div class="font-body text-sm">
-                <span class="font-editorial font-semibold text-gray-900 text-white">Mathieu</span>
-                <span class="text-gray-500 text-gray-400"> - Accompagnateur d'entreprise</span>
+                <span class="font-editorial font-semibold text-gray-900 dark:text-white">Mathieu</span>
+                <span class="text-gray-500 dark:text-gray-400"> - Accompagnateur d'entreprise</span>
               </div>
             </figcaption>
           </figure>
 
           <figure class="testimonial-strip">
-            <blockquote class="font-body text-sm text-gray-700 text-gray-300 italic leading-relaxed">
+            <blockquote class="font-body text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">
               "Travail de qualité dans la conception et la réalisation du site. Son écoute et son professionnalisme ont permis la bonne exécution."
             </blockquote>
             <figcaption class="mt-3 flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-green-100 bg-green-900/50 text-green-700 text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">C</div>
+              <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 flex items-center justify-center font-editorial text-sm font-semibold">C</div>
               <div class="font-body text-sm">
-                <span class="font-editorial font-semibold text-gray-900 text-white">Cédric</span>
-                <span class="text-gray-500 text-gray-400"> - Fondateur, Rest'ô Dom</span>
+                <span class="font-editorial font-semibold text-gray-900 dark:text-white">Cédric</span>
+                <span class="text-gray-500 dark:text-gray-400"> - Fondateur, Rest'ô Dom</span>
               </div>
             </figcaption>
           </figure>
@@ -559,22 +559,22 @@ Find the existing `<!-- Section 05 : Avis clients -->` block and replace entire 
       </div>
 
       <!-- Region C : two micro-verbatims, bottom full-width -->
-      <div class="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-12 pt-12 border-t border-gray-200 border-gray-800" data-gsap="verbatim-stagger">
+      <div class="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-12 pt-12 border-t border-gray-200 dark:border-gray-800" data-gsap="verbatim-stagger">
 
         <figure>
-          <blockquote class="font-editorial text-xl italic text-gray-800 text-gray-100 leading-snug">
+          <blockquote class="font-editorial text-xl italic text-gray-800 dark:text-gray-100 leading-snug">
             "C'est un vrai plus de travailler avec un professionnel serein."
           </blockquote>
-          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 text-gray-400">
+          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
             - Véronique, La voie des sens
           </figcaption>
         </figure>
 
         <figure>
-          <blockquote class="font-editorial text-xl italic text-gray-800 text-gray-100 leading-snug">
+          <blockquote class="font-editorial text-xl italic text-gray-800 dark:text-gray-100 leading-snug">
             "Véritable professionnel, réactif, compétent et sympathique. Je recommande fortement."
           </blockquote>
-          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 text-gray-400">
+          <figcaption class="mt-4 font-body text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
             - Aaron, Action Conseils
           </figcaption>
         </figure>
@@ -619,8 +619,8 @@ In the hero `<section class="relative min-h-[90dvh] flex items-center overflow-h
 1. On the two `.absolute ... animate-float` decorative blobs (the large emerald/green circles with `blur-[100px]`), add `data-parallax="hero-blob"` and a `data-parallax-speed` attribute (`-80` for the top-right blob, `-140` for the bottom-left):
 
 ```html
-<div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 from-emerald-900/25 to-green-900/10 rounded-full blur-[100px] animate-float" data-parallax="hero-blob" data-parallax-speed="-80"></div>
-<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 from-amber-900/15 to-emerald-900/8 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;" data-parallax="hero-blob" data-parallax-speed="-140"></div>
+<div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-gradient-to-br from-emerald-100/60 to-green-100/30 dark:from-emerald-900/25 dark:to-green-900/10 rounded-full blur-[100px] animate-float" data-parallax="hero-blob" data-parallax-speed="-80"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-amber-100/30 to-emerald-100/20 dark:from-amber-900/15 dark:to-emerald-900/8 rounded-full blur-[100px]" style="animation: float 9s ease-in-out infinite reverse;" data-parallax="hero-blob" data-parallax-speed="-140"></div>
 ```
 
 2. If the hero contains a `.hero-mark` element (search the hero block for class `hero-mark`), add `data-parallax="hero-mark"` and `data-parallax-speed="-100"` to it. If no such element is rendered in this page (the CSS class is defined but may not be used), skip this sub-step.

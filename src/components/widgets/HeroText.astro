@@ -19,20 +19,20 @@ const {
       <div class="text-center max-w-screen-lg mx-auto">
         {tagline && (
           <p
-            class="text-base text-emerald-900 text-emerald-200 font-bold tracking-wide uppercase"
+            class="text-base text-emerald-900 dark:text-emerald-200 font-bold tracking-wide uppercase"
             set:html={tagline}
           />
         )}
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-200"
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 text-slate-300" set:html={subtitle} />}
+          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
           <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
