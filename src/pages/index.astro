@@ -35,7 +35,7 @@ import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: 'Agence web à Ajaccio, référencement et création site internet',
+  title: 'David Barbier - Agence web à Ajaccio, référencement et création site internet',
   description: "Agence web freelance à Ajaccio. Ancien auditeur financier, j'accompagne TPE corses et cabinets d'expertise comptable sur leurs projets digitaux.",
   lang: locale,
 };
@@ -190,7 +190,7 @@ const reviewsSchema = {
 
   <!--hero-->
   <Hero2
-    tagline="David Barbier · Freelance · Ancien auditeur EC"
+    tagline="Freelance · Ancien auditeur EC"
     callToAction={{ text: t('portfolio.bookCall'), href: 'tel:+33623565299', icon: 'tabler:phone' }}
     image={{
       src: HeroImage,
@@ -198,7 +198,7 @@ const reviewsSchema = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">L'agence web à Ajaccio,</span><br />
+      <span class="text-slate-800 dark:text-gray-200">David Barbier, agence web à Ajaccio,</span><br />
       <span class="text-emerald-700 dark:text-emerald-400">création de site internet <br/>et référencement SEO</span>
     </Fragment>
 
