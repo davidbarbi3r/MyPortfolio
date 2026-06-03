@@ -4,16 +4,22 @@
  *
  * Ce sont des nœuds d'IDENTITÉ purs : NAP, coordonnées, `founder` → #person.
  * Ils NE portent PAS `aggregateRating`. Sur les pages de service, l'agrégat
- * est attaché au nœud `Service` correspondant (l'offre rendue), pas à
- * l'entité LocalBusiness/Organization.
+ * est attaché au nœud d'offre, typé `["Product", "Service"]`.
  *
- * Pourquoi : un `aggregateRating` posé sur sa propre entité
- * LocalBusiness/Organization est considéré "self-serving" par Google →
- * ignoré et inéligible aux review rich results. On le rattache donc au
- * `Service`, qui réfère l'entité via `provider.@id`.
+ * Pourquoi ce double type :
+ * - `aggregateRating` sur un `Service` SEUL est rejeté par Google :
+ *   "Type d'objet non valide pour le champ <parent_node>" (Service n'est
+ *   PAS dans la liste des types éligibles aux review snippets).
+ * - `aggregateRating` sur l'entité LocalBusiness/Organization est valide
+ *   côté type, mais considéré "self-serving" (avis sur sa propre entité) →
+ *   ignoré par Google.
+ * - `Product` EST éligible ET échappe à la règle self-serving (un avis sur
+ *   un produit est autorisé). D'où le nœud multi-type : `Product` porte le
+ *   rating, `Service` garde la sémantique métier (provider, areaServed...).
  *
  * (Note : les pages "hub" — home, /limoges/, pilier EC — conservent
- * délibérément leur rating sur le LocalBusiness inline, choix assumé.)
+ * délibérément leur rating sur le LocalBusiness/ProfessionalService inline,
+ * choix assumé malgré le caractère self-serving.)
  *
  * Les `@id` sont alignés sur ceux déjà déclarés (home, /limoges/,
  * /agence-web-expert-comptable/) pour que Google fusionne en une seule
