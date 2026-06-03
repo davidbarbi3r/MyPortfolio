@@ -20,3 +20,8 @@
 /en/call/                           /en/contact/                      301
 /en/book-a-call/                    /en/contact/                      301
 /en/site-internet-eco-responsable/  /site-internet-eco-responsable/   301
+
+# --- Anciens projets supprimés ---
+/matchings/          /        301
+/maker-teleport-ui/  /        301
+/tag/*               /blog/   301

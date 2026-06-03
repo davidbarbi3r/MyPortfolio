@@ -18,14 +18,6 @@ const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
 const allCategories = ["blog", "portfolio"];
-const allTags = page.data.reduce((acc: string[], post) => {
-  post.tags?.forEach((tag: string) => {
-    if (!acc.includes(tag)) {
-      acc.push(tag);
-    }
-  });
-  return acc;
-}, [] as string[]);
 
 const metadata = {
   title: `Blog SEO & web - Conseils TPE et experts-comptables${currentPage > 1 ? ` - Page ${currentPage}` : ''} | David Barbier`,
@@ -100,7 +92,6 @@ const breadcrumbSchema = currentPage === 1 ? {
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText={"Précédent articles"} nextText={"Articles suivants"} />
 
     <PostTags tags={allCategories} class="mb-2" title={"Rechercher par catégories"} isCategory />
-    <PostTags tags={allTags}  title={"Rechercher par tags"} />
 
   </section>
 </Layout>

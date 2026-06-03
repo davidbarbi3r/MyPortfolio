@@ -31,7 +31,11 @@ export default defineConfig({
     applyBaseStyles: false
   }), // Conditionally add i18n and sitemap based on I18N.isEnabled
   sitemap({
-    filter: (page) => !page.includes('/tag/') && !page.includes('/en/'),
+    filter: (page) =>
+      !page.includes('/tag/') &&
+      !page.includes('/en/') &&
+      !page.includes('/matchings') &&
+      !page.includes('/maker-teleport-ui'),
     lastmod: new Date(),
   }), mdx(), icon({
     include: {
