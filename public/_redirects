@@ -1,0 +1,22 @@
+# --- Anciennes URLs services migrées ---
+/consultant-seo-ajaccio/                  /agence-seo-ajaccio/                   301
+/referencement-seo-ajaccio/               /agence-seo-ajaccio/                   301
+/creation-site-internet-limoges/          /limoges/wordpress/                    301
+/expert-referencement-limoges/            /limoges/consultant-seo/               301
+/maintenance-site-web-limoges/            /limoges/maintenance-site-internet/    301
+/creation-site-vitrine-expert-comptable/  /lbg-expertise-ec-marseille/           301
+/creation-site-internet/                  /creation-site-internet-ajaccio/       301
+
+# --- RDV / contact ---
+/call/                 /contact/   301
+/reserve-ton-appel/    /contact/   301
+/book-a-call/          /contact/   301
+
+# --- Blog / divers ---
+/blog/site-internet-eco-responsable/   /site-internet-eco-responsable/   301
+/eco-friendly-website-creation/        /site-internet-eco-responsable/   301
+
+# --- EN ---
+/en/call/                           /en/contact/                      301
+/en/book-a-call/                    /en/contact/                      301
+/en/site-internet-eco-responsable/  /site-internet-eco-responsable/   301
