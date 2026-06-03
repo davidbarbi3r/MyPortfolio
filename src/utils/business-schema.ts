@@ -1,23 +1,24 @@
 /**
  * Nodes Schema.org "entité business" — réutilisés en @graph sur les pages
- * de service pour porter aggregateRating sur un type éligible Google
- * Rich Results (LocalBusiness / ProfessionalService).
+ * de service (LocalBusiness Ajaccio / Limoges, ProfessionalService EC).
  *
- * `Service` n'est PAS dans la liste éligible côté Google : attacher
- * aggregateRating à un Service génère l'erreur "Type d'objet non valide
- * pour le champ <parent_node>" dans Search Console. On attache donc
- * l'agrégat ici, et le Service réfère le node via `provider.@id`.
+ * Ce sont des nœuds d'IDENTITÉ purs : NAP, coordonnées, `founder` → #person.
+ * Ils NE portent PAS `aggregateRating`. Sur les pages de service, l'agrégat
+ * est attaché au nœud `Service` correspondant (l'offre rendue), pas à
+ * l'entité LocalBusiness/Organization.
+ *
+ * Pourquoi : un `aggregateRating` posé sur sa propre entité
+ * LocalBusiness/Organization est considéré "self-serving" par Google →
+ * ignoré et inéligible aux review rich results. On le rattache donc au
+ * `Service`, qui réfère l'entité via `provider.@id`.
+ *
+ * (Note : les pages "hub" — home, /limoges/, pilier EC — conservent
+ * délibérément leur rating sur le LocalBusiness inline, choix assumé.)
  *
  * Les `@id` sont alignés sur ceux déjà déclarés (home, /limoges/,
  * /agence-web-expert-comptable/) pour que Google fusionne en une seule
  * entité.
  */
-import {
-  aggregateRatingSchemaAjaccio,
-  aggregateRatingSchemaLimoges,
-  aggregateRatingSchemaGlobal,
-} from './reviews';
-
 export const LOCAL_BUSINESS_AJACCIO_ID = 'https://www.davidbarbier.com/#localbusiness';
 export const LOCAL_BUSINESS_LIMOGES_ID = 'https://www.davidbarbier.com/limoges/#localbusiness';
 export const PROFESSIONAL_SERVICE_EC_ID = 'https://www.davidbarbier.com/agence-web-expert-comptable/#service';
@@ -28,6 +29,7 @@ export const localBusinessAjaccioNode = {
   name: 'David Barbier | Consultant SEO et site internet',
   image: 'https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg',
   url: 'https://www.davidbarbier.com/',
+  founder: { '@id': 'https://www.davidbarbier.com/#person' },
   telephone: '+33623565299',
   email: 'hello@davidbarbier.com',
   address: {
@@ -39,7 +41,6 @@ export const localBusinessAjaccioNode = {
     addressCountry: 'FR',
   },
   priceRange: '€€',
-  aggregateRating: aggregateRatingSchemaAjaccio,
 };
 
 export const localBusinessLimogesNode = {
@@ -49,6 +50,7 @@ export const localBusinessLimogesNode = {
   image: 'https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg',
   url: 'https://www.davidbarbier.com/limoges/',
   branchOf: { '@id': LOCAL_BUSINESS_AJACCIO_ID },
+  founder: { '@id': 'https://www.davidbarbier.com/#person' },
   telephone: '+33623565299',
   email: 'hello@davidbarbier.com',
   address: {
@@ -59,7 +61,6 @@ export const localBusinessLimogesNode = {
     addressCountry: 'FR',
   },
   priceRange: '€€',
-  aggregateRating: aggregateRatingSchemaLimoges,
 };
 
 export const professionalServiceEcNode = {
@@ -69,5 +70,5 @@ export const professionalServiceEcNode = {
   url: 'https://www.davidbarbier.com/agence-web-expert-comptable/',
   description: "Agence web spécialisée pour cabinets d'expertise comptable.",
   areaServed: { '@type': 'Country', name: 'France' },
-  aggregateRating: aggregateRatingSchemaGlobal,
+  founder: { '@id': 'https://www.davidbarbier.com/#person' },
 };

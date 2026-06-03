@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
 import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
 
 const metadata = {
   title: 'Freelance WordPress Ajaccio : refonte, maintenance & WooCommerce',
@@ -21,6 +22,7 @@ const serviceStructuredData = {
   "name": "Freelance WordPress à Ajaccio",
   "description": "Freelance WordPress à Ajaccio. Refonte de sites WordPress existants, maintenance, formation, et boutiques WooCommerce pour petit catalogue.",
   "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+  "aggregateRating": aggregateRatingSchemaAjaccio,
   "areaServed": [
     { "@type": "City", "name": "Ajaccio" },
     { "@type": "AdministrativeArea", "name": "Corse" }

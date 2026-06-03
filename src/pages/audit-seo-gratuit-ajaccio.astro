@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/PageLayout.astro';
 import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
 
 const metadata = {
   title: 'Audit SEO gratuit : où en est votre site, sans filtre',
@@ -18,6 +19,7 @@ const serviceStructuredData = {
       "name": "Audit SEO gratuit à Ajaccio",
       "description": "Analyse rapide et factuelle de votre site internet : ce qui est en place, ce qui manque. Restitution en 15-20 min en visio. Sans engagement.",
       "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+      "aggregateRating": aggregateRatingSchemaAjaccio,
       "isRelatedTo": { "@id": "https://www.davidbarbier.com/agence-seo-ajaccio/#service" },
       "areaServed": [
         { "@type": "City", "name": "Ajaccio" },

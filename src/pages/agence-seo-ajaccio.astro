@@ -4,6 +4,7 @@ import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Activateur from "../assets/images/activateur.png"
 import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
 
 const metadata = {
   title: 'Accompagnement SEO mensuel : votre partenaire référencement en Corse',
@@ -21,6 +22,7 @@ const serviceStructuredData = {
       "name": "Accompagnement SEO mensuel",
       "description": "Accompagnement SEO mensuel pour TPE et indépendants en Corse. Stratégie, technique, contenu, netlinking, suivi mensuel avec reporting Search Console.",
       "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
+      "aggregateRating": aggregateRatingSchemaAjaccio,
       "areaServed": [
         { "@type": "City", "name": "Ajaccio" },
         { "@type": "AdministrativeArea", "name": "Corse" }

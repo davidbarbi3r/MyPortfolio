@@ -4,6 +4,7 @@ import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import Activateur from "../../assets/images/activateur.png"
 import { localBusinessLimogesNode, LOCAL_BUSINESS_LIMOGES_ID } from '~/utils/business-schema';
+import { aggregateRatingSchemaLimoges } from '~/utils/reviews';
 const metadata = {
   title: 'Consultant SEO Limoges : Soyez Visible en Ligne',
   description:
@@ -20,6 +21,7 @@ const serviceStructuredData = {
       "name": "Consultant SEO à Limoges",
       "description": "Référencement naturel à Limoges. Accompagnement SEO, audit technique et optimisation Google Business pour améliorer votre visibilité sur Google.",
       "provider": { "@id": LOCAL_BUSINESS_LIMOGES_ID },
+      "aggregateRating": aggregateRatingSchemaLimoges,
       "areaServed": [
         { "@type": "City", "name": "Limoges" }
       ],

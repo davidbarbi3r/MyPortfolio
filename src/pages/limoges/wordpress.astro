@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
 import { localBusinessLimogesNode, LOCAL_BUSINESS_LIMOGES_ID } from '~/utils/business-schema';
+import { aggregateRatingSchemaLimoges } from '~/utils/reviews';
 
 const metadata = {
   title: 'Création site WordPress à Limoges | Site vitrine professionnel',
@@ -21,6 +22,7 @@ const serviceStructuredData = {
       "name": "Création site WordPress à Limoges",
       "description": "Développeur WordPress à Limoges. Site vitrine professionnel, optimisé SEO, 100% administrable. Livré en 1 mois.",
       "provider": { "@id": LOCAL_BUSINESS_LIMOGES_ID },
+      "aggregateRating": aggregateRatingSchemaLimoges,
       "areaServed": [
         { "@type": "City", "name": "Limoges" }
       ],
