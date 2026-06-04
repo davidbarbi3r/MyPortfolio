@@ -41,62 +41,80 @@ const metadata = {
 };
 
 // JSON-LD LocalBusiness schema - Ajaccio (localisation principale)
+const socialProfiles = [
+  "https://twitter.com/daviddeveloppe",
+  "https://www.linkedin.com/in/dbarbier/",
+  "https://www.instagram.com/daviddeveloppe/",
+  "https://www.facebook.com/daviddeveloppe",
+  "https://www.malt.fr/profile/davidbarbier",
+  "https://github.com/davidbarbi3r"
+];
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.davidbarbier.com/#localbusiness",
-  "name": "David Barbier | Consultant SEO et site internet",
-  "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
-  "url": "https://www.davidbarbier.com/",
-  "founder": { "@id": "https://www.davidbarbier.com/#person" },
-  "telephone": "+33623565299",
-  "email": "hello@davidbarbier.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "13 Boulevard Sampiero",
-    "addressLocality": "Ajaccio",
-    "postalCode": "20000",
-    "addressRegion": "Corse",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.9192043,
-    "longitude": 8.7386439
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    "opens": "08:00",
-    "closes": "20:00"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Ajaccio" },
-    { "@type": "City", "name": "Mezzavia" },
-    { "@type": "City", "name": "Afa" },
-    { "@type": "City", "name": "Cauro" },
-    { "@type": "City", "name": "Alata" },
-    { "@type": "City", "name": "Bastelicaccia" },
-    { "@type": "City", "name": "Cannelle" },
-    { "@type": "City", "name": "Appietto" },
-    { "@type": "City", "name": "Villanova" },
-    { "@type": "City", "name": "Casaglione" },
-    { "@type": "City", "name": "Calcatoggio" },
-    { "@type": "City", "name": "Valle-di-Mezzana" },
-    { "@type": "City", "name": "Sarrola-Carcopino" },
-    { "@type": "City", "name": "Cuttoli-Corticchiato" },
-    { "@type": "City", "name": "Porticcio, Grosseto-Prugna" },
-    { "@type": "AdministrativeArea", "name": "Corse" }
-  ],
-  "sameAs": [
-    "https://twitter.com/daviddeveloppe",
-    "https://www.linkedin.com/in/dbarbier/",
-    "https://www.instagram.com/daviddeveloppe/",
-    "https://www.facebook.com/daviddeveloppe",
-    "https://www.malt.fr/profile/davidbarbier",
-    "https://github.com/davidbarbi3r"
-  ],
-  "priceRange": "€€"
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.davidbarbier.com/#localbusiness",
+      "name": "David Barbier | Consultant SEO et site internet",
+      "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
+      "url": "https://www.davidbarbier.com/",
+      "founder": { "@id": "https://www.davidbarbier.com/#person" },
+      "telephone": "+33623565299",
+      "email": "hello@davidbarbier.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "13 Bd Sampiero",
+        "addressLocality": "Ajaccio",
+        "postalCode": "20000",
+        "addressRegion": "Corse",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.9192043,
+        "longitude": 8.7386439
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Ajaccio" },
+        { "@type": "City", "name": "Mezzavia" },
+        { "@type": "City", "name": "Afa" },
+        { "@type": "City", "name": "Cauro" },
+        { "@type": "City", "name": "Alata" },
+        { "@type": "City", "name": "Bastelicaccia" },
+        { "@type": "City", "name": "Cannelle" },
+        { "@type": "City", "name": "Appietto" },
+        { "@type": "City", "name": "Villanova" },
+        { "@type": "City", "name": "Casaglione" },
+        { "@type": "City", "name": "Calcatoggio" },
+        { "@type": "City", "name": "Valle-di-Mezzana" },
+        { "@type": "City", "name": "Sarrola-Carcopino" },
+        { "@type": "City", "name": "Cuttoli-Corticchiato" },
+        { "@type": "City", "name": "Porticcio, Grosseto-Prugna" },
+        { "@type": "AdministrativeArea", "name": "Corse" }
+      ],
+      "sameAs": socialProfiles,
+      "priceRange": "€€"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.davidbarbier.com/#person",
+      "name": "David Barbier",
+      "url": "https://www.davidbarbier.com/",
+      "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
+      "jobTitle": "Consultant SEO & développeur web",
+      "telephone": "+33623565299",
+      "email": "hello@davidbarbier.com",
+      "worksFor": { "@id": "https://www.davidbarbier.com/#localbusiness" },
+      "sameAs": socialProfiles
+    }
+  ]
 };
 
 // Avis clients : importés depuis ~/utils/reviews (source unique de vérité)
@@ -199,12 +217,11 @@ const reviewsSchema = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">David Barbier, agence web à Ajaccio,</span><br />
-      <span class="text-emerald-700 dark:text-emerald-400">création de site internet <br/>et référencement SEO</span>
+      <span class="text-slate-800 dark:text-gray-200">David Barbier, agence web à Ajaccio</span><br />
     </Fragment>
 
     <Fragment slot="subtitle">
-      Sites internet sur-mesure pour TPE et experts-comptables. Je commence par comprendre votre métier, pas par ouvrir Figma.
+      Sites internet sur-mesure pour TPE et experts-comptables. Je commence par comprendre votre métier, votre histoire, vos valeurs pour les retranscrire au mieux.
     </Fragment>
 
     <Fragment slot="content">
@@ -378,7 +395,7 @@ const reviewsSchema = {
           Agence solo. <span class="text-emerald-700 dark:text-emerald-400">Mais pas tout seul.</span>
         </h2>
         <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Solo sur l'opérationnel - vous parlez à celui qui exécute. Quand un projet demande des compétences pointues, j'active un réseau de freelances seniors. Pas de stagiaire, pas d'offshore.
+          Solo sur l'opérationnel vous parlez à celui qui exécute. Quand un projet demande des compétences qui me manquent, j'active un réseau de freelances seniors. Pas de stagiaire, pas de sous traitance à l'étranger.
         </p>
       </div>
 
@@ -670,7 +687,7 @@ const reviewsSchema = {
     count={3}
   />
   
-  <!-- CTA Section with Google Maps -->
+  {/* Section Google Maps - Localisation de l'agence */}
   <section class="relative overflow-hidden">
     <div class="relative h-[400px]">
       <iframe
@@ -683,32 +700,17 @@ const reviewsSchema = {
         referrerpolicy="no-referrer-when-downgrade"
         title="David Barbier - Agence web et SEO à Ajaccio"
       ></iframe>
-      <div class="absolute inset-0 bg-slate-900/60 flex items-center justify-center">
-        <div class="text-center px-6">
-          <h2 class="text-3xl md:text-4xl font-heading text-white mb-3">
-            {t('portfolio.callToAction.title')}
-          </h2>
-          <p class="text-lg text-slate-200 mb-6 max-w-md mx-auto">
-            {t('portfolio.callToAction.subtitle')}
-          </p>
-          <div class="flex items-center justify-center gap-3">
-            <a
-              class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-700 hover:bg-emerald-600 text-white font-medium rounded-full transition-colors"
-              href="tel:+33623565299"
-            >
-              <Icon name="tabler:phone" class="w-4 h-4" />
-              06 23 56 52 99
-            </a>
-            <a
-              href="mailto:hello@davidbarbier.com"
-              class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white transition-colors"
-              aria-label="Envoyer un email"
-            >
-              <Icon name="tabler:mail" class="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
+  </section>
+  {/* CTA */}
+  <section class="py-16 md:py-20 bg-gradient-to-b from-emerald-700 to-emerald-900 text-white text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">Prêt à démarrer ?</h2>
+    <p class="text-lg max-w-xl mx-auto mb-10">Contactez-moi pour une consultation gratuite.</p>
+    <a
+      href="mailto:hello@davidbarbier.com"
+      class="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-700 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+    >
+      Envoyer un email
+    </a>
   </section>
 </Layout>
