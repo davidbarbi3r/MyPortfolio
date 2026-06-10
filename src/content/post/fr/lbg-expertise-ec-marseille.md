@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-01-06T00:00:00Z
-title: "Projet LBG Expertise : site web cabinet comptable Marseille"
+title: "Étude de cas LBG"
 excerpt: "Étude de cas : réalisation du site web LBG Expertise pour un cabinet comptable indépendant à Marseille."
 image: '~/assets/images/lbg-expertise.png'
 author: David Barbier

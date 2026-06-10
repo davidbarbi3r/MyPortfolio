@@ -15,7 +15,7 @@ metadata:
 
 Un point clé de l'expérience utilisateur d'un site ou d'une application web est le temps de chargement. La patience des visiteurs ne cesse de diminuer. La plupart d'entre eux abandonneront un site s'il ne se charge pas dans les 3 secondes. Pour une entreprise l'image de marque en prend un coup, cela signifie des ventes, des prospects et des opportunités perdues. 
 
-A l'inverse un site fluide et rapide améliorera votre image de marque, vos ventes et votre référencement naturel. C'est un cercle vertueux. 
+A l'inverse un site fluide et rapide améliorera votre image de marque, vos ventes et votre [référencement naturel](https://www.davidbarbier.com/agence-seo-ajaccio/). C'est un cercle vertueux. 
 
 ## Sur quels leviers agir pour assurer la performance de mon site ?
 
@@ -58,4 +58,4 @@ Vous pouvez également utiliser des services de cache comme Cloudflare pour acc�
 
 N'hésitez pas à me contacter pour qu'on analyse et corrige le problème, entretenir son site internet est essentiel pour garantir une expérience utilisateur optimale.
 
-Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet](https://www.davidbarbier.com/) et offrez à vos visiteurs une expérience optimale.
+Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet à Ajaccio](https://www.davidbarbier.com/creation-site-internet-ajaccio/) et offrez à vos visiteurs une expérience optimale.

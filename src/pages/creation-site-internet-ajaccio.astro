@@ -6,7 +6,7 @@ import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/bus
 import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
 
 const metadata = {
-  title: "Création de site internet | Sur-mesure, rapide, autonome",
+  title: "Création de site internet à Ajaccio | David Barbier",
   description:
     "Création de site internet à Ajaccio. Sur-mesure, rapide, SEO-ready. Vous modifiez vos textes en autonomie. Devis sous 48h - à partir de 1 200€ HT.",
 };
@@ -396,9 +396,9 @@ const breadcrumbStructuredData = {
     .dark-editorial {
       position: relative;
       background:
-        radial-gradient(ellipse at top, #0f2e1f 0%, transparent 55%),
-        radial-gradient(ellipse at bottom right, #113526 0%, transparent 50%),
-        linear-gradient(180deg, #081a12 0%, #06120b 100%);
+        radial-gradient(ellipse at top, #0d3a2f 0%, transparent 55%),
+        radial-gradient(ellipse at bottom right, #0b352b 0%, transparent 50%),
+        linear-gradient(180deg, #0a342a 0%, #093028 100%);
     }
 
     .badge-premium {
@@ -476,10 +476,6 @@ const breadcrumbStructuredData = {
 
     /* Section 03 - editorial numbered list rows */
     .deliverable-row {
-      display: grid;
-      grid-template-columns: auto auto 1fr;
-      column-gap: 1.5rem;
-      align-items: baseline;
       padding-block: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -608,10 +604,10 @@ const breadcrumbStructuredData = {
       <h1 class="animate-fade-up delay-100 max-w-6xl">
         <span class="block text-xs sm:text-sm font-body font-medium tracking-[0.2em] uppercase text-amber-700 dark:text-amber-400 mb-8">
           <span class="inline-block w-6 h-[2px] bg-amber-500 dark:bg-amber-400 mr-3 align-middle"></span>
-          Création de site internet sur-mesure
+          Sur-mesure, rapide, autonome
         </span>
         <span class="block font-editorial text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white leading-[0.95] tracking-tight text-balance">
-          Votre site internet<br class="hidden sm:inline" /> digne d'une agence.
+          Création de site internet à Ajaccio
         </span>
       </h1>
 
@@ -655,10 +651,25 @@ const breadcrumbStructuredData = {
           </a>
         </div>
         <p class="font-body text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
-          <span class="inline-block">À partir de 1 200€ HT</span>
+          <span class="inline-block">À partir de 1&nbsp;200€ HT</span>
           <span class="mx-2" aria-hidden="true">·</span>
           <span class="inline-block">Devis sous 48h</span>
         </p>
+      </div>
+
+      <div class="mt-14 pt-10 border-t border-gray-200/70 dark:border-gray-700/50 grid grid-cols-3 gap-6 max-w-2xl animate-fade-up delay-500">
+        <div>
+          <div class="stat-value text-4xl sm:text-5xl font-bold">+50</div>
+          <p class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">projets livrés</p>
+        </div>
+        <div>
+          <div class="stat-value text-4xl sm:text-5xl font-bold">5/5</div>
+          <p class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">sur Google</p>
+        </div>
+        <div>
+          <div class="stat-value text-4xl sm:text-5xl font-bold">2019</div>
+          <p class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">en activité depuis</p>
+        </div>
       </div>
 
     </div>
@@ -671,8 +682,7 @@ const breadcrumbStructuredData = {
 
         <div class="lg:col-span-4">
           <div class="lg:sticky lg:top-32">
-            <span class="styled-number" data-gsap="slide-in-left">01</span>
-            <p class="eyebrow mt-4" data-gsap="fade-up">Le contexte</p>
+            <p class="eyebrow" data-gsap="fade-up">Le contexte</p>
             <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line" data-gsap="fade-up">
               Vos prospects regardent votre site avant de vous appeler.
             </h2>
@@ -686,14 +696,14 @@ const breadcrumbStructuredData = {
             </p>
 
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-6">
-              Ce qu'il voit dans les 10 secondes qui suivent décide s'il vous appelle, ou s'il appelle le concurrent d'à côté. Pas de site, ou un site qui fait "années 2010" : doute, hésitation, il s'en va. Un site pro, clair, rapide : il décroche son téléphone.
+              Ce qu'il voit dans les 10 secondes qui suivent décide s'il vous appelle, ou s'il appelle le concurrent d'à côté. Pas de site, ou un site qui fait "années 2010" : doute, hésitation, il s'en va. Un site pro, clair, rapide : il décroche son téléphone. Et il le fait toute l'année - un bon site capte des contacts en plein hiver comme en pleine saison, pas seulement quand l'activité bat son plein.
             </p>
           </div>
 
           <div class="relative mt-12 pl-8 py-6">
             <span class="quote-mark">"</span>
             <blockquote class="relative font-editorial text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white italic leading-relaxed">
-              Votre site, c'est votre vitrine ouverte 24/7 - même quand vous êtes en rendez-vous ou en vacances.
+              Votre site, c'est votre image, votre marque, en ligne et dispo 24/7.
             </blockquote>
           </div>
 
@@ -747,8 +757,7 @@ const breadcrumbStructuredData = {
   <section id="processus" class="py-24 lg:py-32 scroll-mt-32 texture-bg">
     <div class="px-8 mx-auto md:px-12 lg:px-24 max-w-7xl">
       <div class="lg:text-balance max-w-3xl">
-        <span class="styled-number" data-gsap="slide-in-left">02</span>
-        <p class="eyebrow mt-4" data-gsap="fade-up">Comment on travaille</p>
+        <p class="eyebrow" data-gsap="fade-up">Comment on travaille</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
           De l'idée au site en ligne, en 4 étapes claires.
         </h2>
@@ -866,14 +875,6 @@ const breadcrumbStructuredData = {
 
   <!-- Section 03 : Ce qui est livré - editorial numbered list -->
   <section class="py-24 lg:py-32 dark-editorial grain-dark relative overflow-hidden" data-gsap-section="03">
-    <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
-      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
-          <path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgb(134, 239, 172)" stroke-width="0.3"/>
-        </pattern>
-        <rect width="100" height="100" fill="url(#grid)"/>
-      </svg>
-    </div>
     <!-- Ambient glow accents (parallax targets) -->
     <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" data-parallax="section-03-glow" data-parallax-speed="-60"></div>
     <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-emerald-400/8 blur-[100px] pointer-events-none" data-parallax="section-03-glow" data-parallax-speed="-40"></div>
@@ -881,8 +882,7 @@ const breadcrumbStructuredData = {
     <div class="relative mx-auto max-w-7xl px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16">
 
       <div class="section-03-left lg:col-span-4 lg:sticky lg:top-32 self-start">
-        <span class="font-editorial text-6xl sm:text-7xl font-bold text-white/10 leading-none" data-gsap="slide-in-left">03</span>
-        <p class="eyebrow eyebrow-on-dark mt-4" data-gsap="fade-up">Ce qui est livré</p>
+        <p class="eyebrow eyebrow-on-dark" data-gsap="fade-up">Ce qui est livré</p>
         <h2 class="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           Tout ce qu'il vous faut, rien d'inutile.
         </h2>
@@ -894,10 +894,6 @@ const breadcrumbStructuredData = {
       <ul class="lg:col-span-7 lg:col-start-6 list-none m-0 p-0" data-gsap="list-03-stagger">
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          <span class="deliverable-index">01</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Design sur-mesure</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Un site qui vous ressemble, pas un thème générique. Parfait sur mobile, tablette et ordinateur.</p>
@@ -905,10 +901,6 @@ const breadcrumbStructuredData = {
         </li>
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-          </svg>
-          <span class="deliverable-index">02</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Textes modifiables</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Un mini back-office pour changer vos textes, vos photos, publier un article - depuis n'importe quel navigateur.</p>
@@ -916,10 +908,6 @@ const breadcrumbStructuredData = {
         </li>
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-          <span class="deliverable-index">03</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Rapidité d'affichage</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Vos pages se chargent en moins de 2 secondes. Ni vos visiteurs ni Google n'aiment attendre.</p>
@@ -927,10 +915,6 @@ const breadcrumbStructuredData = {
         </li>
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-          <span class="deliverable-index">04</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">SEO local optimisé</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Structure propre, balises, plan de site. La base technique pour bien ressortir sur Google quand on vous cherche.</p>
@@ -938,10 +922,6 @@ const breadcrumbStructuredData = {
         </li>
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"/>
-          </svg>
-          <span class="deliverable-index">05</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Nom de domaine + hébergement</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Je m'occupe de tout : choix du nom de domaine, configuration de l'hébergement, certificat de sécurité.</p>
@@ -949,10 +929,6 @@ const breadcrumbStructuredData = {
         </li>
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-          </svg>
-          <span class="deliverable-index">06</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Formation à l'usage du site</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Une session de formation en visio + des tutos vidéo que vous pouvez regarder quand vous voulez.</p>
@@ -960,10 +936,6 @@ const breadcrumbStructuredData = {
         </li>
 
         <li class="deliverable-row">
-          <svg class="deliverable-icon" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-          </svg>
-          <span class="deliverable-index">07</span>
           <div>
             <h3 class="font-editorial text-xl font-semibold text-white">Statistiques de visites</h3>
             <p class="font-body text-sm text-green-100/70 mt-2 leading-relaxed">Vous voyez d'où viennent vos visiteurs, ce qu'ils cherchent, ce qui marche. Sans dashboard à 12 onglets.</p>
@@ -980,8 +952,7 @@ const breadcrumbStructuredData = {
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
-        <span class="styled-number" data-gsap="slide-in-left">04</span>
-        <p class="eyebrow mt-4" data-gsap="fade-up">Les deux vraies questions</p>
+        <p class="eyebrow" data-gsap="fade-up">Les deux vraies questions</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           "Oui, mais un site sur-mesure, ça coûte cher et c'est bloqué."
         </h2>
@@ -995,17 +966,17 @@ const breadcrumbStructuredData = {
         <div class="frein-objection">
           <span class="quote-mark-giant qm-amber" aria-hidden="true" data-gsap="scale-in">"</span>
           <blockquote class="font-editorial text-2xl sm:text-3xl lg:text-4xl italic text-gray-900 dark:text-white leading-[1.2]" data-gsap="fade-up">
-            Un site sur-mesure, c'est 8 000 à 15 000€.
+            Un site sur-mesure, c'est 8&nbsp;000 à 15&nbsp;000€.
           </blockquote>
         </div>
         <div class="frein-response" data-gsap="slide-in-right">
           <p class="eyebrow mt-2">Ma réponse</p>
           <p class="font-body text-gray-700 dark:text-gray-200 leading-relaxed mt-3 text-lg">
-            Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives - écriture de code, génération de variantes, tests.
+            Vrai, quand une agence facture 3 commerciaux, 2 chefs de projet, 1 graphiste et 1 développeur pour un site vitrine. Moi, je suis seul en face de vous, et l'IA m'assiste sur les tâches répétitives - écriture de code, génération de variantes, tests. Concrètement, ça remet le sur-mesure à portée des petites structures corses qui n'ont pas 10&nbsp;000€ à confier à une agence continentale.
           </p>
           <p class="font-body text-gray-900 dark:text-white leading-relaxed mt-6 text-lg">
             <span class="font-editorial font-semibold text-green-700 dark:text-green-400">Résultat →</span>
-            La même qualité sur-mesure, <strong>à partir de 2 000€ HT</strong>. Vous payez un développeur, pas une structure.
+            La même qualité sur-mesure, <strong>à partir de 2&nbsp;000€ HT</strong>. Vous payez un développeur, pas une structure.
           </p>
         </div>
       </div>
@@ -1050,8 +1021,7 @@ const breadcrumbStructuredData = {
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
       <div class="max-w-3xl mb-16 lg:mb-20">
-        <span class="styled-number" data-gsap="slide-in-left">05</span>
-        <p class="eyebrow mt-4" data-gsap="fade-up">Ce que disent mes clients</p>
+        <p class="eyebrow" data-gsap="fade-up">Ce que disent mes clients</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 leading-[1.1]" data-gsap="fade-up">
           Des entrepreneurs qui m'ont fait confiance.
         </h2>
@@ -1153,8 +1123,7 @@ const breadcrumbStructuredData = {
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto">
-        <span class="styled-number" data-gsap="slide-in-left">06</span>
-        <p class="eyebrow mt-4" data-gsap="fade-up">Combien ça coûte</p>
+        <p class="eyebrow" data-gsap="fade-up">Combien ça coûte</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
           Un tarif clair, pas de surprise.
         </h2>
@@ -1168,14 +1137,14 @@ const breadcrumbStructuredData = {
             <div class="text-center">
               <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white">Site vitrine sur-mesure</h3>
               <div class="mt-6">
-                <span class="font-editorial text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white">À partir de 2 000€</span>
+                <span class="font-editorial text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white">À partir de 2&nbsp;000€</span>
                 <span class="font-body text-gray-500 dark:text-gray-400 block mt-2">HT - devis personnalisé selon vos besoins</span>
               </div>
             </div>
 
             <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
               <p class="font-body text-sm text-gray-700 dark:text-gray-300">
-                <strong class="text-gray-900 dark:text-white">Un site one-page démarre à 1 200€ HT.</strong> Un site vitrine complet (4-6 pages + blog + formulaire) à partir de 2 000€ HT. Des besoins plus poussés (e-commerce, espace client, multi-langue…) sont évalués sur devis. Délai moyen : 4 à 6 semaines.
+                <strong class="text-gray-900 dark:text-white">Un site one-page démarre à 1&nbsp;200€ HT.</strong> Un site vitrine complet (4-6 pages + blog + formulaire) à partir de 2&nbsp;000€ HT. Des besoins plus poussés (e-commerce, espace client, multi-langue…) sont évalués sur devis. Délai moyen : 4 à 6 semaines.
               </p>
             </div>
 
@@ -1253,8 +1222,7 @@ const breadcrumbStructuredData = {
     <div class="mx-auto max-w-4xl px-6 lg:px-8">
 
       <div class="text-center mb-16">
-        <span class="styled-number" data-gsap="slide-in-left">07</span>
-        <p class="eyebrow mt-4" data-gsap="fade-up">FAQ</p>
+        <p class="eyebrow" data-gsap="fade-up">FAQ</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3" data-gsap="fade-up">
           Les questions qu'on me pose souvent.
         </h2>
@@ -1270,7 +1238,7 @@ const breadcrumbStructuredData = {
             </svg>
           </summary>
           <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Un site one-page démarre à <strong>1 200€ HT</strong>, un site vitrine multi-pages à partir de <strong>2 000€ HT</strong>. Le tarif final dépend du nombre de pages, des fonctionnalités et du contenu à produire (rédaction, photos). Je vous remets un devis détaillé sous 48h après notre premier échange, sans engagement.</p>
+            <p>Un site one-page démarre à <strong>1&nbsp;200€ HT</strong>, un site vitrine multi-pages à partir de <strong>2&nbsp;000€ HT</strong>. Le tarif final dépend du nombre de pages, des fonctionnalités et du contenu à produire (rédaction, photos). Je vous remets un devis détaillé sous 48h après notre premier échange, sans engagement.</p>
           </div>
         </details>
 
@@ -1387,8 +1355,7 @@ const breadcrumbStructuredData = {
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <div>
-          <span class="styled-number" data-gsap="slide-in-left">08</span>
-          <p class="eyebrow mt-4" data-gsap="fade-up">On y va ?</p>
+          <p class="eyebrow" data-gsap="fade-up">On y va ?</p>
           <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line" data-gsap="fade-up">
             Discutons de votre projet.
           </h2>

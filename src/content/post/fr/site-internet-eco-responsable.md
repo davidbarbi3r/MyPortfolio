@@ -62,7 +62,7 @@ Je me consacre à la conception de sites web durables, en intégrant des pratiqu
 
 ## Les avantages de cette approche
 
-- **Optimisation des performances** : Un site éco-responsable est de fait optimisé, il se charge plus rapidement et améliore votre SEO.
+- **Optimisation des performances** : Un site éco-responsable est de fait optimisé, il se charge plus rapidement et améliore votre [référencement naturel](https://www.davidbarbier.com/agence-seo-ajaccio/).
 - **Image de marque renforcée** : Votre entreprise renforce son engagement pour un avenir durable.
 
 ## FAQ
@@ -82,4 +82,4 @@ Le coût peut varier. Il n'existe pas de site builder comme Elementor pour les s
 - [Website Carbon - Rapport du site davidbarbier.com](https://www.websitecarbon.com/website/davidbarbier-com/)
 - [Sustainable Web Design - Guide des bonnes pratiques](https://sustainablewebdesign.org/guidelines/)
 
-Vous souhaitez un site performant et éco-conçu ? Découvrez mon [offre de création de site internet](https://www.davidbarbier.com/) ou mon [agence web dédiée aux experts-comptables](https://www.davidbarbier.com/agence-web-expert-comptable/).
+Vous souhaitez un site performant et éco-conçu ? Découvrez mon [offre de création de site internet à Ajaccio](https://www.davidbarbier.com/creation-site-internet-ajaccio/) ou mon [agence web dédiée aux experts-comptables](https://www.davidbarbier.com/agence-web-expert-comptable/).

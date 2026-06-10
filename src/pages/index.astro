@@ -35,8 +35,8 @@ import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
 const metadata = {
-  title: 'David Barbier - Agence web à Ajaccio, référencement et création site internet',
-  description: "Agence web freelance à Ajaccio. Ancien auditeur financier, j'accompagne TPE corses et cabinets d'expertise comptable sur leurs projets digitaux.",
+  title: 'Agence web Ajaccio | David Barbier Développe',
+  description: "Une agence spécialisée dans la conception de sites web professionnels en Corse. Je suis votre partenaire de confiance dans la conquête du digital.",
   lang: locale,
 };
 
@@ -217,7 +217,7 @@ const reviewsSchema = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">David Barbier, agence web à Ajaccio</span><br />
+      <span class="text-slate-800 dark:text-gray-200">Agence web à Ajaccio<br />David Barbier développe votre site</span><br />
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -585,9 +585,6 @@ const reviewsSchema = {
                 <p class="card-sector text-sm text-slate-500 dark:text-slate-400 mb-2">Secteur : {project.sector}</p>
                 <p class="card-offer text-sm text-slate-600 dark:text-slate-300 mb-4">{project.offer}</p>
                 <p class="card-metric text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400 leading-tight mb-4" data-project-metric>{project.result}</p>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline">
-                  Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
               </div>
             </article>
           ))}
@@ -628,9 +625,6 @@ const reviewsSchema = {
                 <p class="card-sector text-xs text-slate-500 dark:text-slate-400 mb-2">{project.sector}</p>
                 <p class="card-offer hidden text-sm text-slate-600 dark:text-slate-300 mb-4">{project.offer}</p>
                 <p class="card-metric text-xl md:text-2xl font-bold text-green-700 dark:text-green-400 leading-tight mb-2" data-project-metric>{project.result}</p>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline">
-                  Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
               </div>
             </article>
           ))}
@@ -654,9 +648,6 @@ const reviewsSchema = {
                     <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400 rounded-md">{t}</span>
                   ))}
                 </div>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-gray-200 dark:border-slate-600 flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:border-emerald-300 transition-colors">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
               </div>
             </div>
           ))}
@@ -712,5 +703,8 @@ const reviewsSchema = {
     >
       Envoyer un email
     </a>
+    <p class="mt-8 text-sm text-emerald-100/80">
+      Basé à Ajaccio, j'accompagne aussi des clients à <a href="/limoges/" class="underline underline-offset-2 hover:text-white transition-colors">Limoges</a> et partout en France.
+    </p>
   </section>
 </Layout>

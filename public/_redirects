@@ -25,3 +25,7 @@
 /matchings/          /        301
 /maker-teleport-ui/  /        301
 /tag/*               /blog/   301
+
+# --- Études de cas supprimées → création site ---
+/refonte-site-web-pizzeria/   /creation-site-internet-ajaccio/  301
+/restodom/                    /creation-site-internet-ajaccio/  301
