@@ -37,6 +37,9 @@ export interface Post {
   Content?: unknown;
   content?: string;
 
+  /** Headings extraits du markdown (pour le sommaire). */
+  headings?: Array<{ depth: number; slug: string; text: string }>;
+
   /**  */
   readingTime?: number;
 }

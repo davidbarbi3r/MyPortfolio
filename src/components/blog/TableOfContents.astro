@@ -1,0 +1,89 @@
+---
+// Sommaire latéral avec suivi de lecture (scroll-spy).
+// Affiché uniquement sur écrans larges (≥ 1440px), à droite de la colonne article.
+export interface Props {
+  headings: Array<{ depth: number; slug: string; text: string }>;
+}
+
+const { headings } = Astro.props;
+const items = headings.filter((h) => h.depth === 2);
+---
+
+{
+  items.length >= 3 && (
+    <aside
+      data-toc
+      class="hidden min-[1440px]:block absolute top-0 bottom-0 left-[calc(50%+30rem)] w-56"
+      aria-label="Sommaire de l'article"
+    >
+      <nav class="sticky top-28">
+        <p class="text-sm font-bold text-gray-900 dark:text-white mb-3">Sur cette page</p>
+        <ul class="space-y-2.5 border-l border-gray-200 dark:border-gray-700">
+          {items.map((item) => (
+            <li>
+              <a
+                href={`#${item.slug}`}
+                data-toc-link
+                class="block pl-4 -ml-px border-l-2 border-transparent text-sm leading-snug text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+              >
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  )
+}
+
+<style is:global>
+  [data-toc-link].toc-active {
+    color: rgb(4 120 87);
+    border-left-color: rgb(4 120 87);
+    font-weight: 600;
+  }
+  .dark [data-toc-link].toc-active {
+    color: rgb(52 211 153);
+    border-left-color: rgb(52 211 153);
+  }
+</style>
+
+<script>
+  function initToc() {
+    document.querySelectorAll<HTMLElement>('[data-toc]').forEach((toc) => {
+      if (toc.dataset.init) return;
+      toc.dataset.init = '1';
+
+      const links = Array.from(toc.querySelectorAll<HTMLAnchorElement>('[data-toc-link]'));
+      const headings = links
+        .map((a) => document.getElementById(decodeURIComponent((a.getAttribute('href') || '').slice(1))))
+        .filter((el): el is HTMLElement => el !== null);
+      if (!headings.length) return;
+
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        let active = headings[0];
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top <= 140) active = h;
+          else break;
+        }
+        links.forEach((a) => {
+          a.classList.toggle('toc-active', decodeURIComponent((a.getAttribute('href') || '').slice(1)) === active.id);
+        });
+      };
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      update();
+    });
+  }
+
+  initToc();
+  document.addEventListener('astro:page-load', initToc);
+</script>

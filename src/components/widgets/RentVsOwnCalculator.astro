@@ -1,0 +1,112 @@
+---
+// Calculateur location vs propriété, état initial rendu côté serveur
+// (mensualité 49 €, engagement 48 mois, site en propriété 2 000 € + 50 €/an).
+const DEFAULT_MONTHLY = 49;
+const DEFAULT_MONTHS = 48;
+const DEFAULT_OWN = 2000;
+const YEARLY_RUNNING = 50;
+
+const rentTotal = DEFAULT_MONTHLY * DEFAULT_MONTHS;
+const ownTotal = DEFAULT_OWN + Math.round((YEARLY_RUNNING * DEFAULT_MONTHS) / 12);
+const fmt = (n: number) => n.toLocaleString('fr-FR') + ' €';
+---
+
+<div
+  data-rent-calc
+  data-yearly-running={YEARLY_RUNNING}
+  class="not-prose my-8 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6 sm:p-8"
+>
+  <p class="font-semibold text-lg text-gray-900 dark:text-white">Faites le calcul avec le devis qu'on vous propose</p>
+  <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Déplacez les curseurs, les totaux se mettent à jour.</p>
+
+  <div class="mt-6 grid gap-5 sm:grid-cols-3">
+    <label class="block">
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Mensualité de location</span>
+      <span class="block text-xl font-bold text-gray-900 dark:text-white" data-out="monthly-label">{DEFAULT_MONTHLY} €/mois</span>
+      <input type="range" min="20" max="150" step="1" value={DEFAULT_MONTHLY} data-in="monthly" class="mt-2 w-full accent-red-600" aria-label="Mensualité de location en euros par mois" />
+    </label>
+
+    <label class="block">
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Durée d'engagement</span>
+      <span class="block text-xl font-bold text-gray-900 dark:text-white" data-out="months-label">48 mois</span>
+      <input type="range" min="12" max="96" step="12" value={DEFAULT_MONTHS} data-in="months" class="mt-2 w-full accent-gray-600" aria-label="Durée d'engagement en mois" />
+    </label>
+
+    <label class="block">
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Site en propriété (création)</span>
+      <span class="block text-xl font-bold text-gray-900 dark:text-white" data-out="own-label">{fmt(DEFAULT_OWN)}</span>
+      <input type="range" min="1200" max="5000" step="100" value={DEFAULT_OWN} data-in="own" class="mt-2 w-full accent-emerald-700" aria-label="Prix de création d'un site en propriété en euros" />
+    </label>
+  </div>
+
+  <div class="mt-8 space-y-4" aria-live="polite">
+    <div>
+      <div class="flex justify-between text-sm font-medium">
+        <span class="text-red-700 dark:text-red-400">Location : <span data-out="rent-total">{fmt(rentTotal)}</span> payés</span>
+        <span class="text-gray-500 dark:text-gray-400">rien à vous au terme</span>
+      </div>
+      <div class="mt-1 h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+        <div data-out="rent-bar" class="h-full rounded-full bg-red-600 transition-all duration-300" style="width: 100%"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex justify-between text-sm font-medium">
+        <span class="text-emerald-700 dark:text-emerald-400">Propriété : <span data-out="own-total">{fmt(ownTotal)}</span></span>
+        <span class="text-gray-500 dark:text-gray-400">le site vous appartient</span>
+      </div>
+      <div class="mt-1 h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+        <div data-out="own-bar" class="h-full rounded-full bg-emerald-700 transition-all duration-300" style={`width: ${Math.round((ownTotal / rentTotal) * 100)}%`}></div>
+      </div>
+    </div>
+
+    <p class="text-base font-semibold text-gray-900 dark:text-white" data-out="verdict">
+      Sur cette durée, la location vous coûte {fmt(rentTotal - ownTotal)} de plus, et vous repartez sans rien.
+    </p>
+    <p class="text-xs text-gray-500 dark:text-gray-400">Hypothèse propriété : prix de création + 50 €/an de domaine et hébergement. Maintenance optionnelle non comprise des deux côtés.</p>
+  </div>
+</div>
+
+<script>
+  function initRentCalc() {
+    document.querySelectorAll<HTMLElement>('[data-rent-calc]').forEach((root) => {
+      if (root.dataset.init) return;
+      root.dataset.init = '1';
+
+      const yearlyRunning = Number(root.dataset.yearlyRunning || 50);
+      const input = (name: string) => root.querySelector<HTMLInputElement>(`[data-in="${name}"]`)!;
+      const out = (name: string) => root.querySelector<HTMLElement>(`[data-out="${name}"]`)!;
+      const fmt = (n: number) => n.toLocaleString('fr-FR') + ' €';
+
+      const update = () => {
+        const monthly = Number(input('monthly').value);
+        const months = Number(input('months').value);
+        const own = Number(input('own').value);
+
+        const rentTotal = monthly * months;
+        const ownTotal = own + Math.round((yearlyRunning * months) / 12);
+        const max = Math.max(rentTotal, ownTotal);
+
+        out('monthly-label').textContent = `${monthly} €/mois`;
+        out('months-label').textContent = `${months} mois`;
+        out('own-label').textContent = fmt(own);
+        out('rent-total').textContent = fmt(rentTotal);
+        out('own-total').textContent = fmt(ownTotal);
+        out('rent-bar').style.width = `${Math.round((rentTotal / max) * 100)}%`;
+        out('own-bar').style.width = `${Math.round((ownTotal / max) * 100)}%`;
+
+        const diff = rentTotal - ownTotal;
+        out('verdict').textContent =
+          diff >= 0
+            ? `Sur cette durée, la location vous coûte ${fmt(diff)} de plus, et vous repartez sans rien.`
+            : `Sur cette durée, la location paraît ${fmt(-diff)} moins chère. Mais au terme, vous ne possédez rien et le compteur continue de tourner.`;
+      };
+
+      ['monthly', 'months', 'own'].forEach((name) => input(name).addEventListener('input', update));
+      update();
+    });
+  }
+
+  initRentCalc();
+  document.addEventListener('astro:page-load', initRentCalc);
+</script>
