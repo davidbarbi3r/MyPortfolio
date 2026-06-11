@@ -100,7 +100,22 @@ const localBusinessSchema = {
         { "@type": "AdministrativeArea", "name": "Corse" }
       ],
       "sameAs": socialProfiles,
-      "priceRange": "€€"
+      "priceRange": "€€",
+      "aggregateRating": aggregateRatingSchema,
+      "review": reviews.map(r => ({
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": r.author
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": r.rating.toString(),
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "reviewBody": r.text
+      }))
     },
     {
       "@type": "Person",
@@ -177,28 +192,6 @@ const projects = [
   }
 ];
 
-// Schema AggregateRating + Reviews pour SEO
-const reviewsSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.davidbarbier.com/#localbusiness",
-  "name": "David Barbier | Consultant SEO et site internet",
-  "aggregateRating": aggregateRatingSchema,
-  "review": reviews.map(r => ({
-    "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": r.author
-    },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": r.rating.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "reviewBody": r.text
-  }))
-};
 ---
 
 <Layout metadata={metadata}>
@@ -432,9 +425,7 @@ const reviewsSchema = {
     </div>
   </section>
 
-  <!-- Section Avis Google - Schema SEO -->
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(reviewsSchema)} />
-
+  <!-- Section Avis Google -->
   <section class="py-20 md:py-28 bg-gray-50 dark:bg-slate-800" data-testimonials>
     <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
       {/* Label */}

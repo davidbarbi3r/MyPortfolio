@@ -40,7 +40,7 @@ export const localBusinessAjaccioNode = {
   email: 'hello@davidbarbier.com',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '13 Boulevard Sampiero',
+    streetAddress: '13 Bd Sampiero',
     addressLocality: 'Ajaccio',
     postalCode: '20000',
     addressRegion: 'Corse',

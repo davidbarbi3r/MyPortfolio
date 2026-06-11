@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
-title: Mon site internet est lent? 
-excerpt: Dans cet article, nous analysons les principales sources de lenteur d'un site web et comment faire pour améliorer la performance de son site.
+title: "Site internet lent : 6 leviers pour accélérer votre site web"
+excerpt: Votre site internet est lent ? Images, hébergement, cache, plugins... les 6 principales causes de lenteur d'un site web et comment les corriger.
 image: '~/assets/images/slow-website.jpg'
 author: David Barbier
 category: Blog
@@ -45,6 +45,8 @@ Un excès de bibliothèques et de packages peut alourdir inutilement votre site.
 N'hésitez pas à supprimer les plugins inutiles, à les mettre à jour régulièrement et à les remplacer par des solutions plus légères si possible.
 
 En complément, ne négligez pas la minification des fichiers CSS et JavaScript, l'adoption de réseaux de distribution de contenu (CDN) et les audits réguliers des performances à l'aide d'outils spécialisés. Chaque action compte dans la quête d'un site réactif.
+
+Un site léger est aussi un site plus sobre : performance et écologie vont dans le même sens, comme je l'explique dans mon article sur la [création de site internet éco-responsable](/site-internet-eco-responsable/).
 
 Votre site web est le miroir de votre engagement envers vos utilisateurs. Chaque optimisation, chaque milliseconde gagnée, enrichit l'expérience offerte et témoigne de votre attention au détail.
 

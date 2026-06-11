@@ -62,7 +62,7 @@ Je me consacre à la conception de sites web durables, en intégrant des pratiqu
 
 ## Les avantages de cette approche
 
-- **Optimisation des performances** : Un site éco-responsable est de fait optimisé, il se charge plus rapidement et améliore votre [référencement naturel](https://www.davidbarbier.com/agence-seo-ajaccio/).
+- **Optimisation des performances** : Un site éco-responsable est de fait optimisé, il se charge plus rapidement et améliore votre [référencement naturel](https://www.davidbarbier.com/agence-seo-ajaccio/). Si votre site actuel rame, voyez aussi mes [6 leviers pour accélérer un site internet lent](/site-internet-lent-que-faire/).
 - **Image de marque renforcée** : Votre entreprise renforce son engagement pour un avenir durable.
 
 ## FAQ

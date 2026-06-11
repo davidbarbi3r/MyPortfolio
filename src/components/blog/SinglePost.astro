@@ -30,7 +30,16 @@ const isECPost = post.tags?.some(tag => tag.toLowerCase().includes('expert-compt
       <div class="flex justify-between flex-col sm:flex-row max-w-4xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
+          <span class="inline-block">Publié le <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time></span>
+          {
+            post.updateDate && String(post.updateDate) !== String(post.publishDate) && (
+              <>
+                {' '}
+                ·{' '}
+                <span class="inline-block">Mis à jour le <time datetime={String(post.updateDate)}>{getFormattedDate(post.updateDate)}</time></span>
+              </>
+            )
+          }
           {
             post.category && (
               <>
@@ -42,7 +51,7 @@ const isECPost = post.tags?.some(tag => tag.toLowerCase().includes('expert-compt
               </>
             )
           }
-          {post.readingTime && <> · {post.readingTime} min read</>}
+          {post.readingTime && <> · {post.readingTime} min de lecture</>}
         </p>
       </div>
       <h1

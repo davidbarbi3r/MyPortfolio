@@ -105,4 +105,6 @@ Avant de penser à acheter des liens ou à négocier des articles sponsorisés, 
 
 C'est rapide à mettre en place, parfaitement légitime, et c'est exactement le type de signal que Google attend d'un cabinet sérieux.
 
+Le netlinking n'est toutefois qu'un des piliers de votre visibilité : pour une vue d'ensemble (fiche Google, contenu, technique), consultez mon guide des [conseils SEO pour expert-comptable](/conseils-seo-expert-comptable/).
+
 **Vous souhaitez aller plus loin dans le référencement de votre cabinet ?** Découvrez mon offre de [consultant SEO pour experts-comptables](https://www.davidbarbier.com/agence-web-expert-comptable/consultant-seo-ec/) pour améliorer votre visibilité sur Google.

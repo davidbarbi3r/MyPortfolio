@@ -145,4 +145,6 @@ Le choix de votre extension de domaine dépend avant tout de votre stratégie et
 
 N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne.
 
+Vous êtes expert-comptable ? Le choix du domaine pour un cabinet a ses spécificités (.experts-comptables.fr notamment) : j'ai écrit un [guide dédié au nom de domaine pour cabinet d'expertise comptable](/nom-domaine-cabinet-expert-comptable/).
+
 Besoin d'aide pour choisir votre extension de domaine et [créer votre site internet](https://www.davidbarbier.com/creation-site-internet-ajaccio/) ? Je vous accompagne de A à Z.
