@@ -1,5 +1,6 @@
 ---
 publishDate: 2024-02-12T00:00:00Z
+updateDate: 2026-06-11T00:00:00Z
 title: "Site internet lent : 6 leviers pour accélérer votre site web"
 excerpt: Votre site internet est lent ? Images, hébergement, cache, plugins... les 6 principales causes de lenteur d'un site web et comment les corriger.
 image: '~/assets/images/slow-website.jpg'

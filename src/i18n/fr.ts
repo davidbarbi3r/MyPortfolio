@@ -48,7 +48,7 @@ export const fr = {
     },
     bookCall: 'Réservez votre appel gratuit',
     services: {
-      title: 'Rayonnez en ligne',
+      title: 'Mes services pour faire rayonner votre activité',
       subtitle:
         "Quatre offres claires. Cliquez sur celle qui correspond à votre besoin.",
       servicesItems: [

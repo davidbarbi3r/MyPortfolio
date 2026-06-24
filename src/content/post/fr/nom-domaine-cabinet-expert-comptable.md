@@ -1,5 +1,6 @@
 ---
 publishDate: 2025-02-17T00:00:00Z
+updateDate: 2026-06-11T00:00:00Z
 title: "Choisir le nom de domaine parfait pour votre cabinet d'expertise comptable"
 excerpt: "Nom de domaine pour expert-comptable : .fr, .com ou .experts-comptables.fr ? Guide complet pour choisir le bon domaine pour votre cabinet."
 image: '~/assets/images/choix-nom-domaine-expert-comptable.webp'

@@ -1,5 +1,6 @@
 ---
 publishDate: 2026-04-08T00:00:00Z
+updateDate: 2026-04-30T00:00:00Z
 title: "Conseils SEO pour expert-comptable : le guide 2026 pour attirer des clients sur Google"
 excerpt: "Votre site de cabinet comptable est invisible sur Google ? Voici les actions concrètes pour améliorer votre référencement et attirer des clients qualifiés."
 image: '~/assets/images/guide-2026-conseils-seo-expert-comptable.webp'

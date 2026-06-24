@@ -1,5 +1,6 @@
 ---
 publishDate: 2026-06-11T00:00:00Z
+updateDate: 2026-06-11T00:00:00Z
 title: "Aides à la création de site internet en Corse : ce qui existe vraiment en 2026"
 excerpt: "Subventions, prêts, financement de formation : j'ai épluché l'ADEC, France Num, la CAPA et les fonds de formation. Voici ce qui existe vraiment, et ce qui n'existe plus."
 image: '~/assets/images/adec-fiche-les-aides-corse.png'
