@@ -3,7 +3,6 @@ import Layout from '../layouts/PageLayout.astro';
 import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
-import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
 
 const metadata = {
   title: "Maintenance site internet Ajaccio | David Barbier",
@@ -22,7 +21,6 @@ const serviceStructuredData = {
       "description":
         "Maintenance WordPress et multi-technologies à Ajaccio. Mises à jour, sécurité, sauvegardes, monitoring et support pour garder votre site performant.",
       "provider": { "@id": LOCAL_BUSINESS_AJACCIO_ID },
-      "aggregateRating": aggregateRatingSchemaAjaccio,
       "areaServed": [
         { "@type": "City", "name": "Ajaccio" },
         { "@type": "AdministrativeArea", "name": "Corse" },

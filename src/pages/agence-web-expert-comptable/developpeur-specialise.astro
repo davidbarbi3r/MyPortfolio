@@ -3,7 +3,6 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
-import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
   title: "Développeur web spécialisé expert-comptable | David Barbier",
@@ -22,7 +21,6 @@ const serviceStructuredData = {
       "name": "Développeur web spécialisé expert-comptable",
       "description": "Développement sur mesure pour cabinets d'expertise comptable. Simulateurs, modules IA, onboarding client, intégrations métier avec Astro.",
       "provider": { "@id": PROFESSIONAL_SERVICE_EC_ID },
-      "aggregateRating": aggregateRatingSchemaGlobal,
       "areaServed": {
         "@type": "Country",
         "name": "France"

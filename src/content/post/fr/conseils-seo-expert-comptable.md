@@ -51,6 +51,8 @@ Quand quelqu'un tape "expert-comptable" suivi d'un nom de ville, Google affiche 
 - **Horaires** : renseignez-les, mettez-les à jour pour les jours fériés, et assurez-vous qu'ils soient cohérents entre votre fiche Google et votre site
 - **Lien vers votre site** : ça paraît basique, mais vérifiez qu'il pointe bien vers la bonne page
 
+Rien là-dedans n'exige un prestataire : comptez une heure de votre temps. Si vous préférez déléguer, je le fais en one-shot dans le cadre de mon [optimisation de fiche Google](/optimisation-fiche-google-ajaccio/), à distance comme sur place.
+
 ### Les avis Google : le facteur que tout le monde sous-estime
 
 Imaginez : un entrepreneur hésite entre deux cabinets. L'un a 15 avis avec une note de 4.8, l'autre n'en a aucun. À votre avis, qui il appelle ?

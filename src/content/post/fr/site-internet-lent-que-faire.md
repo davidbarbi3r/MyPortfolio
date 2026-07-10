@@ -59,6 +59,8 @@ Vous pouvez également utiliser des services de cache comme Cloudflare pour acc�
 
 **Vous voulez régler un problème de lenteur sur votre site ?**
 
-N'hésitez pas à me contacter pour qu'on analyse et corrige le problème, entretenir son site internet est essentiel pour garantir une expérience utilisateur optimale.
+Si vous ne savez pas lequel de ces six leviers s'applique à votre cas, c'est précisément ce que produit un [audit technique et SEO](/audit-seo-ajaccio/) : la liste de vos problèmes réels, classés par priorité. Et une fois le site remis d'aplomb, [entretenir son site internet](/maintenance-site-internet-ajaccio/) est ce qui l'empêche de redevenir lent.
+
+Dans le doute, [écrivez-moi](/contact/) : on regarde ensemble d'où vient la lenteur.
 
 Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet à Ajaccio](https://www.davidbarbier.com/creation-site-internet-ajaccio/) et offrez à vos visiteurs une expérience optimale.

@@ -1,2 +1,7 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Contenu réservé aux leads : la page de remerciement et le PDF ne doivent pas
+# apparaître dans l'index (le PDF ne peut pas porter de <meta name="robots">).
+/lead-magnets/*
+  X-Robots-Tag: noindex, nofollow

@@ -84,3 +84,5 @@ Le coût peut varier. Il n'existe pas de site builder comme Elementor pour les s
 - [Sustainable Web Design - Guide des bonnes pratiques](https://sustainablewebdesign.org/guidelines/)
 
 Vous souhaitez un site performant et éco-conçu ? Découvrez mon [offre de création de site internet à Ajaccio](https://www.davidbarbier.com/creation-site-internet-ajaccio/) ou mon [agence web dédiée aux experts-comptables](https://www.davidbarbier.com/agence-web-expert-comptable/).
+
+Votre site existe déjà et vous voulez savoir ce qui l'alourdit ? Un [audit](/audit-seo-ajaccio/) mesure son poids réel, ses requêtes superflues et ce qu'il y a à couper.

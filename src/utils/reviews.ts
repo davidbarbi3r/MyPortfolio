@@ -58,7 +58,8 @@ export const REVIEWS: Review[] = [
  * pour cohérence avec la fiche GBP affichée par Google (évite l'effet déceptif
  * quand le prospect clique sur le review snippet).
  */
-export const GBP_AJACCIO_REVIEWS = 16;
+// Vérifié sur Google Maps le 2026-07-09 : Ajaccio 5,0 (20 avis), Limoges 5,0 (4 avis).
+export const GBP_AJACCIO_REVIEWS = 20;
 export const GBP_LIMOGES_REVIEWS = 4;
 export const GBP_TOTAL_REVIEWS = GBP_AJACCIO_REVIEWS + GBP_LIMOGES_REVIEWS;
 

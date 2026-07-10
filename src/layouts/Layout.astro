@@ -25,8 +25,10 @@ const locale = Astro.currentLocale ?? 'fr'
 
 const websiteStructuredData = {
   "@context": "https://schema.org",
+  // Nom de site (affiché sous l'URL en SERP) : Google veut un nom court, pas
+  // une phrase à mots-clés. Le nom commercial complet vit sur le LocalBusiness.
   "@type": "WebSite",
-  "name": "David Barbier | Consultant SEO et site internet sur-mesure",
+  "name": "David Barbier",
   "url": "https://www.davidbarbier.com/",
 };
 

@@ -1,10 +1,10 @@
 # --- Anciennes URLs services migrées ---
 /consultant-seo-ajaccio/                  /agence-seo-ajaccio/                   301
 /referencement-seo-ajaccio/               /agence-seo-ajaccio/                   301
-/creation-site-internet-limoges/          /limoges/wordpress/                    301
+/creation-site-internet-limoges/          /limoges/                              301
 /expert-referencement-limoges/            /limoges/consultant-seo/               301
 /maintenance-site-web-limoges/            /limoges/maintenance-site-internet/    301
-/creation-site-vitrine-expert-comptable/  /lbg-expertise-ec-marseille/           301
+/creation-site-vitrine-expert-comptable/  /agence-web-expert-comptable/creation-site-vitrine-ec/  301
 /creation-site-internet/                  /creation-site-internet-ajaccio/       301
 
 # --- RDV / contact ---

@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import Image from '~/components/common/Image.astro';
 import { aggregateRatingSchemaLimoges } from '~/utils/reviews';
+import { BUSINESS_NAME } from '~/utils/business-schema';
 
 const metadata = {
   title: 'Agence web à Limoges, référencement et création site internet',
@@ -18,7 +19,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://www.davidbarbier.com/limoges/#localbusiness",
-  "name": "David Barbier | Concepteur de sites web à Limoges",
+  "name": BUSINESS_NAME,
   "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
   "url": "https://www.davidbarbier.com/limoges/",
   "branchOf": {

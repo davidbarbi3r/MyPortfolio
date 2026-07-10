@@ -4,7 +4,11 @@ site:
   base: '/'
   trailingSlash: true
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  # Laisser vide tant que Google n'a pas fourni TON jeton (Search Console >
+  # Ajouter une propriété > Balise HTML). La valeur précédente était celle du
+  # template AstroWind : elle permettait à son propriétaire de revendiquer
+  # ce domaine dans sa propre Search Console.
+  googleSiteVerificationId: ''
 # Default SEO metadata
 metadata:
   title:

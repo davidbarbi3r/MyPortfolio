@@ -31,6 +31,7 @@ import LogoAurarios from '~/assets/images/clients/aurarios.png';
 import LogoLeadauco from '~/assets/images/clients/leadauco.png';
 
 import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
+import { BUSINESS_NAME } from '~/utils/business-schema';
 
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
@@ -56,7 +57,7 @@ const localBusinessSchema = {
     {
       "@type": "LocalBusiness",
       "@id": "https://www.davidbarbier.com/#localbusiness",
-      "name": "David Barbier | Consultant SEO et site internet",
+      "name": BUSINESS_NAME,
       "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
       "url": "https://www.davidbarbier.com/",
       "founder": { "@id": "https://www.davidbarbier.com/#person" },

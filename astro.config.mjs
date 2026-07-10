@@ -31,12 +31,18 @@ export default defineConfig({
     applyBaseStyles: false
   }), // Conditionally add i18n and sitemap based on I18N.isEnabled
   sitemap({
+    // Ne déclarer que des URLs indexables : les pages de catégorie et la
+    // pagination sont servies en noindex (cf. src/config.yaml).
     filter: (page) =>
       !page.includes('/tag/') &&
+      !page.includes('/category/') &&
+      !/\/\d+\/?$/.test(page) &&
       !page.includes('/en/') &&
       !page.includes('/matchings') &&
       !page.includes('/maker-teleport-ui'),
-    lastmod: new Date(),
+    // Pas de `lastmod: new Date()` : ça datait les 36 URLs à l'heure du build,
+    // y compris celles inchangées depuis des mois. Un lastmod systématiquement
+    // faux finit ignoré par Google. Mieux vaut aucun lastmod qu'un faux.
   }), mdx(), icon({
     include: {
       tabler: ['*'],

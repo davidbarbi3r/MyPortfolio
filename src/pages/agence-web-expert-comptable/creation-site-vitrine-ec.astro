@@ -3,7 +3,6 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
-import { aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
   title: "Conception & création de site internet Expert-Comptable",
@@ -22,7 +21,6 @@ const serviceStructuredData = {
   "name": "Création de site vitrine expert-comptable",
   "description": "Création de site vitrine sur mesure pour cabinets d'expertise comptable. Design professionnel, optimisation SEO, performances maximales avec Astro.",
   "provider": { "@id": PROFESSIONAL_SERVICE_EC_ID },
-  "aggregateRating": aggregateRatingSchemaGlobal,
   "areaServed": {
     "@type": "Country",
     "name": "France"
