@@ -3,11 +3,12 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
+import { EC_REVIEWS, GBP_TOTAL_REVIEWS, aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
 const metadata = {
-  title: "Conception & création de site internet Expert-Comptable",
+  title: "Création site internet expert-comptable dès 2 000 € HT",
   description:
-    'Création de site internet pour cabinets d\'expertise comptable. Design professionnel, optimisé SEO, livré en 6 semaines. Devis gratuit.',
+    "Site pour cabinet d'expertise comptable, par un ancien mémorialiste. Prix affiché, livré en 6 semaines, vous modifiez vos textes seul. Devis sous 48 h.",
 };
 
 // JSON-LD Service schema
@@ -21,6 +22,15 @@ const serviceStructuredData = {
   "name": "Création de site vitrine expert-comptable",
   "description": "Création de site vitrine sur mesure pour cabinets d'expertise comptable. Design professionnel, optimisation SEO, performances maximales avec Astro.",
   "provider": { "@id": PROFESSIONAL_SERVICE_EC_ID },
+  // Rating + avis : les témoignages agrégés sont VISIBLES dans la section #avis.
+  // Ne jamais laisser l'aggregateRating sans cette section (review snippet spam).
+  "aggregateRating": aggregateRatingSchemaGlobal,
+  "review": EC_REVIEWS.map((r) => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": r.author },
+    "reviewRating": { "@type": "Rating", "ratingValue": String(r.rating), "bestRating": "5", "worstRating": "1" },
+    "reviewBody": r.text,
+  })),
   "areaServed": {
     "@type": "Country",
     "name": "France"
@@ -37,12 +47,13 @@ const serviceStructuredData = {
       {
         "@type": "Offer",
         "name": "Forfait création site vitrine expert-comptable",
-        "description": "Création sur mesure incluant design, développement Astro, SEO et formation. One page dès 1200€ HT, site multi-pages dès 2000€ HT.",
-        "price": "1200",
+        // Prix planchers alignés sur ce qu'affiche la page (« À partir de 2 000€ »).
+        // Un `price` fixe ferait afficher 1 200 € par Google alors que le forfait EC démarre à 2 000 €.
+        "description": "Création sur mesure incluant design, développement, SEO et formation. Site one page dès 1200€ HT, site multi-pages dès 2000€ HT.",
         "priceCurrency": "EUR",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "1200",
+          "minPrice": "2000",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false
         }
@@ -985,12 +996,50 @@ const breadcrumbStructuredData = {
     </div>
   </section>
 
+  <!-- Section Avis clients : rend visibles les témoignages que l'aggregateRating agrège -->
+  <section id="avis" class="py-24 lg:py-32 texture-bg scroll-mt-32">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <span class="styled-number">07</span>
+        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Avis</p>
+        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
+          Ce qu'en disent les cabinets
+        </h2>
+        <p class="font-body mt-4 text-lg text-gray-600 dark:text-gray-300">
+          {GBP_TOTAL_REVIEWS} avis Google, note moyenne de 5/5.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {EC_REVIEWS.map((review) => (
+          <figure class="flex flex-col rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 p-8 shadow-xl">
+            <div class="flex gap-1 text-amber-500" aria-label={`Note : ${review.rating} sur 5`}>
+              {Array.from({ length: review.rating }).map(() => (
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.42 4.36a1 1 0 0 0 .95.69h4.59c.96 0 1.36 1.23.58 1.8l-3.71 2.7a1 1 0 0 0-.36 1.11l1.41 4.37c.3.92-.75 1.68-1.53 1.11l-3.71-2.7a1 1 0 0 0-1.18 0l-3.71 2.7c-.78.57-1.83-.19-1.53-1.11l1.41-4.37a1 1 0 0 0-.36-1.11l-3.71-2.7c-.78-.57-.38-1.8.58-1.8h4.59a1 1 0 0 0 .95-.69l1.42-4.36Z"/>
+                </svg>
+              ))}
+            </div>
+            <blockquote class="font-body mt-6 flex-auto text-gray-700 dark:text-gray-200">
+              {review.text}
+            </blockquote>
+            <figcaption class="mt-6 border-t border-gray-100 dark:border-gray-700 pt-4">
+              <p class="font-semibold text-gray-900 dark:text-white">{review.author}</p>
+              <p class="font-body text-sm text-gray-500 dark:text-gray-400">{review.company}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Section FAQ -->
   <section id="faq" class="py-24 lg:py-32 texture-bg">
     <div class="mx-auto max-w-4xl px-6 lg:px-8">
 
       <div class="text-center mb-16">
-        <span class="styled-number">07</span>
+        <span class="styled-number">08</span>
         <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">FAQ</p>
         <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
           Questions sur la création de site EC
@@ -1104,7 +1153,7 @@ const breadcrumbStructuredData = {
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <div>
-          <span class="styled-number">08</span>
+          <span class="styled-number">09</span>
           <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Prêt ?</p>
           <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
             Prêt à créer votre site vitrine ?

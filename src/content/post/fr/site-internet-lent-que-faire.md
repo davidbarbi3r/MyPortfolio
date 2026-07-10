@@ -63,4 +63,4 @@ Si vous ne savez pas lequel de ces six leviers s'applique à votre cas, c'est pr
 
 Dans le doute, [écrivez-moi](/contact/) : on regarde ensemble d'où vient la lenteur.
 
-Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet à Ajaccio](https://www.davidbarbier.com/creation-site-internet-ajaccio/) et offrez à vos visiteurs une expérience optimale.
+Vous souhaitez avoir un site rapide et performant ? [Découvrez mon offre de création de site internet à Ajaccio](https://www.davidbarbier.com/) et offrez à vos visiteurs une expérience optimale.

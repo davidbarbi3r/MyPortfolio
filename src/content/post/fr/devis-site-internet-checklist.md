@@ -110,4 +110,4 @@ Seulement en comparant ce qu'ils incluent : un devis à 1 500 € sans rédactio
 
 ---
 
-Vous avez un devis sous les yeux et un doute ? Envoyez-le-moi lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/) : je vous dis ce que j'en pense point par point, même si vous signez ailleurs. Et si vous partez de zéro, mes tarifs et ce qu'ils incluent sont [affichés publiquement](/creation-site-internet-ajaccio/).
+Vous avez un devis sous les yeux et un doute ? Envoyez-le-moi lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/) : je vous dis ce que j'en pense point par point, même si vous signez ailleurs. Et si vous partez de zéro, mes tarifs et ce qu'ils incluent sont [affichés publiquement](/).

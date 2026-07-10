@@ -6,10 +6,16 @@ import Image from '~/components/common/Image.astro';
 import { aggregateRatingSchemaLimoges } from '~/utils/reviews';
 import { BUSINESS_NAME } from '~/utils/business-schema';
 
+// Cette page EST la page « création de site internet à Limoges ». Elle porte
+// l'entité locale (fiche, adresse), comme la homepage porte celle d'Ajaccio.
+// Pas de page enfant sur la création : elle partirait sans autorité et se
+// ferait battre par son propre parent (cf. l'ancienne page Ajaccio, pos 49).
+// « SEO » est laissé hors du title : /limoges/consultant-seo/ tient déjà la
+// position 3,7 sur « consultant seo limoges ».
 const metadata = {
-  title: 'Agence web à Limoges, référencement et création site internet',
+  title: 'David Barbier | Création de site internet à Limoges',
   description:
-    'Concepteur de sites web freelance à Limoges. Création de site internet sur-mesure, référencement SEO et maintenance. 23 Rue de la Fonderie, Limoges.',
+    "Création de site internet sur mesure à Limoges, en direct avec un freelance. Prix affichés, livré en 6 semaines, vous modifiez vos textes seul. Devis sous 48 h.",
 };
 
 // JSON-LD LocalBusiness schema
@@ -91,7 +97,7 @@ const services = [
   {
     title: "Création de site internet",
     description: "Un site qui vous ressemble et qui travaille pour vous 24h/24. Vos clients vous trouvent, vous contactent, vous font confiance.",
-    href: "/limoges/wordpress/",
+    href: "#realisations",
     icon: "tabler:device-desktop",
     price: "Dès 1 200 € HT"
   },
@@ -127,10 +133,12 @@ const testimonials = [
     featured: false
   },
   {
-    quote: "Je remercie David pour son travail de qualité dans la conception et la réalisation du site internet REST'Ô DOM. Son écoute, et son professionnalisme ont permis la bonne exécution du site.",
-    name: "Cedric",
-    role: "Fondateur Rest'ô Dom",
-    initial: "C",
+    // Avis Google de la fiche Limoges. Rest'ô Dom (client corse) figurait ici
+    // sous un titre « mes clients de Limoges » : remplacé par un vrai client local.
+    quote: "Parfaite collaboration et réactivité de la part de David pour le développement de notre nouveau site web, pièce maîtresse tant visuelle qu'économique de notre association du Val de Vienne Moto.",
+    name: "Franck",
+    role: "Vice-président, Val de Vienne Moto",
+    initial: "F",
     featured: false
   }
 ];
@@ -185,7 +193,7 @@ const testimonials = [
 
         <!-- Titre principal H1 -->
         <h1 class="mt-4 text-pretty font-heading text-3xl font-semibold tracking-tight text-green-950 sm:text-5xl dark:text-white">
-          L'agence web à Limoges, création de site internet et référencement SEO
+          Création de site internet à Limoges
         </h1>
 
         <!-- Description -->

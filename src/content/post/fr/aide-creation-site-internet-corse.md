@@ -99,4 +99,4 @@ L'ACRE allège vos cotisations la première année, et l'ARCE de France Travail 
 
 ---
 
-Vous voulez chiffrer votre projet avant de chercher un financement ? Le détail de mes offres est sur ma page [création de site internet à Ajaccio](/creation-site-internet-ajaccio/) (devis sous 48 h), et je peux vous donner un avis honnête sur votre dossier lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/).
+Vous voulez chiffrer votre projet avant de chercher un financement ? Le détail de mes offres est sur ma page [création de site internet à Ajaccio](/) (devis sous 48 h), et je peux vous donner un avis honnête sur votre dossier lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/).

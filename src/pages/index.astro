@@ -35,9 +35,14 @@ import { BUSINESS_NAME } from '~/utils/business-schema';
 
 const locale = Astro.currentLocale ?? 'fr'
 const { t, tList } = useTranslations(locale);
+// Le title reprend mot pour mot le nom de la fiche Google Business Profile
+// (cf. BUSINESS_NAME) : Google confronte les deux et réécrit la fiche quand
+// ils divergent. « Agence web » et « concepteur » sont abandonnés : trop
+// concurrentiel pour le premier, 4 impressions en 6 mois pour le second.
 const metadata = {
-  title: 'Agence web Ajaccio | David Barbier Développe',
-  description: "Une agence spécialisée dans la conception de sites web professionnels en Corse. Je suis votre partenaire de confiance dans la conquête du digital.",
+  title: 'David Barbier | Création de site internet et SEO à Ajaccio',
+  description:
+    "Création de site internet sur mesure à Ajaccio, en direct avec un freelance. Prix affichés, livré en 6 semaines, vous modifiez vos textes seul. Devis sous 48 h.",
   lang: locale,
 };
 
@@ -135,6 +140,45 @@ const localBusinessSchema = {
 
 // Avis clients : importés depuis ~/utils/reviews (source unique de vérité)
 
+// FAQ. Source unique : elle alimente à la fois l'affichage et le balisage FAQPage,
+// pour qu'ils ne puissent pas diverger.
+const HOME_FAQ = [
+  {
+    q: "Combien coûte la création d'un site internet ?",
+    a: "Un site vitrine sur-mesure démarre à 2 000 € HT, un site one-page à 1 200 € HT. Le devis précis dépend du nombre de pages et des fonctionnalités, et vous l'avez sous 48 heures.",
+  },
+  {
+    q: 'En combien de temps mon site sera-t-il livré ?',
+    a: "Entre 4 et 6 semaines en moyenne, du premier appel à la mise en ligne. Plus vous êtes réactif sur les retours, plus on avance vite. Vous suivez l'avancement sur une version en ligne dès les premières semaines.",
+  },
+  {
+    q: 'Pourrai-je modifier les textes et les photos moi-même ?',
+    a: "Oui. Le site est livré avec une interface simple pour changer les textes, les photos, ajouter des pages ou publier des articles, depuis n'importe quel navigateur. Une formation d'une heure est incluse, avec des tutos vidéo.",
+  },
+  {
+    q: 'Comment ce tarif est-il possible pour du sur-mesure ?',
+    a: "Je travaille seul, donc vous ne financez ni locaux ni commerciaux, et j'utilise l'intelligence artificielle comme assistant sur les tâches répétitives. Le temps gagné, je le répercute sur votre facture.",
+  },
+  {
+    q: "Le site m'appartient-il vraiment ?",
+    a: "Oui, entièrement. Le code, le nom de domaine, le contenu. Aucun abonnement, aucune dépendance. Si un jour vous voulez travailler avec quelqu'un d'autre, vous partez avec l'intégralité du site.",
+  },
+  {
+    q: 'Vous êtes vraiment basé à Ajaccio ?',
+    a: "Oui, j'y vis et j'y travaille. Si vous êtes sur place, on peut se voir pour le premier rendez-vous. Sinon tout se passe en visio, comme avec mes clients à Limoges et ailleurs en France.",
+  },
+];
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: HOME_FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+
 // Projets récents
 const projects = [
   {
@@ -198,6 +242,7 @@ const projects = [
 <Layout metadata={metadata}>
   <!-- JSON-LD LocalBusiness Schema -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
 
   <!-- Hero2 Widget ******************* -->
 
@@ -211,7 +256,7 @@ const projects = [
     }}
   >
     <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">Concepteur de sites web à Ajaccio (Corse)</span><br />
+      <span class="text-slate-800 dark:text-gray-200">Création de site internet et référencement à Ajaccio</span><br />
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -278,7 +323,7 @@ const projects = [
         icon: 'tabler:devices',
         callToAction: {
           text: "Voir l'offre sur-mesure",
-          href: '/creation-site-internet-ajaccio/',
+          href: '/#tarifs',
           icon: 'tabler:chevron-right',
         },
         callToAction2: {
@@ -678,6 +723,115 @@ const projects = [
   </section>
   <ProjectsFlip />
 
+  {/* Processus - 4 étapes. Porté depuis /creation-site-internet-ajaccio/.
+      4 des 6 concurrents qui rankent sur « création site internet Ajaccio » en affichent un. */}
+  <section class="py-16 md:py-20 px-6 lg:px-8 bg-white dark:bg-slate-900">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          Comment ça se passe
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
+          De l'idée au site en ligne, en <span class="text-emerald-700 dark:text-emerald-400">4 étapes</span>
+        </h2>
+        <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Comptez 4 à 6 semaines entre notre premier appel et la mise en ligne. Vous suivez l'avancement en direct, sur une version en ligne, dès les premières semaines.
+        </p>
+      </div>
+
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { n: '01', t: 'On se rencontre, on cadre', d: "Un appel pour comprendre votre métier, vos clients et ce que le site doit vous rapporter." },
+          { n: '02', t: 'Vous voyez à quoi ça ressemble', d: 'Une maquette validée avant que la moindre ligne ne soit écrite. Allers-retours illimités.' },
+          { n: '03', t: 'Le site prend vie', d: 'Vous suivez la construction sur une adresse en ligne, et vous commentez au fur et à mesure.' },
+          { n: '04', t: 'Mise en ligne et formation', d: "Une heure en visio, des tutos vidéo, et vous repartez autonome sur vos contenus." },
+        ].map((step) => (
+          <li class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
+            <span class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{step.n}</span>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white mt-3 mb-2">{step.t}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{step.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* Tarifs. Un seul des 6 concurrents affiche ses prix, et aucun n'annonce de délai. */}
+  <section id="tarifs" class="py-16 md:py-20 px-6 lg:px-8 bg-gradient-to-b from-amber-50/50 to-white dark:from-slate-800 dark:to-slate-900 scroll-mt-20">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          Combien ça coûte
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
+          Un tarif clair, <span class="text-emerald-700 dark:text-emerald-400">pas de surprise</span>
+        </h2>
+        <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Presque aucune agence n'affiche ses prix. Voici les miens, et le devis précis arrive sous 48 heures.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Site vitrine sur-mesure</p>
+          <p class="text-4xl font-bold text-gray-900 dark:text-white">À partir de 2 000 €<span class="text-base font-medium text-gray-500 dark:text-gray-400"> HT</span></p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Un site one-page démarre à 1 200 € HT. Livré en 4 à 6 semaines.</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Design sur-mesure, lisible sur mobile comme sur ordinateur</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Vous modifiez textes et photos en autonomie</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Nom de domaine, hébergement et certificat de sécurité</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Formation d'une heure et tutos vidéo</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Le site vous appartient, sans abonnement</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Une fois en ligne</p>
+          <p class="text-4xl font-bold text-gray-900 dark:text-white">30 €<span class="text-base font-medium text-gray-500 dark:text-gray-400">/mois HT</span></p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Ou 60 €/h HT en intervention ponctuelle, sans engagement.</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Mises à jour, surveillance, sauvegardes</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Petites évolutions incluses</li>
+            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Accompagnement SEO mensuel à partir de 490 €</li>
+          </ul>
+          <a href="/maintenance-site-internet-ajaccio/" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
+            Le détail de la maintenance
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ. Aucun des 6 concurrents n'en a une. */}
+  <section id="faq" class="py-16 md:py-20 px-6 lg:px-8 bg-white dark:bg-slate-900 scroll-mt-20">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-center mb-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          FAQ
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
+          Les questions qu'on me pose souvent
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {HOME_FAQ.map((item) => (
+          <details class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white marker:content-none">
+              {item.q}
+              <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <BlogLatestPosts
     title={t('index.blogLatestPosts.title')}
     information={t('index.blogLatestPosts.information')}
@@ -696,7 +850,7 @@ const projects = [
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="David Barbier - Agence web et SEO à Ajaccio"
+        title="David Barbier | Création de site internet et SEO à Ajaccio"
       ></iframe>
     </div>
   </section>

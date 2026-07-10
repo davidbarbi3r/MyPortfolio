@@ -15,7 +15,7 @@ export const getHeaderData = () => {
         text: 'Ajaccio',
         links: [
           { text: 'Accompagnement SEO', href: '/agence-seo-ajaccio/' },
-          { text: 'Création de site internet', href: '/creation-site-internet-ajaccio/' },
+          { text: 'Création de site internet', href: '/' },
           { text: 'Freelance WordPress', href: '/freelance-wordpress-ajaccio/' },
           { text: 'Maintenance de site', href: '/maintenance-site-internet-ajaccio/' },
         ],
@@ -25,7 +25,6 @@ export const getHeaderData = () => {
         links: [
           { text: 'Création de site internet', href: '/limoges/' },
           { text: 'Consultant SEO', href: '/limoges/consultant-seo/' },
-          { text: 'WordPress', href: '/limoges/wordpress/' },
           { text: 'Maintenance de site', href: '/limoges/maintenance-site-internet/' },
         ],
       },

@@ -2,14 +2,129 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import { localBusinessLimogesNode, LOCAL_BUSINESS_LIMOGES_ID } from '~/utils/business-schema';
+// « maintenance wordpress limoges » : 91 impressions sur 28 j, position 7,8,
+// 47 % de mobile (l'étalon humain est à 57 %). C'est la requête des humains.
+// La variante générique « maintenance site internet limoges » est à 0 % de
+// mobile, donc à peu près uniquement des robots de suivi de position.
+// Le prix est dans le titre : les concurrents de la page 1 sont à 50 et 55 €/mois.
 const metadata = {
-  title: 'Maintenance de Site Internet à Limoges : Gardez Votre Site Web Performant et Sécurisé',
+  title: 'Maintenance WordPress à Limoges dès 30 € / mois',
   description:
-    "Maintenance de site web à Limoges. Mises à jour, évolutions et modifications par un développeur web freelance. Forfaits à partir de 30€/mois.",
+    "Maintenance de votre site WordPress à Limoges : mises à jour, sauvegardes, sécurité et dépannage. Dès 30 € HT par mois, sans engagement. Autres technologies acceptées.",
+};
+
+// Cette page était la seule page de service du site sans aucun JSON-LD.
+// Pas d'`aggregateRating` : aucun témoignage n'est visible ici, et un rating
+// sans avis affiché est du review snippet spam.
+const serviceStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    localBusinessLimogesNode,
+    {
+      '@type': ['Product', 'Service'],
+      '@id': 'https://www.davidbarbier.com/limoges/maintenance-site-internet/#service',
+      name: 'Maintenance WordPress à Limoges',
+      description:
+        "Maintenance de site WordPress à Limoges : mises à jour du cœur et des extensions, sauvegardes, surveillance de sécurité et dépannage. Sans engagement.",
+      provider: { '@id': LOCAL_BUSINESS_LIMOGES_ID },
+      areaServed: [
+        { '@type': 'City', name: 'Limoges' },
+        { '@type': 'AdministrativeArea', name: 'Haute-Vienne' },
+      ],
+      serviceType: 'Maintenance de site internet',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Offres de maintenance à Limoges',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            name: 'Pack maintenance mensuel',
+            description: 'Mises à jour, sauvegardes, surveillance et petites évolutions. Sans engagement.',
+            priceCurrency: 'EUR',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              minPrice: '30',
+              priceCurrency: 'EUR',
+              unitCode: 'MON',
+              valueAddedTaxIncluded: false,
+            },
+          },
+          {
+            '@type': 'Offer',
+            name: 'Intervention ponctuelle',
+            description: "Dépannage ou évolution ciblée, facturé à l'heure.",
+            priceCurrency: 'EUR',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '60',
+              priceCurrency: 'EUR',
+              unitCode: 'HUR',
+              valueAddedTaxIncluded: false,
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+const MAINTENANCE_FAQ = [
+  {
+    q: "Qu'est-ce que la maintenance d'un site WordPress ?",
+    a: "La maintenance WordPress consiste à mettre à jour le cœur du site et ses extensions, à sauvegarder les données, à surveiller la sécurité et à corriger les pannes. Sans elle, un site devient vulnérable aux attaques automatisées, ralentit, et finit par perdre ses positions sur Google.",
+  },
+  {
+    q: 'Combien coûte la maintenance WordPress à Limoges ?',
+    a: "Le pack mensuel démarre à 30 € HT par mois, sans engagement. Le tarif exact dépend de la taille du site et de la fréquence des mises à jour. Une intervention ponctuelle est facturée 60 € HT de l'heure.",
+  },
+  {
+    q: 'Faut-il un contrat ou un engagement de durée ?',
+    a: "Non. Le forfait mensuel s'arrête quand vous le décidez, et vous conservez l'accès complet à votre site, à son hébergement et à son nom de domaine.",
+  },
+  {
+    q: 'Mon site n’est pas sous WordPress, pouvez-vous le maintenir ?',
+    a: "Oui. WordPress représente la majorité des demandes, mais je maintiens aussi les sites sur mesure et les petites boutiques en ligne. Envoyez-moi l'adresse de votre site et je vous dis rapidement si je peux le reprendre.",
+  },
+  {
+    q: 'Vous êtes basé en Corse, est-ce un problème pour un site à Limoges ?',
+    a: "Non. J'ai vécu plus de vingt ans en Haute-Vienne et j'y retourne régulièrement. La maintenance se fait à distance, comme chez la quasi-totalité des prestataires, y compris ceux qui habitent votre rue.",
+  },
+];
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: MAINTENANCE_FAQ.map((i) => ({
+    '@type': 'Question',
+    name: i.q,
+    acceptedAnswer: { '@type': 'Answer', text: i.a },
+  })),
+};
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.davidbarbier.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Limoges', item: 'https://www.davidbarbier.com/limoges/' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Maintenance WordPress',
+      item: 'https://www.davidbarbier.com/limoges/maintenance-site-internet/',
+    },
+  ],
 };
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
+  </Fragment>
+
   <section class="relative isolate overflow-hidden dark:bg-[#030620]">
     <!-- Fil d'Ariane -->
     <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
@@ -40,26 +155,33 @@ const metadata = {
         <h1
           class="mt-10 text-pretty font-heading text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-white"
         >
-          Maintenance de Site Internet à Limoges
+          Maintenance WordPress à Limoges
         </h1>
         <span
           class="text-pretty text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl inline dark:text-gray-300"
         >
-          : Gardez votre site web performant et sécurisé
+          , dès 30 € par mois
         </span>
 
-        <!-- Paragraphes -->
-        <p class="mt-8 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Un site internet c'est comme un bel arbre : il a besoin d'attention et de soins réguliers pour grandir et
-          s'épanouir.
-        </p>
+        {/* Réponse directe de 45 mots, placée haut, sous une question :
+            c'est le format que Google extrait pour l'extrait optimisé,
+            aujourd'hui détenu par un concurrent local. */}
+        <div class="mt-8 rounded-2xl border-l-4 border-green-700 bg-green-50/60 dark:bg-gray-800/60 p-6">
+          <p class="font-semibold text-gray-900 dark:text-white">Qu'est-ce que la maintenance d'un site WordPress ?</p>
+          <p class="mt-3 text-lg text-gray-700 dark:text-gray-300">
+            La maintenance WordPress consiste à mettre à jour le cœur du site et ses extensions, à sauvegarder les
+            données, à surveiller la sécurité et à corriger les pannes. Sans elle, un site devient vulnérable aux
+            attaques automatisées, ralentit, et finit par perdre ses positions sur Google.
+          </p>
+        </div>
 
         <p class="mt-6 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          Vous avez investi pour votre site, ne le laissez pas faner il peut clairement être votre meilleur vendeur h24.
+          Vous avez investi dans votre site. Il travaille pour vous 24 heures sur 24, à condition que quelqu'un veille
+          dessus. C'est ce que je fais, à partir de 30 € HT par mois et sans engagement.
         </p>
-        <p class="text-lg text-gray-600 dark:text-gray-300">
-          Pour garantir son efficacité et sa sécurité, une maintenance régulière est indispensable. Découvrez comment
-          mon service de maintenance web vous libère l'esprit tout en optimisant votre présence en ligne.
+
+        <p class="text-pretty text-lg text-gray-600 dark:text-gray-300">
+          WordPress est le cas le plus fréquent, ce n'est pas le seul que je prends en charge.
         </p>
 
         <!-- Call-to-action -->
@@ -113,7 +235,7 @@ const metadata = {
             <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
             </svg>
-            <span><strong class="font-semibold text-gray-900 dark:text-gray-100">Expert multi-technologies</strong> - WordPress, React, Next.js, Astro, et plus encore.</span>
+            <span><strong class="font-semibold text-gray-900 dark:text-gray-100">WordPress et au-delà</strong> - boutiques en ligne, sites sur mesure, applications métier.</span>
           </li>
           <li class="flex gap-x-3">
             <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -131,7 +253,7 @@ const metadata = {
 
         <blockquote class="mt-10 border-l-4 border-green-800 pl-8 font-semibold text-gray-900 dark:text-gray-100">
           <p>
-            "Basé à Limoges, je comprends les enjeux des entreprises locales. Que vous ayez un site vitrine WordPress, une application React complexe ou un site e-commerce personnalisé, je sais comment maintenir votre outil web performant et sécurisé."
+            "J'ai grandi en Haute-Vienne et j'y travaille encore. Site vitrine WordPress, boutique en ligne ou site sur mesure : je sais comment garder votre outil rapide, à jour et à l'abri."
           </p>
         </blockquote>
 
@@ -191,7 +313,7 @@ const metadata = {
               </dt>
               <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
                 <p class="flex-auto">
-                  Mises à jour régulières des technologies (WordPress, React, Next, Astro...), correctifs de sécurité, sauvegardes automatiques et monitoring proactif.
+                  Mises à jour régulières de WordPress et de ses extensions, correctifs de sécurité, sauvegardes automatiques et surveillance permanente.
                 </p>
               </dd>
             </div>
@@ -280,12 +402,65 @@ const metadata = {
         </ul>
         <p class="mt-4">Le tarif du pack mensuel est personnalisé selon :</p>
         <ul class="list-disc ml-6 mt-2">
-          <li>La technologie utilisée (WordPress, React, Next, Astro...)</li>
+          <li>La technologie sur laquelle votre site est construit</li>
           <li>La complexité de votre site</li>
           <li>La fréquence des mises à jour nécessaires</li>
         </ul>
       </div>
     </article>
+  </section>
+
+  {/* Le mot-clé est WordPress, le métier est plus large. Cette section existe
+      pour que la promesse du titre n'enferme pas l'offre réelle. */}
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+        Et si mon site n'est pas sous WordPress ?
+      </h2>
+      <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
+        Je le maintiens aussi. WordPress représente la majorité des demandes, mais mon métier de départ est le
+        développement, pas l'administration d'un seul outil.
+      </p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Sites sur mesure</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            Suivi des versions, mises à jour des briques logicielles, corrections et petites évolutions. Le tout tracé,
+            pour que vous sachiez ce qui a été fait et pourquoi.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Boutiques en ligne</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            WooCommerce et petits catalogues. Les mises à jour d'une boutique se testent avant d'être appliquées, jamais
+            en direct sur les ventes du samedi.
+          </p>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+        Dans le doute, envoyez-moi l'adresse de votre site. Je vous dis en deux minutes si je peux le reprendre.
+      </p>
+    </div>
+  </section>
+
+  {/* FAQ visible. Même source que le balisage FAQPage : ils ne peuvent pas diverger. */}
+  <section id="faq" class="px-6 py-16 lg:px-8 scroll-mt-20">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-8">
+        Questions fréquentes
+      </h2>
+      <div class="space-y-4">
+        {MAINTENANCE_FAQ.map((item) => (
+          <details class="group rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white marker:content-none">
+              {item.q}
+              <span class="text-green-700 dark:text-green-400 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
   </section>
   <!-- Trust bloc - Basé à Ajaccio -->
   <section class="py-12 px-6 lg:px-8">
@@ -332,10 +507,11 @@ const metadata = {
             <div>
               <label for="techno" class="block text-sm font-medium text-gray-700">Technologie de votre site</label>
               <select id="techno" name="techno" class="mt-1 w-full rounded-md border border-gray-300 p-2">
-                <option value="">Sélectionnez une technologie</option>
-                <option value="wordpress">WordPress / Woocommerce</option>
-                <option value="react">React / Next.js</option>
-                <option value="astro">Astro</option>
+                <option value="">Sélectionnez</option>
+                <option value="wordpress">WordPress ou WooCommerce</option>
+                <option value="constructeur">Wix, Squarespace, Shopify ou similaire</option>
+                <option value="sur-mesure">Site sur mesure</option>
+                <option value="je-ne-sais-pas">Je ne sais pas</option>
                 <option value="autre">Autre</option>
               </select>
             </div>
@@ -385,8 +561,8 @@ const metadata = {
                 ></path>
               </svg>
               <span>
-                <strong class="font-semibold text-gray-900">Expert multi-technologies</strong> : WordPress (Woocommerce), React, Astro,
-                Next, et bien plus encore.
+                <strong class="font-semibold text-gray-900">WordPress et au-delà</strong> : boutiques WooCommerce, sites
+                sur mesure, applications métier.
               </span>
             </li>
             <li class="flex gap-x-3">
@@ -405,9 +581,8 @@ const metadata = {
 
           <blockquote class="mt-10 border-l-4 border-green-700 pl-8 text-gray-900">
             <p class="font-semibold">
-              "En tant que développeur spécialisé en maintenance, je comprends vos enjeux techniques. Que vous ayez un site
-              e-commerce WordPress, une application React ou un site vitrine, je m'assure que votre outil reste performant
-              et sécurisé."
+              "Je suis développeur avant d'être mainteneur. Boutique WordPress, site sur mesure ou simple vitrine, je
+              m'assure que votre outil reste rapide, sécurisé et disponible."
             </p>
           </blockquote>
         </div>

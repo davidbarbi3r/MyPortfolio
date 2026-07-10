@@ -12,6 +12,8 @@ export interface Review {
   company: string;
   rating: number;
   text: string;
+  /** true = le client est un cabinet d'expertise comptable */
+  isExpertComptable?: boolean;
 }
 
 /**
@@ -22,6 +24,7 @@ export const REVIEWS: Review[] = [
     author: 'Matthias',
     company: 'Odacio Conseils',
     rating: 5,
+    isExpertComptable: true,
     text: "David a réalisé mon site internet et je suis très satisfait du résultat. Il a été à l'écoute, réactif et professionnel tout au long du projet. Il a su comprendre mes attentes et proposer des solutions adaptées. Le suivi est sérieux et il reste disponible quand on a besoin. Vous pouvez lui faire confiance les yeux fermés !",
   },
   {
@@ -34,6 +37,7 @@ export const REVIEWS: Review[] = [
     author: 'Marta',
     company: 'Ekia Advisory',
     rating: 5,
+    isExpertComptable: true,
     text: "David m'a accompagné dans la création de mon site internet pour mon cabinet d'expertise-comptable Ekia Advisory. Il est très professionnel, à l'écoute et s'adapte aux attentes du client ! Je recommande vivement !",
   },
   {
@@ -102,6 +106,17 @@ export const AGGREGATE_RATING = {
   bestRating: '5',
   worstRating: '1',
 } as const;
+
+/**
+ * Témoignages de cabinets d'expertise comptable.
+ *
+ * ⚠️ Un `aggregateRating` ne peut figurer sur une page QUE si ces témoignages
+ * y sont visibles (règle des review snippets). Voir ~/utils/business-schema.
+ *
+ * TODO : ajouter l'avis Google de Laëtitia Bolvin (mai 2026, cabinet
+ * d'expertise comptable). Texte non repris ici car tronqué sur Maps.
+ */
+export const EC_REVIEWS: Review[] = REVIEWS.filter((r) => r.isExpertComptable);
 
 /**
  * Array prêt à être injecté dans un schema.org Review (sur les pages qui listent les témoignages).

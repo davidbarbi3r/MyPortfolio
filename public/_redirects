@@ -5,7 +5,17 @@
 /expert-referencement-limoges/            /limoges/consultant-seo/               301
 /maintenance-site-web-limoges/            /limoges/maintenance-site-internet/    301
 /creation-site-vitrine-expert-comptable/  /agence-web-expert-comptable/creation-site-vitrine-ec/  301
-/creation-site-internet/                  /creation-site-internet-ajaccio/       301
+/creation-site-internet/                  /                                      301
+
+# Fusion : la homepage bat cette page de 30 places sur « creation site internet
+# ajaccio » (pos 15 contre 49). Son contenu utile (tarifs, délai, processus, FAQ)
+# a été porté dans index.astro.
+/creation-site-internet-ajaccio/          /                                      301
+
+# /limoges/wordpress/ ne possédait aucune requête (882 impressions, 0 clic sur
+# 90 j). Elle cannibalisait /limoges/ sur la création (pos 40 contre 28) et
+# /limoges/maintenance-site-internet/ sur la maintenance (pos 30 contre 8).
+/limoges/wordpress/                       /limoges/                              301
 
 # --- RDV / contact ---
 /call/                 /contact/   301
@@ -27,5 +37,5 @@
 /tag/*               /blog/   301
 
 # --- Études de cas supprimées → création site ---
-/refonte-site-web-pizzeria/   /creation-site-internet-ajaccio/  301
-/restodom/                    /creation-site-internet-ajaccio/  301
+/refonte-site-web-pizzeria/   /  301
+/restodom/                    /  301
