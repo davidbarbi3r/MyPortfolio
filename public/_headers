@@ -1,6 +1,13 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Les polices bloquent le rendu du texte et ne changent jamais. Par défaut
+# Cloudflare Pages les servait en max-age=14400 (4 h) puis les revalidait.
+# Le nom de fichier n'est pas versionné : si tu remplaces une police,
+# renomme-la, sinon les visiteurs garderont l'ancienne pendant un an.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Contenu réservé aux leads : la page de remerciement et le PDF ne doivent pas
 # apparaître dans l'index (le PDF ne peut pas porter de <meta name="robots">).
 /lead-magnets/*
