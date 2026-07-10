@@ -27,8 +27,10 @@
 /eco-friendly-website-creation/        /site-internet-eco-responsable/   301
 
 # --- EN ---
-/en/call/                           /en/contact/                      301
-/en/book-a-call/                    /en/contact/                      301
+# /en/contact/ n'existe pas (i18n désactivé) : ces règles renvoyaient vers un 404.
+/en/call/                           /contact/                         301
+/en/book-a-call/                    /contact/                         301
+/en/contact/                        /contact/                         301
 /en/site-internet-eco-responsable/  /site-internet-eco-responsable/   301
 
 # --- Anciens projets supprimés ---

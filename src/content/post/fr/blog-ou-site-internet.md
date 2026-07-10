@@ -85,7 +85,7 @@ N'oubliez pas : un blog à jour et pertinent n'est pas seulement bon pour le SEO
 
 En tant que développeur web, j'ai choisi de créer mon propre blog en utilisant Astro, un framework moderne pour générer des sites statiques. Cette approche m'a permis de partager mes découvertes et mes connaissances dans le domaine du développement web de manière efficace et écologique. Voici pourquoi j'ai fait ces choix :
 
-1. **Performance et écologie** : Un site statique est plus léger et consomme moins de ressources serveur, ce qui le rend plus rapide et plus respectueux de l'environnement. J'ai d'ailleurs rédigé une page sur le sujet des [sites internet éco-responsables](https://www.davidbarbier.com/blog/site-internet-eco-responsable/) qui décrit mon approche du sujet.
+1. **Performance et écologie** : Un site statique est plus léger et consomme moins de ressources serveur, ce qui le rend plus rapide et plus respectueux de l'environnement. J'ai d'ailleurs rédigé une page sur le sujet des [sites internet éco-responsables](/site-internet-eco-responsable/) qui décrit mon approche du sujet.
 2. **Sécurité renforcée** : Sans base de données ni système de gestion de contenu complexe, le site est naturellement plus résistant aux attaques.
 3. **Absence de commentaires** : J'ai délibérément choisi de ne pas inclure de section commentaires sur mon blog. Cette décision a été motivée par deux facteurs principaux :
     - **Raisons environnementales** : Moins de requêtes serveur signifie une empreinte carbone réduite.
