@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/PageLayout.astro';
 import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
-import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
+import { aggregateRatingSchemaAjaccio, GBP_AJACCIO_REVIEWS } from '~/utils/reviews';
 
 const metadata = {
   title: 'Audit SEO gratuit à Ajaccio | David Barbier',
@@ -133,7 +133,7 @@ const breadcrumbStructuredData = {
       </p>
 
       <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
-        ⭐ 5/5 sur Google · 16 avis · +50 clients accompagnés · Basé à Ajaccio
+        ⭐ 5/5 sur Google · {GBP_AJACCIO_REVIEWS} avis · +50 clients accompagnés · Basé à Ajaccio
       </p>
 
       <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

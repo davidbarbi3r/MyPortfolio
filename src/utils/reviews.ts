@@ -4,7 +4,8 @@
  *
  * ⚠️ MAINTENANCE : quand tu reçois un nouvel avis Google, mets à jour :
  *   1. `REVIEWS` si tu veux afficher le témoignage sur le site
- *   2. `AGGREGATE_RATING.reviewCount` avec le total Google Business
+ *   2. `GBP_AJACCIO_REVIEWS` / `GBP_LIMOGES_REVIEWS` avec les totaux Google Business
+ *   3. `public/llms.txt` (le nombre d'avis y est en dur)
  */
 
 export interface Review {

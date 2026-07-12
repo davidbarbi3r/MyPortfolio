@@ -61,6 +61,9 @@ export const localBusinessAjaccioNode = {
   priceRange: '€€',
 };
 
+// Modèle service-area (SAB) : pas d'adresse physique tenue à Limoges — l'activité
+// est domiciliée à Ajaccio (mentions légales). On déclare la zone desservie,
+// jamais d'adresse fictive (risque de suspension de fiche Google Business Profile).
 export const localBusinessLimogesNode = {
   '@type': 'LocalBusiness',
   '@id': LOCAL_BUSINESS_LIMOGES_ID,
@@ -71,12 +74,10 @@ export const localBusinessLimogesNode = {
   founder: { '@id': 'https://www.davidbarbier.com/#person' },
   telephone: '+33623565299',
   email: 'hello@davidbarbier.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '23 Rue de la Fonderie',
-    addressLocality: 'Limoges',
-    postalCode: '87000',
-    addressCountry: 'FR',
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: { '@type': 'GeoCoordinates', latitude: 45.8352862, longitude: 1.2524095 },
+    geoRadius: '50000',
   },
   priceRange: '€€',
 };

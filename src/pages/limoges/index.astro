@@ -34,24 +34,10 @@ const localBusinessSchema = {
   "founder": { "@id": "https://www.davidbarbier.com/#person" },
   "telephone": "+33623565299",
   "email": "hello@davidbarbier.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "23 Rue de la Fonderie",
-    "addressLocality": "Limoges",
-    "postalCode": "87000",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.8352862,
-    "longitude": 1.2524095
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "09:00",
-    "closes": "18:00"
-  },
+  // Modèle service-area (SAB) : pas d'adresse physique tenue à Limoges —
+  // l'activité est domiciliée à Ajaccio (cf. mentions légales), on déclare
+  // uniquement la zone desservie. Une adresse fictive risquerait une
+  // suspension de fiche Google Business Profile.
   "areaServed": {
     "@type": "GeoCircle",
     "geoMidpoint": {
@@ -203,14 +189,14 @@ const testimonials = [
 
         <!-- Trust line -->
         <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-          ⭐ 5/5 sur Google · +50 clients accompagnés · 20 ans à Limoges
+          ⭐ 5/5 sur Google · +50 clients accompagnés · Originaire de Limoges
         </p>
 
         <!-- NAP visible -->
         <address class="mt-8 not-italic bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
           <p class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
             <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
-            23 Rue de la Fonderie, 87000 Limoges
+            Limoges et Haute-Vienne — sur rendez-vous, sur place ou en visio
           </p>
           <p class="text-lg text-green-800 dark:text-green-200">
             <Icon name="tabler:phone" class="inline mr-2 w-5 h-5" />
@@ -623,7 +609,7 @@ const testimonials = [
           <div class="text-center sm:text-left">
             <h2 class="text-xl font-semibold text-white">
               <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
-              23 Rue de la Fonderie, 87000 Limoges
+              Limoges et Haute-Vienne
             </h2>
             <p class="text-gray-400 mt-1">
               <Icon name="tabler:calendar" class="inline mr-1 w-4 h-4" />
