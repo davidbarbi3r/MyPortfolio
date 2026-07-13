@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-07-13T00:00:00Z
-title: "Site internet d'expert-comptable : étude de cas Odacio Conseils à Allauch"
+title: "Étude de cas Odacio Conseils : le site internet d'un expert-comptable à Allauch"
 excerpt: "Un expert-comptable qui crée son cabinet à zéro, sans rachat de clientèle : comment son site et sa fiche Google génèrent 4 à 5 appels qualifiés par mois. Chiffres réels à l'appui."
 image: '~/assets/images/odacio-conseils.jpg'
 author: David Barbier
