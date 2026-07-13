@@ -96,7 +96,9 @@ Rapporté au trafic, l'ensemble convertit autour de 4 % des visites en contact, 
 
 Pour un cabinet parti de zéro, sans clientèle rachetée ni réseau hérité, ces volumes changent tout : un client signé représente une collaboration récurrente de plusieurs années. Quatre à cinq conversations qualifiées par mois dès les premières années d'activité, c'est un flux d'affaires qui construit un portefeuille.
 
-**Et en toute transparence** : le référencement organique local du cabinet est encore en construction. C'est le chantier en cours, et c'est normal pour un site récent sur un marché concurrentiel. Les chiffres ci-dessus sont ceux d'aujourd'hui, pas une promesse.
+**Et en toute transparence** : le référencement organique du cabinet est encore en construction. C'est un lancement honnête, avec des bases solides qui travaillent dans la durée.
+
+Google accorde sa confiance lentement à un domaine récent, et plus lentement encore dans les thématiques dites YMYL (« Your Money or Your Life » : la santé, le droit, l'argent), où il exige des signaux de fiabilité accumulés avant de bien classer un site. L'expertise comptable en fait partie. Les chiffres ci-dessus décrivent la situation d'aujourd'hui ; la courbe, elle, se construit avec le temps.
 
 ## Ce qu'il faut en retenir si vous êtes expert-comptable
 
