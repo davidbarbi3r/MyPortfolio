@@ -68,7 +68,7 @@ Fiche Google, Facebook, Instagram, LinkedIn : tous les profils du cabinet pointe
 
 C'est le dispositif le plus original du site : une page dédiée, accessible par **QR code**. En rendez-vous ou en événement professionnel, Matthias fait scanner son code plutôt que de dicter ses coordonnées. Le contact récupère en un geste les informations du cabinet, et le réseautage physique devient une visite mesurable.
 
-Cette page figure dans le top 5 des pages les plus consultées du site. La poignée de main alimente littéralement les statistiques.
+La page a enregistré 39 visites en six mois, six à sept scans par mois : la poignée de main alimente littéralement les statistiques.
 
 ### La performance comme fondation
 
@@ -116,7 +116,7 @@ Les deux, mais sans cacher le téléphone. Chez Odacio, la clientèle (TPE, arti
 
 ### À quoi sert un QR code pour un expert-comptable ?
 
-À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page figure dans le top 5 des pages les plus visitées du site, preuve que le dispositif est réellement utilisé.
+À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page a enregistré 39 visites en six mois, uniquement par scan en présentiel : le dispositif est réellement utilisé.
 
 ### Combien de temps pour créer un site de cabinet d'expertise comptable ?
 
@@ -144,7 +144,7 @@ Vous voulez un site qui génère des rendez-vous pour votre cabinet ? Découvrez
     {
       "@type": "Question",
       "name": "À quoi sert un QR code pour un expert-comptable ?",
-      "acceptedAnswer": {"@type": "Answer", "text": "À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page figure dans le top 5 des pages les plus visitées du site."}
+      "acceptedAnswer": {"@type": "Answer", "text": "À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page a enregistré 39 visites en six mois, uniquement par scan en présentiel."}
     },
     {
       "@type": "Question",
