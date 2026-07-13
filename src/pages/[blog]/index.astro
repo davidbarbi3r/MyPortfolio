@@ -44,7 +44,7 @@ const metadata = merge(
       "description": post.excerpt,
       "datePublished": post.publishDate?.toISOString(),
       "dateModified": (post.updateDate || post.publishDate)?.toISOString(),
-      ...(image ? { "image": image.src } : {}),
+      ...(image ? { "image": new URL(image.src, 'https://www.davidbarbier.com').href } : {}),
       "author": {
         "@type": "Person",
         "name": post.author,

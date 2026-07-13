@@ -4,7 +4,7 @@ import Image from '../components/common/Image.astro';
 import HeroImage from '../assets/images/DSCF7551-3.jpg';
 import Activateur from "../assets/images/activateur.png"
 import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
-import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
+import { aggregateRatingSchemaAjaccio, GBP_AJACCIO_REVIEWS } from '~/utils/reviews';
 
 const metadata = {
   title: 'Référencement naturel SEO à Ajaccio : accompagnement mensuel | David Barbier',
@@ -206,7 +206,7 @@ const breadcrumbStructuredData = {
 
         <!-- Trust line -->
         <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
-          ⭐ 5/5 sur Google · 16 avis · +50 clients accompagnés · Basé à Ajaccio
+          ⭐ 5/5 sur Google · {GBP_AJACCIO_REVIEWS} avis · +50 clients accompagnés · Basé à Ajaccio
         </p>
 
         <!-- Problem statement -->
