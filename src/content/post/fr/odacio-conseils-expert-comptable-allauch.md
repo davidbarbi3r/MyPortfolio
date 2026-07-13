@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-13T00:00:00Z
 title: "Étude de cas Odacio Conseils : le site internet d'un expert-comptable à Allauch"
-excerpt: "Un expert-comptable qui crée son cabinet à zéro, sans rachat de clientèle : comment son site et sa fiche Google génèrent 4 à 5 appels qualifiés par mois. Chiffres réels à l'appui."
+excerpt: "Un expert-comptable qui crée son cabinet sans rachat de clientèle : comment son site et sa fiche Google génèrent 4 à 5 appels qualifiés par mois. Chiffres réels à l'appui."
 image: '~/assets/images/odacio-conseils.jpg'
 author: David Barbier
 category: Portfolio
@@ -18,7 +18,7 @@ metadata:
 
 Odacio, c'est pour l'audace.
 
-Le nom n'est pas un hasard : Matthias Hally a créé [Odacio Conseils](https://www.odacio-conseils.fr/) à Allauch, près de Marseille, **juste après l'obtention de son diplôme d'expertise comptable**. Huit années d'études, puis le grand saut. Pas de rachat de clientèle, pas de portefeuille hérité d'un prédécesseur : un cabinet qui démarre à zéro, en solo, et qui doit construire chaque relation client.
+Le nom n'est pas un hasard : Matthias Hally a créé [Odacio Conseils](https://www.odacio-conseils.fr/) à Allauch, près de Marseille. Huit années d'études, un diplôme d'expertise comptable, deux ans et demi passés dans différents cabinets, puis **le grand saut**. Pas de rachat de clientèle, pas de portefeuille hérité d'un prédécesseur : un cabinet qui démarre en solo, avec pour premiers clients ceux que Matthias s'est faits au fil de ses expériences en cabinet, essentiellement des amis et du bouche-à-oreille.
 
 Sa cible, il ne l'a pas choisie au doigt mouillé. Issu d'une famille d'artisans, Matthias a consacré son mémoire de diplôme à l'accompagnement des artisans, un travail primé.
 
@@ -94,7 +94,7 @@ Rapporté au trafic, l'ensemble convertit autour de 4 % des visites en contact, 
 
 ![Répartition des visites référées d'odacio-conseils.fr par canal sur 6 mois : Google 64 %, Facebook 13 %, Instagram 9 %, LinkedIn 7 %, autres moteurs 7 %](~/assets/images/odacio-canaux.svg)
 
-Pour un cabinet parti de zéro, sans clientèle rachetée ni réseau hérité, ces volumes changent tout : un client signé représente une collaboration récurrente de plusieurs années. Quatre à cinq conversations qualifiées par mois dès les premières années d'activité, c'est un flux d'affaires qui construit un portefeuille, pas du trafic de vanité.
+Pour un cabinet lancé sans clientèle rachetée ni réseau hérité, ces volumes changent tout : un client signé représente une collaboration récurrente de plusieurs années. Quatre à cinq conversations qualifiées par mois dès les premières années d'activité, c'est un flux d'affaires qui construit un portefeuille, pas du trafic de vanité.
 
 **Et en toute transparence** : le référencement organique local du cabinet est encore en construction. C'est le chantier en cours, et c'est normal pour un site récent sur un marché concurrentiel. Les chiffres ci-dessus sont ceux d'aujourd'hui, pas une promesse.
 
