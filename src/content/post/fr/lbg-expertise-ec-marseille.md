@@ -74,4 +74,4 @@ Trois enseignements transposables à n'importe quel cabinet :
 
 Vous lancez ou modernisez votre cabinet ? Découvrez mon offre de [création de site vitrine pour expert-comptable](/agence-web-expert-comptable/creation-site-vitrine-ec/) ou l'ensemble de mes [services dédiés aux experts-comptables](/agence-web-expert-comptable/).
 
-Voir aussi : [l'étude de cas Odacio Conseils](/odacio-conseils-expert-comptable-allauch/), un cabinet créé de zéro à Allauch, dont le site et la fiche Google génèrent 4 à 5 appels qualifiés par mois.
+Voir aussi : [l'étude de cas Odacio Conseils](/odacio-conseils-expert-comptable-allauch/), un cabinet créé de zéro à Allauch, qui reçoit 4 à 5 appels qualifiés par mois, site consulté avant la plupart d'entre eux.

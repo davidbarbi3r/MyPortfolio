@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-13T00:00:00Z
 title: "Étude de cas Odacio Conseils : le site internet d'un expert-comptable à Allauch"
-excerpt: "Un expert-comptable qui crée son cabinet à zéro, sans rachat de clientèle : comment son site et sa fiche Google génèrent 4 à 5 appels qualifiés par mois. Chiffres réels à l'appui."
+excerpt: "Un expert-comptable qui crée son cabinet à zéro, sans rachat de clientèle : 4 à 5 appels qualifiés par mois, et le rôle exact du site dans chacun d'eux. Chiffres réels à l'appui."
 image: '~/assets/images/odacio-conseils.jpg'
 author: David Barbier
 category: Portfolio
@@ -84,11 +84,11 @@ Les données ci-dessous viennent de l'outil de mesure du site (Umami, sans cooki
 
 **1 visiteur sur 6 arrive sur la page de prise de rendez-vous.** Sur 777 visites depuis le début de l'année, 127 ont consulté la page « prendre rendez-vous », soit 16 % des visites. C'est la mesure directe de ce que l'architecture devait produire : orienter vers l'action.
 
-**4 à 5 appels qualifiés par mois.** C'est le chiffre de Matthias : « plutôt grâce à la fiche Google, mais les gens vont quand même voir mon site avant d'appeler ».
+**4 à 5 appels qualifiés par mois.** C'est le chiffre de Matthias, toutes portes d'entrée confondues : la fiche Google, le bouche-à-oreille, les rencontres en salon ou en permanence. Son constat : « les gens vont quand même voir mon site avant d'appeler ».
 
-La fiche fait découvrir, le site rassure, et le téléphone conclut.
+Quelle que soit l'origine du contact, le site sert de point de vérification, et le téléphone conclut.
 
-Rapporté au trafic, l'ensemble convertit autour de 4 % des visites en contact, quand les ordres de grandeur couramment cités pour les sites de services se situent entre 2 et 5 %.
+L'ordre de grandeur reste parlant : rapportés au trafic du site (que la plupart des appelants consultent avant de décrocher), ces contacts représentent environ 4 % des visites, quand les sites de services convertissent couramment entre 2 et 5 %.
 
 **Une acquisition réellement diversifiée.** Recherche Google, fiche GBP, Instagram, LinkedIn, Bing : aucun canal ne représente à lui seul la survie du cabinet, et le QR code y ajoute le monde physique.
 
@@ -110,7 +110,7 @@ Google accorde sa confiance lentement à un domaine récent, et plus lentement e
 
 ### Combien de contacts un site de cabinet comptable peut-il générer ?
 
-Chez Odacio Conseils, le site et la fiche Google génèrent ensemble 4 à 5 appels qualifiés par mois, pour un cabinet de proximité ciblant TPE et artisans. Le volume dépend de la zone et de la notoriété, mais l'ordre de grandeur utile est là : quelques conversations qualifiées par mois suffisent à faire croître un cabinet, chaque client signé représentant une mission récurrente.
+Chez Odacio Conseils, cabinet de proximité ciblant TPE et artisans, 4 à 5 appels qualifiés arrivent chaque mois, toutes portes d'entrée confondues (fiche Google, bouche-à-oreille, salons), et le site est consulté avant la plupart de ces appels. Le volume dépend de la zone et de la notoriété, mais l'ordre de grandeur utile est là : quelques conversations qualifiées par mois suffisent à faire croître un cabinet, chaque client signé représentant une mission récurrente.
 
 ### Formulaire ou téléphone : que privilégier sur le site d'un cabinet ?
 
@@ -136,7 +136,7 @@ Vous voulez un site qui génère des rendez-vous pour votre cabinet ? Découvrez
     {
       "@type": "Question",
       "name": "Combien de contacts un site de cabinet comptable peut-il générer ?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Chez Odacio Conseils, le site et la fiche Google génèrent ensemble 4 à 5 appels qualifiés par mois, pour un cabinet de proximité ciblant TPE et artisans. Quelques conversations qualifiées par mois suffisent à faire croître un cabinet, chaque client signé représentant une mission récurrente."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Chez Odacio Conseils, cabinet de proximité ciblant TPE et artisans, 4 à 5 appels qualifiés arrivent chaque mois, toutes portes d'entrée confondues (fiche Google, bouche-à-oreille, salons), et le site est consulté avant la plupart de ces appels. Quelques conversations qualifiées par mois suffisent à faire croître un cabinet, chaque client signé représentant une mission récurrente."}
     },
     {
       "@type": "Question",
