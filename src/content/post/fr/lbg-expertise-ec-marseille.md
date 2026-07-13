@@ -70,7 +70,7 @@ Trois enseignements transposables à n'importe quel cabinet :
 
 - **Un site de cabinet n'a pas besoin d'être compliqué, il a besoin d'être crédible.** Sobriété, clarté des missions, contact évident.
 - **L'autonomie sur le contenu est un critère de cahier des charges**, pas une option. C'est elle qui rend le blog viable dans la durée.
-- **La performance technique se règle une fois, à la conception.** Bien construite au départ, elle ne se dégrade pas et ne génère pas de coûts récurrents.
+- **La performance technique se règle une fois, à la conception.** Bien construite au départ, elle ne se dégrade pas et réduit la maintenance au strict minimum.
 
 Vous lancez ou modernisez votre cabinet ? Découvrez mon offre de [création de site vitrine pour expert-comptable](/agence-web-expert-comptable/creation-site-vitrine-ec/) ou l'ensemble de mes [services dédiés aux experts-comptables](/agence-web-expert-comptable/).
 
