@@ -68,7 +68,7 @@ Fiche Google, Facebook, Instagram, LinkedIn : tous les profils du cabinet pointe
 
 C'est le dispositif le plus original du site : une page dédiée, accessible par **QR code**. En rendez-vous ou en événement professionnel, Matthias fait scanner son code plutôt que de dicter ses coordonnées. Le contact récupère en un geste les informations du cabinet, et le réseautage physique devient une visite mesurable.
 
-Cette page figure dans le top 5 des pages les plus consultées du site. La poignée de main alimente littéralement les statistiques.
+La page a enregistré 39 visites en six mois, six à sept scans par mois : la poignée de main alimente littéralement les statistiques.
 
 ### La performance comme fondation
 
@@ -86,7 +86,7 @@ Les données ci-dessous viennent de l'outil de mesure du site (Umami, sans cooki
 
 **4 à 5 appels qualifiés par mois.** C'est le chiffre de Matthias : « plutôt grâce à la fiche Google, mais les gens vont quand même voir mon site avant d'appeler ».
 
-La fiche fait découvrir. Le site rassure. Le téléphone conclut.
+La fiche fait découvrir, le site rassure, et le téléphone conclut.
 
 Rapporté au trafic, l'ensemble convertit autour de 4 % des visites en contact, quand les ordres de grandeur couramment cités pour les sites de services se situent entre 2 et 5 %.
 
@@ -96,7 +96,9 @@ Rapporté au trafic, l'ensemble convertit autour de 4 % des visites en contact, 
 
 Pour un cabinet parti de zéro, sans clientèle rachetée ni réseau hérité, ces volumes changent tout : un client signé représente une collaboration récurrente de plusieurs années. Quatre à cinq conversations qualifiées par mois dès les premières années d'activité, c'est un flux d'affaires qui construit un portefeuille.
 
-**Et en toute transparence** : le référencement organique local du cabinet est encore en construction. C'est le chantier en cours, et c'est normal pour un site récent sur un marché concurrentiel. Les chiffres ci-dessus sont ceux d'aujourd'hui, pas une promesse.
+**Et en toute transparence** : le référencement organique du cabinet est encore en construction. C'est un lancement honnête, avec des bases solides qui travaillent dans la durée.
+
+Google accorde sa confiance lentement à un domaine récent, et plus lentement encore dans les thématiques dites YMYL (« Your Money or Your Life » : la santé, le droit, l'argent), où il exige des signaux de fiabilité accumulés avant de bien classer un site. L'expertise comptable en fait partie. Les chiffres ci-dessus décrivent la situation d'aujourd'hui ; la courbe, elle, se construit avec le temps.
 
 ## Ce qu'il faut en retenir si vous êtes expert-comptable
 
@@ -116,7 +118,7 @@ Les deux, mais sans cacher le téléphone. Chez Odacio, la clientèle (TPE, arti
 
 ### À quoi sert un QR code pour un expert-comptable ?
 
-À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page figure dans le top 5 des pages les plus visitées du site, preuve que le dispositif est réellement utilisé.
+À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page a enregistré 39 visites en six mois, uniquement par scan en présentiel : le dispositif est réellement utilisé.
 
 ### Combien de temps pour créer un site de cabinet d'expertise comptable ?
 
@@ -144,7 +146,7 @@ Vous voulez un site qui génère des rendez-vous pour votre cabinet ? Découvrez
     {
       "@type": "Question",
       "name": "À quoi sert un QR code pour un expert-comptable ?",
-      "acceptedAnswer": {"@type": "Answer", "text": "À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page figure dans le top 5 des pages les plus visitées du site."}
+      "acceptedAnswer": {"@type": "Answer", "text": "À convertir le réseautage physique en contacts numériques. Le QR d'Odacio pointe vers une page carte-de-visite du site : en rendez-vous, un scan remplace la saisie manuelle des coordonnées. La page a enregistré 39 visites en six mois, uniquement par scan en présentiel."}
     },
     {
       "@type": "Question",
