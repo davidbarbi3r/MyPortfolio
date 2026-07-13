@@ -74,7 +74,7 @@ Cette page figure dans le top 5 des pages les plus consultées du site. La poign
 
 Le site est généré statiquement (Astro) : des pages pré-construites, servies telles quelles, sans base de données ni plugins à maintenir. Les mesures parlent d'elles-mêmes : **99/100 en performance Lighthouse sur desktop, un affichage complet en moins d'une seconde, zéro décalage de mise en page au chargement, et moins de 500 Ko par page**, quand la page web moyenne dépasse allègrement les 2 Mo.
 
-Pour un cabinet qui se lance, cette légèreté n'est pas un trophée technique, c'est de l'économie concrète : pas de maintenance de sécurité récurrente à payer, pas de refonte forcée dans deux ans parce qu'un thème est à l'abandon, et un site qui reste rapide à mesure qu'il grandit.
+Pour un cabinet qui se lance, cette légèreté est de l'économie concrète : la maintenance se résume à un forfait léger et prévisible (30 € par mois chez Odacio), sans rustines de sécurité en urgence ni refonte forcée dans deux ans parce qu'un thème est à l'abandon. Et le site reste rapide à mesure qu'il grandit.
 
 La vitesse est aussi la toute première impression. Avant le design, avant le contenu, pour un prospect qui découvre un cabinet dont il n'a jamais entendu parler. J'explique pourquoi [un site lent coûte des clients](/site-internet-lent-que-faire/) et je détaille ces fondations dans mes [conseils SEO pour expert-comptable](/conseils-seo-expert-comptable/). C'est la même philosophie que pour [le site de LBG Expertise à Marseille](/lbg-expertise-ec-marseille/).
 
