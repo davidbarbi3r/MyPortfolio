@@ -34,10 +34,26 @@ const localBusinessSchema = {
   "founder": { "@id": "https://www.davidbarbier.com/#person" },
   "telephone": "+33623565299",
   "email": "hello@davidbarbier.com",
-  // Modèle service-area (SAB) : pas d'adresse physique tenue à Limoges —
-  // l'activité est domiciliée à Ajaccio (cf. mentions légales), on déclare
-  // uniquement la zone desservie. Une adresse fictive risquerait une
-  // suspension de fiche Google Business Profile.
+  // Adresse réelle (appartement) — cohérente avec la fiche Google Business
+  // Profile Limoges. Garder identique à la fiche (NAP consistency).
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "23 Rue de la Fonderie",
+    "addressLocality": "Limoges",
+    "postalCode": "87000",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.8352862,
+    "longitude": 1.2524095
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
   "areaServed": {
     "@type": "GeoCircle",
     "geoMidpoint": {
@@ -196,7 +212,7 @@ const testimonials = [
         <address class="mt-8 not-italic bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
           <p class="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
             <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
-            Limoges et Haute-Vienne — sur rendez-vous, sur place ou en visio
+            23 Rue de la Fonderie, 87000 Limoges
           </p>
           <p class="text-lg text-green-800 dark:text-green-200">
             <Icon name="tabler:phone" class="inline mr-2 w-5 h-5" />
@@ -609,7 +625,7 @@ const testimonials = [
           <div class="text-center sm:text-left">
             <h2 class="text-xl font-semibold text-white">
               <Icon name="tabler:map-pin" class="inline mr-2 w-5 h-5" />
-              Limoges et Haute-Vienne
+              23 Rue de la Fonderie, 87000 Limoges
             </h2>
             <p class="text-gray-400 mt-1">
               <Icon name="tabler:calendar" class="inline mr-1 w-4 h-4" />
