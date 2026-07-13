@@ -34,7 +34,7 @@ Le cahier des charges initial était court, mais exigeant :
 2. **Une autonomie totale sur le contenu** : ma cliente voulait modifier ses textes et publier des articles de blog elle-même, sans dépendre de moi ni payer une intervention à chaque changement de virgule.
 3. **Un site évolutif** : pouvoir ajouter des pages de mission ou des fonctionnalités plus tard, sans repartir de zéro.
 
-Le blog n'était pas un gadget : pour un cabinet qui démarre sans notoriété, chaque article bien ciblé est un point d'entrée supplémentaire depuis Google. C'est la logique que je détaille dans mes [conseils SEO pour expert-comptable](/conseils-seo-expert-comptable/).
+Le blog avait un rôle précis : pour un cabinet qui démarre sans notoriété, chaque article bien ciblé est un point d'entrée supplémentaire depuis Google. C'est la logique que je détaille dans mes [conseils SEO pour expert-comptable](/conseils-seo-expert-comptable/).
 
 ## L'approche
 
@@ -68,8 +68,8 @@ Le site est en ligne : [lbg-expertise.com](https://lbg-expertise.com).
 
 Trois enseignements transposables à n'importe quel cabinet :
 
-- **Un site de cabinet n'a pas besoin d'être compliqué, il a besoin d'être crédible.** Sobriété, clarté des missions, contact évident.
-- **L'autonomie sur le contenu est un critère de cahier des charges**, pas une option. C'est elle qui rend le blog viable dans la durée.
+- **Un site de cabinet a d'abord besoin d'être crédible.** Sobriété, clarté des missions, contact évident.
+- **L'autonomie sur le contenu est un critère de cahier des charges à part entière.** C'est elle qui rend le blog viable dans la durée.
 - **La performance technique se règle une fois, à la conception.** Bien construite au départ, elle ne se dégrade pas et réduit la maintenance au strict minimum.
 
 Vous lancez ou modernisez votre cabinet ? Découvrez mon offre de [création de site vitrine pour expert-comptable](/agence-web-expert-comptable/creation-site-vitrine-ec/) ou l'ensemble de mes [services dédiés aux experts-comptables](/agence-web-expert-comptable/).
