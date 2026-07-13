@@ -86,7 +86,7 @@ Les données ci-dessous viennent de l'outil de mesure du site (Umami, sans cooki
 
 **4 à 5 appels qualifiés par mois.** C'est le chiffre de Matthias : « plutôt grâce à la fiche Google, mais les gens vont quand même voir mon site avant d'appeler ».
 
-La fiche fait découvrir. Le site rassure. Le téléphone conclut.
+La fiche fait découvrir, le site rassure, et le téléphone conclut.
 
 Rapporté au trafic, l'ensemble convertit autour de 4 % des visites en contact, quand les ordres de grandeur couramment cités pour les sites de services se situent entre 2 et 5 %.
 
