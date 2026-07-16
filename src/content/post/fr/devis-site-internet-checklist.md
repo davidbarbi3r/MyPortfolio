@@ -3,7 +3,7 @@ publishDate: 2026-07-16T00:00:00Z
 updateDate: 2026-07-16T00:00:00Z
 title: "Devis de site internet : les 14 points à vérifier avant de signer"
 excerpt: "Propriété du site, textes écrits à l'IA, logo, photos, maintenance, réversibilité : la checklist complète pour lire un devis de site internet comme un pro, avec un exemple commenté ligne par ligne."
-image: '~/assets/images/db-site-freelance.webp'
+image: '~/assets/images/devis-checklist-og.png'
 author: David Barbier
 category: Blog
 tags:
