@@ -1,9 +1,8 @@
 ---
-publishDate: 2026-06-18T00:00:00Z
-updateDate: 2026-06-18T00:00:00Z
-draft: true
+publishDate: 2026-07-16T00:00:00Z
+updateDate: 2026-07-16T00:00:00Z
 title: "Devis de site internet : les 14 points à vérifier avant de signer"
-excerpt: "Propriété du site, textes écrits à l'IA, logo, photos, maintenance, réversibilité : la checklist complète pour lire un devis de site internet comme un pro."
+excerpt: "Propriété du site, textes écrits à l'IA, logo, photos, maintenance, réversibilité : la checklist complète pour lire un devis de site internet comme un pro, avec un exemple commenté ligne par ligne."
 image: '~/assets/images/db-site-freelance.webp'
 author: David Barbier
 category: Blog
@@ -13,12 +12,12 @@ tags:
   - conseils
 metadata:
   canonical: https://www.davidbarbier.com/devis-site-internet-checklist/
-  description: "14 points à vérifier avant de signer un devis de site internet : propriété, textes et IA, logo, photos, SEO, maintenance, réversibilité. La checklist d'un développeur qui en rédige toutes les semaines."
+  description: "Les 14 points à vérifier avant de signer un devis de site internet, avec un exemple de devis commenté : propriété, textes IA, SEO, maintenance, réversibilité."
 ---
 
 Un devis de site internet se lit en dix minutes. Les mauvaises surprises qu'il cache se paient pendant quatre ans. Après avoir relevé [les tarifs réels du marché corse](/combien-coute-site-internet-corse/), voici la suite logique : la checklist pour lire un devis comme quelqu'un du métier, que vous signiez avec moi ou avec un confrère.
 
-La version courte : vérifiez **qui possède quoi** (site, domaine, hébergement), **ce qui est réellement inclus** (textes, photos, pages), **ce qui se passe après la livraison** (maintenance, autonomie, coûts récurrents) et **comment vous pourriez partir** (réversibilité). Un devis sérieux répond à ces quatre questions noir sur blanc. Le détail point par point ci-dessous.
+La version courte : vérifiez **qui possède quoi** (site, domaine, hébergement), **ce qui est réellement inclus** (textes, photos, pages), **ce qui se passe après la livraison** (maintenance, autonomie, coûts récurrents) et **comment vous pourriez partir** (réversibilité). Un devis sérieux répond à ces quatre questions noir sur blanc. Le détail point par point ci-dessous, puis un [exemple de devis commenté](#un-exemple-de-devis-de-site-internet-commenté) ligne par ligne.
 
 ## Bloc 1 : la propriété (les points qui fâchent)
 
@@ -60,7 +59,7 @@ Si le devis ne prévoit rien pour les photos, posez la question avant de signer,
 
 ### 8. Design sur-mesure ou template adapté ?
 
-Les deux approches se défendent et n'ont pas le même prix. Ce qui n'est pas acceptable, c'est de payer le tarif du sur-mesure pour un template à peine retouché. Demandez explicitement lequel vous achetez, et des exemples de réalisations comparables.
+Les deux approches se défendent et n'ont pas le même prix. Payer le tarif du sur-mesure pour un template à peine retouché, en revanche, ne se défend pas. Demandez explicitement lequel vous achetez, et des exemples de réalisations comparables.
 
 ### 9. Les obligations légales sont-elles incluses ?
 
@@ -90,11 +89,34 @@ Un délai de livraison, un nombre de cycles de corrections (ou des allers-retour
 
 La question test. Demandez ce qui se passe en fin de collaboration : récupération des fichiers, du domaine, des accès, format d'export des contenus. Un prestataire sérieux répond en deux phrases. Un prestataire qui élude prépare votre dépendance.
 
+## Un exemple de devis de site internet commenté
+
+Vous cherchez un exemple de devis de site internet pour le comparer à celui que vous avez reçu ? Voici la structure d'un devis correct pour un site vitrine de 6 pages chez un indépendant, ligne par ligne. Les montants s'appuient sur [les fourchettes relevées sur le marché en 2026](/combien-coute-site-internet-corse/) : ils donnent un ordre de grandeur, le vôtre variera selon le périmètre.
+
+| Poste du devis | Montant HT | Ce que la ligne doit préciser (et le point de la checklist) |
+|---|---|---|
+| Conception graphique et maquette | 450 € | Sur-mesure ou template adapté, nombre de propositions et d'allers-retours (points 8 et 13) |
+| Développement et intégration, 6 pages | 900 € | La liste exacte des pages et des fonctionnalités (point 7) |
+| Rédaction des contenus | 350 € | Qui écrit, avec quel entretien de cadrage, qui relit (point 4) |
+| Socle SEO : structure, balises, vitesse | 250 € | Un engagement mesurable, par exemple un score PageSpeed (point 10) |
+| Mentions légales et conformité RGPD | 150 € | Inclus dans les livrables, sans renvoi « à votre charge » en bas de page (point 9) |
+| Formation à la prise en main (1 h 30) | 100 € | Ce que vous saurez modifier seul après la livraison (point 11) |
+| **Total création** | **2 200 €** | Dans la fourchette d'un indépendant : 1 500 à 2 500 € HT |
+| Coûts récurrents (domaine, hébergement, maintenance) | 120 à 400 €/an | Affichés séparément du prix de création, avec le détail par poste (point 12) |
+
+Trois remarques, en lisant ce devis comme je lirais celui d'un confrère.
+
+**Ce qui doit figurer ailleurs que dans les lignes de prix.** La propriété du site, du domaine et de l'hébergement (points 1 à 3), le délai de livraison (point 13) et les conditions de départ (point 14) appartiennent aux conditions écrites du devis ou du contrat. Un total correct ne compense jamais leur absence.
+
+**Les deux absences qui rendent un devis moins cher en apparence.** Aucune ligne logo (point 5) ni photos (point 6) dans cet exemple : c'est fréquent, et c'est là que les comparaisons dérapent. Un devis concurrent à 1 600 € sans rédaction ni conformité RGPD est surtout moins complet : ajoutez les postes manquants et l'écart fond.
+
+**La forme compte autant que les montants.** Un devis d'une seule ligne (« création site internet : 2 500 € ») vous prive de toute comparaison et de tout recours en cas de désaccord sur le périmètre. Le détail poste par poste protège les deux parties, vous comme le prestataire.
+
 ## Les 4 signaux qui doivent vous faire fuir
 
 1. **L'abonnement « tout compris » sans prix de sortie** : 40 à 130 €/mois avec engagement de 48 mois, vous ne possédez rien au terme. Faites la multiplication.
 2. **« Premier sur Google garanti »** : personne ne peut le garantir, pas même Google. C'est l'argument signature des démarcheurs téléphoniques.
-3. **Pas de SIRET, pas d'avis, pas de sites consultables** : vérifiez l'existence légale et appelez un client livré si possible.
+3. **Aucun SIRET, avis client ou site consultable** : vérifiez l'existence légale et appelez un client livré si possible.
 4. **Le prix anormalement bas** : à 300 €, quelque chose manque. Souvent les textes, parfois la propriété, toujours la suite.
 
 ## Questions fréquentes
@@ -108,6 +130,38 @@ Oui, 30 à 50 % à la commande est une pratique courante chez les indépendants 
 **Puis-je comparer des devis qui n'ont pas le même prix ?**
 Seulement en comparant ce qu'ils incluent : un devis à 1 500 € sans rédaction ni maintenance peut revenir plus cher qu'un devis à 2 500 € tout compris. Ramenez tout au coût total sur 4 ans, propriété comprise.
 
+**À quoi ressemble un devis de site internet sérieux ?**
+Un document détaillé poste par poste (conception, développement, rédaction, socle SEO, formation), avec le total de création, les coûts annuels récurrents affichés séparément, et des conditions écrites sur la propriété, les délais et la réversibilité. L'exemple commenté plus haut donne la structure et les ordres de grandeur.
+
 ---
 
 Vous avez un devis sous les yeux et un doute ? Envoyez-le-moi lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/) : je vous dis ce que j'en pense point par point, même si vous signez ailleurs. Et si vous partez de zéro, mes tarifs et ce qu'ils incluent sont [affichés publiquement](/).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Que doit contenir un devis de site internet ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Le périmètre précis (pages, fonctionnalités), qui fournit les contenus, le prix de création, les coûts annuels récurrents (domaine, hébergement, maintenance), les délais, et les conditions de propriété et de réversibilité. Si un de ces éléments manque, demandez-le par écrit avant de signer."}
+    },
+    {
+      "@type": "Question",
+      "name": "Un acompte est-il normal ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Oui, 30 à 50 % à la commande est une pratique courante chez les indépendants et agences. En revanche, un paiement intégral avant tout début de travail est un signal d'alerte."}
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je comparer des devis qui n'ont pas le même prix ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Seulement en comparant ce qu'ils incluent : un devis à 1 500 € sans rédaction ni maintenance peut revenir plus cher qu'un devis à 2 500 € tout compris. Ramenez tout au coût total sur 4 ans, propriété comprise."}
+    },
+    {
+      "@type": "Question",
+      "name": "À quoi ressemble un devis de site internet sérieux ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Un document détaillé poste par poste (conception, développement, rédaction, socle SEO, formation), avec le total de création, les coûts annuels récurrents affichés séparément, et des conditions écrites sur la propriété, les délais et la réversibilité."}
+    }
+  ]
+}
+</script>
