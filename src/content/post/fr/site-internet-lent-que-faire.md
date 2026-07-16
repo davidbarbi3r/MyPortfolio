@@ -28,7 +28,9 @@ Pour un site wordpress, l'utilisation de plugins comme [Smush](https://fr.wordpr
 
 ### Localisation de l'hébergement :
 
-La distance entre vos serveurs et vos utilisateurs influe sur la rapidité de réponse. Un hébergement proche de votre cible diminue les délais, un détail géographique aux répercussions significatives. Si vous avez des clients à l'international, l'utilisation d'un CDN est obligatoire. 
+La distance entre vos serveurs et vos utilisateurs influe sur la rapidité de réponse. Un hébergement proche de votre cible diminue les délais, un détail géographique aux répercussions significatives. Si vous avez des clients à l'international, l'utilisation d'un CDN est obligatoire.
+
+En amont du serveur, une [configuration DNS propre](/configuration-dns/) évite les résolutions lentes et les chaînes de redirections qui allongent la toute première requête.
 
 ### Rationalisation des requêtes : 
 

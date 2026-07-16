@@ -144,7 +144,7 @@ Pour choisir la meilleure extension, posez-vous ces questions :
 
 Le choix de votre extension de domaine dépend avant tout de votre stratégie et de votre cible. En France, le .fr reste un excellent choix pour créer une relation de confiance avec vos visiteurs. Le .com est parfait si vous visez l'international, tandis que les extensions régionales peuvent être un atout pour renforcer votre ancrage local.
 
-N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne.
+N'oubliez pas que vous pouvez toujours acquérir plusieurs extensions et les rediriger vers votre site principal pour protéger votre marque et optimiser votre présence en ligne. La mise en place technique de ces redirections passe par vos DNS : mon [guide de configuration DNS](/configuration-dns/) détaille la marche à suivre.
 
 Vous êtes expert-comptable ? Le choix du domaine pour un cabinet a ses spécificités (.experts-comptables.fr notamment) : j'ai écrit un [guide dédié au nom de domaine pour cabinet d'expertise comptable](/nom-domaine-cabinet-expert-comptable/).
 

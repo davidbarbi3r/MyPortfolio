@@ -96,6 +96,8 @@ Il ne s'agit pas d'un blog généraliste, mais de la source officielle sur les e
 
 Vous ne forcez rien. C'est le reflet de la réalité : vous êtes inscrit à l'Ordre, vous apparaissez dans leurs annuaires, ces organismes renvoient vers votre site.
 
+Ces liens s'accumulent sur votre nom de domaine pendant des années, et en changer en cours de route en disperse la valeur. Autant [bien choisir le nom de domaine de votre cabinet](/nom-domaine-cabinet-expert-comptable/) dès le départ.
+
 Dans d'autres secteurs, des entreprises paient plusieurs centaines d'euros pour obtenir un seul lien sur un média reconnu. Vous pouvez en obtenir plusieurs en remplissant correctement vos fiches.
 
 ---
