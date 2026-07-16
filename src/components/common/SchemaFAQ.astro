@@ -1,0 +1,18 @@
+---
+// Schema.org FAQPage à partir d'une liste { question, reponse } (texte brut, sans markdown).
+export interface Props {
+  faqs: { question: string; reponse: string }[];
+}
+const { faqs } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.reponse },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

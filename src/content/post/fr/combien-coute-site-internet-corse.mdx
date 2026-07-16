@@ -16,6 +16,7 @@ metadata:
 ---
 
 import RentVsOwnCalculator from '~/components/widgets/RentVsOwnCalculator.astro';
+import SchemaFAQ from '~/components/common/SchemaFAQ.astro';
 
 « Combien ça coûte, un site internet ? » C'est la question qu'on me pose le plus souvent, et c'est celle qui obtient les réponses les plus floues : « ça dépend », un formulaire de devis, ou un prix d'appel qui triple en cours de route.
 
@@ -154,3 +155,28 @@ Comptez 10 à 20 € de nom de domaine, 0 à 150 € d'hébergement et 0 à 600 
 ---
 
 Un doute sur un devis qu'on vous a remis ? Envoyez-le-moi lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/) : je vous dirai ce que j'en pense, même si vous signez ailleurs.
+
+<SchemaFAQ
+  faqs={[
+    {
+      question: "Quel est le prix moyen d'un site vitrine en Corse ?",
+      reponse:
+        "Entre 1 500 et 2 500 € HT chez un indépendant ou une petite structure, d'après les tarifs publiés par les prestataires ajacciens en juin 2026. Un one-page démarre autour de 1 200 € HT, un e-commerce autour de 5 000 € HT.",
+    },
+    {
+      question: 'Pourquoi éviter les sites en location à 40-50 € par mois ?',
+      reponse:
+        "Parce que sur la durée d'engagement (souvent 48 mois), vous payez le prix d'un site professionnel, environ 2 000 €, sans jamais en être propriétaire. À la résiliation, vous perdez le site et parfois le nom de domaine.",
+    },
+    {
+      question: 'Un site fait avec ChatGPT ou un builder IA suffit-il ?',
+      reponse:
+        "Pour tester une idée, oui. Pour ramener des clients, rarement : l'IA produit ce que vous demandez sans vous guider sur ce que vos clients recherchent, le rendu reste générique et Google valorise peu ces sites.",
+    },
+    {
+      question: "Combien coûte l'entretien d'un site chaque année ?",
+      reponse:
+        "Comptez 10 à 20 € de nom de domaine, 0 à 150 € d'hébergement et 0 à 600 € de maintenance selon la technologie. Un site statique bien construit coûte presque rien à entretenir, un WordPress demande un suivi régulier.",
+    },
+  ]}
+/>

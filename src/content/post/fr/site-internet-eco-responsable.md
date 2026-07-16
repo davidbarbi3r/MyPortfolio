@@ -86,3 +86,27 @@ Le coût peut varier. Il n'existe pas de site builder comme Elementor pour les s
 Vous souhaitez un site performant et éco-conçu ? Découvrez mon [offre de création de site internet à Ajaccio](https://www.davidbarbier.com/) ou mon [agence web dédiée aux experts-comptables](https://www.davidbarbier.com/agence-web-expert-comptable/).
 
 Votre site existe déjà et vous voulez savoir ce qui l'alourdit ? Un [audit](/audit-seo-ajaccio/) mesure son poids réel, ses requêtes superflues et ce qu'il y a à couper.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Est-ce qu'un site vitrine peut être éco-responsable ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Oui, les sites vitrines verts sont les plus simples à réaliser car ils ne nécessitent pas de backend et peuvent être mis en ligne en statique. Des frameworks comme Astro permettent cela tout en conservant un système de gestion de contenu."}
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce qu'un site WordPress peut être éco-conçu ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Il est possible de rendre un site WordPress plus respectueux de l'environnement en optimisant les images et en choisissant un hébergement vert. Il n'atteindra pas le niveau d'optimisation des solutions statiques : WordPress n'a pas la technologie de rendu par îlot qui réduit fortement le volume de données envoyées."}
+    },
+    {
+      "@type": "Question",
+      "name": "Un site éco-responsable est-il plus cher ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Le coût peut varier. Il n'existe pas de site builder comme Elementor pour les sites écologiques, tout est fait sur mesure, ce qui peut augmenter les coûts de développement."}
+    }
+  ]
+}
+</script>

@@ -100,3 +100,32 @@ L'ACRE allège vos cotisations la première année, et l'ARCE de France Travail 
 ---
 
 Vous voulez chiffrer votre projet avant de chercher un financement ? Le détail de mes offres est sur ma page [création de site internet à Ajaccio](/) (devis sous 48 h), et je peux vous donner un avis honnête sur votre dossier lors d'un [échange gratuit de 15-20 minutes](/audit-seo-gratuit-ajaccio/).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Existe-t-il une subvention pour créer un site internet en Corse en 2026 ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Pas de subvention dédiée au site seul. L'appel à projets CRESCE 2026 de l'ADEC peut financer le numérique au sein d'un projet de modernisation d'au moins 10 000 € de dépenses (aide de 5 000 à 50 000 €, jusqu'à 50 %, dossiers avant le 15 juillet 2026)."}
+    },
+    {
+      "@type": "Question",
+      "name": "Le chèque numérique de 500 € existe-t-il encore ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Non, il a pris fin en 2021. Les pages qui en parlent encore sont obsolètes. Les aides actuelles passent par les intercommunalités, l'ADEC en Corse, ou les fonds de formation."}
+    },
+    {
+      "@type": "Question",
+      "name": "Mon CPF peut-il payer mon site internet ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Non. Le CPF finance une formation, par exemple pour apprendre à créer ou gérer votre site, pas la prestation d'une agence. Les offres « site gratuit via CPF » relèvent du détournement de fonds de formation."}
+    },
+    {
+      "@type": "Question",
+      "name": "Je me reconvertis : quelles aides pour financer mon lancement, site compris ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "L'ACRE allège vos cotisations la première année, et l'ARCE de France Travail transforme 60 % de votre reliquat de droits chômage en capital de départ. C'est ce capital qui finance classiquement les premiers investissements, dont le site."}
+    }
+  ]
+}
+</script>
