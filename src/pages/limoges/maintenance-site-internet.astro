@@ -14,9 +14,42 @@ const metadata = {
     "Maintenance de votre site WordPress à Limoges : mises à jour, sauvegardes, sécurité et dépannage. Dès 30 € HT par mois, sans engagement. Autres technologies acceptées.",
 };
 
-// Cette page était la seule page de service du site sans aucun JSON-LD.
 // Pas d'`aggregateRating` : aucun témoignage n'est visible ici, et un rating
 // sans avis affiché est du review snippet spam.
+// Les offres sont déclarées deux fois : dans `offers` (niveau Product — Google
+// exige offers/review/aggregateRating et ne compte PAS hasOfferCatalog, cf.
+// erreur GSC du 2026-07-11) et dans `hasOfferCatalog` (niveau Service).
+const MAINTENANCE_OFFERS = [
+  {
+    '@type': 'Offer',
+    name: 'Pack maintenance mensuel',
+    description: 'Mises à jour, sauvegardes, surveillance et petites évolutions. Sans engagement.',
+    price: '30',
+    priceCurrency: 'EUR',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: '30',
+      priceCurrency: 'EUR',
+      unitCode: 'MON',
+      valueAddedTaxIncluded: false,
+    },
+  },
+  {
+    '@type': 'Offer',
+    name: 'Intervention ponctuelle',
+    description: "Dépannage ou évolution ciblée, facturé à l'heure.",
+    price: '60',
+    priceCurrency: 'EUR',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: '60',
+      priceCurrency: 'EUR',
+      unitCode: 'HUR',
+      valueAddedTaxIncluded: false,
+    },
+  },
+];
+
 const serviceStructuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -33,37 +66,11 @@ const serviceStructuredData = {
         { '@type': 'AdministrativeArea', name: 'Haute-Vienne' },
       ],
       serviceType: 'Maintenance de site internet',
+      offers: MAINTENANCE_OFFERS,
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Offres de maintenance à Limoges',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            name: 'Pack maintenance mensuel',
-            description: 'Mises à jour, sauvegardes, surveillance et petites évolutions. Sans engagement.',
-            priceCurrency: 'EUR',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              minPrice: '30',
-              priceCurrency: 'EUR',
-              unitCode: 'MON',
-              valueAddedTaxIncluded: false,
-            },
-          },
-          {
-            '@type': 'Offer',
-            name: 'Intervention ponctuelle',
-            description: "Dépannage ou évolution ciblée, facturé à l'heure.",
-            priceCurrency: 'EUR',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              price: '60',
-              priceCurrency: 'EUR',
-              unitCode: 'HUR',
-              valueAddedTaxIncluded: false,
-            },
-          },
-        ],
+        itemListElement: MAINTENANCE_OFFERS,
       },
     },
   ],

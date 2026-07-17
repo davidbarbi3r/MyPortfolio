@@ -16,7 +16,10 @@ const serviceStructuredData = {
   "@graph": [
     professionalServiceEcNode,
     {
-      "@type": ["Product", "Service"],
+      // Service seul, pas Product : aucun prix ni avis n'est affiché sur cette
+      // page, donc rien à mettre dans offers/review/aggregateRating (exigés
+      // par Google pour un Product, cf. erreur GSC sur maintenance Limoges).
+      "@type": "Service",
       "@id": "https://www.davidbarbier.com/agence-web-expert-comptable/developpeur-specialise/#service",
       "name": "Développeur web spécialisé expert-comptable",
       "description": "Développement sur mesure pour cabinets d'expertise comptable. Simulateurs, modules IA, onboarding client, intégrations métier avec Astro.",

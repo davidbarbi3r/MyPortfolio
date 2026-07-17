@@ -10,6 +10,40 @@ const metadata = {
     "Maintenance WordPress & site web à Ajaccio. Mises à jour, sécurité, sauvegardes. Forfaits à partir de 30€/mois ou intervention ponctuelle à 60€/h.",
 };
 
+// Les offres sont déclarées dans `offers` (niveau Product — Google exige
+// offers/review/aggregateRating et ne compte pas hasOfferCatalog) ET dans
+// `hasOfferCatalog` (niveau Service). Même correctif que la page Limoges.
+const MAINTENANCE_OFFERS = [
+  {
+    "@type": "Offer",
+    "name": "Intervention ponctuelle",
+    "description": "Intervention à l'heure ou à la journée sur votre site",
+    "price": "60",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "60",
+      "priceCurrency": "EUR",
+      "unitCode": "HUR",
+      "valueAddedTaxIncluded": false,
+    },
+  },
+  {
+    "@type": "Offer",
+    "name": "Pack maintenance mensuel",
+    "description": "Forfait maintenance mensuel adapté à la technologie de votre site",
+    "price": "30",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "30",
+      "priceCurrency": "EUR",
+      "unitCode": "MON",
+      "valueAddedTaxIncluded": false,
+    },
+  },
+];
+
 const serviceStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -26,39 +60,11 @@ const serviceStructuredData = {
         { "@type": "AdministrativeArea", "name": "Corse" },
       ],
       "serviceType": "Maintenance de site internet",
+      "offers": MAINTENANCE_OFFERS,
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Offres de maintenance",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Intervention ponctuelle",
-            "description": "Intervention à l'heure ou à la journée sur votre site",
-            "price": "60",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "60",
-              "priceCurrency": "EUR",
-              "unitCode": "HUR",
-              "valueAddedTaxIncluded": false,
-            },
-          },
-          {
-            "@type": "Offer",
-            "name": "Pack maintenance mensuel",
-            "description": "Forfait maintenance mensuel adapté à la technologie de votre site",
-            "price": "30",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "30",
-              "priceCurrency": "EUR",
-              "unitCode": "MON",
-              "valueAddedTaxIncluded": false,
-            },
-          },
-        ],
+        "itemListElement": MAINTENANCE_OFFERS,
       },
     },
   ],
