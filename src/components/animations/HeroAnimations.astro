@@ -10,6 +10,7 @@
   gsap.registerPlugin(SplitText, ScrollTrigger);
 
   function initHeroAnimations() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const hero = document.querySelector('[data-hero]');
     if (!hero) return;
 
@@ -59,7 +60,7 @@
       Object.assign(overlay.style, {
         position: 'absolute',
         inset: '0',
-        background: 'linear-gradient(135deg, #065f46, #059669)',
+        background: 'linear-gradient(135deg, #427050, #6CAB7E)',
         zIndex: '10',
         borderRadius: 'inherit',
       });

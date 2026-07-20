@@ -2,7 +2,7 @@
 ---
 
 <style is:inline is:global>
-  /* Clash Display - headings */
+  /* Clash Display - titres (test : 400 pour rester proche de l'esprit light Montegrappa) */
   @font-face {
     font-family: 'Clash Display';
     src: url('/fonts/clash-display-400.woff2') format('woff2');
@@ -18,7 +18,14 @@
     font-style: normal;
   }
 
-  /* Switzer - body */
+  /* Switzer - corps de texte (300/400/500) */
+  @font-face {
+    font-family: 'Switzer';
+    src: url('/fonts/switzer-300.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Switzer';
     src: url('/fonts/switzer-400.woff2') format('woff2');
@@ -35,49 +42,51 @@
   }
 
   :root {
+    /* Design system Montegrappa (spec docs/superpowers/specs/2026-07-10) */
+    --mg-cream: #F2F0EB;
+    --mg-sand: #E5E2D9;
+    /* Vert du logo DB (#6CAB7E) en accent ; déclinaison foncée #427050 pour les textes (5:1 sur crème) */
+    --mg-sage: #6CAB7E;
+    --mg-sage-dark: #427050;
+    --mg-charcoal: #1D1D1B;
+    --mg-text: #3B3B38;
+
+    /* Triplets RGB : nécessaires aux modificateurs d'opacité Tailwind (bg-cream/90) */
+    --mg-cream-rgb: 242 240 235;
+    --mg-sand-rgb: 229 226 217;
+    --mg-sage-rgb: 108 171 126;
+    --mg-sage-dark-rgb: 66 112 80;
+    --mg-charcoal-rgb: 29 29 27;
+
     --aw-font-sans: 'Switzer';
     --aw-font-serif: 'Clash Display';
     --aw-font-heading: 'Clash Display';
 
-    --aw-color-primary: rgb(5 102 73);
-    --aw-color-secondary: rgb(30 58 138);
-    --aw-color-accent: rgb(180 83 9);
-    --aw-color-accent-light: rgb(251 191 36);
+    --aw-color-primary: var(--mg-sage-dark);
+    --aw-color-secondary: var(--mg-charcoal);
+    --aw-color-accent: var(--mg-sage);
+    --aw-color-accent-light: var(--mg-sand);
 
-    --aw-color-text-heading: rgb(15 23 42);
-    --aw-color-text-default: rgb(30 30 30);
-    --aw-color-text-muted: rgb(30 30 30 / 60%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: var(--mg-charcoal);
+    --aw-color-text-default: var(--mg-text);
+    --aw-color-text-muted: rgb(59 59 56 / 62%);
+    --aw-color-bg-page: var(--mg-cream);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    /* Conservé : des classes bg-dark subsistent sur les pages internes */
+    --aw-color-bg-page-dark: var(--mg-charcoal);
   }
 
-  /* Clash Display for all headings - cap at weight 500 */
+  /* Titres en Clash Display 500 (test) : un cran plus gras */
   h1, h2, h3, h4, h5, h6,
   .font-heading {
     font-family: var(--aw-font-heading), system-ui, sans-serif !important;
     font-weight: 500 !important;
+    letter-spacing: -0.01em;
   }
 
   /* Spans/strongs inside headings inherit the heading font */
   h1 *, h2 *, h3 *, h4 * {
     font-family: inherit !important;
     font-weight: inherit !important;
-  }
-
-  .dark {
-    --aw-font-sans: 'Switzer';
-    --aw-font-serif: 'Clash Display';
-    --aw-font-heading: 'Clash Display';
-
-    --aw-color-primary: rgb(5 102 73);
-    --aw-color-secondary: rgb(30 58 138);
-    --aw-color-accent: rgb(217 119 6);
-    --aw-color-accent-light: rgb(251 191 36);
-
-    --aw-color-text-heading: rgb(241 245 249);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 60%);
-    --aw-color-bg-page: var(--aw-color-bg-page-dark);
   }
 </style>

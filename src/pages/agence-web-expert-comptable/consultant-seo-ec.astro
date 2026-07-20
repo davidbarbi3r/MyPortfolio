@@ -3,6 +3,13 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import LeadMagnetForm from '../../components/widgets/LeadMagnetForm.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import StatBig from '~/components/ui/StatBig.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import ArrowLink from '~/components/ui/ArrowLink.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+import FaqItems from '~/components/ui/FaqItems.astro';
 
 const metadata = {
   title: 'Consultant SEO Expert Comptable | Référencement Naturel pour Cabinet Comptable',
@@ -124,6 +131,63 @@ const breadcrumbStructuredData = {
     }
   ]
 };
+
+// Prestations incluses : partie en gras + suite de phrase (textes d'origine verbatim)
+const SERVICES_INCLUS = [
+  { strong: 'Audit SEO du site existant', rest: '- état des lieux complet de votre visibilité actuelle' },
+  { strong: 'Optimisation des pages', rest: '- vitesse, structure, balisage et mots-clés de votre cabinet' },
+  {
+    strong: 'Création de contenu ciblé',
+    rest: '- pages et articles sur les requêtes de vos prospects (liasse fiscale, bilan, création société…)',
+  },
+  { strong: 'Suivi mensuel des positions', rest: '- reporting clair, vous voyez vos progrès sans jargon' },
+];
+
+// Les 3 étapes de la mission
+const PROCESS_STEPS = [
+  {
+    num: '1.',
+    title: 'Audit gratuit de votre site',
+    text: 'Vous renseignez votre site dans le formulaire ci-dessous. Je vous envoie une analyse de votre visibilité actuelle, sans engagement.',
+  },
+  {
+    num: '2.',
+    title: 'Stratégie personnalisée',
+    text: 'Étude de vos concurrents locaux, sélection des mots-clés prioritaires, calendrier adapté à votre activité.',
+  },
+  {
+    num: '3.',
+    title: 'Mise en œuvre + suivi',
+    text: 'Actions mensuelles sur les 3 piliers SEO. Reporting clair chaque mois, vous voyez les positions progresser.',
+  },
+];
+
+// Arguments du bloc audit gratuit : partie en gras + suite de phrase
+const AUDIT_POINTS = [
+  { strong: 'Gratuit et sans engagement', rest: '- analyse envoyée sous 48h' },
+  { strong: 'Résultats mesurables', rest: '- positions Google, trafic, leads générés' },
+  { strong: 'Tarifs transparents', rest: '- accompagnement mensuel à partir de 490€/mois HT' },
+];
+
+// FAQ affichée : réponses en HTML de confiance (paragraphes + liste), rendues par FaqItems via set:html.
+const SEO_FAQ = [
+  {
+    q: 'Combien de temps pour voir des résultats ?',
+    a: `<p>Les premiers résultats sont généralement visibles après 3 à 4 mois de travail régulier. C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel. L'avantage du référencement naturel : contrairement à la publicité, les positions gagnées perdurent dans le temps.</p>`,
+  },
+  {
+    q: 'Quel budget prévoir ?',
+    a: `<p>Toutes les formules sont transparentes, HT, sans frais caché :</p><ul class="list-disc ml-6 space-y-2"><li><strong>Accompagnement SEO mensuel</strong> à <strong>490€/jour HT</strong> - 1 à 3 jours/mois selon l'ampleur de votre cabinet (à partir de 490€/mois, engagement 6 mois, stratégie + optimisations + contenu + reporting)</li><li><strong>Audit SEO complet</strong> à <strong>690€ HT</strong> - feuille de route détaillée à suivre en autonomie</li><li><strong>Demi-journée / Journée ponctuelle</strong> : 245€ / 490€ HT - pour un besoin ciblé sans engagement</li><li><strong>Suivi mensuel Google Business Profile</strong> à <strong>100€/mois HT</strong> - animation continue de votre fiche (posts, avis, monitoring), utile si votre cabinet a un bureau physique visible</li></ul><p>Ces investissements sont généralement rentabilisés dès l'acquisition de quelques nouveaux clients.</p>`,
+  },
+  {
+    q: 'Vous intervenez sur quel type de site ?',
+    a: `<p>J'interviens sur tous les types de sites : WordPress, Wix, Squarespace, Webflow, ou site développé sur mesure. L'audit initial permet d'identifier les leviers disponibles selon votre plateforme et de prioriser les actions à fort impact.</p>`,
+  },
+  {
+    q: 'Quelle différence avec une agence SEO généraliste ?',
+    a: `<p>Une agence généraliste doit apprendre votre métier avant de commencer. Ancien expert-comptable mémorialiste, je connais déjà le vocabulaire (liasse fiscale, bilan, commissariat aux comptes), les requêtes de vos clients et les spécificités de la profession.</p><p>Pas de courbe d'apprentissage = résultats plus rapides, contenus plus pertinents, et aucune explication à fournir sur votre métier.</p>`,
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -134,74 +198,59 @@ const breadcrumbStructuredData = {
   </Fragment>
 
   <!-- Bloc 1 : Le problème (above the fold) -->
-  <section class="relative isolate overflow-hidden dark:bg-[#030620]">
+  <section class="relative bg-cream overflow-hidden">
     <!-- Fil d'Ariane -->
-    <div class="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
-      <nav aria-label="Fil d'Ariane" class="text-sm font-body">
-        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
-          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
-          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li><a href="/agence-web-expert-comptable/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Agence Web EC</a></li>
-          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li class="text-gray-900 dark:text-white font-medium">SEO Expert-Comptable</li>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 pt-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm">
+        <ol class="flex items-center gap-2 text-muted flex-wrap">
+          <li><a href="/" class="hover:text-sage-dark transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li><a href="/agence-web-expert-comptable/" class="hover:text-sage-dark transition-colors">Agence Web EC</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-charcoal font-medium">SEO Expert-Comptable</li>
         </ol>
       </nav>
     </div>
 
-    <div class="mx-auto max-w-7xl px-6 pb-24 pt-4 sm:pb-12 lg:flex lg:px-8 lg:py-16">
-      <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
-        <!-- Badge -->
-        <div class="mt-8 sm:mt-16 lg:mt-8">
-          <span class="inline-flex items-center">
-            <span
-              class="rounded-full bg-green-800/10 dark:bg-gray-700 px-3 py-1 text-sm font-semibold text-brown ring-1 ring-inset ring-green-950/10 mb-8"
-            >
-              Par un ancien EC mémorialiste
-            </span>
-          </span>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Colonne texte -->
+        <div>
+          <p data-fade-up><PillBadge text="Par un ancien EC mémorialiste" /></p>
+
+          <!-- Titre principal -->
+          <h1 class="mt-8 text-charcoal text-[clamp(2.4rem,4.5vw,3.75rem)] leading-[1.05] tracking-tight" data-fade-up>
+            Référencement naturel pour experts comptables
+          </h1>
+
+          <!-- Bloc problème -->
+          <h2 class="mt-6 text-xl sm:text-2xl font-medium text-charcoal" data-fade-up>
+            Pourquoi le site de votre cabinet n'apparaît pas sur Google
+          </h2>
+          <p class="mt-4 text-lg text-muted leading-relaxed" data-fade-up>
+            La plupart des cabinets ont un site. Presque aucun ne reçoit de clients grâce à lui.
+            Votre site existe, mais il n'est pas trouvé - ni par vos prospects, ni par Google.
+            Je m'occupe de ça pour vous.
+          </p>
+
+          <!-- Call-to-action -->
+          <div class="mt-10 flex flex-wrap items-center gap-6" data-fade-up>
+            <a href="tel:+33623565299" class="btn btn-primary gap-2">
+              Demander un audit gratuit
+              <ArrowRight class="w-5 h-5" />
+            </a>
+            <ArrowLink href="#services" text="Découvrir l'offre SEO" />
+          </div>
         </div>
 
-        <!-- Titre principal -->
-        <h1
-          class="mt-10 text-pretty font-heading text-4xl font-semibold tracking-tight text-green-950 sm:text-5xl dark:text-white"
-        >
-          Référencement naturel pour experts comptables
-        </h1>
-
-        <!-- Bloc problème -->
-        <h2 class="mt-6 text-pretty text-xl font-semibold text-gray-700 dark:text-gray-300">
-          Pourquoi le site de votre cabinet n'apparaît pas sur Google
-        </h2>
-        <p class="mt-4 text-pretty text-lg text-gray-600 dark:text-gray-300">
-          La plupart des cabinets ont un site. Presque aucun ne reçoit de clients grâce à lui.
-          Votre site existe, mais il n'est pas trouvé - ni par vos prospects, ni par Google.
-          Je m'occupe de ça pour vous.
-        </p>
-
-        <!-- Call-to-action -->
-        <div class="mt-10 flex items-center gap-x-6">
-          <a
-            href="tel:+33623565299"
-            class="rounded-md bg-green-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
-          >
-            Demander un audit gratuit
-          </a>
-          <a href="#services" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-300 whitespace-nowrap">
-            Découvrir l'offre SEO <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Image à droite -->
-      <div class="mx-auto mt-16 flex max-w-2xl lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none xl:ml-32">
-        <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-          <div
-            class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
-          >
+        <!-- Colonne image -->
+        <div class="w-full" data-fade-up>
+          <div class="rounded-xl border border-black/10 bg-white/60 p-2 overflow-hidden">
             <img
               src="https://imagedelivery.net/4zDfTa1ovbR8nr2bLQ6Mxg/af43940c-7bc0-4088-bd7a-6f7002f9b200/public"
               alt="Visualisation des performances SEO dans la Google Search Console"
-              class="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10 max-h-[80vh] object-contain object-left"
+              class="w-full rounded-lg max-h-[80vh] object-contain object-left"
             />
           </div>
         </div>
@@ -210,96 +259,75 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Bloc 2 : Ce que comprend le référencement -->
-  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900" id="services">
-    <div class="mx-auto max-w-3xl text-base/7">
-      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">La prestation concrète</p>
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl scroll-mt-32">
-        Ce que comprend le référencement du site de votre cabinet comptable
-      </h2>
+  <section class="py-16 md:py-24 bg-sand scroll-mt-24" id="services">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <SectionHeader number="01" kicker="La prestation concrète" align="left">
+          Ce que comprend le référencement du site de votre cabinet comptable
+        </SectionHeader>
 
-      <p class="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
-        Je prends en charge l'ensemble du référencement de votre cabinet pendant que vous vous concentrez sur vos missions.
-      </p>
+        <p class="mt-6 text-xl text-muted leading-relaxed">
+          Je prends en charge l'ensemble du référencement de votre cabinet pendant que vous vous concentrez sur vos missions.
+        </p>
 
-      <ul role="list" class="mt-8 max-w-xl space-y-6 text-gray-600 dark:text-gray-300">
-        <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
-          </svg>
-          <span>
-            <span class="font-semibold text-gray-900 dark:text-gray-100">Audit SEO du site existant</span> - état des lieux complet de votre visibilité actuelle
-          </span>
-        </li>
-        <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
-          </svg>
-          <span>
-            <span class="font-semibold text-gray-900 dark:text-gray-100">Optimisation des pages</span> - vitesse, structure, balisage et mots-clés de votre cabinet
-          </span>
-        </li>
-        <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
-          </svg>
-          <span>
-            <span class="font-semibold text-gray-900 dark:text-gray-100">Création de contenu ciblé</span> - pages et articles sur les requêtes de vos prospects (liasse fiscale, bilan, création société…)
-          </span>
-        </li>
-        <li class="flex gap-x-3">
-          <svg class="mt-1 size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
-          </svg>
-          <span>
-            <span class="font-semibold text-gray-900 dark:text-gray-100">Suivi mensuel des positions</span> - reporting clair, vous voyez vos progrès sans jargon
-          </span>
-        </li>
-      </ul>
-    </div>
+        <ul role="list" class="mt-8 max-w-xl space-y-6 text-default" data-fade-up>
+          {SERVICES_INCLUS.map((item) => (
+            <li class="flex gap-x-3">
+              <span class="text-sage-dark flex-shrink-0">✓</span>
+              <span>
+                <span class="font-semibold text-charcoal">{item.strong}</span> {item.rest}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-    <div class="mx-auto max-w-3xl mt-12">
-      <div class="mx-auto max-w-2xl lg:text-center">
-        <p class="text-lg/8 text-gray-600 dark:text-gray-300">
+      <div class="mt-16">
+        <p class="text-lg text-muted text-center max-w-2xl mx-auto">
           Une action commune sur les 3 piliers suivants est la clé d'un site bien référencé :
         </p>
-      </div>
-      <div class="mx-auto mt-6 max-w-2xl sm:mt-12 lg:mt-16 lg:max-w-none">
-        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-          <div class="flex flex-col">
-            <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
-              <svg class="size-5 flex-none text-green-800" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Z" clip-rule="evenodd"></path>
-              </svg>
+        <dl class="mt-12 grid md:grid-cols-3 gap-6">
+          <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+            <dt class="flex items-center gap-x-3 font-medium text-charcoal">
+              <span class="inline-flex w-10 h-10 flex-none items-center justify-center rounded-full bg-sage/15 text-sage-dark">
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Z" clip-rule="evenodd"></path>
+                </svg>
+              </span>
               Technique
             </dt>
-            <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
-              <p class="flex-auto">
+            <dd class="mt-4 text-muted leading-relaxed">
+              <p>
                 Vitesse, structure, mobile, balisage sémantique. Une base technique solide pour que Google comprenne et valorise votre contenu.
               </p>
             </dd>
           </div>
-          <div class="flex flex-col">
-            <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
-              <svg class="size-5 flex-none text-green-800" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Z"></path>
-              </svg>
+          <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+            <dt class="flex items-center gap-x-3 font-medium text-charcoal">
+              <span class="inline-flex w-10 h-10 flex-none items-center justify-center rounded-full bg-sage/15 text-sage-dark">
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Z"></path>
+                </svg>
+              </span>
               Contenu
             </dt>
-            <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
-              <p class="flex-auto">
+            <dd class="mt-4 text-muted leading-relaxed">
+              <p>
                 Fini les articles génériques. On cible les requêtes exactes que tapent vos prospects : par besoin, par statut, par ville.
               </p>
             </dd>
           </div>
-          <div class="flex flex-col">
-            <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900 dark:text-gray-300">
-              <svg class="size-5 flex-none text-green-800 dark:text-green-300" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Z"></path>
-              </svg>
+          <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+            <dt class="flex items-center gap-x-3 font-medium text-charcoal">
+              <span class="inline-flex w-10 h-10 flex-none items-center justify-center rounded-full bg-sage/15 text-sage-dark">
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Z"></path>
+                </svg>
+              </span>
               Autorité
             </dt>
-            <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600 dark:text-gray-300">
-              <p class="flex-auto">
+            <dd class="mt-4 text-muted leading-relaxed">
+              <p>
                 Maillage interne optimisé et acquisition de liens de qualité pour renforcer la crédibilité de votre site aux yeux de Google.
               </p>
             </dd>
@@ -310,35 +338,34 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Bloc 3 : Pourquoi un spécialiste secteur -->
-  <section class="px-6 py-16 lg:px-8">
-    <div class="mx-auto max-w-3xl text-base/7">
-      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Expertise unique</p>
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
-        Pourquoi choisir un consultant SEO spécialisé en expertise comptable
-      </h2>
+  <section class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <SectionHeader number="02" kicker="Expertise unique" align="left">
+          Pourquoi choisir un consultant SEO spécialisé en expertise comptable
+        </SectionHeader>
 
-      <p class="mt-6 text-xl/8">
-        Une agence généraliste doit apprendre votre métier avant de commencer à travailler.
-        Ancien expert-comptable mémorialiste et auditeur financier, je connais déjà votre secteur de l'intérieur.
-      </p>
+        <p class="mt-6 text-xl text-muted leading-relaxed">
+          Une agence généraliste doit apprendre votre métier avant de commencer à travailler.
+          Ancien expert-comptable mémorialiste et auditeur financier, je connais déjà votre secteur de l'intérieur.
+        </p>
 
-      <div class="mt-10 max-w-2xl">
-        <ul role="list" class="mt-6 max-w-xl space-y-4 text-gray-600 dark:text-gray-300">
+        <ul role="list" class="mt-10 max-w-xl space-y-4 text-default" data-fade-up>
           <li class="flex gap-x-3">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span class="font-semibold text-sage-dark flex-shrink-0">→</span>
             <span>Je connais le vocabulaire métier : bilan, liasse fiscale, IS/IR, commissariat aux comptes…</span>
           </li>
           <li class="flex gap-x-3">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span class="font-semibold text-sage-dark flex-shrink-0">→</span>
             <span>Je sais ce que tapent vos clients sur Google avant de choisir un expert-comptable</span>
           </li>
           <li class="flex gap-x-3">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
+            <span class="font-semibold text-sage-dark flex-shrink-0">→</span>
             <span>Je peux créer du contenu expert qui vous positionne comme référence dans votre zone</span>
           </li>
           <li class="flex gap-x-3">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">→</span>
-            <span><strong>Pas de courbe d'apprentissage = résultats plus rapides</strong></span>
+            <span class="font-semibold text-sage-dark flex-shrink-0">→</span>
+            <span><strong class="text-charcoal">Pas de courbe d'apprentissage = résultats plus rapides</strong></span>
           </li>
         </ul>
       </div>
@@ -346,34 +373,26 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Bloc 4 : Résultats obtenus -->
-  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-3xl text-base/7">
-      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Preuve concrète</p>
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
-        Résultats obtenus pour des cabinets comptables
-      </h2>
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <SectionHeader number="03" kicker="Preuve concrète" align="left">
+          Résultats obtenus pour des cabinets comptables
+        </SectionHeader>
 
-      <p class="mt-6 text-xl/8">
-        Ce site (davidbarbier.com) est lui-même la démonstration de la méthode. Positionné sur des requêtes compétitives
-        dans le secteur de l'expertise comptable, il génère des contacts entrants chaque semaine - sans publicité.
-      </p>
-
-      <div class="mt-10 grid sm:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
-          <p class="text-4xl font-bold text-green-800 dark:text-green-400">+150</p>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">mots-clés positionnés sur le secteur EC</p>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
-          <p class="text-4xl font-bold text-green-800 dark:text-green-400">100%</p>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">acquisition organique, sans budget pub</p>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
-          <p class="text-4xl font-bold text-green-800 dark:text-green-400">0€</p>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">dépensé en publicité Google ou Meta</p>
-        </div>
+        <p class="mt-6 text-xl text-muted leading-relaxed">
+          Ce site (davidbarbier.com) est lui-même la démonstration de la méthode. Positionné sur des requêtes compétitives
+          dans le secteur de l'expertise comptable, il génère des contacts entrants chaque semaine - sans publicité.
+        </p>
       </div>
 
-      <blockquote class="mt-10 border-l-4 border-green-800 pl-8 font-semibold text-gray-900 dark:text-gray-100">
+      <div class="mt-12 grid sm:grid-cols-3 gap-8">
+        <StatBig value="+150" label="mots-clés positionnés sur le secteur EC" size="md" />
+        <StatBig value="100%" label="acquisition organique, sans budget pub" size="md" />
+        <StatBig value="0€" label="dépensé en publicité Google ou Meta" size="md" />
+      </div>
+
+      <blockquote class="mt-12 max-w-3xl text-xl sm:text-2xl font-light text-charcoal italic leading-relaxed" data-fade-up>
         <p>
           "Quelques nouveaux clients par an suffisent à rentabiliser un accompagnement SEO. Le reste, c'est du bonus pour votre cabinet."
         </p>
@@ -382,150 +401,118 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Bloc 5 : Process -->
-  <section class="px-6 py-16 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <p class="text-base/7 font-semibold text-green-950 dark:text-green-300">Simple et sans friction</p>
-      <h2 class="mt-2 text-pretty text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
-        Comment se passe une mission SEO pour votre cabinet
-      </h2>
+  <section class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <SectionHeader number="04" kicker="Simple et sans friction" align="left">
+          Comment se passe une mission SEO pour votre cabinet
+        </SectionHeader>
+      </div>
 
-      <div class="px-4 py-12 mx-auto md:px-12 lg:px-0 max-w-7xl mt-6">
-        <dl class="grid grid-cols-1 gap-x-4 gap-y-12 lg:grid-cols-3 lg:divide-x lg:border-x">
-          <div class="lg:px-8">
-            <div class="text-brown flex gap-3 items-center">
-              <span>1.</span>
-              <dt class="tracking-tight text-lg font-medium">
-                <h3 class="text-xl font-medium">Audit gratuit de votre site</h3>
-              </dt>
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        {PROCESS_STEPS.map((step) => (
+          <div class="rounded-xl border border-black/10 bg-white/60 p-6" data-fade-up>
+            <div class="flex items-center gap-3">
+              <span class="text-2xl font-light text-sage-dark leading-none" aria-hidden="true">{step.num}</span>
+              <h3 class="text-xl font-medium text-charcoal">{step.title}</h3>
             </div>
-            <dd class="mt-2">
-              <p class="text-base text-gray-600 dark:text-gray-300">
-                Vous renseignez votre site dans le formulaire ci-dessous. Je vous envoie une analyse de votre visibilité actuelle, sans engagement.
-              </p>
-            </dd>
+            <p class="mt-4 text-muted leading-relaxed">{step.text}</p>
           </div>
-
-          <div class="lg:px-8">
-            <div class="text-brown flex gap-3 items-center">
-              <span>2.</span>
-              <dt class="tracking-tight text-lg font-medium">
-                <h3 class="text-xl font-medium">Stratégie personnalisée</h3>
-              </dt>
-            </div>
-            <dd class="mt-2">
-              <p class="text-base text-gray-600 dark:text-gray-300">
-                Étude de vos concurrents locaux, sélection des mots-clés prioritaires, calendrier adapté à votre activité.
-              </p>
-            </dd>
-          </div>
-
-          <div class="lg:px-8">
-            <div class="text-brown flex gap-3 items-center">
-              <span>3.</span>
-              <dt class="tracking-tight text-lg font-medium">
-                <h3 class="text-xl font-medium">Mise en œuvre + suivi</h3>
-              </dt>
-            </div>
-            <dd class="mt-2">
-              <p class="text-base text-gray-600 dark:text-gray-300">
-                Actions mensuelles sur les 3 piliers SEO. Reporting clair chaque mois, vous voyez les positions progresser.
-              </p>
-            </dd>
-          </div>
-        </dl>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- CTA final -->
-  <section class="px-6 py-16 lg:px-8 bg-green-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-7xl">
-      <div class="md:flex md:gap-12 md:items-center">
-        <div class="md:w-1/3 space-y-8">
-          <div class="flex flex-col items-center">
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid lg:grid-cols-3 gap-12 items-start">
+
+        <!-- Colonne gauche : photo + formulaire -->
+        <div class="space-y-8">
+          <div class="flex flex-col items-center" data-fade-up>
             <Image
               src={HeroImage}
               height={192}
               width={192}
               alt="David Barbier - Consultant SEO pour experts-comptables"
-              class="size-48 rounded-full object-cover shadow-lg"
+              class="size-48 rounded-full object-cover ring-4 ring-sage/30"
             />
-            <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-gray-100">SEO Expert-Comptable</h3>
-            <p class="text-gray-600 dark:text-gray-300">Ancien EC mémorialiste & développeur web</p>
+            <h3 class="mt-4 text-xl font-medium text-charcoal">SEO Expert-Comptable</h3>
+            <p class="text-muted">Ancien EC mémorialiste & développeur web</p>
           </div>
 
-          <form method="post" action="https://formspree.io/f/xayglvyo" class="mt-8 space-y-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
+          <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-4 bg-cream border border-black/10 rounded-xl p-6" data-fade-up>
             <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre nom</label>
-              <input id="name" name="name" type="text" required class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" />
+              <label for="name" class="block text-sm font-medium text-default mb-2">Votre nom</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
+              />
             </div>
             <div>
-              <label for="website" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL de votre site</label>
-              <input id="website" name="website" type="url" class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" placeholder="https://www.votre-cabinet.fr" />
+              <label for="website" class="block text-sm font-medium text-default mb-2">URL de votre site</label>
+              <input
+                id="website"
+                name="website"
+                type="url"
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
+                placeholder="https://www.votre-cabinet.fr"
+              />
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Votre email</label>
-              <input id="email" name="email" type="email" required class="mt-1 w-full rounded-md border border-gray-300 dark:border-gray-600 p-2 dark:bg-gray-700" />
+              <label for="email" class="block text-sm font-medium text-default mb-2">Votre email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
+              />
             </div>
-            <div class="mt-3 flex items-start">
-              <div class="flex mt-0.5">
-                <input
-                  id="disclaimer"
-                  name="disclaimer"
-                  type="checkbox"
-                  required
-                  class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-                />
-              </div>
-              <div class="ml-3">
-                <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
-                  En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
-                </label>
-              </div>
+            <div class="flex items-start gap-3">
+              <input
+                id="disclaimer"
+                name="disclaimer"
+                type="checkbox"
+                required
+                class="mt-1 w-5 h-5 rounded border-black/20 text-sage-dark focus:ring-sage cursor-pointer"
+              />
+              <label for="disclaimer" class="cursor-pointer select-none text-sm text-muted">
+                En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+              </label>
             </div>
             <input type="hidden" name="source" value="seo-expert-comptable" />
-            <button class="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition">
+            <button class="btn btn-primary w-full gap-2">
               Demander mon audit SEO gratuit
+              <ArrowRight class="w-5 h-5" />
             </button>
           </form>
         </div>
 
-        <div class="mt-12 md:mt-0 md:w-2/3">
-          <p class="text-base font-semibold text-green-700 dark:text-green-400">Sans engagement</p>
-          <h2 class="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 sm:text-4xl">
+        <!-- Colonne droite : texte -->
+        <div class="lg:col-span-2">
+          <SectionHeader kicker="Sans engagement" align="left">
             Audit SEO gratuit du site de votre cabinet
-          </h2>
+          </SectionHeader>
 
-          <p class="mt-6 text-xl text-gray-600 dark:text-gray-300">
+          <p class="mt-6 text-xl text-muted leading-relaxed">
             Renseignez votre site, je vous envoie une analyse de votre visibilité actuelle.
             Vous saurez exactement où vous en êtes et ce qui bloque votre référencement.
           </p>
 
-          <ul role="list" class="mt-8 space-y-6 text-gray-600 dark:text-gray-300">
-            <li class="flex gap-x-3">
-              <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
-              </svg>
-              <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Gratuit et sans engagement</strong> - analyse envoyée sous 48h
-              </span>
-            </li>
-            <li class="flex gap-x-3">
-              <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
-              </svg>
-              <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Résultats mesurables</strong> - positions Google, trafic, leads générés
-              </span>
-            </li>
-            <li class="flex gap-x-3">
-              <svg class="mt-1 size-5 flex-none text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"></path>
-              </svg>
-              <span>
-                <strong class="font-semibold text-gray-900 dark:text-gray-100">Tarifs transparents</strong> - accompagnement mensuel à partir de 490€/mois HT
-              </span>
-            </li>
+          <ul role="list" class="mt-8 space-y-6 text-default" data-fade-up>
+            {AUDIT_POINTS.map((item) => (
+              <li class="flex gap-x-3">
+                <span class="text-sage-dark flex-shrink-0">✓</span>
+                <span>
+                  <strong class="font-semibold text-charcoal">{item.strong}</strong> {item.rest}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -533,66 +520,16 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Bloc 6 : FAQ -->
-  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-    <h2 class="font-bold tracking-tight text-3xl mb-4">Questions fréquentes</h2>
-    <div>
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Combien de temps pour voir des résultats ?</h3>
-        </summary>
-        <p class="pl-4 mt-2">
-          Les premiers résultats sont généralement visibles après 3 à 4 mois de travail régulier.
-          C'est pourquoi je recommande un engagement minimum de 6 mois pour mon accompagnement mensuel.
-          L'avantage du référencement naturel : contrairement à la publicité, les positions gagnées perdurent dans le temps.
-        </p>
-      </details>
+  <section id="faq" class="py-16 md:py-24 bg-cream scroll-mt-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <SectionHeader number="05" align="left" class="mb-12">
+        Questions fréquentes
+      </SectionHeader>
 
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Quel budget prévoir ?</h3>
-        </summary>
-        <p class="pl-4 mt-2">
-          Toutes les formules sont transparentes, HT, sans frais caché :
-        </p>
-        <ul class="pl-4 mt-2 list-disc ml-6 space-y-2">
-          <li>
-            <strong>Accompagnement SEO mensuel</strong> à <strong>490€/jour HT</strong> - 1 à 3 jours/mois selon l'ampleur de votre cabinet (à partir de 490€/mois, engagement 6 mois, stratégie + optimisations + contenu + reporting)
-          </li>
-          <li><strong>Audit SEO complet</strong> à <strong>690€ HT</strong> - feuille de route détaillée à suivre en autonomie</li>
-          <li><strong>Demi-journée / Journée ponctuelle</strong> : 245€ / 490€ HT - pour un besoin ciblé sans engagement</li>
-          <li><strong>Suivi mensuel Google Business Profile</strong> à <strong>100€/mois HT</strong> - animation continue de votre fiche (posts, avis, monitoring), utile si votre cabinet a un bureau physique visible</li>
-        </ul>
-        <p class="pl-4 mt-2">
-          Ces investissements sont généralement rentabilisés dès l'acquisition de quelques nouveaux clients.
-        </p>
-      </details>
+      <FaqItems items={SEO_FAQ} />
 
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Vous intervenez sur quel type de site ?</h3>
-        </summary>
-        <p class="pl-4 mt-2">
-          J'interviens sur tous les types de sites : WordPress, Wix, Squarespace, Webflow, ou site développé sur mesure.
-          L'audit initial permet d'identifier les leviers disponibles selon votre plateforme et de prioriser les actions à fort impact.
-        </p>
-      </details>
-
-      <details class="mb-4">
-        <summary class="font-semibold text-lg hover:cursor-pointer">
-          <h3 class="inline">Quelle différence avec une agence SEO généraliste ?</h3>
-        </summary>
-        <p class="pl-4 mt-2">
-          Une agence généraliste doit apprendre votre métier avant de commencer. Ancien expert-comptable mémorialiste,
-          je connais déjà le vocabulaire (liasse fiscale, bilan, commissariat aux comptes), les requêtes de vos clients
-          et les spécificités de la profession.
-        </p>
-        <p class="pl-4 mt-2">
-          Pas de courbe d'apprentissage = résultats plus rapides, contenus plus pertinents, et aucune explication à fournir sur votre métier.
-        </p>
-      </details>
-
-      <p class="mt-8 text-gray-600 dark:text-gray-300">
-        Vous préférez d'abord vous faire une idée par vous-même ? Mes <a href="/conseils-seo-expert-comptable/" class="text-green-700 dark:text-green-400 font-semibold hover:underline">conseils SEO pour expert-comptable</a> détaillent la méthode que j'applique, gratuitement et sans formulaire.
+      <p class="mt-10 text-muted leading-relaxed">
+        Vous préférez d'abord vous faire une idée par vous-même ? Mes <a href="/conseils-seo-expert-comptable/" class="text-sage-dark hover:text-charcoal underline underline-offset-2">conseils SEO pour expert-comptable</a> détaillent la méthode que j'applique, gratuitement et sans formulaire.
       </p>
     </div>
   </section>
@@ -600,4 +537,6 @@ const breadcrumbStructuredData = {
   <section class="px-4 sm:px-6 py-12">
     <LeadMagnetForm />
   </section>
+
+  <MontegrappaFx />
 </Layout>

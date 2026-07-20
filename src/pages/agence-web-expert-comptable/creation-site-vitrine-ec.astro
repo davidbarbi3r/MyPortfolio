@@ -2,6 +2,14 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import StatBig from '~/components/ui/StatBig.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import CheckList from '~/components/ui/CheckList.astro';
+import ArrowLink from '~/components/ui/ArrowLink.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+import FaqItems from '~/components/ui/FaqItems.astro';
 import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
 import { EC_REVIEWS, GBP_TOTAL_REVIEWS, aggregateRatingSchemaGlobal } from '~/utils/reviews';
 
@@ -159,6 +167,136 @@ const breadcrumbStructuredData = {
     }
   ]
 };
+
+// Cartes de la section 01 « Pourquoi ? » (textes copiés verbatim)
+const POURQUOI_CARDS = [
+  {
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    title: 'Visibilité locale',
+    desc: 'Apparaissez sur "expert-comptable + ville" quand vos prospects cherchent un cabinet',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Crédibilité',
+    desc: 'Un site professionnel inspire confiance et reflète le sérieux de votre cabinet',
+  },
+  {
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    title: 'Acquisition clients',
+    desc: 'Convertissez vos visiteurs en prospects avec un parcours pensé pour la prise de contact',
+  },
+  {
+    icon: 'M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3',
+    title: 'Respect déontologie',
+    desc: "Un site conforme aux règles de l'Ordre, sans publicité agressive ni démarchage",
+  },
+];
+
+// Cartes de la section 03 « Ce qui est inclus » (textes copiés verbatim)
+const INCLUS_CARDS = [
+  {
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    title: 'Design sur mesure responsive',
+    desc: "Un design unique, adapté à l'identité de votre cabinet, parfait sur mobile, tablette et desktop.",
+  },
+  {
+    icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z',
+    title: 'Blog intégré avec PagesCMS',
+    desc: 'Un blog pour publier vos articles et actualités, gérable en autonomie depuis PagesCMS, un CMS git-based léger et frugal.',
+  },
+  {
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    title: 'Optimisation SEO de base',
+    desc: 'Balises optimisées, structure sémantique, sitemap XML et données structurées pour un bon référencement dès le lancement.',
+  },
+  {
+    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
+    title: 'Performance >80 PageSpeed',
+    desc: "Un site ultra-rapide grâce à Astro. Score PageSpeed >80 garanti, un vrai avantage pour le SEO et l'expérience utilisateur.",
+  },
+  {
+    icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Hébergement éco-responsable',
+    desc: 'Hébergement sur Cloudflare Pages, avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers.',
+  },
+  {
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+    title: 'Formation gestion du contenu',
+    desc: 'Une formation complète pour que vous puissiez modifier vos contenus et publier des articles en toute autonomie.',
+  },
+];
+
+// Cartes de la section 04 « Pourquoi Astro + Tailwind ? » (textes copiés verbatim)
+const TECH_CARDS = [
+  {
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    title: 'Performance',
+    desc: 'Sites statiques ultra-rapides. Pas de JavaScript inutile envoyé au navigateur. Chargement quasi instantané.',
+  },
+  {
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    title: 'SEO natif',
+    desc: 'HTML statique pur, parfaitement indexable par Google. Pas de rendu côté client qui complexifie le crawl.',
+  },
+  {
+    icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Éco-conception',
+    desc: "Empreinte carbone minimale. Des pages légères qui consomment peu de bande passante et d'énergie.",
+  },
+  {
+    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+    title: 'Sécurité',
+    desc: 'Pas de base de données exposée, pas de plugins vulnérables. Un site statique est quasiment inattaquable.',
+  },
+];
+
+// Points de réassurance de la section CTA finale (textes copiés verbatim)
+const FINAL_POINTS = [
+  {
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+    title: 'Devis gratuit et détaillé',
+    desc: 'Je vous envoie un devis personnalisé avec planning et livrables clairement définis.',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Réponse sous 48h',
+    desc: 'Je reviens vers vous rapidement pour discuter de votre projet.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Ancien EC mémorialiste, je vous comprends',
+    desc: 'Nous parlons le même langage, je connais vos enjeux et vos contraintes.',
+  },
+];
+
+// FAQ affichée : réponses en HTML de confiance rendues par FaqItems via set:html.
+// Textes strictement identiques à la version précédente de la page.
+const VITRINE_FAQ = [
+  {
+    q: 'Pourquoi un site vitrine et pas WordPress ?',
+    a: `<p>WordPress est une solution généraliste qui nécessite des mises à jour constantes, des plugins pour chaque fonctionnalité et une vigilance permanente sur la sécurité. Pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs :</p><ul class="list-disc list-inside space-y-1 ml-2"><li>Des performances 10x supérieures (score PageSpeed &gt;90)</li><li>Une sécurité renforcée (pas de base de données à pirater)</li><li>Zéro maintenance technique (pas de mises à jour WordPress/plugins)</li><li>Des coûts d'hébergement réduits</li></ul>`,
+  },
+  {
+    q: 'Puis-je modifier le contenu moi-même ?',
+    a: `<p>Oui. PagesCMS, un CMS git-based léger, est intégré à votre site. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos informations depuis une interface simple et intuitive, sans toucher au code. Pas de base de données supplémentaire : tout reste dans votre dépôt Git, dans une logique de frugalité.</p><p>Une formation est incluse dans la prestation pour vous rendre totalement autonome.</p>`,
+  },
+  {
+    q: 'Le site sera-t-il optimisé SEO ?',
+    a: `<p>Absolument. L'optimisation SEO est intégrée dès la conception. Je mets en place :</p><ul class="list-disc list-inside space-y-1 ml-2"><li>Une structure sémantique optimisée (balises H1-H6, meta descriptions...)</li><li>Un sitemap XML et des données structurées (JSON-LD)</li><li>Des performances techniques excellentes (facteur de ranking Google)</li><li>Des contenus optimisés pour vos mots-clés cibles</li></ul>`,
+  },
+  {
+    q: 'Quel hébergement recommandez-vous ?',
+    a: `<p>Je recommande Cloudflare Pages pour sa rapidité, sa fiabilité et son coût (gratuit pour la majorité des sites vitrines). L'hébergement est éco-responsable avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers générés par Astro.</p><p>Vos pages sont servies depuis le CDN le plus proche de vos visiteurs, garantissant des temps de chargement optimaux partout en France.</p>`,
+  },
+  {
+    q: 'Proposez-vous la maintenance ?',
+    a: `<p>Oui, je propose un forfait maintenance mensuel à partir de 30€/mois HT. Au-delà de la surveillance et des sauvegardes, la maintenance vous permet de bénéficier des avancées techniques d'Astro au fil des mises à jour du framework : View Transitions, optimisations d'images, nouvelles fonctionnalités de performance...</p>`,
+  },
+  {
+    q: 'Combien de pages sont incluses ?',
+    a: `<p>Le forfait de base inclut les pages essentielles d'un cabinet comptable :</p><ul class="list-disc list-inside space-y-1 ml-2"><li>Accueil</li><li>À propos / Équipe</li><li>Missions et expertises</li><li>Actualités / Blog</li><li>Contact</li></ul><p>Des pages supplémentaires (recrutement, simulateurs, espace client...) peuvent être ajoutées sur devis.</p>`,
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -168,264 +306,78 @@ const breadcrumbStructuredData = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
   </Fragment>
 
-  <style>
-    .font-editorial { font-family: var(--aw-font-heading), system-ui, sans-serif; }
-    .font-body { font-family: var(--aw-font-sans), system-ui, sans-serif; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
-    .animate-scale { animation: scaleIn 0.6s ease-out forwards; }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-
-    .delay-100 { animation-delay: 0.1s; opacity: 0; }
-    .delay-200 { animation-delay: 0.2s; opacity: 0; }
-    .delay-300 { animation-delay: 0.3s; opacity: 0; }
-    .delay-400 { animation-delay: 0.4s; opacity: 0; }
-    .delay-500 { animation-delay: 0.5s; opacity: 0; }
-
-    .btn-shimmer {
-      background: linear-gradient(90deg,
-        var(--btn-bg) 0%,
-        var(--btn-shimmer) 50%,
-        var(--btn-bg) 100%);
-      background-size: 200% 100%;
-      --btn-bg: rgb(21, 128, 61);
-      --btn-shimmer: rgb(34, 197, 94);
-    }
-
-    .btn-shimmer:hover {
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-
-    .decorative-line {
-      position: relative;
-    }
-
-    .decorative-line::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #15803d, #22c55e, #86efac);
-      border-radius: 2px;
-    }
-
-    .card-subtle {
-      transition: all 0.3s ease;
-    }
-
-    .card-subtle:hover {
-      border-color: rgba(21, 128, 61, 0.3);
-    }
-
-    .dark .card-subtle:hover {
-      border-color: rgba(34, 197, 94, 0.3);
-    }
-
-    .styled-number {
-      font-family: var(--aw-font-heading), system-ui, sans-serif;
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1;
-      background: linear-gradient(135deg, #166534 0%, #15803d 50%, #22c55e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hover-underline {
-      position: relative;
-    }
-
-    .hover-underline::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background: linear-gradient(90deg, #15803d, #22c55e);
-      transition: width 0.3s ease;
-    }
-
-    .hover-underline:hover::after {
-      width: 100%;
-    }
-
-    .texture-bg {
-      background-image:
-        radial-gradient(circle at 25% 25%, rgba(21, 128, 61, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(180, 83, 9, 0.03) 0%, transparent 50%);
-    }
-
-    .badge-premium {
-      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-      border: 1px solid #22c55e;
-      color: #166534;
-    }
-
-    .dark .badge-premium {
-      background: linear-gradient(135deg, #14532d 0%, #166534 100%);
-      border-color: #22c55e;
-      color: #86efac;
-    }
-
-    .quote-mark {
-      font-family: Georgia, serif;
-      font-size: 6rem;
-      line-height: 0;
-      color: rgba(21, 128, 61, 0.15);
-      position: absolute;
-      top: 0;
-      left: -10px;
-    }
-
-    .dark .quote-mark {
-      color: rgba(34, 197, 94, 0.15);
-    }
-
-    .glow-on-hover {
-      transition: all 0.3s ease;
-    }
-
-    .glow-on-hover:hover {
-      box-shadow: 0 0 30px rgba(21, 128, 61, 0.3);
-    }
-
-    .stat-value {
-      font-family: var(--aw-font-heading), system-ui, sans-serif;
-      background: linear-gradient(135deg, #166534 0%, #22c55e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  </style>
-
-  <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center overflow-hidden texture-bg">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-green-100/50 to-emerald-100/30 dark:from-green-900/20 dark:to-emerald-900/10 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-gradient-to-tr from-teal-100/40 to-green-100/20 dark:from-teal-900/10 dark:to-green-900/5 rounded-full blur-3xl" style="animation: float 8s ease-in-out infinite reverse;"></div>
-    </div>
-
-    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+  <!-- Hero -->
+  <section class="relative bg-cream overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       <!-- Fil d'Ariane -->
-      <nav aria-label="Fil d'Ariane" class="mb-8 text-sm font-body animate-fade-up">
-        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
-          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+      <nav aria-label="Fil d'Ariane" class="mb-8 text-sm" data-fade-up>
+        <ol class="flex items-center gap-2 text-muted flex-wrap">
+          <li><a href="/" class="hover:text-sage-dark transition-colors">Accueil</a></li>
           <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li><a href="/agence-web-expert-comptable/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Agence Web EC</a></li>
+          <li><a href="/agence-web-expert-comptable/" class="hover:text-sage-dark transition-colors">Agence Web EC</a></li>
           <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li class="text-gray-900 dark:text-white font-medium">Création site vitrine</li>
+          <li class="text-charcoal font-medium">Création site vitrine</li>
         </ol>
       </nav>
 
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
+        <!-- Colonne texte -->
         <div class="order-2 lg:order-1">
-          <div class="animate-fade-up delay-100">
-            <span class="badge-premium inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium font-body">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/>
-              </svg>
-              EC Mémorialiste reconverti
-            </span>
-          </div>
+          <p data-fade-up><PillBadge text="EC Mémorialiste reconverti" /></p>
 
-          <h1 class="mt-8 animate-fade-up delay-200">
-            <span class="block font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight">
+          <h1 class="mt-8" data-fade-up>
+            <span class="block text-charcoal text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.05] tracking-tight">
               Conception & création de site internet
             </span>
-            <span class="block font-editorial text-3xl sm:text-4xl lg:text-5xl font-medium text-emerald-700 dark:text-emerald-400 mt-2">
+            <span class="block text-sage-dark text-[clamp(2.2rem,4vw,3.75rem)] leading-[1.05] mt-2">
               pour expert-comptable
             </span>
           </h1>
 
-          <p class="mt-8 font-body text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-up delay-300">
-            Ancien expert-comptable mémorialiste, je conçois et crée des <strong class="text-gray-900 dark:text-white">sites internet sur mesure</strong> pour les cabinets qui veulent se démarquer et attirer de nouveaux clients.
+          <p class="mt-8 text-xl sm:text-2xl text-muted leading-relaxed" data-fade-up>
+            Ancien expert-comptable mémorialiste, je conçois et crée des <strong class="text-charcoal font-medium">sites internet sur mesure</strong> pour les cabinets qui veulent se démarquer et attirer de nouveaux clients.
           </p>
 
-          <div class="mt-10 flex flex-wrap gap-8 animate-fade-up delay-400">
-            <div class="text-center">
-              <div class="stat-value text-4xl font-bold">6</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Semaines</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-value text-4xl font-bold">>80</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">PageSpeed</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-value text-4xl font-bold">100%</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Sur mesure</div>
-            </div>
+          <!-- Stats rapides -->
+          <div class="mt-10 grid grid-cols-3 gap-6">
+            <StatBig value="6" label="Semaines" size="md" />
+            <StatBig value=">80" label="PageSpeed" size="md" />
+            <StatBig value="100%" label="Sur mesure" size="md" />
           </div>
 
-          <div class="mt-10 flex flex-wrap items-center gap-4 animate-fade-up delay-500">
-            <a
-              href="tel:+33623565299"
-              class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 glow-on-hover"
-            >
+          <!-- CTA -->
+          <div class="mt-10 flex flex-wrap items-center gap-6" data-fade-up>
+            <a href="tel:+33623565299" class="btn btn-primary gap-2">
               Demander un devis gratuit
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              <ArrowRight class="w-5 h-5" />
             </a>
-            <a href="#processus" class="group inline-flex items-center gap-2 px-6 py-4 font-body font-medium text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors">
-              Voir le processus
-              <svg class="w-4 h-4 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </a>
+            <ArrowLink href="#processus" text="Voir le processus" />
           </div>
         </div>
 
-        <div class="order-1 lg:order-2 w-full animate-scale delay-200">
-          <div class="relative w-full">
-            <div class="absolute -inset-4 bg-gradient-to-br from-green-200/50 via-transparent to-emerald-200/50 dark:from-green-800/30 dark:to-emerald-800/30 rounded-3xl transform rotate-3"></div>
-            <div class="absolute -inset-4 bg-gradient-to-tr from-teal-200/30 via-transparent to-green-200/30 dark:from-teal-800/20 dark:to-green-800/20 rounded-3xl transform -rotate-2"></div>
+        <!-- Colonne image -->
+        <div class="order-1 lg:order-2 w-full" data-fade-up>
+          <div class="relative rounded-xl overflow-hidden">
+            <Image
+              src={HeroImage}
+              alt="David Barbier - Création site expert-comptable"
+              class="w-full aspect-[4/5] object-cover"
+              width={1024}
+              height={1280}
+            />
 
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl w-full">
-              <Image
-                src={HeroImage}
-                alt="David Barbier - Création site expert-comptable"
-                class="w-full aspect-[4/5] object-cover grayscale"
-                width={1024}
-                height={1280}
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
-
-              <div class="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <div class="flex items-center gap-4">
-                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-editorial font-semibold text-gray-900 dark:text-white">Site internet sur mesure</div>
-                    <div class="font-body text-sm text-gray-500 dark:text-gray-400">Par un ancien expert-comptable</div>
-                  </div>
+            <!-- Carte flottante -->
+            <div class="absolute bottom-6 left-6 right-6 bg-cream/95 backdrop-blur-sm rounded-xl p-4">
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-sage rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-medium text-charcoal">Site internet sur mesure</div>
+                  <div class="text-sm text-muted">Par un ancien expert-comptable</div>
                 </div>
               </div>
             </div>
@@ -433,82 +385,50 @@ const breadcrumbStructuredData = {
         </div>
       </div>
     </div>
-
   </section>
 
   <!-- Section 01 : Pourquoi créer un site vitrine -->
-  <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
 
         <div class="lg:col-span-4">
           <div class="lg:sticky lg:top-32">
-            <span class="styled-number">01</span>
-            <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Pourquoi ?</p>
-            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+            <SectionHeader number="01" kicker="Pourquoi ?" align="left">
               Pourquoi concevoir un site internet pour votre cabinet ?
-            </h2>
+            </SectionHeader>
           </div>
         </div>
 
         <div class="lg:col-span-8">
-          <div class="prose prose-lg dark:prose-invert max-w-none font-body">
-            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Après un premier échange ou une recommandation, <strong class="text-gray-900 dark:text-white">vos prospects vont systématiquement consulter votre site avant de vous confier leur comptabilité</strong>. C'est l'étape de validation : un site professionnel rassure et conforte la décision, un site absent ou daté sème le doute.
-            </p>
+          <p class="text-xl text-muted leading-relaxed">
+            Après un premier échange ou une recommandation, <strong class="text-charcoal font-medium">vos prospects vont systématiquement consulter votre site avant de vous confier leur comptabilité</strong>. C'est l'étape de validation : un site professionnel rassure et conforte la décision, un site absent ou daté sème le doute.
+          </p>
 
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-6">
-              Au-delà de la visibilité, c'est aussi une question de <strong class="text-gray-900 dark:text-white">crédibilité et de confiance</strong>. Un site soigné rassure vos prospects et reflète le sérieux de votre cabinet. C'est votre vitrine 24h/24, accessible depuis n'importe quel appareil.
-            </p>
-          </div>
+          <p class="text-muted leading-relaxed mt-6">
+            Au-delà de la visibilité, c'est aussi une question de <strong class="text-charcoal font-medium">crédibilité et de confiance</strong>. Un site soigné rassure vos prospects et reflète le sérieux de votre cabinet. C'est votre vitrine 24h/24, accessible depuis n'importe quel appareil.
+          </p>
 
-          <div class="relative mt-12 pl-8 py-6">
-            <span class="quote-mark">"</span>
-            <blockquote class="relative font-editorial text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white italic leading-relaxed">
+          <!-- Citation mise en valeur -->
+          <div class="mt-12" data-fade-up>
+            <span class="block text-5xl leading-none mb-4 font-serif text-sage" aria-hidden="true">"</span>
+            <blockquote class="text-2xl sm:text-3xl font-light text-charcoal italic leading-relaxed">
               Un site web, c'est votre premier collaborateur commercial : il travaille pour vous 24h/24, 7j/7.
             </blockquote>
           </div>
 
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
+            {POURQUOI_CARDS.map((card) => (
+              <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+                <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                  </svg>
+                </div>
+                <h3 class="text-lg text-charcoal">{card.title}</h3>
+                <p class="text-sm text-muted mt-2">{card.desc}</p>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Visibilité locale</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Apparaissez sur "expert-comptable + ville" quand vos prospects cherchent un cabinet</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Crédibilité</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Un site professionnel inspire confiance et reflète le sérieux de votre cabinet</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Acquisition clients</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Convertissez vos visiteurs en prospects avec un parcours pensé pour la prise de contact</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Respect déontologie</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Un site conforme aux règles de l'Ordre, sans publicité agressive ni démarchage</p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -516,91 +436,91 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 02 : Processus en 4 étapes -->
-  <section id="processus" class="py-24 lg:py-32 scroll-mt-32 texture-bg">
-    <div class="px-8 mx-auto md:px-12 lg:px-24 max-w-7xl">
-      <div class="lg:text-balance max-w-3xl">
-        <span class="styled-number">02</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Mon processus</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
+  <section id="processus" class="py-16 md:py-24 scroll-mt-32 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <SectionHeader
+          number="02"
+          kicker="Mon processus"
+          align="left"
+          subtitle="Une méthodologie claire et collaborative pour créer un site qui vous ressemble et qui convertit."
+        >
           Création de votre site en 4 étapes
-        </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-          Une méthodologie claire et collaborative pour créer un site qui vous ressemble et qui convertit.
-        </p>
+        </SectionHeader>
       </div>
 
       <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3">
         <!-- Étape 1 -->
-        <div>
+        <div data-fade-up>
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">
               01
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">
                 Échange & cahier des charges
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
-              Je prends le temps de comprendre votre cabinet, vos missions, votre positionnement et vos objectifs. Ensemble, nous définissons le cahier des charges de votre site. C'est aussi à cette étape qu'on valide votre <a href="/nom-domaine-cabinet-expert-comptable/" class="text-green-700 dark:text-green-400 underline hover:text-green-700/90">nom de domaine de cabinet d'expertise comptable</a> si vous n'en avez pas encore.
+            <p class="text-base leading-normal text-muted">
+              Je prends le temps de comprendre votre cabinet, vos missions, votre positionnement et vos objectifs. Ensemble, nous définissons le cahier des charges de votre site. C'est aussi à cette étape qu'on valide votre <a href="/nom-domaine-cabinet-expert-comptable/" class="text-sage-dark hover:text-charcoal underline underline-offset-2">nom de domaine de cabinet d'expertise comptable</a> si vous n'en avez pas encore.
             </p>
           </dd>
         </div>
 
         <!-- Étape 2 -->
-        <div class="lg:row-start-2 lg:col-start-2">
+        <div class="lg:row-start-2 lg:col-start-2" data-fade-up>
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">
               02
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
-                Identité visuelle <span class="text-sm font-normal text-gray-500 dark:text-gray-400">(si besoin)</span>
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">
+                Identité visuelle <span class="text-sm font-normal text-muted">(si besoin)</span>
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="text-base leading-normal text-muted">
               La plupart des cabinets ont déjà leur identité visuelle - on s'en sert directement. Si ce n'est pas le cas, je fais appel à un graphiste partenaire pour créer votre charte. Cette étape est facultative.
             </p>
           </dd>
         </div>
 
         <!-- Étape 3 -->
-        <div class="lg:row-start-3 lg:col-start-3">
+        <div class="lg:row-start-3 lg:col-start-3" data-fade-up>
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">
               03
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">
                 Développement & itérations
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="text-base leading-normal text-muted">
               Je développe votre site avec Astro et Tailwind CSS, et vous donne accès à une version provisoire en ligne. Vous naviguez, vous suivez l'avancée, et on itère ensemble - allers-retours illimités. Mon objectif : que le site vous convienne à 100%. Intégration de PagesCMS pour gérer votre blog en autonomie.
             </p>
           </dd>
         </div>
 
         <!-- Étape 4 -->
-        <div class="lg:row-start-4 lg:col-start-2">
+        <div class="lg:row-start-4 lg:col-start-2" data-fade-up>
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-green-700 dark:text-green-400 font-medium">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">
               04
             </span>
             <dt>
-              <h3 class="font-editorial text-base leading-normal sm:text-lg md:text-xl text-gray-900 dark:text-white font-semibold">
+              <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">
                 Tests, SEO & mise en ligne
               </h3>
             </dt>
           </div>
           <dd class="mt-4">
-            <p class="font-body text-base leading-normal text-gray-600 dark:text-gray-300">
+            <p class="text-base leading-normal text-muted">
               Tests approfondis sur tous les appareils, optimisation SEO complète (balises, sitemap, données structurées), puis mise en ligne et formation à la gestion du contenu.
             </p>
           </dd>
@@ -610,26 +530,26 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Bandeau argument commercial -->
-  <section class="py-16 lg:py-20 texture-bg">
-    <div class="mx-auto max-w-5xl px-6 lg:px-8">
-      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-8 lg:p-12 border border-green-200 dark:border-green-800">
+  <section class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="bg-sage text-white rounded-xl p-8 lg:p-12" data-fade-up>
         <div class="flex flex-col lg:flex-row lg:items-center gap-8">
           <div class="flex-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-300 text-sm font-body font-semibold mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-sm font-semibold mb-4">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
               </svg>
               Allers-retours illimités
             </div>
-            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+            <h3 class="text-2xl sm:text-3xl text-white">
               Mon objectif : que le site vous convienne à 100%
             </h3>
-            <p class="font-body text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
+            <p class="text-white/90 mt-4 leading-relaxed">
               Pas de limite sur les retours. Vous accédez à une version provisoire tout au long du développement, vous naviguez, vous commentez, et on ajuste ensemble. Le projet avance à votre rythme, et je ne livre que quand vous êtes pleinement satisfait.
             </p>
           </div>
           <div class="flex-shrink-0 hidden lg:block">
-            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg">
+            <div class="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center">
               <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
@@ -641,254 +561,124 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 03 : Ce qui est inclus -->
-  <section class="py-24 lg:py-32 bg-gradient-to-br from-green-900 via-green-800 to-green-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
-        </pattern>
-        <rect width="100" height="100" fill="url(#grid)"/>
-      </svg>
-    </div>
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <SectionHeader number="03" kicker="Livrables" class="max-w-3xl mx-auto">
+        Ce qui est inclus
+      </SectionHeader>
 
-    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="font-editorial text-6xl font-bold text-white/10">03</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-500 uppercase mt-4">Livrables</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-white mt-3">
-          Ce qui est inclus
-        </h2>
+      <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {INCLUS_CARDS.slice(0, 4).map((card) => (
+          <div class="bg-sage text-white rounded-xl p-8 text-center" data-fade-up>
+            <div class="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl text-white">{card.title}</h3>
+            <p class="text-sm text-white/90 mt-4 leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
       </div>
 
-      <div class="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto items-center">
-
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
+      <div class="mt-6 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {INCLUS_CARDS.slice(4).map((card) => (
+          <div class="bg-sage text-white rounded-xl p-8 text-center" data-fade-up>
+            <div class="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl text-white">{card.title}</h3>
+            <p class="text-sm text-white/90 mt-4 leading-relaxed">{card.desc}</p>
           </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Design sur mesure responsive</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Un design unique, adapté à l'identité de votre cabinet, parfait sur mobile, tablette et desktop.
-          </p>
-        </div>
-
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Blog intégré avec PagesCMS</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Un blog pour publier vos articles et actualités, gérable en autonomie depuis PagesCMS, un CMS git-based léger et frugal.
-          </p>
-        </div>
-
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Optimisation SEO de base</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Balises optimisées, structure sémantique, sitemap XML et données structurées pour un bon référencement dès le lancement.
-          </p>
-        </div>
-
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Performance &gt;80 PageSpeed</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Un site ultra-rapide grâce à Astro. Score PageSpeed &gt;80 garanti, un vrai avantage pour le SEO et l'expérience utilisateur.
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-8 grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Hébergement éco-responsable</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Hébergement sur Cloudflare Pages, avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers.
-          </p>
-        </div>
-
-        <div class="text-center bg-white/5 backdrop-blur rounded-2xl p-8 border border-white/10">
-          <div class="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-white">Formation gestion du contenu</h3>
-          <p class="font-body text-sm text-green-100/70 mt-4 leading-relaxed">
-            Une formation complète pour que vous puissiez modifier vos contenus et publier des articles en toute autonomie.
-          </p>
-        </div>
-
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Section 04 : Pourquoi Astro + Tailwind -->
-  <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
 
         <div class="lg:col-span-4">
           <div class="lg:sticky lg:top-32">
-            <span class="styled-number">04</span>
-            <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Technologie</p>
-            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+            <SectionHeader number="04" kicker="Technologie" align="left">
               Pourquoi Astro + Tailwind ?
-            </h2>
+            </SectionHeader>
           </div>
         </div>
 
         <div class="lg:col-span-8">
-          <div class="prose prose-lg dark:prose-invert max-w-none font-body">
-            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Je développe vos sites avec <strong class="text-gray-900 dark:text-white">Astro</strong>, un framework moderne qui génère des sites statiques ultra-rapides. Combiné à <strong class="text-gray-900 dark:text-white">Tailwind CSS</strong>, c'est la stack idéale pour un site professionnel performant et maintenable.
-            </p>
-          </div>
+          <p class="text-xl text-muted leading-relaxed">
+            Je développe vos sites avec <strong class="text-charcoal font-medium">Astro</strong>, un framework moderne qui génère des sites statiques ultra-rapides. Combiné à <strong class="text-charcoal font-medium">Tailwind CSS</strong>, c'est la stack idéale pour un site professionnel performant et maintenable.
+          </p>
 
           <div class="grid sm:grid-cols-2 gap-6 mt-12">
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
+            {TECH_CARDS.map((card) => (
+              <div class="rounded-xl border border-black/10 bg-white/60 p-6" data-fade-up>
+                <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                  </svg>
+                </div>
+                <h3 class="text-lg text-charcoal">{card.title}</h3>
+                <p class="text-sm text-muted mt-2">{card.desc}</p>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Performance</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Sites statiques ultra-rapides. Pas de JavaScript inutile envoyé au navigateur. Chargement quasi instantané.</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">SEO natif</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">HTML statique pur, parfaitement indexable par Google. Pas de rendu côté client qui complexifie le crawl.</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Éco-conception</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Empreinte carbone minimale. Des pages légères qui consomment peu de bande passante et d'énergie.</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Sécurité</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Pas de base de données exposée, pas de plugins vulnérables. Un site statique est quasiment inattaquable.</p>
-            </div>
+            ))}
           </div>
 
-          <a href="/site-internet-eco-responsable/" class="inline-flex items-center gap-2 mt-8 font-body font-semibold text-green-700 dark:text-green-400 hover-underline whitespace-nowrap">
-            En savoir plus sur l'éco-conception web
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
+          <ArrowLink href="/site-internet-eco-responsable/" text="En savoir plus sur l'éco-conception web" class="mt-8" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Section 05 : Étude de cas - LBG Expertise -->
-  <section class="py-24 lg:py-32 texture-bg">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
 
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="styled-number">05</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Étude de cas</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          LBG Expertise - Cabinet comptable à Marseille
-        </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-          Création d'un site internet professionnel pour le lancement d'un cabinet d'expertise comptable indépendant à Marseille.
-        </p>
-      </div>
+      <SectionHeader
+        number="05"
+        kicker="Étude de cas"
+        class="max-w-3xl mx-auto"
+        subtitle="Création d'un site internet professionnel pour le lancement d'un cabinet d'expertise comptable indépendant à Marseille."
+      >
+        LBG Expertise - Cabinet comptable à Marseille
+      </SectionHeader>
 
       <div class="mt-16 max-w-4xl mx-auto">
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 lg:p-12 border border-gray-100 dark:border-gray-700 shadow-xl">
+        <div class="bg-cream rounded-xl p-8 lg:p-12 border border-black/10" data-fade-up>
           <div class="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white mb-4">Le projet</h3>
-              <p class="font-body text-gray-600 dark:text-gray-300 leading-relaxed">
+              <h3 class="text-2xl text-charcoal mb-4">Le projet</h3>
+              <p class="text-muted leading-relaxed">
                 LBG Expertise avait besoin d'un site internet sobre et professionnel pour le lancement de son cabinet. Le site devait mettre en avant les compétences de l'expert-comptable, permettre un contact facile et offrir une gestion autonome du contenu.
               </p>
-              <ul class="mt-6 space-y-3">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Développé avec Astro + Tailwind CSS</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">PagesCMS (git-based) pour la gestion du blog</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Hébergé sur Cloudflare Pages</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">SEO optimisé dès le lancement</span>
-                </li>
-              </ul>
+              <CheckList
+                class="mt-6"
+                items={[
+                  'Développé avec Astro + Tailwind CSS',
+                  'PagesCMS (git-based) pour la gestion du blog',
+                  'Hébergé sur Cloudflare Pages',
+                  'SEO optimisé dès le lancement',
+                ]}
+              />
             </div>
             <div>
-              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white mb-4">Les résultats</h3>
+              <h3 class="text-2xl text-charcoal mb-4">Les résultats</h3>
               <div class="space-y-6">
-                <div>
-                  <div class="stat-value text-3xl font-bold">&gt;80</div>
-                  <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Score PageSpeed sur toutes les pages</div>
-                </div>
-                <div>
-                  <div class="stat-value text-3xl font-bold">Référencement</div>
-                  <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Optimisé et prêt pour une stratégie SEO</div>
-                </div>
-                <div>
-                  <div class="stat-value text-3xl font-bold">Autonomie</div>
-                  <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Gestion complète du blog par la cliente</div>
-                </div>
+                <StatBig value=">80" label="Score PageSpeed sur toutes les pages" size="md" />
+                <StatBig value="Référencement" label="Optimisé et prêt pour une stratégie SEO" size="md" />
+                <StatBig value="Autonomie" label="Gestion complète du blog par la cliente" size="md" />
               </div>
             </div>
           </div>
 
-          <div class="mt-10 pt-8 border-t border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row gap-4 sm:gap-8">
-            <a href="/lbg-expertise-ec-marseille/" class="inline-flex items-center gap-2 font-body font-semibold text-green-700 dark:text-green-400 hover-underline whitespace-nowrap">
-              Voir l'étude de cas complète
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-            <a href="/odacio-conseils-expert-comptable-allauch/" class="inline-flex items-center gap-2 font-body font-semibold text-green-700 dark:text-green-400 hover-underline whitespace-nowrap">
-              Voir aussi : Odacio Conseils, un cabinet créé de zéro
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
+          <div class="mt-10 pt-8 border-t border-black/10 flex flex-col sm:flex-row gap-4 sm:gap-8">
+            <ArrowLink href="/lbg-expertise-ec-marseille/" text="Voir l'étude de cas complète" />
+            <ArrowLink href="/odacio-conseils-expert-comptable-allauch/" text="Voir aussi : Odacio Conseils, un cabinet créé de zéro" />
           </div>
         </div>
       </div>
@@ -896,104 +686,79 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 06 : Tarifs -->
-  <section class="py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
 
-      <div class="text-center max-w-3xl mx-auto">
-        <span class="styled-number">06</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Investissement</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Combien coûte un site vitrine pour un cabinet ?
-        </h2>
-      </div>
+      <SectionHeader number="06" kicker="Investissement" class="max-w-3xl mx-auto">
+        Combien coûte un site vitrine pour un cabinet ?
+      </SectionHeader>
 
       <div class="mt-16 max-w-2xl mx-auto">
-        <div class="card-subtle bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-xl">
-          <div class="h-2 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500"></div>
+        <div class="bg-white/60 rounded-xl overflow-hidden border border-black/10" data-fade-up>
+          <div class="h-1.5 bg-sage" aria-hidden="true"></div>
           <div class="p-8 lg:p-12">
 
             <div class="text-center">
-              <h3 class="font-editorial text-2xl font-semibold text-gray-900 dark:text-white">Forfait création site vitrine EC</h3>
+              <h3 class="text-2xl text-charcoal">Forfait création site vitrine EC</h3>
               <div class="mt-6">
-                <span class="font-editorial text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white">À partir de 2 000€</span>
-                <span class="font-body text-gray-500 dark:text-gray-400 block mt-2">HT - Devis personnalisé selon les besoins du cabinet</span>
+                <span class="text-5xl sm:text-6xl text-charcoal">À partir de 2 000€</span>
+                <span class="text-muted block mt-2">HT - Devis personnalisé selon les besoins du cabinet</span>
               </div>
             </div>
 
-            <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-300 dark:border-amber-700 flex items-center gap-3">
-              <svg class="w-6 h-6 text-amber-600 dark:text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="mt-6 p-4 bg-sage/10 rounded-xl border border-sage/30 flex items-center gap-3">
+              <svg class="w-6 h-6 text-sage-dark flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
               </svg>
-              <p class="font-body text-sm font-semibold text-amber-800 dark:text-amber-300">Réduction pour les adhérents au CJEC - me contacter pour en bénéficier.</p>
+              <p class="text-sm font-semibold text-charcoal">Réduction pour les adhérents au CJEC - me contacter pour en bénéficier.</p>
             </div>
 
-            <div class="mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-              <p class="font-body text-sm text-gray-700 dark:text-gray-300">
-                <strong class="text-gray-900 dark:text-white">Chaque cabinet a des besoins spécifiques.</strong> Un site one page (+ page mentions légales obligatoire) démarre à 1 200€ HT. Un site multi-pages avec blog, simulateurs ou espace client sera naturellement plus conséquent. Le devis s'adapte à votre situation et à vos ambitions. Délai moyen : 6 semaines.
+            <div class="mt-4 p-4 bg-sand rounded-xl border border-black/10">
+              <p class="text-sm text-default">
+                <strong class="text-charcoal">Chaque cabinet a des besoins spécifiques.</strong> Un site one page (+ page mentions légales obligatoire) démarre à 1 200€ HT. Un site multi-pages avec blog, simulateurs ou espace client sera naturellement plus conséquent. Le devis s'adapte à votre situation et à vos ambitions. Délai moyen : 6 semaines.
               </p>
             </div>
 
             <div class="mt-10">
-              <h4 class="font-editorial font-semibold text-gray-900 dark:text-white mb-4">Qu'est-ce qui est inclus ?</h4>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Design sur mesure 100% responsive</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Développement avec Astro (performances max)</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Blog intégré avec PagesCMS (git-based)</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Optimisation SEO complète</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Hébergement éco-responsable (Cloudflare)</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  <span class="font-body text-gray-600 dark:text-gray-300">Formation à la gestion du contenu</span>
-                </li>
-              </ul>
+              <h4 class="font-medium text-charcoal mb-4">Qu'est-ce qui est inclus ?</h4>
+              <CheckList
+                items={[
+                  'Design sur mesure 100% responsive',
+                  'Développement avec Astro (performances max)',
+                  'Blog intégré avec PagesCMS (git-based)',
+                  'Optimisation SEO complète',
+                  'Hébergement éco-responsable (Cloudflare)',
+                  'Formation à la gestion du contenu',
+                ]}
+              />
             </div>
 
-            <div class="mt-10 pt-8 border-t border-gray-100 dark:border-gray-700">
-              <h4 class="font-editorial font-semibold text-gray-900 dark:text-white mb-4">Options supplémentaires</h4>
+            <div class="mt-10 pt-8 border-t border-black/10">
+              <h4 class="font-medium text-charcoal mb-4">Options supplémentaires</h4>
               <ul class="space-y-2">
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between text-muted">
                   <span>Rédaction de contenus optimisés SEO</span>
-                  <span class="font-semibold">Sur devis</span>
+                  <span class="font-semibold text-charcoal">Sur devis</span>
                 </li>
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between text-muted">
                   <span>Shooting photo professionnel</span>
-                  <span class="font-semibold">Sur devis</span>
+                  <span class="font-semibold text-charcoal">Sur devis</span>
                 </li>
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between text-muted">
                   <span>Maintenance mensuelle</span>
-                  <span class="font-semibold">À partir de 30€/mois</span>
+                  <span class="font-semibold text-charcoal">À partir de 30€/mois</span>
                 </li>
-                <li class="flex items-center justify-between font-body text-gray-600 dark:text-gray-300">
+                <li class="flex items-center justify-between text-muted">
                   <span>Accompagnement SEO continu</span>
-                  <span class="font-semibold">À partir de 490€/mois</span>
+                  <span class="font-semibold text-charcoal">À partir de 490€/mois</span>
                 </li>
               </ul>
             </div>
 
             <div class="mt-10">
-              <a
-                href="tel:+33623565299"
-                class="w-full btn-shimmer py-4 px-6 rounded-xl text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 flex items-center justify-center gap-2"
-              >
+              <a href="tel:+33623565299" class="btn btn-primary w-full gap-2">
                 Demander un devis personnalisé
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+                <ArrowRight class="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -1003,36 +768,34 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section Avis clients : rend visibles les témoignages que l'aggregateRating agrège -->
-  <section id="avis" class="py-24 lg:py-32 texture-bg scroll-mt-32">
-    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+  <section id="avis" class="py-16 md:py-24 bg-sand scroll-mt-32">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
 
-      <div class="text-center mb-16">
-        <span class="styled-number">07</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Avis</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Ce qu'en disent les cabinets
-        </h2>
-        <p class="font-body mt-4 text-lg text-gray-600 dark:text-gray-300">
-          {GBP_TOTAL_REVIEWS} avis Google, note moyenne de 5/5.
-        </p>
-      </div>
+      <SectionHeader
+        number="07"
+        kicker="Avis"
+        class="max-w-3xl mx-auto mb-16"
+        subtitle={`${GBP_TOTAL_REVIEWS} avis Google, note moyenne de 5/5.`}
+      >
+        Ce qu'en disent les cabinets
+      </SectionHeader>
 
       <div class="grid gap-6 md:grid-cols-2">
         {EC_REVIEWS.map((review) => (
-          <figure class="flex flex-col rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 p-8 shadow-xl">
-            <div class="flex gap-1 text-amber-500" aria-label={`Note : ${review.rating} sur 5`}>
+          <figure class="flex flex-col rounded-xl border border-black/10 bg-cream p-8" data-fade-up>
+            <div class="flex gap-1 text-sage-dark" aria-label={`Note : ${review.rating} sur 5`}>
               {Array.from({ length: review.rating }).map(() => (
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.42 4.36a1 1 0 0 0 .95.69h4.59c.96 0 1.36 1.23.58 1.8l-3.71 2.7a1 1 0 0 0-.36 1.11l1.41 4.37c.3.92-.75 1.68-1.53 1.11l-3.71-2.7a1 1 0 0 0-1.18 0l-3.71 2.7c-.78.57-1.83-.19-1.53-1.11l1.41-4.37a1 1 0 0 0-.36-1.11l-3.71-2.7c-.78-.57-.38-1.8.58-1.8h4.59a1 1 0 0 0 .95-.69l1.42-4.36Z"/>
                 </svg>
               ))}
             </div>
-            <blockquote class="font-body mt-6 flex-auto text-gray-700 dark:text-gray-200">
+            <blockquote class="mt-6 flex-auto text-default">
               {review.text}
             </blockquote>
-            <figcaption class="mt-6 border-t border-gray-100 dark:border-gray-700 pt-4">
-              <p class="font-semibold text-gray-900 dark:text-white">{review.author}</p>
-              <p class="font-body text-sm text-gray-500 dark:text-gray-400">{review.company}</p>
+            <figcaption class="mt-6 border-t border-black/10 pt-4">
+              <p class="font-semibold text-charcoal">{review.author}</p>
+              <p class="text-sm text-muted">{review.company}</p>
             </figcaption>
           </figure>
         ))}
@@ -1041,172 +804,50 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section FAQ -->
-  <section id="faq" class="py-24 lg:py-32 texture-bg">
-    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+  <section id="faq" class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
 
-      <div class="text-center mb-16">
-        <span class="styled-number">08</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">FAQ</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Questions sur la création de site EC
-        </h2>
-      </div>
+      <SectionHeader number="08" kicker="FAQ" class="mb-16">
+        Questions sur la création de site EC
+      </SectionHeader>
 
-      <div class="space-y-4">
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Pourquoi un site vitrine et pas WordPress ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>WordPress est une solution généraliste qui nécessite des mises à jour constantes, des plugins pour chaque fonctionnalité et une vigilance permanente sur la sécurité. Pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs :</p>
-            <ul class="list-disc list-inside space-y-1 ml-2">
-              <li>Des performances 10x supérieures (score PageSpeed &gt;90)</li>
-              <li>Une sécurité renforcée (pas de base de données à pirater)</li>
-              <li>Zéro maintenance technique (pas de mises à jour WordPress/plugins)</li>
-              <li>Des coûts d'hébergement réduits</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Puis-je modifier le contenu moi-même ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Oui. PagesCMS, un CMS git-based léger, est intégré à votre site. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos informations depuis une interface simple et intuitive, sans toucher au code. Pas de base de données supplémentaire : tout reste dans votre dépôt Git, dans une logique de frugalité.</p>
-            <p>Une formation est incluse dans la prestation pour vous rendre totalement autonome.</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Le site sera-t-il optimisé SEO ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Absolument. L'optimisation SEO est intégrée dès la conception. Je mets en place :</p>
-            <ul class="list-disc list-inside space-y-1 ml-2">
-              <li>Une structure sémantique optimisée (balises H1-H6, meta descriptions...)</li>
-              <li>Un sitemap XML et des données structurées (JSON-LD)</li>
-              <li>Des performances techniques excellentes (facteur de ranking Google)</li>
-              <li>Des contenus optimisés pour vos mots-clés cibles</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Quel hébergement recommandez-vous ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Je recommande Cloudflare Pages pour sa rapidité, sa fiabilité et son coût (gratuit pour la majorité des sites vitrines). L'hébergement est éco-responsable avec une empreinte carbone minimale grâce aux fichiers statiques ultra-légers générés par Astro.</p>
-            <p>Vos pages sont servies depuis le CDN le plus proche de vos visiteurs, garantissant des temps de chargement optimaux partout en France.</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Proposez-vous la maintenance ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Oui, je propose un forfait maintenance mensuel à partir de 30€/mois HT. Au-delà de la surveillance et des sauvegardes, la maintenance vous permet de bénéficier des avancées techniques d'Astro au fil des mises à jour du framework : View Transitions, optimisations d'images, nouvelles fonctionnalités de performance...</p>
-          </div>
-        </details>
-
-        <details class="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <summary class="flex items-center justify-between p-6 cursor-pointer font-editorial font-semibold text-gray-900 dark:text-white hover:text-green-700 dark:hover:text-green-400 transition-colors">
-            <span>Combien de pages sont incluses ?</span>
-            <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6 font-body text-gray-600 dark:text-gray-300 space-y-3">
-            <p>Le forfait de base inclut les pages essentielles d'un cabinet comptable :</p>
-            <ul class="list-disc list-inside space-y-1 ml-2">
-              <li>Accueil</li>
-              <li>À propos / Équipe</li>
-              <li>Missions et expertises</li>
-              <li>Actualités / Blog</li>
-              <li>Contact</li>
-            </ul>
-            <p>Des pages supplémentaires (recrutement, simulateurs, espace client...) peuvent être ajoutées sur devis.</p>
-          </div>
-        </details>
-
-      </div>
+      <FaqItems items={VITRINE_FAQ} />
     </div>
   </section>
 
   <!-- Section CTA Final -->
-  <section id="formulaire" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 mb-16 scroll-mt-20">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section id="formulaire" class="py-16 md:py-24 bg-sand mb-16 scroll-mt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
 
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <div>
-          <span class="styled-number">09</span>
-          <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Prêt ?</p>
-          <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+          <SectionHeader number="09" kicker="Prêt ?" align="left">
             Prêt à créer votre site vitrine ?
-          </h2>
+          </SectionHeader>
 
-          <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-8 leading-relaxed">
+          <p class="text-xl text-muted mt-8 leading-relaxed">
             Votre cabinet mérite une présence en ligne à la hauteur de votre expertise. Discutons de votre projet et construisons ensemble votre site vitrine.
           </p>
 
           <ul class="mt-10 space-y-6">
-            <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Devis gratuit et détaillé</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Je vous envoie un devis personnalisé avec planning et livrables clairement définis.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-amber-600 dark:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Réponse sous 48h</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Je reviens vers vous rapidement pour discuter de votre projet.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Ancien EC mémorialiste, je vous comprends</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Nous parlons le même langage, je connais vos enjeux et vos contraintes.</p>
-              </div>
-            </li>
+            {FINAL_POINTS.map((point) => (
+              <li class="flex gap-4" data-fade-up>
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sage/15 text-sage-dark flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={point.icon} />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium text-charcoal">{point.title}</h3>
+                  <p class="text-muted mt-1">{point.desc}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-gray-700">
+        <div class="bg-cream border border-black/10 rounded-xl p-8 lg:p-10" data-fade-up>
 
           <div class="flex items-center gap-4 mb-8">
             <Image
@@ -1214,59 +855,59 @@ const breadcrumbStructuredData = {
               height={64}
               width={64}
               alt="David Barbier"
-              class="w-16 h-16 rounded-full object-cover ring-4 ring-green-100 dark:ring-green-900"
+              class="w-16 h-16 rounded-full object-cover ring-4 ring-sage/30"
             />
             <div>
-              <div class="font-editorial font-semibold text-gray-900 dark:text-white">David Barbier</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400">Ancien EC & Développeur Web</div>
+              <div class="font-medium text-charcoal">David Barbier</div>
+              <div class="text-sm text-muted">Ancien EC & Développeur Web</div>
             </div>
           </div>
 
           <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-6">
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
-                <label for="name" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre nom</label>
+                <label for="name" class="block text-sm font-medium text-default mb-2">Votre nom</label>
                 <input
                   id="name"
                   name="name"
                   type="text"
                   required
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
                   placeholder="Jean Dupont"
                 />
               </div>
               <div>
-                <label for="email" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre email</label>
+                <label for="email" class="block text-sm font-medium text-default mb-2">Votre email</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
                   placeholder="jean@cabinet.fr"
                 />
               </div>
             </div>
 
             <div>
-              <label for="cabinet" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nom de votre cabinet</label>
+              <label for="cabinet" class="block text-sm font-medium text-default mb-2">Nom de votre cabinet</label>
               <input
                 id="cabinet"
                 name="cabinet"
                 type="text"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
                 placeholder="Cabinet Dupont & Associés"
               />
             </div>
 
             <div>
-              <label for="textarea" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Décrivez votre projet</label>
+              <label for="textarea" class="block text-sm font-medium text-default mb-2">Décrivez votre projet</label>
               <textarea
                 id="textarea"
                 name="textarea"
                 rows="4"
                 required
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all resize-none"
                 placeholder="Nouveau cabinet, besoin d'un site professionnel..."
               ></textarea>
             </div>
@@ -1277,27 +918,24 @@ const breadcrumbStructuredData = {
                 name="disclaimer"
                 type="checkbox"
                 required
-                class="mt-1 w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                class="mt-1 w-5 h-5 rounded border-black/20 text-sage-dark focus:ring-sage"
               />
-              <label for="disclaimer" class="font-body text-sm text-gray-500 dark:text-gray-400 cursor-pointer">
+              <label for="disclaimer" class="text-sm text-muted cursor-pointer">
                 En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
               </label>
             </div>
 
             <input type="hidden" name="source" value="creation-site-vitrine-expert-comptable" />
 
-            <button
-              type="submit"
-              class="w-full btn-shimmer py-4 px-6 rounded-xl text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 flex items-center justify-center gap-2"
-            >
+            <button type="submit" class="btn btn-primary w-full gap-2">
               Demander mon devis gratuit
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              <ArrowRight class="w-5 h-5" />
             </button>
           </form>
         </div>
       </div>
     </div>
   </section>
+
+  <MontegrappaFx />
 </Layout>

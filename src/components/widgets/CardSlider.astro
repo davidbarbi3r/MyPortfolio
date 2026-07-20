@@ -1,0 +1,84 @@
+---
+// Card slider Montegrappa : en-tête (slot "header") + flèches à droite,
+// piste horizontale full-bleed alignée sur le conteneur max-w-6xl.
+// Les cartes (slot par défaut) doivent porter leurs classes de piste :
+// `snap-start flex-none` + une largeur (ex. w-[85%] sm:w-[400px]).
+export interface Props {
+  prevLabel?: string;
+  nextLabel?: string;
+  class?: string;
+}
+const { prevLabel = 'Précédent', nextLabel = 'Suivant', class: className = '' } = Astro.props;
+---
+
+<div data-card-slider class:list={[className]}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-end justify-between gap-8 mb-12">
+      <slot name="header" />
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <button
+          type="button"
+          data-slider-prev
+          class="w-10 h-10 rounded-full border border-black/15 hover:border-charcoal flex items-center justify-center text-charcoal transition-colors"
+          aria-label={prevLabel}
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-slider-next
+          class="w-10 h-10 rounded-full bg-charcoal hover:bg-sage flex items-center justify-center text-white transition-colors"
+          aria-label={nextLabel}
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    data-slider-track
+    class="card-slider-track flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 pr-4 pl-4 scroll-pl-4 sm:pl-6 sm:scroll-pl-6 lg:pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] lg:scroll-pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))]"
+    style="scrollbar-width: none;"
+  >
+    <slot />
+  </div>
+</div>
+
+<style>
+  .card-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  function initCardSliders() {
+    document.querySelectorAll<HTMLElement>('[data-card-slider]').forEach((root) => {
+      if (root.dataset.init) return;
+      root.dataset.init = '1';
+
+      const track = root.querySelector<HTMLElement>('[data-slider-track]');
+      if (!track) return;
+
+      const step = () => {
+        const card = track.querySelector<HTMLElement>(':scope > *');
+        return card ? card.offsetWidth + 20 : 420;
+      };
+
+      root.querySelector('[data-slider-prev]')?.addEventListener('click', () => {
+        track.scrollBy({ left: -step(), behavior: 'smooth' });
+      });
+      root.querySelector('[data-slider-next]')?.addEventListener('click', () => {
+        track.scrollBy({ left: step(), behavior: 'smooth' });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initCardSliders);
+  if (document.readyState !== 'loading') initCardSliders();
+  else document.addEventListener('DOMContentLoaded', initCardSliders);
+</script>

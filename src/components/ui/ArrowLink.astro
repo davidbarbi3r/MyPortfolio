@@ -1,0 +1,21 @@
+---
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+
+export interface Props {
+  text: string;
+  href: string;
+  class?: string;
+}
+const { text, href, class: className = '' } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    'inline-flex items-center gap-2 text-sm font-semibold text-sage-dark hover:gap-3 transition-all',
+    className,
+  ]}
+>
+  {text}
+  <ArrowRight class="w-4 h-4" />
+</a>

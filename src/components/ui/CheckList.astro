@@ -1,0 +1,27 @@
+---
+export interface Props {
+  items: string[];
+  mark?: string;
+  markClass?: string;
+  textClass?: string;
+  class?: string;
+}
+const {
+  items,
+  mark = '✓',
+  markClass = 'text-sage-dark',
+  textClass = 'text-default',
+  class: className = '',
+} = Astro.props;
+---
+
+<ul class:list={['space-y-2.5 text-sm', textClass, className]}>
+  {
+    items.map((item) => (
+      <li class="flex gap-2">
+        <span class:list={[markClass, 'flex-shrink-0']}>{mark}</span>
+        {item}
+      </li>
+    ))
+  }
+</ul>

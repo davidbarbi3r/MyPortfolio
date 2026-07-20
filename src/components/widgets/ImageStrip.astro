@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  images: Array<{ src: ImageMetadata; alt: string }>;
+}
+const { images } = Astro.props;
+---
+
+<div class="overflow-hidden" data-image-strip>
+  <div class="flex gap-4 md:gap-6 will-change-transform" data-image-strip-track>
+    {
+      images.map(({ src, alt }, i) => (
+        <Image
+          src={src}
+          alt={alt}
+          widths={[400, 800]}
+          class="h-56 md:h-80 w-64 md:w-96 flex-none rounded-xl object-cover"
+          loading={i < 3 ? 'eager' : 'lazy'}
+        />
+      ))
+    }
+  </div>
+</div>

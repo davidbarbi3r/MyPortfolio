@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import PillBadge from '~/components/ui/PillBadge.astro';
+
+interface SubItem {
+  title: string;
+  description: string;
+}
+
+interface Link {
+  text: string;
+  href: string;
+}
+
+export interface Props {
+  id?: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  items: Array<{
+    title: string;
+    description: string;
+    image: ImageMetadata;
+    alt: string;
+    subItems?: SubItem[];
+    price?: string;
+    links?: Link[];
+    ecLink?: Link;
+  }>;
+}
+const { id, badge, title, subtitle, items } = Astro.props;
+---
+
+<section id={id} class="py-16 md:py-24 px-6 lg:px-8 bg-sand scroll-mt-20" data-services-showcase>
+  <div class="mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+    <div class="lg:sticky lg:top-28">
+      <PillBadge text={badge} class="mb-6" />
+      <h2 class="text-3xl sm:text-5xl tracking-tight text-charcoal leading-tight mt-4">
+        {title}
+      </h2>
+      {/* Pile d'images : toutes rendues, seule l'active est visible (swap en opacité au clic) */}
+      <div class="relative mt-10 h-64 md:h-96 rounded-xl overflow-hidden">
+        {
+          items.map((item, i) => (
+            <Image
+              src={item.image}
+              alt={item.alt}
+              class:list={[
+                'absolute inset-0 w-full h-full object-cover transition-opacity duration-500',
+                i === 0 ? 'opacity-100' : 'opacity-0',
+              ]}
+              data-showcase-image={String(i)}
+              widths={[600, 1200]}
+              sizes="(min-width: 1024px) 550px, 100vw"
+              loading="lazy"
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="lg:pt-2">
+      <p class="text-base text-default leading-relaxed mb-10 max-w-lg">{subtitle}</p>
+      <div class="border-y border-black/10 divide-y divide-black/10">
+        {
+          items.map((item, i) => (
+            <details class="group py-6" open={i === 0} data-showcase-item>
+              <summary class="flex cursor-pointer list-none items-center gap-6 marker:content-none [&::-webkit-details-marker]:hidden">
+                <span class="inline-flex h-9 w-12 shrink-0 items-center justify-center rounded bg-sage/20 text-xs font-medium tracking-widest text-sage-dark transition-colors group-open:bg-sage group-open:text-white">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 class="text-2xl md:text-3xl transition-colors text-charcoal/50 group-open:text-charcoal">
+                  {item.title}
+                </h3>
+              </summary>
+
+              <div class="mt-4 pl-0 sm:pl-[4.5rem] max-w-2xl">
+                <p class="text-muted leading-relaxed">{item.description}</p>
+
+                {item.subItems && item.subItems.length > 0 && (
+                  <ul class="mt-5 space-y-3">
+                    {item.subItems.map((sub) => (
+                      <li class="flex gap-3">
+                        <span class="mt-2 w-1.5 h-1.5 rounded-full bg-sage shrink-0" aria-hidden="true" />
+                        <div>
+                          <h4 class="font-semibold text-charcoal text-sm">{sub.title}</h4>
+                          <p class="text-sm text-muted leading-relaxed">{sub.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {item.price && <p class="mt-5 text-lg text-charcoal">{item.price}</p>}
+
+                {item.links && item.links.length > 0 && (
+                  <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                    {item.links.map((link) => (
+                      <a
+                        href={link.href}
+                        class="inline-flex items-center gap-1.5 text-sm font-semibold text-sage-dark hover:gap-2.5 transition-all"
+                      >
+                        {link.text}
+                        <Icon name="tabler:chevron-right" class="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                {item.ecLink && (
+                  <a
+                    href={item.ecLink.href}
+                    class="mt-5 block rounded-lg border border-sage/30 bg-sage/10 px-4 py-3 text-sm text-sage-dark hover:bg-sage/20 transition-colors"
+                  >
+                    <span class="font-semibold">{item.ecLink.text}</span>
+                    <span class="inline-block ml-1">&rarr;</span>
+                  </a>
+                )}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initServicesShowcase() {
+    document.querySelectorAll<HTMLElement>('[data-services-showcase]').forEach((root) => {
+      if (root.dataset.init) return;
+      root.dataset.init = '1';
+
+      const images = Array.from(root.querySelectorAll<HTMLElement>('[data-showcase-image]'));
+      const items = Array.from(root.querySelectorAll<HTMLDetailsElement>('details[data-showcase-item]'));
+
+      items.forEach((detail, i) => {
+        detail.addEventListener('toggle', () => {
+          if (!detail.open) return;
+          // Accordéon exclusif : on ferme les autres et on affiche l'image correspondante
+          items.forEach((other) => {
+            if (other !== detail && other.open) other.open = false;
+          });
+          images.forEach((img, j) => {
+            img.classList.toggle('opacity-100', j === i);
+            img.classList.toggle('opacity-0', j !== i);
+          });
+        });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initServicesShowcase);
+  if (document.readyState !== 'loading') initServicesShowcase();
+  else document.addEventListener('DOMContentLoaded', initServicesShowcase);
+</script>

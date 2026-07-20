@@ -41,10 +41,10 @@ const {
                 {(icon || defaultIcon) && (
                   <Icon
                     name={icon || defaultIcon}
-                    class={twMerge('hidden mb-2 w-10 h-10 text-emerald-800', defaultIconClass, itemClasses?.icon, 'text-emerald-800')}
+                    class={twMerge('hidden mb-2 w-10 h-10 text-sage-dark', defaultIconClass, itemClasses?.icon, 'text-sage-dark')}
                   />
                 )}
-                <h3 class={twMerge('text-2xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>
+                <h3 class={twMerge('text-2xl text-charcoal', titleClass, itemClasses?.title)}>{title}</h3>
                 {description && (
                   <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
                 )}
@@ -60,11 +60,11 @@ const {
                 )}
               </div>
               <div>
-                {price && <div class="mt-2 text-lg">{price}</div>}
-                {callToAction && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction} /></div>}
-                {callToAction2 && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction2} /></div>}
+                {price && <div class="mt-2 text-2xl font-light text-charcoal">{price}</div>}
+                {callToAction && <div class="mt-2 text-sage-dark cursor-pointer"><CTA callToAction={callToAction} /></div>}
+                {callToAction2 && <div class="mt-2 text-sage-dark cursor-pointer"><CTA callToAction={callToAction2} /></div>}
                 {ecLink && (
-                  <a href={ecLink.href} class="mt-3 block rounded-lg border border-emerald-200 bg-emerald-50 dark:bg-emerald-900/30 dark:border-emerald-800 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors">
+                  <a href={ecLink.href} class="mt-3 block rounded-lg border border-sage/30 bg-sage/10 px-4 py-3 text-sm text-sage-dark hover:bg-sage/20 transition-colors">
                     <span class="font-semibold">{ecLink.text}</span>
                     <span class="inline-block ml-1">&rarr;</span>
                   </a>
@@ -89,7 +89,7 @@ const {
         ({ title, description, icon, callToAction, callToAction2, image, servicesItems, price, ecLink, classes: itemClasses = {} }, index) => (
           <div
             class={twMerge(
-              'relative flex flex-col overflow-hidden rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 cursor-pointer',
+              'relative flex flex-col overflow-hidden rounded-xl border border-black/10 bg-cream cursor-pointer',
               itemClasses?.panel
             )}
             data-haccordion-item
@@ -113,10 +113,10 @@ const {
                 {(icon || defaultIcon) && (
                   <Icon
                     name={icon || defaultIcon}
-                    class={twMerge('hidden mb-2 w-10 h-10 text-emerald-800', defaultIconClass, itemClasses?.icon, 'text-emerald-800')}
+                    class={twMerge('hidden mb-2 w-10 h-10 text-sage-dark', defaultIconClass, itemClasses?.icon, 'text-sage-dark')}
                   />
                 )}
-                <h3 class={twMerge('text-2xl font-bold whitespace-nowrap')}>{title}</h3>
+                <h3 class={twMerge('text-2xl text-charcoal whitespace-nowrap')}>{title}</h3>
                 <div class="haccordion-body" style="overflow:hidden;">
                   {description && (
                     <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
@@ -134,11 +134,11 @@ const {
                 </div>
               </div>
               <div class="haccordion-body" style="overflow:hidden;">
-                {price && <div class="mt-2 text-lg">{price}</div>}
-                {callToAction && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction} /></div>}
-                {callToAction2 && <div class="mt-2 text-emerald-900 cursor-pointer"><CTA callToAction={callToAction2} /></div>}
+                {price && <div class="mt-2 text-2xl font-light text-charcoal">{price}</div>}
+                {callToAction && <div class="mt-2 text-sage-dark cursor-pointer"><CTA callToAction={callToAction} /></div>}
+                {callToAction2 && <div class="mt-2 text-sage-dark cursor-pointer"><CTA callToAction={callToAction2} /></div>}
                 {ecLink && (
-                  <a href={ecLink.href} class="mt-3 block rounded-lg border border-emerald-200 bg-emerald-50 dark:bg-emerald-900/30 dark:border-emerald-800 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors">
+                  <a href={ecLink.href} class="mt-3 block rounded-lg border border-sage/30 bg-sage/10 px-4 py-3 text-sm text-sage-dark hover:bg-sage/20 transition-colors">
                     <span class="font-semibold">{ecLink.text}</span>
                     <span class="inline-block ml-1">&rarr;</span>
                   </a>
@@ -157,7 +157,7 @@ const {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #065f46, #34d399);
+    background: linear-gradient(135deg, #427050, #6CAB7E);
     mix-blend-mode: color;
     opacity: 0.1;
     pointer-events: none;

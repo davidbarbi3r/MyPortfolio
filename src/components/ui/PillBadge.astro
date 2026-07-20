@@ -1,0 +1,18 @@
+---
+export interface Props {
+  text: string;
+  variant?: 'solid' | 'outline';
+  class?: string;
+}
+const { text, variant = 'solid', class: className = '' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center rounded px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em]',
+    variant === 'solid' ? 'bg-sage text-white' : 'border border-black/15 text-muted',
+    className,
+  ]}
+>
+  {text}
+</span>

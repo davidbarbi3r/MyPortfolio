@@ -40,12 +40,12 @@ const filteredPosts = posts.filter((post) => post.category !== "portfolio").slic
         {title && (
           <div class="md:max-w-sm">
             <h2
-              class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2"
+              class="text-3xl tracking-tight sm:text-5xl sm:leading-none group font-heading mb-2 text-charcoal"
               set:html={title}
             />
             {APP_BLOG.list.isEnabled && linkText && linkUrl && (
               <a
-                class="text-muted dark:text-slate-400 hover:text-emerald-800 transition ease-in duration-200 block mb-6 lg:mb-0"
+                class="text-muted hover:text-sage-dark transition ease-in duration-200 block mb-6 lg:mb-0"
                 href={linkUrl}
               >   
                 {linkText} »
@@ -54,7 +54,7 @@ const filteredPosts = posts.filter((post) => post.category !== "portfolio").slic
           </div>
         )}
 
-        {information && <p class="text-muted dark:text-slate-400 lg:text-sm lg:max-w-md" set:html={information} />}
+        {information && <p class="text-muted lg:text-sm lg:max-w-md" set:html={information} />}
       </div>
 
       <Grid posts={filteredPosts} />

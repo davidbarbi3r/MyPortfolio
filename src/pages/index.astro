@@ -7,16 +7,29 @@ import ServiceCreation from '~/assets/images/service-creation.jpg'
 import ServiceDev from '~/assets/images/service-dev.jpg'
 import ServiceMaintenance from '~/assets/images/service-maintenance.jpg'
 import ServiceSeo from '~/assets/images/service-seo.jpg'
+import CorseParata from '~/assets/images/corse-parata-sanguinaires.jpg'
+import CorseBonifacio from '~/assets/images/corse-bonifacio-citadelle.jpg'
+import CorseFalaises from '~/assets/images/corse-falaises-bonifacio.jpg'
+import CorseGolfePorto from '~/assets/images/corse-golfe-porto.jpg'
 import RestodomScreen from '~/assets/images/restodom-screen.png';
 import OdacioScreen from '~/assets/images/odacio-screen.png';
 import EkiaScreen from '~/assets/images/ekia-screen.png';
-import Hero2 from '~/components/widgets/Hero2.astro';
 import HeroAnimations from '~/components/animations/HeroAnimations.astro';
 import ProjectsFlip from '~/components/animations/ProjectsFlip.astro';
-import Features2 from "~/components/widgets/Features2.astro";
+import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import StatBig from '~/components/ui/StatBig.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import CheckList from '~/components/ui/CheckList.astro';
+import ArrowLink from '~/components/ui/ArrowLink.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+import FaqItems from '~/components/ui/FaqItems.astro';
+import ImageStrip from '~/components/widgets/ImageStrip.astro';
+import ServicesShowcase from '~/components/widgets/ServicesShowcase.astro';
+import CardSlider from '~/components/widgets/CardSlider.astro';
+import ProjectCard from '~/components/widgets/ProjectCard.astro';
 import LogoMarquee from "~/components/widgets/LogoMarquee.astro";
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
-import { Icon } from 'astro-icon/components';
 
 // Imports logos clients
 import LogoEndoajaccio from '~/assets/images/clients/endoajaccio.png';
@@ -244,48 +257,45 @@ const projects = [
   <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
 
-  <!-- Hero2 Widget ******************* -->
-
   <!--hero-->
-  <Hero2
-    tagline="Freelance · Ancien auditeur EC"
-    callToAction={{ text: t('portfolio.bookCall'), href: 'tel:+33623565299', icon: 'tabler:phone' }}
-    image={{
-      src: HeroImage,
-      alt:"Plage de Barbicaja sur la route des Sanguinaires, près d'Ajaccio en Corse",
-    }}
-  >
-    <Fragment slot="title">
-      <span class="text-slate-800 dark:text-gray-200">Création de site internet et référencement à Ajaccio</span><br />
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Sites internet sur-mesure pour TPE et experts-comptables. Je commence par comprendre votre métier, votre histoire, vos valeurs pour les retranscrire au mieux.
-    </Fragment>
-
-    <Fragment slot="content">
-      <div class="flex flex-row lg:flex-col gap-8 lg:gap-10">
-        <div>
-          <p class="text-4xl md:text-5xl font-bold text-amber-700 dark:text-amber-400 leading-none" data-hero-stat="+50">+50</p>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">clients accompagnés</p>
-        </div>
-        <div>
-          <p class="text-4xl md:text-5xl font-bold text-amber-700 dark:text-amber-400 leading-none" data-hero-stat="5">+5</p>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">ans d'expérience</p>
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <p class="text-4xl md:text-5xl font-bold text-amber-700 dark:text-amber-400 leading-none" data-hero-stat="5/5">5/5</p>
-            <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-          </div>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">étoiles sur Google</p>
-        </div>
+  <section class="relative bg-cream pt-16 md:pt-24 pb-12 overflow-hidden" data-hero>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <p class="mb-8" data-hero-tagline><PillBadge text="Freelance · Ancien auditeur EC" /></p>
+      <h1 class="text-charcoal text-[clamp(2.2rem,4.5vw,4.25rem)] leading-[1.05]" data-hero-title>
+        Création de site internet et référencement à Ajaccio
+      </h1>
+      <p class="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed" data-hero-subtitle>
+        Sites internet sur-mesure pour TPE et experts-comptables. Je commence par comprendre votre métier, votre histoire, vos valeurs pour les retranscrire au mieux.
+      </p>
+      <div class="mt-10" data-hero-cta>
+        <a href="tel:+33623565299" class="btn btn-primary">
+          {t('portfolio.bookCall')}
+        </a>
       </div>
-    </Fragment>
-  </Hero2>
+    </div>
+    <div class="mt-16">
+      <ImageStrip
+        images={[
+          { src: HeroImage, alt: "Plage de Barbicaja sur la route des Sanguinaires, près d'Ajaccio en Corse" },
+          { src: CorseParata, alt: "La tour génoise de la Parata face aux îles Sanguinaires, à Ajaccio" },
+          { src: ServiceSeo, alt: 'Texture de lumière à travers le feuillage pour le service SEO' },
+          { src: CorseBonifacio, alt: 'La citadelle de Bonifacio au crépuscule, en Corse-du-Sud' },
+          { src: CorseFalaises, alt: 'Les falaises calcaires de Bonifacio et leur eau turquoise, en Corse' },
+        ]}
+      />
+    </div>
+  </section>
   <HeroAnimations />
+  <MontegrappaFx />
+
+  <!--bande stats-->
+  <section class="bg-cream py-14 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-3 gap-10">
+      <StatBig value="+50" label="clients accompagnés" />
+      <StatBig value="+5" label="ans d'expérience" />
+      <StatBig value="5/5" label="étoiles sur Google" />
+    </div>
+  </section>
 
   <!-- Logo Marquee -->
   <LogoMarquee
@@ -304,90 +314,63 @@ const projects = [
     speed={30}
   />
 
-  <!--services-->
-  
-  <Features2
+  {/* Services - layout Montegrappa : accordéon exclusif, la photo change au clic */}
+  <ServicesShowcase
+    badge="Services"
     title={t('portfolio.services.title')}
     subtitle={t('portfolio.services.subtitle')}
-    columns={3}
     items={[
       {
         title: tList('portfolio.services.servicesItems')[0].title,
         description: tList('portfolio.services.servicesItems')[0].description,
-        servicesItems: tList('portfolio.services.servicesItems')[0].items,
+        subItems: tList('portfolio.services.servicesItems')[0].items,
         price: tList('portfolio.services.servicesItems')[0].price,
-        image: {
-          ...ServiceCreation,
-          alt: locale === 'en' ? 'Abstract water ripple texture for website creation service' : 'Texture abstraite d\'ondulations pour le service de création de site web',
-        },
-        icon: 'tabler:devices',
-        callToAction: {
-          text: "Voir l'offre sur-mesure",
-          href: '/#tarifs',
-          icon: 'tabler:chevron-right',
-        },
-        callToAction2: {
-          text: "Plutôt WordPress ?",
-          href: '/freelance-wordpress-ajaccio/',
-          icon: 'tabler:chevron-right',
-        },
+        image: ServiceCreation,
+        alt: "Texture abstraite d'ondulations, évoquant la création de sites internet",
+        links: [
+          { text: "Voir l'offre sur-mesure", href: '/#tarifs' },
+          { text: 'Plutôt WordPress ?', href: '/freelance-wordpress-ajaccio/' },
+        ],
         ecLink: {
-          text: "Expert-comptable ? Site vitrine dédié EC",
+          text: 'Expert-comptable ? Site vitrine dédié EC',
           href: '/agence-web-expert-comptable/creation-site-vitrine-ec/',
         },
       },
       {
         title: tList('portfolio.services.servicesItems')[1].title,
         description: tList('portfolio.services.servicesItems')[1].description,
-        servicesItems: tList('portfolio.services.servicesItems')[1].items,
+        subItems: tList('portfolio.services.servicesItems')[1].items,
         price: tList('portfolio.services.servicesItems')[1].price,
-        image: {
-          ...ServiceSeo,
-          alt: locale === 'en' ? 'Sunlight through leaves texture for SEO service' : 'Texture de lumière à travers le feuillage pour le service SEO',
-        },
-        icon: 'tabler:tool',
-        callToAction: {
-          text: "Voir l'offre SEO",
-          href: '/agence-seo-ajaccio/',
-          icon: 'tabler:chevron-right',
-        },
+        image: ServiceSeo,
+        alt: 'Texture de lumière à travers le feuillage, évoquant le référencement SEO',
+        links: [{ text: "Voir l'offre SEO", href: '/agence-seo-ajaccio/' }],
         ecLink: {
-          text: "Expert-comptable ? SEO spécialisé cabinet",
+          text: 'Expert-comptable ? SEO spécialisé cabinet',
           href: '/agence-web-expert-comptable/consultant-seo-ec/',
         },
       },
       {
         title: tList('portfolio.services.servicesItems')[2].title,
         description: tList('portfolio.services.servicesItems')[2].description,
-        servicesItems: tList('portfolio.services.servicesItems')[2].items,
+        subItems: tList('portfolio.services.servicesItems')[2].items,
         price: tList('portfolio.services.servicesItems')[2].price,
-        image: {
-          ...ServiceDev,
-          alt: locale === 'en' ? 'Weathered wood grain texture for custom development service' : 'Texture de bois pour le service de développement sur-mesure',
-        },
-        icon: 'tabler:wand',
+        image: ServiceDev,
+        alt: 'Texture de bois, évoquant le développement sur-mesure',
         ecLink: {
-          text: "Expert-comptable ? Développeur spécialisé EC",
+          text: 'Expert-comptable ? Développeur spécialisé EC',
           href: '/agence-web-expert-comptable/developpeur-specialise/',
         },
       },
       {
         title: tList('portfolio.services.servicesItems')[3].title,
         description: tList('portfolio.services.servicesItems')[3].description,
-        servicesItems: tList('portfolio.services.servicesItems')[3].items,
+        subItems: tList('portfolio.services.servicesItems')[3].items,
         price: tList('portfolio.services.servicesItems')[3].price,
-        image: {
-          ...ServiceMaintenance,
-          alt: locale === 'en' ? 'Dark rock and moss texture for maintenance service' : 'Texture de roche et mousse pour le service de maintenance',
-        },
-        icon: 'tabler:tool',
-        callToAction: {
-          text: "Voir les forfaits",
-          href: '/maintenance-site-internet-ajaccio/',
-          icon: 'tabler:chevron-right',
-        },
+        image: ServiceMaintenance,
+        alt: 'Texture de roche et de mousse, évoquant la maintenance de site',
+        links: [{ text: 'Voir les forfaits', href: '/maintenance-site-internet-ajaccio/' }],
         ecLink: {
-          text: "Expert-comptable ? Refonte de votre site cabinet",
+          text: 'Expert-comptable ? Refonte de votre site cabinet',
           href: '/agence-web-expert-comptable/refonte-site-internet/',
         },
       },
@@ -395,205 +378,142 @@ const projects = [
   />
 
   <!-- Bandeau Expert-Comptable (pont vers page dédiée) -->
-  <section class="py-6 bg-emerald-800 dark:bg-emerald-900">
+  <section class="py-6 bg-sage">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3 text-white">
-          <span class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20">
-            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <span class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
             </svg>
           </span>
           <p class="text-center sm:text-left">
             <span class="font-semibold">Vous êtes Expert-Comptable ?</span>
-            <span class="hidden md:inline text-green-100"> - Ancien EC mémorialiste, j'ai des offres dédiées à votre profession.</span>
+            <span class="hidden md:inline text-white/80"> - Ancien EC mémorialiste, j'ai des offres dédiées à votre profession.</span>
           </p>
         </div>
-        <a
-          href="/agence-web-expert-comptable/"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-green-800 font-semibold rounded-full hover:bg-green-50 transition-colors shadow-md whitespace-nowrap"
-        >
+        <a href="/agence-web-expert-comptable/" class="btn btn-cream gap-2 whitespace-nowrap">
           Découvrir mes offres EC
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
+          <ArrowRight class="w-4 h-4" />
         </a>
       </div>
     </div>
   </section>
 
   <!-- Freelance vs agence - version compacte -->
-  <section class="py-16 md:py-20 px-6 lg:px-8 bg-gradient-to-b from-amber-50/50 to-white dark:from-slate-800 dark:to-slate-900">
+  <section class="py-16 md:py-24 px-6 lg:px-8 bg-sand">
     <div class="mx-auto max-w-5xl">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          Agence vs freelance - le vrai débat
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
-          Ma vision : freelance avec <span class="text-emerald-700 dark:text-emerald-400">la fiabilité d'une agence</span>
-        </h2>
-        <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Solo sur l'opérationnel vous parlez à celui qui exécute. Quand un projet demande des compétences qui me manquent, j'active un réseau de freelances seniors. Pas de stagiaire, pas de sous traitance à l'étranger.
-        </p>
-      </div>
+      <SectionHeader
+        kicker="Agence vs freelance - le vrai débat"
+        subtitle="Solo sur l'opérationnel vous parlez à celui qui exécute. Quand un projet demande des compétences qui me manquent, j'active un réseau de freelances seniors. Pas de stagiaire, pas de sous traitance à l'étranger."
+        class="mb-10"
+      >
+        Ma vision : freelance avec <span class="text-sage-dark">la fiabilité d'une agence</span>
+      </SectionHeader>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Agence classique</p>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Vous payez la structure</h3>
-          <ul class="space-y-2.5 text-sm text-gray-600 dark:text-gray-300">
-            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Commercial qui prend soin de vous jusqu'à la signature</li>
-            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Dossier transféré ensuite à un junior</li>
-            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Tarif gonflé pour financer locaux et marges</li>
-            <li class="flex gap-2"><span class="text-red-500 flex-shrink-0">✕</span>Reporting cosmétique pour justifier la facture</li>
-          </ul>
+        <div class="rounded-xl border border-black/10 bg-cream p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-muted mb-3">Agence classique</p>
+          <h3 class="text-lg font-bold text-charcoal mb-4">Vous payez la structure</h3>
+          <CheckList
+            mark="✕"
+            markClass="text-charcoal/40"
+            items={[
+              "Commercial qui prend soin de vous jusqu'à la signature",
+              'Dossier transféré ensuite à un junior',
+              'Tarif gonflé pour financer locaux et marges',
+              'Reporting cosmétique pour justifier la facture',
+            ]}
+          />
         </div>
 
-        <div class="rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Agence solo + collectif</p>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Vous payez l'expertise</h3>
-          <ul class="space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Vous parlez directement à celui qui exécute</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Senior sur la stratégie ET sur l'exécution</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Tarif 30 à 50% sous une agence équivalente</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Reporting clair, chiffres vérifiables côté client</li>
-          </ul>
+        <div class="rounded-xl bg-sage p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-white/80 mb-3">Agence solo + collectif</p>
+          <h3 class="text-lg font-bold text-white mb-4">Vous payez l'expertise</h3>
+          <CheckList
+            markClass="text-white"
+            textClass="text-white"
+            items={[
+              'Vous parlez directement à celui qui exécute',
+              "Senior sur la stratégie ET sur l'exécution",
+              'Tarif 30 à 50% sous une agence équivalente',
+              'Reporting clair, chiffres vérifiables côté client',
+            ]}
+          />
         </div>
       </div>
 
       <div class="mt-10 text-center">
-        <a href="/agence-seo-ajaccio/" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
-          En savoir plus sur l'approche agence solo
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
+        <ArrowLink href="/agence-seo-ajaccio/" text="En savoir plus sur l'approche agence solo" />
       </div>
     </div>
   </section>
 
-  <!-- Section Avis Google -->
-  <section class="py-20 md:py-28 bg-gray-50 dark:bg-slate-800" data-testimonials>
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      {/* Label */}
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-4 flex items-center justify-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-        Témoignages
-      </p>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-3 leading-tight">
-        100% de clients <span class="text-emerald-700 dark:text-emerald-400">satisfaits</span>
-      </h2>
-      <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12">
-        Je ne livre pas tant que vous n'êtes pas satisfait.
-      </p>
-
-      {/* Carousel */}
-      <div class="relative" id="reviews-carousel">
-        <div class="overflow-hidden">
-          <div class="reviews-track flex transition-transform duration-500 ease-in-out">
-            {reviews.map((review, index) => (
-              <div class="review-slide w-full flex-shrink-0 px-4" data-index={index}>
-                <blockquote class="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug tracking-tight text-slate-900 dark:text-white mb-10">
-                  "{review.text}"
-                </blockquote>
-                <div class="flex items-center justify-center gap-3">
-                  <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center text-white font-semibold text-sm">
-                    {review.author.charAt(0)}
-                  </div>
-                  <div class="text-left">
-                    <p class="font-semibold text-slate-900 dark:text-white text-sm">{review.author}</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">{review.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation arrows - centered below */}
-        <div class="flex items-center justify-center gap-3 mt-10">
-          <button
-            type="button"
-            class="review-prev w-10 h-10 rounded-lg bg-emerald-800 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 flex items-center justify-center text-white transition-colors"
-            aria-label="Avis précédent"
+  <!-- Section Avis Google - layout Montegrappa : titre à gauche, flèches à droite, cartes en défilement horizontal -->
+  <section class="py-20 md:py-28 bg-cream overflow-hidden">
+    <CardSlider prevLabel="Avis précédent" nextLabel="Avis suivant">
+      <Fragment slot="header">
+        <div class="max-w-2xl">
+          <SectionHeader
+            align="left"
+            kicker="Témoignages"
+            subtitle="Je ne livre pas tant que vous n'êtes pas satisfait."
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-          </button>
-          <button
-            type="button"
-            class="review-next w-10 h-10 rounded-lg bg-emerald-800 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 flex items-center justify-center text-white transition-colors"
-            aria-label="Avis suivant"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
+            100% de clients <span class="text-sage-dark">satisfaits</span>
+          </SectionHeader>
         </div>
-      </div>
+      </Fragment>
 
-      <p class="mt-10 text-sm text-slate-400 dark:text-slate-500">
+      {reviews.map((review, index) => (
+        <figure
+          class:list={[
+            'snap-start flex-none w-[85%] sm:w-[400px] rounded-xl p-8 flex flex-col justify-between',
+            index % 2 === 1 ? 'bg-sage text-white' : 'bg-white/60 border border-black/10 text-charcoal',
+          ]}
+        >
+          <blockquote>
+            <span class:list={['block text-5xl leading-none mb-4 font-serif', index % 2 === 1 ? 'text-white/60' : 'text-sage']} aria-hidden="true">"</span>
+            <p class:list={['text-base leading-relaxed', index % 2 === 1 ? 'text-white/95' : 'text-default']}>{review.text}</p>
+          </blockquote>
+          <figcaption class="flex items-center gap-3 mt-8">
+            <div class:list={['w-11 h-11 rounded-full flex items-center justify-center font-semibold text-sm', index % 2 === 1 ? 'bg-white/20 text-white' : 'bg-sage text-white']}>
+              {review.author.charAt(0)}
+            </div>
+            <div class="text-left">
+              <p class:list={['font-semibold text-sm', index % 2 === 1 ? 'text-white' : 'text-charcoal']}>{review.author}</p>
+              <p class:list={['text-xs', index % 2 === 1 ? 'text-white/70' : 'text-muted']}>{review.company}</p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </CardSlider>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="mt-8 text-sm text-muted">
         5/5 sur
         <a
           href="https://share.google/xsSWlxgBTnkZFTHgU"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 font-medium inline-flex items-center gap-1"
+          class="text-sage-dark hover:text-charcoal font-medium inline-flex items-center gap-1"
         >
           Google
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          <ArrowRight class="w-3 h-3" />
         </a>
       </p>
     </div>
   </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.getElementById('reviews-carousel');
-      if (!carousel) return;
-
-      const track = carousel.querySelector('.reviews-track') as HTMLElement;
-      const slides = carousel.querySelectorAll('.review-slide');
-      const prevBtn = carousel.querySelector('.review-prev');
-      const nextBtn = carousel.querySelector('.review-next');
-
-      let currentIndex = 0;
-      const totalSlides = slides.length;
-
-      function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      prevBtn?.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-      });
-
-      nextBtn?.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-      });
-
-      // Auto-play
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-      }, 8000);
-
-      updateCarousel();
-    });
-  </script>
-
   <!-- Section Projets - Asymmetric editorial layout -->
-  <section class="py-16 md:py-24 bg-white dark:bg-slate-900" data-projects>
+  <section class="py-16 md:py-24 bg-cream" data-projects>
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <!-- Header editorial -->
       <div class="mb-14">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-heading">
-          <span class="text-slate-900 dark:text-white">Mon portfolio de projets</span><br />
-          <span class="text-emerald-700 dark:text-emerald-400">à Ajaccio, en Corse et sur le continent</span>
+          <span class="text-charcoal">Mon portfolio de projets</span><br />
+          <span class="text-sage-dark">à Ajaccio, en Corse et sur le continent</span>
         </h2>
-        <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-md text-base">
+        <p class="mt-4 text-muted max-w-md text-base">
           Solutions web haute performance aux résultats concrets.
         </p>
       </div>
@@ -602,103 +522,35 @@ const projects = [
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8" data-project-grid>
         {/* Featured slot (3/5) */}
         <div class="lg:col-span-3 lg:self-start" data-featured-slot>
-          {[{ project: projects[0], screen: RestodomScreen }].map(({ project, screen }) => (
-            <article class="group relative bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-xl transition-shadow duration-300" data-project-card data-flip-id={`project-${project.client}`}>
-              <div class="browser-frame bg-gray-100 dark:bg-slate-700 px-4 py-2.5 flex items-center gap-2 border-b border-gray-200 dark:border-slate-600">
-                <div class="flex gap-1.5">
-                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
-                </div>
-                <div class="browser-url flex-1 bg-white dark:bg-slate-600 rounded-md px-3 py-1 text-xs text-gray-400 dark:text-slate-400 truncate ml-2">
-                  {project.url.replace('https://', '')}
-                </div>
-              </div>
-              <div class="screenshot-wrap h-64 md:h-80 overflow-hidden">
-                <Image src={screen} alt={`Screenshot du site ${project.client}`} class="w-full h-full object-cover object-top" loading="lazy" />
-              </div>
-              <div class="card-body p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="featured-badge text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 rounded-full">Featured</span>
-                  {project.tech.map((t) => (
-                    <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-md">{t}</span>
-                  ))}
-                </div>
-                <h3 class="card-title text-xl font-bold text-slate-900 dark:text-white mb-1">{project.client}</h3>
-                <p class="card-sector text-sm text-slate-500 dark:text-slate-400 mb-2">Secteur : {project.sector}</p>
-                <p class="card-offer text-sm text-slate-600 dark:text-slate-300 mb-4">{project.offer}</p>
-                <p class="card-metric text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400 leading-tight mb-4" data-project-metric>{project.result}</p>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline">
-                  Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-              </div>
-            </article>
-          ))}
+          <ProjectCard project={projects[0]} screen={RestodomScreen} variant="featured" />
         </div>
 
         {/* Stack slot (2/5) */}
         <div class="lg:col-span-2 flex flex-col gap-6" data-stack-slot>
-          {[{ project: projects[1], screen: OdacioScreen }, { project: projects[2], screen: EkiaScreen }].map(({ project, screen }) => (
-            <article class="group cursor-pointer bg-gray-50 dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-xl transition-shadow duration-300" data-project-card data-flip-id={`project-${project.client}`}>
-              <div class="browser-frame hidden bg-gray-100 dark:bg-slate-700 px-4 py-2.5 flex items-center gap-2 border-b border-gray-200 dark:border-slate-600">
-                <div class="flex gap-1.5">
-                  <span class="w-3 h-3 rounded-full bg-red-400"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                  <span class="w-3 h-3 rounded-full bg-green-400"></span>
-                </div>
-                <div class="browser-url flex-1 bg-white dark:bg-slate-600 rounded-md px-3 py-1 text-xs text-gray-400 dark:text-slate-400 truncate ml-2">
-                  {project.url.replace('https://', '')}
-                </div>
-              </div>
-              <div class="screenshot-wrap h-40 md:h-48 overflow-hidden relative">
-                <Image src={screen} alt={`Screenshot du site ${project.client}`} class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                {/* Expand hint - desktop only */}
-                <div class="expand-hint hidden lg:flex absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 items-center justify-center">
-                  <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
-                    Voir en détail
-                  </span>
-                </div>
-              </div>
-              <div class="card-body p-5">
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="featured-badge hidden text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 rounded-full">Featured</span>
-                  {project.tech.map((t) => (
-                    <span class="text-xs px-2 py-1 bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-md">{t}</span>
-                  ))}
-                </div>
-                <h3 class="card-title text-lg font-bold text-slate-900 dark:text-white">{project.client}</h3>
-                <p class="card-sector text-xs text-slate-500 dark:text-slate-400 mb-2">{project.sector}</p>
-                <p class="card-offer hidden text-sm text-slate-600 dark:text-slate-300 mb-4">{project.offer}</p>
-                <p class="card-metric text-xl md:text-2xl font-bold text-green-700 dark:text-green-400 leading-tight mb-2" data-project-metric>{project.result}</p>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-green-700 dark:text-green-400 font-medium hover:underline">
-                  Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-              </div>
-            </article>
-          ))}
+          <ProjectCard project={projects[1]} screen={OdacioScreen} />
+          <ProjectCard project={projects[2]} screen={EkiaScreen} />
         </div>
       </div>
 
       {/* Autres réalisations - minimal list */}
-      <div class="border-t border-gray-200 dark:border-slate-700 pt-8 mb-10">
-        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-slate-500 mb-6">Autres réalisations</p>
+      <div class="border-t border-black/10 pt-8 mb-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-muted mb-6">Autres réalisations</p>
         <div class="space-y-4">
           {projects.slice(3).map((project) => (
-            <div class="flex items-center justify-between py-3 border-b border-gray-100 dark:border-slate-800 group" data-project-row>
+            <div class="flex items-center justify-between py-3 border-b border-black/5 group" data-project-row>
               <div class="flex items-center gap-6">
-                <h4 class="font-bold text-slate-900 dark:text-white min-w-[120px]">{project.client}</h4>
-                <span class="text-sm text-slate-500 dark:text-slate-400 hidden md:inline">{project.sector}</span>
-                <span class="text-sm font-semibold text-green-700 dark:text-green-400">{project.result}</span>
+                <h4 class="font-bold text-charcoal min-w-[120px]">{project.client}</h4>
+                <span class="text-sm text-muted hidden md:inline">{project.sector}</span>
+                <span class="text-sm font-semibold text-sage-dark">{project.result}</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="hidden md:flex gap-1.5">
                   {project.tech.map((t) => (
-                    <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400 rounded-md">{t}</span>
+                    <span class="text-xs px-2 py-1 bg-sand text-muted rounded-md">{t}</span>
                   ))}
                 </div>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-gray-200 dark:border-slate-600 flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:border-emerald-300 transition-colors">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <a href={project.url} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-muted hover:text-sage-dark hover:border-sage transition-colors">
+                  <ArrowRight class="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
@@ -708,15 +560,9 @@ const projects = [
 
       {/* CTA */}
       <div class="text-center">
-        <a
-          href="tel:+33623565299"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          data-magnetic
-        >
+        <a href="tel:+33623565299" class="btn btn-primary gap-2" data-magnetic>
           Discutons de votre projet
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
+          <ArrowRight class="w-5 h-5" />
         </a>
       </div>
     </div>
@@ -724,33 +570,30 @@ const projects = [
   <ProjectsFlip />
 
   {/* Processus - 4 étapes. Porté depuis /creation-site-internet-ajaccio/.
-      4 des 6 concurrents qui rankent sur « création site internet Ajaccio » en affichent un. */}
-  <section class="py-16 md:py-20 px-6 lg:px-8 bg-white dark:bg-slate-900">
-    <div class="mx-auto max-w-5xl">
-      <div class="text-center mb-12">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          Comment ça se passe
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
-          De l'idée au site en ligne, en <span class="text-emerald-700 dark:text-emerald-400">4 étapes</span>
-        </h2>
-        <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Comptez 4 à 6 semaines entre notre premier appel et la mise en ligne. Vous suivez l'avancement en direct, sur une version en ligne, dès les premières semaines.
-        </p>
-      </div>
+      4 des 6 concurrents qui rankent sur « création site internet Ajaccio » en affichent un.
+      Traitement « gros chiffres fins » : 4 colonnes hairline, tout visible sans clic. */}
+  <section class="py-16 md:py-24 px-6 lg:px-8 bg-cream">
+    <div class="mx-auto max-w-6xl">
+      <SectionHeader
+        kicker="Comment ça se passe"
+        kickerVariant="pill"
+        subtitle="Comptez 4 à 6 semaines entre notre premier appel et la mise en ligne. Vous suivez l'avancement en direct, sur une version en ligne, dès les premières semaines."
+        class="mb-14"
+      >
+        De l'idée au site en ligne, en <span class="text-sage-dark">4 étapes</span>
+      </SectionHeader>
 
-      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
         {[
           { n: '01', t: 'On se rencontre, on cadre', d: "Un appel pour comprendre votre métier, vos clients et ce que le site doit vous rapporter." },
           { n: '02', t: 'Vous voyez à quoi ça ressemble', d: 'Une maquette validée avant que la moindre ligne ne soit écrite. Allers-retours illimités.' },
           { n: '03', t: 'Le site prend vie', d: 'Vous suivez la construction sur une adresse en ligne, et vous commentez au fur et à mesure.' },
           { n: '04', t: 'Mise en ligne et formation', d: "Une heure en visio, des tutos vidéo, et vous repartez autonome sur vos contenus." },
         ].map((step) => (
-          <li class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
-            <span class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{step.n}</span>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white mt-3 mb-2">{step.t}</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{step.d}</p>
+          <li class="border-t border-black/10 pt-6" data-fade-up>
+            <p class="text-5xl md:text-6xl font-light text-sage-dark leading-none tracking-tight" aria-hidden="true">{step.n}</p>
+            <h3 class="text-lg text-charcoal font-semibold mt-4 mb-2">{step.t}</h3>
+            <p class="text-sm text-muted leading-relaxed">{step.d}</p>
           </li>
         ))}
       </ol>
@@ -758,78 +601,60 @@ const projects = [
   </section>
 
   {/* Tarifs. Un seul des 6 concurrents affiche ses prix, et aucun n'annonce de délai. */}
-  <section id="tarifs" class="py-16 md:py-20 px-6 lg:px-8 bg-gradient-to-b from-amber-50/50 to-white dark:from-slate-800 dark:to-slate-900 scroll-mt-20">
+  <section id="tarifs" class="py-16 md:py-24 px-6 lg:px-8 bg-sand scroll-mt-20">
     <div class="mx-auto max-w-5xl">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          Combien ça coûte
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
-          Un tarif clair, <span class="text-emerald-700 dark:text-emerald-400">pas de surprise</span>
-        </h2>
-        <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Presque aucune agence n'affiche ses prix. Voici les miens, et le devis précis arrive sous 48 heures.
-        </p>
-      </div>
+      <SectionHeader
+        kicker="Combien ça coûte"
+        subtitle="Presque aucune agence n'affiche ses prix. Voici les miens, et le devis précis arrive sous 48 heures."
+        class="mb-10"
+      >
+        Un tarif clair, <span class="text-sage-dark">pas de surprise</span>
+      </SectionHeader>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-3">Site vitrine sur-mesure</p>
-          <p class="text-4xl font-bold text-gray-900 dark:text-white">À partir de 2 000 €<span class="text-base font-medium text-gray-500 dark:text-gray-400"> HT</span></p>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Un site one-page démarre à 1 200 € HT. Livré en 4 à 6 semaines.</p>
-          <ul class="mt-5 space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Design sur-mesure, lisible sur mobile comme sur ordinateur</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Vous modifiez textes et photos en autonomie</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Nom de domaine, hébergement et certificat de sécurité</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Formation d'une heure et tutos vidéo</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Le site vous appartient, sans abonnement</li>
-          </ul>
+        <div class="rounded-xl border border-sage bg-cream p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-sage-dark mb-3">Site vitrine sur-mesure</p>
+          <p class="text-4xl md:text-5xl font-light text-charcoal">À partir de 2 000 €<span class="text-base font-medium text-muted"> HT</span></p>
+          <p class="text-sm text-muted mt-2">Un site one-page démarre à 1 200 € HT. Livré en 4 à 6 semaines.</p>
+          <CheckList
+            class="mt-5"
+            items={[
+              'Design sur-mesure, lisible sur mobile comme sur ordinateur',
+              'Vous modifiez textes et photos en autonomie',
+              'Nom de domaine, hébergement et certificat de sécurité',
+              "Formation d'une heure et tutos vidéo",
+              'Le site vous appartient, sans abonnement',
+            ]}
+          />
         </div>
 
-        <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Une fois en ligne</p>
-          <p class="text-4xl font-bold text-gray-900 dark:text-white">30 €<span class="text-base font-medium text-gray-500 dark:text-gray-400">/mois HT</span></p>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Ou 60 €/h HT en intervention ponctuelle, sans engagement.</p>
-          <ul class="mt-5 space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Mises à jour, surveillance, sauvegardes</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Petites évolutions incluses</li>
-            <li class="flex gap-2"><span class="text-emerald-600 flex-shrink-0">✓</span>Accompagnement SEO mensuel à partir de 490 €</li>
-          </ul>
-          <a href="/maintenance-site-internet-ajaccio/" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:gap-3 transition-all">
-            Le détail de la maintenance
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
+        <div class="rounded-xl border border-black/10 bg-cream p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-muted mb-3">Une fois en ligne</p>
+          <p class="text-4xl md:text-5xl font-light text-charcoal">30 €<span class="text-base font-medium text-muted">/mois HT</span></p>
+          <p class="text-sm text-muted mt-2">Ou 60 €/h HT en intervention ponctuelle, sans engagement.</p>
+          <CheckList
+            class="mt-5"
+            items={[
+              'Mises à jour, surveillance, sauvegardes',
+              'Petites évolutions incluses',
+              'Accompagnement SEO mensuel à partir de 490 €',
+            ]}
+          />
+          <ArrowLink href="/maintenance-site-internet-ajaccio/" text="Le détail de la maintenance" class="mt-6" />
         </div>
       </div>
     </div>
   </section>
 
   {/* FAQ. Aucun des 6 concurrents n'en a une. */}
-  <section id="faq" class="py-16 md:py-20 px-6 lg:px-8 bg-white dark:bg-slate-900 scroll-mt-20">
-    <div class="mx-auto max-w-3xl">
-      <div class="text-center mb-10">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3 flex items-center justify-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          FAQ
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
-          Les questions qu'on me pose souvent
-        </h2>
-      </div>
-
-      <div class="space-y-4">
-        {HOME_FAQ.map((item) => (
-          <details class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6">
-            <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white marker:content-none">
-              {item.q}
-              <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
-            </summary>
-            <p class="mt-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.a}</p>
-          </details>
-        ))}
-      </div>
+  <section id="faq" class="py-16 md:py-24 px-6 lg:px-8 bg-cream scroll-mt-20">
+    <div class="mx-auto max-w-3xl mb-12">
+      <SectionHeader kicker="FAQ" kickerVariant="pill">
+        Les questions qu'on me pose souvent
+      </SectionHeader>
     </div>
+
+    <FaqItems items={HOME_FAQ} class="mx-auto max-w-6xl" />
   </section>
 
   <BlogLatestPosts
@@ -840,8 +665,9 @@ const projects = [
   />
   
   {/* Section Google Maps - Localisation de l'agence */}
-  <section class="relative overflow-hidden">
-    <div class="relative h-[400px]">
+  <section class="bg-sand py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="relative h-[400px] rounded-xl overflow-hidden">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.5194609277883!2d8.7388048!3d41.9246879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da6965be4a139f%3A0x158dd64f8063e107!2sDavid%20Barbier%20%7C%20Consultant%20SEO%20et%20site%20internet!5e0!3m2!1sfr!2sfr!4v1772440776047!5m2!1sfr!2sfr"
         width="100%"
@@ -853,19 +679,40 @@ const projects = [
         title="David Barbier | Création de site internet et SEO à Ajaccio"
       ></iframe>
     </div>
+    </div>
   </section>
-  {/* CTA */}
-  <section class="py-16 md:py-20 bg-gradient-to-b from-emerald-700 to-emerald-900 text-white text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">Prêt à démarrer ?</h2>
-    <p class="text-lg max-w-xl mx-auto mb-10">Contactez-moi pour une consultation gratuite.</p>
-    <a
-      href="mailto:hello@davidbarbier.com"
-      class="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-700 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-    >
-      Envoyer un email
-    </a>
-    <p class="mt-8 text-sm text-emerald-100/80">
-      Basé à Ajaccio, j'accompagne aussi des clients à <a href="/limoges/" class="underline underline-offset-2 hover:text-white transition-colors">Limoges</a> et partout en France.
-    </p>
+  {/* CTA final plein écran, façon section contact Montegrappa */}
+  <section class="relative min-h-[80vh] flex flex-col justify-between overflow-hidden">
+    <Image src={CorseGolfePorto} alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" widths={[800, 1600]} sizes="100vw" />
+    <div class="absolute inset-0 bg-charcoal/50" aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 w-full">
+      <h2 class="text-white text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[1.05] max-w-3xl">Prêt à démarrer ?</h2>
+      <p class="mt-4 text-lg text-white/85 max-w-xl">Contactez-moi pour une consultation gratuite.</p>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-20 pt-16 w-full grid md:grid-cols-2 gap-10 items-end">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-white">
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-2">Téléphone</p>
+          <a href="tel:+33623565299" class="text-lg hover:underline">06 23 56 52 99</a>
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-2">Adresse</p>
+          <p class="text-lg">13 Bd Sampiero<br />20000 Ajaccio</p>
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-2">Email</p>
+          <a href="mailto:hello@davidbarbier.com" class="text-lg hover:underline break-all">hello@davidbarbier.com</a>
+        </div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 text-white max-w-md md:justify-self-end">
+        <p class="text-2xl mb-6">Discutons de votre projet</p>
+        <a href="mailto:hello@davidbarbier.com" class="btn btn-cream">
+          Envoyer un email
+        </a>
+        <p class="mt-6 text-sm text-white/70">
+          Basé à Ajaccio, j'accompagne aussi des clients à <a href="/limoges/" class="underline underline-offset-2 hover:text-white transition-colors">Limoges</a> et partout en France.
+        </p>
+      </div>
+    </div>
   </section>
 </Layout>

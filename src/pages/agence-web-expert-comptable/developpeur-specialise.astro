@@ -3,6 +3,12 @@ import Layout from '../../layouts/PageLayout.astro';
 import Image from '../../components/common/Image.astro';
 import HeroImage from '../../assets/images/DSCF7551-3.jpg';
 import { professionalServiceEcNode, PROFESSIONAL_SERVICE_EC_ID } from '~/utils/business-schema';
+import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import StatBig from '~/components/ui/StatBig.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import ArrowLink from '~/components/ui/ArrowLink.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
 
 const metadata = {
   title: "Développeur web spécialisé expert-comptable | David Barbier",
@@ -62,6 +68,73 @@ const breadcrumbStructuredData = {
     }
   ]
 };
+
+// Cartes de la section « La double casquette »
+const CASQUETTE_CARDS = [
+  {
+    title: 'Vocabulaire commun',
+    desc: 'Obligations, saisonnalité, outils métier (Pennylane, Cegid, Dext...) - pas besoin de tout réexpliquer.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+  },
+  {
+    title: 'Cadrage plus court',
+    desc: 'Moins de réunions pour se comprendre, plus de temps passé sur la solution.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'Déontologie intégrée',
+    desc: 'Les contraintes de communication et de démarchage de la profession sont prises en compte dès la conception.',
+    icon: 'M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3',
+  },
+  {
+    title: 'Pensé pour le cabinet',
+    desc: "L'objectif c'est la valeur ajoutée pour votre cabinet et vos clients, pas la prouesse technique.",
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+];
+
+// Cartes de compétences (hors carte mise en avant « Simulateurs »)
+const SKILL_CARDS = [
+  {
+    title: 'Onboarding client',
+    desc: 'Formulaires multi-étapes pour collecter les pièces et informations de vos nouveaux clients de manière fluide et structurée.',
+    icon: 'M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z',
+  },
+  {
+    title: 'Qualification prospects',
+    desc: 'Formulaires intelligents qui qualifient automatiquement vos prospects : type de structure, CA, besoins spécifiques.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
+  },
+  {
+    title: 'Modules IA',
+    desc: "Chatbot de pré-qualification, génération de contenus assistée pour votre blog, automatisation de tâches. L'IA quand elle a du sens.",
+    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+  },
+  {
+    title: 'Intégrations métier',
+    desc: 'Lien vers Pennylane, Cegid, Dext, ou tout autre outil utilisé par vos clients. Espace client dédié avec accès direct.',
+    icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+  },
+];
+
+// Arguments de la section contact
+const CONTACT_POINTS = [
+  {
+    title: 'Échange gratuit et sans engagement',
+    desc: 'On discute de votre idée, je vous dis ce qui est possible.',
+    icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
+  },
+  {
+    title: 'Réponse sous 48h',
+    desc: 'Avec une première estimation de faisabilité et de budget.',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: 'Ancien EC, je parle votre langage',
+    desc: "Pas besoin de m'expliquer ce qu'est un FEC ou une liasse fiscale.",
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -70,264 +143,78 @@ const breadcrumbStructuredData = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
   </Fragment>
 
-  <style>
-    .font-editorial { font-family: var(--aw-font-heading), system-ui, sans-serif; }
-    .font-body { font-family: var(--aw-font-sans), system-ui, sans-serif; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
-    .animate-scale { animation: scaleIn 0.6s ease-out forwards; }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-
-    .delay-100 { animation-delay: 0.1s; opacity: 0; }
-    .delay-200 { animation-delay: 0.2s; opacity: 0; }
-    .delay-300 { animation-delay: 0.3s; opacity: 0; }
-    .delay-400 { animation-delay: 0.4s; opacity: 0; }
-    .delay-500 { animation-delay: 0.5s; opacity: 0; }
-
-    .btn-shimmer {
-      background: linear-gradient(90deg,
-        var(--btn-bg) 0%,
-        var(--btn-shimmer) 50%,
-        var(--btn-bg) 100%);
-      background-size: 200% 100%;
-      --btn-bg: rgb(21, 128, 61);
-      --btn-shimmer: rgb(34, 197, 94);
-    }
-
-    .btn-shimmer:hover {
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-
-    .decorative-line {
-      position: relative;
-    }
-
-    .decorative-line::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #15803d, #22c55e, #86efac);
-      border-radius: 2px;
-    }
-
-    .card-subtle {
-      transition: all 0.3s ease;
-    }
-
-    .card-subtle:hover {
-      border-color: rgba(21, 128, 61, 0.3);
-    }
-
-    .dark .card-subtle:hover {
-      border-color: rgba(34, 197, 94, 0.3);
-    }
-
-    .styled-number {
-      font-family: var(--aw-font-heading), system-ui, sans-serif;
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1;
-      background: linear-gradient(135deg, #166534 0%, #15803d 50%, #22c55e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hover-underline {
-      position: relative;
-    }
-
-    .hover-underline::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background: linear-gradient(90deg, #15803d, #22c55e);
-      transition: width 0.3s ease;
-    }
-
-    .hover-underline:hover::after {
-      width: 100%;
-    }
-
-    .texture-bg {
-      background-image:
-        radial-gradient(circle at 25% 25%, rgba(21, 128, 61, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(180, 83, 9, 0.03) 0%, transparent 50%);
-    }
-
-    .badge-premium {
-      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-      border: 1px solid #22c55e;
-      color: #166534;
-    }
-
-    .dark .badge-premium {
-      background: linear-gradient(135deg, #14532d 0%, #166534 100%);
-      border-color: #22c55e;
-      color: #86efac;
-    }
-
-    .quote-mark {
-      font-family: Georgia, serif;
-      font-size: 6rem;
-      line-height: 0;
-      color: rgba(21, 128, 61, 0.15);
-      position: absolute;
-      top: 0;
-      left: -10px;
-    }
-
-    .dark .quote-mark {
-      color: rgba(34, 197, 94, 0.15);
-    }
-
-    .glow-on-hover {
-      transition: all 0.3s ease;
-    }
-
-    .glow-on-hover:hover {
-      box-shadow: 0 0 30px rgba(21, 128, 61, 0.3);
-    }
-
-    .stat-value {
-      font-family: var(--aw-font-heading), system-ui, sans-serif;
-      background: linear-gradient(135deg, #166534 0%, #22c55e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  </style>
-
-  <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center overflow-hidden texture-bg">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-green-100/50 to-emerald-100/30 dark:from-green-900/20 dark:to-emerald-900/10 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-gradient-to-tr from-teal-100/40 to-green-100/20 dark:from-teal-900/10 dark:to-green-900/5 rounded-full blur-3xl" style="animation: float 8s ease-in-out infinite reverse;"></div>
-    </div>
-
-    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+  <!-- Hero -->
+  <section class="relative bg-cream overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       <!-- Fil d'Ariane -->
-      <nav aria-label="Fil d'Ariane" class="mb-8 text-sm font-body animate-fade-up">
-        <ol class="flex items-center gap-2 text-gray-500 dark:text-gray-400 flex-wrap">
-          <li><a href="/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Accueil</a></li>
+      <nav aria-label="Fil d'Ariane" class="mb-8 text-sm" data-fade-up>
+        <ol class="flex items-center gap-2 text-muted flex-wrap">
+          <li><a href="/" class="hover:text-sage-dark transition-colors">Accueil</a></li>
           <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li><a href="/agence-web-expert-comptable/" class="hover:text-green-700 dark:hover:text-green-400 transition-colors">Agence Web EC</a></li>
+          <li><a href="/agence-web-expert-comptable/" class="hover:text-sage-dark transition-colors">Agence Web EC</a></li>
           <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
-          <li class="text-gray-900 dark:text-white font-medium">Développeur spécialisé</li>
+          <li class="text-charcoal font-medium">Développeur spécialisé</li>
         </ol>
       </nav>
 
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
+        <!-- Colonne texte -->
         <div class="order-2 lg:order-1">
-          <div class="animate-fade-up delay-100">
-            <span class="badge-premium inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium font-body">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Ancien EC mémorialiste & développeur
-            </span>
-          </div>
+          <p data-fade-up><PillBadge text="Ancien EC mémorialiste & développeur" /></p>
 
-          <h1 class="mt-8 animate-fade-up delay-200">
-            <span class="block font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight">
+          <h1 class="mt-8" data-fade-up>
+            <span class="block text-charcoal text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.05] tracking-tight">
               Développeur web
             </span>
-            <span class="block font-editorial text-3xl sm:text-4xl lg:text-5xl font-medium text-emerald-700 dark:text-emerald-400 mt-2">
+            <span class="block text-sage-dark text-[clamp(2.2rem,4vw,3.75rem)] leading-[1.05] mt-2">
               spécialisé expert-comptable
             </span>
           </h1>
 
-          <p class="mt-8 font-body text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-up delay-300">
-            Ancien EC mémorialiste, je suis <strong class="text-gray-900 dark:text-white">à l'écoute de toute idée de développement</strong> pour servir la profession comptable. Prestataire ou partenaire, j'ai à cœur de créer des solutions utiles et efficaces qui améliorent le quotidien des experts-comptables.
+          <p class="mt-8 text-lg sm:text-xl text-muted leading-relaxed" data-fade-up>
+            Ancien EC mémorialiste, je suis <strong class="text-charcoal font-medium">à l'écoute de toute idée de développement</strong> pour servir la profession comptable. Prestataire ou partenaire, j'ai à cœur de créer des solutions utiles et efficaces qui améliorent le quotidien des experts-comptables.
           </p>
 
-          <div class="mt-10 flex flex-wrap gap-8 animate-fade-up delay-400">
-            <div class="text-center">
-              <div class="stat-value text-4xl font-bold">EC</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Mémorialiste</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-value text-4xl font-bold">5+</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Ans en cabinet</div>
-            </div>
-            <div class="text-center">
-              <div class="stat-value text-4xl font-bold">Dev</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400 mt-1">Full-stack</div>
-            </div>
+          <!-- Stats rapides -->
+          <div class="mt-10 grid grid-cols-3 gap-6">
+            <StatBig value="EC" label="Mémorialiste" size="md" />
+            <StatBig value="5+" label="Ans en cabinet" size="md" />
+            <StatBig value="Dev" label="Full-stack" size="md" />
           </div>
 
-          <div class="mt-10 flex flex-wrap items-center gap-4 animate-fade-up delay-500">
-            <a
-              href="tel:+33623565299"
-              class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 glow-on-hover"
-            >
+          <!-- CTA -->
+          <div class="mt-10 flex flex-wrap items-center gap-6" data-fade-up>
+            <a href="tel:+33623565299" class="btn btn-primary gap-2">
               Discuter de votre projet
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              <ArrowRight class="w-5 h-5" />
             </a>
-            <a href="#realisations" class="group inline-flex items-center gap-2 px-6 py-4 font-body font-medium text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors">
-              Voir ce que je sais faire
-              <svg class="w-4 h-4 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </a>
+            <ArrowLink href="#realisations" text="Voir ce que je sais faire" />
           </div>
         </div>
 
-        <div class="order-1 lg:order-2 w-full animate-scale delay-200">
-          <div class="relative w-full">
-            <div class="absolute -inset-4 bg-gradient-to-br from-green-200/50 via-transparent to-emerald-200/50 dark:from-green-800/30 dark:to-emerald-800/30 rounded-3xl transform rotate-3"></div>
-            <div class="absolute -inset-4 bg-gradient-to-tr from-teal-200/30 via-transparent to-green-200/30 dark:from-teal-800/20 dark:to-green-800/20 rounded-3xl transform -rotate-2"></div>
+        <!-- Colonne image -->
+        <div class="order-1 lg:order-2 w-full" data-fade-up>
+          <div class="relative rounded-xl overflow-hidden">
+            <Image
+              src={HeroImage}
+              alt="David Barbier - Développeur spécialisé expert-comptable"
+              class="w-full aspect-[4/5] object-cover"
+              width={1024}
+              height={1280}
+            />
 
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl w-full">
-              <Image
-                src={HeroImage}
-                alt="David Barbier - Développeur spécialisé expert-comptable"
-                class="w-full aspect-[4/5] object-cover grayscale"
-                width={1024}
-                height={1280}
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
-
-              <div class="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <div class="flex items-center gap-4">
-                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-editorial font-semibold text-gray-900 dark:text-white">Outils sur mesure</div>
-                    <div class="font-body text-sm text-gray-500 dark:text-gray-400">Par un ancien expert-comptable</div>
-                  </div>
+            <!-- Carte flottante -->
+            <div class="absolute bottom-6 left-6 right-6 bg-cream/95 backdrop-blur-sm rounded-xl p-4">
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-sage rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-medium text-charcoal">Outils sur mesure</div>
+                  <div class="text-sm text-muted">Par un ancien expert-comptable</div>
                 </div>
               </div>
             </div>
@@ -335,75 +222,44 @@ const breadcrumbStructuredData = {
         </div>
       </div>
     </div>
-
   </section>
 
   <!-- Section 01 : La double casquette -->
-  <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
 
+        <!-- Colonne gauche - Numéro et titre -->
         <div class="lg:col-span-4">
           <div class="lg:sticky lg:top-32">
-            <span class="styled-number">01</span>
-            <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">La double casquette</p>
-            <h2 class="font-editorial text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+            <SectionHeader number="01" kicker="La double casquette" align="left">
               Pourquoi un développeur qui connaît votre métier ?
-            </h2>
+            </SectionHeader>
           </div>
         </div>
 
+        <!-- Colonne droite - Contenu -->
         <div class="lg:col-span-8">
-          <div class="prose prose-lg dark:prose-invert max-w-none font-body">
-            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Quand un développeur classique construit un outil pour un cabinet comptable, il part de zéro sur le métier. Le FEC, la période fiscale, le DAF externalisé - tout ça doit lui être expliqué. C'est du temps et des allers-retours en plus.
-            </p>
+          <p class="text-xl text-muted leading-relaxed">
+            Quand un développeur classique construit un outil pour un cabinet comptable, il part de zéro sur le métier. Le FEC, la période fiscale, le DAF externalisé - tout ça doit lui être expliqué. C'est du temps et des allers-retours en plus.
+          </p>
 
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-6">
-              Un parcours en cabinet d'expertise comptable et en audit financier avant le développement web, ça change la donne : les échanges sont plus fluides, le cadrage plus court, et le résultat plus juste dès les premières itérations.
-            </p>
-          </div>
+          <p class="text-muted leading-relaxed mt-6">
+            Un parcours en cabinet d'expertise comptable et en audit financier avant le développement web, ça change la donne : les échanges sont plus fluides, le cadrage plus court, et le résultat plus juste dès les premières itérations.
+          </p>
 
           <div class="grid sm:grid-cols-2 gap-6 mt-12">
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                </svg>
+            {CASQUETTE_CARDS.map((card) => (
+              <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+                <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                  </svg>
+                </div>
+                <h3 class="text-lg text-charcoal">{card.title}</h3>
+                <p class="text-sm text-muted mt-2">{card.desc}</p>
               </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Vocabulaire commun</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Obligations, saisonnalité, outils métier (Pennylane, Cegid, Dext...) - pas besoin de tout réexpliquer.</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Cadrage plus court</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Moins de réunions pour se comprendre, plus de temps passé sur la solution.</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Déontologie intégrée</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Les contraintes de communication et de démarchage de la profession sont prises en compte dès la conception.</p>
-            </div>
-
-            <div class="card-subtle bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700">
-              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-400 mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Pensé pour le cabinet</h3>
-              <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">L'objectif c'est la valeur ajoutée pour votre cabinet et vos clients, pas la prouesse technique.</p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -411,150 +267,83 @@ const breadcrumbStructuredData = {
   </section>
 
   <!-- Section 02 : Ce que je sais faire -->
-  <section id="realisations" class="py-24 lg:py-32 scroll-mt-32 texture-bg">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section id="realisations" class="py-16 md:py-24 scroll-mt-32 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
 
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="styled-number">02</span>
-        <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">Compétences</p>
-        <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3">
-          Ce que je peux développer pour votre cabinet
-        </h2>
-        <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-          Des exemples concrets, mais cette liste n'est pas figée. Chaque cabinet a ses propres besoins - parlons des vôtres.
-        </p>
-      </div>
+      <SectionHeader
+        number="02"
+        kicker="Compétences"
+        subtitle="Des exemples concrets, mais cette liste n'est pas figée. Chaque cabinet a ses propres besoins - parlons des vôtres."
+        class="max-w-3xl mx-auto mb-16"
+      >
+        Ce que je peux développer pour votre cabinet
+      </SectionHeader>
 
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Card 1: Simulateurs - Featured -->
-        <div class="lg:col-span-2 group relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 lg:p-10 overflow-hidden">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.15),transparent_50%)]"></div>
-          <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
-          <div class="relative">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/25 mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+        <!-- Carte mise en avant : Simulateurs -->
+        <div class="lg:col-span-2 bg-sage text-white rounded-xl p-8 lg:p-10" data-fade-up>
+          <div class="w-14 h-14 rounded-xl bg-white/20 text-white flex items-center justify-center mb-6">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl lg:text-3xl text-white mb-4">Simulateurs & calculateurs</h3>
+          <p class="text-white/90 text-lg leading-relaxed max-w-xl">
+            Simulateurs de charges sociales, de TVA, d'impôt sur les sociétés, de coût salarial... Des outils interactifs qui attirent du trafic qualifié sur votre site et démontrent votre expertise.
+          </p>
+        </div>
+
+        {SKILL_CARDS.map((card) => (
+          <div class="rounded-xl border border-black/10 bg-white/60 p-8" data-fade-up>
+            <div class="w-12 h-12 rounded-xl bg-sage/15 text-sage-dark flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
               </svg>
             </div>
-            <h3 class="font-editorial text-2xl lg:text-3xl font-bold text-white mb-4">Simulateurs & calculateurs</h3>
-            <p class="font-body text-gray-300 text-lg leading-relaxed max-w-xl">
-              Simulateurs de charges sociales, de TVA, d'impôt sur les sociétés, de coût salarial... Des outils interactifs qui attirent du trafic qualifié sur votre site et démontrent votre expertise.
-            </p>
+            <h3 class="text-xl text-charcoal mb-3">{card.title}</h3>
+            <p class="text-muted leading-relaxed">{card.desc}</p>
           </div>
-        </div>
-
-        <!-- Card 2: Onboarding client -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Onboarding client</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Formulaires multi-étapes pour collecter les pièces et informations de vos nouveaux clients de manière fluide et structurée.
-          </p>
-        </div>
-
-        <!-- Card 3: Qualification prospects -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Qualification prospects</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Formulaires intelligents qui qualifient automatiquement vos prospects : type de structure, CA, besoins spécifiques.
-          </p>
-        </div>
-
-        <!-- Card 4: Modules IA -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Modules IA</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Chatbot de pré-qualification, génération de contenus assistée pour votre blog, automatisation de tâches. L'IA quand elle a du sens.
-          </p>
-        </div>
-
-        <!-- Card 5: Intégrations métier -->
-        <div class="group bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/5">
-          <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-            </svg>
-          </div>
-          <h3 class="font-editorial text-xl font-semibold text-gray-900 dark:text-white mb-3">Intégrations métier</h3>
-          <p class="font-body text-gray-600 dark:text-gray-400 leading-relaxed">
-            Lien vers Pennylane, Cegid, Dext, ou tout autre outil utilisé par vos clients. Espace client dédié avec accès direct.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Section CTA Final -->
-  <section id="formulaire" class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900 mb-16 scroll-mt-20">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <section id="formulaire" class="py-16 md:py-24 bg-sand mb-16 scroll-mt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
 
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
+        <!-- Colonne gauche - Texte -->
         <div>
-          <span class="styled-number">03</span>
-          <p class="font-body text-sm font-semibold tracking-widest text-amber-600 dark:text-amber-500 uppercase mt-4">On en parle ?</p>
-          <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 decorative-line">
+          <SectionHeader number="03" kicker="On en parle ?" align="left">
             Un projet en tête ?
-          </h2>
+          </SectionHeader>
 
-          <p class="font-body text-xl text-gray-600 dark:text-gray-300 mt-8 leading-relaxed">
+          <p class="text-xl text-muted mt-8 leading-relaxed">
             Vous avez une idée pour améliorer le fonctionnement de votre cabinet, faciliter la relation client ou automatiser une tâche ? Même si le projet est encore flou, discutons-en. En tant que prestataire ou partenaire, je m'investis pour créer des solutions qui ont un vrai impact sur votre quotidien.
           </p>
 
           <ul class="mt-10 space-y-6">
-            <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Échange gratuit et sans engagement</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">On discute de votre idée, je vous dis ce qui est possible.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-amber-600 dark:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Réponse sous 48h</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Avec une première estimation de faisabilité et de budget.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-green-700 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-editorial font-semibold text-gray-900 dark:text-white">Ancien EC, je parle votre langage</h3>
-                <p class="font-body text-gray-600 dark:text-gray-400 mt-1">Pas besoin de m'expliquer ce qu'est un FEC ou une liasse fiscale.</p>
-              </div>
-            </li>
+            {CONTACT_POINTS.map((point) => (
+              <li class="flex gap-4" data-fade-up>
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sage/15 text-sage-dark flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={point.icon} />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium text-charcoal">{point.title}</h3>
+                  <p class="text-muted mt-1">{point.desc}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-gray-900/10 dark:shadow-black/30 border border-gray-100 dark:border-gray-700">
+        <!-- Colonne droite - Formulaire -->
+        <div class="bg-cream border border-black/10 rounded-xl p-8 lg:p-10" data-fade-up>
 
           <div class="flex items-center gap-4 mb-8">
             <Image
@@ -562,48 +351,48 @@ const breadcrumbStructuredData = {
               height={64}
               width={64}
               alt="David Barbier"
-              class="w-16 h-16 rounded-full object-cover ring-4 ring-green-100 dark:ring-green-900"
+              class="w-16 h-16 rounded-full object-cover ring-4 ring-sage/30"
             />
             <div>
-              <div class="font-editorial font-semibold text-gray-900 dark:text-white">David Barbier</div>
-              <div class="font-body text-sm text-gray-500 dark:text-gray-400">Ancien EC & Développeur Web</div>
+              <div class="font-medium text-charcoal">David Barbier</div>
+              <div class="text-sm text-muted">Ancien EC & Développeur Web</div>
             </div>
           </div>
 
           <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-6">
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
-                <label for="name" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre nom</label>
+                <label for="name" class="block text-sm font-medium text-default mb-2">Votre nom</label>
                 <input
                   id="name"
                   name="name"
                   type="text"
                   required
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
                   placeholder="Jean Dupont"
                 />
               </div>
               <div>
-                <label for="email" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Votre email</label>
+                <label for="email" class="block text-sm font-medium text-default mb-2">Votre email</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
                   placeholder="jean@cabinet.fr"
                 />
               </div>
             </div>
 
             <div>
-              <label for="textarea" class="block font-body text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Décrivez votre projet</label>
+              <label for="textarea" class="block text-sm font-medium text-default mb-2">Décrivez votre projet</label>
               <textarea
                 id="textarea"
                 name="textarea"
                 rows="4"
                 required
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white font-body focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all resize-none"
                 placeholder="Simulateur de charges, onboarding client, module IA..."
               ></textarea>
             </div>
@@ -614,27 +403,24 @@ const breadcrumbStructuredData = {
                 name="disclaimer"
                 type="checkbox"
                 required
-                class="mt-1 w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                class="mt-1 w-5 h-5 rounded border-black/20 text-sage-dark focus:ring-sage"
               />
-              <label for="disclaimer" class="font-body text-sm text-gray-500 dark:text-gray-400 cursor-pointer">
+              <label for="disclaimer" class="text-sm text-muted cursor-pointer">
                 En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
               </label>
             </div>
 
             <input type="hidden" name="source" value="developpeur-specialise-ec" />
 
-            <button
-              type="submit"
-              class="w-full btn-shimmer py-4 px-6 rounded-xl text-white font-body font-semibold text-lg shadow-lg shadow-green-700/25 hover:shadow-xl hover:shadow-green-700/30 transition-all duration-300 flex items-center justify-center gap-2"
-            >
+            <button type="submit" class="btn btn-primary w-full gap-2">
               Discuter de mon projet
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              <ArrowRight class="w-5 h-5" />
             </button>
           </form>
         </div>
       </div>
     </div>
   </section>
+
+  <MontegrappaFx />
 </Layout>

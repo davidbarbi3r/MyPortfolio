@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+
+export interface Props {
+  project: {
+    client: string;
+    sector: string;
+    offer: string;
+    result: string;
+    tech: string[];
+    url: string;
+  };
+  screen: ImageMetadata;
+  variant?: 'featured' | 'stack';
+}
+
+const { project, screen, variant = 'stack' } = Astro.props;
+
+// Source unique des classes des deux variantes. Chaque élément qui change
+// entre featured et stack porte data-featured-class / data-stack-class :
+// ProjectsFlip bascule une carte d'une variante à l'autre en lisant ces
+// attributs, sans dupliquer les classes côté JS.
+const cls = {
+  card: {
+    featured:
+      'group relative bg-sand/60 rounded-xl overflow-hidden border border-black/10 hover:shadow-xl transition-shadow duration-300',
+    stack:
+      'group cursor-pointer bg-sand/60 rounded-xl overflow-hidden border border-black/10 hover:shadow-xl transition-shadow duration-300',
+  },
+  frame: {
+    featured: 'flex bg-sand px-4 py-2.5 items-center gap-2 border-b border-black/10',
+    stack: 'hidden bg-sand px-4 py-2.5 items-center gap-2 border-b border-black/10',
+  },
+  screenshot: {
+    featured: 'h-64 md:h-80 overflow-hidden relative',
+    stack: 'h-40 md:h-48 overflow-hidden relative',
+  },
+  image: {
+    featured: 'w-full h-full object-cover object-top',
+    stack: 'w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500',
+  },
+  hint: {
+    featured: 'hidden',
+    stack:
+      'hidden lg:flex absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 items-center justify-center',
+  },
+  body: { featured: 'p-6', stack: 'p-5' },
+  badgeRow: { featured: 'flex items-center gap-3 mb-4', stack: 'flex items-center gap-2 mb-2' },
+  badge: {
+    featured: 'text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-sage/20 text-sage-dark rounded-full',
+    stack: 'hidden text-xs font-semibold uppercase tracking-wider px-2.5 py-1 bg-sage/20 text-sage-dark rounded-full',
+  },
+  title: { featured: 'text-xl font-bold text-charcoal mb-1', stack: 'text-lg font-bold text-charcoal' },
+  sector: { featured: 'text-sm text-muted mb-2', stack: 'text-xs text-muted mb-2' },
+  offer: { featured: 'text-sm text-default mb-4', stack: 'hidden text-sm text-default mb-4' },
+  metric: {
+    featured: 'text-3xl md:text-4xl font-light text-sage-dark leading-tight mb-4',
+    stack: 'text-xl md:text-2xl font-light text-sage-dark leading-tight mb-2',
+  },
+};
+
+const v = (slot: keyof typeof cls) => ({
+  class: cls[slot][variant],
+  'data-featured-class': cls[slot].featured,
+  'data-stack-class': cls[slot].stack,
+});
+---
+
+<article {...v('card')} data-project-card data-flip-id={`project-${project.client}`}>
+  <div {...v('frame')}>
+    <div class="flex gap-1.5">
+      <span class="w-3 h-3 rounded-full bg-charcoal/20"></span>
+      <span class="w-3 h-3 rounded-full bg-sage/40"></span>
+      <span class="w-3 h-3 rounded-full bg-sage"></span>
+    </div>
+    <div class="flex-1 bg-cream rounded-md px-3 py-1 text-xs text-muted truncate ml-2">
+      {project.url.replace('https://', '')}
+    </div>
+  </div>
+  <div {...v('screenshot')}>
+    <Image src={screen} alt={`Screenshot du site ${project.client}`} {...v('image')} loading="lazy" />
+    <div {...v('hint')}>
+      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-cream/90 text-charcoal text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"
+          ></path>
+        </svg>
+        Voir en détail
+      </span>
+    </div>
+  </div>
+  <div {...v('body')}>
+    <div {...v('badgeRow')}>
+      <span {...v('badge')}>Featured</span>
+      {project.tech.map((t) => <span class="text-xs px-2 py-1 bg-sand text-muted rounded-md">{t}</span>)}
+    </div>
+    <h3 {...v('title')}>{project.client}</h3>
+    <p {...v('sector')}>{variant === 'featured' ? `Secteur : ${project.sector}` : project.sector}</p>
+    <p {...v('offer')}>{project.offer}</p>
+    <p {...v('metric')} data-project-metric>{project.result}</p>
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1.5 text-sm text-sage-dark font-medium hover:underline"
+    >
+      Voir le site <ArrowRight class="w-3.5 h-3.5" />
+    </a>
+  </div>
+</article>

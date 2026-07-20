@@ -1,0 +1,52 @@
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function init() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Révélation mot à mot : uniquement sur des éléments à texte brut
+    // (les titres contenant des <span> colorés utilisent data-fade-up)
+    document.querySelectorAll<HTMLElement>('[data-text-reveal]').forEach((el) => {
+      if (el.dataset.mgSplit) return;
+      el.dataset.mgSplit = 'true';
+      const words = (el.textContent ?? '').trim().split(/\s+/);
+      el.innerHTML = words.map((w) => `<span class="mg-word inline-block">${w}</span>`).join(' ');
+      gsap.fromTo(
+        el.querySelectorAll('.mg-word'),
+        { opacity: 0.15 },
+        {
+          opacity: 1,
+          stagger: 0.05,
+          ease: 'none',
+          scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 40%', scrub: true },
+        }
+      );
+    });
+
+    document.querySelectorAll('[data-fade-up]').forEach((el) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%' },
+        }
+      );
+    });
+
+    document.querySelectorAll('[data-image-strip-track]').forEach((track) => {
+      gsap.to(track, {
+        x: -120,
+        ease: 'none',
+        scrollTrigger: { trigger: track, start: 'top bottom', end: 'bottom top', scrub: 1 },
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', init);
+</script>

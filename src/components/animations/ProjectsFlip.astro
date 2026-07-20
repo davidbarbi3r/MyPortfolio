@@ -23,50 +23,16 @@
 
     let isAnimating = false;
 
-    function applyFeaturedStyles(card: HTMLElement) {
-      const frame = card.querySelector('.browser-frame') as HTMLElement;
-      const badge = card.querySelector('.featured-badge') as HTMLElement;
-      const screenshot = card.querySelector('.screenshot-wrap') as HTMLElement;
-      const body = card.querySelector('.card-body') as HTMLElement;
-      const title = card.querySelector('.card-title') as HTMLElement;
-      const sector = card.querySelector('.card-sector') as HTMLElement;
-      const offer = card.querySelector('.card-offer') as HTMLElement;
-      const metric = card.querySelector('.card-metric') as HTMLElement;
-      const hint = card.querySelector('.expand-hint') as HTMLElement;
-
-      if (frame) { frame.classList.remove('hidden'); frame.classList.add('flex'); }
-      if (badge) badge.classList.remove('hidden');
-      if (screenshot) { screenshot.className = 'screenshot-wrap h-64 md:h-80 overflow-hidden'; }
-      if (body) body.className = 'card-body p-6';
-      if (title) { title.classList.remove('text-lg'); title.classList.add('text-xl', 'mb-1'); }
-      if (sector) { sector.className = 'card-sector text-sm text-slate-500 dark:text-slate-400 mb-2'; }
-      if (offer) { offer.classList.remove('hidden'); }
-      if (metric) { metric.className = 'card-metric text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400 leading-tight mb-4'; metric.setAttribute('data-project-metric', ''); }
-      if (hint) hint.classList.add('!hidden');
-      card.classList.remove('cursor-pointer');
-    }
-
-    function applyStackStyles(card: HTMLElement) {
-      const frame = card.querySelector('.browser-frame') as HTMLElement;
-      const badge = card.querySelector('.featured-badge') as HTMLElement;
-      const screenshot = card.querySelector('.screenshot-wrap') as HTMLElement;
-      const body = card.querySelector('.card-body') as HTMLElement;
-      const title = card.querySelector('.card-title') as HTMLElement;
-      const sector = card.querySelector('.card-sector') as HTMLElement;
-      const offer = card.querySelector('.card-offer') as HTMLElement;
-      const metric = card.querySelector('.card-metric') as HTMLElement;
-      const hint = card.querySelector('.expand-hint') as HTMLElement;
-
-      if (frame) { frame.classList.add('hidden'); frame.classList.remove('flex'); }
-      if (badge) badge.classList.add('hidden');
-      if (screenshot) { screenshot.className = 'screenshot-wrap h-40 md:h-48 overflow-hidden relative'; }
-      if (body) body.className = 'card-body p-5';
-      if (title) { title.classList.remove('text-xl', 'mb-1'); title.classList.add('text-lg'); }
-      if (sector) { sector.className = 'card-sector text-xs text-slate-500 dark:text-slate-400 mb-2'; }
-      if (offer) { offer.classList.add('hidden'); }
-      if (metric) { metric.className = 'card-metric text-xl md:text-2xl font-bold text-green-700 dark:text-green-400 leading-tight mb-2'; metric.setAttribute('data-project-metric', ''); }
-      if (hint) hint.classList.remove('!hidden');
-      card.classList.add('cursor-pointer');
+    // Les classes des deux variantes vivent dans ProjectCard.astro (source
+    // unique) : chaque élément qui change porte data-featured-class /
+    // data-stack-class, on ne fait que basculer de l'une à l'autre.
+    function applyVariant(card: HTMLElement, variant: 'featured' | 'stack') {
+      const key = variant === 'featured' ? 'featuredClass' : 'stackClass';
+      const els = [card, ...Array.from(card.querySelectorAll<HTMLElement>('[data-featured-class]'))];
+      for (const el of els) {
+        const cls = el.dataset[key];
+        if (cls !== undefined) el.className = cls;
+      }
     }
 
     function swapCards(clickedCard: HTMLElement) {
@@ -101,8 +67,8 @@
       }
 
       // Apply styles after swap
-      applyFeaturedStyles(clickedCard);
-      applyStackStyles(featuredCard);
+      applyVariant(clickedCard, 'featured');
+      applyVariant(featuredCard, 'stack');
 
       // Animate
       Flip.from(state, {
