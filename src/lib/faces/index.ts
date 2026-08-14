@@ -22,6 +22,7 @@ export type { GenerateOptions, BakeOptions, PaintOptions };
 export { FaceCanvas, type FaceCanvasOptions } from './pipeline/face-canvas';
 export { defaultPose, makeHeadView, HEAD_FIT } from './head/pose';
 export { ARCHETYPES, archetypeWeights, archetypeMeans } from './head/archetypes';
+export { rollExpression, moodWeights, expressionBias, applyExpression } from './expression';
 export { HAIRLINE_PROFILES, hairlineWeights, hairlineProfile } from './features/hairline';
 export { resolveStyle, blendStyles, listStyles, presets, palettes, paletteOf } from './style/resolve';
 export { makeRng, hash32 } from './rng';
@@ -41,6 +42,7 @@ export type {
   FaceStyle,
   StylePreset,
   FeatureGroup,
+  Expression,
 } from './types';
 
 /** Generate nothing, bake and paint in one call. Returns the draw list so a

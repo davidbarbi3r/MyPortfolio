@@ -1,7 +1,9 @@
 import type { Pt } from './math/geom2';
 import type { Mat2x3 } from './math/vec';
+import type { Expression } from './expression';
 
 export type { Pt, Mat2x3 };
+export type { Expression };
 
 // ---------------------------------------------------------------------------
 // Head
@@ -260,6 +262,11 @@ export type FeatureParams = Record<string, number | string>;
 export interface SlotState {
   variant: string;
   p: FeatureParams;
+  /** Params for the second anchor of a paired slot. Mismatched eyes are all
+   *  over the reference sheets, and one shared param set cannot produce them. */
+  pR?: FeatureParams;
+  /** A genuinely different variant on the right — one round eye, one slit. */
+  variantR?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -382,6 +389,11 @@ export interface FaceParams {
   archetype: string;
   /** Multiplies the projection scale, so heads differ in size on the page. */
   headScale: number;
+  /** The shared mood every feature is modulated by. */
+  expression: Expression;
+  /** A resting head attitude baked into the face, composed with the requested
+   *  pose. Without it a sheet is a grid of mugshots. */
+  tilt: { yaw: number; pitch: number; roll: number };
   /** Per-group size multipliers, deliberately independent of `headScale` —
    *  a big head with small eyes is a caricature device, not an accident. */
   featureScale: Record<FeatureGroup, number>;

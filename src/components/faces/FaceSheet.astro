@@ -252,7 +252,7 @@ const {
         const hl = f.slots.hair?.p.hlProfile ?? '—';
         heroLabel.textContent =
           `${state.seed} · ${state.style} · ${state.palette}\n` +
-          `crâne ${f.archetype} · frange ${hl} · taille ${f.headScale.toFixed(2)}`;
+          `${f.expression.name} · crâne ${f.archetype} · frange ${hl} · taille ${f.headScale.toFixed(2)}`;
       });
     };
     setHeroLabel();

@@ -38,7 +38,17 @@ export function bakeFace(face: FaceParams, opts?: BakeOptions): FaceDrawList {
 
   const style =
     typeof opts?.style === 'object' ? opts.style : resolveStyle(opts?.style ?? 'encre', undefined, opts?.palette);
-  const pose = opts?.pose ?? defaultPose();
+  // The face's resting attitude composes with whatever pose the caller asks
+  // for, so a contact sheet gets cocked heads while the cursor still drives the
+  // live one.
+  const requested = opts?.pose ?? defaultPose();
+  const tilt = face.tilt ?? { yaw: 0, pitch: 0, roll: 0 };
+  const pose: Pose = {
+    yaw: requested.yaw + tilt.yaw,
+    pitch: requested.pitch + tilt.pitch,
+    roll: requested.roll + tilt.roll,
+    camera: requested.camera,
+  };
   const detail = opts?.detail ?? 1;
   const tick = opts?.tick ?? 0;
 
@@ -133,16 +143,23 @@ export function bakeFace(face: FaceParams, opts?: BakeOptions): FaceDrawList {
     const anchors = SLOT_ANCHORS[slot];
     for (let i = 0; i < anchors.length; i++) {
       const name = anchors[i];
-      const frame =
-        variant.conform !== undefined ? frameAt(name, { conform: variant.conform }) : (frames[name] as Frame);
+
+      // The second anchor of a paired slot may carry its own params, and even
+      // its own variant: one round eye and one slit is a face, two matching
+      // eyes is a diagram.
+      const second = i === 1 && anchors.length === 2;
+      const v = (second && state.variantR ? getVariant(slot, state.variantR) : undefined) ?? variant;
+      const p = second && state.pR ? state.pR : state.p;
+
+      const frame = v.conform !== undefined ? frameAt(name, { conform: v.conform }) : (frames[name] as Frame);
       if (frame.facing <= CULL) continue;
 
       // Anything whose anchor has swung behind the head goes under the fill.
-      let layer = variant.layer;
+      let layer = v.layer;
       if (layer === L.FACE && frame.depth < 0) layer = L.BACK;
 
       const rng = bakeRng.fork(slot, i);
-      variant.draw(makeInk(frame, layer, rng), state.p, rng, env);
+      v.draw(makeInk(frame, layer, rng), p, rng, env);
     }
   }
 

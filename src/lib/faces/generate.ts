@@ -3,6 +3,7 @@ import type {
   AnchorName,
   FaceParams,
   FeatureGroup,
+  FeatureParams,
   HeadShape,
   ResolvedStyle,
   SlotName,
@@ -14,6 +15,7 @@ import { clamp } from './math/vec';
 import { ANCHORS } from './head/anchors';
 import { SQUARENESS_MAX, SQUARENESS_MIN } from './head/surface';
 import { archetypeMeans, archetypeWeights } from './head/archetypes';
+import { applyExpression, expressionBias, rollExpression } from './expression';
 import { resolveStyle } from './style/resolve';
 import { getVariant, pickVariant } from './features/registry';
 import { PICK_ORDER, registerAllFeatures } from './features';
@@ -49,6 +51,46 @@ const TAG_BIAS: Record<string, Partial<Record<SlotName, Record<string, number>>>
     mouth: { line: 1.6, pursed: 1.5, openTeeth: 0.5 },
   },
 };
+
+/** Slots drawn on two anchors, and how far the mood's `skew` is allowed to
+ *  pull their two sides apart. */
+const PAIRED: Partial<Record<SlotName, number>> = { eyes: 1, irises: 1, brows: 0.8, ears: 0.45 };
+
+function mergeBias(
+  a: Record<string, number> | undefined,
+  b: Record<string, number> | undefined
+): Record<string, number> | undefined {
+  if (!a) return b;
+  if (!b) return a;
+  const out = { ...a };
+  for (const k of Object.keys(b)) out[k] = (out[k] ?? 1) * b[k];
+  return out;
+}
+
+/** Interpolate the numeric params of two rolls of the same variant. At skew 0
+ *  the two sides of the face match; at 1 they are independent draws. */
+function blendParams(a: FeatureParams, b: FeatureParams, t: number): FeatureParams {
+  const out: FeatureParams = { ...a };
+  for (const k of Object.keys(a)) {
+    const av = a[k];
+    const bv = b[k];
+    if (typeof av === 'number' && typeof bv === 'number') out[k] = av + (bv - av) * t;
+  }
+  return out;
+}
+
+/** A resting attitude baked into the face. Without it a contact sheet is a grid
+ *  of mugshots; the reference plates are full of heads cocked to one side. */
+function makeTilt(rng: Rng, style: ResolvedStyle): { yaw: number; pitch: number; roll: number } {
+  const t = rng.fork('tilt');
+  const ex = style.proportions.exaggeration;
+  const k = style.proportions.asymmetry.headTilt;
+  return {
+    yaw: clamp(t.gaussian(0, 0.17 * ex), -0.5, 0.5),
+    pitch: clamp(t.gaussian(0, 0.1 * ex), -0.3, 0.3),
+    roll: clamp(t.gaussian(0, 0.6 * ex * k), -0.34, 0.34),
+  };
+}
 
 function biasFor(slot: SlotName, tags: Record<string, number>): Record<string, number> | undefined {
   let out: Record<string, number> | undefined;
@@ -110,7 +152,12 @@ function makeHead(rng: Rng, style: ResolvedStyle): { head: HeadShape; archetype:
 function makeProportions(
   rng: Rng,
   style: ResolvedStyle
-): { headScale: number; featureScale: Record<FeatureGroup, number> } {
+): {
+  headScale: number;
+  featureScale: Record<FeatureGroup, number>;
+  featureDrop: number;
+  featureSpread: number;
+} {
   const p = rng.fork('proportions');
   const ex = style.proportions.exaggeration;
 
@@ -125,6 +172,10 @@ function makeProportions(
   return {
     headScale,
     featureScale: { eyes: group(), brows: group(), nose: group(), mouth: group(), ears: group() },
+    // Where the whole feature cluster sits, and how far apart the eyes are.
+    // Features crammed low on a big skull is a caricature staple.
+    featureDrop: clamp(p.gaussian(0, 0.11 * ex), -0.2, 0.2),
+    featureSpread: clamp(p.gaussian(1, 0.15 * ex), 0.68, 1.38),
   };
 }
 
@@ -146,10 +197,15 @@ const GROUP_OF: Partial<Record<AnchorName, FeatureGroup>> = {
  * INDEPENDENTLY, which is where the caricature comes from: one eye ends up
  * large and high, the other small and low, exactly as in the reference sheets.
  */
+const DROPPED: AnchorName[] = ['eyeL', 'eyeR', 'browL', 'browR', 'noseTip', 'mouth', 'cheekL', 'cheekR'];
+const SPREAD: AnchorName[] = ['eyeL', 'eyeR', 'browL', 'browR'];
+
 function makeAnchors(
   rng: Rng,
   style: ResolvedStyle,
-  featureScale: Record<FeatureGroup, number>
+  featureScale: Record<FeatureGroup, number>,
+  featureDrop: number,
+  featureSpread: number
 ): Partial<Record<AnchorName, Partial<AnchorDef>>> {
   const a = rng.fork('anchors');
   const ex = style.proportions.exaggeration;
@@ -189,7 +245,16 @@ function makeAnchors(
     arcP: mouth.arcP * (1 + a.gaussian(0, 0.25 * ex)),
   };
 
-  // Applied AFTER the forty draws above, from a stream that never touches them.
+  // All applied AFTER the forty draws above, from streams that never touch them.
+  for (const key of DROPPED) {
+    const def = out[key];
+    if (def?.phi !== undefined) def.phi -= featureDrop;
+  }
+  for (const key of SPREAD) {
+    const def = out[key];
+    if (def?.theta !== undefined) def.theta *= featureSpread;
+  }
+
   for (const key of Object.keys(out) as AnchorName[]) {
     const group = GROUP_OF[key];
     const def = out[key];
@@ -299,12 +364,43 @@ export function generateFace(seed: string | number, opts?: GenerateOptions): Fac
   const slots: Partial<Record<SlotName, SlotState>> = {};
   const tags: Record<string, number> = {};
 
+  const expr = rollExpression(rng, style.proportions.exaggeration);
+
   for (const slot of PICK_ORDER) {
     const forced = opts?.force?.[slot];
-    const name = forced ?? pickVariant(slot, slotRng, style, biasFor(slot, tags));
+    // The mood biases the SHAPE of the feature too: a startled face should
+    // reach for a wide-eye variant, not just open the one it happened to roll.
+    const bias = mergeBias(biasFor(slot, tags), expressionBias(slot, expr));
+    const name = forced ?? pickVariant(slot, slotRng, style, bias);
     const variant = getVariant(slot, name);
     if (!variant) continue;
-    slots[slot] = { variant: variant.name, p: variant.roll(slotRng.fork(`roll:${slot}`), style) };
+
+    const p = applyExpression(slot, variant.roll(slotRng.fork(`roll:${slot}`), style), expr);
+    const state: SlotState = { variant: variant.name, p };
+
+    const pairing = PAIRED[slot];
+    if (pairing !== undefined) {
+      // Its own fork: adding a second side never disturbs anything already rolled.
+      const sr = slotRng.fork(`side:${slot}`);
+      const skew = clamp(expr.skew * pairing, 0, 1);
+
+      // A genuinely different variant on the right is what produces one round
+      // eye and one slit — the most characteristic thing in the references.
+      if (!forced && sr.bool(0.1 + 0.4 * skew)) {
+        const alt = getVariant(slot, pickVariant(slot, sr, style, bias));
+        if (alt && alt.name !== variant.name) {
+          state.variantR = alt.name;
+          state.pR = applyExpression(slot, alt.roll(sr.fork('rollAlt'), style), expr, -1);
+        }
+      }
+
+      if (!state.pR) {
+        const alt = applyExpression(slot, variant.roll(sr.fork('rollR'), style), expr, -1);
+        state.pR = blendParams(p, alt, skew);
+      }
+    }
+
+    slots[slot] = state;
     for (const t of variant.tags ?? []) tags[t] = (tags[t] ?? 0) + 1;
   }
 
@@ -316,7 +412,7 @@ export function generateFace(seed: string | number, opts?: GenerateOptions): Fac
   const la = rng.fork('light').gaussian(-2.3, 0.45);
 
   const { head, archetype } = makeHead(rng, style);
-  const { headScale, featureScale } = makeProportions(rng, style);
+  const { headScale, featureScale, featureDrop, featureSpread } = makeProportions(rng, style);
 
   return {
     v: 1,
@@ -324,8 +420,10 @@ export function generateFace(seed: string | number, opts?: GenerateOptions): Fac
     head,
     archetype,
     headScale,
+    expression: expr,
+    tilt: makeTilt(rng, style),
     featureScale,
-    anchors: makeAnchors(rng, style, featureScale),
+    anchors: makeAnchors(rng, style, featureScale, featureDrop, featureSpread),
     slots,
     colorIdx,
     patches: makePatches(rng, style, colorIdx),

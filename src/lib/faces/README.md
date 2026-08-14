@@ -83,6 +83,35 @@ independently of the hair-mass variant, so the two axes multiply: `inkCap ×
 widowsPeak`, `scribbleMass × recedingM`. Nine profiles, from `blunt` to
 `recedingM`.
 
+### Expression
+
+`expression.ts` rolls one shared mood per face (ten of them: deadpan, smug,
+worried, startled, sly, gormless, pleased, sour, sleepy, manic) and then
+
+- **biases the variant picks** — a startled face reaches for a wide-eye variant
+  rather than merely opening the one it happened to roll;
+- **folds into the rolled params** at generation time, so `FaceParams` stays
+  self-contained and no feature function has to know expressions exist.
+
+This matters more than any number of variants. A face reads as inhabited when
+its features _agree_: "worried" is raised brows AND a small tense mouth AND a
+gaze off to one side. Rolling each slot independently can only ever produce
+assemblies, and assemblies read as blank.
+
+The gaze is deliberately **shared** between both eyes — two independent gazes
+read as a squint, never as looking at something — and biased away from dead
+centre, because looking somewhere specific is most of what makes a drawn face
+feel awake.
+
+Paired slots (eyes, irises, brows, ears) carry a second param set in
+`SlotState.pR`, and may carry a different variant in `variantR`. The mood's
+`skew` decides how far the two halves diverge. One round eye and one slit is a
+face; two matching eyes is a diagram.
+
+`FaceParams.tilt` is a resting head attitude composed with whatever pose the
+caller asks for, so a contact sheet gets cocked heads while the cursor still
+drives the live one.
+
 ## Adding a variant
 
 ```ts
