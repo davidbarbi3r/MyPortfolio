@@ -39,7 +39,8 @@ export default defineConfig({
       !/\/\d+\/?$/.test(page) &&
       !page.includes('/en/') &&
       !page.includes('/matchings') &&
-      !page.includes('/maker-teleport-ui'),
+      !page.includes('/maker-teleport-ui') &&
+      !page.includes('/labs/'),
     // Pas de `lastmod: new Date()` : ça datait les 36 URLs à l'heure du build,
     // y compris celles inchangées depuis des mois. Un lastmod systématiquement
     // faux finit ignoré par Google. Mieux vaut aucun lastmod qu'un faux.

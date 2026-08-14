@@ -1,0 +1,447 @@
+---
+// Procedural face generator — demo sheet.
+//
+// Follows the FilmGrain.astro conventions: config travels through data-*
+// attributes (the <script> block is a separate module and cannot read
+// Astro.props), init on astro:page-load, teardown on astro:before-swap, since
+// view transitions are global in Layout.astro.
+export interface Props {
+  count?: number;
+  columns?: number;
+  seed?: string;
+  style?: string;
+  palette?: string;
+  cell?: number;
+  hero?: number;
+}
+
+const {
+  count = 48,
+  columns = 6,
+  seed = 'ajaccio',
+  style = 'encre',
+  palette = 'noir-creme',
+  cell = 190,
+  hero = 380,
+} = Astro.props;
+---
+
+<div
+  data-faces-config
+  data-faces-count={count}
+  data-faces-columns={columns}
+  data-faces-seed={seed}
+  data-faces-style={style}
+  data-faces-palette={palette}
+  data-faces-cell={cell}
+  data-faces-hero={hero}
+  class="hidden"
+>
+</div>
+
+<section class="mx-auto max-w-6xl px-4 py-8">
+  <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
+    <!-- Live head: the pose follows the cursor, which is where the 3D model earns its keep. -->
+    <div class="flex shrink-0 flex-col items-center gap-3">
+      <canvas
+        data-faces-hero-canvas
+        role="img"
+        aria-label="Visage dessiné procéduralement, la tête suit le curseur"
+        class="rounded-sm shadow-sm"></canvas>
+      <p data-faces-hero-label class="font-mono text-xs text-muted"></p>
+    </div>
+
+    <div class="flex-1 space-y-5">
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="block text-sm">
+          <span class="mb-1 block font-medium">Graine</span>
+          <input
+            data-faces-seed-input
+            type="text"
+            value={seed}
+            class="w-full rounded-sm border border-black/15 bg-white/60 px-3 py-2 font-mono text-sm dark:bg-black/20"
+          />
+        </label>
+
+        <label class="block text-sm">
+          <span class="mb-1 block font-medium">Style</span>
+          <select
+            data-faces-style-select
+            class="w-full rounded-sm border border-black/15 bg-white/60 px-3 py-2 text-sm dark:bg-black/20"></select>
+        </label>
+
+        <label class="block text-sm">
+          <span class="mb-1 block font-medium">Palette</span>
+          <select
+            data-faces-palette-select
+            class="w-full rounded-sm border border-black/15 bg-white/60 px-3 py-2 text-sm dark:bg-black/20"></select>
+        </label>
+
+        <label class="block text-sm">
+          <span class="mb-1 block font-medium">Visages</span>
+          <input
+            data-faces-count-input
+            type="number"
+            min="1"
+            max="120"
+            value={count}
+            class="w-full rounded-sm border border-black/15 bg-white/60 px-3 py-2 text-sm dark:bg-black/20"
+          />
+        </label>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-3">
+        <label class="block text-xs">
+          <span class="mb-1 block font-medium"
+            >Lacet <span data-faces-yaw-out class="font-mono text-muted">0°</span></span
+          >
+          <input data-faces-yaw type="range" min="-70" max="70" value="0" class="w-full" />
+        </label>
+        <label class="block text-xs">
+          <span class="mb-1 block font-medium"
+            >Tangage <span data-faces-pitch-out class="font-mono text-muted">0°</span></span
+          >
+          <input data-faces-pitch type="range" min="-35" max="35" value="0" class="w-full" />
+        </label>
+        <label class="block text-xs">
+          <span class="mb-1 block font-medium"
+            >Roulis <span data-faces-roll-out class="font-mono text-muted">0°</span></span
+          >
+          <input data-faces-roll type="range" min="-25" max="25" value="0" class="w-full" />
+        </label>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+        <label class="flex items-center gap-2">
+          <input data-faces-track type="checkbox" checked />
+          <span>Suivre le curseur</span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input data-faces-boil type="checkbox" />
+          <span>Tremblement (8 i/s)</span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input data-faces-gradient type="checkbox" />
+          <span>Dégradé de style sur la planche</span>
+        </label>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button
+          data-faces-regen
+          type="button"
+          class="rounded-sm border border-black/20 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+        >
+          Régénérer
+        </button>
+        <button
+          data-faces-export
+          type="button"
+          class="rounded-sm border border-black/20 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+        >
+          Exporter le visage (PNG)
+        </button>
+        <button
+          data-faces-export-sheet
+          type="button"
+          class="rounded-sm border border-black/20 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+        >
+          Exporter la planche (PNG)
+        </button>
+        <span data-faces-status class="self-center font-mono text-xs text-muted"></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-faces-grid class="mt-10 grid gap-2" style={`grid-template-columns: repeat(${columns}, minmax(0, 1fr))`}>
+  </div>
+</section>
+
+<script>
+  import {
+    FaceCanvas,
+    bakeFace,
+    blendStyles,
+    exportFacePng,
+    exportSheetPng,
+    generateFace,
+    listStyles,
+    paintFace,
+    palettes,
+    resolveStyle,
+    sheetSeed,
+    type FaceDrawList,
+    type ResolvedStyle,
+  } from '~/lib/faces';
+
+  interface SheetHandle {
+    destroy(): void;
+  }
+
+  let handle: SheetHandle | null = null;
+
+  const q = <T extends Element>(sel: string): T | null => document.querySelector<T>(sel);
+
+  function initFaces() {
+    const cfg = q<HTMLElement>('[data-faces-config]');
+    if (!cfg) return;
+
+    // Re-init is harmless because the previous instance is always torn down
+    // first — which also covers the double fire on first load.
+    handle?.destroy();
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const heroCanvas = q<HTMLCanvasElement>('[data-faces-hero-canvas]');
+    const heroLabel = q<HTMLElement>('[data-faces-hero-label]');
+    const grid = q<HTMLElement>('[data-faces-grid]');
+    const seedInput = q<HTMLInputElement>('[data-faces-seed-input]');
+    const styleSelect = q<HTMLSelectElement>('[data-faces-style-select]');
+    const paletteSelect = q<HTMLSelectElement>('[data-faces-palette-select]');
+    const countInput = q<HTMLInputElement>('[data-faces-count-input]');
+    const yawIn = q<HTMLInputElement>('[data-faces-yaw]');
+    const pitchIn = q<HTMLInputElement>('[data-faces-pitch]');
+    const rollIn = q<HTMLInputElement>('[data-faces-roll]');
+    const yawOut = q<HTMLElement>('[data-faces-yaw-out]');
+    const pitchOut = q<HTMLElement>('[data-faces-pitch-out]');
+    const rollOut = q<HTMLElement>('[data-faces-roll-out]');
+    const trackIn = q<HTMLInputElement>('[data-faces-track]');
+    const boilIn = q<HTMLInputElement>('[data-faces-boil]');
+    const gradientIn = q<HTMLInputElement>('[data-faces-gradient]');
+    const status = q<HTMLElement>('[data-faces-status]');
+
+    if (!heroCanvas || !grid) return;
+
+    const state = {
+      seed: cfg.dataset.facesSeed || 'ajaccio',
+      style: cfg.dataset.facesStyle || 'encre',
+      palette: cfg.dataset.facesPalette || 'noir-creme',
+      count: parseInt(cfg.dataset.facesCount || '48', 10),
+      cell: parseInt(cfg.dataset.facesCell || '190', 10),
+      hero: parseInt(cfg.dataset.facesHero || '380', 10),
+      gradient: false,
+    };
+
+    // --- Selects -----------------------------------------------------------
+    if (styleSelect) {
+      styleSelect.innerHTML = listStyles()
+        .map((s) => `<option value="${s.id}"${s.id === state.style ? ' selected' : ''}>${s.label}</option>`)
+        .join('');
+    }
+    if (paletteSelect) {
+      paletteSelect.innerHTML = Object.values(palettes)
+        .map((p) => `<option value="${p.id}"${p.id === state.palette ? ' selected' : ''}>${p.label}</option>`)
+        .join('');
+    }
+
+    // --- Hero --------------------------------------------------------------
+    const hero = new FaceCanvas(heroCanvas, {
+      seed: state.seed,
+      style: state.style,
+      palette: state.palette,
+      size: state.hero,
+    });
+    hero.render();
+
+    const setHeroLabel = () => {
+      if (heroLabel) heroLabel.textContent = `${state.seed} · ${state.style} · ${state.palette}`;
+    };
+    setHeroLabel();
+
+    // --- Grid --------------------------------------------------------------
+    const cells: HTMLCanvasElement[] = [];
+    const lists: Array<FaceDrawList | null> = [];
+    let idleHandle = 0;
+    let buildToken = 0;
+
+    const styleFor = (i: number, n: number): string | ResolvedStyle => {
+      if (!state.gradient || n < 2) return state.style;
+      // Weight tables are numbers, so blending two styles across the sheet
+      // makes variants fade in and out rather than pop — the clearest possible
+      // demonstration that styles are data, not code paths.
+      const a = resolveStyle(state.style, undefined, state.palette);
+      const b = resolveStyle(state.style === 'trait-fin' ? 'fusain' : 'trait-fin', undefined, state.palette);
+      return blendStyles(a, b, i / (n - 1));
+    };
+
+    function buildGrid() {
+      const token = ++buildToken;
+      if (idleHandle) {
+        (window.cancelIdleCallback ?? window.clearTimeout)(idleHandle);
+        idleHandle = 0;
+      }
+
+      grid!.innerHTML = '';
+      cells.length = 0;
+      lists.length = 0;
+
+      for (let i = 0; i < state.count; i++) {
+        const c = document.createElement('canvas');
+        c.className = 'w-full h-auto rounded-sm';
+        c.setAttribute('role', 'img');
+        c.setAttribute('aria-label', `Visage dessiné, graine ${sheetSeed(state.seed, i)}`);
+        grid!.appendChild(c);
+        cells.push(c);
+        lists.push(null);
+      }
+
+      // Baking 48 faces back to back is a ~400ms long task. Batching through
+      // requestIdleCallback keeps the main thread responsive and fills the
+      // sheet progressively, which happens to look good on its own.
+      let i = 0;
+      const step = () => {
+        if (token !== buildToken) return;
+        const end = Math.min(state.count, i + 4);
+        for (; i < end; i++) {
+          const st = styleFor(i, state.count);
+          const seed = sheetSeed(state.seed, i);
+          const face = generateFace(seed, { style: st });
+          const list = bakeFace(face, { style: st, palette: state.palette, detail: 0.6 });
+          lists[i] = list;
+          paintFace(cells[i], list, { width: state.cell, height: state.cell, maxDpr: 2 });
+        }
+        if (status) status.textContent = i < state.count ? `${i}/${state.count}` : '';
+        if (i < state.count) {
+          idleHandle = window.requestIdleCallback
+            ? window.requestIdleCallback(step, { timeout: 200 })
+            : window.setTimeout(step, 0);
+        } else {
+          idleHandle = 0;
+        }
+      };
+      step();
+    }
+
+    buildGrid();
+
+    // --- Pose --------------------------------------------------------------
+    const deg = (v: string | undefined) => ((parseFloat(v || '0') || 0) * Math.PI) / 180;
+
+    const applySliders = () => {
+      hero.setPose({ yaw: deg(yawIn?.value), pitch: deg(pitchIn?.value), roll: deg(rollIn?.value) });
+      if (yawOut) yawOut.textContent = `${yawIn?.value ?? 0}°`;
+      if (pitchOut) pitchOut.textContent = `${pitchIn?.value ?? 0}°`;
+      if (rollOut) rollOut.textContent = `${rollIn?.value ?? 0}°`;
+    };
+
+    const onPointer = (e: PointerEvent) => {
+      if (!trackIn?.checked) return;
+      const r = heroCanvas.getBoundingClientRect();
+      const nx = Math.max(-1, Math.min(1, ((e.clientX - (r.left + r.width / 2)) / r.width) * 2));
+      const ny = Math.max(-1, Math.min(1, ((e.clientY - (r.top + r.height / 2)) / r.height) * 2));
+      // FaceCanvas coalesces into one animation frame and skips the re-bake
+      // when the pose has not actually moved.
+      hero.setPose({ yaw: nx * 0.85, pitch: -ny * 0.45, roll: -nx * 0.12 });
+      if (yawIn) yawIn.value = String(Math.round((nx * 0.85 * 180) / Math.PI));
+      if (pitchIn) pitchIn.value = String(Math.round((-ny * 0.45 * 180) / Math.PI));
+      if (rollIn) rollIn.value = String(Math.round((-nx * 0.12 * 180) / Math.PI));
+      if (yawOut) yawOut.textContent = `${yawIn?.value ?? 0}°`;
+      if (pitchOut) pitchOut.textContent = `${pitchIn?.value ?? 0}°`;
+      if (rollOut) rollOut.textContent = `${rollIn?.value ?? 0}°`;
+    };
+
+    if (!reduced) window.addEventListener('pointermove', onPointer, { passive: true });
+    if (trackIn && reduced) trackIn.checked = false;
+
+    // --- Controls ----------------------------------------------------------
+    const onSeed = () => {
+      state.seed = seedInput?.value.trim() || 'ajaccio';
+      hero.setSeed(state.seed);
+      setHeroLabel();
+      buildGrid();
+    };
+    const onStyle = () => {
+      state.style = styleSelect?.value || 'encre';
+      hero.setStyle(state.style);
+      setHeroLabel();
+      buildGrid();
+    };
+    const onPalette = () => {
+      state.palette = paletteSelect?.value || 'noir-creme';
+      hero.setPalette(state.palette);
+      setHeroLabel();
+      buildGrid();
+    };
+    const onCount = () => {
+      const n = parseInt(countInput?.value || '48', 10);
+      state.count = Math.max(1, Math.min(120, isNaN(n) ? 48 : n));
+      buildGrid();
+    };
+    const onGradient = () => {
+      state.gradient = !!gradientIn?.checked;
+      buildGrid();
+    };
+    const onBoil = () => {
+      if (boilIn?.checked && !reduced) hero.startBoil(8);
+      else hero.stopBoil();
+    };
+    const onRegen = () => {
+      // A fresh random seed, still fully reproducible from the field.
+      state.seed = Math.random().toString(36).slice(2, 9);
+      if (seedInput) seedInput.value = state.seed;
+      onSeed();
+    };
+
+    const download = (blob: Blob, name: string) => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+    };
+
+    const onExport = async () => {
+      if (status) status.textContent = 'export…';
+      const blob = await exportFacePng(hero.params, {
+        size: 2000,
+        pose: hero.currentPose,
+        style: state.style,
+        palette: state.palette,
+      });
+      download(blob, `visage-${state.seed}-${state.style}.png`);
+      if (status) status.textContent = '';
+    };
+
+    const onExportSheet = async () => {
+      if (status) status.textContent = 'export planche…';
+      // Yield once so the label actually paints before the synchronous bake.
+      await new Promise((r) => setTimeout(r, 16));
+      const blob = await exportSheetPng({
+        seeds: Array.from({ length: state.count }, (_, i) => sheetSeed(state.seed, i)),
+        columns: parseInt(grid!.style.gridTemplateColumns.match(/repeat\((\d+)/)?.[1] || '6', 10),
+        cell: 400,
+        style: state.style,
+        palette: state.palette,
+      });
+      download(blob, `planche-${state.seed}-${state.style}.png`);
+      if (status) status.textContent = '';
+    };
+
+    seedInput?.addEventListener('change', onSeed);
+    styleSelect?.addEventListener('change', onStyle);
+    paletteSelect?.addEventListener('change', onPalette);
+    countInput?.addEventListener('change', onCount);
+    gradientIn?.addEventListener('change', onGradient);
+    boilIn?.addEventListener('change', onBoil);
+    yawIn?.addEventListener('input', applySliders);
+    pitchIn?.addEventListener('input', applySliders);
+    rollIn?.addEventListener('input', applySliders);
+    q<HTMLButtonElement>('[data-faces-regen]')?.addEventListener('click', onRegen);
+    q<HTMLButtonElement>('[data-faces-export]')?.addEventListener('click', onExport);
+    q<HTMLButtonElement>('[data-faces-export-sheet]')?.addEventListener('click', onExportSheet);
+
+    handle = {
+      destroy() {
+        hero.destroy();
+        window.removeEventListener('pointermove', onPointer);
+        if (idleHandle) (window.cancelIdleCallback ?? window.clearTimeout)(idleHandle);
+        buildToken++;
+        handle = null;
+      },
+    };
+  }
+
+  document.addEventListener('astro:page-load', initFaces);
+  document.addEventListener('astro:before-swap', () => handle?.destroy());
+</script>

@@ -1,0 +1,35 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import FaceSheet from '~/components/faces/FaceSheet.astro';
+
+const metadata = {
+  title: 'Générateur procédural de visages',
+  description:
+    'Visages dessinés à la main, générés de façon procédurale en canvas 2D : traits reconstruits à chaque fois, features posées sur un modèle 3D de tête, plusieurs styles graphiques.',
+  robots: { index: false, follow: false },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="mx-auto max-w-6xl px-4 pt-10">
+    <h1 class="font-heading text-3xl md:text-4xl">Générateur procédural de visages</h1>
+    <div class="mt-4 max-w-3xl space-y-3 text-muted">
+      <p>
+        Chaque visage est reconstruit trait par trait à partir d'une graine. Rien n'est un asset : le contour, les yeux,
+        le nez, la masse de cheveux sont des fonctions qui dessinent en canvas 2D.
+      </p>
+      <p>
+        Les features ne sont pas posées sur un ovale plat. Elles sont ancrées en coordonnées sphériques sur un modèle 3D
+        de crâne — un ellipsoïde déformé par des profils séparables. Quand la tête tourne, chaque trait est projeté avec
+        sa propre base tangente : il se raccourcit, s'incline et disparaît au limbe tout seul. Bougez la souris.
+      </p>
+      <p>
+        Le style est une donnée, pas une branche de code : épaisseur et tremblement du trait, budget d'asymétrie, tables
+        de poids des variantes et couche de couleur hors-registre. Deux styles s'interpolent, d'où l'option « dégradé de
+        style » sur la planche.
+      </p>
+    </div>
+  </section>
+
+  <FaceSheet count={48} columns={6} seed="ajaccio" style="encre" palette="noir-creme" />
+</Layout>
