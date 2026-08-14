@@ -57,6 +57,32 @@ feature onto the sphere, 0 makes it a rigid billboard at its intrinsic size.
 Eyes sit around 0.75; glasses and ears are near 0.2, because they are rigid
 objects, not decals.
 
+### Where the variety comes from
+
+Three axes, deliberately independent, because jittering one archetype with
+independent gaussians is unimodal by construction — everything clusters near the
+mean and every head comes out the same oval.
+
+1. **Skull archetypes** (`head/archetypes.ts`) — eight named kinds (round, long,
+   square, pear, invertedTriangle, egg, gaunt, bullet). Generation picks a kind,
+   then jitters around _its_ mean vector. The archetype is blended toward the
+   canonical head by the style's `exaggeration`, so a naturalistic preset gets
+   half-strength archetypes rather than a caricature one's extremes.
+2. **Squareness** — a superellipse exponent on the horizontal cross-section.
+   `ring(phi, n) = (1 - |sin phi|^n)^(1/n)`; at `n = 2` it returns `cos(phi)`
+   literally, so the default is bit-identical to the original ellipsoid. Above 2
+   the width holds toward the poles (flat crown, blocky jaw), below it pinches.
+   Without this, radii alone can only ever produce ellipses.
+3. **Head scale vs feature scale** — `headScale` multiplies the projection;
+   per-group `featureScale` multiplies each anchor's arc extents. They are drawn
+   with a deliberate anti-correlation, because "big head, tiny eyes" as a
+   caricature device has to be a weighted choice, not a coincidence.
+
+**Hairlines** (`features/hairline.ts`) are a separate registry picked
+independently of the hair-mass variant, so the two axes multiply: `inkCap ×
+widowsPeak`, `scribbleMass × recedingM`. Nine profiles, from `blunt` to
+`recedingM`.
+
 ## Adding a variant
 
 ```ts
@@ -93,3 +119,21 @@ point of the named RNG forks.
 - Outlines of head regions (`env.cap`, `env.outline`) are LOD-scaled by the
   bake. Call those rather than `projectedOutline` directly, or a 48-cell sheet
   pays full sampling cost per cell.
+- `projectedOutline` is a radial max about the region's centroid, so **concave
+  shapes are unrepresentable** — receding temples and bald patches get filled in
+  and vanish. They have to be erased afterwards (`HairlineProfile.notch`), the
+  same way `inkCap` cuts its parting. A downward _spike_ like a widow's peak is
+  fine: a spike is a maximum.
+- That outline also box-blurs its radius bins, which chamfers corners. The blur
+  width backs off as `squareness` rises; drop it to zero and the empty-bin
+  neighbour fill shows through as polygonal jaggies instead.
+- `rng.gaussian` is Box–Muller with a cached spare, so draws are consumed in
+  **pairs**. Inserting a draw into an existing sequence flips the pairing parity
+  of everything after it. Append new genes at the end, and put any non-gaussian
+  draw (an archetype pick, a profile pick) on its own named fork.
+- `rng.weighted` sorts its keys, so adding a _variant_ reshuffles every existing
+  seed's pick for that slot. Adding a _param_ to existing variants does not, as
+  long as the new draw is appended last.
+- Judge geometry bugs on full-size renders. Thin ink strokes merge into solid
+  blobs in a downscaled contact sheet and will convincingly impersonate a
+  rendering bug that isn't there.

@@ -16,7 +16,7 @@ export const encre: StylePreset = {
   proportions: {
     exaggeration: 0.78,
     asymmetry: { eyeSize: 0.5, eyeHeight: 0.32, browTilt: 0.5, noseShift: 0.35, mouthSkew: 0.4, headTilt: 0.3 },
-    deformBudget: 0.3,
+    deformBudget: 0.45,
   },
   weights: {
     hair: { inkCap: 4, scribbleMass: 3, spikes: 2, curls: 1.5, bald: 1, sideSweep: 2 },
@@ -84,7 +84,7 @@ export const traitFin: StylePreset = {
   proportions: {
     exaggeration: 0.3,
     asymmetry: { eyeSize: 0.18, eyeHeight: 0.12, browTilt: 0.2, noseShift: 0.14, mouthSkew: 0.15, headTilt: 0.12 },
-    deformBudget: 0.16,
+    deformBudget: 0.24,
   },
   weights: {
     hair: { inkCap: 0.5, curls: 4, scribbleMass: 1, spikes: 1, sideSweep: 3, bald: 1 },
@@ -127,7 +127,7 @@ export const fusain: StylePreset = {
   proportions: {
     exaggeration: 0.95,
     asymmetry: { eyeSize: 0.6, eyeHeight: 0.4, browTilt: 0.6, noseShift: 0.45, mouthSkew: 0.5, headTilt: 0.36 },
-    deformBudget: 0.34,
+    deformBudget: 0.55,
   },
   weights: {
     hair: { inkCap: 5, scribbleMass: 4, curls: 0.5, spikes: 1, bald: 1.5, sideSweep: 1 },

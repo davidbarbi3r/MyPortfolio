@@ -1,7 +1,16 @@
 import type { Pt } from '../types';
 import { L } from '../types';
-import { defineSlot } from './registry';
+import { defineSlot, type FeatureEnv } from './registry';
 import { centroid, pointInPoly, resampleByArcLength } from '../math/geom2';
+import type { InkContext } from '../ink/ink-context';
+import {
+  capGeometry,
+  hairlineParamsFrom,
+  hairlineProfile,
+  rollHairline,
+  type HairlineParams,
+  type HairlineProfile,
+} from './hairline';
 
 // Hair is the one slot that does not live in a feature frame: it must hug the
 // skull, so it is built from the head surface directly via capOutline(), which
@@ -9,13 +18,27 @@ import { centroid, pointInPoly, resampleByArcLength } from '../math/geom2';
 // why it reads as a mass sitting ON the head at any angle instead of a shape
 // pasted over the top of the drawing.
 
-/** A hairline that dips at the front and can be pushed to one side. */
-function hairlineFn(base: number, fringe: number, part: number, lobes: number) {
-  return (theta: number): number => {
-    const front = Math.max(0, Math.cos(theta));
-    const wave = Math.sin(theta * lobes + part * 2.1) * 0.06;
-    return base - fringe * front * front + wave;
-  };
+/** Resolve the rolled hairline profile into what a variant needs. The shape is
+ *  picked independently of the mass, so the two axes multiply. */
+function hairlineOf(p: Record<string, number | string>, lobes: number, force?: string) {
+  const profile = hairlineProfile(force ?? (p.hlProfile as string | undefined));
+  const hp = hairlineParamsFrom(p, lobes);
+  return { profile, hp, phi: (t: number): number => profile.phi(t, hp) };
+}
+
+/**
+ * Cut the profile's re-entrant detail back out of a mass that is already drawn.
+ *
+ * `env.cap` is a radial max about the cap centroid, so a concave hairline —
+ * receding temples, a bald patch — is silently filled in and simply vanishes.
+ * Erasing afterwards is the only way to get one, and it is the same trick
+ * `inkCap` already uses for its parting.
+ */
+function cutHairline(ink: InkContext, profile: HairlineProfile, hp: HairlineParams, env: FeatureEnv): void {
+  if (!profile.notch) return;
+  for (const poly of profile.notch(hp, capGeometry(env.view))) {
+    if (poly.length >= 3) ink.erase(poly);
+  }
 }
 
 function outwardNormals(poly: Pt[]): Pt[] {
@@ -42,10 +65,11 @@ export function registerHair(): void {
         partDepth: rng.float(0, 0.7),
         strays: rng.int(3, 11),
         holes: rng.int(1, 3),
+        ...rollHairline(rng),
       }),
       draw: (ink, p, rng, env) => {
-        const hl = hairlineFn(p.base as number, p.fringe as number, p.partSide as number, p.lobes as number);
-        const cap = env.cap(hl, p.volume as number);
+        const { profile, hp, phi } = hairlineOf(p, p.lobes as number);
+        const cap = env.cap(phi, p.volume as number);
         if (cap.length < 6) return;
 
         // Lobed bulge so the mass is not a smooth dome.
@@ -81,6 +105,8 @@ export function registerHair(): void {
             [c[0] + s * r * 0.2, c[1] + r * 0.12],
           ]);
         }
+
+        cutHairline(ink, profile, hp, env);
       },
     },
 
@@ -94,10 +120,11 @@ export function registerHair(): void {
         lobes: rng.int(3, 7),
         angle: rng.float(-0.7, 0.7),
         density: rng.float(0.5, 1.0),
+        ...rollHairline(rng),
       }),
       draw: (ink, p, rng, env) => {
-        const hl = hairlineFn(p.base as number, p.fringe as number, 0, p.lobes as number);
-        const cap = env.cap(hl, p.volume as number);
+        const { profile, hp, phi } = hairlineOf(p, p.lobes as number);
+        const cap = env.cap(phi, p.volume as number);
         if (cap.length < 6) return;
 
         ink.poly(cap, 'feature', { smooth: 0.5, gapChance: 0.3, alpha: 0.8 });
@@ -109,6 +136,7 @@ export function registerHair(): void {
           alpha: 0.85,
           role: 'feature',
         });
+        cutHairline(ink, profile, hp, env);
       },
     },
 
@@ -120,10 +148,11 @@ export function registerHair(): void {
         fringe: rng.float(0, 0.22),
         count: rng.int(18, 34),
         len: rng.float(0.05, 0.14),
+        ...rollHairline(rng),
       }),
       draw: (ink, p, rng, env) => {
-        const hl = hairlineFn(p.base as number, p.fringe as number, 0, 4);
-        const cap = env.cap(hl, 0.02);
+        const { profile, hp, phi } = hairlineOf(p, 4);
+        const cap = env.cap(phi, 0.02);
         if (cap.length < 6) return;
 
         const norms = outwardNormals(cap);
@@ -148,6 +177,8 @@ export function registerHair(): void {
             { taper: 1, taperBias: -0.85, passes: 1, overshoot: 0, gapChance: 0 }
           );
         }
+
+        cutHairline(ink, profile, hp, env);
       },
     },
 
@@ -159,10 +190,11 @@ export function registerHair(): void {
         fringe: rng.float(0, 0.25),
         volume: rng.float(0.04, 0.13),
         count: rng.int(10, 24),
+        ...rollHairline(rng),
       }),
       draw: (ink, p, rng, env) => {
-        const hl = hairlineFn(p.base as number, p.fringe as number, 0, 5);
-        const cap = env.cap(hl, p.volume as number);
+        const { profile, hp, phi } = hairlineOf(p, 5);
+        const cap = env.cap(phi, p.volume as number);
         if (cap.length < 6) return;
 
         const ring = resampleByArcLength([...cap, cap[0]], 26);
@@ -203,6 +235,8 @@ export function registerHair(): void {
           }
           ink.path(pts, 'detail', { passes: 1, alpha: 0.7, overshoot: 1, gapChance: 0 });
         }
+
+        cutHairline(ink, profile, hp, env);
       },
     },
 
@@ -215,16 +249,14 @@ export function registerHair(): void {
         volume: rng.float(0.04, 0.12),
         side: rng.sign(),
         strands: rng.int(10, 24),
+        ...rollHairline(rng),
       }),
       draw: (ink, p, rng, env) => {
         const s = p.side as number;
-        const hl = (theta: number): number => {
-          const front = Math.max(0, Math.cos(theta));
-          // Asymmetric: the sweep drops much lower on one side.
-          const lean = 0.5 + 0.5 * Math.sin(theta) * s;
-          return (p.base as number) - (p.fringe as number) * front * front * (0.5 + lean);
-        };
-        const cap = env.cap(hl, p.volume as number);
+        // The asymmetric line this used to define inline is now the shared
+        // `sideSwept` profile; the mass carries the sweep either way.
+        const { profile, hp, phi } = hairlineOf(p, 5);
+        const cap = env.cap(phi, p.volume as number);
         if (cap.length < 6) return;
 
         ink.fill(cap, {
@@ -250,6 +282,8 @@ export function registerHair(): void {
             { passes: 1, alpha: 0.4, color: ink.style.palette.paper, overshoot: 0, gapChance: 0.2 }
           );
         }
+
+        cutHairline(ink, profile, hp, env);
       },
     },
 
@@ -257,7 +291,12 @@ export function registerHair(): void {
       weight: 1.2,
       layer: L.HAIR_FRONT,
       tags: ['age'],
-      roll: (rng) => ({ tufts: rng.int(0, 9), shine: rng.bool(0.6) ? 1 : 0, ring: rng.bool(0.5) ? 1 : 0 }),
+      roll: (rng) => ({
+        tufts: rng.int(0, 9),
+        shine: rng.bool(0.6) ? 1 : 0,
+        ring: rng.bool(0.5) ? 1 : 0,
+        ...rollHairline(rng),
+      }),
       draw: (ink, p, rng, env) => {
         if (p.ring) {
           // A monk's fringe: a very high, very thin cap.
@@ -268,7 +307,8 @@ export function registerHair(): void {
             ink.poly(inner, 'detail', { smooth: 0.4, alpha: 0.4, gapChance: 0.4 });
           }
         }
-        const cap = env.cap(() => 0.55, 0.01);
+        const { profile, hp, phi } = hairlineOf(p, 4, 'receded');
+        const cap = env.cap(phi, 0.01);
         if (cap.length < 6) return;
         const norms = outwardNormals(cap);
         const c = centroid(cap);
@@ -295,6 +335,8 @@ export function registerHair(): void {
             gradient: (q) => Math.max(0, 1 - Math.hypot(q[0] - c[0], q[1] - c[1]) / (env.view.scale * 0.5)),
           });
         }
+
+        cutHairline(ink, profile, hp, env);
       },
     },
   });

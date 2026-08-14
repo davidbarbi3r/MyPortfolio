@@ -25,14 +25,21 @@ export interface HeadView {
 
 export const defaultPose = (): Pose => ({ yaw: 0, pitch: 0, roll: 0, camera: 8 });
 
+/** Fraction of the canonical box a head's bounding radius maps to. */
+export const HEAD_FIT = 0.34;
+
 export function makeHeadView(
   head: HeadShape,
   pose: Pose,
-  opts?: { scale?: number; cx?: number; cy?: number }
+  opts?: { scale?: number; scaleMul?: number; cx?: number; cy?: number }
 ): HeadView {
   const R = headRotation(pose.yaw, pose.pitch, pose.roll);
   const d = pose.camera === Infinity || !isFinite(pose.camera) ? Infinity : pose.camera * maxRadius(head);
-  const scale = opts?.scale ?? FACE_BOX * 0.33;
+  // Normalised by the head's own bounding radius, so rx/ry/rz stay pure
+  // PROPORTION levers and cannot smuggle in size: a long skull is long, not
+  // also bigger. Deliberate size variation goes through `scaleMul` instead,
+  // which keeps it bounded and lets a sheet stay inside its cells.
+  const scale = opts?.scale ?? ((FACE_BOX * HEAD_FIT) / maxRadius(head)) * (opts?.scaleMul ?? 1);
   const cx = opts?.cx ?? FACE_BOX * 0.5;
   // Sit the head slightly above centre — the neck and shoulders need the room.
   const cy = opts?.cy ?? FACE_BOX * 0.47;

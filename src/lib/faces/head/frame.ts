@@ -134,11 +134,18 @@ export function makeSurfaceWarp(view: HeadView): (p: Pt) => Pt {
   const rx = view.head.rx * view.scale;
   const ry = view.head.ry * view.scale;
 
+  // Match the cross-section the surface actually uses. With a squared head an
+  // elliptical inverse saturates `u` at +/-1 over a wide band near the sides,
+  // flattening the warp field exactly where cheek hatching needs it.
+  const n = view.head.squareness ?? 2;
+  const ring = (phi: number): number =>
+    n === 2 ? Math.cos(phi) : Math.pow(Math.max(0, 1 - Math.pow(Math.min(1, Math.abs(Math.sin(phi))), n)), 1 / n);
+
   return (p: Pt): Pt => {
-    // Invert the frontal ellipse mapping to get approximate spherical coords.
+    // Invert the frontal mapping to get approximate spherical coords.
     const v = (view.cy - p[1]) / ry;
     const phi = Math.asin(Math.max(-1, Math.min(1, v)));
-    const cp = Math.cos(phi);
+    const cp = ring(phi);
     if (cp < 1e-3) return p;
     const u = (p[0] - view.cx) / (rx * cp);
     const theta = Math.asin(Math.max(-1, Math.min(1, u)));

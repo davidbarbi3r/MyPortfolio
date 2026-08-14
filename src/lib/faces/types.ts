@@ -25,6 +25,15 @@ export interface HeadShape {
   browRidge: number;
   occiput: number;
   asymX: number;
+  /**
+   * Superellipse exponent for the horizontal cross-section. 2 is an exact
+   * ellipse (the original model); above it the skull squares off into a blocky
+   * jaw and a flat crown, below it pinches toward a diamond.
+   *
+   * Optional so a hand-built HeadShape still works — `surface()` defaults it to
+   * 2 rather than producing silent NaN coordinates.
+   */
+  squareness?: number;
 }
 
 export interface Pose {
@@ -362,10 +371,20 @@ export interface WashPatch {
  *  - style is excluded so the same face can be drawn in three styles side by
  *    side, which is the clearest demonstration that the system is real.
  */
+/** Feature groups whose size varies independently of the head's. */
+export type FeatureGroup = 'eyes' | 'brows' | 'nose' | 'mouth' | 'ears';
+
 export interface FaceParams {
   v: 1;
   seed: string;
   head: HeadShape;
+  /** Which skull archetype the genes were jittered around. Informational. */
+  archetype: string;
+  /** Multiplies the projection scale, so heads differ in size on the page. */
+  headScale: number;
+  /** Per-group size multipliers, deliberately independent of `headScale` —
+   *  a big head with small eyes is a caricature device, not an accident. */
+  featureScale: Record<FeatureGroup, number>;
   anchors: Partial<Record<AnchorName, Partial<AnchorDef>>>;
   slots: Partial<Record<SlotName, SlotState>>;
   colorIdx: { skin: number; hair: number; accent: number; ink: number };

@@ -48,7 +48,7 @@ const {
         role="img"
         aria-label="Visage dessiné procéduralement, la tête suit le curseur"
         class="rounded-sm shadow-sm"></canvas>
-      <p data-faces-hero-label class="font-mono text-xs text-muted"></p>
+      <p data-faces-hero-label class="whitespace-pre-line text-center font-mono text-xs leading-relaxed text-muted"></p>
     </div>
 
     <div class="flex-1 space-y-5">
@@ -244,7 +244,16 @@ const {
     hero.render();
 
     const setHeroLabel = () => {
-      if (heroLabel) heroLabel.textContent = `${state.seed} · ${state.style} · ${state.palette}`;
+      if (!heroLabel) return;
+      // Deferred a frame: FaceCanvas regenerates inside its own rAF, and rAF
+      // callbacks run in registration order, so by here `params` is fresh.
+      requestAnimationFrame(() => {
+        const f = hero.params;
+        const hl = f.slots.hair?.p.hlProfile ?? '—';
+        heroLabel.textContent =
+          `${state.seed} · ${state.style} · ${state.palette}\n` +
+          `crâne ${f.archetype} · frange ${hl} · taille ${f.headScale.toFixed(2)}`;
+      });
     };
     setHeroLabel();
 

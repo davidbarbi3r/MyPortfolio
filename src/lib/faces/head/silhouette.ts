@@ -12,6 +12,9 @@ export interface OutlineOpts {
   samples?: number;
   nTheta?: number;
   nPhi?: number;
+  /** Box-blur half-width over the radius bins. Defaults to a squareness-aware
+   *  value — see the note in `projectedOutline`. */
+  smooth?: number;
 }
 
 /**
@@ -95,7 +98,12 @@ export function projectedOutline(view: HeadView, opts: OutlineOpts = {}): Pt[] {
     rad[i] = prev && next ? (prev + next) / 2 : Math.max(prev, next);
   }
 
-  smoothCircular(rad, 2);
+  // A corner is exactly where the radius changes fastest per unit angle, so
+  // this blur is the one thing standing between a squared skull and an oval
+  // one: at the default half-width of 2 it spans ~14 degrees and chamfers every
+  // corner away. Back it off as the head squares up.
+  const n = view.head.squareness ?? 2;
+  smoothCircular(rad, opts.smooth ?? (n > 2.35 ? 1 : 2));
 
   const out: Pt[] = new Array(samples);
   for (let k = 0; k < samples; k++) {

@@ -16,7 +16,7 @@ import { bump, cross, dot, normalize, scale3, smoothstep, sub, type Vec3 } from 
 /** Width by latitude: jaw flare, chin taper, cranium dome. */
 function widthProfile(h: HeadShape, phi: number): number {
   let w = 1;
-  w += h.jawWidth * bump(phi, -0.45, 0.3);
+  w += h.jawWidth * bump(phi, -0.55, 0.4);
   w -= h.chinTaper * smoothstep(-0.55, -1.3, phi);
   w += h.craniumBulge * bump(phi, 0.72, 0.34);
   return w;
@@ -35,8 +35,34 @@ function depthProfile(h: HeadShape, theta: number, phi: number): number {
   return d;
 }
 
+/** Squareness is clamped well above 1: below it the cross-section stops being
+ *  star-shaped in screen space and the silhouette algorithm breaks outright. */
+export const SQUARENESS_MIN = 1.45;
+export const SQUARENESS_MAX = 2.9;
+
+/**
+ * Half-width of the horizontal cross-section at latitude phi.
+ *
+ * For a superellipse |x/a|^n + |y/b|^n = 1, the half-width at height
+ * y/b = sin(phi) is (1 - |sin phi|^n)^(1/n). At n = 2 that is exactly cos(phi),
+ * so the default reproduces the original ellipsoid — the n === 2 branch below
+ * returns cos(phi) literally, which makes the equivalence exact rather than
+ * merely mathematical.
+ *
+ * Above 2 the width holds up toward the poles: flat crown, blocky jaw. Below 2
+ * it falls away faster: a pinched, diamond-ish skull.
+ */
+function ringRadius(phi: number, n: number): number {
+  if (n === 2) return Math.cos(phi);
+  const s = Math.min(1, Math.abs(Math.sin(phi)));
+  return Math.pow(Math.max(0, 1 - Math.pow(s, n)), 1 / n);
+}
+
 export function surface(h: HeadShape, theta: number, phi: number): Vec3 {
-  const cp = Math.cos(phi);
+  // Defaulted rather than required: HeadShape is a public export, and a
+  // hand-built one would otherwise yield silent NaN coordinates.
+  const n = Math.min(SQUARENESS_MAX, Math.max(SQUARENESS_MIN, h.squareness ?? 2));
+  const cp = ringRadius(phi, n);
   const sp = Math.sin(phi);
 
   const w = widthProfile(h, phi) * azimuthProfile(h, theta);
@@ -108,5 +134,6 @@ export function baseHeadShape(): HeadShape {
     browRidge: 0.05,
     occiput: 0.06,
     asymX: 0,
+    squareness: 2,
   };
 }

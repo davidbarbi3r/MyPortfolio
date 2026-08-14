@@ -2,6 +2,7 @@ import type {
   AnchorDef,
   AnchorName,
   FaceParams,
+  FeatureGroup,
   HeadShape,
   ResolvedStyle,
   SlotName,
@@ -11,7 +12,8 @@ import type {
 import { makeRng, type Rng } from './rng';
 import { clamp } from './math/vec';
 import { ANCHORS } from './head/anchors';
-import { baseHeadShape } from './head/surface';
+import { SQUARENESS_MAX, SQUARENESS_MIN } from './head/surface';
+import { archetypeMeans, archetypeWeights } from './head/archetypes';
 import { resolveStyle } from './style/resolve';
 import { getVariant, pickVariant } from './features/registry';
 import { PICK_ORDER, registerAllFeatures } from './features';
@@ -59,37 +61,96 @@ function biasFor(slot: SlotName, tags: Record<string, number>): Record<string, n
   return out;
 }
 
-function makeHead(rng: Rng, style: ResolvedStyle): HeadShape {
+function makeHead(rng: Rng, style: ResolvedStyle): { head: HeadShape; archetype: string } {
   const g = rng.fork('head');
-  const b = baseHeadShape();
   const ex = style.proportions.exaggeration;
   const budget = style.proportions.deformBudget;
+
+  // The archetype pick runs on its OWN named fork. `gaussian` is Box-Muller
+  // with a cached spare, so draws are consumed in pairs — slipping a non-
+  // gaussian draw into the sequence below would flip the pairing parity of
+  // every gene after it, not merely shift them.
+  const archetype = g.fork('archetype').weighted(archetypeWeights());
+  const b = archetypeMeans(archetype, ex);
+
   // Deformation coefficients are clamped so the projected outline stays
   // star-shaped about its centroid, which the silhouette algorithm relies on.
   const d = (mean: number, sd: number): number => clamp(g.gaussian(mean, sd * ex), -budget, budget);
 
-  return {
+  const head: HeadShape = {
     rx: b.rx * (1 + g.gaussian(0, 0.13 * ex)),
     ry: b.ry * (1 + g.gaussian(0, 0.11 * ex)),
     rz: b.rz * (1 + g.gaussian(0, 0.1 * ex)),
     jawWidth: d(b.jawWidth, 0.18),
-    chinTaper: clamp(g.gaussian(b.chinTaper, 0.2 * ex), -0.05, Math.max(0.35, budget)),
-    chinLength: clamp(g.gaussian(b.chinLength, 0.1 * ex), -0.02, 0.28),
+    chinTaper: clamp(g.gaussian(b.chinTaper, 0.2 * ex), -0.05, Math.max(0.5, budget)),
+    chinLength: clamp(g.gaussian(b.chinLength, 0.1 * ex), -0.02, 0.3),
     craniumBulge: d(b.craniumBulge, 0.16),
     cheekFull: d(b.cheekFull, 0.16),
-    templeFlat: clamp(g.gaussian(b.templeFlat, 0.12 * ex), -0.05, 0.3),
+    templeFlat: clamp(g.gaussian(b.templeFlat, 0.12 * ex), -0.05, 0.32),
     browRidge: d(b.browRidge, 0.12),
     occiput: d(b.occiput, 0.12),
     asymX: g.gaussian(0, 0.5 * ex * style.proportions.asymmetry.headTilt),
+    // Appended LAST, so the twelve genes above keep their exact draw order.
+    // Its own clamp: `d()` bounds symmetrically around zero, which is the wrong
+    // shape of bound for an exponent centred on 2.
+    squareness: clamp(g.gaussian(b.squareness ?? 2, 0.3 * ex), SQUARENESS_MIN, SQUARENESS_MAX),
+  };
+
+  return { head, archetype };
+}
+
+/**
+ * Head size on the page, and feature sizes that are free to disagree with it.
+ *
+ * Runs on its own stream so it never perturbs the anchor jitter below. The
+ * anti-correlation is the point: drawn independently, "big head, tiny eyes"
+ * would only turn up by chance. Here it is a weighted choice, per group, so one
+ * face can carry a big head with small eyes and a large mouth at once.
+ */
+function makeProportions(
+  rng: Rng,
+  style: ResolvedStyle
+): { headScale: number; featureScale: Record<FeatureGroup, number> } {
+  const p = rng.fork('proportions');
+  const ex = style.proportions.exaggeration;
+
+  const headScale = clamp(p.gaussian(1, 0.12 * ex), 0.82, 1.16);
+
+  const group = (): number => {
+    const opposed = p.bool(0.55);
+    const bias = opposed ? -(headScale - 1) * 2.1 : 0;
+    return clamp(1 + bias + p.gaussian(0, 0.2 * ex), 0.5, 1.85);
+  };
+
+  return {
+    headScale,
+    featureScale: { eyes: group(), brows: group(), nose: group(), mouth: group(), ears: group() },
   };
 }
+
+/** Which feature group scales each anchor. Anchors absent from this map (the
+ *  cheeks, the hairline, the neck) keep their generated size. */
+const GROUP_OF: Partial<Record<AnchorName, FeatureGroup>> = {
+  eyeL: 'eyes',
+  eyeR: 'eyes',
+  browL: 'brows',
+  browR: 'brows',
+  noseTip: 'nose',
+  mouth: 'mouth',
+  earL: 'ears',
+  earR: 'ears',
+};
 
 /**
  * Per-anchor jitter. The left and right members of a pair are perturbed
  * INDEPENDENTLY, which is where the caricature comes from: one eye ends up
  * large and high, the other small and low, exactly as in the reference sheets.
  */
-function makeAnchors(rng: Rng, style: ResolvedStyle): Partial<Record<AnchorName, Partial<AnchorDef>>> {
+function makeAnchors(
+  rng: Rng,
+  style: ResolvedStyle,
+  featureScale: Record<FeatureGroup, number>
+): Partial<Record<AnchorName, Partial<AnchorDef>>> {
   const a = rng.fork('anchors');
   const ex = style.proportions.exaggeration;
   const asym = style.proportions.asymmetry;
@@ -127,6 +188,16 @@ function makeAnchors(rng: Rng, style: ResolvedStyle): Partial<Record<AnchorName,
     arcT: mouth.arcT * (1 + a.gaussian(0, 0.28 * ex)),
     arcP: mouth.arcP * (1 + a.gaussian(0, 0.25 * ex)),
   };
+
+  // Applied AFTER the forty draws above, from a stream that never touches them.
+  for (const key of Object.keys(out) as AnchorName[]) {
+    const group = GROUP_OF[key];
+    const def = out[key];
+    if (!group || !def) continue;
+    const k = featureScale[group];
+    if (def.arcT !== undefined) def.arcT = Math.max(0.03, def.arcT * k);
+    if (def.arcP !== undefined) def.arcP = Math.max(0.025, def.arcP * k);
+  }
 
   return out;
 }
@@ -244,11 +315,17 @@ export function generateFace(seed: string | number, opts?: GenerateOptions): Fac
   // light every shaded feature is lit on its own and the face falls apart.
   const la = rng.fork('light').gaussian(-2.3, 0.45);
 
+  const { head, archetype } = makeHead(rng, style);
+  const { headScale, featureScale } = makeProportions(rng, style);
+
   return {
     v: 1,
     seed: seedStr,
-    head: makeHead(rng, style),
-    anchors: makeAnchors(rng, style),
+    head,
+    archetype,
+    headScale,
+    featureScale,
+    anchors: makeAnchors(rng, style, featureScale),
     slots,
     colorIdx,
     patches: makePatches(rng, style, colorIdx),

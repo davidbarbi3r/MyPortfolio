@@ -82,7 +82,7 @@ export const baseStyle: FaceStyle = {
   proportions: {
     exaggeration: 0.7,
     asymmetry: { eyeSize: 0.4, eyeHeight: 0.28, browTilt: 0.45, noseShift: 0.3, mouthSkew: 0.35, headTilt: 0.25 },
-    deformBudget: 0.3,
+    deformBudget: 0.45,
   },
 
   weights: {},

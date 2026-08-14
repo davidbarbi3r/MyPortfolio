@@ -42,7 +42,7 @@ export function bakeFace(face: FaceParams, opts?: BakeOptions): FaceDrawList {
   const detail = opts?.detail ?? 1;
   const tick = opts?.tick ?? 0;
 
-  const view = makeHeadView(face.head, pose);
+  const view = makeHeadView(face.head, pose, { scaleMul: face.headScale ?? 1 });
 
   // Outline sampling dominates bake cost (every sample is a surface evaluation
   // plus a projection), so it scales with LOD. This is what keeps a live,
