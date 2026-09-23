@@ -4,8 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
 import HeroImage from '~/assets/images/barbicaja-ajaccio-sanguinaires.jpeg'
 import ServiceCreation from '~/assets/images/service-creation.jpg'
-import ServiceDev from '~/assets/images/service-dev.jpg'
-import ServiceMaintenance from '~/assets/images/service-maintenance.jpg'
 import ServiceSeo from '~/assets/images/service-seo.jpg'
 import CorseParata from '~/assets/images/corse-parata-sanguinaires.jpg'
 import CorseBonifacio from '~/assets/images/corse-bonifacio-citadelle.jpg'
@@ -25,10 +23,10 @@ import ArrowLink from '~/components/ui/ArrowLink.astro';
 import ArrowRight from '~/components/ui/ArrowRight.astro';
 import FaqItems from '~/components/ui/FaqItems.astro';
 import ImageStrip from '~/components/widgets/ImageStrip.astro';
-import ServicesShowcase from '~/components/widgets/ServicesShowcase.astro';
 import CardSlider from '~/components/widgets/CardSlider.astro';
 import ProjectCard from '~/components/widgets/ProjectCard.astro';
 import LogoMarquee from "~/components/widgets/LogoMarquee.astro";
+import ServicesShowcase from '~/components/widgets/ServicesShowcase.astro';
 import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
 
 // Imports logos clients
@@ -47,15 +45,19 @@ import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
 import { BUSINESS_NAME } from '~/utils/business-schema';
 
 const locale = Astro.currentLocale ?? 'fr'
-const { t, tList } = useTranslations(locale);
-// Le title reprend mot pour mot le nom de la fiche Google Business Profile
-// (cf. BUSINESS_NAME) : Google confronte les deux et réécrit la fiche quand
-// ils divergent. « Agence web » et « concepteur » sont abandonnés : trop
-// concurrentiel pour le premier, 4 impressions en 6 mois pour le second.
+const { t } = useTranslations(locale);
+// La home porte « Développeur freelance à Ajaccio : sites, SEO, sur-mesure ».
+// La requête création vit sur /creation-site-internet-ajaccio/.
+// Le nom commercial du schema reste BUSINESS_NAME.
 const metadata = {
-  title: 'David Barbier | Création de site internet et SEO à Ajaccio',
+  title: 'Développeur freelance à Ajaccio : sites, SEO, sur-mesure | David Barbier',
   description:
-    "Création de site internet sur mesure à Ajaccio, en direct avec un freelance. Prix affichés, livré en 6 semaines, vous modifiez vos textes seul. Devis sous 48 h.",
+    "David Barbier, développeur freelance à Ajaccio. Sites, SEO et sur-mesure, en direct. Devis sous 48 h.",
+  openGraph: {
+    title: 'Développeur freelance à Ajaccio : sites, SEO, sur-mesure | David Barbier',
+    description:
+      "David Barbier, développeur freelance à Ajaccio. Sites, SEO et sur-mesure, en direct. Devis sous 48 h.",
+  },
   lang: locale,
 };
 
@@ -142,7 +144,7 @@ const localBusinessSchema = {
       "name": "David Barbier",
       "url": "https://www.davidbarbier.com/",
       "image": "https://www.davidbarbier.com/david-barbier-consultant-seo-ajaccio.jpg",
-      "jobTitle": "Consultant SEO & développeur web",
+      "jobTitle": "Développeur freelance à Ajaccio",
       "telephone": "+33623565299",
       "email": "hello@davidbarbier.com",
       "worksFor": { "@id": "https://www.davidbarbier.com/#localbusiness" },
@@ -157,28 +159,12 @@ const localBusinessSchema = {
 // pour qu'ils ne puissent pas diverger.
 const HOME_FAQ = [
   {
-    q: "Combien coûte la création d'un site internet ?",
-    a: "Un site vitrine sur-mesure démarre à 2 000 € HT, un site one-page à 1 200 € HT. Le devis précis dépend du nombre de pages et des fonctionnalités, et vous l'avez sous 48 heures.",
-  },
-  {
-    q: 'En combien de temps mon site sera-t-il livré ?',
-    a: "Entre 4 et 6 semaines en moyenne, du premier appel à la mise en ligne. Plus vous êtes réactif sur les retours, plus on avance vite. Vous suivez l'avancement sur une version en ligne dès les premières semaines.",
-  },
-  {
-    q: 'Pourrai-je modifier les textes et les photos moi-même ?',
-    a: "Oui. Le site est livré avec une interface simple pour changer les textes, les photos, ajouter des pages ou publier des articles, depuis n'importe quel navigateur. Une formation d'une heure est incluse, avec des tutos vidéo.",
-  },
-  {
-    q: 'Comment ce tarif est-il possible pour du sur-mesure ?',
-    a: "Je travaille seul, donc vous ne financez ni locaux ni commerciaux, et j'utilise l'intelligence artificielle comme assistant sur les tâches répétitives. Le temps gagné, je le répercute sur votre facture.",
-  },
-  {
-    q: "Le site m'appartient-il vraiment ?",
-    a: "Oui, entièrement. Le code, le nom de domaine, le contenu. Aucun abonnement, aucune dépendance. Si un jour vous voulez travailler avec quelqu'un d'autre, vous partez avec l'intégralité du site.",
-  },
-  {
     q: 'Vous êtes vraiment basé à Ajaccio ?',
-    a: "Oui, j'y vis et j'y travaille. Si vous êtes sur place, on peut se voir pour le premier rendez-vous. Sinon tout se passe en visio, comme avec mes clients à Limoges et ailleurs en France.",
+    a: "Oui, j'y vis et j'y travaille. Si vous êtes sur place, on peut se voir pour le premier rendez-vous. Sinon tout se passe en visio, partout en France.",
+  },
+  {
+    q: 'Vous créez les sites vous-même ?',
+    a: 'Oui. La <a href="/creation-site-internet-ajaccio/">création de site internet à Ajaccio</a> est détaillée à part. Le <a href="/referencement-seo-ajaccio/">référencement naturel</a> et la <a href="/maintenance-site-internet-ajaccio/">maintenance</a> aussi.',
   },
 ];
 
@@ -260,16 +246,19 @@ const projects = [
   <!--hero-->
   <section class="relative bg-cream pt-16 md:pt-24 pb-12 overflow-hidden" data-hero>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <p class="mb-8" data-hero-tagline><PillBadge text="Freelance · Ancien auditeur EC" /></p>
+      <p class="mb-8" data-hero-tagline><PillBadge text="David Barbier · Freelance, ancien auditeur EC" /></p>
       <h1 class="text-charcoal text-[clamp(2.2rem,4.5vw,4.25rem)] leading-[1.05]" data-hero-title>
-        Création de site internet et référencement à Ajaccio
+        Développeur freelance à Ajaccio : sites, SEO, sur-mesure
       </h1>
       <p class="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed" data-hero-subtitle>
-        Sites internet sur-mesure pour TPE et experts-comptables. Je commence par comprendre votre métier, votre histoire, vos valeurs pour les retranscrire au mieux.
+        Je conçois les sites et le référencement des TPE, en direct. Je commence par votre métier, votre histoire, vos valeurs.
       </p>
-      <div class="mt-10" data-hero-cta>
+      <div class="mt-10 flex flex-col items-center gap-5" data-hero-cta>
         <a href="tel:+33623565299" class="btn btn-primary">
           {t('portfolio.bookCall')}
+        </a>
+        <a href="/creation-site-internet-ajaccio/" class="font-medium text-sage-dark hover:underline">
+          Création de site internet à Ajaccio
         </a>
       </div>
     </div>
@@ -314,65 +303,24 @@ const projects = [
     speed={30}
   />
 
-  {/* Services - layout Montegrappa : accordéon exclusif, la photo change au clic */}
   <ServicesShowcase
     badge="Services"
-    title={t('portfolio.services.title')}
-    subtitle={t('portfolio.services.subtitle')}
+    title="Sites et référencement"
+    subtitle="Deux portes. Le détail est sur chaque page."
     items={[
       {
-        title: tList('portfolio.services.servicesItems')[0].title,
-        description: tList('portfolio.services.servicesItems')[0].description,
-        subItems: tList('portfolio.services.servicesItems')[0].items,
-        price: tList('portfolio.services.servicesItems')[0].price,
+        title: 'Création / refonte de site',
+        description: 'Vitrine, one page, boutique, ou un site à reprendre.',
         image: ServiceCreation,
         alt: "Texture abstraite d'ondulations, évoquant la création de sites internet",
-        links: [
-          { text: "Voir l'offre sur-mesure", href: '/#tarifs' },
-          { text: 'Plutôt WordPress ?', href: '/freelance-wordpress-ajaccio/' },
-        ],
-        ecLink: {
-          text: 'Expert-comptable ? Site vitrine dédié EC',
-          href: '/agence-web-expert-comptable/creation-site-vitrine-ec/',
-        },
+        links: [{ text: 'Voir les offres', href: '/creation-site-internet-ajaccio/' }],
       },
       {
-        title: tList('portfolio.services.servicesItems')[1].title,
-        description: tList('portfolio.services.servicesItems')[1].description,
-        subItems: tList('portfolio.services.servicesItems')[1].items,
-        price: tList('portfolio.services.servicesItems')[1].price,
+        title: 'Référencement & suivi',
+        description: 'Être trouvé sur Google, puis tenir le cap.',
         image: ServiceSeo,
         alt: 'Texture de lumière à travers le feuillage, évoquant le référencement SEO',
-        links: [{ text: "Voir l'offre SEO", href: '/agence-seo-ajaccio/' }],
-        ecLink: {
-          text: 'Expert-comptable ? SEO spécialisé cabinet',
-          href: '/agence-web-expert-comptable/consultant-seo-ec/',
-        },
-      },
-      {
-        title: tList('portfolio.services.servicesItems')[2].title,
-        description: tList('portfolio.services.servicesItems')[2].description,
-        subItems: tList('portfolio.services.servicesItems')[2].items,
-        price: tList('portfolio.services.servicesItems')[2].price,
-        image: ServiceDev,
-        alt: 'Texture de bois, évoquant le développement sur-mesure',
-        ecLink: {
-          text: 'Expert-comptable ? Développeur spécialisé EC',
-          href: '/agence-web-expert-comptable/developpeur-specialise/',
-        },
-      },
-      {
-        title: tList('portfolio.services.servicesItems')[3].title,
-        description: tList('portfolio.services.servicesItems')[3].description,
-        subItems: tList('portfolio.services.servicesItems')[3].items,
-        price: tList('portfolio.services.servicesItems')[3].price,
-        image: ServiceMaintenance,
-        alt: 'Texture de roche et de mousse, évoquant la maintenance de site',
-        links: [{ text: 'Voir les forfaits', href: '/maintenance-site-internet-ajaccio/' }],
-        ecLink: {
-          text: 'Expert-comptable ? Refonte de votre site cabinet',
-          href: '/agence-web-expert-comptable/refonte-site-internet/',
-        },
+        links: [{ text: "Voir l'accompagnement", href: '/referencement-seo-ajaccio/' }],
       },
     ]}
   />
@@ -392,7 +340,7 @@ const projects = [
             <span class="hidden md:inline text-white/80"> - Ancien EC mémorialiste, j'ai des offres dédiées à votre profession.</span>
           </p>
         </div>
-        <a href="/agence-web-expert-comptable/" class="btn btn-cream gap-2 whitespace-nowrap">
+        <a href="/experts-comptables/" class="btn btn-cream gap-2 whitespace-nowrap">
           Découvrir mes offres EC
           <ArrowRight class="w-4 h-4" />
         </a>
@@ -428,7 +376,7 @@ const projects = [
         </div>
 
         <div class="rounded-xl bg-sage p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-white/80 mb-3">Agence solo + collectif</p>
+          <p class="text-sm font-semibold uppercase tracking-wide text-white/80 mb-3">Freelance + collectif</p>
           <h3 class="text-lg font-bold text-white mb-4">Vous payez l'expertise</h3>
           <CheckList
             markClass="text-white"
@@ -444,7 +392,7 @@ const projects = [
       </div>
 
       <div class="mt-10 text-center">
-        <ArrowLink href="/agence-seo-ajaccio/" text="En savoir plus sur l'approche agence solo" />
+        <ArrowLink href="/referencement-seo-ajaccio/" text="En savoir plus sur l'accompagnement SEO" />
       </div>
     </div>
   </section>
@@ -516,6 +464,7 @@ const projects = [
         <p class="mt-4 text-muted max-w-md text-base">
           Solutions web haute performance aux résultats concrets.
         </p>
+        <ArrowLink href="/realisations/" text="Voir les études de cas" class="mt-6" />
       </div>
 
       {/* Featured projects - asymmetric grid with Flip swap */}
@@ -569,84 +518,6 @@ const projects = [
   </section>
   <ProjectsFlip />
 
-  {/* Processus - 4 étapes. Porté depuis /creation-site-internet-ajaccio/.
-      4 des 6 concurrents qui rankent sur « création site internet Ajaccio » en affichent un.
-      Traitement « gros chiffres fins » : 4 colonnes hairline, tout visible sans clic. */}
-  <section class="py-16 md:py-24 px-6 lg:px-8 bg-cream">
-    <div class="mx-auto max-w-6xl">
-      <SectionHeader
-        kicker="Comment ça se passe"
-        kickerVariant="pill"
-        subtitle="Comptez 4 à 6 semaines entre notre premier appel et la mise en ligne. Vous suivez l'avancement en direct, sur une version en ligne, dès les premières semaines."
-        class="mb-14"
-      >
-        De l'idée au site en ligne, en <span class="text-sage-dark">4 étapes</span>
-      </SectionHeader>
-
-      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-        {[
-          { n: '01', t: 'On se rencontre, on cadre', d: "Un appel pour comprendre votre métier, vos clients et ce que le site doit vous rapporter." },
-          { n: '02', t: 'Vous voyez à quoi ça ressemble', d: 'Une maquette validée avant que la moindre ligne ne soit écrite. Allers-retours illimités.' },
-          { n: '03', t: 'Le site prend vie', d: 'Vous suivez la construction sur une adresse en ligne, et vous commentez au fur et à mesure.' },
-          { n: '04', t: 'Mise en ligne et formation', d: "Une heure en visio, des tutos vidéo, et vous repartez autonome sur vos contenus." },
-        ].map((step) => (
-          <li class="border-t border-black/10 pt-6" data-fade-up>
-            <p class="text-5xl md:text-6xl font-light text-sage-dark leading-none tracking-tight" aria-hidden="true">{step.n}</p>
-            <h3 class="text-lg text-charcoal font-semibold mt-4 mb-2">{step.t}</h3>
-            <p class="text-sm text-muted leading-relaxed">{step.d}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  {/* Tarifs. Un seul des 6 concurrents affiche ses prix, et aucun n'annonce de délai. */}
-  <section id="tarifs" class="py-16 md:py-24 px-6 lg:px-8 bg-sand scroll-mt-20">
-    <div class="mx-auto max-w-5xl">
-      <SectionHeader
-        kicker="Combien ça coûte"
-        subtitle="Presque aucune agence n'affiche ses prix. Voici les miens, et le devis précis arrive sous 48 heures."
-        class="mb-10"
-      >
-        Un tarif clair, <span class="text-sage-dark">pas de surprise</span>
-      </SectionHeader>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="rounded-xl border border-sage bg-cream p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-sage-dark mb-3">Site vitrine sur-mesure</p>
-          <p class="text-4xl md:text-5xl font-light text-charcoal">À partir de 2 000 €<span class="text-base font-medium text-muted"> HT</span></p>
-          <p class="text-sm text-muted mt-2">Un site one-page démarre à 1 200 € HT. Livré en 4 à 6 semaines.</p>
-          <CheckList
-            class="mt-5"
-            items={[
-              'Design sur-mesure, lisible sur mobile comme sur ordinateur',
-              'Vous modifiez textes et photos en autonomie',
-              'Nom de domaine, hébergement et certificat de sécurité',
-              "Formation d'une heure et tutos vidéo",
-              'Le site vous appartient, sans abonnement',
-            ]}
-          />
-        </div>
-
-        <div class="rounded-xl border border-black/10 bg-cream p-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-muted mb-3">Une fois en ligne</p>
-          <p class="text-4xl md:text-5xl font-light text-charcoal">30 €<span class="text-base font-medium text-muted">/mois HT</span></p>
-          <p class="text-sm text-muted mt-2">Ou 60 €/h HT en intervention ponctuelle, sans engagement.</p>
-          <CheckList
-            class="mt-5"
-            items={[
-              'Mises à jour, surveillance, sauvegardes',
-              'Petites évolutions incluses',
-              'Accompagnement SEO mensuel à partir de 490 €',
-            ]}
-          />
-          <ArrowLink href="/maintenance-site-internet-ajaccio/" text="Le détail de la maintenance" class="mt-6" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* FAQ. Aucun des 6 concurrents n'en a une. */}
   <section id="faq" class="py-16 md:py-24 px-6 lg:px-8 bg-cream scroll-mt-20">
     <div class="mx-auto max-w-3xl mb-12">
       <SectionHeader kicker="FAQ" kickerVariant="pill">
@@ -664,7 +535,7 @@ const projects = [
     count={3}
   />
   
-  {/* Section Google Maps - Localisation de l'agence */}
+  {/* Section Google Maps */}
   <section class="bg-sand py-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="relative h-[400px] rounded-xl overflow-hidden">
@@ -676,7 +547,7 @@ const projects = [
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="David Barbier | Création de site internet et SEO à Ajaccio"
+        title="David Barbier, développeur freelance à Ajaccio"
       ></iframe>
     </div>
     </div>
@@ -710,7 +581,7 @@ const projects = [
           Envoyer un email
         </a>
         <p class="mt-6 text-sm text-white/70">
-          Basé à Ajaccio, j'accompagne aussi des clients à <a href="/limoges/" class="underline underline-offset-2 hover:text-white transition-colors">Limoges</a> et partout en France.
+          Basé à Ajaccio, j'accompagne des clients en visio partout en France.
         </p>
       </div>
     </div>

@@ -45,6 +45,7 @@ apps:
 
     post:
       isEnabled: true
+      # Le slug reprend le dossier du fichier : blog/article ou realisations/cas.
       permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true

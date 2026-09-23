@@ -24,7 +24,7 @@ Workflow : on rédige à l'avance avec `draft: true` dans le frontmatter, et le 
 | 2 juillet | Combien de temps pour être visible sur Google ? La vraie réponse | `combien-temps-referencement-google` | combien de temps référencement | Guide pratique | ⚪ À faire |
 | 9 juillet | Les cabinets comptables dans ChatGPT : qui est cité et pourquoi | `expert-comptable-chatgpt-visibilite` | expert-comptable IA / visibilité | EC × IA | ⚪ À faire — réutilise la méthodo du 25 juin |
 | 16 juillet | AI Overviews de Google : ce que ça change pour une TPE | `ai-overviews-google-tpe` | ai overviews google | IA & visibilité | ⚪ À faire — article de référence à mettre à jour en continu (`updateDate`) |
-| 23 juillet | Fiche Google suspendue : la procédure pour la récupérer | `fiche-google-suspendue-que-faire` | fiche google suspendue | Guide SOS | ⚪ À faire — maille vers /optimisation-fiche-google-ajaccio/ |
+| 23 juillet | Fiche Google suspendue : la procédure pour la récupérer | `fiche-google-suspendue-que-faire` | fiche google suspendue | Guide SOS | ⚪ À faire — maille vers /referencement-seo-ajaccio/fiche-google/ |
 | 30 juillet | Étude de cas Endoajaccio : 5 nouveaux patients par jour | `endoajaccio-etude-de-cas` | site internet profession de santé | Preuve locale | ⚪ À faire — valider les chiffres avec le client avant rédaction |
 | 6 août | Je crée des sites avec l'IA : ce qu'elle fait bien, ce qu'elle rate | `creer-site-internet-avec-ia` | créer site internet avec IA | IA & méta | ⚪ À faire |
 | 13 août | Récupérer son site : domaine, hébergeur, prestataire injoignable | `recuperer-site-internet-domaine` | récupérer nom de domaine site | Guide SOS | ⚪ À faire — maille vers l'argumentaire location de site |

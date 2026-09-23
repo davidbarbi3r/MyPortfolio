@@ -1,0 +1,145 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CreationServicePage from '~/components/widgets/CreationServicePage.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Refonte site internet à Ajaccio | David Barbier',
+  description:
+    "Refonte site internet à Ajaccio, sur devis. On reprend le contenu utile, on redirige les anciennes adresses, et le site vous appartient. Devis sous 48 h.",
+};
+
+const FAQ = [
+  {
+    q: 'Vous gardez mon référencement ?',
+    a: "On ne promet pas une position. On reprend les pages qui apportent des visites, et si une adresse change, une redirection permanente envoie l'ancienne vers la nouvelle. C'est le minimum pour ne pas effacer le travail déjà fait.",
+  },
+  {
+    q: 'Quel est le prix d’une refonte ?',
+    a: "Sur devis. Il dépend de ce qu'on garde, de ce qu'on réécrit, et du nombre de pages. Vous avez le chiffre sous 48 heures.",
+  },
+  {
+    q: 'Si le site va encore, la maintenance suffit ?',
+    a: 'Souvent oui. La <a href="/maintenance-site-internet-ajaccio/">maintenance de site internet à Ajaccio</a> démarre à 30 €/mois HT. La refonte sert quand le site ne correspond plus à l’activité, ou qu’il est trop lent pour être repris tel quel.',
+  },
+];
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    localBusinessAjaccioNode,
+    {
+      '@type': 'Service',
+      '@id': 'https://www.davidbarbier.com/creation-site-internet-ajaccio/refonte/#service',
+      name: 'Refonte site internet à Ajaccio',
+      url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/refonte/',
+      provider: { '@id': LOCAL_BUSINESS_AJACCIO_ID },
+      areaServed: { '@type': 'City', name: 'Ajaccio' },
+      serviceType: 'Refonte de site internet',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.davidbarbier.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Création de site internet', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/' },
+        { '@type': 'ListItem', position: 3, name: 'Refonte', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/refonte/' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/<[^>]+>/g, '') },
+      })),
+    },
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
+  <CreationServicePage
+    crumb="Refonte"
+    badge="Site déjà en ligne"
+    title="Refonte site internet"
+    titleAccent="à Ajaccio"
+    lede="Le site existe déjà. Il ne reflète plus l’activité, il est lent, ou plus personne ne sait le modifier. On garde ce qui sert, on remplace le reste."
+    stats={[
+      { value: 'Sur devis', label: 'selon ce qu’on garde' },
+      { value: '301', label: 'si une adresse change' },
+      { value: '48 h', label: 'pour le chiffre' },
+    ]}
+    heroCardTitle="On ne recommence pas à zéro"
+    heroCardText="Pages utiles, redirections, textes de nouveau modifiables."
+    whyTitle="Reprendre, sans effacer le travail déjà fait"
+    whyParagraphs={[
+      'Une refonte garde les pages qui apportent des visites et les textes qui sont encore justes. Le reste — mise en page, lenteur, pages que personne ne peut plus éditer — est remplacé.',
+      'Si une adresse change, une redirection permanente envoie l’ancienne vers la nouvelle. On ne promet pas une position. Si le site tient encore, la <a href="/maintenance-site-internet-ajaccio/" class="text-sage-dark underline underline-offset-2">maintenance</a> démarre à 30 €/mois HT et suffit souvent.',
+    ]}
+    quote="Le bon réflexe n’est pas de tout jeter. C’est de voir ce qui sert encore, puis de chiffrer le reste."
+    whyCards={[
+      { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', title: 'Ce qui sert', desc: 'Pages, photos, textes encore justes. On ne réécrit pas pour le plaisir de réécrire.' },
+      { icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101', title: 'Adresses reprises', desc: 'Une redirection permanente quand l’URL change. Le minimum pour ne pas perdre les visites déjà gagnées.' },
+      { icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z', title: 'De nouveau modifiable', desc: 'Vous retrouvez la main sur les textes. La refonte ne vous rend pas dépendant pour une virgule.' },
+      { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Parfois, non', desc: 'Si le site va encore, on le maintient. La refonte attend que l’activité ou la lenteur l’exigent.' },
+    ]}
+    stepsTitle="La refonte en 4 étapes"
+    stepsIntro="On regarde le site actuel, on décide ce qui reste, vous voyez le nouveau avant la bascule."
+    steps={[
+      { n: '01', title: 'On lit le site actuel', text: 'Pages qui reçoivent des visites, textes à garder, ce qui est trop lent ou plus modifiable. Le devis en sort sous 48 heures.' },
+      { n: '02', title: 'On cadre ce qui change', text: 'Ce qu’on reprend tel quel, ce qu’on réécrit, et les adresses qui devront être redirigées.' },
+      { n: '03', title: 'Vous voyez la nouvelle version', text: 'En ligne, à côté de l’ancien site. Vous comparez. On ajuste avant de couper l’ancienne adresse.' },
+      { n: '04', title: 'Bascule', text: 'Mise en ligne, redirections permanentes si les URL changent, formation pour modifier les textes.' },
+    ]}
+    inclus={[
+      { title: 'L’audit de l’existant', desc: 'Ce qui reste, ce qui part, ce qui doit être redirigé.' },
+      { title: 'Les redirections', desc: 'Ancienne adresse vers nouvelle, quand l’URL change. Pas de promesse de position.' },
+      { title: 'Les textes repris', desc: 'On réécrit seulement ce qui ne correspond plus.' },
+      { title: 'La formation', desc: 'Vous pouvez de nouveau changer un texte sans ticket.' },
+    ]}
+    techTitle="L’outil suit le site déjà là"
+    techIntro="Une refonte ne repart pas sur une stack par principe. Si le site est un WordPress encore sain, on peut le garder. S’il est trop lourd pour être repris, on le reconstruit."
+    techCards={[
+      { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Garder si ça tient', desc: 'Un WordPress encore maintenable ne mérite pas d’être jeté pour changer de technologie.' },
+      { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', title: 'Reconstruire si ça bloque', desc: 'Thème impossible à modifier, site lent, plus personne n’a les accès : là, on repart.' },
+      { icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101', title: 'Redirections', desc: 'Chaque adresse qui change a sa redirection permanente. C’est écrit dans le devis.' },
+      { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Maintenance d’abord', desc: 'À 30 €/mois HT, souvent assez quand le site correspond encore à l’activité.' },
+    ]}
+    priceTitle="Le prix d’une refonte"
+    priceName="Refonte"
+    priceValue="Sur devis"
+    priceHint="chiffre sous 48 heures"
+    priceNote='Il dépend de ce qu’on garde, de ce qu’on réécrit, et du nombre de pages. Si le site tient, la <a href="/maintenance-site-internet-ajaccio/">maintenance</a> démarre à 30 €/mois HT.'
+    priceIncludes={[
+      'Lecture de l’existant avant le chiffre',
+      'Reprise des pages utiles',
+      'Redirections si les adresses changent',
+      'Formation à la mise en ligne',
+    ]}
+    priceOptions={[
+      { label: 'Maintenance si le site tient', value: 'dès 30 €/mois HT' },
+      { label: 'Site vitrine neuf', value: 'dès 2 000 € HT' },
+      { label: 'Référencement', value: 'dès 490 €/mois HT' },
+    ]}
+    faqTitle="Questions sur la refonte"
+    faq={FAQ}
+    ctaTitle="Envoyez l’adresse du site actuel"
+    ctaText="L’URL suffit pour un premier regard. Le devis sous 48 heures dit ce qu’on garde, ce qu’on refait, et le prix."
+    finalPoints={[
+      { title: 'Pas de position promise', desc: 'Les redirections évitent de perdre les visites. Elles ne garantissent pas un classement.' },
+      { title: 'Parfois la maintenance suffit', desc: '30 €/mois HT quand le site correspond encore.' },
+      { title: 'À Ajaccio', desc: 'David Barbier, 13 boulevard Sampiero. 06 23 56 52 99.' },
+    ]}
+    source="refonte-site-internet-ajaccio"
+  >
+    <p slot="links">
+      Cette page fait partie de la <a href="/creation-site-internet-ajaccio/" class="text-sage-dark underline underline-offset-2">création de site internet à Ajaccio</a>.
+      Repartir de zéro : <a href="/creation-site-internet-ajaccio/site-vitrine/" class="text-sage-dark underline underline-offset-2">site vitrine</a>,
+      <a href="/creation-site-internet-ajaccio/one-page/" class="text-sage-dark underline underline-offset-2">one page</a>,
+      <a href="/creation-site-internet-ajaccio/boutique/" class="text-sage-dark underline underline-offset-2">boutique</a>.
+      WordPress : <a href="/freelance-wordpress-ajaccio/" class="text-sage-dark underline underline-offset-2">freelance WordPress</a>.
+      Cabinet comptable : <a href="/experts-comptables/refonte-site-internet/" class="text-sage-dark underline underline-offset-2">refonte pour expert-comptable</a>.
+    </p>
+  </CreationServicePage>
+</Layout>

@@ -1,0 +1,832 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import Image from '../../components/common/Image.astro';
+import HeroImage from '../../assets/images/DSCF7551-3.jpg';
+import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import StatBig from '~/components/ui/StatBig.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import CheckList from '~/components/ui/CheckList.astro';
+import ArrowLink from '~/components/ui/ArrowLink.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+import FaqItems from '~/components/ui/FaqItems.astro';
+
+const metadata = {
+  title: "Refonte site internet expert-comptable | Modernisation + SEO",
+  description:
+    'Refonte de site expert-comptable par un ancien EC mémorialiste. Modernisez votre site avec un design professionnel, SEO optimisé et performances maximales.',
+};
+
+// JSON-LD Service schema
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.davidbarbier.com/experts-comptables/refonte-site-internet/#service",
+  "name": "Refonte site internet expert-comptable",
+  "description": "Refonte complète de site internet pour cabinets d'expertise comptable. Modernisation du design, optimisation SEO, performances techniques maximales avec Astro.",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://www.davidbarbier.com/#person",
+    "name": "David Barbier",
+    "jobTitle": "Développeur web & ancien expert-comptable mémorialiste",
+    "url": "https://www.davidbarbier.com/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "France"
+  },
+  "serviceType": "Refonte de site internet",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Experts-comptables, Cabinets comptables"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Offres refonte site expert-comptable",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Forfait refonte site expert-comptable",
+        "description": "Refonte complète incluant audit, stratégie, développement sur mesure, migration SEO et formation",
+        "price": "2000",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "2000",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Maintenance mensuelle",
+        "description": "Maintenance technique, mises à jour de sécurité et support",
+        "price": "30",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "30",
+          "priceCurrency": "EUR",
+          "unitCode": "MON",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ]
+  },
+};
+
+// JSON-LD FAQ schema
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien coûte une refonte de site expert-comptable ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une refonte de site expert-comptable démarre à 2 000€ HT. Le tarif final dépend de l'ampleur du projet : un simple portage sur Astro en conservant design et textes coûtera moins cher qu'une refonte complète avec nouvelle identité et réécriture des contenus. Je vous propose toujours un devis détaillé et transparent après avoir analysé votre site actuel et compris vos objectifs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le délai pour refondre un site ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comptez en moyenne 6 à 8 semaines pour une refonte complète. Ce délai inclut l'audit, la stratégie, le développement et les tests. Votre site actuel reste en ligne pendant toute la durée du projet. La bascule se fait en quelques heures, sans interruption de service pour vos visiteurs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon site sera-t-il optimisé pour Google ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument. L'optimisation SEO est au cœur de chaque refonte. Je mets en place une structure sémantique optimisée (balises H1-H6, meta descriptions), des redirections 301 pour préserver votre référencement existant, un sitemap XML et des données structurées, ainsi que des performances techniques excellentes (facteur de ranking Google)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que devient mon ancien site ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Votre ancien site reste en ligne pendant toute la phase de développement. Une fois le nouveau site validé et testé, la bascule se fait en remplaçant les fichiers sur votre hébergement. Je conserve une sauvegarde de votre ancien site pendant 3 mois au cas où vous auriez besoin de récupérer des éléments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je garder mon nom de domaine ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, bien sûr ! Votre nom de domaine vous appartient et reste inchangé. C'est d'ailleurs essentiel pour préserver votre référencement et votre notoriété. Si vous souhaitez changer de nom de domaine (rebranding), je peux également vous accompagner dans cette transition avec les redirections appropriées."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi Astro et pas WordPress ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WordPress est parfait pour les blogs et sites nécessitant des mises à jour fréquentes par des non-techniciens. Mais pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs : des performances 10x supérieures (score PageSpeed >90), une sécurité renforcée (pas de base de données à pirater, pas de plugins vulnérables), zéro maintenance technique (pas de mises à jour WordPress/plugins à gérer), et des coûts d'hébergement réduits. Votre site charge instantanément et vous n'avez plus à vous soucier des failles de sécurité."
+      }
+    }
+  ]
+};
+
+// JSON-LD Breadcrumb schema
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.davidbarbier.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Experts-comptables",
+      "item": "https://www.davidbarbier.com/experts-comptables/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Refonte site internet",
+      "item": "https://www.davidbarbier.com/experts-comptables/refonte-site-internet/"
+    }
+  ]
+};
+
+// Cartes de la section Introduction (textes verbatim de la page d'origine)
+const INTRO_CARDS = [
+  {
+    title: 'Rapprochement de cabinets',
+    desc: 'Fusion ou association ? Un nouveau site pour une nouvelle identité commune',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+  },
+  {
+    title: 'Nouvelle direction',
+    desc: 'Acter une rupture, affirmer un repositionnement ou marquer un tournant',
+    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
+  },
+  {
+    title: 'Site lent ou obsolète',
+    desc: 'Design dépassé, performances médiocres : il est temps de moderniser',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: 'Stratégie de visibilité',
+    desc: 'Améliorer votre référencement pour attirer des prospects qualifiés',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  },
+];
+
+// Étapes de la méthodologie de refonte
+const PROCESS_STEPS = [
+  {
+    num: '01',
+    title: 'Audit de votre site',
+    desc: "J'analyse votre site : design, performances techniques, SEO, contenu. Cet audit permet d'identifier ce qui fonctionne et ce qui freine votre visibilité.",
+  },
+  {
+    num: '02',
+    title: 'Stratégie de refonte',
+    desc: 'Je définis une stratégie complète : nouvelle arborescence, mots-clés cibles, direction artistique. Vous validez chaque élément avant le développement.',
+  },
+  {
+    num: '03',
+    title: 'Développement',
+    desc: "Je développe votre nouveau site en parallèle de l'ancien. Code sur mesure avec Astro pour des performances maximales. Migration des contenus optimisés.",
+  },
+  {
+    num: '04',
+    title: 'Tests et mise en ligne',
+    desc: 'Tests approfondis sur tous les appareils, vérification des redirections SEO, puis bascule. Votre ancien site est remplacé sans interruption de service.',
+  },
+];
+
+// Livrables
+const DELIVERABLES = [
+  {
+    title: 'Design moderne et responsive',
+    desc: "Un site qui s'adapte parfaitement à tous les écrans (mobile, tablette, desktop) avec un design professionnel et actuel.",
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  },
+  {
+    title: 'Optimisation SEO complète',
+    desc: 'Balises optimisées, structure sémantique, redirections 301, sitemap XML. Votre référencement est préservé et amélioré.',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  },
+  {
+    title: 'Amélioration conversion et performance',
+    desc: 'Score PageSpeed >80, temps de chargement optimisé, parcours utilisateur pensé pour convertir vos visiteurs.',
+    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
+  },
+  {
+    title: 'Support et maintenance',
+    desc: '30 jours de support inclus après la mise en ligne. Options de maintenance mensuelle disponibles.',
+    icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z',
+  },
+];
+
+// Petites cartes de la grille Fonctionnalités (la grande carte Recrutement est à part)
+const FEATURE_CARDS = [
+  {
+    title: 'Système de devis interactif',
+    desc: 'Formulaire multi-étapes pour qualifier les prospects et automatiser la prise de contact.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
+  },
+  {
+    title: 'Lead magnets & ressources',
+    desc: 'Guides téléchargeables, process, contenus à valeur ajoutée pour capter des leads qualifiés.',
+    icon: 'M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+  },
+  {
+    title: 'Lien espace client',
+    desc: 'Accès direct à Pennylane, Cegid, ou tout autre outil utilisé par vos clients.',
+    icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+  },
+  {
+    title: 'Boîte à outils / Simulateurs',
+    desc: 'Simulateurs (charges, TVA...), chiffres clés, outils pratiques pour vos visiteurs.',
+    icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+  },
+];
+
+// Planning en 8 semaines
+const TIMELINE = [
+  {
+    num: '1.',
+    title: 'Semaine 1-2 : audit et stratégie',
+    desc: 'Analyse complète de votre site actuel, définition de la stratégie, validation des maquettes et de l\'arborescence.',
+  },
+  {
+    num: '2.',
+    title: 'Semaine 3-6 : développement',
+    desc: "Développement du nouveau site, migration et optimisation des contenus, implémentation SEO. Points d'avancement hebdomadaires.",
+  },
+  {
+    num: '3.',
+    title: 'Semaine 7-8 : tests et mise en ligne',
+    desc: 'Tests complets multi-appareils, mise en place des redirections 301, formation et bascule vers le nouveau site.',
+  },
+];
+
+// Contenu du forfait refonte
+const PRICING_INCLUDES = [
+  'Audit complet de votre site actuel',
+  'Design moderne 100% sur mesure',
+  'Développement avec Astro (performances max)',
+  'Migration et optimisation des contenus',
+  'Optimisation SEO complète + redirections 301',
+  'Responsive (mobile, tablette, desktop)',
+  "Formation à l'utilisation",
+  '30 jours de support post-lancement',
+];
+
+const PRICING_OPTIONS = [
+  { label: 'Rédaction de contenus optimisés SEO', price: 'Sur devis' },
+  { label: 'Shooting photo professionnel', price: 'Sur devis' },
+  { label: 'Maintenance mensuelle', price: 'À partir de 30€/mois' },
+  { label: 'Accompagnement SEO continu', price: 'À partir de 490€/mois' },
+];
+
+// Arguments de la section CTA finale
+const CTA_POINTS = [
+  {
+    title: 'Audit gratuit de votre site',
+    desc: 'Je vous envoie un rapport détaillé des points à améliorer.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+  },
+  {
+    title: 'Devis détaillé sous 48h',
+    desc: 'Planning et livrables clairement définis. Pas de surprise.',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+  },
+  {
+    title: 'Ancien EC mémorialiste, je vous comprends',
+    desc: 'Nous parlons le même langage, je connais vos enjeux et vos contraintes.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+];
+
+// FAQ affichée : questions et réponses strictement identiques à l'existant,
+// réponses en HTML de confiance rendues par FaqItems via set:html.
+const REFONTE_FAQ = [
+  {
+    q: 'Combien coûte une refonte de site ?',
+    a: `<p>Une refonte de site expert-comptable démarre à 2 000€ HT. Le tarif final dépend de l'ampleur du projet : un simple portage sur Astro en conservant design et textes coûtera moins cher qu'une refonte complète avec nouvelle identité et réécriture des contenus.</p><p>Je vous propose toujours un devis détaillé et transparent après avoir analysé votre site actuel et compris vos objectifs.</p>`,
+  },
+  {
+    q: 'Quel est le délai pour refondre un site ?',
+    a: `<p>Comptez en moyenne 6 à 8 semaines pour une refonte complète. Ce délai inclut l'audit, la stratégie, le développement et les tests.</p><p>Votre site actuel reste en ligne pendant toute la durée du projet. La bascule se fait en quelques heures, sans interruption de service pour vos visiteurs.</p>`,
+  },
+  {
+    q: 'Mon site sera-t-il optimisé pour Google ?',
+    a: `<p>Absolument. L'optimisation SEO est au cœur de chaque refonte. Je mets en place :</p><ul class="list-disc list-inside space-y-1 ml-2"><li>Une structure sémantique optimisée (balises H1-H6, meta descriptions...)</li><li>Des redirections 301 pour préserver votre référencement existant</li><li>Un sitemap XML et des données structurées</li><li>Des performances techniques excellentes (facteur de ranking Google)</li></ul>`,
+  },
+  {
+    q: 'Que devient mon ancien site ?',
+    a: `<p>Votre ancien site reste en ligne pendant toute la phase de développement. Une fois le nouveau site validé et testé, la bascule se fait en remplaçant les fichiers sur votre hébergement.</p><p>Je conserve une sauvegarde de votre ancien site pendant 3 mois au cas où vous auriez besoin de récupérer des éléments.</p>`,
+  },
+  {
+    q: 'Puis-je garder mon domaine ?',
+    a: `<p>Oui, bien sûr ! Votre nom de domaine vous appartient et reste inchangé. C'est d'ailleurs essentiel pour préserver votre référencement et votre notoriété.</p><p>Si vous souhaitez changer de nom de domaine (rebranding), je peux également vous accompagner dans cette transition avec les redirections appropriées.</p>`,
+  },
+  {
+    q: 'Pourquoi Astro et pas WordPress ?',
+    a: `<p>WordPress est parfait pour les blogs et sites nécessitant des mises à jour fréquentes par des non-techniciens. Mais pour un site vitrine d'expert-comptable, Astro offre des avantages décisifs :</p><ul class="list-disc list-inside space-y-1 ml-2"><li>Des performances 10x supérieures (score PageSpeed &gt;90)</li><li>Une sécurité renforcée (pas de base de données à pirater, pas de plugins vulnérables)</li><li>Zéro maintenance technique (pas de mises à jour WordPress/plugins à gérer)</li><li>Des coûts d'hébergement réduits</li></ul><p>Votre site charge instantanément et vous n'avez plus à vous soucier des failles de sécurité.</p>`,
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbStructuredData)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative bg-cream overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+      <!-- Fil d'Ariane -->
+      <nav aria-label="Fil d'Ariane" class="mb-8 text-sm" data-fade-up>
+        <ol class="flex items-center gap-2 text-muted flex-wrap">
+          <li><a href="/" class="hover:text-sage-dark transition-colors">Accueil</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li><a href="/experts-comptables/" class="hover:text-sage-dark transition-colors">Experts-comptables</a></li>
+          <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+          <li class="text-charcoal font-medium">Refonte site internet</li>
+        </ol>
+      </nav>
+
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <div class="order-2 lg:order-1">
+          <p data-fade-up><PillBadge text="Refonte complète par un ancien EC mémorialiste" /></p>
+
+          <h1 class="mt-8" data-fade-up>
+            <span class="block text-charcoal text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.05] tracking-tight">
+              Refonte site internet expert-comptable
+            </span>
+            <span class="block text-sage-dark text-[clamp(2.2rem,4vw,3.75rem)] leading-[1.05] mt-2">
+              Modernisation + SEO
+            </span>
+          </h1>
+
+          <p class="mt-8 text-lg sm:text-xl text-muted leading-relaxed" data-fade-up>
+            Votre site actuel ne reflète plus l'image de votre cabinet ? Je le transforme en une <strong class="text-charcoal font-medium">vitrine moderne et performante</strong>, optimisée pour Google et vos futurs clients.
+          </p>
+
+          <div class="mt-10 grid grid-cols-3 gap-6">
+            <StatBig value="8" label="Semaines max" size="md" />
+            <StatBig value=">80" label="Score PageSpeed" size="md" />
+            <StatBig value="SEO" label="Optimisé Google" size="md" />
+          </div>
+
+          <div class="mt-10 flex flex-wrap items-center gap-6" data-fade-up>
+            <a href="tel:+33623565299" class="btn btn-primary gap-2">
+              Demander un audit gratuit
+              <ArrowRight class="w-5 h-5" />
+            </a>
+            <ArrowLink href="#processus" text="Voir le processus" />
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 w-full" data-fade-up>
+          <div class="relative rounded-xl overflow-hidden">
+            <Image
+              src={HeroImage}
+              alt="David Barbier - Refonte site expert-comptable"
+              class="w-full aspect-[4/5] object-cover"
+              width={1024}
+              height={1280}
+            />
+
+            <div class="absolute bottom-6 left-6 right-6 bg-cream/95 backdrop-blur-sm rounded-xl p-4">
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-sage rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-medium text-charcoal">Refonte sur mesure</div>
+                  <div class="text-sm text-muted">Par un ancien expert-comptable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Introduction -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+
+        <div class="lg:col-span-4">
+          <div class="lg:sticky lg:top-32">
+            <SectionHeader number="01" kicker="Introduction" align="left">
+              Pourquoi refondre votre site ?
+            </SectionHeader>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8">
+          <p class="text-xl text-muted leading-relaxed">
+            Rapprochement entre cabinets, nouvelle direction à affirmer, besoin de vous démarquer de la concurrence... Les raisons de refondre votre site sont nombreuses. C'est l'occasion d'<strong class="text-charcoal font-medium">acter un nouveau chapitre</strong> dans l'histoire de votre cabinet.
+          </p>
+
+          <p class="text-muted leading-relaxed mt-6">
+            Au-delà de l'image, c'est aussi le moment de corriger les problèmes techniques : un site lent qui fait fuir les visiteurs, un design dépassé qui ne reflète plus votre professionnalisme, ou une <strong class="text-charcoal font-medium">absence de visibilité sur Google</strong> qui vous prive de prospects qualifiés.
+          </p>
+
+          <div class="mt-12" data-fade-up>
+            <span class="block text-5xl leading-none mb-4 font-serif text-sage" aria-hidden="true">"</span>
+            <blockquote class="text-2xl sm:text-3xl font-light text-charcoal italic leading-relaxed">
+              Une refonte, c'est l'opportunité de repartir sur des bases solides et d'affirmer votre positionnement.
+            </blockquote>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {INTRO_CARDS.map((card) => (
+              <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+                <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                  </svg>
+                </div>
+                <h3 class="text-lg text-charcoal">{card.title}</h3>
+                <p class="text-sm text-muted mt-2">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Processus -->
+  <section id="processus" class="py-16 md:py-24 scroll-mt-32 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <SectionHeader
+          number="02"
+          kicker="Processus complet"
+          align="left"
+          subtitle="Une méthodologie éprouvée en 4 étapes pour transformer votre site sans perdre votre référencement existant."
+        >
+          Les étapes de ma méthodologie de refonte
+        </SectionHeader>
+      </div>
+
+      <dl class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-12">
+        {PROCESS_STEPS.map((step) => (
+          <div data-fade-up>
+            <div class="flex items-baseline gap-2">
+              <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl text-sage-dark font-light">
+                {step.num}
+              </span>
+              <dt>
+                <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">
+                  {step.title}
+                </h3>
+              </dt>
+            </div>
+            <dd class="mt-4">
+              <p class="text-base leading-normal text-muted">
+                {step.desc}
+              </p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Section Livrables -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <SectionHeader number="03" kicker="Livrables" class="max-w-3xl mx-auto">
+        Ce que vous recevez
+      </SectionHeader>
+
+      <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {DELIVERABLES.map((item) => (
+          <div class="bg-sage text-white rounded-xl p-8 text-center" data-fade-up>
+            <div class="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl text-white">{item.title}</h3>
+            <p class="text-sm text-white/90 mt-4 leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Fonctionnalités -->
+  <section class="py-16 md:py-24 bg-cream overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+
+      <SectionHeader
+        number="04"
+        kicker="Fonctionnalités"
+        class="max-w-3xl mx-auto mb-16"
+        subtitle="Votre site peut devenir bien plus qu'une simple vitrine. Voici quelques possibilités selon vos besoins."
+      >
+        Des idées pour aller plus loin
+      </SectionHeader>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Carte principale : Recrutement -->
+        <div class="lg:col-span-2 bg-sage text-white rounded-xl p-8 lg:p-10" data-fade-up>
+          <div class="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl lg:text-3xl text-white mb-4">Page recrutement / Marque employeur</h3>
+          <p class="text-white/90 text-lg leading-relaxed max-w-xl">
+            Attirez les talents avec une page dédiée. Le site est souvent la première chose qu'un candidat consulte avant l'entretien.
+          </p>
+        </div>
+
+        {FEATURE_CARDS.map((card) => (
+          <div class="rounded-xl border border-black/10 bg-white/60 p-8" data-fade-up>
+            <div class="w-12 h-12 rounded-xl bg-sage/15 text-sage-dark flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl text-charcoal mb-3">{card.title}</h3>
+            <p class="text-muted leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Partenaire digital -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="bg-cream border border-black/10 rounded-xl p-8 lg:p-12" data-fade-up>
+        <div class="flex flex-col lg:flex-row lg:items-center gap-8">
+          <div class="flex-1">
+            <h3 class="text-2xl sm:text-3xl text-charcoal">
+              Un partenaire qui parle votre langage
+            </h3>
+            <p class="text-muted mt-4 leading-relaxed">
+              Ancien <strong class="text-charcoal font-medium">expert-comptable mémorialiste et auditeur financier</strong>, je comprends vos enjeux métier. Cette double casquette fait de moi un vrai partenaire pour l'évolution digitale de votre cabinet : simulateurs, modules IA, onboarding client... Votre site peut devenir bien plus qu'une vitrine.
+            </p>
+            <ArrowLink href="/experts-comptables/developpeur-specialise/" text="Découvrir les possibilités" class="mt-6" />
+          </div>
+          <div class="flex-shrink-0 hidden lg:block">
+            <div class="w-24 h-24 rounded-full bg-sage flex items-center justify-center">
+              <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Timeline -->
+  <section class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+
+      <SectionHeader
+        number="05"
+        kicker="Planning"
+        class="max-w-3xl mx-auto"
+        subtitle="Un planning réaliste et transparent pour une refonte sereine."
+      >
+        Refondre votre site en 8 semaines
+      </SectionHeader>
+
+      <div class="mt-16 max-w-4xl mx-auto">
+        <dl class="grid gap-8 md:grid-cols-3">
+          {TIMELINE.map((item) => (
+            <div class="bg-white/60 p-6 rounded-xl border border-black/10" data-fade-up>
+              <div class="flex gap-3 items-center text-sage-dark">
+                <span class="text-2xl font-medium">{item.num}</span>
+                <dt class="tracking-tight">
+                  <h3 class="text-xl text-charcoal">{item.title}</h3>
+                </dt>
+              </div>
+              <dd class="mt-3">
+                <p class="text-muted">
+                  {item.desc}
+                </p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Tarif -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+
+      <SectionHeader number="06" kicker="Investissement" class="max-w-3xl mx-auto">
+        Quel est le prix d'une refonte de site pour un cabinet ?
+      </SectionHeader>
+
+      <div class="mt-16 max-w-2xl mx-auto">
+        <div class="bg-cream rounded-xl overflow-hidden border border-black/10" data-fade-up>
+          <div class="h-1.5 bg-sage" aria-hidden="true"></div>
+          <div class="p-8 lg:p-12">
+
+            <div class="text-center">
+              <h3 class="text-2xl text-charcoal">Forfait refonte site expert-comptable</h3>
+              <div class="mt-6">
+                <span class="text-5xl sm:text-6xl text-charcoal">À partir de 2 000€</span>
+                <span class="text-muted block mt-2">HT - Devis personnalisé selon les besoins du cabinet</span>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 bg-sage/10 rounded-xl border border-black/10">
+              <p class="text-sm text-default">
+                <strong class="text-charcoal font-medium">Chaque cabinet a des besoins spécifiques.</strong> Certains projets consistent simplement à porter un site existant sur Astro pour corriger les problèmes techniques et garantir l'évolutivité en conservant le design et les textes (ce qui peut être moins coûteux que les 2000euros). D'autres nécessitent une refonte complète : nouvelle identité visuelle, réécriture des contenus, restructuration de l'arborescence. Le devis s'adapte à votre situation.
+              </p>
+            </div>
+
+            <div class="mt-10">
+              <h4 class="font-medium text-charcoal mb-4">Qu'est-ce qui est inclus ?</h4>
+              <CheckList items={PRICING_INCLUDES} class="space-y-3 text-base" textClass="text-muted" />
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-black/10">
+              <h4 class="font-medium text-charcoal mb-4">Options supplémentaires</h4>
+              <ul class="space-y-2">
+                {PRICING_OPTIONS.map((option) => (
+                  <li class="flex items-center justify-between text-muted">
+                    <span>{option.label}</span>
+                    <span class="font-semibold">{option.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-10">
+              <a href="tel:+33623565299" class="btn btn-primary w-full gap-2">
+                Demander un devis personnalisé
+                <ArrowRight class="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section FAQ -->
+  <section id="faq" class="py-16 md:py-24 bg-cream">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+
+      <SectionHeader number="07" kicker="FAQ" class="mb-16">
+        Questions sur la refonte de site EC
+      </SectionHeader>
+
+      <FaqItems items={REFONTE_FAQ} />
+    </div>
+  </section>
+
+  <!-- Section CTA Final -->
+  <section id="formulaire" class="py-16 md:py-24 bg-sand mb-16 scroll-mt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <div>
+          <SectionHeader number="08" kicker="Prêt ?" align="left">
+            Prêt à refondre votre site ?
+          </SectionHeader>
+
+          <p class="text-xl text-muted mt-8 leading-relaxed">
+            Votre site actuel mérite une seconde vie. Discutons de votre projet et voyons ensemble comment moderniser votre présence en ligne.
+          </p>
+
+          <ul class="mt-10 space-y-6">
+            {CTA_POINTS.map((point) => (
+              <li class="flex gap-4" data-fade-up>
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sage/15 text-sage-dark flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={point.icon} />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium text-charcoal">{point.title}</h3>
+                  <p class="text-muted mt-1">{point.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-cream border border-black/10 rounded-xl p-8 lg:p-10" data-fade-up>
+
+          <div class="flex items-center gap-4 mb-8">
+            <Image
+              src={HeroImage}
+              height={64}
+              width={64}
+              alt="David Barbier"
+              class="w-16 h-16 rounded-full object-cover ring-4 ring-sage/30"
+            />
+            <div>
+              <div class="font-medium text-charcoal">David Barbier</div>
+              <div class="text-sm text-muted">Ancien EC & Développeur Web</div>
+            </div>
+          </div>
+
+          <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-default mb-2">Votre nom</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
+                  placeholder="Jean Dupont"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-default mb-2">Votre email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
+                  placeholder="jean@cabinet.fr"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="website" class="block text-sm font-medium text-default mb-2">URL de votre site actuel</label>
+              <input
+                id="website"
+                name="website"
+                type="url"
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all"
+                placeholder="https://www.votre-cabinet.fr"
+              />
+            </div>
+
+            <div>
+              <label for="textarea" class="block text-sm font-medium text-default mb-2">Qu'est-ce qui ne vous convient plus ?</label>
+              <textarea
+                id="textarea"
+                name="textarea"
+                rows="4"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent transition-all resize-none"
+                placeholder="Design obsolète, site lent, pas visible sur Google..."
+              ></textarea>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <input
+                id="disclaimer"
+                name="disclaimer"
+                type="checkbox"
+                required
+                class="mt-1 w-5 h-5 rounded border-black/20 text-sage-dark focus:ring-sage"
+              />
+              <label for="disclaimer" class="text-sm text-muted cursor-pointer">
+                En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+              </label>
+            </div>
+
+            <input type="hidden" name="source" value="refonte-site-expert-comptable" />
+
+            <button type="submit" class="btn btn-primary w-full gap-2">
+              Demander mon audit gratuit
+              <ArrowRight class="w-5 h-5" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <MontegrappaFx />
+</Layout>

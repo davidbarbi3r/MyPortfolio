@@ -14,29 +14,25 @@ export const getHeaderData = () => {
       {
         text: 'Ajaccio',
         links: [
-          { text: 'Accompagnement SEO', href: '/agence-seo-ajaccio/' },
-          { text: 'Création de site internet', href: '/' },
+          { text: 'Accompagnement SEO', href: '/referencement-seo-ajaccio/' },
+          { text: 'Création de site internet', href: '/creation-site-internet-ajaccio/' },
           { text: 'Freelance WordPress', href: '/freelance-wordpress-ajaccio/' },
           { text: 'Maintenance de site', href: '/maintenance-site-internet-ajaccio/' },
         ],
       },
       {
-        text: 'Limoges',
+        text: 'Experts-comptables',
         links: [
-          { text: 'Création de site internet', href: '/limoges/' },
-          { text: 'Consultant SEO', href: '/limoges/consultant-seo/' },
-          { text: 'Maintenance de site', href: '/limoges/maintenance-site-internet/' },
+          { text: 'Partenaire EC', href: '/experts-comptables/' },
+          { text: 'Création site EC', href: '/experts-comptables/creation-site-vitrine-ec/' },
+          { text: 'Refonte site EC', href: '/experts-comptables/refonte-site-internet/' },
+          { text: 'SEO Expert-Comptable', href: '/experts-comptables/consultant-seo-ec/' },
+          { text: 'Développeur EC', href: '/experts-comptables/developpeur-specialise/' },
         ],
       },
       {
-        text: 'Experts-comptables',
-        links: [
-          { text: 'Agence Web EC', href: '/agence-web-expert-comptable/' },
-          { text: 'Création site EC', href: '/agence-web-expert-comptable/creation-site-vitrine-ec/' },
-          { text: 'Refonte site EC', href: '/agence-web-expert-comptable/refonte-site-internet/' },
-          { text: 'SEO Expert-Comptable', href: '/agence-web-expert-comptable/consultant-seo-ec/' },
-          { text: 'Développeur EC', href: '/agence-web-expert-comptable/developpeur-specialise/' },
-        ],
+        text: 'Réalisations',
+        href: '/realisations/',
       },
       {
         text: 'Blog',
@@ -51,6 +47,7 @@ export const getFooterData = () => {
   return {
     secondaryLinks: [
       { text: 'A propos', href: '/a-propos/' },
+      { text: 'Réalisations', href: '/realisations/' },
       { text: 'Blog', href: '/blog/' },
       { text: 'Mentions légales', href: '/terms/' },
     ],

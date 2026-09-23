@@ -1,0 +1,44 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import { CASES_SECTION, fetchPosts } from '~/utils/blog';
+
+const posts = (await fetchPosts()).filter((post) => post.permalink.startsWith(`${CASES_SECTION}/`));
+
+const metadata = {
+  title: 'Réalisations | David Barbier',
+  description:
+    "Études de cas : sites vitrines et référencement pour cabinets d'expertise comptable et entreprises, par David Barbier.",
+  openGraph: {
+    type: 'website',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://www.davidbarbier.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Réalisations",
+        "item": "https://www.davidbarbier.com/realisations/"
+      }
+    ]
+  })} />
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline subtitle="Sites livrés et choix faits, racontés à partir de projets réels.">
+      Réalisations
+    </Headline>
+    <BlogList posts={posts} />
+  </section>
+</Layout>

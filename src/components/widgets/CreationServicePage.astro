@@ -1,0 +1,455 @@
+---
+import Image from '~/components/common/Image.astro';
+import HeroImage from '~/assets/images/DSCF7551-3.jpg';
+import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import StatBig from '~/components/ui/StatBig.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import CheckList from '~/components/ui/CheckList.astro';
+import ArrowLink from '~/components/ui/ArrowLink.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+import FaqItems from '~/components/ui/FaqItems.astro';
+import { REVIEWS } from '~/utils/reviews';
+
+interface Card {
+  icon?: string;
+  title: string;
+  desc: string;
+}
+
+interface Step {
+  n: string;
+  title: string;
+  text: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface PriceOption {
+  label: string;
+  value: string;
+}
+
+interface CaseLink {
+  href: string;
+  text: string;
+}
+
+interface CaseStudy {
+  title: string;
+  subtitle: string;
+  projectTitle: string;
+  projectText: string;
+  checklist: string[];
+  results: Stat[];
+  links: CaseLink[];
+}
+
+export interface Props {
+  crumb: string;
+  badge: string;
+  title: string;
+  titleAccent: string;
+  lede: string;
+  stats: Stat[];
+  heroCardTitle: string;
+  heroCardText: string;
+  whyTitle: string;
+  whyParagraphs: string[];
+  quote: string;
+  whyCards: Card[];
+  stepsTitle: string;
+  stepsIntro: string;
+  steps: Step[];
+  inclus: Card[];
+  techTitle: string;
+  techIntro: string;
+  techCards: Card[];
+  techLink?: CaseLink;
+  caseStudy?: CaseStudy;
+  priceTitle: string;
+  priceName: string;
+  priceValue: string;
+  priceHint: string;
+  priceNote: string;
+  priceIncludes: string[];
+  priceOptions: PriceOption[];
+  faqTitle: string;
+  faq: Array<{ q: string; a: string }>;
+  ctaTitle: string;
+  ctaText: string;
+  finalPoints: Card[];
+  source: string;
+}
+
+const props = Astro.props;
+const id = (field: string) => `${props.source}-${field}`;
+const siteReviews = REVIEWS.filter((review) => ['Cédric', 'Véronique', 'Aaron'].includes(review.author));
+const inclusLead = props.inclus.slice(0, 4);
+const inclusRest = props.inclus.slice(4);
+const hasCase = Boolean(props.caseStudy);
+const stepPlaces = ['', 'lg:row-start-2 lg:col-start-2', 'lg:row-start-3 lg:col-start-3', 'lg:row-start-4 lg:col-start-2'];
+const priceNumber = hasCase ? '06' : '05';
+const reviewsNumber = hasCase ? '07' : '06';
+const faqNumber = hasCase ? '08' : '07';
+const ctaNumber = hasCase ? '09' : '08';
+---
+
+<section class="relative bg-cream overflow-hidden">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+    <nav aria-label="Fil d'Ariane" class="mb-8 text-sm" data-fade-up>
+      <ol class="flex items-center gap-2 text-muted flex-wrap">
+        <li><a href="/" class="hover:text-sage-dark transition-colors">Accueil</a></li>
+        <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+        <li><a href="/creation-site-internet-ajaccio/" class="hover:text-sage-dark transition-colors">Création de site internet</a></li>
+        <li><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></li>
+        <li class="text-charcoal font-medium">{props.crumb}</li>
+      </ol>
+    </nav>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="order-2 lg:order-1">
+        <p data-fade-up><PillBadge text={props.badge} /></p>
+        <h1 class="mt-8" data-fade-up>
+          <span class="block text-charcoal text-[clamp(2.6rem,5vw,4.5rem)] leading-[1.05] tracking-tight">{props.title}</span>
+          <span class="block text-sage-dark text-[clamp(2.2rem,4vw,3.75rem)] leading-[1.05] mt-2">{props.titleAccent}</span>
+        </h1>
+        <p class="mt-8 text-xl sm:text-2xl text-muted leading-relaxed" data-fade-up set:html={props.lede} />
+        <div class="mt-10 grid grid-cols-3 gap-4 sm:gap-6">
+          {props.stats.map((stat) => (
+            <div class="border-t border-black/10 pt-6 min-w-0">
+              <p class="font-heading text-charcoal leading-none tracking-tight text-3xl sm:text-4xl whitespace-nowrap">{stat.value}</p>
+              <p class="mt-2 text-sm text-muted uppercase tracking-wide">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-6" data-fade-up>
+          <a href="tel:+33623565299" class="btn btn-primary gap-2">
+            Demander un devis
+            <ArrowRight class="w-5 h-5" />
+          </a>
+          <ArrowLink href="#processus" text="Voir le processus" />
+        </div>
+      </div>
+      <div class="order-1 lg:order-2 w-full" data-fade-up>
+        <div class="relative rounded-xl overflow-hidden">
+          <Image
+            src={HeroImage}
+            alt="David Barbier, développeur freelance à Ajaccio"
+            class="w-full aspect-[4/5] object-cover"
+            width={1024}
+            height={1280}
+          />
+          <div class="absolute bottom-6 left-6 right-6 bg-cream/95 backdrop-blur-sm rounded-xl p-4">
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-sage rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-medium text-charcoal">{props.heroCardTitle}</div>
+                <div class="text-sm text-muted">{props.heroCardText}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-sand">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+      <div class="lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <SectionHeader number="01" kicker="Pourquoi ?" align="left">{props.whyTitle}</SectionHeader>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        {props.whyParagraphs.map((paragraph) => (
+          <p class="text-muted leading-relaxed mt-6 first:mt-0 first:text-xl" set:html={paragraph} />
+        ))}
+        <div class="mt-12" data-fade-up>
+          <span class="block text-5xl leading-none mb-4 font-serif text-sage" aria-hidden="true">"</span>
+          <blockquote class="text-2xl sm:text-3xl font-light text-charcoal italic leading-relaxed">{props.quote}</blockquote>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6 mt-12">
+          {props.whyCards.map((card) => (
+            <div class="rounded-xl border border-black/10 bg-cream p-6" data-fade-up>
+              <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark mb-4">
+                {card.icon && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-lg text-charcoal">{card.title}</h3>
+              <p class="text-sm text-muted mt-2">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="processus" class="py-16 md:py-24 scroll-mt-32 bg-cream">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="max-w-3xl">
+      <SectionHeader number="02" kicker="Mon processus" align="left" subtitle={props.stepsIntro}>
+        {props.stepsTitle}
+      </SectionHeader>
+    </div>
+    <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3">
+      {props.steps.map((step, index) => (
+        <div class={props.steps.length === 4 ? stepPlaces[index] : undefined} data-fade-up>
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">{step.n}</span>
+            <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">{step.title}</h3>
+          </div>
+          <p class="mt-4 text-base leading-normal text-muted" set:html={step.text} />
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-cream">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="bg-sage text-white rounded-xl p-8 lg:p-12" data-fade-up>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-sm font-semibold mb-4">
+        Allers-retours illimités
+      </div>
+      <h2 class="text-2xl sm:text-3xl text-white">Mon objectif : que le site vous convienne à 100%</h2>
+      <p class="text-white/90 mt-4 leading-relaxed max-w-3xl">
+        Vous suivez une version en ligne pendant la construction. Vous commentez, on ajuste. Je ne livre pas tant que vous n’êtes pas satisfait.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-sand">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <SectionHeader number="03" kicker="Livrables" class="max-w-3xl mx-auto">Ce qui est inclus</SectionHeader>
+    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {inclusLead.map((card) => (
+        <div class="bg-sage text-white rounded-xl p-8 text-center" data-fade-up>
+          <h3 class="text-xl text-white">{card.title}</h3>
+          <p class="text-sm text-white/90 mt-4 leading-relaxed">{card.desc}</p>
+        </div>
+      ))}
+    </div>
+    {inclusRest.length > 0 && (
+      <div class="mt-6 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {inclusRest.map((card) => (
+          <div class="bg-sage text-white rounded-xl p-8 text-center" data-fade-up>
+            <h3 class="text-xl text-white">{card.title}</h3>
+            <p class="text-sm text-white/90 mt-4 leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-cream">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+      <div class="lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <SectionHeader number="04" kicker="Le cadre" align="left">{props.techTitle}</SectionHeader>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <p class="text-xl text-muted leading-relaxed" set:html={props.techIntro} />
+        <div class="grid sm:grid-cols-2 gap-6 mt-12">
+          {props.techCards.map((card) => (
+            <div class="rounded-xl border border-black/10 bg-white/60 p-6" data-fade-up>
+              {card.icon && (
+                <div class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark mb-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                  </svg>
+                </div>
+              )}
+              <h3 class="text-lg text-charcoal">{card.title}</h3>
+              <p class="text-sm text-muted mt-2">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+        {props.techLink && <ArrowLink href={props.techLink.href} text={props.techLink.text} class="mt-8" />}
+        {Astro.slots.has('links') && (
+          <div class="mt-8 text-muted leading-relaxed">
+            <slot name="links" />
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+{props.caseStudy && (
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <SectionHeader number="05" kicker="Étude de cas" class="max-w-3xl mx-auto" subtitle={props.caseStudy.subtitle}>
+        {props.caseStudy.title}
+      </SectionHeader>
+      <div class="mt-16 max-w-4xl mx-auto">
+        <div class="bg-cream rounded-xl p-8 lg:p-12 border border-black/10" data-fade-up>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-2xl text-charcoal mb-4">{props.caseStudy.projectTitle}</h3>
+              <p class="text-muted leading-relaxed">{props.caseStudy.projectText}</p>
+              <CheckList class="mt-6" items={props.caseStudy.checklist} />
+            </div>
+            <div>
+              <h3 class="text-2xl text-charcoal mb-4">Les résultats</h3>
+              <div class="space-y-6">
+                {props.caseStudy.results.map((stat) => <StatBig value={stat.value} label={stat.label} size="md" />)}
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 pt-8 border-t border-black/10 flex flex-col sm:flex-row gap-4 sm:gap-8">
+            {props.caseStudy.links.map((link) => <ArrowLink href={link.href} text={link.text} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="py-16 md:py-24 bg-cream">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <SectionHeader number={priceNumber} kicker="Investissement" class="max-w-3xl mx-auto">{props.priceTitle}</SectionHeader>
+    <div class="mt-16 max-w-2xl mx-auto">
+      <div class="bg-white/60 rounded-xl overflow-hidden border border-black/10" data-fade-up>
+        <div class="h-1.5 bg-sage" aria-hidden="true"></div>
+        <div class="p-8 lg:p-12">
+          <div class="text-center">
+            <h3 class="text-2xl text-charcoal">{props.priceName}</h3>
+            <div class="mt-6">
+              <span class="text-5xl sm:text-6xl text-charcoal">{props.priceValue}</span>
+              <span class="text-muted block mt-2">{props.priceHint}</span>
+            </div>
+          </div>
+          <div class="mt-6 p-4 bg-sand rounded-xl border border-black/10">
+            <p class="text-sm text-default" set:html={props.priceNote} />
+          </div>
+          <div class="mt-10">
+            <h4 class="font-medium text-charcoal mb-4">Qu'est-ce qui est inclus ?</h4>
+            <CheckList items={props.priceIncludes} />
+          </div>
+          {props.priceOptions.length > 0 && (
+            <div class="mt-10 pt-8 border-t border-black/10">
+              <h4 class="font-medium text-charcoal mb-4">À côté</h4>
+              <ul class="space-y-2">
+                {props.priceOptions.map((option) => (
+                  <li class="flex items-center justify-between gap-4 text-muted">
+                    <span>{option.label}</span>
+                    <span class="font-semibold text-charcoal text-right">{option.value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div class="mt-10">
+            <a href="tel:+33623565299" class="btn btn-primary w-full gap-2">
+              Demander un devis
+              <ArrowRight class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avis" class="py-16 md:py-24 bg-sand scroll-mt-32">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <SectionHeader number={reviewsNumber} kicker="Avis" class="max-w-3xl mx-auto mb-16">
+      Ce qu'en disent les clients
+    </SectionHeader>
+    <div class="grid gap-6 md:grid-cols-2">
+      {siteReviews.map((review) => (
+        <figure class="flex flex-col rounded-xl border border-black/10 bg-cream p-8" data-fade-up>
+          <blockquote class="flex-auto text-default">{review.text}</blockquote>
+          <figcaption class="mt-6 border-t border-black/10 pt-4">
+            <p class="font-semibold text-charcoal">{review.author}</p>
+            <p class="text-sm text-muted">{review.company}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="py-16 md:py-24 bg-cream">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <SectionHeader number={faqNumber} kicker="FAQ" class="mb-16">{props.faqTitle}</SectionHeader>
+    <FaqItems items={props.faq} />
+  </div>
+</section>
+
+<section id="formulaire" class="py-16 md:py-24 bg-sand mb-16 scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <div>
+        <SectionHeader number={ctaNumber} kicker="Prêt ?" align="left">{props.ctaTitle}</SectionHeader>
+        <p class="text-xl text-muted mt-8 leading-relaxed">{props.ctaText}</p>
+        <ul class="mt-10 space-y-6">
+          {props.finalPoints.map((point) => (
+            <li class="flex gap-4" data-fade-up>
+              <div>
+                <h3 class="font-medium text-charcoal">{point.title}</h3>
+                <p class="text-muted mt-1">{point.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="bg-cream border border-black/10 rounded-xl p-8 lg:p-10" data-fade-up>
+        <div class="flex items-center gap-4 mb-8">
+          <Image src={HeroImage} height={64} width={64} alt="David Barbier" class="w-16 h-16 rounded-full object-cover ring-4 ring-sage/30" />
+          <div>
+            <div class="font-medium text-charcoal">David Barbier</div>
+            <div class="text-sm text-muted">Développeur freelance à Ajaccio</div>
+          </div>
+        </div>
+        <form method="post" action="https://formspree.io/f/xayglvyo" class="space-y-6">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for={id('name')} class="block text-sm font-medium text-default mb-2">Votre nom</label>
+              <input id={id('name')} name="name" type="text" required class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent" />
+            </div>
+            <div>
+              <label for={id('email')} class="block text-sm font-medium text-default mb-2">Votre email</label>
+              <input id={id('email')} name="email" type="email" required class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent" />
+            </div>
+          </div>
+          <div>
+            <label for={id('message')} class="block text-sm font-medium text-default mb-2">Décrivez votre projet</label>
+            <textarea id={id('message')} name="textarea" rows="4" required class="w-full px-4 py-3 rounded-lg border border-black/10 bg-white/70 text-charcoal focus:ring-2 focus:ring-sage focus:border-transparent resize-none"></textarea>
+          </div>
+          <div class="flex items-start gap-3">
+            <input id={id('disclaimer')} name="disclaimer" type="checkbox" required class="mt-1 w-5 h-5 rounded border-black/20 text-sage-dark focus:ring-sage" />
+            <label for={id('disclaimer')} class="text-sm text-muted">
+              En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité.
+            </label>
+          </div>
+          <input type="hidden" name="source" value={props.source} />
+          <button type="submit" class="btn btn-primary w-full gap-2">
+            Demander mon devis
+            <ArrowRight class="w-5 h-5" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<MontegrappaFx />

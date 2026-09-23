@@ -4,7 +4,7 @@
  *
  * ⚠️ MAINTENANCE : quand tu reçois un nouvel avis Google, mets à jour :
  *   1. `REVIEWS` si tu veux afficher le témoignage sur le site
- *   2. `GBP_AJACCIO_REVIEWS` / `GBP_LIMOGES_REVIEWS` avec les totaux Google Business
+ *   2. `GBP_AJACCIO_REVIEWS` (et `GBP_LIMOGES_REVIEWS` si la fiche historique bouge)
  *   3. `public/llms.txt` (le nombre d'avis y est en dur)
  */
 
@@ -18,7 +18,7 @@ export interface Review {
 }
 
 /**
- * Témoignages visibles sur le site (carousel home, page /limoges/, etc.)
+ * Témoignages visibles sur le site (carousel home, pages de service, etc.)
  */
 export const REVIEWS: Review[] = [
   {
@@ -77,24 +77,23 @@ const buildAggregateRating = (count: number) => ({
 });
 
 /**
- * Schema.org AggregateRating — 3 variantes selon le contexte de la page :
+ * Schema.org AggregateRating :
  *
- * - Ajaccio : pour pages géo Ajaccio (home, consultant-seo-ajaccio, etc.)
- * - Limoges : pour pages géo Limoges (/limoges/*)
- * - Global  : pour pages verticales sans géo spécifique (experts-comptables)
+ * - Ajaccio : pages géo Ajaccio (home, referencement-seo-ajaccio, etc.)
+ * - Global  : pages verticales sans géo (experts-comptables). Inclut encore
+ *   le décompte de l'ancienne fiche Limoges, qui n'a plus de page ni d'adresse.
  *
  * Utilisation :
  *   import { aggregateRatingSchemaAjaccio } from '~/utils/reviews';
  *   const serviceSchema = { ..., "aggregateRating": aggregateRatingSchemaAjaccio };
  */
 export const aggregateRatingSchemaAjaccio = buildAggregateRating(GBP_AJACCIO_REVIEWS);
-export const aggregateRatingSchemaLimoges = buildAggregateRating(GBP_LIMOGES_REVIEWS);
 export const aggregateRatingSchemaGlobal = buildAggregateRating(GBP_TOTAL_REVIEWS);
 
 /**
- * Alias par défaut : pointe vers Ajaccio (location principale).
+ * Alias par défaut : pointe vers Ajaccio (seule adresse publiée).
  * Gardé pour les pages existantes. Pour les nouvelles pages, préférer
- * l'import explicite (aggregateRatingSchemaAjaccio, ...Limoges, ...Global).
+ * l'import explicite (aggregateRatingSchemaAjaccio ou ...Global).
  */
 export const aggregateRatingSchema = aggregateRatingSchemaAjaccio;
 

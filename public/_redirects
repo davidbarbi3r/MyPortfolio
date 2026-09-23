@@ -1,21 +1,54 @@
 # --- Anciennes URLs services migrées ---
-/consultant-seo-ajaccio/                  /agence-seo-ajaccio/                   301
-/referencement-seo-ajaccio/               /agence-seo-ajaccio/                   301
-/creation-site-internet-limoges/          /limoges/                              301
-/expert-referencement-limoges/            /limoges/consultant-seo/               301
-/maintenance-site-web-limoges/            /limoges/maintenance-site-internet/    301
-/creation-site-vitrine-expert-comptable/  /agence-web-expert-comptable/creation-site-vitrine-ec/  301
-/creation-site-internet/                  /                                      301
+# Le slug « agence » contredisait le positionnement freelance. Les pages vivent
+# maintenant sous /referencement-seo-ajaccio/ et /experts-comptables/.
+# Un seul saut : ne pas renvoyer vers l'ancien slug.
+/consultant-seo-ajaccio/                  /referencement-seo-ajaccio/            301
+/consultant-seo-ajaccio                   /referencement-seo-ajaccio/            301
+/agence-seo-ajaccio/                      /referencement-seo-ajaccio/            301
+/agence-seo-ajaccio                       /referencement-seo-ajaccio/            301
+/creation-site-internet-limoges/          /                                      301
+/expert-referencement-limoges/            /referencement-seo-ajaccio/            301
+/maintenance-site-web-limoges/            /maintenance-site-internet-ajaccio/    301
+/creation-site-vitrine-expert-comptable/  /experts-comptables/creation-site-vitrine-ec/  301
+/agence-web-expert-comptable/             /experts-comptables/                   301
+/agence-web-expert-comptable              /experts-comptables/                   301
+/agence-web-expert-comptable/*            /experts-comptables/:splat             301
+/creation-site-internet/                  /creation-site-internet-ajaccio/       301
+/creation-site-internet                   /creation-site-internet-ajaccio/       301
 
-# Fusion : la homepage bat cette page de 30 places sur « creation site internet
-# ajaccio » (pos 15 contre 49). Son contenu utile (tarifs, délai, processus, FAQ)
-# a été porté dans index.astro.
-/creation-site-internet-ajaccio/          /                                      301
+# Enfants passés sous le hub. Déclarés aussi dans astro.config.mjs (redirects).
+# Ici, les deux formes, un seul saut, statut 301. Cloudflare Pages lit ce fichier.
+/site-vitrine-ajaccio/                         /creation-site-internet-ajaccio/site-vitrine/   301
+/site-vitrine-ajaccio                          /creation-site-internet-ajaccio/site-vitrine/   301
+/site-one-page-ajaccio/                        /creation-site-internet-ajaccio/one-page/       301
+/site-one-page-ajaccio                         /creation-site-internet-ajaccio/one-page/       301
+/creation-boutique-en-ligne-ajaccio/           /creation-site-internet-ajaccio/boutique/       301
+/creation-boutique-en-ligne-ajaccio            /creation-site-internet-ajaccio/boutique/       301
+/refonte-site-internet-ajaccio/                /creation-site-internet-ajaccio/refonte/        301
+/refonte-site-internet-ajaccio                 /creation-site-internet-ajaccio/refonte/        301
+/audit-seo-ajaccio/                            /referencement-seo-ajaccio/audit/               301
+/audit-seo-ajaccio                             /referencement-seo-ajaccio/audit/               301
+/audit-seo-gratuit-ajaccio/                    /referencement-seo-ajaccio/audit-gratuit/       301
+/audit-seo-gratuit-ajaccio                     /referencement-seo-ajaccio/audit-gratuit/       301
+/optimisation-fiche-google-ajaccio/            /referencement-seo-ajaccio/fiche-google/        301
+/optimisation-fiche-google-ajaccio             /referencement-seo-ajaccio/fiche-google/        301
 
-# /limoges/wordpress/ ne possédait aucune requête (882 impressions, 0 clic sur
-# 90 j). Elle cannibalisait /limoges/ sur la création (pos 40 contre 28) et
-# /limoges/maintenance-site-internet/ sur la maintenance (pos 30 contre 8).
-/limoges/wordpress/                       /limoges/                              301
+# La page création est de nouveau une URL dédiée. La home porte
+# « développeur web Ajaccio ». Ne pas rediriger /creation-site-internet-ajaccio/ vers /.
+
+# Silo Limoges retiré. Chaque URL va vers l'équivalent Ajaccio le plus proche :
+# création → homepage (la page création locale n'existe plus),
+# SEO → /referencement-seo-ajaccio/, maintenance → /maintenance-site-internet-ajaccio/.
+# Le splat attrape toute autre sous-page. Règles spécifiques avant le splat.
+/limoges/consultant-seo/                  /referencement-seo-ajaccio/            301
+/limoges/consultant-seo                   /referencement-seo-ajaccio/            301
+/limoges/maintenance-site-internet/       /maintenance-site-internet-ajaccio/    301
+/limoges/maintenance-site-internet        /maintenance-site-internet-ajaccio/    301
+/limoges/wordpress/                       /                                      301
+/limoges/wordpress                        /                                      301
+/limoges/                                 /                                      301
+/limoges                                  /                                      301
+/limoges/*                                /                                      301
 
 # --- RDV / contact ---
 /call/                 /contact/   301
@@ -23,15 +56,28 @@
 /book-a-call/          /contact/   301
 
 # --- Blog / divers ---
-/blog/site-internet-eco-responsable/   /site-internet-eco-responsable/   301
-/eco-friendly-website-creation/        /site-internet-eco-responsable/   301
+# Anciennes URLs à plat, déplacées sous /blog/{article}/ et /realisations/{cas}/.
+/aide-creation-site-internet-corse/          /blog/aide-creation-site-internet-corse/          301
+/blog-ou-site-internet/                      /blog/blog-ou-site-internet/                      301
+/choisir-extension-domaine/                  /blog/choisir-extension-domaine/                  301
+/combien-coute-site-internet-corse/          /blog/combien-coute-site-internet-corse/          301
+/configuration-dns/                          /blog/configuration-dns/                          301
+/conseils-seo-expert-comptable/              /blog/conseils-seo-expert-comptable/              301
+/devis-site-internet-checklist/              /blog/devis-site-internet-checklist/              301
+/netlinking-cabinet-expertise-comptable/     /blog/netlinking-cabinet-expertise-comptable/     301
+/nom-domaine-cabinet-expert-comptable/       /blog/nom-domaine-cabinet-expert-comptable/       301
+/site-internet-eco-responsable/              /blog/site-internet-eco-responsable/              301
+/site-internet-lent-que-faire/               /blog/site-internet-lent-que-faire/               301
+/lbg-expertise-ec-marseille/                 /realisations/lbg-expertise-ec-marseille/         301
+/odacio-conseils-expert-comptable-allauch/   /realisations/odacio-conseils-expert-comptable-allauch/  301
+/eco-friendly-website-creation/              /blog/site-internet-eco-responsable/              301
 
 # --- EN ---
 # /en/contact/ n'existe pas (i18n désactivé) : ces règles renvoyaient vers un 404.
 /en/call/                           /contact/                         301
 /en/book-a-call/                    /contact/                         301
 /en/contact/                        /contact/                         301
-/en/site-internet-eco-responsable/  /site-internet-eco-responsable/   301
+/en/site-internet-eco-responsable/  /blog/site-internet-eco-responsable/   301
 
 # --- Anciens projets supprimés ---
 /matchings/          /        301

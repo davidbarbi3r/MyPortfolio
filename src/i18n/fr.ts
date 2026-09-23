@@ -75,7 +75,7 @@ export const fr = {
         {
           title: 'Référencement SEO',
           description:
-            "Une agence web, mais pas que - j'ai fait du SEO ma passion. Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.",
+            "Freelance, pas une agence. Audit, accompagnement, référencement local. Progresser sur Google de façon saine, sans jargon.",
           items: [
             {
               title: 'Audit SEO',

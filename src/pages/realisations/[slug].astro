@@ -1,0 +1,18 @@
+---
+import PostLayout from '~/components/blog/PostLayout.astro';
+import { getStaticPathsCaseStudy } from '~/utils/blog';
+
+export async function getStaticPaths() {
+  return await getStaticPathsCaseStudy();
+}
+
+const { post } = Astro.props;
+---
+
+<PostLayout
+  post={post}
+  sectionName="Réalisations"
+  sectionUrl="https://www.davidbarbier.com/realisations/"
+  backHref="/realisations/"
+  backLabel="Toutes les réalisations"
+/>

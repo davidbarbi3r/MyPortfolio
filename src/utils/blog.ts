@@ -120,6 +120,13 @@ export const blogTagRobots = APP_BLOG.tag.robots;
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
 
+export const BLOG_SECTION = 'blog';
+export const CASES_SECTION = 'realisations';
+
+const inSection = (post: Post, section: string) => post.permalink.startsWith(`${section}/`);
+
+const toRouteSlug = (post: Post) => post.slug.split('/').pop() ?? post.slug;
+
 /** */
 export const fetchPosts = async (): Promise<Array<Post>> => {
   if (!_posts) {
@@ -167,7 +174,7 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
 /** */
 export const getStaticPathsBlogList = async ({ paginate }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
-  const posts = await fetchPosts();
+  const posts = (await fetchPosts()).filter((post) => inSection(post, BLOG_SECTION));
 
   return paginate(posts, {
     params: { blog: BLOG_BASE || undefined },
@@ -176,17 +183,21 @@ export const getStaticPathsBlogList = async ({ paginate }) => {
 };
 
 /** */
-export const getStaticPathsBlogPost = async () => {
+const getStaticPathsSectionPosts = async (section: string) => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
   const posts = await fetchPosts();
 
-  return posts.map((post) => ({
-    params: {
-      blog: post.slug,
-    },
+  return posts.filter((post) => inSection(post, section)).map((post) => ({
+    params: { slug: toRouteSlug(post) },
     props: { post },
   }));
 };
+
+/** Articles : /blog/{slug}/ */
+export const getStaticPathsBlogPost = async () => getStaticPathsSectionPosts(BLOG_SECTION);
+
+/** Études de cas : /realisations/{slug}/ */
+export const getStaticPathsCaseStudy = async () => getStaticPathsSectionPosts(CASES_SECTION);
 
 /** */
 export const getStaticPathsBlogCategory = async ({ paginate }) => {

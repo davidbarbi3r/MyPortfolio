@@ -24,8 +24,22 @@ export default defineConfig({
     defaultLocale: 'fr',
     routing: 'manual',
   },
+  // 301 des anciennes URLs à plat vers les enfants des hubs.
+  // En site statique, Astro n'émet pas le statut HTTP (page meta refresh).
+  // build.redirects est donc coupé, et les mêmes cibles sont des 301
+  // dans public/_redirects, le fichier que Cloudflare Pages applique.
+  redirects: {
+    '/site-vitrine-ajaccio/': { status: 301, destination: '/creation-site-internet-ajaccio/site-vitrine/' },
+    '/site-one-page-ajaccio/': { status: 301, destination: '/creation-site-internet-ajaccio/one-page/' },
+    '/creation-boutique-en-ligne-ajaccio/': { status: 301, destination: '/creation-site-internet-ajaccio/boutique/' },
+    '/refonte-site-internet-ajaccio/': { status: 301, destination: '/creation-site-internet-ajaccio/refonte/' },
+    '/audit-seo-ajaccio/': { status: 301, destination: '/referencement-seo-ajaccio/audit/' },
+    '/audit-seo-gratuit-ajaccio/': { status: 301, destination: '/referencement-seo-ajaccio/audit-gratuit/' },
+    '/optimisation-fiche-google-ajaccio/': { status: 301, destination: '/referencement-seo-ajaccio/fiche-google/' },
+  },
   build: {
-    format: SITE.trailingSlash ? "directory" : "file"
+    format: SITE.trailingSlash ? "directory" : "file",
+    redirects: false,
   },
   integrations: [tailwind({
     applyBaseStyles: false
@@ -38,6 +52,7 @@ export default defineConfig({
       !page.includes('/category/') &&
       !/\/\d+\/?$/.test(page) &&
       !page.includes('/en/') &&
+      !page.includes('/limoges') &&
       !page.includes('/matchings') &&
       !page.includes('/maker-teleport-ui'),
     // Pas de `lastmod: new Date()` : ça datait les 36 URLs à l'heure du build,

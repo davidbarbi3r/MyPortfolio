@@ -1,0 +1,18 @@
+---
+import PostLayout from '~/components/blog/PostLayout.astro';
+import { getStaticPathsBlogPost } from '~/utils/blog';
+
+export async function getStaticPaths() {
+  return await getStaticPathsBlogPost();
+}
+
+const { post } = Astro.props;
+---
+
+<PostLayout
+  post={post}
+  sectionName="Blog"
+  sectionUrl="https://www.davidbarbier.com/blog/"
+  backHref="/blog/"
+  backLabel="Retour au blog"
+/>

@@ -1,0 +1,240 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PillBadge from '~/components/ui/PillBadge.astro';
+import SectionHeader from '~/components/ui/SectionHeader.astro';
+import FaqItems from '~/components/ui/FaqItems.astro';
+import ArrowRight from '~/components/ui/ArrowRight.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Création de site internet à Ajaccio | David Barbier',
+  description:
+    "Création de site internet à Ajaccio, en direct avec David Barbier. Vitrine dès 2 000 € HT, one page dès 1 200 € HT. Livré en 4 à 6 semaines, devis sous 48 h.",
+};
+
+const OFFERS = [
+  {
+    href: '/creation-site-internet-ajaccio/site-vitrine/',
+    title: 'Site vitrine à Ajaccio',
+    price: 'À partir de 2 000 € HT',
+    text: 'Plusieurs pages pour présenter l’activité, les services et prendre contact.',
+  },
+  {
+    href: '/creation-site-internet-ajaccio/one-page/',
+    title: 'Site one page à Ajaccio',
+    price: 'À partir de 1 200 € HT',
+    text: 'Landing page pour une campagne, ou site en une page. Un message, une action.',
+  },
+  {
+    href: '/creation-site-internet-ajaccio/boutique/',
+    title: 'Création boutique en ligne à Ajaccio',
+    price: 'Sur devis',
+    text: 'Un catalogue, un paiement, des fiches produit. Le périmètre se cadre avant le prix.',
+  },
+  {
+    href: '/creation-site-internet-ajaccio/refonte/',
+    title: 'Refonte site internet à Ajaccio',
+    price: 'Sur devis',
+    text: 'Un site déjà en ligne, à reprendre sans perdre ce qui fonctionne.',
+  },
+];
+
+const STEPS = [
+  { n: '01', t: 'On se rencontre, on cadre', d: 'Un appel pour comprendre votre métier, vos clients et ce que le site doit vous rapporter.' },
+  { n: '02', t: 'Vous voyez à quoi ça ressemble', d: 'Une maquette validée avant que la moindre ligne ne soit écrite. Allers-retours illimités.' },
+  { n: '03', t: 'Le site prend vie', d: 'Vous suivez la construction sur une adresse en ligne, et vous commentez au fur et à mesure.' },
+  { n: '04', t: 'Mise en ligne et formation', d: 'Une heure en visio, des tutos vidéo, et vous repartez autonome sur vos contenus.' },
+];
+
+const FAQ = [
+  {
+    q: "Combien coûte la création d'un site internet ?",
+    a: 'Un <a href="/creation-site-internet-ajaccio/site-vitrine/">site vitrine à Ajaccio</a> démarre à 2 000 € HT, un <a href="/creation-site-internet-ajaccio/one-page/">site one page</a> à 1 200 € HT. La boutique et la refonte se chiffrent sur devis. Le devis précis arrive sous 48 heures.',
+  },
+  {
+    q: 'En combien de temps mon site sera-t-il livré ?',
+    a: "Entre 4 et 6 semaines en moyenne, du premier appel à la mise en ligne. Plus vous êtes réactif sur les retours, plus on avance vite. Vous suivez l'avancement sur une version en ligne dès les premières semaines.",
+  },
+  {
+    q: 'Pourrai-je modifier les textes et les photos moi-même ?',
+    a: "Oui. Le site est livré avec une interface simple pour changer les textes, les photos, ajouter des pages ou publier des articles, depuis n'importe quel navigateur. Une formation d'une heure est incluse, avec des tutos vidéo.",
+  },
+  {
+    q: 'Comment ce tarif est-il possible pour du sur-mesure ?',
+    a: "Je travaille seul, donc vous ne financez ni locaux ni commerciaux, et j'utilise l'intelligence artificielle comme assistant sur les tâches répétitives. Le temps gagné, je le répercute sur votre facture.",
+  },
+  {
+    q: "Le site m'appartient-il vraiment ?",
+    a: "Oui, entièrement. Le code, le nom de domaine, le contenu. Aucun abonnement, aucune dépendance. Si un jour vous voulez travailler avec quelqu'un d'autre, vous partez avec l'intégralité du site.",
+  },
+];
+
+const serviceStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    localBusinessAjaccioNode,
+    {
+      '@type': 'Service',
+      '@id': 'https://www.davidbarbier.com/creation-site-internet-ajaccio/#service',
+      name: 'Création de site internet à Ajaccio',
+      description:
+        'Création de site internet à Ajaccio : vitrine, one page, boutique en ligne et refonte. En direct avec David Barbier.',
+      url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/',
+      provider: { '@id': LOCAL_BUSINESS_AJACCIO_ID },
+      areaServed: [
+        { '@type': 'City', name: 'Ajaccio' },
+        { '@type': 'AdministrativeArea', name: 'Corse' },
+      ],
+      serviceType: 'Création de site internet',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Création de site internet à Ajaccio',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            name: 'Site vitrine à Ajaccio',
+            price: '2000',
+            priceCurrency: 'EUR',
+            url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/site-vitrine/',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Site one page à Ajaccio',
+            price: '1200',
+            priceCurrency: 'EUR',
+            url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/one-page/',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Création boutique en ligne à Ajaccio',
+            url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/boutique/',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Refonte site internet à Ajaccio',
+            url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/refonte/',
+          },
+        ],
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.davidbarbier.com/' },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Création de site internet',
+          item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/',
+        },
+      ],
+    },
+  ],
+};
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+
+<Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceStructuredData)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+
+  <section class="bg-cream pt-16 md:pt-24 pb-16 px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <nav aria-label="Fil d'Ariane" class="mb-8 text-sm text-muted">
+        <a href="/" class="hover:text-sage-dark">Accueil</a>
+        <span aria-hidden="true"> / </span>
+        <span class="text-charcoal">Création de site internet</span>
+      </nav>
+      <p class="mb-8"><PillBadge text="Freelance · Ajaccio" /></p>
+      <h1 class="text-charcoal text-[clamp(2.2rem,4.5vw,4rem)] leading-[1.05]">
+        Création de site internet à Ajaccio
+      </h1>
+      <p class="mt-6 text-lg text-muted leading-relaxed">
+        La création de site à Ajaccio se fait en direct, avec moi. Vitrine, one page, boutique ou refonte : le devis arrive sous 48 heures, le site en 4 à 6 semaines.
+      </p>
+      <div class="mt-10">
+        <a href="tel:+33623565299" class="btn btn-primary">06 23 56 52 99</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-sand py-16 md:py-24 px-6 lg:px-8">
+    <div class="mx-auto max-w-5xl">
+      <SectionHeader
+        kicker="Quatre façons de démarrer"
+        subtitle="Chaque offre a sa page. Le prix affiché est un plancher, le devis précise le reste."
+        class="mb-10"
+      >
+        Quelle création de site vous faut-il
+      </SectionHeader>
+      <ul class="grid md:grid-cols-2 gap-6">
+        {OFFERS.map((offer) => (
+          <li>
+            <a href={offer.href} class="block h-full rounded-xl bg-cream p-6 border border-black/10 hover:border-sage transition-colors">
+              <p class="text-sm font-semibold uppercase tracking-wide text-sage-dark mb-3">{offer.price}</p>
+              <h2 class="text-xl text-charcoal font-semibold mb-2">{offer.title}</h2>
+              <p class="text-sm text-muted leading-relaxed">{offer.text}</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sage-dark">
+                Voir le détail
+                <ArrowRight class="w-4 h-4" />
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 px-6 lg:px-8 bg-cream">
+    <div class="mx-auto max-w-6xl">
+      <SectionHeader
+        kicker="Comment ça se passe"
+        kickerVariant="pill"
+        subtitle="Comptez 4 à 6 semaines entre le premier appel et la mise en ligne. Vous suivez l'avancement sur une version en ligne, dès les premières semaines."
+        class="mb-14"
+      >
+        De l'idée au site en ligne, en <span class="text-sage-dark">4 étapes</span>
+      </SectionHeader>
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        {STEPS.map((step) => (
+          <li class="border-t border-black/10 pt-6">
+            <p class="text-5xl md:text-6xl font-light text-sage-dark leading-none tracking-tight" aria-hidden="true">{step.n}</p>
+            <h2 class="text-lg text-charcoal font-semibold mt-4 mb-2">{step.t}</h2>
+            <p class="text-sm text-muted leading-relaxed">{step.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 px-6 lg:px-8 bg-sand">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeader kicker="Autres cas" class="mb-8">
+        Ce n'est pas toujours une création neuve
+      </SectionHeader>
+      <p class="text-muted leading-relaxed">
+        Un site WordPress déjà en place se reprend plutôt en <a href="/freelance-wordpress-ajaccio/" class="text-sage-dark font-semibold hover:underline">freelance WordPress à Ajaccio</a>.
+        Un cabinet d'expertise comptable a une offre à part : <a href="/experts-comptables/" class="text-sage-dark font-semibold hover:underline">partenaire des experts-comptables</a>.
+        Une fois le site en ligne, la <a href="/maintenance-site-internet-ajaccio/" class="text-sage-dark font-semibold hover:underline">maintenance</a> démarre à 30 €/mois HT, ou 60 €/h sans engagement.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq" class="py-16 md:py-24 px-6 lg:px-8 bg-cream scroll-mt-20">
+    <div class="mx-auto max-w-3xl mb-12">
+      <SectionHeader kicker="FAQ" kickerVariant="pill">
+        Les questions avant un devis
+      </SectionHeader>
+    </div>
+    <FaqItems items={FAQ} class="mx-auto max-w-6xl" />
+  </section>
+</Layout>

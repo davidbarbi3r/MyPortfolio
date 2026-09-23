@@ -1,0 +1,142 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CreationServicePage from '~/components/widgets/CreationServicePage.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Création boutique en ligne à Ajaccio | David Barbier',
+  description:
+    "Création boutique en ligne à Ajaccio, sur devis. Catalogue, paiement et fiches produit. WooCommerce ou Shopify selon le volume. Devis sous 48 h.",
+};
+
+const FAQ = [
+  {
+    q: 'WooCommerce ou Shopify ?',
+    a: "Shopify quand vous voulez vendre vite, avec peu de technique à porter. WooCommerce quand la boutique doit s'imbriquer dans un site WordPress déjà là, ou quand le catalogue a des règles particulières. On choisit après avoir vu le volume, pas avant.",
+  },
+  {
+    q: 'Quel est le prix ?',
+    a: "Sur devis. Une boutique dépend du nombre de produits, des moyens de paiement et des livraisons. Vous avez un chiffre sous 48 heures, pas une fourchette inventée.",
+  },
+  {
+    q: 'Une vitrine suffit si je ne vends pas encore en ligne ?',
+    a: 'Oui. Un <a href="/creation-site-internet-ajaccio/site-vitrine/">site vitrine à Ajaccio</a> présente l’activité sans catalogue. On ajoute la vente le jour où les commandes le justifient.',
+  },
+];
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    localBusinessAjaccioNode,
+    {
+      '@type': 'Service',
+      '@id': 'https://www.davidbarbier.com/creation-site-internet-ajaccio/boutique/#service',
+      name: 'Création boutique en ligne à Ajaccio',
+      url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/boutique/',
+      provider: { '@id': LOCAL_BUSINESS_AJACCIO_ID },
+      areaServed: { '@type': 'City', name: 'Ajaccio' },
+      serviceType: 'Création de boutique en ligne',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.davidbarbier.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Création de site internet', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/' },
+        { '@type': 'ListItem', position: 3, name: 'Boutique en ligne', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/boutique/' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/<[^>]+>/g, '') },
+      })),
+    },
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
+  <CreationServicePage
+    crumb="Boutique en ligne"
+    badge="Boutique en ligne"
+    title="Création boutique"
+    titleAccent="en ligne à Ajaccio"
+    lede="Catalogue, paiement, fiches produit. Le prix dépend de ce que la boutique doit vraiment faire. Il se fixe après un échange, sous 48 heures."
+    stats={[
+      { value: 'Sur devis', label: 'selon le catalogue' },
+      { value: '2', label: 'outils possibles' },
+      { value: '48 h', label: 'pour le chiffre' },
+    ]}
+    heroCardTitle="Vous gardez les fiches"
+    heroCardText="Produits, prix, stocks. Pas d’abonnement caché de mon côté."
+    whyTitle="Vendre en ligne, sans outil au hasard"
+    whyParagraphs={[
+      'Shopify quand vous voulez vendre vite, avec peu de technique à porter. WooCommerce quand la boutique doit s’imbriquer dans un site WordPress déjà là, ou quand le catalogue a des règles particulières.',
+      'On choisit après avoir vu le volume, les paiements et les livraisons. Si vous ne vendez pas encore, un <a href="/creation-site-internet-ajaccio/site-vitrine/" class="text-sage-dark underline underline-offset-2">site vitrine</a> suffit, à partir de 2 000 € HT.',
+    ]}
+    quote="Le catalogue, les moyens de paiement et les livraisons décident du prix. Pas une grille affichée avant de les connaître."
+    whyCards={[
+      { icon: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z', title: 'Le catalogue d’abord', desc: 'Nombre de produits, variantes, stocks. C’est ça qui fait le devis, pas le logo.' },
+      { icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z', title: 'Paiement cadré', desc: 'Ce que le client peut payer, et comment l’argent arrive chez vous, avant de construire.' },
+      { icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z', title: 'Fiches à vous', desc: 'Vous ajoutez un produit, un prix, une photo. Je ne garde pas la main sur le catalogue.' },
+      { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', title: 'Pas d’abonnement à moi', desc: 'Shopify a son propre abonnement, chez Shopify. De mon côté, rien à payer pour garder la boutique.' },
+    ]}
+    stepsTitle="La boutique en 4 étapes"
+    stepsIntro="On regarde ce qui se vend, on choisit l’outil, vous voyez la boutique avant qu’elle encaisse."
+    steps={[
+      { n: '01', title: 'On regarde le catalogue', text: 'Produits, variantes, paiement, livraison, et si un site WordPress existe déjà. Le devis sort de là, sous 48 heures.' },
+      { n: '02', title: 'On choisit l’outil', text: 'Shopify pour vendre vite. WooCommerce si la boutique doit vivre dans WordPress, ou si les règles du catalogue l’exigent.' },
+      { n: '03', title: 'Vous testez une commande', text: 'Une version en ligne. Vous passez une commande test, vous corrigez les fiches, on ajuste le parcours.' },
+      { n: '04', title: 'Mise en ligne', text: 'Paiement réel, formation pour ajouter un produit, et les accès à votre nom.' },
+    ]}
+    inclus={[
+      { title: 'Le choix d’outil', desc: 'Shopify ou WooCommerce, décidé après le volume. Pas avant.' },
+      { title: 'Fiches produit', desc: 'La structure des fiches, pour que vous puissiez en ajouter ensuite.' },
+      { title: 'Paiement et livraison', desc: 'Ce qui est encaissé, et comment la commande part.' },
+      { title: 'Formation', desc: 'Ajouter un produit, changer un prix, suivre une commande.' },
+    ]}
+    techTitle="Shopify ou WooCommerce"
+    techIntro="Les deux vendent. Ils ne coûtent pas la même chose à tenir, et ils ne se branchent pas sur les mêmes sites. Le devis dit lequel, après avoir vu le catalogue."
+    techCards={[
+      { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Shopify', desc: 'Pour vendre vite, avec peu de technique à porter. L’abonnement Shopify est le vôtre, chez eux.' },
+      { icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4', title: 'WooCommerce', desc: 'Quand la boutique s’imbrique dans un WordPress déjà en place, ou que le catalogue a des règles particulières.' },
+      { icon: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z', title: 'Le volume d’abord', desc: 'Dix produits et le retrait en magasin, ce n’est pas le même chantier que des variantes et des transporteurs.' },
+      { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Pas de stack imposée', desc: 'Une boutique n’est pas un site vitrine statique. L’outil suit la vente, pas l’inverse.' },
+    ]}
+    priceTitle="Le prix d’une boutique"
+    priceName="Boutique en ligne"
+    priceValue="Sur devis"
+    priceHint="chiffre sous 48 heures"
+    priceNote="Pas de fourchette affichée. Le nombre de produits, les paiements et les livraisons changent le chantier du simple au double."
+    priceIncludes={[
+      'Choix Shopify ou WooCommerce, argumenté',
+      'Parcours de commande testé',
+      'Formation à la gestion des fiches',
+      'Accès à votre nom',
+    ]}
+    priceOptions={[
+      { label: 'Site vitrine sans vente', value: 'dès 2 000 € HT' },
+      { label: 'Maintenance', value: 'dès 30 €/mois HT' },
+    ]}
+    faqTitle="Questions sur la boutique"
+    faq={FAQ}
+    ctaTitle="Décrivez ce que vous vendez"
+    ctaText="Nombre de produits, comment vous livrez, et si un site existe déjà. Le chiffre revient sous 48 heures."
+    finalPoints={[
+      { title: 'Un chiffre, pas une fourchette', desc: 'Le devis dit l’outil et le prix, après le catalogue.' },
+      { title: 'Vous tenez les fiches', desc: 'Prix, stocks, photos. Je ne garde pas le catalogue en otage.' },
+      { title: 'À Ajaccio', desc: 'David Barbier, 13 boulevard Sampiero. 06 23 56 52 99.' },
+    ]}
+    source="creation-boutique-en-ligne-ajaccio"
+  >
+    <p slot="links">
+      Cette page fait partie de la <a href="/creation-site-internet-ajaccio/" class="text-sage-dark underline underline-offset-2">création de site internet à Ajaccio</a>.
+      Sans catalogue : <a href="/creation-site-internet-ajaccio/site-vitrine/" class="text-sage-dark underline underline-offset-2">site vitrine</a>
+      ou <a href="/creation-site-internet-ajaccio/one-page/" class="text-sage-dark underline underline-offset-2">one page</a>.
+      Un site WordPress à reprendre : <a href="/freelance-wordpress-ajaccio/" class="text-sage-dark underline underline-offset-2">freelance WordPress à Ajaccio</a>.
+    </p>
+  </CreationServicePage>
+</Layout>

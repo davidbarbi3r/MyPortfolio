@@ -1,0 +1,166 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CreationServicePage from '~/components/widgets/CreationServicePage.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Site vitrine à Ajaccio | David Barbier',
+  description:
+    "Site vitrine à Ajaccio à partir de 2 000 € HT. 4 à 6 pages, textes modifiables, formation incluse. Livré en 4 à 6 semaines par David Barbier.",
+};
+
+const FAQ = [
+  {
+    q: 'Combien de pages comprend un site vitrine ?',
+    a: "Le plancher de 2 000 € HT couvre en général 4 à 6 pages : accueil, services, à propos, contact, et souvent un blog. Au-delà, le devis ajoute les pages utiles, pas un forfait opaque.",
+  },
+  {
+    q: 'Je pourrai modifier les textes moi-même ?',
+    a: "Oui. Vous changez les textes et les photos depuis le navigateur. Une formation d'une heure et des tutos vidéo sont inclus à la mise en ligne.",
+  },
+  {
+    q: 'Et si une seule page me suffit ?',
+    a: 'Un <a href="/creation-site-internet-ajaccio/one-page/">site one page à Ajaccio</a> démarre à 1 200 € HT. On part là-dessus pour une landing de campagne, ou quand l’activité tient en un message.',
+  },
+];
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    localBusinessAjaccioNode,
+    {
+      '@type': 'Service',
+      '@id': 'https://www.davidbarbier.com/creation-site-internet-ajaccio/site-vitrine/#service',
+      name: 'Site vitrine à Ajaccio',
+      url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/site-vitrine/',
+      provider: { '@id': LOCAL_BUSINESS_AJACCIO_ID },
+      areaServed: { '@type': 'City', name: 'Ajaccio' },
+      serviceType: 'Site vitrine',
+      offers: {
+        '@type': 'Offer',
+        price: '2000',
+        priceCurrency: 'EUR',
+        url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/site-vitrine/',
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.davidbarbier.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Création de site internet', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/' },
+        { '@type': 'ListItem', position: 3, name: 'Site vitrine', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/site-vitrine/' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/<[^>]+>/g, '') },
+      })),
+    },
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
+  <CreationServicePage
+    crumb="Site vitrine"
+    badge="Site vitrine"
+    title="Site vitrine"
+    titleAccent="à Ajaccio"
+    lede="4 à 6 pages pour présenter l’activité, être trouvé, et recevoir des demandes. Vous modifiez les textes vous-même. Le site vous appartient."
+    stats={[
+      { value: '2 000 €', label: 'à partir de, HT' },
+      { value: '4–6', label: 'semaines' },
+      { value: '48 h', label: 'pour le devis' },
+    ]}
+    heroCardTitle="Un site que vous tenez"
+    heroCardText="Textes, photos, mise en ligne. Formation incluse."
+    whyTitle="Un site vitrine sert à être choisi"
+    whyParagraphs={[
+      'La page d’accueil dit ce que vous faites. Les pages suivantes détaillent les services, qui vous êtes, et comment vous joindre. C’est le format le plus courant pour une activité locale qui ne vend pas en ligne.',
+      'Si une seule page suffit, un <a href="/creation-site-internet-ajaccio/one-page/" class="text-sage-dark underline underline-offset-2">site one page</a> démarre à 1 200 € HT. S’il faut vendre des produits, la <a href="/creation-site-internet-ajaccio/boutique/" class="text-sage-dark underline underline-offset-2">boutique en ligne</a> se chiffre à part.',
+    ]}
+    quote="Vous parlez à celui qui conçoit le site, l’écrit avec vous, et le met en ligne."
+    whyCards={[
+      { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Assez de pages', desc: 'Accueil, services, à propos, contact. Un blog si vous avez quelque chose à publier.' },
+      { icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z', title: 'Textes modifiables', desc: 'Vous changez un prix ou une photo depuis le navigateur, sans repasser par moi.' },
+      { icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z', title: 'Un interlocuteur', desc: 'Pas de chef de projet entre vous et le code. Le devis sort sous 48 heures.' },
+      { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', title: 'À vous', desc: 'Nom de domaine, contenus, accès. Aucun abonnement caché pour garder le site.' },
+    ]}
+    stepsTitle="Le site en 4 étapes"
+    stepsIntro="On cadre, vous voyez le site avancer, on met en ligne quand vous êtes d’accord. Comptez 4 à 6 semaines."
+    steps={[
+      { n: '01', title: 'On se rencontre, on cadre', text: 'Ce que vous vendez, à qui, et les pages utiles. C’est aussi le moment de choisir le nom de domaine si vous n’en avez pas.' },
+      { n: '02', title: 'Vous voyez à quoi ça ressemble', text: 'Une version en ligne, pas un PDF. Vous commentez le vrai site, sur téléphone comme sur ordinateur.' },
+      { n: '03', title: 'Le site prend vie', text: 'Je le construis avec Astro et Tailwind. Vous suivez l’avancement. Les allers-retours ne sont pas comptés.' },
+      { n: '04', title: 'Mise en ligne et formation', text: 'Tests, balises, plan du site, puis mise en ligne. Une heure de formation et des tutos pour modifier les textes seul.' },
+    ]}
+    inclus={[
+      { title: '4 à 6 pages', desc: 'Accueil, services, à propos, contact. Le blog entre dans le plancher s’il sert dès le départ.' },
+      { title: 'Textes avec vous', desc: 'On part de ce que vous savez dire. Je structure. Vous validez chaque page.' },
+      { title: 'Formation', desc: 'Une heure à la mise en ligne, plus des tutos vidéo pour les modifications courantes.' },
+      { title: 'Le site vous appartient', desc: 'Domaine, contenus, accès d’administration. Vous pouvez partir avec.' },
+    ]}
+    techTitle="Pourquoi Astro et Tailwind"
+    techIntro="Les sites vitrine que je livre sont des pages statiques. Elles s’affichent vite, se maintiennent sans une pile d’extensions, et restent modifiables pour les textes."
+    techCards={[
+      { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Pages légères', desc: 'Peu de JavaScript envoyé au visiteur. Le site s’ouvre sans attendre un constructeur de pages.' },
+      { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', title: 'Moins de pièces mobiles', desc: 'Pas de thème à mettre à jour chaque semaine pour que le site tienne.' },
+      { icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z', title: 'Contenu à vous', desc: 'Les textes et les photos se changent sans toucher à la mise en page.' },
+      { icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064', title: 'Hébergé simplement', desc: 'Le site est servi comme des fichiers. La maintenance, si vous la voulez, démarre à 30 €/mois HT.' },
+    ]}
+    techLink={{ href: '/blog/site-internet-eco-responsable/', text: 'Lire : un site internet plus léger' }}
+    caseStudy={{
+      title: 'Restodom, portage de repas',
+      subtitle: 'Conception du site, puis un référencement tenu à part pendant 12 mois. Le classement ne vient pas du site seul.',
+      projectTitle: 'Le projet',
+      projectText: 'Cédric avait besoin d’un site pour présenter le portage de repas à Bordeaux et recevoir des demandes. Le site a été conçu et mis en ligne, puis le référencement a pris le relais.',
+      checklist: ['Conception et réalisation du site', 'Textes et parcours de contact', 'Référencement en suivi, à part du site'],
+      results: [
+        { value: 'Top 1', label: '« portage repas bordeaux », après 12 mois de SEO' },
+        { value: 'Toujours', label: 'La collaboration SEO continue après la mise en ligne' },
+      ],
+      links: [
+        { href: 'https://www.restodom.fr', text: 'Voir restodom.fr' },
+        { href: '/realisations/', text: 'Voir les réalisations' },
+      ],
+    }}
+    priceTitle="Le prix d’un site vitrine"
+    priceName="Site vitrine"
+    priceValue="2 000 €"
+    priceHint="HT, à partir de"
+    priceNote='4 à 6 pages, formation incluse, livré en 4 à 6 semaines. Une seule page ? Le <a href="/creation-site-internet-ajaccio/one-page/">site one page</a> démarre à 1 200 € HT.'
+    priceIncludes={[
+      'Pages, mise en page, formulaire de contact',
+      'Textes structurés avec vous',
+      'Formation et tutos à la mise en ligne',
+      'Nom de domaine et accès à votre nom',
+    ]}
+    priceOptions={[
+      { label: 'Maintenance', value: 'dès 30 €/mois HT' },
+      { label: 'Référencement', value: 'dès 490 €/mois HT' },
+    ]}
+    faqTitle="Questions sur le site vitrine"
+    faq={FAQ}
+    ctaTitle="Dites-moi ce que le site doit faire"
+    ctaText="Quelques lignes sur l’activité suffisent. Le devis revient sous 48 heures, avec le nombre de pages et le prix."
+    finalPoints={[
+      { title: 'Devis sous 48 h', desc: 'Un chiffre, le périmètre, le délai. Pas une fourchette.' },
+      { title: 'Vous parlez au développeur', desc: 'David Barbier, à Ajaccio. 13 boulevard Sampiero, 06 23 56 52 99.' },
+      { title: 'Le site reste à vous', desc: 'Aucun abonnement pour conserver ce qui a été livré.' },
+    ]}
+    source="creation-site-vitrine-ajaccio"
+  >
+    <p slot="links">
+      Autres formats : <a href="/creation-site-internet-ajaccio/" class="text-sage-dark underline underline-offset-2">création de site internet à Ajaccio</a>,
+      <a href="/creation-site-internet-ajaccio/one-page/" class="text-sage-dark underline underline-offset-2">site one page</a>,
+      <a href="/creation-site-internet-ajaccio/boutique/" class="text-sage-dark underline underline-offset-2">boutique en ligne</a>,
+      <a href="/creation-site-internet-ajaccio/refonte/" class="text-sage-dark underline underline-offset-2">refonte</a>.
+      Un cabinet d’expertise comptable a sa page dédiée :
+      <a href="/experts-comptables/creation-site-vitrine-ec/" class="text-sage-dark underline underline-offset-2">site vitrine pour expert-comptable</a>.
+    </p>
+  </CreationServicePage>
+</Layout>

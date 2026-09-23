@@ -46,8 +46,11 @@ const isECPost = post.tags?.some(tag => tag.toLowerCase().includes('expert-compt
               <>
                 {' '}
                 ·{' '}
-                <a class="capitalize hover:underline inline-block" href={getPermalink(post.category, 'category')}>
-                  {post.category.replaceAll('-', ' ')}
+                <a
+                  class="capitalize hover:underline inline-block"
+                  href={post.category === 'portfolio' ? '/realisations/' : getPermalink(post.category, 'category')}
+                >
+                  {post.category === 'portfolio' ? 'réalisations' : post.category.replaceAll('-', ' ')}
                 </a>
               </>
             )

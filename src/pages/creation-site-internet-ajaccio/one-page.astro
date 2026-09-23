@@ -1,0 +1,155 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CreationServicePage from '~/components/widgets/CreationServicePage.astro';
+import { localBusinessAjaccioNode, LOCAL_BUSINESS_AJACCIO_ID } from '~/utils/business-schema';
+
+const metadata = {
+  title: 'Site one page à Ajaccio | David Barbier',
+  description:
+    "Site one page à Ajaccio à partir de 1 200 € HT. Landing page pour un tunnel de vente, et pilotage des petites campagnes Google Ads ou Meta Ads.",
+};
+
+const FAQ = [
+  {
+    q: 'C’est une landing page ou un site one page ?',
+    a: "Les deux tiennent sur une page. La landing page reçoit le clic d’une pub et ne propose qu’une action. Le site one page présente une activité simple, sans campagne. Le devis dit lequel des deux vous sert.",
+  },
+  {
+    q: 'Vous lancez aussi les publicités ?',
+    a: "Oui, les petites campagnes Google Ads ou Meta Ads. La page démarre à 1 200 € HT. Le pilotage se chiffre à part, sur devis. Le budget publicitaire reste le vôtre.",
+  },
+  {
+    q: 'Quel est le prix ?',
+    a: "À partir de 1 200 € HT. Le devis sous 48 heures dit si une page suffit, ou s’il faut un site de plusieurs pages.",
+  },
+  {
+    q: 'Et si j’ai besoin de plusieurs pages plus tard ?',
+    a: 'On fait évoluer le site, ou l’on part sur un <a href="/creation-site-internet-ajaccio/site-vitrine/">site vitrine à Ajaccio</a> à partir de 2 000 € HT. Le contenu déjà écrit se réutilise.',
+  },
+];
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    localBusinessAjaccioNode,
+    {
+      '@type': 'Service',
+      '@id': 'https://www.davidbarbier.com/creation-site-internet-ajaccio/one-page/#service',
+      name: 'Site one page à Ajaccio',
+      description:
+        'Site one page à Ajaccio : landing page pour un tunnel de vente, ou site en une page. Pilotage des petites campagnes Google Ads et Meta Ads. À partir de 1 200 € HT pour la page.',
+      url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/one-page/',
+      provider: { '@id': LOCAL_BUSINESS_AJACCIO_ID },
+      areaServed: { '@type': 'City', name: 'Ajaccio' },
+      serviceType: 'Site one page',
+      offers: {
+        '@type': 'Offer',
+        price: '1200',
+        priceCurrency: 'EUR',
+        url: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/one-page/',
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.davidbarbier.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Création de site internet', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/' },
+        { '@type': 'ListItem', position: 3, name: 'Site one page', item: 'https://www.davidbarbier.com/creation-site-internet-ajaccio/one-page/' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/<[^>]+>/g, '') },
+      })),
+    },
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />
+  <CreationServicePage
+    crumb="Site one page"
+    badge="Landing page ou site en une page"
+    title="Site one page"
+    titleAccent="à Ajaccio"
+    lede="La pub amène le clic. La page décide s’il devient un contact. Une landing pour un tunnel de vente, ou un site one page quand l’activité tient en un message."
+    stats={[
+      { value: '1 200 €', label: 'la page, à partir de, HT' },
+      { value: '1', label: 'action par page' },
+      { value: '48 h', label: 'pour le devis' },
+    ]}
+    heroCardTitle="Annonce et page alignées"
+    heroCardText="Le budget pub reste le vôtre. Le pilotage se chiffre à part."
+    whyTitle="Une page, une promesse"
+    whyParagraphs={[
+      'Une landing page reçoit le clic d’une campagne. Pas de menu, une promesse qui reprend l’annonce, une seule action : appeler, écrire, ou réserver.',
+      'Le site one page, lui, présente une activité simple sans campagne. Même format, autre usage. Si l’offre a besoin de plusieurs pages, on passe au <a href="/creation-site-internet-ajaccio/site-vitrine/" class="text-sage-dark underline underline-offset-2">site vitrine</a>, à partir de 2 000 € HT.',
+    ]}
+    quote="Sur un petit budget, l’annonce et la page doivent dire la même chose. Sinon le clic est payé pour rien."
+    whyCards={[
+      { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Landing de campagne', desc: 'Une URL par offre. Le visiteur ne se perd pas dans un menu.' },
+      { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Site one page', desc: 'Sans pub. L’activité tient en un message, les preuves et un contact.' },
+      { icon: 'M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z', title: 'Petites campagnes', desc: 'Google Ads ou Meta Ads. Je les monte et je les suis quand le budget est modeste.' },
+      { icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Budget séparé', desc: 'La page part à 1 200 € HT. Le pilotage est sur devis. Les enchères restent les vôtres.' },
+    ]}
+    stepsTitle="La page en 4 étapes"
+    stepsIntro="On écrit la promesse, vous voyez la page, on la met en ligne. La campagne, si vous en voulez une, se cale ensuite."
+    steps={[
+      { n: '01', title: 'On cadre la promesse', text: 'Ce que l’annonce dira, ce que la page doit faire faire, et si c’est une landing ou un site one page sans pub.' },
+      { n: '02', title: 'Vous voyez la page', text: 'Une version en ligne. Le titre, la preuve, le bouton. On ajuste tant que le message n’est pas le bon.' },
+      { n: '03', title: 'On aligne l’annonce', text: 'Si une campagne est prévue, je monte une petite campagne Google Ads ou Meta Ads pour que l’annonce répète la page. Le budget média reste le vôtre.' },
+      { n: '04', title: 'Mise en ligne', text: 'La page est en ligne, vous pouvez changer les textes. Le pilotage, s’il y en a un, continue sur un devis séparé.' },
+    ]}
+    inclus={[
+      { title: 'Une page', desc: 'Promesse, preuves, une action. Pas de pages satellites qui diluent le clic.' },
+      { title: 'Le message', desc: 'On écrit ce que le visiteur doit comprendre en quelques secondes.' },
+      { title: 'Formulaire ou appel', desc: 'Un seul geste. Le reste de la page sert cette action.' },
+      { title: 'Textes modifiables', desc: 'Vous changez une offre ou un numéro sans refaire la page.' },
+    ]}
+    techTitle="Landing ou one page, le cadre change"
+    techIntro="Les deux tiennent sur une URL. La landing ne propose pas de menu : elle reçoit un clic payant. Le site one page peut vivre seul, sans campagne."
+    techCards={[
+      { icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101', title: 'Une URL par campagne', desc: 'Chaque offre a sa page. On mesure ce qui convertit, sans mélanger les messages.' },
+      { icon: 'M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5', title: 'Une action', desc: 'Appeler, écrire, ou demander un devis. Pas trois boutons qui se concurrencent.' },
+      { icon: 'M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6', title: 'Annonce = page', desc: 'Le titre de l’annonce et le titre de la page disent la même chose.' },
+      { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Sans campagne aussi', desc: 'Si vous n’achetez pas de pub, la page reste un site one page, tout simplement.' },
+    ]}
+    priceTitle="Le prix d’une page"
+    priceName="Site one page"
+    priceValue="1 200 €"
+    priceHint="HT, la page, à partir de"
+    priceNote="Le pilotage d’une petite campagne Google Ads ou Meta Ads se chiffre à part. Le budget publicitaire reste le vôtre. Je ne prends pas les gros comptes."
+    priceIncludes={[
+      'Une page : promesse, preuves, une action',
+      'Version mobile',
+      'Textes modifiables',
+      'Mise en ligne',
+    ]}
+    priceOptions={[
+      { label: 'Pilotage des pubs', value: 'sur devis' },
+      { label: 'Site vitrine ensuite', value: 'dès 2 000 € HT' },
+      { label: 'Maintenance', value: 'dès 30 €/mois HT' },
+    ]}
+    faqTitle="Questions sur le one page"
+    faq={FAQ}
+    ctaTitle="Dites-moi ce que le clic doit devenir"
+    ctaText="Landing de campagne ou site en une page : le devis sous 48 heures dit lequel, et si le pilotage des pubs entre dans le périmètre."
+    finalPoints={[
+      { title: 'La page à part des pubs', desc: '1 200 € HT pour la page. Le pilotage n’est pas glissé dedans.' },
+      { title: 'Petites campagnes seulement', desc: 'Google Ads ou Meta Ads, budgets modestes. Pas de promesse de score qualité.' },
+      { title: 'Vous parlez au développeur', desc: 'David Barbier, à Ajaccio. 06 23 56 52 99.' },
+    ]}
+    source="creation-site-one-page-ajaccio"
+  >
+    <p slot="links">
+      Cette page fait partie de la <a href="/creation-site-internet-ajaccio/" class="text-sage-dark underline underline-offset-2">création de site internet à Ajaccio</a>.
+      Plusieurs pages : <a href="/creation-site-internet-ajaccio/site-vitrine/" class="text-sage-dark underline underline-offset-2">site vitrine</a>.
+      Vente en ligne : <a href="/creation-site-internet-ajaccio/boutique/" class="text-sage-dark underline underline-offset-2">boutique</a>.
+      Un site déjà en ligne : <a href="/creation-site-internet-ajaccio/refonte/" class="text-sage-dark underline underline-offset-2">refonte</a>.
+    </p>
+  </CreationServicePage>
+</Layout>
