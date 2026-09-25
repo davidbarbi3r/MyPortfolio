@@ -91,7 +91,14 @@ const siteReviews = REVIEWS.filter((review) => ['Cédric', 'Véronique', 'Aaron'
 const inclusLead = props.inclus.slice(0, 4);
 const inclusRest = props.inclus.slice(4);
 const hasCase = Boolean(props.caseStudy);
-const stepPlaces = ['', 'lg:row-start-2 lg:col-start-2', 'lg:row-start-3 lg:col-start-3', 'lg:row-start-4 lg:col-start-2'];
+const stepPlaces = [
+  '',
+  'lg:row-start-2 lg:col-start-2',
+  'lg:row-start-3 lg:col-start-3',
+  'lg:row-start-4 lg:col-start-2',
+  'lg:row-start-5 lg:col-start-1',
+  'lg:row-start-6 lg:col-start-2',
+];
 const priceNumber = hasCase ? '06' : '05';
 const reviewsNumber = hasCase ? '07' : '06';
 const faqNumber = hasCase ? '08' : '07';
@@ -205,17 +212,24 @@ const ctaNumber = hasCase ? '09' : '08';
         {props.stepsTitle}
       </SectionHeader>
     </div>
-    <dl class="grid grid-cols-1 overflow-hidden gap-6 sm:grid-cols-2 mt-12 lg:grid-cols-3">
+    <div class="relative mt-12" data-step-stair={props.steps.length === 6 ? '' : undefined}>
+      {props.steps.length === 6 && (
+        <svg data-step-line class="pointer-events-none absolute inset-0 hidden h-full w-full text-sage lg:block" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      )}
+    <dl class="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {props.steps.map((step, index) => (
-        <div class={props.steps.length === 4 ? stepPlaces[index] : undefined} data-fade-up>
+        <div class={stepPlaces[index]} data-fade-up>
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">{step.n}</span>
+            <span data-step-anchor class="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-sage-dark font-light">{step.n}</span>
             <h3 class="text-base leading-normal sm:text-lg md:text-xl text-charcoal font-medium">{step.title}</h3>
           </div>
           <p class="mt-4 text-base leading-normal text-muted" set:html={step.text} />
         </div>
       ))}
     </dl>
+    </div>
   </div>
 </section>
 
@@ -452,4 +466,76 @@ const ctaNumber = hasCase ? '09' : '08';
   </div>
 </section>
 
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  function drawLine(stair: HTMLElement) {
+    const svg = stair.querySelector<SVGSVGElement>('[data-step-line]');
+    const path = svg?.querySelector('path');
+    if (!svg || !path) return;
+    if (stair.dataset.stepLineReady === 'true') return;
+    stair.dataset.stepLineReady = 'true';
+
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let length = 0;
+
+    const layout = () => {
+      if (!desktop.matches) return;
+      const box = stair.getBoundingClientRect();
+      const width = stair.offsetWidth;
+      const height = stair.offsetHeight;
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      const anchors = [...stair.querySelectorAll<HTMLElement>('[data-step-anchor]')];
+      const pts = anchors.map((anchor) => {
+        const step = anchor.closest('div')!.parentElement!;
+        const stepBox = step.getBoundingClientRect();
+        const anchorBox = anchor.getBoundingClientRect();
+        return {
+          x: anchorBox.left - box.left + anchorBox.width / 2,
+          top: stepBox.top - box.top,
+          bottom: stepBox.bottom - box.top,
+        };
+      });
+      const commands: string[] = [];
+      for (let i = 0; i < pts.length - 1; i++) {
+        const from = pts[i];
+        const to = pts[i + 1];
+        const y = from.bottom + (to.top - from.bottom) / 2;
+        commands.push(`M ${from.x} ${from.bottom} L ${from.x} ${y} L ${to.x} ${y} L ${to.x} ${to.top}`);
+      }
+      path.setAttribute('d', commands.join(' '));
+      length = path.getTotalLength();
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = reduced.matches ? '0' : `${length}`;
+    };
+
+    layout();
+    if (reduced.matches || !desktop.matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.create({
+      trigger: stair,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      scrub: 0.4,
+      onUpdate: (self) => {
+        path.style.strokeDashoffset = String(length * (1 - self.progress));
+      },
+    });
+
+    const observer = new ResizeObserver(() => {
+      layout();
+      ScrollTrigger.refresh();
+    });
+    observer.observe(stair);
+  }
+
+  function initStepLine() {
+    document.querySelectorAll<HTMLElement>('[data-step-stair]').forEach(drawLine);
+  }
+
+  document.addEventListener('astro:page-load', initStepLine);
+</script>
 <MontegrappaFx />
