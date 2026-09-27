@@ -12,9 +12,9 @@ import CorseGolfePorto from '~/assets/images/corse-golfe-porto.jpg'
 import RestodomScreen from '~/assets/images/restodom-screen.png';
 import OdacioScreen from '~/assets/images/odacio-screen.png';
 import EkiaScreen from '~/assets/images/ekia-screen.png';
-import HeroAnimations from '~/components/animations/HeroAnimations.astro';
+import HomeMotion from '~/components/animations/HomeMotion.astro';
+import SplitWords from '~/components/animations/SplitWords.astro';
 import ProjectsFlip from '~/components/animations/ProjectsFlip.astro';
-import MontegrappaFx from '~/components/animations/MontegrappaFx.astro';
 import PillBadge from '~/components/ui/PillBadge.astro';
 import StatBig from '~/components/ui/StatBig.astro';
 import SectionHeader from '~/components/ui/SectionHeader.astro';
@@ -236,17 +236,17 @@ const projects = [
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
 
   <!--hero-->
-  <section class="relative bg-cream pt-16 md:pt-24 pb-12 overflow-hidden" data-hero>
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+  <section class="relative bg-cream pt-16 md:pt-24 pb-12 overflow-hidden" data-hero data-home-motion>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center" data-hero-inner>
       <p class="mb-8" data-hero-tagline><PillBadge text="David Barbier · Freelance, ancien auditeur EC" /></p>
       <h1 class="text-charcoal text-[clamp(2.2rem,4.5vw,4.25rem)] leading-[1.05]" data-hero-title>
-        Développeur freelance à Ajaccio : sites, SEO, sur-mesure
+        <SplitWords text="Développeur freelance à Ajaccio : sites, SEO, sur-mesure" accent="sur-mesure" />
       </h1>
       <p class="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed" data-hero-subtitle>
         Je conçois les sites et le référencement des TPE, en direct. Je commence par votre métier, votre histoire, vos valeurs.
       </p>
       <div class="mt-10 flex flex-col items-center gap-5" data-hero-cta>
-        <a href="tel:+33623565299" class="btn btn-primary">
+        <a href="tel:+33623565299" class="btn btn-primary" data-magnetic>
           {t('portfolio.bookCall')}
         </a>
         <a href="/creation-site-internet-ajaccio/" class="font-medium text-sage-dark hover:underline">
@@ -257,17 +257,16 @@ const projects = [
     <div class="mt-16">
       <ImageStrip
         images={[
-          { src: HeroImage, alt: "Plage de Barbicaja sur la route des Sanguinaires, près d'Ajaccio en Corse" },
-          { src: CorseParata, alt: "La tour génoise de la Parata face aux îles Sanguinaires, à Ajaccio" },
-          { src: ServiceSeo, alt: 'Texture de lumière à travers le feuillage pour le service SEO' },
-          { src: CorseBonifacio, alt: 'La citadelle de Bonifacio au crépuscule, en Corse-du-Sud' },
-          { src: CorseFalaises, alt: 'Les falaises calcaires de Bonifacio et leur eau turquoise, en Corse' },
+          { src: HeroImage, alt: "Plage de Barbicaja sur la route des Sanguinaires, près d'Ajaccio en Corse", caption: 'Barbicaja' },
+          { src: CorseParata, alt: "La tour génoise de la Parata face aux îles Sanguinaires, à Ajaccio", caption: 'La Parata' },
+          { src: ServiceSeo, alt: 'Texture de lumière à travers le feuillage pour le service SEO', caption: 'Maquis' },
+          { src: CorseBonifacio, alt: 'La citadelle de Bonifacio au crépuscule, en Corse-du-Sud', caption: 'Bonifacio' },
+          { src: CorseFalaises, alt: 'Les falaises calcaires de Bonifacio et leur eau turquoise, en Corse', caption: 'Les falaises' },
         ]}
       />
     </div>
   </section>
-  <HeroAnimations />
-  <MontegrappaFx />
+  <HomeMotion />
 
   <!--bande stats-->
   <section class="bg-cream py-14 md:py-20">
@@ -318,12 +317,13 @@ const projects = [
   />
 
   <!-- Bandeau Expert-Comptable (pont vers page dédiée) -->
-  <section class="py-6 bg-sage">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section class="relative overflow-hidden py-6 bg-sage" data-ec-band data-spotlight>
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-1/4 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full" data-sheen aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3 text-white">
           <span class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true" data-ec-icon>
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
             </svg>
           </span>
@@ -332,7 +332,7 @@ const projects = [
             <span class="hidden md:inline text-white/80"> - Ancien EC mémorialiste, j'ai des offres dédiées à votre profession.</span>
           </p>
         </div>
-        <a href="/experts-comptables/" class="btn btn-cream gap-2 whitespace-nowrap">
+        <a href="/experts-comptables/" class="btn btn-cream gap-2 whitespace-nowrap" data-magnetic>
           Découvrir mes offres EC
           <ArrowRight class="w-4 h-4" />
         </a>
@@ -343,7 +343,7 @@ const projects = [
   <!-- Fondateur d'Aurarios : ancre contextuelle vers le SaaS (lien dofollow) -->
   <section id="aurarios" class="relative z-10 bg-cream pt-16 md:pt-24 scroll-mt-20">
     <div class="mx-auto max-w-6xl px-6 lg:px-8 grid items-end gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
-      <div class="max-w-xl pb-2 lg:pb-28 lg:self-center">
+      <div class="max-w-xl pb-2 lg:pb-28 lg:self-center" data-aurarios-copy>
         <SectionHeader align="left">
           Aussi fondateur d’Aurarios
         </SectionHeader>
@@ -355,6 +355,7 @@ const projects = [
           target="_blank"
           rel="noopener"
           class="btn btn-primary mt-8 gap-2"
+          data-magnetic
         >
           Découvrir Aurarios
           <ArrowRight class="w-4 h-4" />
@@ -366,8 +367,10 @@ const projects = [
         target="_blank"
         rel="noopener"
         aria-label="Fiche mobile de L’Âme du Souffle sur Aurarios"
+        data-cursor="Voir la fiche"
         class="relative z-10 mx-auto -mb-10 block w-[270px] origin-bottom -translate-x-4 translate-y-5 rotate-[10deg] sm:w-[310px] lg:mx-0 lg:mb-0 lg:ml-auto lg:mr-24 lg:w-[280px] lg:translate-x-0 lg:translate-y-[2.75rem]"
       >
+        <span class="block will-change-transform" data-phone>
         <svg
           viewBox="-6 0 402 596"
           class="h-auto w-full drop-shadow-[0_22px_36px_rgba(40,36,28,0.16)]"
@@ -378,6 +381,11 @@ const projects = [
             <clipPath id="aurarios-screen">
               <rect x="12" y="12" width="366" height="568" rx="40" />
             </clipPath>
+            <linearGradient id="aurarios-glare" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0.35" stop-color="#fff" stop-opacity="0" />
+              <stop offset="0.5" stop-color="#fff" stop-opacity="0.38" />
+              <stop offset="0.65" stop-color="#fff" stop-opacity="0" />
+            </linearGradient>
           </defs>
           <rect x="-4" y="108" width="4" height="26" rx="1.5" fill="#1c1c1c" />
           <rect x="-4" y="146" width="4" height="46" rx="1.5" fill="#1c1c1c" />
@@ -395,7 +403,12 @@ const projects = [
             preserveAspectRatio="xMidYMin meet"
           />
           <rect x="136" y="20" width="118" height="30" rx="15" fill="#1c1c1c" />
+          {/* Reflet sur la vitre : hors écran par défaut, HomeMotion le fait glisser au scroll */}
+          <g clip-path="url(#aurarios-screen)">
+            <rect x="-420" y="12" width="366" height="568" fill="url(#aurarios-glare)" data-phone-glare />
+          </g>
         </svg>
+        </span>
       </a>
     </div>
   </section>
@@ -412,7 +425,7 @@ const projects = [
       </SectionHeader>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="rounded-xl border border-black/10 bg-cream p-6">
+        <div class="rounded-xl border border-black/10 bg-cream p-6" data-versus="agency">
           <p class="text-sm font-semibold uppercase tracking-wide text-muted mb-3">Agence classique</p>
           <h3 class="text-lg font-bold text-charcoal mb-4">Vous payez la structure</h3>
           <CheckList
@@ -427,7 +440,7 @@ const projects = [
           />
         </div>
 
-        <div class="rounded-xl bg-sage p-6">
+        <div class="rounded-xl bg-sage p-6" data-versus="freelance" data-spotlight>
           <p class="text-sm font-semibold uppercase tracking-wide text-white/80 mb-3">Freelance + collectif</p>
           <h3 class="text-lg font-bold text-white mb-4">Vous payez l'expertise</h3>
           <CheckList
@@ -450,7 +463,7 @@ const projects = [
   </section>
 
   <!-- Section Avis Google - layout Montegrappa : titre à gauche, flèches à droite, cartes en défilement horizontal -->
-  <section class="py-20 md:py-28 bg-cream overflow-hidden">
+  <section class="py-20 md:py-28 bg-cream overflow-hidden" data-reviews>
     <CardSlider prevLabel="Avis précédent" nextLabel="Avis suivant">
       <Fragment slot="header">
         <div class="max-w-2xl">
@@ -505,13 +518,13 @@ const projects = [
   </section>
 
   <!-- Section Projets - Asymmetric editorial layout -->
-  <section class="py-16 md:py-24 bg-cream" data-projects>
+  <section class="py-16 md:py-24 bg-cream overflow-x-clip" data-projects>
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <!-- Header editorial -->
       <div class="mb-14">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-heading">
-          <span class="text-charcoal">Mon portfolio de projets</span><br />
-          <span class="text-sage-dark">à Ajaccio, en Corse et sur le continent</span>
+          <span class="inline-block text-charcoal" data-line>Mon portfolio de projets</span><br />
+          <span class="inline-block text-sage-dark" data-line>à Ajaccio, en Corse et sur le continent</span>
         </h2>
         <p class="mt-4 text-muted max-w-md text-base">
           Solutions web haute performance aux résultats concrets.
@@ -550,7 +563,7 @@ const projects = [
                     <span class="text-xs px-2 py-1 bg-sand text-muted rounded-md">{t}</span>
                   ))}
                 </div>
-                <a href={project.url} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-muted hover:text-sage-dark hover:border-sage transition-colors">
+                <a href={project.url} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-black/15 flex items-center justify-center text-muted hover:text-sage-dark hover:border-sage transition-colors" data-row-arrow>
                   <ArrowRight class="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -581,6 +594,7 @@ const projects = [
   </section>
 
   <BlogLatestPosts
+    id="derniers-articles"
     title={t('index.blogLatestPosts.title')}
     information={t('index.blogLatestPosts.information')}
     linkText={t('index.blogLatestPosts.linkText')}
@@ -590,7 +604,7 @@ const projects = [
   {/* Section Google Maps */}
   <section class="bg-sand py-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="relative h-[400px] rounded-xl overflow-hidden">
+    <div class="relative h-[400px] rounded-xl overflow-hidden" data-map-reveal>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.5194609277883!2d8.7388048!3d41.9246879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da6965be4a139f%3A0x158dd64f8063e107!2sDavid%20Barbier%20%7C%20Consultant%20SEO%20et%20site%20internet!5e0!3m2!1sfr!2sfr!4v1772440776047!5m2!1sfr!2sfr"
         width="100%"
@@ -605,14 +619,14 @@ const projects = [
     </div>
   </section>
   {/* CTA final plein écran, façon section contact Montegrappa */}
-  <section class="relative min-h-[80vh] flex flex-col justify-between overflow-hidden">
+  <section class="relative min-h-[80vh] flex flex-col justify-between overflow-hidden bg-charcoal" data-final-cta>
     <Image src={CorseGolfePorto} alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" widths={[800, 1600]} sizes="100vw" />
     <div class="absolute inset-0 bg-charcoal/50" aria-hidden="true"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 w-full">
-      <h2 class="text-white text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[1.05] max-w-3xl">Prêt à démarrer ?</h2>
+      <h2 class="text-white text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[1.05] max-w-3xl"><SplitWords text="Prêt à démarrer ?" mode="scroll" /></h2>
       <p class="mt-4 text-lg text-white/85 max-w-xl">Contactez-moi pour une consultation gratuite.</p>
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-20 pt-16 w-full grid md:grid-cols-2 gap-10 items-end">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-20 pt-16 w-full grid md:grid-cols-2 gap-10 items-end" data-final-reveal>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-white">
         <div>
           <p class="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-2">Téléphone</p>
@@ -627,9 +641,9 @@ const projects = [
           <a href="mailto:hello@davidbarbier.com" class="text-lg hover:underline break-all">hello@davidbarbier.com</a>
         </div>
       </div>
-      <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 text-white max-w-md md:justify-self-end">
+      <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 text-white max-w-md md:justify-self-end" data-spotlight>
         <p class="text-2xl mb-6">Discutons de votre projet</p>
-        <a href="mailto:hello@davidbarbier.com" class="btn btn-cream">
+        <a href="mailto:hello@davidbarbier.com" class="btn btn-cream" data-magnetic>
           Envoyer un email
         </a>
         <p class="mt-6 text-sm text-white/70">

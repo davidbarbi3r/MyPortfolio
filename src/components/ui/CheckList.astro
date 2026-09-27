@@ -19,8 +19,9 @@ const {
   {
     items.map((item) => (
       <li class="flex gap-2">
-        <span class:list={[markClass, 'flex-shrink-0']}>{mark}</span>
-        {item}
+        <span class:list={[markClass, 'flex-shrink-0']} data-check-mark>{mark}</span>
+        {/* span inline intérieur : un trait animé peut suivre chaque ligne du texte */}
+        <span><span data-check-text>{item}</span></span>
       </li>
     ))
   }
