@@ -40,6 +40,7 @@ import LogoEchinard from '~/assets/images/clients/echinard.png';
 import LogoPizzaCarmes from '~/assets/images/clients/pizza-carmes.webp';
 import LogoAurarios from '~/assets/images/clients/aurarios.png';
 import LogoLeadauco from '~/assets/images/clients/leadauco.png';
+import AurariosScreen from '~/assets/images/aurarios-fiche-screen.webp';
 
 import { REVIEWS as reviews, aggregateRatingSchema } from '~/utils/reviews';
 import { BUSINESS_NAME } from '~/utils/business-schema';
@@ -348,8 +349,68 @@ const projects = [
     </div>
   </section>
 
+  <!-- Fondateur d'Aurarios : ancre contextuelle vers le SaaS (lien dofollow) -->
+  <section id="aurarios" class="relative z-10 bg-cream pt-16 md:pt-24 scroll-mt-20">
+    <div class="mx-auto max-w-6xl px-6 lg:px-8 grid items-end gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
+      <div class="max-w-xl pb-2 lg:pb-28 lg:self-center">
+        <SectionHeader align="left">
+          Aussi fondateur d’Aurarios
+        </SectionHeader>
+        <p class="mt-6 text-base md:text-lg text-muted leading-relaxed">
+          J’ai conçu Aurarios, un outil de réservation et de gestion pour les professionnels du bien-être (studios, praticiens, multi-lieux). Même exigence que pour un site client : produit clair, fiable, pensé métier.
+        </p>
+        <a
+          href="https://www.aurarios.fr"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary mt-8 gap-2"
+        >
+          Découvrir Aurarios
+          <ArrowRight class="w-4 h-4" />
+        </a>
+      </div>
+
+      <a
+        href="https://www.aurarios.fr/professionnel/lme-du-souffle"
+        target="_blank"
+        rel="noopener"
+        aria-label="Fiche mobile de L’Âme du Souffle sur Aurarios"
+        class="relative z-10 mx-auto -mb-10 block w-[270px] origin-bottom -translate-x-4 translate-y-5 rotate-[10deg] sm:w-[310px] lg:mx-0 lg:mb-0 lg:ml-auto lg:mr-24 lg:w-[280px] lg:translate-x-0 lg:translate-y-[2.75rem]"
+      >
+        <svg
+          viewBox="-6 0 402 596"
+          class="h-auto w-full drop-shadow-[0_22px_36px_rgba(40,36,28,0.16)]"
+          role="img"
+          aria-hidden="true"
+        >
+          <defs>
+            <clipPath id="aurarios-screen">
+              <rect x="12" y="12" width="366" height="568" rx="40" />
+            </clipPath>
+          </defs>
+          <rect x="-4" y="108" width="4" height="26" rx="1.5" fill="#1c1c1c" />
+          <rect x="-4" y="146" width="4" height="46" rx="1.5" fill="#1c1c1c" />
+          <rect x="-4" y="202" width="4" height="46" rx="1.5" fill="#1c1c1c" />
+          <rect x="390" y="168" width="4" height="68" rx="1.5" fill="#1c1c1c" />
+          <rect x="0" y="0" width="390" height="592" rx="52" fill="#1c1c1c" />
+          <rect x="12" y="12" width="366" height="568" rx="40" fill="#ffffff" />
+          <image
+            href={AurariosScreen.src}
+            x="12"
+            y="52"
+            width="366"
+            height="511"
+            clip-path="url(#aurarios-screen)"
+            preserveAspectRatio="xMidYMin meet"
+          />
+          <rect x="136" y="20" width="118" height="30" rx="15" fill="#1c1c1c" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
   <!-- Freelance vs agence - version compacte -->
-  <section class="py-16 md:py-24 px-6 lg:px-8 bg-sand">
+  <section class="relative z-20 py-16 md:py-24 px-6 lg:px-8 bg-sand">
     <div class="mx-auto max-w-5xl">
       <SectionHeader
         kicker="Agence vs freelance - le vrai débat"
