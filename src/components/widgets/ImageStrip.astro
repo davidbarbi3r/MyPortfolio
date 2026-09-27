@@ -2,7 +2,8 @@
 import { Image } from 'astro:assets';
 
 export interface Props {
-  images: Array<{ src: ImageMetadata; alt: string }>;
+  // caption : nom court du lieu, affiché par le curseur de la home au survol.
+  images: Array<{ src: ImageMetadata; alt: string; caption?: string }>;
 }
 const { images } = Astro.props;
 ---
@@ -10,14 +11,23 @@ const { images } = Astro.props;
 <div class="overflow-hidden" data-image-strip>
   <div class="flex gap-4 md:gap-6 will-change-transform" data-image-strip-track>
     {
-      images.map(({ src, alt }, i) => (
-        <Image
-          src={src}
-          alt={alt}
-          widths={[400, 800]}
-          class="h-56 md:h-80 w-64 md:w-96 flex-none rounded-xl object-cover"
-          loading={i < 3 ? 'eager' : 'lazy'}
-        />
+      images.map(({ src, alt, caption }, i) => (
+        <div
+          class="h-56 md:h-80 w-64 md:w-96 flex-none overflow-hidden rounded-xl bg-sand"
+          style={`--i:${i}`}
+          data-image-strip-item
+          data-cursor={caption}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            widths={[400, 640, 800]}
+            sizes="(min-width: 768px) 384px, 256px"
+            quality={72}
+            class="h-full w-full object-cover"
+            loading={i < 2 ? 'eager' : 'lazy'}
+          />
+        </div>
       ))
     }
   </div>

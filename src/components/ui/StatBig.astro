@@ -6,16 +6,70 @@ export interface Props {
   class?: string;
 }
 const { value, label, size = 'lg', class: className = '' } = Astro.props;
+
+// Compteur à rouleaux : chaque chiffre garde son vrai caractère dans le DOM
+// (Google et les lecteurs d'écran lisent « +50 »). Les chiffres qui défilent
+// au-dessus vivent dans un ::before (data-roll), jamais indexé. Sans JS, ou
+// sans l'état data-odo posé par HomeMotion, rien ne bouge.
+const chars = [...value].map((char, i) => {
+  if (!/\d/.test(char)) return { char, roll: null, k: 0, i };
+  const d = Number(char);
+  const k = 10 + d + i * 4; // les chiffres de droite tournent plus longtemps
+  const roll = Array.from({ length: k }, (_, j) => (((d - k + j) % 10) + 10) % 10).join(' ');
+  return { char, roll, k, i };
+});
 ---
 
-<div class:list={['border-t border-black/10 pt-6', className]} data-fade-up>
+<div class:list={['border-t border-black/10 pt-6', className]} data-fade-up data-stat>
   <p
     class:list={[
       'font-heading text-charcoal leading-none tracking-tight',
       size === 'lg' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-5xl',
     ]}
-  >
-    {value}
-  </p>
+  >{chars.map(({ char, roll, k, i }) => (roll ? <span class="odo"><span class="odo-col" data-roll={roll} style={`--k:${k};--i:${i}`}>{char}</span></span> : <span class="odo">{char}</span>))}</p>
   <p class="mt-2 text-sm text-muted uppercase tracking-wide">{label}</p>
 </div>
+
+<style>
+  .odo {
+    display: inline-block;
+    overflow: hidden;
+    height: 1em;
+    line-height: 1;
+    vertical-align: top;
+  }
+  .odo-col {
+    display: block;
+    position: relative;
+  }
+  .odo-col::before {
+    content: attr(data-roll);
+    position: absolute;
+    left: -0.5em;
+    right: -0.5em;
+    bottom: 100%;
+    text-align: center;
+    /* une espace géante force un chiffre par ligne */
+    word-spacing: 100vw;
+  }
+
+  [data-odo='armed'] .odo-col {
+    transform: translate3d(0, calc(var(--k) * 1em), 0);
+  }
+  [data-odo='run'] .odo-col {
+    animation: odo-roll calc(1.4s + var(--i) * 0.35s) cubic-bezier(0.2, 0.9, 0.25, 1) both;
+  }
+
+  @keyframes odo-roll {
+    from {
+      transform: translate3d(0, calc(var(--k) * 1em), 0);
+      filter: blur(1.5px);
+    }
+    70% {
+      filter: blur(0);
+    }
+    to {
+      transform: none;
+    }
+  }
+</style>

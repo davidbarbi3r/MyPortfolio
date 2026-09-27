@@ -1,0 +1,131 @@
+---
+// Titre découpé en mots, rendu côté serveur.
+// Le texte reste intact pour Google et les lecteurs d'écran : les mots sont
+// séparés par de vraies espaces et jamais réécrits en JS. L'animation ne
+// touche qu'aux transform/filter de chaque mot.
+//
+// mode="load"   : mise au point au premier rendu, en CSS pur. Les mots passent
+//                 du flou au net sans jamais être masqués : le titre est peint
+//                 en entier dès la première image, il reste l'élément LCP et
+//                 n'attend pas le JS.
+// mode="scroll" : les mots montent dans leur masque quand HomeMotion ajoute
+//                 .is-in au titre. Sans JS, ou si le mouvement est réduit, le
+//                 titre est simplement visible.
+export interface Props {
+  text: string;
+  // Fin du titre mise en accent (couleur + trait dessiné sous le dernier mot).
+  accent?: string;
+  mode?: 'load' | 'scroll';
+}
+
+const { text, accent, mode = 'load' } = Astro.props;
+
+// La ponctuation isolée (« : », « ? ») reste collée au mot précédent par une
+// espace insécable, sinon elle peut partir seule en début de ligne.
+const words = text
+  .split(' ')
+  .reduce<string[]>((acc, w) => {
+    if (/^[:;?!»]$/.test(w) && acc.length) acc[acc.length - 1] += ` ${w}`;
+    else acc.push(w);
+    return acc;
+  }, []);
+
+const accentCount = accent ? accent.split(' ').length : 0;
+const accentStart = words.length - accentCount;
+---
+
+<span class="sw" data-split-words data-split-mode={mode}>
+  {
+    words.map((word, i) => (
+      <Fragment>
+        <span class:list={['sw-word', i >= accentStart && 'sw-accent']}>
+          <span class="sw-mask">
+            <span class="sw-inner" style={`--i:${i}`}>{word}</span>
+          </span>
+          {i === words.length - 1 && accent && (
+            <svg class="sw-underline" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M3 14 C 60 5, 130 4, 190 8 S 270 13, 297 6" pathLength="1" />
+            </svg>
+          )}
+        </span>{' '}
+      </Fragment>
+    ))
+  }
+</span>
+
+<style>
+  .sw-word {
+    position: relative;
+    display: inline-block;
+  }
+  .sw-mask {
+    display: inline-block;
+    vertical-align: top;
+  }
+  /* Le masque déborde un peu en haut et en bas : accents et jambages
+     (p, g) ne sont pas rognés, sans changer la hauteur de ligne. */
+  [data-split-mode='scroll'] .sw-mask {
+    overflow: hidden;
+    padding: 0.08em 0.02em 0.14em;
+    margin: -0.08em -0.02em -0.14em;
+  }
+  .sw-inner {
+    display: inline-block;
+    transform-origin: 0% 100%;
+  }
+  .sw-accent {
+    color: var(--mg-sage-dark);
+  }
+  .sw-underline {
+    position: absolute;
+    left: -2%;
+    bottom: -0.16em;
+    width: 104%;
+    height: 0.28em;
+    overflow: visible;
+    fill: none;
+    stroke: var(--mg-sage);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    [data-split-mode='load'] .sw-inner {
+      animation: sw-focus 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(0.05s + var(--i) * 0.07s);
+    }
+    [data-split-mode='load'] .sw-underline path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: sw-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
+    }
+
+    :global(html.hm-ready) [data-split-mode='scroll'] .sw-inner {
+      transform: translate3d(0, 115%, 0) rotate(7deg);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: calc(var(--i) * 0.07s);
+    }
+    :global(html.hm-ready) [data-split-mode='scroll'].is-in .sw-inner {
+      transform: none;
+    }
+  }
+
+  /* Mise au point : aucune opacité à 0, aucun masque (voir l'en-tête). */
+  @keyframes sw-focus {
+    from {
+      filter: blur(14px);
+      transform: translate3d(0, 0.28em, 0) scale(1.06);
+      color: rgb(var(--mg-charcoal-rgb) / 0.35);
+    }
+    to {
+      filter: blur(0);
+      transform: none;
+    }
+  }
+  @keyframes sw-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

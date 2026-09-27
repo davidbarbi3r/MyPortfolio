@@ -1,0 +1,948 @@
+---
+// HomeMotion : la chorégraphie de la home.
+//
+// Règles qui protègent le SEO et la perf :
+// - aucun texte n'est réécrit en JS (pas de SplitText, pas de compteur qui
+//   modifie textContent) : ce que Google indexe est toujours le HTML servi ;
+// - l'intro du hero est en CSS pur, elle démarre au premier rendu sans
+//   attendre le script (le H1 est l'élément LCP) ;
+// - on n'anime que transform, opacity, clip-path et filter : zéro reflow,
+//   donc zéro CLS ;
+// - tout est coupé si prefers-reduced-motion, et les effets de pointeur
+//   (curseur, aimant, inclinaisons) ne tournent qu'avec une souris.
+---
+
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    /* ---------- Intro du hero (CSS pur, joue au premier rendu) ---------- */
+    [data-hero-tagline] {
+      animation: hm-wipe 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.05s both;
+    }
+    [data-hero-subtitle] {
+      animation: hm-soft 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+    [data-hero-cta] {
+      animation: hm-soft 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+    }
+    [data-hero] [data-image-strip-item] {
+      animation: hm-unfold 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(0.35s + var(--i) * 0.09s);
+    }
+    [data-hero] [data-image-strip-item] img {
+      animation: hm-settle 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(0.35s + var(--i) * 0.09s);
+    }
+  }
+
+  @keyframes hm-wipe {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes hm-soft {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: none;
+    }
+  }
+  /* Les photos s'ouvrent depuis le centre : elles restent en partie visibles
+     dès la première image (candidates LCP jamais masquées à 100 %). */
+  @keyframes hm-unfold {
+    from {
+      clip-path: inset(14% 20% 14% 20% round 12px);
+    }
+    to {
+      clip-path: inset(0 0 0 0 round 12px);
+    }
+  }
+  @keyframes hm-settle {
+    from {
+      transform: scale(1.35);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  /* ---------- Curseur contextuel (souris uniquement) ---------- */
+  .hm-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 70;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .hm-cursor.is-away {
+    opacity: 0;
+  }
+  .hm-cursor-dot {
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: var(--mg-sage-dark);
+    transition:
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.3s;
+  }
+  .hm-cursor.is-link .hm-cursor-dot {
+    transform: scale(3.4);
+    background: rgb(var(--mg-sage-rgb) / 0.28);
+  }
+  .hm-cursor.is-label .hm-cursor-dot {
+    transform: scale(9);
+    background: var(--mg-charcoal);
+  }
+  .hm-cursor-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    color: var(--mg-cream);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.25s;
+  }
+  .hm-cursor.is-label .hm-cursor-label {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* ---------- Agence vs freelance : les promesses d'agence se font barrer ---------- */
+  html.hm-ready [data-versus='agency'] [data-check-text] {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 60%;
+    background-size: 0% 1px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  [data-versus] [data-check-mark] {
+    display: inline-block;
+  }
+
+  /* Lumière qui suit la souris sur les surfaces sauge */
+  [data-spotlight] {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  [data-spotlight]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      380px circle at var(--mx, 50%) var(--my, 50%),
+      rgb(255 255 255 / 0.2),
+      transparent 65%
+    );
+    opacity: var(--spot, 0);
+    transition: opacity 0.5s;
+  }
+
+  /* ---------- Portfolio : lignes « autres réalisations » ---------- */
+  [data-project-row] {
+    position: relative;
+    isolation: isolate;
+  }
+  [data-project-row]::before {
+    content: '';
+    position: absolute;
+    inset: 0 -0.75rem;
+    z-index: -1;
+    border-radius: 0.5rem;
+    background: var(--mg-sand);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-project-row]:hover::before {
+    transform: scaleX(1);
+  }
+  [data-project-row] [data-row-arrow] svg {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-project-row]:hover [data-row-arrow] svg {
+    transform: rotate(-45deg);
+  }
+
+  /* Glissement du slider d'avis à la souris */
+  [data-drag-scroll] {
+    cursor: grab;
+  }
+  [data-drag-scroll].is-dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hm-cursor {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  type Off = Array<() => void>;
+
+  const $ = <T extends Element = HTMLElement>(sel: string, root: ParentNode = document) =>
+    root.querySelector<T>(sel);
+  const $$ = <T extends Element = HTMLElement>(sel: string, root: ParentNode = document) =>
+    Array.from(root.querySelectorAll<T>(sel));
+
+  function on<K extends keyof WindowEventMap>(
+    off: Off,
+    target: Window | Document | HTMLElement,
+    type: K | string,
+    fn: (e: any) => void,
+    opts?: AddEventListenerOptions
+  ) {
+    target.addEventListener(type, fn, opts);
+    off.push(() => target.removeEventListener(type, fn, opts));
+  }
+
+  // Révélation au scroll. Les classes Tailwind `transition` animent aussi
+  // opacity/transform : quand ScrollTrigger se recalcule (polices, resize), il
+  // remet l'élément à zéro pour le mesurer, la transition CSS repart, et GSAP
+  // relit une opacité intermédiaire comme valeur finale (élément bloqué à 0).
+  // On coupe donc la transition CSS le temps de la révélation.
+  function reveal(off: Off, targets: Element[], vars: gsap.TweenVars) {
+    const els = targets as HTMLElement[];
+    if (!els.length) return;
+    const restore = () => els.forEach((el) => (el.style.transition = ''));
+    els.forEach((el) => (el.style.transition = 'none'));
+    off.push(restore);
+    gsap.from(els, { ...vars, onComplete: restore });
+  }
+
+  /* ---------------------------------------------------------------- hero */
+
+  // Le hero s'éloigne plus lentement que la page : profondeur, sans masquer le H1
+  // avant qu'il ait été lu (l'effet ne commence qu'au scroll).
+  function heroDepth() {
+    const hero = $('[data-hero]');
+    const inner = $('[data-hero-inner]');
+    if (!hero || !inner) return;
+    gsap.to(inner, {
+      yPercent: -18,
+      opacity: 0.25,
+      ease: 'none',
+      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true },
+    });
+  }
+
+  // Bande de photos : dérive horizontale liée au scroll, et les photos
+  // s'inclinent selon la vitesse du scroll puis se redressent.
+  function imageStrip() {
+    const strip = $('[data-hero] [data-image-strip]');
+    const track = strip && $('[data-image-strip-track]', strip);
+    if (!strip || !track) return;
+    const items = $$('[data-image-strip-item]', track);
+
+    gsap.to(track, {
+      x: () => -Math.max(120, (track.scrollWidth - window.innerWidth) * 0.55),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: strip,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    const skew = { v: 0 };
+    const setSkew = gsap.quickSetter(items, 'skewX', 'deg');
+    ScrollTrigger.create({
+      trigger: strip,
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        const v = gsap.utils.clamp(-7, 7, self.getVelocity() / -350);
+        if (Math.abs(v) > Math.abs(skew.v)) {
+          skew.v = v;
+          gsap.to(skew, {
+            v: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            overwrite: true,
+            onUpdate: () => setSkew(skew.v),
+          });
+        }
+      },
+    });
+  }
+
+  /* --------------------------------------------------------------- stats */
+
+  // Chaque bloc s'ouvre de gauche à droite (le filet du haut se trace),
+  // puis les chiffres tournent comme des rouleaux jusqu'à leur vraie valeur.
+  function stats(off: Off) {
+    $$('[data-stat]').forEach((stat, n) => {
+      stat.dataset.odo = 'armed';
+      off.push(() => delete stat.dataset.odo);
+      const label = stat.querySelector('p:last-child');
+      const tl = gsap.timeline({
+        paused: true,
+        delay: n * 0.12,
+      });
+      tl.fromTo(
+        stat,
+        { clipPath: 'inset(0% 100% 0% 0%)' },
+        { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'expo.inOut', clearProps: 'clipPath' }
+      )
+        .add(() => {
+          stat.dataset.odo = 'run';
+        }, 0.35)
+        .from(label, { y: 14, opacity: 0, duration: 0.8, ease: 'power3.out' }, 0.7);
+      ScrollTrigger.create({ trigger: stat, start: 'top 88%', once: true, onEnter: () => tl.play() });
+    });
+  }
+
+  /* ------------------------------------------------------------- marquee */
+
+  // Le défilé de logos accélère avec le scroll et change de sens avec lui.
+  function marquee(off: Off) {
+    const track = $('.marquee-track');
+    if (!track) return;
+    const duration = parseFloat(getComputedStyle(track).getPropertyValue('--marquee-duration')) || 30;
+    track.style.animation = 'none';
+    off.push(() => (track.style.animation = ''));
+
+    const state = { x: 0, dir: -1, boost: 0, hover: 1 };
+    const setX = gsap.quickSetter(track, 'x', 'px');
+    const tick = (_t: number, dt: number) => {
+      const half = track.scrollWidth / 2;
+      if (!half) return;
+      state.x += state.dir * (half / (duration * 1000)) * dt * (1 + state.boost) * state.hover;
+      state.x = gsap.utils.wrap(-half, 0, state.x);
+      setX(state.x);
+      state.boost *= 0.94;
+    };
+
+    ScrollTrigger.create({
+      trigger: track,
+      start: 'top bottom',
+      end: 'bottom top',
+      onToggle: (self) => (self.isActive ? gsap.ticker.add(tick) : gsap.ticker.remove(tick)),
+      onUpdate: (self) => {
+        state.dir = self.direction === 1 ? -1 : 1;
+        state.boost = Math.min(Math.abs(self.getVelocity()) / 180, 9);
+      },
+    });
+    off.push(() => gsap.ticker.remove(tick));
+
+    on(off, track, 'pointerenter', () => gsap.to(state, { hover: 0.15, duration: 0.6 }));
+    on(off, track, 'pointerleave', () => gsap.to(state, { hover: 1, duration: 0.6 }));
+  }
+
+  /* ------------------------------------------------------------ services */
+
+  // Le visuel du service ouvert se découvre par le bas, par-dessus l'ancien.
+  function services(off: Off) {
+    const root = $('[data-services-showcase]');
+    if (!root) return;
+    const images = $$('[data-showcase-image]', root);
+    const items = $$<HTMLDetailsElement>('details[data-showcase-item]', root);
+    if (!images.length) return;
+
+    // Le composant gère la visibilité en opacité ; ici le clip-path prend le relais.
+    gsap.set(images, { opacity: 1, transition: 'none' });
+    off.push(() => gsap.set(images, { clearProps: 'opacity,transition,zIndex,clipPath,scale' }));
+    let z = 2;
+
+    gsap.fromTo(
+      images[0],
+      { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.3 },
+      {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        scale: 1,
+        duration: 1.4,
+        ease: 'expo.out',
+        scrollTrigger: { trigger: images[0], start: 'top 85%' },
+      }
+    );
+    images.slice(1).forEach((img) => gsap.set(img, { clipPath: 'inset(100% 0% 0% 0%)' }));
+    gsap.set(images[0], { zIndex: z });
+
+    items.forEach((detail, i) => {
+      on(off, detail, 'toggle', () => {
+        if (!detail.open || !images[i]) return;
+        gsap.fromTo(
+          images[i],
+          { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.25, zIndex: ++z },
+          { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, duration: 1.1, ease: 'expo.out', overwrite: true }
+        );
+      });
+    });
+
+    reveal(off, $$('details[data-showcase-item]', root), {
+      y: 30,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: root, start: 'top 70%' },
+    });
+  }
+
+  /* ------------------------------------------------------------- EC band */
+
+  // Le petit immeuble se dessine trait par trait, un reflet traverse la bande.
+  function ecBand() {
+    const band = $('[data-ec-band]');
+    if (!band) return;
+    const paths = $$<SVGPathElement>('[data-ec-icon] path', band);
+    const sheen = $('[data-sheen]', band);
+    const tl = gsap.timeline({ scrollTrigger: { trigger: band, start: 'top 85%' } });
+    paths.forEach((p) => {
+      const len = p.getTotalLength();
+      tl.fromTo(
+        p,
+        { strokeDasharray: len, strokeDashoffset: len },
+        { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' },
+        0
+      );
+    });
+    if (sheen) tl.fromTo(sheen, { xPercent: -120 }, { xPercent: 420, duration: 1.8, ease: 'power2.inOut' }, 0.2);
+  }
+
+  /* ------------------------------------------------------------ Aurarios */
+
+  // Le téléphone tombe en place en se redressant, un reflet glisse sur l'écran,
+  // et il s'incline vers la souris.
+  function aurarios(off: Off, fine: boolean) {
+    const section = $('#aurarios');
+    const phone = section && $('[data-phone]', section);
+    if (!section || !phone) return;
+    const glare = $<SVGRectElement>('[data-phone-glare]', section);
+
+    gsap.set(phone, { transformPerspective: 900, transformOrigin: '50% 100%' });
+    gsap.fromTo(
+      phone,
+      { y: 160, rotation: 14 },
+      {
+        y: 0,
+        rotation: 0,
+        ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'center 55%', scrub: 1 },
+      }
+    );
+    if (glare) {
+      gsap.fromTo(
+        glare,
+        { attr: { x: -420 } },
+        {
+          attr: { x: 420 },
+          ease: 'none',
+          scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom top', scrub: 1 },
+        }
+      );
+    }
+
+    reveal(off, $$('[data-aurarios-copy] > *', section), {
+      y: 26,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: section, start: 'top 70%' },
+    });
+
+    if (!fine) return;
+    const rx = gsap.quickTo(phone, 'rotationX', { duration: 0.8, ease: 'power3' });
+    const ry = gsap.quickTo(phone, 'rotationY', { duration: 0.8, ease: 'power3' });
+    on(off, section, 'pointermove', (e: PointerEvent) => {
+      const r = section.getBoundingClientRect();
+      ry(((e.clientX - r.left) / r.width - 0.5) * 16);
+      rx(-((e.clientY - r.top) / r.height - 0.5) * 10);
+    });
+    on(off, section, 'pointerleave', () => {
+      rx(0);
+      ry(0);
+    });
+  }
+
+  /* ----------------------------------------------------- agence/freelance */
+
+  // Côté agence, chaque promesse se fait barrer l'une après l'autre.
+  // Côté freelance, les coches tombent et la carte se soulève.
+  function versus() {
+    const agency = $('[data-versus="agency"]');
+    const free = $('[data-versus="freelance"]');
+    if (!agency || !free) return;
+
+    const tl = gsap.timeline({ scrollTrigger: { trigger: agency, start: 'top 72%' } });
+    tl.from([agency, free], { y: 40, opacity: 0, stagger: 0.15, duration: 1, ease: 'power3.out' });
+    $$('li', agency).forEach((li, i) => {
+      const at = 0.6 + i * 0.32;
+      tl.from($('[data-check-mark]', li), { rotation: -180, scale: 0, duration: 0.5, ease: 'back.out(2)' }, at);
+      tl.to($('[data-check-text]', li), { backgroundSize: '100% 1px', duration: 0.45, ease: 'power2.inOut' }, at + 0.12);
+    });
+    // Décalage vertical seulement côte à côte : empilées (mobile), les cartes se toucheraient.
+    const lift = window.matchMedia('(min-width: 768px)').matches ? 10 : 0;
+    tl.to(agency, { y: lift, duration: 0.8, ease: 'power2.out' }, '>-0.2');
+    tl.to(free, { y: -lift, boxShadow: '0 30px 60px -25px rgba(29,29,27,0.45)', duration: 0.8, ease: 'power2.out' }, '<');
+    tl.from(
+      $$('[data-check-mark]', free),
+      { scale: 0, y: -12, stagger: 0.12, duration: 0.6, ease: 'back.out(3)' },
+      '<'
+    );
+  }
+
+  // Lumière qui suit la souris sur les surfaces sauge.
+  function spotlights(off: Off) {
+    $$('[data-spotlight]').forEach((el) => {
+      on(off, el, 'pointermove', (e: PointerEvent) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        el.style.setProperty('--my', `${e.clientY - r.top}px`);
+        el.style.setProperty('--spot', '1');
+      });
+      on(off, el, 'pointerleave', () => el.style.setProperty('--spot', '0'));
+    });
+  }
+
+  /* -------------------------------------------------------- témoignages */
+
+  // Les avis arrivent comme des cartes distribuées sur une table.
+  function testimonials(off: Off, fine: boolean) {
+    const track = $('[data-reviews] [data-slider-track]');
+    if (!track) return;
+    const cards = Array.from(track.children) as HTMLElement[];
+    reveal(off, cards, {
+      xPercent: 60,
+      yPercent: 8,
+      rotation: 5,
+      opacity: 0,
+      stagger: 0.09,
+      duration: 1.3,
+      ease: 'expo.out',
+      scrollTrigger: { trigger: track, start: 'top 80%' },
+    });
+
+    if (fine) dragScroll(off, track);
+  }
+
+  // Glisser-déposer à la souris avec inertie, qui se pose sur la carte la plus
+  // proche. Le clavier et le tactile gardent le défilement natif.
+  function dragScroll(off: Off, track: HTMLElement) {
+    track.dataset.dragScroll = '';
+    track.dataset.cursor = 'Glisser';
+    off.push(() => {
+      delete track.dataset.dragScroll;
+      delete track.dataset.cursor;
+    });
+
+    let down = false;
+    let moved = false;
+    let startX = 0;
+    let startScroll = 0;
+    let lastX = 0;
+    let lastT = 0;
+    let vel = 0;
+
+    const snapTargets = () => {
+      const first = track.firstElementChild as HTMLElement | null;
+      const base = first ? first.offsetLeft : 0;
+      return (Array.from(track.children) as HTMLElement[]).map((c) => c.offsetLeft - base);
+    };
+
+    on(off, track, 'pointerdown', (e: PointerEvent) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true;
+      moved = false;
+      startX = lastX = e.clientX;
+      startScroll = track.scrollLeft;
+      lastT = performance.now();
+      vel = 0;
+      gsap.killTweensOf(track);
+      track.style.scrollSnapType = 'none';
+      track.classList.add('is-dragging');
+    });
+    on(off, window, 'pointermove', (e: PointerEvent) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 5) moved = true;
+      track.scrollLeft = startScroll - dx;
+      const now = performance.now();
+      vel = (e.clientX - lastX) / Math.max(1, now - lastT);
+      lastX = e.clientX;
+      lastT = now;
+    });
+    on(off, window, 'pointerup', () => {
+      if (!down) return;
+      down = false;
+      track.classList.remove('is-dragging');
+      const max = track.scrollWidth - track.clientWidth;
+      const projected = gsap.utils.clamp(0, max, track.scrollLeft - vel * 380);
+      const target = gsap.utils.clamp(0, max, gsap.utils.snap(snapTargets(), projected));
+      gsap.to(track, {
+        scrollLeft: target,
+        duration: 0.9,
+        ease: 'power3.out',
+        onComplete: () => (track.style.scrollSnapType = ''),
+      });
+    });
+    // Un glissement ne doit pas déclencher de clic sur un lien de carte.
+    on(
+      off,
+      track,
+      'click',
+      (e: MouseEvent) => {
+        if (moved) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      },
+      { capture: true }
+    );
+    on(off, track, 'dragstart', (e: DragEvent) => e.preventDefault());
+  }
+
+  /* ----------------------------------------------------------- portfolio */
+
+  // Les deux lignes du titre convergent, les cartes s'ouvrent comme des
+  // fenêtres de navigateur, la capture du projet principal suit la souris.
+  function projects(off: Off, fine: boolean) {
+    const section = $('[data-projects]');
+    if (!section) return;
+
+    const [l1, l2] = $$('[data-line]', section);
+    if (l1 && l2) {
+      const st = { trigger: section, start: 'top bottom', end: 'top 25%', scrub: 1 };
+      gsap.fromTo(l1, { xPercent: -14 }, { xPercent: 0, ease: 'none', scrollTrigger: st });
+      gsap.fromTo(l2, { xPercent: 14 }, { xPercent: 0, ease: 'none', scrollTrigger: { ...st } });
+    }
+
+    const grid = $('[data-project-grid]', section);
+    const cards = $$('[data-project-card]', section);
+    if (grid && cards.length) {
+      const tl = gsap.timeline({ scrollTrigger: { trigger: grid, start: 'top 78%' } });
+      cards.forEach((card, i) => {
+        const img = $('img', card);
+        tl.fromTo(
+          card,
+          { clipPath: 'inset(100% 0% 0% 0% round 12px)' },
+          { clipPath: 'inset(0% 0% 0% 0% round 12px)', duration: 1.2, ease: 'expo.inOut', clearProps: 'clipPath' },
+          i * 0.15
+        );
+        if (img) tl.from(img, { scale: 1.3, duration: 1.6, ease: 'expo.out', clearProps: 'transform' }, i * 0.15 + 0.3);
+      });
+    }
+
+    const rows = $$('[data-project-row]', section);
+    if (rows.length) {
+      reveal(off, rows, {
+        y: 24,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: rows[0], start: 'top 88%' },
+      });
+    }
+
+    if (!fine || !grid) return;
+    // La carte en vedette change au clic (ProjectsFlip) : on relit la capture à chaque mouvement.
+    const featured = $('[data-featured-slot]', section);
+    if (!featured) return;
+    on(off, featured, 'pointermove', (e: PointerEvent) => {
+      const img = $('img', featured);
+      if (!img) return;
+      const r = featured.getBoundingClientRect();
+      gsap.to(img, {
+        scale: 1.08,
+        xPercent: -((e.clientX - r.left) / r.width - 0.5) * 6,
+        yPercent: -((e.clientY - r.top) / r.height - 0.5) * 6,
+        duration: 0.9,
+        ease: 'power3.out',
+        overwrite: 'auto',
+      });
+    });
+    on(off, featured, 'pointerleave', () => {
+      const img = $('img', featured);
+      if (img) gsap.to(img, { scale: 1, xPercent: 0, yPercent: 0, duration: 0.9, ease: 'power3.out', clearProps: 'transform' });
+    });
+  }
+
+  /* ----------------------------------------------------------------- FAQ */
+
+  // Les réponses se déplient en douceur au lieu d'apparaître d'un coup.
+  // Le <details> natif reste la source de vérité (recherche, clavier, SEO).
+  function faq(off: Off) {
+    $$<HTMLDetailsElement>('#faq details').forEach((d) => {
+      const summary = $('summary', d);
+      const body = $(':scope > div', d);
+      if (!summary || !body) return;
+      on(off, summary, 'click', (e: MouseEvent) => {
+        e.preventDefault();
+        gsap.killTweensOf(body);
+        if (d.open) {
+          gsap.to(body, {
+            height: 0,
+            opacity: 0,
+            marginTop: 0,
+            overflow: 'hidden',
+            duration: 0.45,
+            ease: 'power3.inOut',
+            onComplete: () => {
+              d.open = false;
+              gsap.set(body, { clearProps: 'height,opacity,marginTop,overflow' });
+            },
+          });
+        } else {
+          d.open = true;
+          const mt = getComputedStyle(body).marginTop;
+          gsap.fromTo(
+            body,
+            { height: 0, opacity: 0, marginTop: 0, overflow: 'hidden' },
+            {
+              height: 'auto',
+              opacity: 1,
+              marginTop: mt,
+              duration: 0.7,
+              ease: 'expo.out',
+              clearProps: 'height,opacity,marginTop,overflow',
+            }
+          );
+        }
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------- blog */
+
+  function blog(off: Off) {
+    const posts = $$('#derniers-articles article');
+    if (!posts.length) return;
+    reveal(off, posts, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: posts[0], start: 'top 85%' },
+    });
+  }
+
+  /* ----------------------------------------------------------------- map */
+
+  // La carte s'ouvre comme un objectif, centrée sur le bureau d'Ajaccio.
+  function mapReveal() {
+    const frame = $('[data-map-reveal]');
+    if (!frame) return;
+    gsap.fromTo(
+      frame,
+      { clipPath: 'circle(9% at 50% 50%)' },
+      {
+        clipPath: 'circle(75% at 50% 50%)',
+        ease: 'power2.inOut',
+        scrollTrigger: { trigger: frame, start: 'top 90%', end: 'center 55%', scrub: 1 },
+      }
+    );
+  }
+
+  /* ----------------------------------------------------------- CTA final */
+
+  // La carte photo s'élargit jusqu'au plein écran, le golfe de Porto dézoome,
+  // puis le titre monte mot à mot.
+  function finalCta(off: Off) {
+    const section = $('[data-final-cta]');
+    if (!section) return;
+    const img = $('img', section);
+
+    gsap.fromTo(
+      section,
+      { clipPath: 'inset(0% 5% 0% 5% round 28px)' },
+      {
+        clipPath: 'inset(0% 0% 0% 0% round 0px)',
+        ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'top 15%', scrub: true },
+      }
+    );
+    if (img) {
+      gsap.fromTo(
+        img,
+        { scale: 1.3, yPercent: -6 },
+        {
+          scale: 1,
+          yPercent: 0,
+          ease: 'none',
+          scrollTrigger: { trigger: section, start: 'top bottom', end: 'bottom bottom', scrub: true },
+        }
+      );
+    }
+
+    const title = $('[data-split-words]', section);
+    if (title) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => title.classList.add('is-in'),
+      });
+    }
+    reveal(off, $$('[data-final-reveal] > *', section), {
+      y: 30,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: section, start: 'top 60%' },
+    });
+  }
+
+  /* ------------------------------------------------- effets de pointeur */
+
+  // Curseur contextuel : grossit sur les liens, affiche un libellé sur les
+  // éléments qui portent data-cursor (lieux des photos, « Glisser »…).
+  function cursor(off: Off) {
+    const el = document.createElement('div');
+    el.className = 'hm-cursor is-away';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<span class="hm-cursor-dot"></span><span class="hm-cursor-label"></span>';
+    document.body.appendChild(el);
+    off.push(() => el.remove());
+    const label = el.lastElementChild as HTMLElement;
+
+    const xTo = gsap.quickTo(el, 'x', { duration: 0.45, ease: 'power3' });
+    const yTo = gsap.quickTo(el, 'y', { duration: 0.45, ease: 'power3' });
+    let first = true;
+
+    on(off, window, 'pointermove', (e: PointerEvent) => {
+      if (e.pointerType !== 'mouse') return;
+      if (first) {
+        gsap.set(el, { x: e.clientX, y: e.clientY });
+        first = false;
+      }
+      xTo(e.clientX);
+      yTo(e.clientY);
+      el.classList.remove('is-away');
+    }, { passive: true });
+    on(off, document, 'pointerleave', () => el.classList.add('is-away'));
+    on(off, document, 'pointerover', (e: PointerEvent) => {
+      const t = e.target as Element;
+      const labelled = t.closest<HTMLElement>('[data-cursor]');
+      const text = labelled?.dataset.cursor;
+      el.classList.toggle('is-label', !!text);
+      el.classList.toggle('is-link', !text && !!t.closest('a, button, summary, [role="button"]'));
+      if (text) label.textContent = text;
+    });
+  }
+
+  // Les boutons principaux sont attirés par la souris.
+  function magnetic(off: Off) {
+    $$('[data-magnetic]').forEach((btn) => {
+      // la transition CSS de .btn sur transform freinerait GSAP
+      const prev = btn.style.transitionProperty;
+      btn.style.transitionProperty = 'color, background-color, border-color, box-shadow';
+      off.push(() => (btn.style.transitionProperty = prev));
+      const xTo = gsap.quickTo(btn, 'x', { duration: 0.8, ease: 'elastic.out(1, 0.4)' });
+      const yTo = gsap.quickTo(btn, 'y', { duration: 0.8, ease: 'elastic.out(1, 0.4)' });
+      on(off, btn, 'pointermove', (e: PointerEvent) => {
+        const r = btn.getBoundingClientRect();
+        xTo((e.clientX - r.left - r.width / 2) * 0.35);
+        yTo((e.clientY - r.top - r.height / 2) * 0.35);
+      });
+      on(off, btn, 'pointerleave', () => {
+        xTo(0);
+        yTo(0);
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------- orchestre */
+
+  let mm: gsap.MatchMedia | null = null;
+  // Au premier chargement, le script peut s'exécuter avant ou après
+  // astro:page-load : on initialise une seule fois par page affichée.
+  let initedBody: HTMLElement | null = null;
+
+  function init() {
+    if (initedBody === document.body) return;
+    initedBody = document.body;
+    mm?.revert();
+    mm = null;
+    if (!document.querySelector('[data-home-motion]')) return;
+
+    mm = gsap.matchMedia();
+    mm.add(
+      {
+        motion: '(prefers-reduced-motion: no-preference)',
+        fine: '(pointer: fine) and (hover: hover)',
+      },
+      (ctx) => {
+        const { motion, fine } = ctx.conditions as { motion: boolean; fine: boolean };
+        if (!motion) return;
+
+        const off: Off = [];
+        document.documentElement.classList.add('hm-ready');
+
+        heroDepth();
+        imageStrip();
+        stats(off);
+        marquee(off);
+        services(off);
+        ecBand();
+        aurarios(off, fine);
+        versus();
+        testimonials(off, fine);
+        projects(off, fine);
+        faq(off);
+        blog(off);
+        mapReveal();
+        finalCta(off);
+        if (fine) {
+          spotlights(off);
+          cursor(off);
+          magnetic(off);
+        }
+
+        // Les polices changent la hauteur des blocs : on recalcule les déclencheurs.
+        document.fonts?.ready.then(() => ScrollTrigger.refresh());
+
+        return () => {
+          off.forEach((fn) => fn());
+          document.documentElement.classList.remove('hm-ready');
+        };
+      }
+    );
+  }
+
+  document.addEventListener('astro:page-load', init);
+  document.addEventListener('astro:before-swap', () => {
+    mm?.revert();
+    mm = null;
+    initedBody = null;
+  });
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+</script>
